@@ -209,7 +209,7 @@ function transform(baseSpell) {
       ? parseSourceFromPage(jcquinlanSpell.page)
       : undefined,
 
-    type: vorpalhexSpell?.type,
+    type: vorpalhexSpell?.type, // TODO: translate
     tags: vorpalhexSpell?.tags,
   };
 }

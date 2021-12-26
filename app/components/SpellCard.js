@@ -2,6 +2,7 @@ import useSpell from "../modules/api/useSpell";
 import useI18n from "../modules/i18n/useI18n";
 
 import Card from "./Card";
+import Tag from './Tag'
 
 function createClassTag(clss) {
   return {
@@ -21,7 +22,15 @@ function SpellCard({ name }) {
     <Card
       isLoading={spellResponse.isLoading}
       name={tr(spell?.nameLocalized)}
-      meta={spell?.type}
+      meta={
+        <div>
+          <div>{spell?.type}</div>
+          <div>
+            {spell?.ritual && <Tag label="Ritual" color="red" />}
+            {spell?.concentration && <Tag label="Concentration" color="red" />}
+          </div>
+        </div>
+      }
       data={[
         {
           label: "Casting time",
@@ -42,10 +51,18 @@ function SpellCard({ name }) {
       ]}
       description={
         <div>
-          {spell?.resume && <div><b>Resume: </b>{tr(spell.resume)}</div>}
-          <div><b>Description: </b>{spell?.desc.en}</div>
+          {spell?.resume && (
+            <div className="mt-2">
+              <b>Resume: </b>
+              {tr(spell.resume)}
+            </div>
+          )}
+          <div className="mt-2">
+            <b>Description: </b>
+            {spell?.desc.en}
+          </div>
           {spell?.higherLevel && (
-            <div>
+            <div className="mt-2">
               <b>At Higher Levels.</b> {tr(spell.higherLevel)}
               {/* TODO: add avanced mode : healAtSlotLevel */}
             </div>

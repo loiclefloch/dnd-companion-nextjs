@@ -1,31 +1,34 @@
 import { useState } from "react";
 
-import useTheme from "../modules/theme/useTheme"
-import useI18n from "../modules/i18n/useI18n"
+import useTheme from "../modules/theme/useTheme";
+import useI18n from "../modules/i18n/useI18n";
 import useSpells from "../modules/api/useSpells";
 import SpellCard from "../components/SpellCard";
 import clsx from "clsx";
 
 function Spell({ spell, selected, onSelect }) {
   const { tr } = useI18n();
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <div
       onClick={onSelect}
-      className={clsx("cursor-pointer", {
+      className={clsx("cursor-pointer my-2 p-2", {
         [theme.listItemSelectedBackground]: selected,
       })}
     >
-      {spell.name}
-      <p className="text-sm italic">{tr(spell.resume)}</p>
+      {tr(spell.nameLocalized)}
+      <div className="text-sm italic">
+        <span>{spell.type}</span>
+      </div>
+      <p className="text-sm">{tr(spell.resume)}</p>
     </div>
   );
 }
 
 function Spells() {
   const spellsResponse = useSpells();
-  const [selectedSpell, setSelectedSpell] = useState(spellsResponse.data[2]);
+  const [selectedSpell, setSelectedSpell] = useState(spellsResponse.data.find(spell => spell.name === 'Meld Into Stone'));
 
   return (
     <div className="flex">

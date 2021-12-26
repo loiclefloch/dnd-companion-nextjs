@@ -6,7 +6,7 @@ function Card({ isLoading, name, meta, data, description, tags }) {
       className="max-w-lg p-4"
       style={{
         background:
-          'url("https://www.aidedd.org/images/fond-ph.jpg")https://www.aidedd.org/images/fond-ph.jpg',
+          'url("https://www.aidedd.org/images/fond-ph.jpg")',
       }}
     >
       <h4 className="text-lg">{name}</h4>
@@ -17,8 +17,8 @@ function Card({ isLoading, name, meta, data, description, tags }) {
             .filter(Boolean)
             .filter((data) => data.value !== null && data.value !== undefined)
             .map((data) => (
-              <div>
-                <span className="font-semibold">{data.label}:</span>
+              <div key={data.label}>
+                <span className="font-semibold text-xs py-1">{data.label}:</span>
                 &nbsp;
                 <span>{data.value}</span>
               </div>
@@ -27,7 +27,7 @@ function Card({ isLoading, name, meta, data, description, tags }) {
       )}
       <p>{description}</p>
       {tags && (
-        <div className="flex flex-row">
+        <div className="flex flex-row mt-4">
           {tags.filter(Boolean).map((tag, index) => (
             <Tag key={index} color={tag.color}>
               {tag.label}
