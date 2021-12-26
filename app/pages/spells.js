@@ -31,14 +31,19 @@ function Spells() {
   // ritual
   // const [selectedSpell, setSelectedSpell] = useState(spellsResponse.data.find(spell => spell.name === 'Meld Into Stone'));
   // Two french name
+  // const [selectedSpell, setSelectedSpell] = useState(
+  //   spellsResponse.data.find((spell) => spell.name === "Animate Objects")
+  // );
+  // Dice parsing
   const [selectedSpell, setSelectedSpell] = useState(
-    spellsResponse.data.find((spell) => spell.name === "Animate Objects")
+    spellsResponse.data.find((spell) => spell.name === "Acid Arrow")
   );
+
 
   return (
     <div className="flex">
       <div className="w-1/2 py-4 overflow-y-auto" style={{ maxHeight: "100vh" }}>
-        <div className="">
+        <div className="" data-cy-id="spells-list">
           {spellsResponse.data.map((spell) => (
             <Spell
               key={spell.name}
