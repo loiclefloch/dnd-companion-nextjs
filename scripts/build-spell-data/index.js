@@ -33,12 +33,44 @@ function transformRange(range) {
   }
 }
 
+function transformNameForVorpalhexSpell(baseName) {
+  switch (baseName) {
+    case 'Acid Arrow':
+    case 'Arcane Hand':
+    case 'Arcane Sword':
+      return 'NOT_FOUND'
+
+    // TODO: rest of the not found list
+      
+    default:
+      return ''
+  }
+}
+
+function transformNameForJcquinlanSpell(baseName) {
+  switch (baseName) {
+    case 'Acid Arrow':
+      return `Melf's Acid Arrow`
+
+    case 'Arcane Hand':
+      return `Bigby's Hand`
+
+    case 'Arcane Sword':
+      return `Mordenkainen's Faithful Hound`
+
+    // TODO: rest of the not found list
+
+    default:
+      return ''
+  }
+}
+
 function transform(baseSpell) {
   const vorpalhexSpell = vorpalhex.find(
-    (spell) => spell.name.toLowerCase() === baseSpell.name.toLowerCase()
+    (spell) => spell.name.toLowerCase() === baseSpell.name.toLowerCase() || spell.name.toLocaleLowerCase() === transformNameForVorpalhexSpell(baseSpell.name)
   );
   const jcquinlanSpell = jcquinlan.find(
-    (spell) => spell.name.toLowerCase() === baseSpell.name.toLowerCase()
+    (spell) => spell.name.toLowerCase() === baseSpell.name.toLowerCase() || spell.name.toLocaleLowerCase() === transformNameForJcquinlanSpell(baseSpell.name)
   );
 
   if (!vorpalhexSpell) {
@@ -53,7 +85,8 @@ function transform(baseSpell) {
     index: baseSpell.index,
     level: baseSpell.level,
     url: baseSpell.url,
-    name: {
+    name: baseSpell.name,
+    nameLocalized: {
       en: baseSpell.name,
       fr: null,
     },
@@ -77,7 +110,8 @@ function transform(baseSpell) {
     school: {
       index: baseSpell.school.index,
       url: baseSpell.school.url,
-      name: {
+      name: baseSpell.school.name,
+      nameLocalized: {
         en: baseSpell.school.name,
         fr: translateMagicSchool("fr", baseSpell.school.name),
       },
@@ -85,12 +119,14 @@ function transform(baseSpell) {
     classes: baseSpell.classes.map((clss) => ({
       index: clss.index,
       url: clss.url,
-      name: { en: clss.name, fr: translateCharacterClass("fr", clss.name) },
+      name: clss.name,
+      nameLocalized: { en: clss.name, fr: translateCharacterClass("fr", clss.name) },
     })),
     subclasses: baseSpell.subclasses.map((subclass) => ({
       index: subclass.index,
       url: subclass.url,
-      name: { en: subclass.name, fr: translateSubclass("fr", subclass.name) },
+      name: subclass.name,
+      nameLocalized: { en: subclass.name, fr: translateSubclass("fr", subclass.name) },
     })),
 
     page: jcquinlanSpell?.page || undefined,
