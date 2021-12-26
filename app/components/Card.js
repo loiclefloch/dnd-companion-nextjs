@@ -3,14 +3,13 @@ import Tag from "./Tag";
 function Card({ isLoading, name, meta, data, description, tags }) {
   return (
     <div
-      className="max-w-lg p-4"
+      className="max-w-lg p-4 border shadow-sm"
       style={{
-        background:
-          'url("https://www.aidedd.org/images/fond-ph.jpg")',
+        // background: 'url("https://www.aidedd.org/images/fond-ph.jpg")',
       }}
     >
       <h4 className="text-lg">{name}</h4>
-      <div className="text-sm italic">{meta}</div>
+      <div className="text-sm">{meta}</div>
       {data && (
         <div className="my-4">
           {data

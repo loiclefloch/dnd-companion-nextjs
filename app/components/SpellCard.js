@@ -40,9 +40,8 @@ function SpellCard({ name }) {
       }
       meta={
         <div>
-          {/* Other names */}
-          <div>{otherNames.join(", ")}</div>
-          <div>{tr(spell?.school.nameLocalized)}</div>
+          <div className="mt-1 italic">{otherNames.join(", ")}</div>
+          <div className="mt-1 italic">{tr(spell?.school.nameLocalized)}</div>
           {(spell?.ritual || spell?.concentration) && (
               <div className="mt-2">
                 {spell?.ritual && <Tag label="Ritual" color="blue" />}
@@ -74,7 +73,14 @@ function SpellCard({ name }) {
       description={
         <div>
           <div className="my-4">
-            {tr(spell?.castingTime)} - {tr(getRangeUnit(spell?.range))} - {tr(spell?.duration)} - {tr(spell?.components.text)} 
+            {tr(spell?.castingTime)}
+            <span> - </span>
+            {tr(getRangeUnit(spell?.range))}
+            <span> - </span>
+            {tr(spell?.duration)}
+            <span> - </span>
+            {spell?.components.components.join(", ")}
+            {spell?.components.materials && <span className="text-sm italic">&nbsp;({spell.components.materials.join(", ")})</span>}
           </div>
           {spell?.resume && (
             <div className="mt-2">
