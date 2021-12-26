@@ -4,6 +4,8 @@ const base = require("./data/5ebits__5e-database__5e-SRD-Spells.json");
 const vorpalhex = require("./data/vorpalhex__srd_spells__spells.json");
 // extract page data + transform to source
 const jcquinlan = require("./data/jcquinlan__dnd-spells__spells.json");
+const aiddFR = require("./data/aidd_spells_fr.json")
+const aiddEN = require("./data/aidd_spells_en.json")
 
 const {
   extractRetardUnit,
@@ -61,19 +63,17 @@ function transformNameForJcquinlanSpell(baseName) {
 
 function formatComponents(baseSpellComponents, baseSpellMaterials, vorpalhexSpell) {
   if (!vorpalhexSpell) {
-    throw new Error(`vorpalhexSpell not found for formatComponents`)
-    // not needed since never throw right now
-    // return {
-    //   material: baseSpellComponents.includes("M"),
-    //   somatic: baseSpellComponents.includes("S"),
-    //   verbal: baseSpellComponents.includes("V"),
-    //   materials: baseSpellMaterials,
-    //   components: baseSpellComponents,
-    //   raw: {
-    //     // TODO: fr
-    //     en: baseSpellComponents.join(',') + !baseSpellMaterials ? '' : ` (${baseSpellMaterials})`
-    //   }
-    // }
+    return {
+      material: baseSpellComponents.includes("M"),
+      somatic: baseSpellComponents.includes("S"),
+      verbal: baseSpellComponents.includes("V"),
+      materials: baseSpellMaterials,
+      components: baseSpellComponents,
+      raw: {
+        // TODO: fr
+        en: baseSpellComponents.join(',') + (!baseSpellMaterials ? '' : ` (${baseSpellMaterials})`)
+      }
+    }
   }
   return {
     material: vorpalhexSpell.material,
@@ -89,12 +89,47 @@ function formatComponents(baseSpellComponents, baseSpellMaterials, vorpalhexSpel
   }
 }
 
+function getAiddSpell(baseSpell) {
+ const aiddSpellEN = aiddEN.find(
+   (spell) =>
+     spell.Spell.toLowerCase() === baseSpell.name.toLowerCase() ||
+     // name does not match, convert it to the used name
+     spell.Spell.toLowerCase() ===
+       transformNameForJcquinlanSpell(baseSpell.name).toLowerCase()
+ );
+ if (!aiddSpellEN) {
+  // disabled for now
+  //  console.warn(`aidd not found for en ${baseSpell.name}`);
+  return null
+ }
+
+ const aiddSpellFR = aiddFR.find(
+   (spell) => spell.VO.toLowerCase() === aiddSpellEN.Spell.toLowerCase()
+ );
+ if (!aiddSpellFR) {
+   // disabled for now
+   // console.warn(`aidd not found for fr ${baseSpell.name}`);
+ }
+
+  return {
+    nameLocalized: {
+      en: aiddSpellEN.Spell,
+      fr: aiddSpellFR?.Sort,
+    },
+    resume: {
+      en: aiddSpellEN.Description,
+      fr: aiddSpellFR.Description,
+    },
+    source: aiddSpellEN.Source,
+  }
+}
+
 function transform(baseSpell) {
   const vorpalhexSpell = vorpalhex.find(
-    (spell) => spell.name.toLowerCase() === baseSpell.name.toLowerCase() || spell.name.toLocaleLowerCase() === transformNameForVorpalhexSpell(baseSpell.name)
+    (spell) => spell.name.toLowerCase() === baseSpell.name.toLowerCase() || spell.name.toLowerCase() === transformNameForVorpalhexSpell(baseSpell.name).toLowerCase()
   );
   const jcquinlanSpell = jcquinlan.find(
-    (spell) => spell.name.toLowerCase() === baseSpell.name.toLowerCase() || spell.name.toLocaleLowerCase() === transformNameForJcquinlanSpell(baseSpell.name)
+    (spell) => spell.name.toLowerCase() === baseSpell.name.toLowerCase() || spell.name.toLowerCase() === transformNameForJcquinlanSpell(baseSpell.name).toLowerCase()
   );
 
   if (!vorpalhexSpell) {
@@ -105,14 +140,30 @@ function transform(baseSpell) {
     console.warn(`jcquinlanSpell not found for ${baseSpell.name}`);
   }
 
+  const aiddSpell = getAiddSpell(baseSpell)
+
+  const nameLocalized = {
+    en: baseSpell.name,
+    fr: aiddSpell?.nameLocalized.fr,
+  };
+   
+  const otherNameLocalized = {
+    en: (aiddSpell && nameLocalized.en !== aiddSpell.nameLocalized.en)
+        ? aiddSpell.nameLocalized.en
+        : null,
+    fr: null, // only one source right now
+  };
+ 
   return {
     index: baseSpell.index,
     level: baseSpell.level,
     url: baseSpell.url,
     name: baseSpell.name,
-    nameLocalized: {
-      en: baseSpell.name,
-      fr: null,
+    nameLocalized,
+    otherNameLocalized,
+    resume: {
+      en: aiddSpell?.resume.en || 'no resume',
+      fr: aiddSpell?.resume.fr || 'no resume',
     },
     desc: {
       en: baseSpell.desc,
@@ -124,7 +175,7 @@ function transform(baseSpell) {
     },
     range: transformRange(baseSpell.range),
 
-    components: vorpalhexSpell?.components ? formatComponents(baseSpell.components, baseSpell.materials, vorpalhexSpell.components) : null,
+    components: formatComponents(baseSpell.components, baseSpell.materials, vorpalhexSpell?.components),
 
     ritual: baseSpell.ritual,
     concentration: baseSpell.concentration,
@@ -154,7 +205,7 @@ function transform(baseSpell) {
     })),
 
     sourcePage: jcquinlanSpell?.page || undefined, // TODO: parse
-    source: jcquinlanSpell?.page
+    source: aiddSpell?.source || jcquinlanSpell?.page
       ? parseSourceFromPage(jcquinlanSpell.page)
       : undefined,
 

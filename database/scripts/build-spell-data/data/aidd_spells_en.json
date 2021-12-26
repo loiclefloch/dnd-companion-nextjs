@@ -1,0 +1,4772 @@
+[
+  {
+    "Spell": "Abi-Dalzim's Horrid Wilting",
+    "Lvl": 8,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 30-foot cube must succeed on a Con. save or take 12d8 necrotic damage. Plants wither and die.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Absorb Elements",
+    "Lvl": 1,
+    "School": "abjuration",
+    "Casting Time": "1 reaction",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster has resistance to the damage received and deals 1d6 extra damage of the same type on his next attack (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Acid Splash",
+    "Lvl": 0,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "1 or 2 creatures within 5 feet must succeed on a Dex. save or take 1d6 acid damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Aganazzar's Scorcher",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures on a 30-ft-long, 5-ft-wide line must succeed on a Dex. save or taker 3d8 fire damage (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Aid",
+    "Lvl": 2,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Up to 3 creatures increase their hp maximum and current hp by 5 (+5 hp/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Alarm",
+    "Lvl": 1,
+    "School": "abjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Alert the caster or activate an alarm if a Tiny or larger creature enters a warded 20-ft cube.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Alter Self",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Give a new form depending on the chosen option (Aquatic Adaptation, Change Appearance, or Natural Weapons).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Animal Friendship",
+    "Lvl": 1,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "A beast with Intelligence 3 or less must succeed on a Wis. save or be charmed (+1 beast/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Animal Messenger",
+    "Lvl": 2,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "A Tiny beast travels to deliver a 25 words message to a target (+48 h/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Animal Shapes",
+    "Lvl": 8,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Willing targets within 30 ft turn into beasts of FP 4 or lower.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Animate Dead",
+    "Lvl": 3,
+    "School": "necromancy",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a skeleton from bones or a zombie from a corpse, who is under the caster control (+2 creatures/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Animate Objects",
+    "Lvl": 5,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Animate up to 10 non-magic objects and control their actions up to 500 ft (+2 items/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Antilife Shell",
+    "Lvl": 5,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Prevent creatures other than undead and constructs from entering in a 10-ft radius.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Antimagic Field",
+    "Lvl": 8,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a 10-ft-radius sphere in which spells and magic items no longer work.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Antipathy/Sympathy",
+    "Lvl": 8,
+    "School": "enchantment",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Attract or repel (Wis. save in order to not be attracted or scared) a kind of creature designated within 60 ft.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Arcane Eye",
+    "Lvl": 4,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create an invisible eye with darkvision that sends the caster the mental image of what it sees.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Arcane Gate",
+    "Lvl": 6,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create 2 portals (max 500 ft between them) and allow teleport from one to the other.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Arcane Lock",
+    "Lvl": 2,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Lock an objet (door, window, chest, etc) and the caster can set a password to suppresses the spell for 1 minute.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Armor of Agathys",
+    "Lvl": 1,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster gains 5 temporary hp and creatures who hits him with a melee attack take 5 cold damage (+5 hp and damage/lvl).",
+    "Source": "Player´s Handbook (BR+)"
+  },
+  {
+    "Spell": "Arms of Hadar",
+    "Lvl": 1,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 10-ft radius must succeed on a Str. save or take 2d6 necrotic damage (damage/lvl)",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Astral Projection",
+    "Lvl": 9,
+    "School": "necromancy",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster and up to 8 creatures are projected into the Astral Plane.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Augury",
+    "Lvl": 2,
+    "School": "divination",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "The caster obtains an omen about the result of an action within the next 30 min (weal, woe, both or nothing).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Aura of Life",
+    "Lvl": 4,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 30-ft radius gain resistance to necrotic damage and regain 1 hp when at 0 hp.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Aura of Purity",
+    "Lvl": 4,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 30-ft radius can not become diseased, gain resistance to poison, and get advantage to various saving throws.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Aura of Vitality",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "One target in a 30-ft radius regains 2d6 hp.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Awaken",
+    "Lvl": 5,
+    "School": "transmutation",
+    "Casting Time": "8 hours",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Give a beast or plant (Intelligence 3 or less) the ability to speek and senses similar to a human's for 30 days.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Bane",
+    "Lvl": 1,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Up to 3 targets must succeed on a Cha. save or subtract 1d4 from their attack roll or saving throw (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Banishing Smite",
+    "Lvl": 5,
+    "School": "abjuration",
+    "Casting Time": "1 action bonus",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the weapon attack hits, deal an extra 5d10 force damage. Target reduced to 50 hp or fewer this way are banised.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Banishment",
+    "Lvl": 4,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Cha. save or be banished to a harmless demiplane (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Barkskin",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target's AC can't be less than 16.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Beacon of Hope",
+    "Lvl": 3,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Targets gain advantage on Wis. saving throws and death saving throws, and regain the maximum number of hp from healing.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Beast Bond",
+    "Lvl": 1,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a telepathic link with one beast to communicate with it.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Beast Sense",
+    "Lvl": 2,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "Ritual",
+    "Description": "The caster can see/hear/feel through the senses of a willing beast.",
+    "Source": "Player´s Handbook (BR+)"
+  },
+  {
+    "Spell": "Bestow curse",
+    "Lvl": 3,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or suffer an effect as a disadvantage to a check or lose an action (duration/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Bigby's Hand",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a Large hand with a Strength of 26 that can strike (4d8 force damage), push, grapple, or protect (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Blade Barrier",
+    "Lvl": 6,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a 100 x 20 x 5 ft wall that provides three-quarters cover and can inflict 6d10 slashing damage if passed through.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Blade of Disaster",
+    "Lvl": 9,
+    "School": "conjuration",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Make two melee spell attacks and deals 4d12 force damage. Critical hit (18-20) deals 12d12. +2 attacks as bonus action.",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Blade Ward",
+    "Lvl": 0,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster gets resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.",
+    "Source": "Player´s Handbook (BR+)"
+  },
+  {
+    "Spell": "Bless",
+    "Lvl": 1,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Up to 3 targets can add 1d4 to their attack roll or saving throw (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Blight",
+    "Lvl": 4,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Con. save or take 8d8 necrotic damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Blinding Smite",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the attack hits, deals an extra 3d8 radiant damage and the target must succeed on a Con. save or be blinded.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Blindness/Deafness",
+    "Lvl": 2,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Con. save or become blinded or deafened (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Blink",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster has 50% of chance to switch to the Ethereal Plane, then returns to the space he vanished from on the next turn.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Blur",
+    "Lvl": 2,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster's body becomes blurred and creatures that attack him have disadvantage on attack rolls against him.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Bones of the Earth",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create up to 6 vertical 5 x 30 ft pillars of stone (+2 pillars/lvl). Possibility of crushing creatures to the ceiling.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Booming Blade",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If a weapon attack hits, deals 1d8 thunder damage if the target moves (damage/lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Branding Smite",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If a weapon attack hits, deals an extra 2d6 radiant damage and the target sheds dim light in 5-ft radius (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Burning Hands",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 15-ft cone must succeed on a Dex. save or take 3d6 fire damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Call Lightning",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 5-ft radius must succeed on a Dex. save or take 3d10 lightning damage (damage/lvl) on each turn.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Calm Emotions",
+    "Lvl": 2,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-foot-radius sphere must succeed on a Cha. save or no longer be charmed/frightened, or be indifferents.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Catapult",
+    "Lvl": 1,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on Dex. save or take 3d8 bludgeoning damage of an object up to 5 pounds (+5 pounds and +1d8/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Catnap",
+    "Lvl": 3,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "3 willing creatures fall unconscious and gain the benefice of a short rest (+1 creature/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Cause Fear",
+    "Lvl": 1,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or becomes frightened (nbr of targets/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Ceremony",
+    "Lvl": 1,
+    "School": "abjuration",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Perform a religious ceremony (bless water, give bonus to AC, ability check, saving throw, etc).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Chain Lightning",
+    "Lvl": 6,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Up to 4 different targets must succeed on a Dex. save or take 10d8 lightning damage (+1 target/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Chaos Bolt",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the attack hits, deals 2d8 + 1d6 damage of a random type (damage/lvl). Rebound if double 8.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Charm Monster",
+    "Lvl": 4,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or be charmed by the caster (duration/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Charm Person",
+    "Lvl": 1,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The humanoid target must succeed on a Wis. save or be charmed by the caster (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Chill Touch",
+    "Lvl": 0,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 1d8 necrotic damage (damage/lvl) and the target can't regain hp immediately.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Chromatic Orb",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 3d8 damage of a previously determined type (damage/lvl)",
+    "Source": "Player´s Handbook (BR+)"
+  },
+  {
+    "Spell": "Circle of Death",
+    "Lvl": 6,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 60-ft-radius sphere must succeed on a Con. save or take 8d6 necrotic damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Circle of Power",
+    "Lvl": 5,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Friendly creatures in a 30-ft radius have advantage on saving throws against spells and other magicial effects.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Clairvoyance",
+    "Lvl": 3,
+    "School": "divination",
+    "Casting Time": "10 minutes",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create an invisible sensor in a familiar location within 1 mile, allowing to see or to hear (to choose, can switch).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Clone",
+    "Lvl": 8,
+    "School": "necromancy",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create in 120 days the inert double of a living creature. If the original creature dies, its soul is transferred to the clone.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Cloud of Daggers",
+    "Lvl": 2,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 5-ft cube take automatically 4d4 slashing damage (damage/lvl).",
+    "Source": "Player´s Handbook (BR+)"
+  },
+  {
+    "Spell": "Cloudkill",
+    "Lvl": 5,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft-radius sphere must succeed on a Con. save or take 5d8 poison damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Color Spray",
+    "Lvl": 1,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "6d10 creatures hp are dazzled in ascending order of their current hp (+2d10 hp/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Command",
+    "Lvl": 1,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or follow your order as Approach, Drop, Flee, Fall, Halt, etc (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Commune",
+    "Lvl": 5,
+    "School": "divination",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Allow to obtain from a divine entity the answers (yes or no) to 3 questions.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Commune with Nature",
+    "Lvl": 5,
+    "School": "divination",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "The caster gets 3 informations about the surrounding territory. Doesn't function in dungeons or towns.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Compelled Duel",
+    "Lvl": 1,
+    "School": "enchantment",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or get a disadvantage on attack rolls against creatures other than the caster.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Comprehend Languages",
+    "Lvl": 1,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "The caster understands any spoken and written (1 min/page) language. Doesn't decode secret messages.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Compulsion",
+    "Lvl": 4,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Targets within 30 ft must succeed on a Wis. save or move in a specified direction.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Cone of Cold",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 60-ft cone must succeed on a Con. save or take 8d8 cold damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Confusion",
+    "Lvl": 4,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 10-ft-radius sphere must succeed on a Wis. save or can't take actions normally (+ 5-ft-radius/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Conjure Animals",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon from 1 beast of CR 2 to 8 beasts of CR 1/4, friendly (nbr of creatures/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Conjure Barrage",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 60-ft cone must succeed on a Dex. save or take 3d8 damage from the weapon/ammunition used.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Conjure Celestial",
+    "Lvl": 7,
+    "School": "conjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 celestial of CR 4, friendly (CR +1/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Conjure Elemental",
+    "Lvl": 5,
+    "School": "conjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 elemental of CR 5, friendly (CR +1/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Conjure Fey",
+    "Lvl": 6,
+    "School": "conjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 fey of CR 6, friendly (CR +1/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Conjure Minor Elementals",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon from 1 elemental of CR 2 to 8 elemental of CR 1/4, friendly (nbr of creatures/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Conjure Volley",
+    "Lvl": 5,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 40-ft-radius, 20-ft-high cylinder must succeed on a Dex. save or take 8d8 damage from the weapon/ammunition used.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Conjure Woodland Beings",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon from 1 fey of CR 2 to 8 fey of CR 1/4, friendly (nbr of creatures/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Contact Other Plane",
+    "Lvl": 5,
+    "School": "divination",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Contact an extraplanar entity to ask it 5 questions if an Int. save is successful. Otherwise, 6d6 psychic damage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Contagion",
+    "Lvl": 5,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, target is afflicted with a disease to choose from 6 proposed.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Contingency",
+    "Lvl": 6,
+    "School": "evocation",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Condition the activation of a 5th level spell or lower that can target the caster.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Continual Flame",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a flame that produces a light equivalent in brightness to a torch, but does not emit any heat.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Control Flames",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Control nonmagical fires to expand, extinguish, enlarge, shape simple forms, etc.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Control Water",
+    "Lvl": 4,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Control the water in a 100-ft cube (cause a flood, part the water, redirect the flow, create a whirlpool).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Control Weather",
+    "Lvl": 8,
+    "School": "transmutation",
+    "Casting Time": "10 minutes",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Modify gradually the climatic conditions outdoors (precipitation, temperature and wind force).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Control Winds",
+    "Lvl": 5,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Controls air in a 100-ft cube and produce an effect (Gusts, Downdraft or Updraft).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Cordon of Arrows",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "4 ammunition deal 1d6 piercing damage if the target doesn't succeed on a Dex. save (nbr of ammunition/lvl).",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Counterspell",
+    "Lvl": 3,
+    "School": "abjuration",
+    "Casting Time": "1 reaction",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "In reaction, fail a spell of 3rd level or lower. Ability check if the spell is 4th level or higher (threshold/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Create Bonfire",
+    "Lvl": 0,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 5-ft cube must succeed on a Dex. save or take 1d8 fire damage (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Create Food and Water",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create 45 pounds of food and 30 gallons of water, enough to sustain 15 humanoids for 24 hours.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Create Homunculus",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create one homunculus and the caster can transfer his hit points to it up to his next long rest.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Create or Destroy Water",
+    "Lvl": 1,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create or destroy up to 10 gallons of water (+10 gallons/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Create Undead",
+    "Lvl": 6,
+    "School": "necromancy",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Up to 3 Medium or Small humanoids corpses become a ghoul who obey the caster for 24 h (nbr and type of creatures/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Creation",
+    "Lvl": 5,
+    "School": "illusion",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a non-living object made of vegetable matter or mineral and no larger than a 5-ft cube (+5 ft/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Crown of Madness",
+    "Lvl": 2,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or be charmed. It then can attack a target designated by the caster.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Crown of Stars",
+    "Lvl": 7,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, 7 motes deal 4d12 radiant damage each (+1 mote/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Crusader's Mantle",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Friendly creatures in a 30-ft radius deal an extra 1d4 radiant damage when they hit with a weapon attack.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Cure Wounds",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "1 creature regains 1d8+Ability.Mod (+1d8 hp/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dancing Lights",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create up to 4 torch-sized lights that shed dim light in a 10-ft radius and can be moved later up to 60 ft.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Danse Macabre",
+    "Lvl": 5,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Up to 5 Small or Medium corpses become zombie or skeleton under the caster control (+2 corpses/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Darkness",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Fill a 15-ft-radius sphere of magical darkness.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Darkvision",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target can see in the dark within 60 feet.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dawn",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 30-ft-radius, 40-ft-high cylinder must succeed on a Con. save or take 4d10 radiant damage.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Daylight",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a sphere that sheds bright light in a 60-ft radius and dim light in an additional 60-ft radius.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Death Ward",
+    "Lvl": 4,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "When the target drops to 0 hp for the first time, it automatically returns to 1 hp.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Delayed Blast Fireball",
+    "Lvl": 7,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft-radius sphere must succeed on a Dex. save or take 12d6 fire damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Demiplane",
+    "Lvl": 8,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a door that leads to a demiplane (30-ft cube). Creatures still in the demiplane at the end of the spell are trapped.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Destructive Wave",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Targets in a 30-ft radius must succeed on a Con. save or take 5d6 thunder damage and 5d6 radiant or necrotic damage.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Detect Evil and Good",
+    "Lvl": 1,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster senses and locates aberration, celestial, elemental, fey, fiend, or undead within 30 ft.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Detect Magic",
+    "Lvl": 1,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "Ritual",
+    "Description": "The caster senses the presence of magic in a 30-ft radius and learns its school of magic.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Detect Poison and Disease",
+    "Lvl": 1,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "Ritual",
+    "Description": "The caster senses and identifies poison, poisonous creature, or disease within 30 ft.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Detect Thoughts",
+    "Lvl": 2,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster detects the superficial thoughts of a creature within 30 ft, and the deepest if the target misses a Wis. save.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dimension Door",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster and another creature of the same size are teleported to a maximum of 500 feet.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Disguise Self",
+    "Lvl": 1,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Modify the appearance of the caster (its physical and its equipment) thanks to an illusion.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Disintegrate",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Dex. save or take 10d6+40 force damage (damage/lvl). An Large or smaller object is disintegrated.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dispel Evil and Good",
+    "Lvl": 5,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "End a condition (charmed, frightened, or possessed) or bannish a creature to its home plane (Cha. save).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dispel Magic",
+    "Lvl": 3,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "End spells of 3rd level 3 or lower on a target. Ability check for each spell of 4th level or higher (threshold/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dissonant Whispers",
+    "Lvl": 1,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or take 3d6 psychic damage and move away (damage/lvl).",
+    "Source": "Player´s Handbook (BR+)"
+  },
+  {
+    "Spell": "Divination",
+    "Lvl": 4,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "The caster gets a truthful reply to 1 question about an event to occur within 7 days.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Divine Favor",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If a weapon attack hits, deals an extra 1d4 radiant damage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Divine Word",
+    "Lvl": 7,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Targets must succeed on a Cha. save or suffer an effect (deafened, blinded, etc). Some creatures are banned.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dominate Beast",
+    "Lvl": 4,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "A beast within 60 ft must succeed on a Wis. save or be charmed and obey the launcher (duration/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dominate Monster",
+    "Lvl": 8,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or be charmed and obey the caster (duration/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dominate Person",
+    "Lvl": 5,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "One humanoid must succeed on a Wis. save or be charmed and obey the caster (duration/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dragon's Breath",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Spew a 15-ft cone that deals 3d6 acid, cold, fire, lightning, or poison damage in case of failed Dex. save (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Drawmij's Instant Summons",
+    "Lvl": 6,
+    "School": "conjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Mark a 10 pounds or less object and allow to teleport it into the caster hand, wherever it is, if not held.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dream",
+    "Lvl": 5,
+    "School": "illusion",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Shape the dreams of a sleeping creature who can take 3d6 psychic damage if it fails on a Wis. save.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dream of the Blue Veil",
+    "Lvl": 7,
+    "School": "conjuration",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "You and up to 8 willing creatures fall unconscious and are physically transported to another world on the material plan.",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Druid Grove",
+    "Lvl": 6,
+    "School": "abjuration",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Protect a 30 x 30 x 30 ft area with fog, vines, animated trees, or other effects.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Druidcraft",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Provide various minor effects related to nature (weather forecast, flowering, sensory effect, etc).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Dust Devil",
+    "Lvl": 2,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures within 5 ft must succeed on a Str. save or take 1d8 bludgeoning damage (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Earth Tremor",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 10-foot radius must succeed on a Dex. save or take 1d6 bludgeoning damage and be knocked prone (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Earthbind",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Target within 300 ft must succeed on a Str. save or its flying speed is reduced to 0 (descends at 60 ft/round).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Earthquake",
+    "Lvl": 8,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 100-ft radius must succeed on a Dex. save or be knocked prone. Cause damage to structures.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Eldritch Blast",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 1d10 force damage (nbr of beam/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Elemental Bane",
+    "Lvl": 4,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Con. save or suffer an extra 2d6 damage of a specific type (+1 target/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Elemental Weapon",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "A weapon becomes magical with a +1 bonus to attack rolls and deal an extra 1d4 damage of a chosen type (bonus/lvl).",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Enemies Abound",
+    "Lvl": 3,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on an Int. save or not be able to distinguish friend from foe ; all are ennemis for it.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Enervation",
+    "Lvl": 5,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Dex. save or take 4d8 necrotic damage each turn (+1d8/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Enhance Ability",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target gains advantage on ability checks for one predefined ability, and other bonuses in such cases (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Enlarge/Reduce",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Double or halve the size of a creature (Con. save) or an object.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Ensnaring Strike",
+    "Lvl": 1,
+    "School": "conjuration",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Str. save or be restrained and take 1d6 piercing damage (damage/lvl).",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Entangle",
+    "Lvl": 1,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft square (difficult terrain) must succeed on a Str. save or be restrained.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Enthrall",
+    "Lvl": 2,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Targets must succeed on a Wis. save or have disadvantage on Wisdom (Perception) checks to perceive others creatures.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Erupting Earth",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 20-foot cube (difficult terrain) must succeed on a Dex. save or take 3d12 bludgeoning damage (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Etherealness",
+    "Lvl": 7,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster is projected into the Ethereal Plane (nbr of creatures/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Evard's Black Tentacles",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft square must succeed on a Dex. save or take 3d6 bludgeoning damage and be restrained.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Expeditious Retreat",
+    "Lvl": 1,
+    "School": "transmutation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster can take the Dash action by using a bonus action.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Eyebite",
+    "Lvl": 6,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target in a 60-ft radius must succeed on a Wis. save or take on a the following effects: asleep, panicked or sickened.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Fabricate",
+    "Lvl": 4,
+    "School": "transmutation",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Convert raw materials into Large or smaller simples objects of the same material.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Faerie Fire",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft cube must succeed on a Dex. save or grant advantage against them to attackers.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "False Life",
+    "Lvl": 1,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster gains 1d4+4 temporary hit points (+5 hp/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Far Step",
+    "Lvl": 5,
+    "School": "conjuration",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Teleport the caster up to 60 ft on each round with a bonus action.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Fear",
+    "Lvl": 3,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 30-ft cone must succeed on a Wis. save or drop whatever they are holding, become frightened and move away.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Feather Fall",
+    "Lvl": 1,
+    "School": "transmutation",
+    "Casting Time": "1 reaction",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Up to 5 creatures fall at 60 feet per round and take no falling damage before the spell ends.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Feeblemind",
+    "Lvl": 8,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target take 4d6 psychic damage and must succeed on an Int. save or his Charisma and Intelligence scores become 1.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Feign Death",
+    "Lvl": 3,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "The willing target appears dead to all outward inspection.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Find Familiar",
+    "Lvl": 1,
+    "School": "conjuration",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Summon a small animal that obeys the caster and telepathically shares his senses with him.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Find Greater Steed",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Summon a spirit that assumes the form a steed (griffon, pegasus, etc) telepathically linked to the caster.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Find Steed",
+    "Lvl": 2,
+    "School": "conjuration",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Summon a spirit that assumes the form a steed (horse, elk, etc) telepathically linked to the caster.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Find the Path",
+    "Lvl": 6,
+    "School": "divination",
+    "Casting Time": "1 minute",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Determine the shortest and most direct physical path to reach a known destination.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Find Traps",
+    "Lvl": 2,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster senses the presence of any trap in a 120-fr radius, but the spell don't give their location.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Finger of Death",
+    "Lvl": 7,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Con. save or take 7d8+30 necrotic damage. If killed, becomes a zombie under the caster command.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Fire Bolt",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 1d10 fire damage (damage/lvl). An object can ignite.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Fire Shield",
+    "Lvl": 4,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster gains resistance to cold or fire damage, and deals 2d8 damage to attackers who hit him within 5 ft.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Fire Storm",
+    "Lvl": 7,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in ten 10-ft cube must succeed on a Dex. save or take 7d10 fire damage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Fireball",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft radius must succeed on a Dex. save or take 8d6 fire damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Flame Arrows",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "12 arrows/bolts deal an extra 1d6 fire damage (+2 ammunition/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Flame Blade",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 3d6 fire damage (damage/lvl). Shed bright light in 10 ft and dim light in additional 10 ft.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Flame Strike",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 10-ft-radius, 40-ft-high cylinder must succeed on a Dex. save or take 4d6 fire and 4d6 radiant (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Flaming Sphere",
+    "Lvl": 2,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures within 5 ft from a 5-ft-diameter sphere must succeed on a Dex. save or take 2d6 fire damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Flesh to Stone",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target within 60 ft must succeed on a Con. save or be restrained, or petrified after 3 failures.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Fly",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target gets a flying speed of 60 ft (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Fog Cloud",
+    "Lvl": 1,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Makes an area heavily obscured in a 20-ft-radius sphere (+20 ft/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Forbiddance",
+    "Lvl": 6,
+    "School": "abjuration",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Prevent teleporting to the protected area and inflicts 5d10 radiant or necrotic damage to some type of creatures.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Forcecage",
+    "Lvl": 7,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creates a 20-ft cage or a 10-ft box of magical force that traps a creature. Escape by magicial means only.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Foresight",
+    "Lvl": 9,
+    "School": "divination",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "1 creature sees its near future, can not be surprised and has advantage on his rolls. Attacks against it have disadvantage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Freedom of Movement",
+    "Lvl": 4,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Target's movement is unaffected by difficult terrain, spells or water.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Friends",
+    "Lvl": 0,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The casters gets advantage on all Charisma checks directed at one chosen creature that isn't hostile toward him.",
+    "Source": "Player´s Handbook (BR+)"
+  },
+  {
+    "Spell": "Frostbite",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Con. save or take 1d6 cold damage and have disadvantage on next attack roll (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Gaseous Form",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target turns into a cloud, gets a flying speed of 10 ft, and can pass through small holes.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Gate",
+    "Lvl": 9,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a portal to another plan. Also allows to summon a creature from another plane.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Geas",
+    "Lvl": 5,
+    "School": "enchantment",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or be charmed and take 5d10 psychic if it doesn't obey (duration/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Gentle Repose",
+    "Lvl": 2,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Protect a corpse from decay or to become undead.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Giant Insect",
+    "Lvl": 4,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Transform insects (from 10 centipedes to 1 scorpion) into giant creatures that obey the caster's orders.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Glibness",
+    "Lvl": 8,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Give 15 to a Charisma check and hides the lies during a magic detection.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Globe of Invulnerability",
+    "Lvl": 6,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Block 5th level spells or lower within a 10-ft radius (threshold/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Glyph of Warding",
+    "Lvl": 3,
+    "School": "abjuration",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "A glyph on an object deals 5d8 damage in a 20-ft radius (damage/lvl) or casts a 3rd level spell (lvl/lvl) when triggered.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Goodberry",
+    "Lvl": 1,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create up to 10 berries that restore 1 hp each and keep their power for 24 hours.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Grasping Vine",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Dex. save or be pulled 20 ft toward the vine.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Grease",
+    "Lvl": 1,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 10-ft square (difficult terrain) must succeed on a Dex. save or fall prone.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Greater Invisibility",
+    "Lvl": 4,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target becomes invisible for 1 minute.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Greater Restoration",
+    "Lvl": 5,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "End one condition (charmed or petrified), one curse, any ability scores or hp reduction, or one exhaustion level.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Green-Flame Blade",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If a weapon attack hits, deals also fire damage equal to Ability.Mod to another creature (damage/lvl) within 5 ft.",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Guardian of Faith",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Hostiles creatures within a 10-ft radius of the created guardian must succeed on a Dex. save or take 20 radiant damage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Guardian of Nature",
+    "Lvl": 4,
+    "School": "transmutation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Transform the caster into a Primal Beast (+10 ft, darkvision, ...) or a Great Tree (+10 hp, advantage to some rolls, ...).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Guards and Wards",
+    "Lvl": 6,
+    "School": "abjuration",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a ward that protect a 50-ft square. Can set a password to immunize individuals.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Guidance",
+    "Lvl": 0,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target can add 1d4 to one ability check of its choice.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Guiding Bolt",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 4d6 radiant damage (damage/lvl) and the next attack roll will have advantage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Gust",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Control air to move objects or creatures (Medium or smaller) or create harmless sensory effects.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Gust of Wind",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures on a 60-ft-long, 10-ft-wide line mus succeed on a Str. save or be pushed 15 ft away.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Hail of Thorns",
+    "Lvl": 1,
+    "School": "conjuration",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 5-ft radius must succeed on a Dex. save or take 1d10 piercing damage (damage/lvl).",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Hallow",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "24 hours",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Prevent celestials, elementals, fey, fiends, and undead to enter a 60-ft-radius area and protect/handicap the targets.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Hallucinatory Terrain",
+    "Lvl": 4,
+    "School": "illusion",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Make a natural terrain looks like another type (for example a road becomes a swamp or a crevasse).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Harm",
+    "Lvl": 6,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Con. save or take 14d6 necrotic damage. The spell can't kill it however.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Haste",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Target's speed is doubled. It also gains a +2 bonus to AC, advantage to Dex. saves and 1 additional action.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Heal",
+    "Lvl": 6,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "1 creature regains 70 hp and are cured of diseases, blindness, and deafness (+10 hp/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Healing Spirit",
+    "Lvl": 2,
+    "School": "conjuration",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in touch with the spirit gain 1d6 hp (+1d6 hp/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Healing Word",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "1 creature regains 1d4+Ability.Mod (+1d4 hp/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Heat Metal",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in physical contact with the metal object take 2d8 fire damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Hellish Rebuke",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 reaction",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Dex. save or take 2d10 fire damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Heroes' Feast",
+    "Lvl": 6,
+    "School": "conjuration",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Produce a feast for 12 guests that cures diseases, immunizes to poison and increases hp by 2d10 for 24 hours.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Heroism",
+    "Lvl": 1,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target is immune to being frightened and gains temporary hp equal to its Ability.Mod each turns (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Hex",
+    "Lvl": 1,
+    "School": "enchantment",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If an attack hits, deals an extra 1d6 necrotic damage. Disadvantage on achosem ability check (duration/lvl).",
+    "Source": "Player´s Handbook (BR+)"
+  },
+  {
+    "Spell": "Hold Monster",
+    "Lvl": 5,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Target must succeed on a Wis. save or be paralyzed (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Hold Person",
+    "Lvl": 2,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or be paralyzed (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Holy Aura",
+    "Lvl": 8,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Targets in a 30-ft radius have advantage on saving throws. Other creatures have disadvantage on attack rolls against them.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Holy Weapon",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The touched weapon shines, deals an extra 2d8 radiant damage, and can burst on a 30-ft radius (Save or 4d8 radiant).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Hunger of Hadar",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft-radius sphere take 2d6 cold damage et must succeed on a Dex. save or take 2d6 acid damage.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Hunter's Mark",
+    "Lvl": 1,
+    "School": "divination",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target take an extra 1d6 damage and caster has advantage on Wisdom (Perception/Survival) checks to find it (duration/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Hypnotic Pattern",
+    "Lvl": 3,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 30-ft cube must succeed on a Wis. save or be charmed and incapacitated, with a speed of 0.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Ice Knife",
+    "Lvl": 1,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 1d10 piercing damage + Dex. save or 2d6 cold damage (damage/lvl) within 5 ft.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Ice Storm",
+    "Lvl": 4,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft-radius, 40-ft-high cylinder must succeed on a Dex. save or take 2d8 bludgeoning damage and 4d6 cold damage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Identify",
+    "Lvl": 1,
+    "School": "divination",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "The caster obtains properties of a magic item (attunement, charges) or knows if an item or a creature is affected by a spell.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Illusory Dragon",
+    "Lvl": 8,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures that see this illusory Huge dragon must succedd on a Wis. save or be frightened for 1 min.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Illusory Script",
+    "Lvl": 1,
+    "School": "illusion",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Write a secret message that can only be read by a designated target or a creature with truesight.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Immolation",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target within 90 ft must succeed on a Dex. save or take 8d6 fire damage and 4d6 fire damage thereafter.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Imprisonment",
+    "Lvl": 9,
+    "School": "abjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target within 30 ft must succeed on a Wis. save or be held prisoner. The form is to choose from 6 options.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Incendiary Cloud",
+    "Lvl": 8,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft-radius sphere must succeed on a Dex. save or take 10d8 fire damage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Infernal Calling",
+    "Lvl": 5,
+    "School": "conjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 devil CR 6 unfriendly (CR +1/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Infestation",
+    "Lvl": 0,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Con. save or take 1d6 poison damage and move 5 ft in a random direction (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Inflict Wounds",
+    "Lvl": 1,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 3d10 necrotic damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Insect Plague",
+    "Lvl": 5,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft-radius sphere must succeed on a Con. save or take 4d10 piercing damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Intellect Fortress",
+    "Lvl": 3,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "A willing creature has resistance to psychic damage and advantage on Int., Wis. and Cha. saving throws (+1 creature/lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Investiture of Flame",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 15-ft-long line must succeed on a Dex. save or take 4d8 fire damage. Immunity and resistance to caster.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Investiture of Ice",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 15-ft cone must succeed on a Con. save or take 4d6 cold damage. Immunity and resistance to caster.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Investiture of Stone",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 15-ft radius must succeed on a Dex. save or be knocked prone. Resistance and move across earth/stone.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Investiture of Wind",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 15-ft cube must succeed on a Con. save or take 2d10 bludgeoning damage. Flying speed 60 ft.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Invisibility",
+    "Lvl": 2,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target becomes invisible during 1 hour or until she attacks or casts a spell (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Invulnerability",
+    "Lvl": 9,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster gains immunity to all damage.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Jump",
+    "Lvl": 1,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target gets a jump distance multiplicated by 3.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Knock",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Unlock or unbar 1 object (door, chest, padlock, set of manacles, etc) or suppressed the arcane lock spell for 10 minutes.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Legend Lore",
+    "Lvl": 5,
+    "School": "divination",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster obtains information about a person, place, or object. The lore consist of tales or stories.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Leomund's Secret Chest",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Hide a chest (3 x 2 x 2 ft) and its contents in the Ethereal Plane.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Leomund's Tiny Hut",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Create a 10-ft-radius dome that can shelter and protect 9 Medium creatures with the caster.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Lesser Restoration",
+    "Lvl": 2,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "End one disease or one condition (blinded, deafened, paralyzed, or poisoned) on 1 creature.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Levitate",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "1 creature or object that weighs up to 500 pounds rises vertically up to 20 ft then remains suspended.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Life Transference",
+    "Lvl": 3,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster takes 4d8 necrotic damage and another creature gains twice the amount (+1d8 hp/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Light",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Make an object to shed bright light in a 20-ft radius and dim light in an additional 20-ft radius.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Lightning Arrow",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the attack hits, deals 4d8 Iightning damage. Creatures within 10 ft must succeed on a Dex. save or take 2d8 lightning damage.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Lightning Bolt",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures on a 100-ft-long, 5-ft-wide line must succeed on a Dex. save or take 8d6 lightning damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Lightning Lure",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Str. save or take 1d8 lightning damage and be pulled up to 10 ft.",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Locate Animals or Plants",
+    "Lvl": 2,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Give the direction and distance to a kind of beast or plant within 5 miles.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Locate Creature",
+    "Lvl": 4,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster senses the direction in which a familiar creature is within a 1000-ft radius.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Locate Object",
+    "Lvl": 2,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster senses the direction to the location of an objet you are familiar with, within a 1000 ft radius.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Longstrider",
+    "Lvl": 1,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target gets a speed increased by 10 ft (+1 creature/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Maddening Darkness",
+    "Lvl": 8,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 60-ft-radius sphere of darkness must succeed on a Wis. save or take 8d8 psychic damage.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Maelstrom",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 30-ft radius must succeed on a Str. save or take 6d6 bludgeoning damage and be pulled towards the center.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Mage Armor",
+    "Lvl": 1,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target, willing and not wearing armor, gets an AC equal to 13+Dex.Mod.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mage Hand",
+    "Lvl": 0,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a spectral hand that can in a 30-ft radius manipulate an object, open a door, stow an item, etc.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Magic Circle",
+    "Lvl": 3,
+    "School": "abjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a 10-ft-radius, 20-ft-tall cylinder that protect from celestials, elementals, fey, fiends, and/or undead (+1 h/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Magic Jar",
+    "Lvl": 6,
+    "School": "necromancy",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster projects his soul into an urn and then returns to his body or possesses a humanoid body.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Magic Missile",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "3 missiles deal automatically 1d4+1 force damage each to one or several creatures (+1 missile/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Magic Mouth",
+    "Lvl": 2,
+    "School": "illusion",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Creates a magical mouth that will repeat a message of up to 25 words when a trigger condition is met.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Magic Stone",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Up to 3 pebbles deal 1d6 + Ability.Mod bludgeoning damage if the spell attack hits.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Magic Weapon",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Turn a weapon into a +1 magic weapon for attack rolls and damage rolls (+2 or +3 bonus/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Major Image",
+    "Lvl": 3,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create the image of an animated object or creature, with sounds and smells (without concentration/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mass Cure Wounds",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Up to 6 creatures regain 3d8+Spell.Ability.Mod (+1d8 hp/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mass Heal",
+    "Lvl": 9,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Several creatures regain a total of 700 ph and are cured of diseases, blindness, and deafness.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mass Healing Word",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Up to 6 creatures regain 1d4+Ability.Mod (+1d4 hp/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mass Polymorph",
+    "Lvl": 9,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Transform up to 10 creatures into new beast forms whose CR/level are equal to or less than the target's CR/level.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Mass Suggestion",
+    "Lvl": 6,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Up to 12 targets must succeed on a Wis. save or follow the suggestion given by the caster (duration/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Maximilian's Earthen Grasp",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Str. save or take 2d6 bludgeoning damage and be restrained.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Maze",
+    "Lvl": 8,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Banish a creature into a labyrinthine demiplane. Intelligence check to escape before the end of the spell.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Meld into Stone",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "The caster can penetrate the stone.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Melf's Acid Arrow",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 4d4 acid damage, then 2d4 acid damage on the next round (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Melf's Minute Meteors",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures within 5 ft must succeed on a Dex.save or take 2d6 fire damage for each of the 6 meteors (+2 meteors/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Mending",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Repair break or tear in an object (broken chain link, two halves of a broken key, torn cloak, leaking wineskin, etc).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mental Prison",
+    "Lvl": 6,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on an Int. save or take 5d10 psychic damage and believe to be surrounded by fire or other hazard.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Message",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster whispers a message to a creature within 120 ft who will be the only one to hear it. It can reply the same way.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Meteor Swarm",
+    "Lvl": 9,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 40-ft-radius sphere must succeed on a Dex. save or take 20d6 fire damage and 20d6 bludgeoning damage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mighty Fortress",
+    "Lvl": 8,
+    "School": "conjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Let erupt a forteresse of stone on a 120 x 120 ft area for 7 days.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Mind Blank",
+    "Lvl": 8,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target is immune to psychic damage, reading thoughts, divination spells, and the charmed condition.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mind Sliver",
+    "Lvl": 0,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on an Int. save or take 1d6 psychic damage and substract -1d4 on it's next saving throw (damage/lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Mind Spike",
+    "Lvl": 2,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or take 3d8 psychic damage (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Minor Illusion",
+    "Lvl": 0,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a sound or an immobile image of an object no larger than a 5-ft cube.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mirage Arcane",
+    "Lvl": 7,
+    "School": "illusion",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Tansform the appearance (sight, sound, smell and feel) of a 1 mile square.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mirror Image",
+    "Lvl": 2,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create 3 illusory duplicates of the caster, each of them having a CA equal to 10 + Dex.Mod and being destroyed if they are hit.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mislead",
+    "Lvl": 5,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster becomes invisible and creates a double that moves, acts and speaks. The caster can see and hear through this double.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Misty Step",
+    "Lvl": 2,
+    "School": "conjuration",
+    "Casting Time": "1 bonus action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster is teleported up to 30 feet.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Modify Memory",
+    "Lvl": 5,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or be charmed and its memory altered (seniority of memories/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mold Earth",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Control dirt or stone to excavate, shape, turn it into difficult terrain, etc.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Moonbeam",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 5-ft-radius, 40-ft-high cylinder must succeed on a Con. save or take 2d10 radiant damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mordenkainen's Faithful Hound",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Summon an invisible watchdog that barks when a creature approaches and attacks it (4d8 piercing damage).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mordenkainen's Magnificent Mansion",
+    "Lvl": 7,
+    "School": "conjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create an extradimensional mansion with all the comforts that can shelter the caster and other creatures.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mordenkainen's Private Sanctum",
+    "Lvl": 4,
+    "School": "abjuration",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a secure cube up to 100 ft on each side. The type of protection is to choose (+100 ft on each side/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Mordenkainen's Sword",
+    "Lvl": 7,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 3d10 force damage. The sword can move.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Move Earth",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Shape dirt, sand, or clay, but not stone (raise, lower, flatten, create a trench, etc) in a 40-ft square in 10 min.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Negative Energy Flood",
+    "Lvl": 5,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Con. save or take 5d12 necrotic damage. Killed that way, the target rises as a zombi.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Nondetection",
+    "Lvl": 3,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Protect a creature or an object from any divination magic or magical scrying.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Nystul's Magic Aura",
+    "Lvl": 2,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Reveal false information about a creature or an object that would be the target of a divination spell.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Otiluke's Freezing Sphere",
+    "Lvl": 6,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 60-ft-radius sphere must succeed on a Con. save or take 10d6 cold damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Otiluke's Resilient Sphere",
+    "Lvl": 4,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The Large size or smaller target must succeedd on a Dex. save or be enclosed for the spell duration.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Otto's Irresistible Dance",
+    "Lvl": 6,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or dance (disadvantage on Dex. save and attack rolls).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Pass without Trace",
+    "Lvl": 2,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster and his allies within 30 ft get a +10 bonus to Dexterity (Discretion) checks and leave behind no tracks or traces.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Passwall",
+    "Lvl": 5,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Open a 5-ft wide, 8-ft tall, 20-ft deep passage through stone, wood or plaster.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Phantasmal Force",
+    "Lvl": 2,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Tha target must succeed on an Int. save or perceive as real an object or creature created by the caster (with sound).",
+    "Source": "Player´s Handbook (BR+)"
+  },
+  {
+    "Spell": "Phantasmal Killer",
+    "Lvl": 4,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or be frightened then take 4d10 psychic damage (damage/lvl) on each of it's turn.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Phantom Steed",
+    "Lvl": 3,
+    "School": "illusion",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Create a quasi-real Large horselike creature and everything to mount it.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Planar Ally",
+    "Lvl": 6,
+    "School": "conjuration",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Summon a celestial, elemental, or fiend that will help the caster in exchange for payment (1000 gp/h, sacrifice, quest, etc).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Planar Binding",
+    "Lvl": 5,
+    "School": "abjuration",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target (celestial, elemental, fey, or fiend) must succeed on a Cha. save or serve the caster (duration/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Plane Shift",
+    "Lvl": 7,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster and up to 8 creatures are transported to another plane of existence, or a creature is banished (Cha. save).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Plant Growth",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action or 8 hours",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Plants in the area grow vigorously, or over a year the plants produce twice the normal amount of food.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Poison Spray",
+    "Lvl": 0,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Con. save or take 1d12 poison damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Polymorph",
+    "Lvl": 4,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Transform a target into a new beast form whose CR/level is equal to or less than the target's CR/level.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Power Word Heal",
+    "Lvl": 9,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target regains all its hp and charmed, frightened, paralyzed, and stunned conditions end.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Power Word Kill",
+    "Lvl": 9,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target (100 hp or fewer) dies!",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Power Word Pain",
+    "Lvl": 7,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target (100 hp max) has its speed reduced to 10 ft, disadvantage to d20 rolls and has to make a Con. save to cast spells.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Power Word Stun",
+    "Lvl": 8,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target (150 hp or fewer) is stunned until it succeeds on a Con. save.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Prayer of Healing",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "10 minutes",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Up to 6 creatures regain 2d8+Ability.Mod (+1d8 hp/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Prestidigitation",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Minor magical trick (sensory effect, light a torch, clean an object, warm, make a symbol appear, create a trinket, etc).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Primal Savagery",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the melee spell attack hits, deals 1d10 acid damage (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Primordial Ward",
+    "Lvl": 6,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster gets resistance to acid, cold, fire, lightning, and thunder damage or immunity to a single type.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Prismatic Spray",
+    "Lvl": 7,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 60-ft cone must succeed on a Dex. save or take 10d6 damage of a randomly determined type.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Prismatic Wall",
+    "Lvl": 9,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a multi-layered wall that inflicts different effects and damage depending on the layer.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Produce Flame",
+    "Lvl": 0,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 1d8 fire damage (damage/lvl). Shed bright light in 10 ft and dim light in additional 10 ft.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Programmed Illusion",
+    "Lvl": 6,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create the image of an animated object or creature, with sounds, for 5 min, with a triggering condition.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Project Image",
+    "Lvl": 7,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a copy of the caster that mimics him, moves and emits sounds. The caster can see and hear through this double.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Protection from Energy",
+    "Lvl": 3,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target gains resistance to one damage type (acid, cold, fire, lightning, or thunder).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Protection from Evil and Good",
+    "Lvl": 1,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target is protected (disadvantage on attack rolls) against aberrations, celestials, elementals, fey, fiends, and undead.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Protection from Poison",
+    "Lvl": 2,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Neutralize 1 poison in one creature, give advantage on saving throws againt being poisoned, and resistance to poison damage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Psychic Scream",
+    "Lvl": 9,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Up to 10 creatures must succeed on an Int. save or take 14d6 psychic damage.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Purify Food and Drink",
+    "Lvl": 1,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Purified and rendered free of poison and disease nonmagical food and drink in a 5-ft-radius sphere.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Pyrotechnics",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Target flame within 60-ft and make them explode (Con. save or blinded) or spread smoke (heavily obscured).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Raise Dead",
+    "Lvl": 5,
+    "School": "necromancy",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Take back to life (1 hp) a creature died for no longer than 10 days. Doesn't restore missing body parts.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Rary's Telepathic Bond",
+    "Lvl": 5,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Create a telepathic link between up to 8 people in a 30-ft radius for 1 hour.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Ray of Enfeeblement",
+    "Lvl": 2,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the spell attack hits, the target deals only half damage with a weapon attack that use Strength (Con. save).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Ray of Frost",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 1d8 cold damage (damage/lvl) and the target's speed is reduced by 10 ft.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Ray of Sickness",
+    "Lvl": 1,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the attack hits, deals 2d8 poison damage (damage/lvl) and the target can be poisoned (Con. save).",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Regenerate",
+    "Lvl": 7,
+    "School": "transmutation",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target regains 4d8+15 hp then 1 hp per round and its severed members are restored.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Reincarnate",
+    "Lvl": 5,
+    "School": "transmutation",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Reincarnate the soul of an humanoid died for no longer than 10 days. The race of the new body is determined at random.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Remove Curse",
+    "Lvl": 3,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "End all curses affecting one creature or object.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Resistance",
+    "Lvl": 0,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target can add 1d4 to one saving throw of its choice.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Resurrection",
+    "Lvl": 7,
+    "School": "necromancy",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Take back to life (all hp) a creature died for no longer than 100 years (except of old age). Restore any missing body parts.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Reverse Gravity",
+    "Lvl": 7,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Invert gravity in a 50-ft-radius, 100-ft-high cylinder.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Revivify",
+    "Lvl": 3,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Take back to 1 hp a creature that has died within the last minute (except of old age).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Rope Trick",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Vertically raise a rope that lead to an extradimensional space that can hold 8 Medium creatures.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Sacred Flame",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Dex. save or take 1d8 radiant damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Sanctuary",
+    "Lvl": 1,
+    "School": "abjuration",
+    "Casting Time": "1 bonus action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target can make a Wis. save to avoid attacks or harmful spells that target it directly.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Scatter",
+    "Lvl": 6,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Up to 5 creatures are teleported (Wis. save if unwilling) within 120 ft.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Scorching Ray",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attacks hit, 3 rays deal 2d6 fire damage each (+1 ray/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Scrying",
+    "Lvl": 5,
+    "School": "divination",
+    "Casting Time": "10 minutes",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Allow you to see and hear a specific creature (can also target a location) on the same plane (Wis. save).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Searing Smite",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the attack hits, deals an extra 1d6 fire damage and ignite the target (damage/lvl).",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "See Invisibility",
+    "Lvl": 2,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster sees invisible creatures and objects, and into the Ethereal Plane.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Seeming",
+    "Lvl": 5,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Change physical appearance as well as clothing and equipment of targets (saving throw for unwilling).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Sending",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Send a 25-words message to a creature you are familiar with, regardless of the distance or the plan. It can answer it.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Sequester",
+    "Lvl": 7,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Protect a willing creature (who becomes invisible and unconscious) or an object from divination spells.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Shadow Blade",
+    "Lvl": 2,
+    "School": "illusion",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a weapon that deals 2d8 psychic damage with the finesse, light, and thrown properties (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Shadow of Moil",
+    "Lvl": 4,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Tha caster gains resistance to radiant damage and deals 2d8 necrotic damage to creatures that hit him with an attack.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Shape Water",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Control water to obtain various minor effects such as changing color, freezing, changing the flow, etc.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Shapechange",
+    "Lvl": 9,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster takes the form of a creature he has seen at least once with a CR equal to its level or lower.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Shatter",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 10-ft-radius sphere must succeed on a Con. save or take 3d8 thunder damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Shield",
+    "Lvl": 1,
+    "School": "abjuration",
+    "Casting Time": "1 reaction",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "In reaction, the caster gains a +5 bonus to AC and take no damage from the magic missile spell.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Shield of Faith",
+    "Lvl": 1,
+    "School": "abjuration",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target gets a +2 bonus to AC.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Shillelagh",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Make magical a wooden weapon. Its damage become a d8 and the caster can use his spellcasting ability instead of Strength.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Shocking Grasp",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 1d8 lightning damage (damage/lvl) and the target can't take reactions.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Sickening Radiance",
+    "Lvl": 4,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 30-ft radius must succeed on a Con. save or take 4d10 radiant damage and one level of exhaustion.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Silence",
+    "Lvl": 2,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "Ritual",
+    "Description": "Block all sounds within a 20-ft-radius sphere.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Silent Image",
+    "Lvl": 1,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create the image of an object or a creature (without sound and no larger than a 15-ft cube) and lets it move.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Simulacrum",
+    "Lvl": 7,
+    "School": "illusion",
+    "Casting Time": "12 hours",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a duplicate of a beast or humanoid with the same abilities, half of the hp and without equipment.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Skill Empowerment",
+    "Lvl": 5,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target doubles its proficiency bonus for one skill.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Skywrite",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "Ritual",
+    "Description": "Create up to 10 words in the clouds.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Sleep",
+    "Lvl": 1,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "5d8 hp of creatures fall unconscious, starting with the creature with the lowest current hp (+2d8 hp/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Sleet Storm",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft-radius, 20-ft-tall cylinder (heavily obscured) must succeed on a Dex. save or fall prone.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Slow",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Up to 6 targets must succeed on a Wis. save, or have their speed and actions reduced and -2 to CA and Dex. saves.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Snare",
+    "Lvl": 1,
+    "School": "abjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a magic trap (Dex. save or the Small to Large size creature is hoisted into the air).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Snilloc's Snowball Swarm",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 5-ft-radius sphere must succeed on a Dex. save or take 3d6 cold damage (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Soul Cage",
+    "Lvl": 6,
+    "School": "necromancy",
+    "Casting Time": "1 reaction",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Snatch a soul to regain hp, ask it a question, get advantage to a roll, or see a place it saw in life.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Spare the Dying",
+    "Lvl": 0,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "1 living creature with 0 hit points becomes stable.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Speak with Animals",
+    "Lvl": 1,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "The caster communicates with beats that can share information or help.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Speak with Dead",
+    "Lvl": 3,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Allow a corpse that still has a mouth and is not an undead to answer 5 questions to the caster.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Speak with Plants",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster can communicate with plants within 30 ft, and turns difficult terrain into ordinary terrain or vice versa.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Spider Climb",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target can move along vertical surfaces while leaving its hands free and gains climbing speed.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Spike Growth",
+    "Lvl": 2,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft radius (difficult terrain) take 2d4 piercing damage for every 5 ft of movement.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Spirit Guardians",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Targets in a 15-ft radius must succeed on a Wis. save or take 3d8 radiant or necrotic damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Spirit Shroud",
+    "Lvl": 3,
+    "School": "necromancy",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the attack hits, deals an extra 1d8 radiant, necrotic, or cold damage. Target can't regain hp this turn (damage/lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Spiritual Weapon",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 1d8+Ability.Mod force damage (damage/lvl). A bonus action allows another attack.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Staggering Smite",
+    "Lvl": 4,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the attack hits, deals an extra 4d6 pyschic damage and the target must succeed on a Wis. save or have a disadvantage.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Steel Wind Strike",
+    "Lvl": 5,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 6d10 force damage to 5 creatures, then the caster teleports.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Stinking Cloud",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft-radius sphere must succeed on a Con. save or spend their action that turn retching and reeling.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Stone Shape",
+    "Lvl": 4,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Give a stone no more than 5 ft in any dimension any shape, or create an opening in it.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Stoneskin",
+    "Lvl": 4,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target gets resistance to nonmagical bludgeoning, piercing, and slashing damage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Storm of Vengeance",
+    "Lvl": 9,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 360-ft radius must succeed on a Con. save or be deafened and suffer various damage and effects.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Storm Sphere",
+    "Lvl": 4,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft-radius sphere must succeed on a Str. save or take 2d6 bludgeoning damage (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Suggestion",
+    "Lvl": 2,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or follow the suggestion given by the caster in one or two sentences.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Summon Aberration",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 aberrant spirit (beholderkin, slaad, or star spawn), friendly (stat block/your lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Summon Beast",
+    "Lvl": 2,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 bestial spirit (air, land, or water), friendly (stat block/your lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Summon Celestial",
+    "Lvl": 5,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 celestial spirit (avenger or defender), friendly (stat block/your lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Summon Construct",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 spirit of a construct (clay, metal, or stone), friendly (stat block/your lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Summon Elemental",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 elemental spirit (air, earth, fire, or water), friendly (stat block/your lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Summon Fey",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 fey spirit (fuming, mirthful, or tricksy), friendly (stat block/your lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Summon Fiend",
+    "Lvl": 6,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 fiendish spirit (demon, devil, or yugoloth), friendly (stat block/your lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Summon Greater Demon",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 demon of CR 5, friendly (CR +1/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Summon Lesser Demons",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 2 demons of CR 1 to 8 demons of CR 1/4, unfriendly (nbr of creatures/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Summon Shadowspawn",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 shadowy spirit (fury, despair, or fear), friendly (stat block/your lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Summon Undead",
+    "Lvl": 3,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Summon 1 undead spirit (ghostly, putrid, or skeletal), friendly (stat block/your lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Sunbeam",
+    "Lvl": 6,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures on a 5-ft-wide, 60-ft-long line must succeed on a Con. save or take 6d8 radiant damage and be blinded.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Sunburst",
+    "Lvl": 8,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 60-ft radius must succeed on a Con. save or take 12d6 radiant damage and be blinded for 1 min.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Swift Quiver",
+    "Lvl": 5,
+    "School": "transmutation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Make a quiver to produce an endless supply of nonmagical ammunition, allowing 2 attacks per round with a bonus action.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Sword Burst",
+    "Lvl": 0,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 5-ft-radius must succeed on a Dex. save or take 1d6 force damage (damage/lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Symbol",
+    "Lvl": 7,
+    "School": "abjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Set the trigger and the effect of a glyph on an object (death, discord, fear, hopelessness, insanity, pain, sleep, etc).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Synaptic Static",
+    "Lvl": 5,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 20-ft radius must succeed on an Int. save or take 8d6 psychic damage.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Tasha's Caustic Brew",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 30 ft long 5 ft wide line must succeed on a Dex. save or take 2d4 acid damage each turn (+2d4/lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Tasha's Hideous Laughter",
+    "Lvl": 1,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or falls into fits of laughter, fall prone and becoming incapacitated.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Tasha's Mind Whip",
+    "Lvl": 2,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Target must succeed on an Int. save or take 3d6 psychic damage and choose to move or take an action next turn (+1 creature/lvl).",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Tasha's Otherworldly Guise",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Immune to fire/poison or radiant/necrotic damage, 40 ft flying speed, +2 AC bonus, weapons are magical, 2 attacks.",
+    "Source": "Tasha´s Cauldron of Everything"
+  },
+  {
+    "Spell": "Telekinesis",
+    "Lvl": 5,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Move a creature (Huge or smaller) or object (up to 1,000 pounds) by thought in case of successful contest.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Telepathy",
+    "Lvl": 8,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Comunicate via telepathy with a known and willing creature on the same plane of existence.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Teleport",
+    "Lvl": 7,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster and 8 creatures are teleported anywhere on the same plane. Risk of failure depending on the destination familiarity.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Teleportation Circle",
+    "Lvl": 5,
+    "School": "conjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create a circle that allows anyone to be teleported to another teleportation circle known to the caster.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Temple of the Gods",
+    "Lvl": 7,
+    "School": "conjuration",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Let erupt a temple dedicated to a god on a 120 x 120 ft area for 1 day.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Tenser's Floating Disk",
+    "Lvl": 1,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Create a floating 3-ft-diameter disk that can support up to 500 pounds and follows the caster.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Tenser's Transformation",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster gains 50 hp, advantage to attack rolls, an extra 2d12 force damage, martial proficiencies and two attacks per round.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Thaumaturgy",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Create various minor effects to impress or distract creatures.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Thorn Whip",
+    "Lvl": 0,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "If the attack hits, deals 1d6 piercing damage and pull the target (Larger or smaller) up to 10 ft (damage/lvl).",
+    "Source": "Player´s Handbook (BR+)"
+  },
+  {
+    "Spell": "Thunder Step",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster teleports and creatures within 10 ft must succeed on a Con. save or take 3d10 thunder damage.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Thunderclap",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures within 5 ft must succeed on a Con. save or take 1d6 thunder damage (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Thunderous Smite",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the attack hits, deals an extra 2d6 thunder damage, and target must succeed on a Str. save or be pushed and knocked prone.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Thunderwave",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 15-ft cube must succeed on a Con. save or take 2d8 thunder damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Tidal Wave",
+    "Lvl": 3,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in an 30 x 10 x 10 ft area must succeed on Dex. save or take 4d8 bludgeoning damage and be knocked prone.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Time Stop",
+    "Lvl": 9,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Stop the time during 1d4+1 turns for everyone except for the caster.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Tiny Servant",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Transform one Tiny object into a creature with arms and legs under the caster control (+2 objects/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Toll the Dead",
+    "Lvl": 0,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or take 1d8 or 1d12 necrotic damage (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Tongues",
+    "Lvl": 3,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target understands and speaks any spoken language it hears.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Transmute Rock",
+    "Lvl": 5,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Transform a 40-ft cube of rock into mud or of mud into rock.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Transport via Plants",
+    "Lvl": 6,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster can move from one plant to another plant (Large or larger) using 5 ft.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Tree Stride",
+    "Lvl": 5,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster can move from one tree to another tree of the same kind (500 ft max between both) using 5 ft.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "True Polymorph",
+    "Lvl": 9,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Transform a creature or object into a new form (creature <-> object) of FP/level at most equal to the FP/level of the crea",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "True Resurrection",
+    "Lvl": 9,
+    "School": "necromancy",
+    "Casting Time": "1 hour",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Take back to life (all hp) a creature died for no longer than 200 years (except of old age), even without the original body.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "True Seeing",
+    "Lvl": 6,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target gets truesight, sees magic secret doors and in the Ethereal Plane.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "True Strike",
+    "Lvl": 0,
+    "School": "divination",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster gains advantage on his first attack roll against a target.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Tsunami",
+    "Lvl": 8,
+    "School": "conjuration",
+    "Casting Time": "1 minute",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 300-ft-long, 300-ft-high, 50-ft-thick area must succeed on a Str. save or take 6d10 bludgeoning damage.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Unseen Servant",
+    "Lvl": 1,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Create an invisible servant who performs simple tasks (bring something back, clean up, maintain a fire, serve at table, etc).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Vampiric Touch",
+    "Lvl": 3,
+    "School": "necromancy",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 3d6 necrotic damage (damage/lvl) and the caster regains 50% of his hp.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Vicious Mockery",
+    "Lvl": 0,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target must succeed on a Wis. save or take 1d4 psychic damage and have disadvantage on its attack roll (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Vitriolic Sphere",
+    "Lvl": 4,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures within 20-ft must succeed on a Dex. save or take 10d4 acid damage (damage/lvl) then 5d4 acid damage on its turn.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Wall of Fire",
+    "Lvl": 4,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a 60 x 20 x 1 ft wall of fire. Creatures inside or within 10ft of one side of the wall take 5d8 fire damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Wall of Force",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a physically insurmountable wall of force (ten 10-ft panels) immune to all types of damage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Wall of Ice",
+    "Lvl": 6,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a wall of ice (ten 10-ft panels) that can be damaged and can inflict 5d6 cold damage if passed through (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Wall of Light",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a 60-ft-long, 10-ft-high, 5-ft-thick wall of light that can deal 4d8 radiant damage to one target (damage/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Wall of Sand",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a 30-ft-long, 10-ft-high, 10-ft-thick sand wall that blocks line of sight (blinded) but not movement.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Wall of Stone",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a nonmagical wall of stone (ten 10-ft panels) that can be damaged.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Wall of Thorns",
+    "Lvl": 6,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create an 60-ft-long, 10-ft-high, 5-ft-thick wall of brush that slows movement and can inflict 7d8 piercing damage (damage/lvl).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Wall of Water",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a 30-ft-long, 10-ft-high, 1-ft-thick wall of water that gives disadvantage on ranged attacks and halved fire damage.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Warding Bond",
+    "Lvl": 2,
+    "School": "abjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The target gains +1 on AC, +1 on saving throws and resistance to all damage, but the caster shares damage.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Warding Wind",
+    "Lvl": 2,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create strong wind (20 miles/h) in a 10-ft radius (deafen, extinguish flames, hedge out gas, difficult terrain, etc).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Water Breathing",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Up to 10 creatures gets the ability to breathe underwater.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Water Walk",
+    "Lvl": 3,
+    "School": "transmutation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "Ritual",
+    "Description": "Up to 10 creatures can move on a liquid surface (water, acid, mud, lava, etc) as if it were harmless solid ground.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Watery Sphere",
+    "Lvl": 4,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Up to 4 Medium creatures or 1 Large creature in a 10-ft radius must succeed on a Str. save or be restrained.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Web",
+    "Lvl": 2,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a 20-ft cube filled by thick, sticky webs (difficult terrain) that can restrain creature (Dex. save).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Weird",
+    "Lvl": 9,
+    "School": "illusion",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 30-ft-radius sphere must succeed on a Wis. save or be frightened and take 4d10 psychic damage each turn.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Whirlwind",
+    "Lvl": 7,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Creatures in a 10-ft-radius, 30-foot-high cylinder must succeed on a Dex. save or take 10d6 blunt damage.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Wind Walk",
+    "Lvl": 6,
+    "School": "transmutation",
+    "Casting Time": "1 minute",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster and up to 10 creatures assume gaseous form (flying speed of 300 ft and resistance to damage from nonmagical weapon).",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Wind Wall",
+    "Lvl": 3,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Create a 50-ft-long, 15-ft-high, 1-ft-thick wall of wind. Small flying creatures can't pass. Arrows and bolts are deflected.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Wish",
+    "Lvl": 9,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Duplicate a 8th level spell or lower without components, or create another effect at the MD discretion.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Witch Bolt",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the spell attack hits, deals 1d12 lightning damage (damage/lvl) on each round.",
+    "Source": "Player´s Handbook (BR+)"
+  },
+  {
+    "Spell": "Word of Radiance",
+    "Lvl": 0,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures in a 5-ft-radius must succeed on a Con. save or take 1d6 radiant damage (/lvl).",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Word of Recall",
+    "Lvl": 6,
+    "School": "conjuration",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "The caster and up to 5 other creatures are teleported to a previously designated sanctuary.",
+    "Source": "Player´s Handbook (SRD)"
+  },
+  {
+    "Spell": "Wrath of Nature",
+    "Lvl": 5,
+    "School": "evocation",
+    "Casting Time": "1 action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "Animate trees, rocks, and grasses in a 60 x 60 x 60 ft cube.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Wrathful Smite",
+    "Lvl": 1,
+    "School": "evocation",
+    "Casting Time": "1 bonus action",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "If the attack hits, deals an extra 1d6 psychic damage and the target must succeed on a Wis. save or be frightened.",
+    "Source": "Player´s Handbook"
+  },
+  {
+    "Spell": "Zephyr Strike",
+    "Lvl": 1,
+    "School": "transmutation",
+    "Casting Time": "1 action bonus",
+    "Concentration": "Concentration",
+    "Ritual": "",
+    "Description": "The caster's movement (+30 ft) doesn't provoque OA and he gets advantage to one attack roll that deals an extra 1d8 force.",
+    "Source": "Xanathar´s Guide to Everything"
+  },
+  {
+    "Spell": "Zone of Truth",
+    "Lvl": 2,
+    "School": "enchantment",
+    "Casting Time": "1 action",
+    "Concentration": "",
+    "Ritual": "",
+    "Description": "Creatures within a 15-ft-radius sphere must succeed on a Cha. save or can not lie.",
+    "Source": "Player´s Handbook (SRD)"
+  }
+]

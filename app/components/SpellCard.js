@@ -29,9 +29,9 @@ function SpellCard({ name }) {
         },
         {
           label: "Range",
-          value: tr(getRangeUnit(spell?.range))
+          value: tr(getRangeUnit(spell?.range)),
         },
-        {
+        spell?.components && {
           label: "Components",
           value: tr(spell?.components.text),
         },
@@ -42,10 +42,11 @@ function SpellCard({ name }) {
       ]}
       description={
         <div>
-          {spell?.desc.en}
+          {spell?.resume && <div><b>Resume: </b>{tr(spell.resume)}</div>}
+          <div><b>Description: </b>{spell?.desc.en}</div>
           {spell?.higherLevel && (
             <div>
-              <b>At Higher Levels.</b> {tr(spell?.higherLevel)}
+              <b>At Higher Levels.</b> {tr(spell.higherLevel)}
               {/* TODO: add avanced mode : healAtSlotLevel */}
             </div>
           )}

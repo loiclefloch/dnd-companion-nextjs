@@ -1,34 +1,51 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import useSpells from '../modules/api/useSpells'
-import SpellCard from '../components/SpellCard'
+import useTheme from "../modules/theme/useTheme"
+import useI18n from "../modules/i18n/useI18n"
+import useSpells from "../modules/api/useSpells";
+import SpellCard from "../components/SpellCard";
+import clsx from "clsx";
 
-function Spell({ spell, onSelect }) {
+function Spell({ spell, selected, onSelect }) {
+  const { tr } = useI18n();
+  const theme = useTheme()
+
   return (
-    <div onClick={onSelect}>
+    <div
+      onClick={onSelect}
+      className={clsx("cursor-pointer", {
+        [theme.listItemSelectedBackground]: selected,
+      })}
+    >
       {spell.name}
+      <p className="text-sm italic">{tr(spell.resume)}</p>
     </div>
-  )
+  );
 }
 
 function Spells() {
-  const spellsResponse = useSpells()
-  const [selectedSpell, setSelectedSpell ] = useState(spellsResponse.data[2])
+  const spellsResponse = useSpells();
+  const [selectedSpell, setSelectedSpell] = useState(spellsResponse.data[2]);
 
   return (
-    <div>
-      {selectedSpell && <SpellCard name={selectedSpell.name} />}
-      <div>
-        {spellsResponse.data.map((spell) => (
-          <Spell
-            key={spell.name}
-            spell={spell}
-            onSelect={() => setSelectedSpell(spell)}
-          />
-        ))}
+    <div className="flex">
+      <div className="w-1/2 ">
+        <div className="p-2 px-4">
+          {spellsResponse.data.map((spell) => (
+            <Spell
+              key={spell.name}
+              spell={spell}
+              selected={spell.name === selectedSpell?.name}
+              onSelect={() => setSelectedSpell(spell)}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="w-1/2 ">
+        {selectedSpell && <SpellCard name={selectedSpell.name} />}
       </div>
     </div>
   );
 }
 
-export default Spells
+export default Spells;

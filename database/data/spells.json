@@ -6,7 +6,15 @@
     "name": "Acid Arrow",
     "nameLocalized": {
       "en": "Acid Arrow",
+      "fr": "Flèche acide de Melf"
+    },
+    "otherNameLocalized": {
+      "en": "Melf's Acid Arrow",
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 4d4 acid damage, then 2d4 acid damage on the next round (damage/lvl).",
+      "fr": "Si l'attaque avec un sort touche, inflige 4d4 dégâts d'acide, puis 2d4 dégâts d'acide au round suivant (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -37,7 +45,19 @@
         "fr": "90 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": false,
     "castingTime": {
@@ -94,7 +114,9 @@
           "fr": "Land"
         }
       }
-    ]
+    ],
+    "sourcePage": "phb 259",
+    "source": "phb"
   },
   {
     "index": "acid-splash",
@@ -103,7 +125,15 @@
     "name": "Acid Splash",
     "nameLocalized": {
       "en": "Acid Splash",
+      "fr": "Aspersion d'acide"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "1 or 2 creatures within 5 feet must succeed on a Dex. save or take 1d6 acid damage (damage/lvl).",
+      "fr": "1 ou 2 créatures dans un rayon de 1,50 m doivent réussir un JdS de Dex. ou subir 1d6 dégâts d'acide (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -214,7 +244,15 @@
     "name": "Aid",
     "nameLocalized": {
       "en": "Aid",
+      "fr": "Aide"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 3 creatures increase their hp maximum and current hp by 5 (+5 hp/lvl).",
+      "fr": "Jusqu'à 3 créatures augmentent leurs pv actuels et pv max de 5 (+5 pv/niv)."
     },
     "desc": {
       "en": [
@@ -345,7 +383,15 @@
     "name": "Alarm",
     "nameLocalized": {
       "en": "Alarm",
+      "fr": "Alarme"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Alert the caster or activate an alarm if a Tiny or larger creature enters a warded 20-ft cube.",
+      "fr": "Alerte le lanceur ou active une alarme si une créature de taille TP ou supérieure pénètre dans un cube surveillé de 6 m."
     },
     "desc": {
       "en": [
@@ -462,7 +508,15 @@
     "name": "Alter Self",
     "nameLocalized": {
       "en": "Alter Self",
+      "fr": "Modification d'apparence"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Give a new form depending on the chosen option (Aquatic Adaptation, Change Appearance, or Natural Weapons).",
+      "fr": "Donne une nouvelle forme suivant l'option choisie (Adaptation aquatique, Changement d'apparence ou Armes naturelles)."
     },
     "desc": {
       "en": [
@@ -577,7 +631,15 @@
     "name": "Animal Friendship",
     "nameLocalized": {
       "en": "Animal Friendship",
+      "fr": "Amitié avec les animaux"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "A beast with Intelligence 3 or less must succeed on a Wis. save or be charmed (+1 beast/lvl).",
+      "fr": "Une bête d'Intelligence 3 ou moins doit réussir un JdS de Sag. ou être charmée (+1 bête/niv)."
     },
     "desc": {
       "en": [
@@ -701,7 +763,15 @@
     "name": "Animal Messenger",
     "nameLocalized": {
       "en": "Animal Messenger",
+      "fr": "Messager animal"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "A Tiny beast travels to deliver a 25 words message to a target (+48 h/lvl).",
+      "fr": "Une bête de taille TP va livrer un message de 25 mots à une cible (+48 h/niv)."
     },
     "desc": {
       "en": [
@@ -833,7 +903,15 @@
     "name": "Animal Shapes",
     "nameLocalized": {
       "en": "Animal Shapes",
+      "fr": "Formes animales"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Willing targets within 30 ft turn into beasts of FP 4 or lower.",
+      "fr": "Les cibles consentantes à 9 m se transforment en bêtes de FP 4 ou inférieur."
     },
     "desc": {
       "en": [
@@ -926,7 +1004,15 @@
     "name": "Animate Dead",
     "nameLocalized": {
       "en": "Animate Dead",
+      "fr": "Animation des morts"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a skeleton from bones or a zombie from a corpse, who is under the caster control (+2 creatures/lvl).",
+      "fr": "Crée un squelette à partir d'os ou un zombi à partir d'un cadavre, qui est sous le contrôle du lanceur (+2 créatures/niv)."
     },
     "desc": {
       "en": [
@@ -1048,7 +1134,15 @@
     "name": "Animate Objects",
     "nameLocalized": {
       "en": "Animate Objects",
+      "fr": "Animation d'objets"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Animate up to 10 non-magic objects and control their actions up to 500 ft (+2 items/lvl).",
+      "fr": "Anime jusqu'à 10 objets non magiques et contrôle leurs actions jusqu'à 150 m (+2 objets/niv)."
     },
     "desc": {
       "en": [
@@ -1168,7 +1262,15 @@
     "name": "Antilife Shell",
     "nameLocalized": {
       "en": "Antilife Shell",
+      "fr": "Coquille antivie"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Prevent creatures other than undead and constructs from entering in a 10-ft radius.",
+      "fr": "Empêche les créatures autres que morts-vivants et créatures artificielles de pénétrer dans un rayon de 3 m."
     },
     "desc": {
       "en": [
@@ -1259,7 +1361,15 @@
     "name": "Antimagic Field",
     "nameLocalized": {
       "en": "Antimagic Field",
+      "fr": "Champ antimagie"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a 10-ft-radius sphere in which spells and magic items no longer work.",
+      "fr": "Crée une sphère de 3 m de rayon dans laquelle les sorts et les objets magiques ne fonctionnent plus."
     },
     "desc": {
       "en": [
@@ -1378,7 +1488,15 @@
     "name": "Antipathy/Sympathy",
     "nameLocalized": {
       "en": "Antipathy/Sympathy",
+      "fr": "Aversion/Attirance"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Attract or repel (Wis. save in order to not be attracted or scared) a kind of creature designated within 60 ft.",
+      "fr": "Attire ou répulse (JdS de Sag. pour ne pas être attiré ou effrayé) une sorte de créature désignée dans un rayon de 18 m."
     },
     "desc": {
       "en": [
@@ -1490,7 +1608,15 @@
     "name": "Arcane Eye",
     "nameLocalized": {
       "en": "Arcane Eye",
+      "fr": "Oeil magique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create an invisible eye with darkvision that sends the caster the mental image of what it sees.",
+      "fr": "Crée un oeil invisible avec vision dans le noir qui envoie au lanceur l'image mentale de ce qu'il voit."
     },
     "desc": {
       "en": [
@@ -1596,7 +1722,15 @@
     "name": "Arcane Hand",
     "nameLocalized": {
       "en": "Arcane Hand",
+      "fr": "Main de Bigby"
+    },
+    "otherNameLocalized": {
+      "en": "Bigby's Hand",
       "fr": null
+    },
+    "resume": {
+      "en": "Create a Large hand with a Strength of 26 that can strike (4d8 force damage), push, grapple, or protect (damage/lvl).",
+      "fr": "Crée une main de taille G et de Force 26 qui peut frapper (4d8 dégâts de force), pousser, agripper ou protéger (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -1637,7 +1771,19 @@
         "fr": "120 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": true,
     "castingTime": {
@@ -1676,7 +1822,9 @@
         }
       }
     ],
-    "subclasses": []
+    "subclasses": [],
+    "sourcePage": "phb 218",
+    "source": "phb"
   },
   {
     "index": "arcane-lock",
@@ -1685,7 +1833,15 @@
     "name": "Arcane Lock",
     "nameLocalized": {
       "en": "Arcane Lock",
+      "fr": "Verrou magique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Lock an objet (door, window, chest, etc) and the caster can set a password to suppresses the spell for 1 minute.",
+      "fr": "Verrouille un objet (porte, fenêtre, coffre, etc) et le lanceur peut définir un mot de passe pour supprimer le sort 1 minute."
     },
     "desc": {
       "en": [
@@ -1788,7 +1944,15 @@
     "name": "Arcane Sword",
     "nameLocalized": {
       "en": "Arcane Sword",
+      "fr": "Chien de garde de Mordenkainen"
+    },
+    "otherNameLocalized": {
+      "en": "Mordenkainen's Faithful Hound",
       "fr": null
+    },
+    "resume": {
+      "en": "Summon an invisible watchdog that barks when a creature approaches and attacks it (4d8 piercing damage).",
+      "fr": "Invoque un chien de garde invisible qui aboie à l'approche de créatures et les attaque (4d8 dégâts perforants)."
     },
     "desc": {
       "en": [
@@ -1814,7 +1978,19 @@
         "fr": "60 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": true,
     "castingTime": {
@@ -1862,7 +2038,9 @@
         }
       }
     ],
-    "subclasses": []
+    "subclasses": [],
+    "sourcePage": "phb 261",
+    "source": "phb"
   },
   {
     "index": "arcanists-magic-aura",
@@ -1870,8 +2048,15 @@
     "url": "/api/spells/arcanists-magic-aura",
     "name": "Arcanist's Magic Aura",
     "nameLocalized": {
-      "en": "Arcanist's Magic Aura",
+      "en": "Arcanist's Magic Aura"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -1899,7 +2084,19 @@
         "fr": "touché"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": false,
     "castingTime": {
@@ -1957,7 +2154,15 @@
     "name": "Astral Projection",
     "nameLocalized": {
       "en": "Astral Projection",
+      "fr": "Projection astrale"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster and up to 8 creatures are projected into the Astral Plane.",
+      "fr": "Le lanceur et jusqu'à 8 créatures sont projetés dans le plan Astral."
     },
     "desc": {
       "en": [
@@ -2075,7 +2280,15 @@
     "name": "Augury",
     "nameLocalized": {
       "en": "Augury",
+      "fr": "Augure"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster obtains an omen about the result of an action within the next 30 min (weal, woe, both or nothing).",
+      "fr": "Le lanceur obtient un présage concernant le résultat d'une action dans les 30 prochaines min (fortune, péril, les deux ou rien)."
     },
     "desc": {
       "en": [
@@ -2183,7 +2396,15 @@
     "name": "Awaken",
     "nameLocalized": {
       "en": "Awaken",
+      "fr": "Éveil"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Give a beast or plant (Intelligence 3 or less) the ability to speek and senses similar to a human's for 30 days.",
+      "fr": "Donne à une bête ou à une plante (Intelligence 3 max) la capacité de parler et des sens humains durant 30 jours."
     },
     "desc": {
       "en": [
@@ -2286,7 +2507,15 @@
     "name": "Bane",
     "nameLocalized": {
       "en": "Bane",
+      "fr": "Fléau"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 3 targets must succeed on a Cha. save or subtract 1d4 from their attack roll or saving throw (+1 creature/lvl).",
+      "fr": "Jusqu'à 3 cibles doivent réussir un JdS de Cha. ou soustraire 1d4 à l'attaque ou à la sauvegarde (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -2407,7 +2636,15 @@
     "name": "Banishment",
     "nameLocalized": {
       "en": "Banishment",
+      "fr": "Bannissement"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Cha. save or be banished to a harmless demiplane (+1 creature/lvl).",
+      "fr": "La cible doit réussir un JdS de Cha. ou être envoyée sur un demi-plan non-dangereux (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -2550,7 +2787,15 @@
     "name": "Barkskin",
     "nameLocalized": {
       "en": "Barkskin",
+      "fr": "Peau d'écorce"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target's AC can't be less than 16.",
+      "fr": "La cible obtient une CA de 16 minimum."
     },
     "desc": {
       "en": [
@@ -2672,7 +2917,15 @@
     "name": "Beacon of Hope",
     "nameLocalized": {
       "en": "Beacon of Hope",
+      "fr": "Lueur d'espoir"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Targets gain advantage on Wis. saving throws and death saving throws, and regain the maximum number of hp from healing.",
+      "fr": "Les cibles gagnent l'avantage aux JdS de Sag. et aux JdS contre la mort, et récupèrent le maximum de pv lors d'une guérison."
     },
     "desc": {
       "en": [
@@ -2791,7 +3044,15 @@
     "name": "Bestow Curse",
     "nameLocalized": {
       "en": "Bestow Curse",
+      "fr": "Malédiction"
+    },
+    "otherNameLocalized": {
+      "en": "Bestow curse",
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Wis. save or suffer an effect as a disadvantage to a check or lose an action (duration/lvl).",
+      "fr": "La cible doit réussir un JdS de Sag. ou subir un effet comme un désavantage à un jet ou perdre une action (durée/niv)."
     },
     "desc": {
       "en": [
@@ -2920,8 +3181,15 @@
     "url": "/api/spells/black-tentacles",
     "name": "Black Tentacles",
     "nameLocalized": {
-      "en": "Black Tentacles",
+      "en": "Black Tentacles"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -2948,7 +3216,19 @@
         "fr": "90 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": true,
     "castingTime": {
@@ -2996,7 +3276,15 @@
     "name": "Blade Barrier",
     "nameLocalized": {
       "en": "Blade Barrier",
+      "fr": "Barrière de lames"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a 100 x 20 x 5 ft wall that provides three-quarters cover and can inflict 6d10 slashing damage if passed through.",
+      "fr": "Crée un mur de 30 x 6 x 1,50 m qui confère un abri important (3/4) et peut infliger 6d10 dégâts tranchants si on le traverse."
     },
     "desc": {
       "en": [
@@ -3088,7 +3376,15 @@
     "name": "Bless",
     "nameLocalized": {
       "en": "Bless",
+      "fr": "Bénédiction"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 3 targets can add 1d4 to their attack roll or saving throw (+1 creature/lvl).",
+      "fr": "Jusqu'à 3 cibles peuvent ajouter 1d4 à leur jet d'attaque ou de sauvegarde (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -3218,7 +3514,15 @@
     "name": "Blight",
     "nameLocalized": {
       "en": "Blight",
+      "fr": "Flétrissement"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Con. save or take 8d8 necrotic damage (damage/lvl).",
+      "fr": "La cible doit réussir un JdS de Con. ou subir 8d8 dégâts nécrotiques (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -3356,7 +3660,15 @@
     "name": "Blindness/Deafness",
     "nameLocalized": {
       "en": "Blindness/Deafness",
+      "fr": "Cécité/Surdité"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Con. save or become blinded or deafened (+1 creature/lvl).",
+      "fr": "La cible doit réussir un JdS de Con. ou devenir aveuglée ou assourdie (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -3501,7 +3813,15 @@
     "name": "Blink",
     "nameLocalized": {
       "en": "Blink",
+      "fr": "Clignotement"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster has 50% of chance to switch to the Ethereal Plane, then returns to the space he vanished from on the next turn.",
+      "fr": "Le lanceur a 50% de chance de passer dans le plan éthéré, puis il revient dans l'espace qu'il occupait au tour suivant."
     },
     "desc": {
       "en": [
@@ -3611,7 +3931,15 @@
     "name": "Blur",
     "nameLocalized": {
       "en": "Blur",
+      "fr": "Flou"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster's body becomes blurred and creatures that attack him have disadvantage on attack rolls against him.",
+      "fr": "Le corps du lanceur devient flou et les créatures qui l'attaquent ont un désavantage au jet d'attaque contre lui."
     },
     "desc": {
       "en": [
@@ -3728,7 +4056,15 @@
     "name": "Branding Smite",
     "nameLocalized": {
       "en": "Branding Smite",
+      "fr": "Châtiment révélateur"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If a weapon attack hits, deals an extra 2d6 radiant damage and the target sheds dim light in 5-ft radius (damage/lvl).",
+      "fr": "Si l'attaque avec une arme touche, inflige 2d6 dégâts radiants extra et la cible émet une lumière faible sur 1,50m (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -3822,7 +4158,15 @@
     "name": "Burning Hands",
     "nameLocalized": {
       "en": "Burning Hands",
+      "fr": "Mains brûlantes"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 15-ft cone must succeed on a Dex. save or take 3d6 fire damage (damage/lvl).",
+      "fr": "Les créatures dans un cône de 4,50 m doivent réussir un JdS de Dex. ou subir 3d6 dégâts de feu (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -3946,7 +4290,15 @@
     "name": "Call Lightning",
     "nameLocalized": {
       "en": "Call Lightning",
+      "fr": "Appel de la foudre"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 5-ft radius must succeed on a Dex. save or take 3d10 lightning damage (damage/lvl) on each turn.",
+      "fr": "Les créatures dans un rayon de 1,50 m doivent réussir un JdS de Dex. ou subir 3d10 dégâts de foudre (dégâts/niv) à chaque tour."
     },
     "desc": {
       "en": [
@@ -4064,7 +4416,15 @@
     "name": "Calm Emotions",
     "nameLocalized": {
       "en": "Calm Emotions",
+      "fr": "Apaisement des émotions"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-foot-radius sphere must succeed on a Cha. save or no longer be charmed/frightened, or be indifferents.",
+      "fr": "Les créatures dans un rayon de 6 m doivent réussir un JdS de Cha. ou ne plus être charmées/effrayées, ou être indifférentes."
     },
     "desc": {
       "en": [
@@ -4176,7 +4536,15 @@
     "name": "Chain Lightning",
     "nameLocalized": {
       "en": "Chain Lightning",
+      "fr": "Chaîne d'éclairs"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 4 different targets must succeed on a Dex. save or take 10d8 lightning damage (+1 target/lvl).",
+      "fr": "Jusqu'à 4 cibles différentes doivent réussir un JdS de Dex. ou subir 10d8 dégâts de foudre (+1 cible/niv)."
     },
     "desc": {
       "en": [
@@ -4287,7 +4655,15 @@
     "name": "Charm Person",
     "nameLocalized": {
       "en": "Charm Person",
+      "fr": "Charme-personne"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The humanoid target must succeed on a Wis. save or be charmed by the caster (+1 creature/lvl).",
+      "fr": "La cible humanoïde doit réussir un JdS de Sag. ou être charmée par le lanceur (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -4434,7 +4810,15 @@
     "name": "Chill Touch",
     "nameLocalized": {
       "en": "Chill Touch",
+      "fr": "Contact glacial"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 1d8 necrotic damage (damage/lvl) and the target can't regain hp immediately.",
+      "fr": "Si l'attaque avec un sort touche, inflige 1d8 dégâts nécrotiques (dégâts/niv) et la cible ne peut récupérer ses pv de suite."
     },
     "desc": {
       "en": [
@@ -4557,7 +4941,15 @@
     "name": "Circle of Death",
     "nameLocalized": {
       "en": "Circle of Death",
+      "fr": "Cercle de mort"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 60-ft-radius sphere must succeed on a Con. save or take 8d6 necrotic damage (damage/lvl).",
+      "fr": "Les créatures dans une sphère de 18 m de rayon doivent réussir un JdS de Con. ou subir 8d6 dégâts nécrotiques (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -4677,7 +5069,15 @@
     "name": "Clairvoyance",
     "nameLocalized": {
       "en": "Clairvoyance",
+      "fr": "Clairvoyance"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create an invisible sensor in a familiar location within 1 mile, allowing to see or to hear (to choose, can switch).",
+      "fr": "Crée un détecteur invisible dans un lieu familier à 1,5 km ou moins, permettant de voir ou d'entendre (au choix, modifiable)."
     },
     "desc": {
       "en": [
@@ -4814,7 +5214,15 @@
     "name": "Clone",
     "nameLocalized": {
       "en": "Clone",
+      "fr": "Clone"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create in 120 days the inert double of a living creature. If the original creature dies, its soul is transferred to the clone.",
+      "fr": "Crée en 120 jours le double inerte d'une créature vivante. Si la créature originale meurt, son âme est transférée dans le clone."
     },
     "desc": {
       "en": [
@@ -4907,7 +5315,15 @@
     "name": "Cloudkill",
     "nameLocalized": {
       "en": "Cloudkill",
+      "fr": "Brume mortelle"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-ft-radius sphere must succeed on a Con. save or take 5d8 poison damage (damage/lvl).",
+      "fr": "Les créatures dans une sphère de 6 m de rayon doivent réussir un JdS de Con. ou subir 5d8 dégâts de poison (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -5026,7 +5442,15 @@
     "name": "Color Spray",
     "nameLocalized": {
       "en": "Color Spray",
+      "fr": "Couleurs dansantes"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "6d10 creatures hp are dazzled in ascending order of their current hp (+2d10 hp/lvl).",
+      "fr": "6d10 pv de créatures sont éblouies par ordre croissant de leurs pv actuels (+2d10 pv/niv)."
     },
     "desc": {
       "en": [
@@ -5146,7 +5570,15 @@
     "name": "Command",
     "nameLocalized": {
       "en": "Command",
+      "fr": "Injonction"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Wis. save or follow your order as Approach, Drop, Flee, Fall, Halt, etc (+1 creature/lvl).",
+      "fr": "La cible doit réussir un JdS de Sag. ou suivre votre ordre comme Approche, Lâche, Fuis, Tombe, Halte, etc (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -5282,7 +5714,15 @@
     "name": "Commune",
     "nameLocalized": {
       "en": "Commune",
+      "fr": "Communion"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Allow to obtain from a divine entity the answers (yes or no) to 3 questions.",
+      "fr": "Permet d'obtenir d'une entité divine les réponses (oui ou non) à 3 questions."
     },
     "desc": {
       "en": [
@@ -5387,7 +5827,15 @@
     "name": "Commune With Nature",
     "nameLocalized": {
       "en": "Commune With Nature",
+      "fr": "Communion avec la nature"
+    },
+    "otherNameLocalized": {
+      "en": "Commune with Nature",
       "fr": null
+    },
+    "resume": {
+      "en": "The caster gets 3 informations about the surrounding territory. Doesn't function in dungeons or towns.",
+      "fr": "Le lanceur obtient 3 informations sur le territoire alentour. Ne fonctionne pas dans les donjons ou les villes."
     },
     "desc": {
       "en": [
@@ -5502,7 +5950,15 @@
     "name": "Comprehend Languages",
     "nameLocalized": {
       "en": "Comprehend Languages",
+      "fr": "Compréhension des langues"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster understands any spoken and written (1 min/page) language. Doesn't decode secret messages.",
+      "fr": "Le lanceur comprend toutes les langues parlées ou écrites (1 min/page). Ne décode pas les messages secrets."
     },
     "desc": {
       "en": [
@@ -5636,7 +6092,15 @@
     "name": "Compulsion",
     "nameLocalized": {
       "en": "Compulsion",
+      "fr": "Compulsion"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Targets within 30 ft must succeed on a Wis. save or move in a specified direction.",
+      "fr": "Les cibles à 9 m doivent réussir un JdS de Sag. ou se déplacer dans une direction indiquée."
     },
     "desc": {
       "en": [
@@ -5728,7 +6192,15 @@
     "name": "Cone of Cold",
     "nameLocalized": {
       "en": "Cone of Cold",
+      "fr": "Cône de froid"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 60-ft cone must succeed on a Con. save or take 8d8 cold damage (damage/lvl).",
+      "fr": "Les créatures dans un cône de 18 m doivent réussir un JdS de Con. ou subir 8d8 dégâts de froid (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -5847,7 +6319,15 @@
     "name": "Confusion",
     "nameLocalized": {
       "en": "Confusion",
+      "fr": "Confusion"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 10-ft-radius sphere must succeed on a Wis. save or can't take actions normally (+ 5-ft-radius/lvl).",
+      "fr": "Les créatures dans un rayon de 3 m doivent réussir un JdS de Sag. ou ne plus pouvoir agir normalement (+1,50 m de rayon/niv)."
     },
     "desc": {
       "en": [
@@ -5980,7 +6460,15 @@
     "name": "Conjure Animals",
     "nameLocalized": {
       "en": "Conjure Animals",
+      "fr": "Invocation d'animaux"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Summon from 1 beast of CR 2 to 8 beasts of CR 1/4, friendly (nbr of creatures/lvl).",
+      "fr": "Invoque de 1 bête FP 2 à 8 bêtes FP 1/4 amicales (nbre de créatures/niv)."
     },
     "desc": {
       "en": [
@@ -6104,7 +6592,15 @@
     "name": "Conjure Celestial",
     "nameLocalized": {
       "en": "Conjure Celestial",
+      "fr": "Invocation de céleste"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Summon 1 celestial of CR 4, friendly (CR +1/lvl).",
+      "fr": "Invoque 1 céleste FP 4 amical (FP +1/niv)."
     },
     "desc": {
       "en": [
@@ -6203,7 +6699,15 @@
     "name": "Conjure Elemental",
     "nameLocalized": {
       "en": "Conjure Elemental",
+      "fr": "Invocation d'élémentaire"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Summon 1 elemental of CR 5, friendly (CR +1/lvl).",
+      "fr": "Invoque 1 élémentaire FP 5 amical (FP +1/niv)."
     },
     "desc": {
       "en": [
@@ -6327,7 +6831,15 @@
     "name": "Conjure Fey",
     "nameLocalized": {
       "en": "Conjure Fey",
+      "fr": "Invocation de fée"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Summon 1 fey of CR 6, friendly (CR +1/lvl).",
+      "fr": "Invoque 1 fée FP 6 amicale (FP +1/niv)."
     },
     "desc": {
       "en": [
@@ -6437,7 +6949,15 @@
     "name": "Conjure Minor Elementals",
     "nameLocalized": {
       "en": "Conjure Minor Elementals",
+      "fr": "Invocation d'élémentaires mineurs"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Summon from 1 elemental of CR 2 to 8 elemental of CR 1/4, friendly (nbr of creatures/lvl).",
+      "fr": "Invoque de 1 élémentaire FP 2 à 8 élémentaires FP 1/4 amicaux (nbre de créatures/niv)."
     },
     "desc": {
       "en": [
@@ -6551,7 +7071,15 @@
     "name": "Conjure Woodland Beings",
     "nameLocalized": {
       "en": "Conjure Woodland Beings",
+      "fr": "Invocation d'êtres sylvestres"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Summon from 1 fey of CR 2 to 8 fey of CR 1/4, friendly (nbr of creatures/lvl).",
+      "fr": "Invoque de 1 fée FP 2 à 8 fées FP 1/4 amicales (nbre de créatures/niv)."
     },
     "desc": {
       "en": [
@@ -6669,7 +7197,15 @@
     "name": "Contact Other Plane",
     "nameLocalized": {
       "en": "Contact Other Plane",
+      "fr": "Contact avec un autre plan"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Contact an extraplanar entity to ask it 5 questions if an Int. save is successful. Otherwise, 6d6 psychic damage.",
+      "fr": "Contacte une entité extérieure afin de lui poser 5 questions si un JdS d'Int. est réussi. Sinon, 6d6 dégâts psychiques."
     },
     "desc": {
       "en": [
@@ -6768,7 +7304,15 @@
     "name": "Contagion",
     "nameLocalized": {
       "en": "Contagion",
+      "fr": "Contagion"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, target is afflicted with a disease to choose from 6 proposed.",
+      "fr": "Si l'attaque avec un sort touche, la cible est infectée d'une maladie à choisir parmi les 6 proposées."
     },
     "desc": {
       "en": [
@@ -6881,7 +7425,15 @@
     "name": "Contingency",
     "nameLocalized": {
       "en": "Contingency",
+      "fr": "Prévoyance"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Condition the activation of a 5th level spell or lower that can target the caster.",
+      "fr": "Conditionne l'activation d'un sort de niveau 5 ou inférieur qui peut cibler le lanceur."
     },
     "desc": {
       "en": [
@@ -6976,7 +7528,15 @@
     "name": "Continual Flame",
     "nameLocalized": {
       "en": "Continual Flame",
+      "fr": "Flamme éternelle"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a flame that produces a light equivalent in brightness to a torch, but does not emit any heat.",
+      "fr": "Crée une flamme qui produit une lumière équivalente à celle d'une torche, mais qui ne dégage aucune chaleur."
     },
     "desc": {
       "en": [
@@ -7088,7 +7648,15 @@
     "name": "Control Water",
     "nameLocalized": {
       "en": "Control Water",
+      "fr": "Contrôle de l'eau"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Control the water in a 100-ft cube (cause a flood, part the water, redirect the flow, create a whirlpool).",
+      "fr": "Contrôle l'eau dans un cube de 30 m (provoquer une crue, scinder l'eau, diriger le courant, créer un tourbillon)."
     },
     "desc": {
       "en": [
@@ -7215,7 +7783,15 @@
     "name": "Control Weather",
     "nameLocalized": {
       "en": "Control Weather",
+      "fr": "Contrôle du climat"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Modify gradually the climatic conditions outdoors (precipitation, temperature and wind force).",
+      "fr": "Modifie progressivement les conditions climatiques en extérieur (précipitation, température et force du vent)."
     },
     "desc": {
       "en": [
@@ -7340,7 +7916,15 @@
     "name": "Counterspell",
     "nameLocalized": {
       "en": "Counterspell",
+      "fr": "Contresort"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "In reaction, fail a spell of 3rd level or lower. Ability check if the spell is 4th level or higher (threshold/lvl).",
+      "fr": "En réaction, fait échouer un sort de niveau 3 ou inférieur. Jet de Carac.Inc pour un sort de niveau 4 ou supérieur (seuil/niv)."
     },
     "desc": {
       "en": [
@@ -7455,7 +8039,15 @@
     "name": "Create Food and Water",
     "nameLocalized": {
       "en": "Create Food and Water",
+      "fr": "Création de nourriture et d'eau"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create 45 pounds of food and 30 gallons of water, enough to sustain 15 humanoids for 24 hours.",
+      "fr": "Crée 22,5 kilos de nourriture et 120 litres d'eau, suffisant pour 15 personnes durant 24 heures."
     },
     "desc": {
       "en": [
@@ -7583,7 +8175,15 @@
     "name": "Create Undead",
     "nameLocalized": {
       "en": "Create Undead",
+      "fr": "Création de mort-vivant"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 3 Medium or Small humanoids corpses become a ghoul who obey the caster for 24 h (nbr and type of creatures/lvl).",
+      "fr": "Jusqu'à 3 cadavres humanoïdes M ou P deviennent une goule qui obéit au lanceur durant 24 h (nbre et type de créatures/niv)."
     },
     "desc": {
       "en": [
@@ -7705,7 +8305,15 @@
     "name": "Create or Destroy Water",
     "nameLocalized": {
       "en": "Create or Destroy Water",
+      "fr": "Création ou destruction d'eau"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create or destroy up to 10 gallons of water (+10 gallons/lvl).",
+      "fr": "Crée ou détruit jusqu'à 40 litres d'eau (+40 litres/niv)."
     },
     "desc": {
       "en": [
@@ -7829,7 +8437,15 @@
     "name": "Creation",
     "nameLocalized": {
       "en": "Creation",
+      "fr": "Création"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a non-living object made of vegetable matter or mineral and no larger than a 5-ft cube (+5 ft/lvl).",
+      "fr": "Crée un objet non vivant fait de matières végétales ou minérales et pas plus grand qu'un cube de 1,50 m (+1,50 m/niv)."
     },
     "desc": {
       "en": [
@@ -7950,7 +8566,15 @@
     "name": "Cure Wounds",
     "nameLocalized": {
       "en": "Cure Wounds",
+      "fr": "Soins"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "1 creature regains 1d8+Ability.Mod (+1d8 hp/lvl).",
+      "fr": "1 créature récupère 1d8+Mod.Carac pv (+1d8 pv/niv)."
     },
     "desc": {
       "en": [
@@ -8114,7 +8738,15 @@
     "name": "Dancing Lights",
     "nameLocalized": {
       "en": "Dancing Lights",
+      "fr": "Lumières dansantes"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create up to 4 torch-sized lights that shed dim light in a 10-ft radius and can be moved later up to 60 ft.",
+      "fr": "Crée jusqu'à 4 lumières de la taille d'une torche qui émettent une lumière faible sur 3 m et qu'on peut déplacer jusqu'à 18 m."
     },
     "desc": {
       "en": [
@@ -8240,7 +8872,15 @@
     "name": "Darkness",
     "nameLocalized": {
       "en": "Darkness",
+      "fr": "Ténèbres"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Fill a 15-ft-radius sphere of magical darkness.",
+      "fr": "Remplit une sphère de 4,50 m de rayon de ténèbres magiques."
     },
     "desc": {
       "en": [
@@ -8375,7 +9015,15 @@
     "name": "Darkvision",
     "nameLocalized": {
       "en": "Darkvision",
+      "fr": "Vision dans le noir"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target can see in the dark within 60 feet.",
+      "fr": "La cible peut voir dans le noir à 18 mètres."
     },
     "desc": {
       "en": [
@@ -8508,7 +9156,15 @@
     "name": "Daylight",
     "nameLocalized": {
       "en": "Daylight",
+      "fr": "Lumière du jour"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a sphere that sheds bright light in a 60-ft radius and dim light in an additional 60-ft radius.",
+      "fr": "Crée une sphère qui emet une lumière vive sur 18 m et une lumière faible sur 18 m supplémentaires."
     },
     "desc": {
       "en": [
@@ -8660,7 +9316,15 @@
     "name": "Death Ward",
     "nameLocalized": {
       "en": "Death Ward",
+      "fr": "Protection contre la mort"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "When the target drops to 0 hp for the first time, it automatically returns to 1 hp.",
+      "fr": "Lorsque la cible tombera pour la première fois à 0 pv, elle repassera automatiquement à 1 pv."
     },
     "desc": {
       "en": [
@@ -8771,7 +9435,15 @@
     "name": "Delayed Blast Fireball",
     "nameLocalized": {
       "en": "Delayed Blast Fireball",
+      "fr": "Boule de feu à retardement"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-ft-radius sphere must succeed on a Dex. save or take 12d6 fire damage (damage/lvl).",
+      "fr": "Les créatures dans une shpère de 6 m de rayon doivent réussir un JdS de Dex. ou subir 12d6 dégâts de feu (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -8885,7 +9557,15 @@
     "name": "Demiplane",
     "nameLocalized": {
       "en": "Demiplane",
+      "fr": "Demi-plan"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a door that leads to a demiplane (30-ft cube). Creatures still in the demiplane at the end of the spell are trapped.",
+      "fr": "Crée une porte qui conduit à un demi-plan (cube de 9 m). Les créatures encore dans le demi-plan à la fin du sort sont piégées."
     },
     "desc": {
       "en": [
@@ -8986,7 +9666,15 @@
     "name": "Detect Evil and Good",
     "nameLocalized": {
       "en": "Detect Evil and Good",
+      "fr": "Détection du mal et du bien"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster senses and locates aberration, celestial, elemental, fey, fiend, or undead within 30 ft.",
+      "fr": "Le lanceur détecte et localise aberration, céleste, élémentaire, fée, fiélon ou mort-vivant dans un rayon de 9 m."
     },
     "desc": {
       "en": [
@@ -9096,7 +9784,15 @@
     "name": "Detect Magic",
     "nameLocalized": {
       "en": "Detect Magic",
+      "fr": "Détection de la magie"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster senses the presence of magic in a 30-ft radius and learns its school of magic.",
+      "fr": "Le lanceur détecte toutes émanations magiques dans un rayon de 9 m et en détermine l'école."
     },
     "desc": {
       "en": [
@@ -9256,7 +9952,15 @@
     "name": "Detect Poison and Disease",
     "nameLocalized": {
       "en": "Detect Poison and Disease",
+      "fr": "Détection du poison et des maladies"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster senses and identifies poison, poisonous creature, or disease within 30 ft.",
+      "fr": "Le lanceur détecte et identifie poisons, créatures venimeuses et maladies à 9 mètres."
     },
     "desc": {
       "en": [
@@ -9390,7 +10094,15 @@
     "name": "Detect Thoughts",
     "nameLocalized": {
       "en": "Detect Thoughts",
+      "fr": "Détection des pensées"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster detects the superficial thoughts of a creature within 30 ft, and the deepest if the target misses a Wis. save.",
+      "fr": "Le lanceur détecte les pensées superficielles d'une créature à 9 m, et les plus approfondies si la cible rate un JdS de Sag."
     },
     "desc": {
       "en": [
@@ -9517,7 +10229,15 @@
     "name": "Dimension Door",
     "nameLocalized": {
       "en": "Dimension Door",
+      "fr": "Porte dimensionnelle"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster and another creature of the same size are teleported to a maximum of 500 feet.",
+      "fr": "Le lanceur et une autre créature de même taille sont téléportés à un maximum de 150 mètres."
     },
     "desc": {
       "en": [
@@ -9638,7 +10358,15 @@
     "name": "Disguise Self",
     "nameLocalized": {
       "en": "Disguise Self",
+      "fr": "Déguisement"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Modify the appearance of the caster (its physical and its equipment) thanks to an illusion.",
+      "fr": "Modifie l'apparence du lanceur (son physique et son équipement) grâce à une illusion."
     },
     "desc": {
       "en": [
@@ -9760,7 +10488,15 @@
     "name": "Disintegrate",
     "nameLocalized": {
       "en": "Disintegrate",
+      "fr": "Désintégration"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Dex. save or take 10d6+40 force damage (damage/lvl). An Large or smaller object is disintegrated.",
+      "fr": "La cible doit réussir un JdS de Dex. ou subir 10d6+40 dégâts de force (dégâts/niv). Un objet de taille G est désintégré."
     },
     "desc": {
       "en": [
@@ -9873,7 +10609,15 @@
     "name": "Dispel Evil and Good",
     "nameLocalized": {
       "en": "Dispel Evil and Good",
+      "fr": "Dissipation du mal et du bien"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "End a condition (charmed, frightened, or possessed) or bannish a creature to its home plane (Cha. save).",
+      "fr": "Met fin à un état (charmé, effrayé ou possédé) ou renvoie une créature sur son plan d'origine (JdS de Cha)."
     },
     "desc": {
       "en": [
@@ -9981,7 +10725,15 @@
     "name": "Dispel Magic",
     "nameLocalized": {
       "en": "Dispel Magic",
+      "fr": "Dissipation de la magie"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "End spells of 3rd level 3 or lower on a target. Ability check for each spell of 4th level or higher (threshold/lvl).",
+      "fr": "Met fin aux sorts de niveau 3 ou inférieur sur une cible. Jet de Carac.Inc pour les sorts de niveau 4 ou supérieur (seuil/niv)."
     },
     "desc": {
       "en": [
@@ -10156,7 +10908,15 @@
     "name": "Divination",
     "nameLocalized": {
       "en": "Divination",
+      "fr": "Divination"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster gets a truthful reply to 1 question about an event to occur within 7 days.",
+      "fr": "Le lanceur obtient une réponse fiable à 1 question au sujet d'un évènement à venir dans les 7 prochains jours."
     },
     "desc": {
       "en": [
@@ -10260,7 +11020,15 @@
     "name": "Divine Favor",
     "nameLocalized": {
       "en": "Divine Favor",
+      "fr": "Faveur divine"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If a weapon attack hits, deals an extra 1d4 radiant damage.",
+      "fr": "Si une attaque avec une arme touche, inflige 1d4 dégâts radiants extra."
     },
     "desc": {
       "en": [
@@ -10359,7 +11127,15 @@
     "name": "Divine Word",
     "nameLocalized": {
       "en": "Divine Word",
+      "fr": "Parole divine"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Targets must succeed on a Cha. save or suffer an effect (deafened, blinded, etc). Some creatures are banned.",
+      "fr": "Les cibles doivent réussir un JdS de Cha. ou subir un effet (assourdi, aveuglé, etc). Certaines créatures sont bannies."
     },
     "desc": {
       "en": [
@@ -10453,7 +11229,15 @@
     "name": "Dominate Beast",
     "nameLocalized": {
       "en": "Dominate Beast",
+      "fr": "Domination de bête"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "A beast within 60 ft must succeed on a Wis. save or be charmed and obey the launcher (duration/lvl).",
+      "fr": "Une bête à 18 m doit réussir un JdS de Sag. ou être charmé et obéir au lanceur (durée/niv)."
     },
     "desc": {
       "en": [
@@ -10562,7 +11346,15 @@
     "name": "Dominate Monster",
     "nameLocalized": {
       "en": "Dominate Monster",
+      "fr": "Domination de monstre"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Wis. save or be charmed and obey the caster (duration/lvl).",
+      "fr": "La cible doit réussir un JdS de Sag. ou être charmée et obéir au lanceur (durée/niv)."
     },
     "desc": {
       "en": [
@@ -10692,7 +11484,15 @@
     "name": "Dominate Person",
     "nameLocalized": {
       "en": "Dominate Person",
+      "fr": "Domination de personne"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "One humanoid must succeed on a Wis. save or be charmed and obey the caster (duration/lvl).",
+      "fr": "Un humanoïde doit réussir un JdS de Sag. ou être charmé et obéir au lanceur (durée/niv)."
     },
     "desc": {
       "en": [
@@ -10812,7 +11612,15 @@
     "name": "Dream",
     "nameLocalized": {
       "en": "Dream",
+      "fr": "Songe"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Shape the dreams of a sleeping creature who can take 3d6 psychic damage if it fails on a Wis. save.",
+      "fr": "Façonne les rêves d'une créature qui dort et peut faire subir 3d6 dégâts psychiques en cas d'échec à un JdS de Sag."
     },
     "desc": {
       "en": [
@@ -10939,7 +11747,15 @@
     "name": "Druidcraft",
     "nameLocalized": {
       "en": "Druidcraft",
+      "fr": "Druidisme"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Provide various minor effects related to nature (weather forecast, flowering, sensory effect, etc).",
+      "fr": "Permet d'obtenir divers effets mineurs en rapport avec la nature (prévision météo, floraison, effet sensoriel, etc)."
     },
     "desc": {
       "en": [
@@ -11033,7 +11849,15 @@
     "name": "Earthquake",
     "nameLocalized": {
       "en": "Earthquake",
+      "fr": "Tremblement de terre"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 100-ft radius must succeed on a Dex. save or be knocked prone. Cause damage to structures.",
+      "fr": "Les créatures dans un rayon de 30 m doivent réussir un JdS de Dex. ou tomber à terre. Cause des dégâts aux structures."
     },
     "desc": {
       "en": [
@@ -11154,7 +11978,15 @@
     "name": "Eldritch Blast",
     "nameLocalized": {
       "en": "Eldritch Blast",
+      "fr": "Décharge occulte"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 1d10 force damage (nbr of beam/lvl).",
+      "fr": "Si l'attaque avec un sort touche, inflige 1d10 dégâts de force (nbre de rayons/niv)."
     },
     "desc": {
       "en": [
@@ -11254,7 +12086,15 @@
     "name": "Enhance Ability",
     "nameLocalized": {
       "en": "Enhance Ability",
+      "fr": "Amélioration de caractéristique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target gains advantage on ability checks for one predefined ability, and other bonuses in such cases (+1 creature/lvl).",
+      "fr": "La cible gagne l'avantage aux jets d'une caractéristique prédéfinie, plus d'éventuels autres bonus (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -11405,7 +12245,15 @@
     "name": "Enlarge/Reduce",
     "nameLocalized": {
       "en": "Enlarge/Reduce",
+      "fr": "Agrandissement/Rapetissement"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Double or halve the size of a creature (Con. save) or an object.",
+      "fr": "Double ou réduit de moitié la taille d'une créature (JdS de Con) ou d'un objet."
     },
     "desc": {
       "en": [
@@ -11525,7 +12373,15 @@
     "name": "Entangle",
     "nameLocalized": {
       "en": "Entangle",
+      "fr": "Enchevêtrement"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-ft square (difficult terrain) must succeed on a Str. save or be restrained.",
+      "fr": "Les créatures dans un carré de 6 m (terrain difficile) doivent réussir un JdS de For. ou être entravées."
     },
     "desc": {
       "en": [
@@ -11628,7 +12484,15 @@
     "name": "Enthrall",
     "nameLocalized": {
       "en": "Enthrall",
+      "fr": "Discours captivant"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Targets must succeed on a Wis. save or have disadvantage on Wisdom (Perception) checks to perceive others creatures.",
+      "fr": "Les cibles doivent réussir un JdS de Sag. ou avoir un désavantage aux jets de Sagesse (Perception) contre d'autres créatures."
     },
     "desc": {
       "en": [
@@ -11739,7 +12603,15 @@
     "name": "Etherealness",
     "nameLocalized": {
       "en": "Etherealness",
+      "fr": "Forme éthérée"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster is projected into the Ethereal Plane (nbr of creatures/lvl).",
+      "fr": "Le lanceur est projetté dans le plan éthéré (nbre de créatures/niv)."
     },
     "desc": {
       "en": [
@@ -11878,7 +12750,15 @@
     "name": "Expeditious Retreat",
     "nameLocalized": {
       "en": "Expeditious Retreat",
+      "fr": "Repli expéditif"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster can take the Dash action by using a bonus action.",
+      "fr": "Le lanceur peut effectuer l'action Foncer en utilisant une action bonus."
     },
     "desc": {
       "en": [
@@ -11997,7 +12877,15 @@
     "name": "Eyebite",
     "nameLocalized": {
       "en": "Eyebite",
+      "fr": "Mauvais oeil"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target in a 60-ft radius must succeed on a Wis. save or take on a the following effects: asleep, panicked or sickened.",
+      "fr": "La cible dans un rayon de 18 m doit réussir un JdS de Sag. ou subir un des effets suivants : sommeil, panique ou fièvre."
     },
     "desc": {
       "en": [
@@ -12122,7 +13010,15 @@
     "name": "Fabricate",
     "nameLocalized": {
       "en": "Fabricate",
+      "fr": "Fabrication"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Convert raw materials into Large or smaller simples objects of the same material.",
+      "fr": "Convertit des matériaux bruts en objets simples de taille G ou inférieure de la même matière."
     },
     "desc": {
       "en": [
@@ -12214,7 +13110,15 @@
     "name": "Faerie Fire",
     "nameLocalized": {
       "en": "Faerie Fire",
+      "fr": "Lueurs féeriques"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-ft cube must succeed on a Dex. save or grant advantage against them to attackers.",
+      "fr": "Les créatures dans un cube de 6 m doivent réussir un JdS de Dex. ou octroyer l'avantage contre elles à l'attaque."
     },
     "desc": {
       "en": [
@@ -12315,8 +13219,15 @@
     "url": "/api/spells/faithful-hound",
     "name": "Faithful Hound",
     "nameLocalized": {
-      "en": "Faithful Hound",
+      "en": "Faithful Hound"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -12343,7 +13254,19 @@
         "fr": "30 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": false,
     "castingTime": {
@@ -12391,7 +13314,15 @@
     "name": "False Life",
     "nameLocalized": {
       "en": "False Life",
+      "fr": "Simulacre de vie"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster gains 1d4+4 temporary hit points (+5 hp/lvl).",
+      "fr": "Le lanceur gagne 1d4+4 pv temporaires (+5 pv/niv)."
     },
     "desc": {
       "en": [
@@ -12521,7 +13452,15 @@
     "name": "Fear",
     "nameLocalized": {
       "en": "Fear",
+      "fr": "Peur"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 30-ft cone must succeed on a Wis. save or drop whatever they are holding, become frightened and move away.",
+      "fr": "Les créatures dans un cône de 9 m doivent réussir un JdS de Sag. ou lâcher ce qu'elles tiennent, être effrayées et s'enfuir."
     },
     "desc": {
       "en": [
@@ -12655,7 +13594,15 @@
     "name": "Feather Fall",
     "nameLocalized": {
       "en": "Feather Fall",
+      "fr": "Feuille morte"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 5 creatures fall at 60 feet per round and take no falling damage before the spell ends.",
+      "fr": "Jusqu'à 5 créatures tombent à une vitesse de 18 mètres par round et ne subissent pas de dégâts de chute si le sort est actif."
     },
     "desc": {
       "en": [
@@ -12779,7 +13726,15 @@
     "name": "Feeblemind",
     "nameLocalized": {
       "en": "Feeblemind",
+      "fr": "Esprit faible"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target take 4d6 psychic damage and must succeed on an Int. save or his Charisma and Intelligence scores become 1.",
+      "fr": "La cible subit 4d6 dégâts psychiques et doit réussir un JdS d'Int. ou son Charisme et son Intelligence tombent à 1."
     },
     "desc": {
       "en": [
@@ -12906,7 +13861,15 @@
     "name": "Find Familiar",
     "nameLocalized": {
       "en": "Find Familiar",
+      "fr": "Appel de familier"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Summon a small animal that obeys the caster and telepathically shares his senses with him.",
+      "fr": "Invoque un petit animal qui obéit au lanceur du sort et qui partage ses sens avec lui par télépathie."
     },
     "desc": {
       "en": [
@@ -13006,7 +13969,15 @@
     "name": "Find Steed",
     "nameLocalized": {
       "en": "Find Steed",
+      "fr": "Appel de destrier"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Summon a spirit that assumes the form a steed (horse, elk, etc) telepathically linked to the caster.",
+      "fr": "Invoque un esprit sous la forme d'un destrier (cheval, élan, etc) lié par télépathie au lanceur."
     },
     "desc": {
       "en": [
@@ -13110,7 +14081,15 @@
     "name": "Find Traps",
     "nameLocalized": {
       "en": "Find Traps",
+      "fr": "Sens des pièges"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster senses the presence of any trap in a 120-fr radius, but the spell don't give their location.",
+      "fr": "Le lanceur sent tous pièges dans un rayon de 36 m, mais le sort donne pas leur localisation."
     },
     "desc": {
       "en": [
@@ -13231,7 +14210,15 @@
     "name": "Find the Path",
     "nameLocalized": {
       "en": "Find the Path",
+      "fr": "Sens de l'orientation"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Determine the shortest and most direct physical path to reach a known destination.",
+      "fr": "Détermine le chemin physique le plus court et le plus direct pour atteindre une destination connue."
     },
     "desc": {
       "en": [
@@ -13336,7 +14323,15 @@
     "name": "Finger of Death",
     "nameLocalized": {
       "en": "Finger of Death",
+      "fr": "Doigt de mort"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Con. save or take 7d8+30 necrotic damage. If killed, becomes a zombie under the caster command.",
+      "fr": "La cible doit réussir un JdS de Con. ou subir 7d8+30 dégâts nécrotiques. Si elle meurt elle devient un zombi contrôlé."
     },
     "desc": {
       "en": [
@@ -13447,7 +14442,15 @@
     "name": "Fire Bolt",
     "nameLocalized": {
       "en": "Fire Bolt",
+      "fr": "Trait de feu"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 1d10 fire damage (damage/lvl). An object can ignite.",
+      "fr": "Si l'attaque avec un sort touche, inflige 1d10 dégâts de feu (dégâts/niv). Un objet peut prendre feu."
     },
     "desc": {
       "en": [
@@ -13548,7 +14551,15 @@
     "name": "Fire Shield",
     "nameLocalized": {
       "en": "Fire Shield",
+      "fr": "Bouclier de feu"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster gains resistance to cold or fire damage, and deals 2d8 damage to attackers who hit him within 5 ft.",
+      "fr": "Le lanceur obtient la résistance aux dégâts de froid ou de feu, et fait subir 2d8 dégâts aux attaquants à 1,50 m qui touchent."
     },
     "desc": {
       "en": [
@@ -13653,7 +14664,15 @@
     "name": "Fire Storm",
     "nameLocalized": {
       "en": "Fire Storm",
+      "fr": "Tempête de feu"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in ten 10-ft cube must succeed on a Dex. save or take 7d10 fire damage.",
+      "fr": "Les créatures dans dix cubes de 3 m doivent réussir un JdS de Dex. ou subir 7d10 dégâts de feu."
     },
     "desc": {
       "en": [
@@ -13764,7 +14783,15 @@
     "name": "Fireball",
     "nameLocalized": {
       "en": "Fireball",
+      "fr": "Boule de feu"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-ft radius must succeed on a Dex. save or take 8d6 fire damage (damage/lvl).",
+      "fr": "Les créatures dans un rayon de 6 m doivent réussir un JdS de Dex. ou subir 8d6 dégâts de feu (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -13894,7 +14921,15 @@
     "name": "Flame Blade",
     "nameLocalized": {
       "en": "Flame Blade",
+      "fr": "Lame de feu"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 3d6 fire damage (damage/lvl). Shed bright light in 10 ft and dim light in additional 10 ft.",
+      "fr": "Si l'attaque avec un sort touche, inflige 3d6 dégâts de feu (dégâts/niv). Émet une lumière vive sur 3 m et faible sur 3 m extra."
     },
     "desc": {
       "en": [
@@ -14005,7 +15040,15 @@
     "name": "Flame Strike",
     "nameLocalized": {
       "en": "Flame Strike",
+      "fr": "Colonne de flamme"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 10-ft-radius, 40-ft-high cylinder must succeed on a Dex. save or take 4d6 fire and 4d6 radiant (damage/lvl).",
+      "fr": "Les créatures dans un cylindre de 6 x 12 m doivent réussir un JdS de Dex. ou subir 4d6 de feu et 4d6 radiants (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -14124,7 +15167,15 @@
     "name": "Flaming Sphere",
     "nameLocalized": {
       "en": "Flaming Sphere",
+      "fr": "Sphère de feu"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures within 5 ft from a 5-ft-diameter sphere must succeed on a Dex. save or take 2d6 fire damage (damage/lvl).",
+      "fr": "Les créatures à 3 m d'une sphère de 3 m de diamètre doivent réussir un JdS de Dex. ou subir 2d6 dégâts de feu (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -14247,7 +15298,15 @@
     "name": "Flesh to Stone",
     "nameLocalized": {
       "en": "Flesh to Stone",
+      "fr": "Pétrification"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target within 60 ft must succeed on a Con. save or be restrained, or petrified after 3 failures.",
+      "fr": "La cible à 18 m doit réussir un JdS de Con. ou être entravée, voire pétrifiée après 3 échecs."
     },
     "desc": {
       "en": [
@@ -14354,8 +15413,15 @@
     "url": "/api/spells/floating-disk",
     "name": "Floating Disk",
     "nameLocalized": {
-      "en": "Floating Disk",
+      "en": "Floating Disk"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -14382,7 +15448,19 @@
         "fr": "30 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": true,
     "concentration": false,
     "castingTime": {
@@ -14440,7 +15518,15 @@
     "name": "Fly",
     "nameLocalized": {
       "en": "Fly",
+      "fr": "Vol"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target gets a flying speed of 60 ft (+1 creature/lvl).",
+      "fr": "La cible obtient une vitesse de vol de 18 mètres (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -14569,7 +15655,15 @@
     "name": "Fog Cloud",
     "nameLocalized": {
       "en": "Fog Cloud",
+      "fr": "Nappe de brouillard"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Makes an area heavily obscured in a 20-ft-radius sphere (+20 ft/lvl).",
+      "fr": "Rend la visibilité nulle dans une sphère de 6 m de rayon (+6 m/niv)."
     },
     "desc": {
       "en": [
@@ -14706,7 +15800,15 @@
     "name": "Forbiddance",
     "nameLocalized": {
       "en": "Forbiddance",
+      "fr": "Interdiction"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Prevent teleporting to the protected area and inflicts 5d10 radiant or necrotic damage to some type of creatures.",
+      "fr": "Empêche de se téléporter dans la zone protégée et inflige 5d10 dégâts radiants ou nécrotiques à certains types de créatures."
     },
     "desc": {
       "en": [
@@ -14802,7 +15904,15 @@
     "name": "Forcecage",
     "nameLocalized": {
       "en": "Forcecage",
+      "fr": "Cage de force"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creates a 20-ft cage or a 10-ft box of magical force that traps a creature. Escape by magicial means only.",
+      "fr": "Crée une cage de 6 m ou une boite de 3 m de force magique qui emprisonne une créature. Évasion possible par magie uniquement."
     },
     "desc": {
       "en": [
@@ -14922,7 +16032,15 @@
     "name": "Foresight",
     "nameLocalized": {
       "en": "Foresight",
+      "fr": "Prémonition"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "1 creature sees its near future, can not be surprised and has advantage on his rolls. Attacks against it have disadvantage.",
+      "fr": "1 créature voit son futur proche, ne peut être surprise et a l'avantage à ses jets. Les attaque contre elle ont un désavantage."
     },
     "desc": {
       "en": [
@@ -15046,7 +16164,15 @@
     "name": "Freedom of Movement",
     "nameLocalized": {
       "en": "Freedom of Movement",
+      "fr": "Liberté de mouvement"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Target's movement is unaffected by difficult terrain, spells or water.",
+      "fr": "La cible n'est pas affectée dans ses mouvements par un terrain difficile, un sort ou de l'eau."
     },
     "desc": {
       "en": [
@@ -15188,8 +16314,15 @@
     "url": "/api/spells/freezing-sphere",
     "name": "Freezing Sphere",
     "nameLocalized": {
-      "en": "Freezing Sphere",
+      "en": "Freezing Sphere"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -15222,7 +16355,19 @@
         "fr": "300 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": false,
     "castingTime": {
@@ -15269,7 +16414,15 @@
     "name": "Gaseous Form",
     "nameLocalized": {
       "en": "Gaseous Form",
+      "fr": "Forme gazeuse"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target turns into a cloud, gets a flying speed of 10 ft, and can pass through small holes.",
+      "fr": "La cible se transforme en nuage, obtient une vitesse de vol de 3 m et peut passer par de petits trous."
     },
     "desc": {
       "en": [
@@ -15403,7 +16556,15 @@
     "name": "Gate",
     "nameLocalized": {
       "en": "Gate",
+      "fr": "Portail"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a portal to another plan. Also allows to summon a creature from another plane.",
+      "fr": "Crée un portail vers un autre plan. Permet aussi d'invoquer une créature d'un autre plan."
     },
     "desc": {
       "en": [
@@ -15521,7 +16682,15 @@
     "name": "Geas",
     "nameLocalized": {
       "en": "Geas",
+      "fr": "Quête"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Wis. save or be charmed and take 5d10 psychic if it doesn't obey (duration/lvl).",
+      "fr": "La cible doit réussir un JdS de Sag. ou être charmée et subir 5d10 dégâts psychiques si elle n'obéit pas (durée/niv)."
     },
     "desc": {
       "en": [
@@ -15659,7 +16828,15 @@
     "name": "Gentle Repose",
     "nameLocalized": {
       "en": "Gentle Repose",
+      "fr": "Préservation des morts"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Protect a corpse from decay or to become undead.",
+      "fr": "Protège un cadavre du pourrissement ou de devenir un mort-vivant."
     },
     "desc": {
       "en": [
@@ -15773,7 +16950,15 @@
     "name": "Giant Insect",
     "nameLocalized": {
       "en": "Giant Insect",
+      "fr": "Insecte géant"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Transform insects (from 10 centipedes to 1 scorpion) into giant creatures that obey the caster's orders.",
+      "fr": "Transforme des insectes (de 10 mille-pattes à 1 scorpion) en créatures géantes qui obéissent aux ordres du lanceur."
     },
     "desc": {
       "en": [
@@ -15867,7 +17052,15 @@
     "name": "Glibness",
     "nameLocalized": {
       "en": "Glibness",
+      "fr": "Bagou"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Give 15 to a Charisma check and hides the lies during a magic detection.",
+      "fr": "Donne 15 à un jet de Charisme et masque les mensonges lors d'une détection magique."
     },
     "desc": {
       "en": [
@@ -15965,7 +17158,15 @@
     "name": "Globe of Invulnerability",
     "nameLocalized": {
       "en": "Globe of Invulnerability",
+      "fr": "Globe d'invulnérabilité"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Block 5th level spells or lower within a 10-ft radius (threshold/lvl).",
+      "fr": "Bloque les sorts de niveau 5 ou inférieur dans un rayon de 3 m (seuil/niv)."
     },
     "desc": {
       "en": [
@@ -16075,7 +17276,15 @@
     "name": "Glyph of Warding",
     "nameLocalized": {
       "en": "Glyph of Warding",
+      "fr": "Glyphe de protection"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "A glyph on an object deals 5d8 damage in a 20-ft radius (damage/lvl) or casts a 3rd level spell (lvl/lvl) when triggered.",
+      "fr": "Un glyphe sur un objet inflige 5d8 dégâts dans un rayon de 4,50 m (dégâts/niv) ou lance un sort niv 3 (niv/niv) si déclenché."
     },
     "desc": {
       "en": [
@@ -16209,7 +17418,15 @@
     "name": "Goodberry",
     "nameLocalized": {
       "en": "Goodberry",
+      "fr": "Baies nourricières"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create up to 10 berries that restore 1 hp each and keep their power for 24 hours.",
+      "fr": "Crée jusqu'à 10 baies qui redonnent 1 pv chacune et gardent leur pouvoir durant 24 heures."
     },
     "desc": {
       "en": [
@@ -16312,7 +17529,15 @@
     "name": "Grease",
     "nameLocalized": {
       "en": "Grease",
+      "fr": "Graisse"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 10-ft square (difficult terrain) must succeed on a Dex. save or fall prone.",
+      "fr": "Les créatures dans un carré de 3 m (terrain difficile) doivent réussir un JdS de Dex. pour ne pas tomber."
     },
     "desc": {
       "en": [
@@ -16418,7 +17643,15 @@
     "name": "Greater Invisibility",
     "nameLocalized": {
       "en": "Greater Invisibility",
+      "fr": "Invisibilité supérieure"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target becomes invisible for 1 minute.",
+      "fr": "La cible devient invisible durant 1 minute."
     },
     "desc": {
       "en": [
@@ -16537,7 +17770,15 @@
     "name": "Greater Restoration",
     "nameLocalized": {
       "en": "Greater Restoration",
+      "fr": "Restauration supérieure"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "End one condition (charmed or petrified), one curse, any ability scores or hp reduction, or one exhaustion level.",
+      "fr": "Met fin à un état (charmé ou pétrification), à une malédiction, à une réduction de carac ou de pv, ou à un niveau d'épuisement."
     },
     "desc": {
       "en": [
@@ -16653,7 +17894,15 @@
     "name": "Guardian of Faith",
     "nameLocalized": {
       "en": "Guardian of Faith",
+      "fr": "Gardien de la foi"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Hostiles creatures within a 10-ft radius of the created guardian must succeed on a Dex. save or take 20 radiant damage.",
+      "fr": "Les créatures hostiles dans un rayon de 3 m autour du gardien créé doivent réussir un JdS de Dex. ou subir 20 dégâts radiants."
     },
     "desc": {
       "en": [
@@ -16753,7 +18002,15 @@
     "name": "Guards and Wards",
     "nameLocalized": {
       "en": "Guards and Wards",
+      "fr": "Protections et sceaux"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a ward that protect a 50-ft square. Can set a password to immunize individuals.",
+      "fr": "Crée une défense magique qui protège un carré de 15 m. Possibilité de définir un mot de passe pour immuniser des individus."
     },
     "desc": {
       "en": [
@@ -16873,7 +18130,15 @@
     "name": "Guidance",
     "nameLocalized": {
       "en": "Guidance",
+      "fr": "Assistance"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target can add 1d4 to one ability check of its choice.",
+      "fr": "La cible peut ajouter 1d4 à un jet de caractéristique de son choix."
     },
     "desc": {
       "en": [
@@ -16982,7 +18247,15 @@
     "name": "Guiding Bolt",
     "nameLocalized": {
       "en": "Guiding Bolt",
+      "fr": "Éclair traçant"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 4d6 radiant damage (damage/lvl) and the next attack roll will have advantage.",
+      "fr": "Si l'attaque avec un sort touche, inflige 4d6 dégâts radiants (dégâts/niv) et le prochain jet d'attaque aura l'avantage."
     },
     "desc": {
       "en": [
@@ -17089,7 +18362,15 @@
     "name": "Gust of Wind",
     "nameLocalized": {
       "en": "Gust of Wind",
+      "fr": "Bourrasque"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures on a 60-ft-long, 10-ft-wide line mus succeed on a Str. save or be pushed 15 ft away.",
+      "fr": "Les créatures sur une ligne de 18 x 3 m doivent réussir un JdS de For. ou être repoussées de 4,50 m."
     },
     "desc": {
       "en": [
@@ -17215,7 +18496,15 @@
     "name": "Hallow",
     "nameLocalized": {
       "en": "Hallow",
+      "fr": "Sanctification"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Prevent celestials, elementals, fey, fiends, and undead to enter a 60-ft-radius area and protect/handicap the targets.",
+      "fr": "Empêche célestes, élémentaires, fiélons, fées et morts-vivants d'entrer dans un rayon de 18 m et protège/handicape les cibles."
     },
     "desc": {
       "en": [
@@ -17339,7 +18628,15 @@
     "name": "Hallucinatory Terrain",
     "nameLocalized": {
       "en": "Hallucinatory Terrain",
+      "fr": "Terrain hallucinatoire"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Make a natural terrain looks like another type (for example a road becomes a swamp or a crevasse).",
+      "fr": "Fait paraître un terrain naturel pour un autre type (par exemple une route devient un marais ou une crevasse)."
     },
     "desc": {
       "en": [
@@ -17475,7 +18772,15 @@
     "name": "Harm",
     "nameLocalized": {
       "en": "Harm",
+      "fr": "Contamination"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Con. save or take 14d6 necrotic damage. The spell can't kill it however.",
+      "fr": "La cible doit réussir un JdS de Con. ou subir 14d6 dégâts nécrotiques. Le sort ne peut pas la tuer toutefois."
     },
     "desc": {
       "en": [
@@ -17565,7 +18870,15 @@
     "name": "Haste",
     "nameLocalized": {
       "en": "Haste",
+      "fr": "Hâte"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Target's speed is doubled. It also gains a +2 bonus to AC, advantage to Dex. saves and 1 additional action.",
+      "fr": "La cible voit sa vitesse doublée. Elle gagne aussi un bonus de +2 à la CA, l'avantage aux JdS de Dex. et 1 action extra."
     },
     "desc": {
       "en": [
@@ -17690,7 +19003,15 @@
     "name": "Heal",
     "nameLocalized": {
       "en": "Heal",
+      "fr": "Guérison"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "1 creature regains 70 hp and are cured of diseases, blindness, and deafness (+10 hp/lvl).",
+      "fr": "1 créature récupère 70 pv et est guérie des maladies, de l'aveuglement et de la surdité (+10 pv/niv)."
     },
     "desc": {
       "en": [
@@ -17802,7 +19123,15 @@
     "name": "Healing Word",
     "nameLocalized": {
       "en": "Healing Word",
+      "fr": "Mot de guérison"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "1 creature regains 1d4+Ability.Mod (+1d4 hp/lvl).",
+      "fr": "1 créature récupère 1d4+Mod.Carac pv (+1d4 pv/niv)."
     },
     "desc": {
       "en": [
@@ -17938,7 +19267,15 @@
     "name": "Heat Metal",
     "nameLocalized": {
       "en": "Heat Metal",
+      "fr": "Métal brûlant"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in physical contact with the metal object take 2d8 fire damage (damage/lvl).",
+      "fr": "Les créatures en contact avec l'objet en métal subissent 2d8 dégâts de feu (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -18060,7 +19397,15 @@
     "name": "Hellish Rebuke",
     "nameLocalized": {
       "en": "Hellish Rebuke",
+      "fr": "Représailles infernales"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Dex. save or take 2d10 fire damage (damage/lvl).",
+      "fr": "La cible doit réussir un JdS de Dex. ou subir 2d10 dégâts de feu (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -18150,7 +19495,15 @@
     "name": "Heroes' Feast",
     "nameLocalized": {
       "en": "Heroes' Feast",
+      "fr": "Festin des héros"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Produce a feast for 12 guests that cures diseases, immunizes to poison and increases hp by 2d10 for 24 hours.",
+      "fr": "Produit un festin pour 12 convives qui guérit des maladies, immunise au poison et augmente les pv de 2d10 durant 24h."
     },
     "desc": {
       "en": [
@@ -18255,7 +19608,15 @@
     "name": "Heroism",
     "nameLocalized": {
       "en": "Heroism",
+      "fr": "Héroïsme"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target is immune to being frightened and gains temporary hp equal to its Ability.Mod each turns (+1 creature/lvl).",
+      "fr": "La cible est immunisée contre l'état effrayé et gagne Mod.Carac.Inc pv temporaires/round (+1 créatures/niv)."
     },
     "desc": {
       "en": [
@@ -18363,8 +19724,15 @@
     "url": "/api/spells/hideous-laughter",
     "name": "Hideous Laughter",
     "nameLocalized": {
-      "en": "Hideous Laughter",
+      "en": "Hideous Laughter"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -18390,7 +19758,19 @@
         "fr": "30 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": true,
     "castingTime": {
@@ -18457,7 +19837,15 @@
     "name": "Hold Monster",
     "nameLocalized": {
       "en": "Hold Monster",
+      "fr": "Immobilisation de monstre"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Target must succeed on a Wis. save or be paralyzed (+1 creature/lvl).",
+      "fr": "La cible doit réussir un JdS de Sag. ou être paralysée (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -18588,7 +19976,15 @@
     "name": "Hold Person",
     "nameLocalized": {
       "en": "Hold Person",
+      "fr": "Immobilisation de personne"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Wis. save or be paralyzed (+1 creature/lvl).",
+      "fr": "La cible doit réussir un JdS de Sag. ou être paralysée (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -18758,7 +20154,15 @@
     "name": "Holy Aura",
     "nameLocalized": {
       "en": "Holy Aura",
+      "fr": "Aura sacrée"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Targets in a 30-ft radius have advantage on saving throws. Other creatures have disadvantage on attack rolls against them.",
+      "fr": "Les cibles dans un rayon de 9 m ont l'avantage aux JdS. Les autres créatures ont un désavantage à l'attaque contre ces cibles."
     },
     "desc": {
       "en": [
@@ -18851,7 +20255,15 @@
     "name": "Hunter's Mark",
     "nameLocalized": {
       "en": "Hunter's Mark",
+      "fr": "Marque du chasseur"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target take an extra 1d6 damage and caster has advantage on Wisdom (Perception/Survival) checks to find it (duration/lvl).",
+      "fr": "La cible subit 1d6 dégâts extra et le lanceur a l'avantage aux jets de Sagesse (Perception/Survie) pour la trouver (durée/niv)."
     },
     "desc": {
       "en": [
@@ -18956,7 +20368,15 @@
     "name": "Hypnotic Pattern",
     "nameLocalized": {
       "en": "Hypnotic Pattern",
+      "fr": "Motif hypnotique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 30-ft cube must succeed on a Wis. save or be charmed and incapacitated, with a speed of 0.",
+      "fr": "Les créatures dans un cube de 9 m doivent réussir un JdS de Sag. ou être charmées et incapables d'agir, avec une vitesse de 0."
     },
     "desc": {
       "en": [
@@ -19091,7 +20511,15 @@
     "name": "Ice Storm",
     "nameLocalized": {
       "en": "Ice Storm",
+      "fr": "Tempête de grêle"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-ft-radius, 40-ft-high cylinder must succeed on a Dex. save or take 2d8 bludgeoning damage and 4d6 cold damage.",
+      "fr": "Les créatures dans un cylindre de 12 x 12 m doivent réussir un JdS de Dex. ou subir 2d8 dégâts contondants et 4d6 de froid."
     },
     "desc": {
       "en": [
@@ -19222,7 +20650,15 @@
     "name": "Identify",
     "nameLocalized": {
       "en": "Identify",
+      "fr": "Identification"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster obtains properties of a magic item (attunement, charges) or knows if an item or a creature is affected by a spell.",
+      "fr": "Le lanceur obtient les propriétés d'un objet magique (lien, charges) ou est informé si un sort affecte un objet ou une créature."
     },
     "desc": {
       "en": [
@@ -19335,7 +20771,15 @@
     "name": "Illusory Script",
     "nameLocalized": {
       "en": "Illusory Script",
+      "fr": "Texte illusoire"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Write a secret message that can only be read by a designated target or a creature with truesight.",
+      "fr": "Rédige un message secret qui ne peut être lu que par une cible désignée ou une créature qui possède vision véritable."
     },
     "desc": {
       "en": [
@@ -19460,7 +20904,15 @@
     "name": "Imprisonment",
     "nameLocalized": {
       "en": "Imprisonment",
+      "fr": "Emprisonnement"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target within 30 ft must succeed on a Wis. save or be held prisoner. The form is to choose from 6 options.",
+      "fr": "La cible à 9 m doit réussir un JdS de Sag. ou être retenue prisonnière. La forme est à choisir parmi 6 options."
     },
     "desc": {
       "en": [
@@ -19578,7 +21030,15 @@
     "name": "Incendiary Cloud",
     "nameLocalized": {
       "en": "Incendiary Cloud",
+      "fr": "Nuage incendiaire"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-ft-radius sphere must succeed on a Dex. save or take 10d8 fire damage.",
+      "fr": "Les créatures dans une sphère de 6 m de rayon doivent réussir un JdS de Dex. ou subir 10d8 dégâts de feu."
     },
     "desc": {
       "en": [
@@ -19681,7 +21141,15 @@
     "name": "Inflict Wounds",
     "nameLocalized": {
       "en": "Inflict Wounds",
+      "fr": "Blessure"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 3d10 necrotic damage (damage/lvl).",
+      "fr": "Si l'attaque touche, inflige subit 3d10 dégâts nécrotiques (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -19785,7 +21253,15 @@
     "name": "Insect Plague",
     "nameLocalized": {
       "en": "Insect Plague",
+      "fr": "Fléau d'insectes"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-ft-radius sphere must succeed on a Con. save or take 4d10 piercing damage (damage/lvl).",
+      "fr": "Les créatures dans une sphère de 6 m de rayon doivent réussir un JdS de Con. ou subir 4d10 dégâts perforants (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -19916,8 +21392,15 @@
     "url": "/api/spells/instant-summons",
     "name": "Instant Summons",
     "nameLocalized": {
-      "en": "Instant Summons",
+      "en": "Instant Summons"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -19943,7 +21426,19 @@
         "fr": "touché"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": true,
     "concentration": false,
     "castingTime": {
@@ -19990,7 +21485,15 @@
     "name": "Invisibility",
     "nameLocalized": {
       "en": "Invisibility",
+      "fr": "Invisibilité"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target becomes invisible during 1 hour or until she attacks or casts a spell (+1 creature/lvl).",
+      "fr": "La cible devient invisible 1 heure ou jusqu'à ce qu'elle attaque ou lance un sort (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -20137,8 +21640,15 @@
     "url": "/api/spells/irresistible-dance",
     "name": "Irresistible Dance",
     "nameLocalized": {
-      "en": "Irresistible Dance",
+      "en": "Irresistible Dance"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -20164,7 +21674,17 @@
         "fr": "30 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": false,
+      "somatic": false,
+      "verbal": true,
+      "components": [
+        "V"
+      ],
+      "raw": {
+        "en": "V"
+      }
+    },
     "ritual": false,
     "concentration": true,
     "castingTime": {
@@ -20221,7 +21741,15 @@
     "name": "Jump",
     "nameLocalized": {
       "en": "Jump",
+      "fr": "Saut"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target gets a jump distance multiplicated by 3.",
+      "fr": "La cible obtient une distance de saut multipliée par 3."
     },
     "desc": {
       "en": [
@@ -20354,7 +21882,15 @@
     "name": "Knock",
     "nameLocalized": {
       "en": "Knock",
+      "fr": "Déblocage"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Unlock or unbar 1 object (door, chest, padlock, set of manacles, etc) or suppressed the arcane lock spell for 10 minutes.",
+      "fr": "Déverrouille ou débloque 1 objet (porte, coffre, cadenas, menottes, etc) ou supprime le sort verrou magique pour 10 minutes."
     },
     "desc": {
       "en": [
@@ -20476,7 +22012,15 @@
     "name": "Legend Lore",
     "nameLocalized": {
       "en": "Legend Lore",
+      "fr": "Mythes et légendes"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster obtains information about a person, place, or object. The lore consist of tales or stories.",
+      "fr": "Le lanceur obtient des informations sur une personne, un lieu ou un objet sous forme de contes ou d'histoires."
     },
     "desc": {
       "en": [
@@ -20589,7 +22133,15 @@
     "name": "Lesser Restoration",
     "nameLocalized": {
       "en": "Lesser Restoration",
+      "fr": "Restauration partielle"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "End one disease or one condition (blinded, deafened, paralyzed, or poisoned) on 1 creature.",
+      "fr": "Met fin à une maladie ou à un état (aveuglé, assourdi, paralysé ou empoisonné) sur 1 créature."
     },
     "desc": {
       "en": [
@@ -20745,7 +22297,15 @@
     "name": "Levitate",
     "nameLocalized": {
       "en": "Levitate",
+      "fr": "Lévitation"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "1 creature or object that weighs up to 500 pounds rises vertically up to 20 ft then remains suspended.",
+      "fr": "1 créature ou objet de moins de 250 kg s'élève verticalement jusqu'à 6 m et reste en lévitation."
     },
     "desc": {
       "en": [
@@ -20862,7 +22422,15 @@
     "name": "Light",
     "nameLocalized": {
       "en": "Light",
+      "fr": "Lumière"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Make an object to shed bright light in a 20-ft radius and dim light in an additional 20-ft radius.",
+      "fr": "Fait qu'un objet émette une lumière vive sur 6 m et une lumière faible sur 6 m supplémentaires."
     },
     "desc": {
       "en": [
@@ -20995,7 +22563,15 @@
     "name": "Lightning Bolt",
     "nameLocalized": {
       "en": "Lightning Bolt",
+      "fr": "Éclair"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures on a 100-ft-long, 5-ft-wide line must succeed on a Dex. save or take 8d6 lightning damage (damage/lvl).",
+      "fr": "Les créatures sur une ligne de 30 x 1,50 m doivent réussir un JdS de Dex. ou subir 8d6 dégâts de foudre (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -21123,7 +22699,15 @@
     "name": "Locate Animals or Plants",
     "nameLocalized": {
       "en": "Locate Animals or Plants",
+      "fr": "Localisation d'animaux ou de plantes"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Give the direction and distance to a kind of beast or plant within 5 miles.",
+      "fr": "Donne la direction et la distance à laquelle se trouve un type de bête ou de plante dans un rayon de 7,5 km."
     },
     "desc": {
       "en": [
@@ -21245,7 +22829,15 @@
     "name": "Locate Creature",
     "nameLocalized": {
       "en": "Locate Creature",
+      "fr": "Localisation de créature"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster senses the direction in which a familiar creature is within a 1000-ft radius.",
+      "fr": "Le lanceur ressent la direction dans laquelle se trouve une créature familière dans un rayon de 300 m."
     },
     "desc": {
       "en": [
@@ -21400,7 +22992,15 @@
     "name": "Locate Object",
     "nameLocalized": {
       "en": "Locate Object",
+      "fr": "Localisation d'objet"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster senses the direction to the location of an objet you are familiar with, within a 1000 ft radius.",
+      "fr": "Le lanceur sent la direction dans laquelle se trouve un objet familier, dans un rayon de 300 m."
     },
     "desc": {
       "en": [
@@ -21555,7 +23155,15 @@
     "name": "Longstrider",
     "nameLocalized": {
       "en": "Longstrider",
+      "fr": "Grande foulée"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target gets a speed increased by 10 ft (+1 creature/lvl).",
+      "fr": "La cible obtient une vitesse augmentée de 3 m (+1 créature/niv)."
     },
     "desc": {
       "en": [
@@ -21694,7 +23302,15 @@
     "name": "Mage Armor",
     "nameLocalized": {
       "en": "Mage Armor",
+      "fr": "Armure de mage"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target, willing and not wearing armor, gets an AC equal to 13+Dex.Mod.",
+      "fr": "La cible, si elle est consentante et ne porte pas d'armure, obtient une CA de 13+Mod.Dex."
     },
     "desc": {
       "en": [
@@ -21807,7 +23423,15 @@
     "name": "Mage Hand",
     "nameLocalized": {
       "en": "Mage Hand",
+      "fr": "Main de mage"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a spectral hand that can in a 30-ft radius manipulate an object, open a door, stow an item, etc.",
+      "fr": "Crée une main spectrale qui peut dans un rayon de 9 m manipuler un objet, ouvrir une porte, saisir un objet, etc."
     },
     "desc": {
       "en": [
@@ -21940,7 +23564,15 @@
     "name": "Magic Circle",
     "nameLocalized": {
       "en": "Magic Circle",
+      "fr": "Cercle magique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a 10-ft-radius, 20-ft-tall cylinder that protect from celestials, elementals, fey, fiends, and/or undead (+1 h/lvl).",
+      "fr": "Crée un cylindre de 6 x 6 m qui protège des célestes, élémentaires, fées, fiélons et/ou morts-vivants (+1 h/niv)."
     },
     "desc": {
       "en": [
@@ -22086,7 +23718,15 @@
     "name": "Magic Jar",
     "nameLocalized": {
       "en": "Magic Jar",
+      "fr": "Urne magique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster projects his soul into an urn and then returns to his body or possesses a humanoid body.",
+      "fr": "Le lanceur projette son âme dans une urne pour ensuite retourner dans son corps ou posséder le corps d'un humanoïde."
     },
     "desc": {
       "en": [
@@ -22184,7 +23824,15 @@
     "name": "Magic Missile",
     "nameLocalized": {
       "en": "Magic Missile",
+      "fr": "Projectile magique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "3 missiles deal automatically 1d4+1 force damage each to one or several creatures (+1 missile/lvl).",
+      "fr": "3 projectiles infligent automatiquement 1d4+1 dégâts de force chacun à une ou plusieurs créatures (+1 projectile/niv)."
     },
     "desc": {
       "en": [
@@ -22300,7 +23948,15 @@
     "name": "Magic Mouth",
     "nameLocalized": {
       "en": "Magic Mouth",
+      "fr": "Bouche magique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creates a magical mouth that will repeat a message of up to 25 words when a trigger condition is met.",
+      "fr": "Crée une bouche magique qui répétera un message de 25 mots max lorsqu'une condition de déclenchement est remplie."
     },
     "desc": {
       "en": [
@@ -22417,7 +24073,15 @@
     "name": "Magic Weapon",
     "nameLocalized": {
       "en": "Magic Weapon",
+      "fr": "Arme magique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Turn a weapon into a +1 magic weapon for attack rolls and damage rolls (+2 or +3 bonus/lvl).",
+      "fr": "Transforme une arme en arme magique +1 à l'attaque et aux dégâts (bonus de +2 ou +3/niv)."
     },
     "desc": {
       "en": [
@@ -22531,8 +24195,15 @@
     "url": "/api/spells/magnificent-mansion",
     "name": "Magnificent Mansion",
     "nameLocalized": {
-      "en": "Magnificent Mansion",
+      "en": "Magnificent Mansion"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -22559,7 +24230,19 @@
         "fr": "300 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": false,
     "castingTime": {
@@ -22616,7 +24299,15 @@
     "name": "Major Image",
     "nameLocalized": {
       "en": "Major Image",
+      "fr": "Image majeure"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create the image of an animated object or creature, with sounds and smells (without concentration/lvl).",
+      "fr": "Crée l'image d'un objet ou d'une créature animée, avec sons et odeurs (sans concentration/niv)."
     },
     "desc": {
       "en": [
@@ -22759,7 +24450,15 @@
     "name": "Mass Cure Wounds",
     "nameLocalized": {
       "en": "Mass Cure Wounds",
+      "fr": "Soins de groupe"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 6 creatures regain 3d8+Spell.Ability.Mod (+1d8 hp/lvl).",
+      "fr": "Jusqu'à 6 créatures récupèrent 3d8+Mod.Carac.Inc pv (+1d8 pv/niv)."
     },
     "desc": {
       "en": [
@@ -22892,7 +24591,15 @@
     "name": "Mass Heal",
     "nameLocalized": {
       "en": "Mass Heal",
+      "fr": "Guérison de groupe"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Several creatures regain a total of 700 ph and are cured of diseases, blindness, and deafness.",
+      "fr": "Plusieurs créatures récupèrent un total de 700 pv et sont guéries des maladies, de l'aveuglement et de la surdité."
     },
     "desc": {
       "en": [
@@ -22985,7 +24692,15 @@
     "name": "Mass Healing Word",
     "nameLocalized": {
       "en": "Mass Healing Word",
+      "fr": "Mot de guérison de groupe"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 6 creatures regain 1d4+Ability.Mod (+1d4 hp/lvl).",
+      "fr": "Jusqu'à 6 créatures récupèrent 1d4+Mod.Carac pv (+1d4 pv/niv)."
     },
     "desc": {
       "en": [
@@ -23099,7 +24814,15 @@
     "name": "Mass Suggestion",
     "nameLocalized": {
       "en": "Mass Suggestion",
+      "fr": "Suggestion de groupe"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 12 targets must succeed on a Wis. save or follow the suggestion given by the caster (duration/lvl).",
+      "fr": "Jusqu'à 12 cibles doivent réussir un JdS de Sag. ou suivre la suggestion que leur donne le lanceur (durée/niv)."
     },
     "desc": {
       "en": [
@@ -23232,7 +24955,15 @@
     "name": "Maze",
     "nameLocalized": {
       "en": "Maze",
+      "fr": "Dédale"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Banish a creature into a labyrinthine demiplane. Intelligence check to escape before the end of the spell.",
+      "fr": "Bannit une créature dans un demi-plan labyrinthique. Jet d'Intelligence pour s'évader avant la fin du sort."
     },
     "desc": {
       "en": [
@@ -23325,7 +25056,15 @@
     "name": "Meld Into Stone",
     "nameLocalized": {
       "en": "Meld Into Stone",
+      "fr": "Fusion dans la pierre"
+    },
+    "otherNameLocalized": {
+      "en": "Meld into Stone",
       "fr": null
+    },
+    "resume": {
+      "en": "The caster can penetrate the stone.",
+      "fr": "Le lanceur peut pénétrer dans la pierre."
     },
     "desc": {
       "en": [
@@ -23436,7 +25175,15 @@
     "name": "Mending",
     "nameLocalized": {
       "en": "Mending",
+      "fr": "Réparation"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Repair break or tear in an object (broken chain link, two halves of a broken key, torn cloak, leaking wineskin, etc).",
+      "fr": "Répare fissure, déchirure, fêlure d'un objet (maillon de chaîne cassé, clé brisée, accroc sur un manteau, fuite d'une gourde)."
     },
     "desc": {
       "en": [
@@ -23579,7 +25326,15 @@
     "name": "Message",
     "nameLocalized": {
       "en": "Message",
+      "fr": "Message"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster whispers a message to a creature within 120 ft who will be the only one to hear it. It can reply the same way.",
+      "fr": "Le lanceur murmure un message à une créature à 36 m qui sera la seule à l'entendre. Elle pourra répondre de la même façon."
     },
     "desc": {
       "en": [
@@ -23705,7 +25460,15 @@
     "name": "Meteor Swarm",
     "nameLocalized": {
       "en": "Meteor Swarm",
+      "fr": "Nuée de météores"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 40-ft-radius sphere must succeed on a Dex. save or take 20d6 fire damage and 20d6 bludgeoning damage.",
+      "fr": "Les créatures dans un rayon de 12 m doivent réussir un JdS de Dex. ou subir 20d6 dégâts de feu et 20d6 dégâts contondants."
     },
     "desc": {
       "en": [
@@ -23806,7 +25569,15 @@
     "name": "Mind Blank",
     "nameLocalized": {
       "en": "Mind Blank",
+      "fr": "Esprit impénétrable"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target is immune to psychic damage, reading thoughts, divination spells, and the charmed condition.",
+      "fr": "La cible est immunisée contre les dégâts psychiques, la lecture des pensées, les sorts de divination et l'état charmé."
     },
     "desc": {
       "en": [
@@ -23905,7 +25676,15 @@
     "name": "Minor Illusion",
     "nameLocalized": {
       "en": "Minor Illusion",
+      "fr": "Illusion mineure"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a sound or an immobile image of an object no larger than a 5-ft cube.",
+      "fr": "Crée l'illusion d'un son ou d'une image immobile pas plus grande qu'un cube de 1,50 m."
     },
     "desc": {
       "en": [
@@ -24042,7 +25821,15 @@
     "name": "Mirage Arcane",
     "nameLocalized": {
       "en": "Mirage Arcane",
+      "fr": "Mirage"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Tansform the appearance (sight, sound, smell and feel) of a 1 mile square.",
+      "fr": "Transforme l'apparence (à la vue, à l'ouïe, à l'odorat et au toucher) d'un carré de 1,5 km."
     },
     "desc": {
       "en": [
@@ -24154,7 +25941,15 @@
     "name": "Mirror Image",
     "nameLocalized": {
       "en": "Mirror Image",
+      "fr": "Image miroir"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create 3 illusory duplicates of the caster, each of them having a CA equal to 10 + Dex.Mod and being destroyed if they are hit.",
+      "fr": "Crée 3 duplicatas illusoires du lanceur qui possèdent chacun une CA de 10+Mod.Dex et sont détruits s'ils sont touchés."
     },
     "desc": {
       "en": [
@@ -24286,7 +26081,15 @@
     "name": "Mislead",
     "nameLocalized": {
       "en": "Mislead",
+      "fr": "Double illusoire"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster becomes invisible and creates a double that moves, acts and speaks. The caster can see and hear through this double.",
+      "fr": "Le lanceur devient invisible et crée un double qui se déplace, agit et parle. Le lanceur peut voir et entendre via ce double."
     },
     "desc": {
       "en": [
@@ -24386,7 +26189,15 @@
     "name": "Misty Step",
     "nameLocalized": {
       "en": "Misty Step",
+      "fr": "Foulée brumeuse"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster is teleported up to 30 feet.",
+      "fr": "Le lanceur est téléporté jusqu'à 9 mètres."
     },
     "desc": {
       "en": [
@@ -24512,7 +26323,15 @@
     "name": "Modify Memory",
     "nameLocalized": {
       "en": "Modify Memory",
+      "fr": "Modification de mémoire"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Wis. save or be charmed and its memory altered (seniority of memories/lvl).",
+      "fr": "La cible doit réussir un JdS de Sag. ou être charmée et sa mémoire altérée (ancienneté des souvenirs/niv)."
     },
     "desc": {
       "en": [
@@ -24623,7 +26442,15 @@
     "name": "Moonbeam",
     "nameLocalized": {
       "en": "Moonbeam",
+      "fr": "Rayon de lune"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 5-ft-radius, 40-ft-high cylinder must succeed on a Con. save or take 2d10 radiant damage (damage/lvl).",
+      "fr": "Les créatures dans un cylindre de 3 x 12 m doivent réussir un JdS de Con. ou subir 2d10 dégâts radiants (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -24737,7 +26564,15 @@
     "name": "Move Earth",
     "nameLocalized": {
       "en": "Move Earth",
+      "fr": "Terraformage"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Shape dirt, sand, or clay, but not stone (raise, lower, flatten, create a trench, etc) in a 40-ft square in 10 min.",
+      "fr": "Façonne la terre, le sable ou l'argile, mais pas la pierre (élever, abaisser, aplatir, etc) d'un carré de 12 m en 10 min."
     },
     "desc": {
       "en": [
@@ -24856,7 +26691,15 @@
     "name": "Nondetection",
     "nameLocalized": {
       "en": "Nondetection",
+      "fr": "Antidétection"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Protect a creature or an object from any divination magic or magical scrying.",
+      "fr": "Protège une créature ou un objet de toute divination ou détection magique."
     },
     "desc": {
       "en": [
@@ -24979,7 +26822,15 @@
     "name": "Pass Without Trace",
     "nameLocalized": {
       "en": "Pass Without Trace",
+      "fr": "Passage sans trace"
+    },
+    "otherNameLocalized": {
+      "en": "Pass without Trace",
       "fr": null
+    },
+    "resume": {
+      "en": "The caster and his allies within 30 ft get a +10 bonus to Dexterity (Discretion) checks and leave behind no tracks or traces.",
+      "fr": "Le lanceur et ses alliés à 9 m ont un bonus de +10 aux jets de Dextérité (Discrétion) et ils ne laissent ni piste ni trace."
     },
     "desc": {
       "en": [
@@ -25101,7 +26952,15 @@
     "name": "Passwall",
     "nameLocalized": {
       "en": "Passwall",
+      "fr": "Passe-muraille"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Open a 5-ft wide, 8-ft tall, 20-ft deep passage through stone, wood or plaster.",
+      "fr": "Ouvre un passage de 1,50 x 2,50 x 6 m à travers de la pierre, du bois ou du plâtre."
     },
     "desc": {
       "en": [
@@ -25207,7 +27066,15 @@
     "name": "Phantasmal Killer",
     "nameLocalized": {
       "en": "Phantasmal Killer",
+      "fr": "Assassin imaginaire"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Wis. save or be frightened then take 4d10 psychic damage (damage/lvl) on each of it's turn.",
+      "fr": "La cible doit réussir un JdS de Sag. ou être effrayée puis subir 4d10 dégâts psychiques (dégâts/niv) à chacun de ses tours."
     },
     "desc": {
       "en": [
@@ -25304,7 +27171,15 @@
     "name": "Phantom Steed",
     "nameLocalized": {
       "en": "Phantom Steed",
+      "fr": "Monture fantôme"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a quasi-real Large horselike creature and everything to mount it.",
+      "fr": "Crée une créature semi-réelle de taille G ressemblant à un cheval et tout le nécessaire pour la monter."
     },
     "desc": {
       "en": [
@@ -25406,7 +27281,15 @@
     "name": "Planar Ally",
     "nameLocalized": {
       "en": "Planar Ally",
+      "fr": "Allié planaire"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Summon a celestial, elemental, or fiend that will help the caster in exchange for payment (1000 gp/h, sacrifice, quest, etc).",
+      "fr": "Invoque un céleste, un élémentaire ou un fiélon qui aidera le lanceur contre paiement (1000 po/h, sacrifice, quête, etc)."
     },
     "desc": {
       "en": [
@@ -25501,7 +27384,15 @@
     "name": "Planar Binding",
     "nameLocalized": {
       "en": "Planar Binding",
+      "fr": "Contrat"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target (celestial, elemental, fey, or fiend) must succeed on a Cha. save or serve the caster (duration/lvl).",
+      "fr": "La cible (céleste, élémentaire, fée ou fiélon) doit réussir un JdS de Cha. ou servir le lanceur (durée/niv)."
     },
     "desc": {
       "en": [
@@ -25633,7 +27524,15 @@
     "name": "Plane Shift",
     "nameLocalized": {
       "en": "Plane Shift",
+      "fr": "Changement de plan"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster and up to 8 creatures are transported to another plane of existence, or a creature is banished (Cha. save).",
+      "fr": "Le lanceur et jusqu'à 8 créatures sont transportés dans un autre plan d'existence, ou une créature est bannie (JdS de Cha)."
     },
     "desc": {
       "en": [
@@ -25767,7 +27666,15 @@
     "name": "Plant Growth",
     "nameLocalized": {
       "en": "Plant Growth",
+      "fr": "Croissance végétale"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Plants in the area grow vigorously, or over a year the plants produce twice the normal amount of food.",
+      "fr": "Les plantes dans la zone croissent avec vigueur, ou sur une année les plantes produisent deux fois plus de nourriture."
     },
     "desc": {
       "en": [
@@ -25899,7 +27806,15 @@
     "name": "Poison Spray",
     "nameLocalized": {
       "en": "Poison Spray",
+      "fr": "Bouffée de poison"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Con. save or take 1d12 poison damage (damage/lvl).",
+      "fr": "La cible doit réussir un JdS de Con. ou subir 1d12 dégâts de poison (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -26011,7 +27926,15 @@
     "name": "Polymorph",
     "nameLocalized": {
       "en": "Polymorph",
+      "fr": "Métamorphose"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Transform a target into a new beast form whose CR/level is equal to or less than the target's CR/level.",
+      "fr": "Transforme une cible en une nouvelle forme de bête de FP/niveau au plus égal au FP/niveau de la cible."
     },
     "desc": {
       "en": [
@@ -26140,7 +28063,15 @@
     "name": "Power Word Kill",
     "nameLocalized": {
       "en": "Power Word Kill",
+      "fr": "Mot de pouvoir mortel"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target (100 hp or fewer) dies!",
+      "fr": "La cible (100 pv max) meurt !"
     },
     "desc": {
       "en": [
@@ -26259,7 +28190,15 @@
     "name": "Power Word Stun",
     "nameLocalized": {
       "en": "Power Word Stun",
+      "fr": "Mot de pouvoir étourdissant"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target (150 hp or fewer) is stunned until it succeeds on a Con. save.",
+      "fr": "La cible (150 pv max) est étourdie jusqu'à ce qu'elle réussisse un JdS de Con."
     },
     "desc": {
       "en": [
@@ -26379,7 +28318,15 @@
     "name": "Prayer of Healing",
     "nameLocalized": {
       "en": "Prayer of Healing",
+      "fr": "Prière de guérison"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 6 creatures regain 2d8+Ability.Mod (+1d8 hp/lvl).",
+      "fr": "Jusqu'à 6 créatures récupèrent 2d8+Mod.Carac pv (+1d8 pv/niv)."
     },
     "desc": {
       "en": [
@@ -26494,7 +28441,15 @@
     "name": "Prestidigitation",
     "nameLocalized": {
       "en": "Prestidigitation",
+      "fr": "Prestidigitation"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Minor magical trick (sensory effect, light a torch, clean an object, warm, make a symbol appear, create a trinket, etc).",
+      "fr": "Tour de magie (effet sensoriel, allume une torche, nettoie un objet, réchauffe, fait apparaître un symbole, crée une babiole)."
     },
     "desc": {
       "en": [
@@ -26632,7 +28587,15 @@
     "name": "Prismatic Spray",
     "nameLocalized": {
       "en": "Prismatic Spray",
+      "fr": "Rayons prismatiques"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 60-ft cone must succeed on a Dex. save or take 10d6 damage of a randomly determined type.",
+      "fr": "Les créatures dans un cône de 18 m doivent réussir un JdS de Dex. ou subir 10d6 dégâts d'un type déterminé au hasard."
     },
     "desc": {
       "en": [
@@ -26746,7 +28709,15 @@
     "name": "Prismatic Wall",
     "nameLocalized": {
       "en": "Prismatic Wall",
+      "fr": "Mur prismatique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a multi-layered wall that inflicts different effects and damage depending on the layer.",
+      "fr": "Crée un mur de plusieurs couches qui infligent des effets et dégâts différents suivant la couche."
     },
     "desc": {
       "en": [
@@ -26854,8 +28825,15 @@
     "url": "/api/spells/private-sanctum",
     "name": "Private Sanctum",
     "nameLocalized": {
-      "en": "Private Sanctum",
+      "en": "Private Sanctum"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -26894,7 +28872,19 @@
         "fr": "120 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": false,
     "castingTime": {
@@ -26942,7 +28932,15 @@
     "name": "Produce Flame",
     "nameLocalized": {
       "en": "Produce Flame",
+      "fr": "Flammes"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 1d8 fire damage (damage/lvl). Shed bright light in 10 ft and dim light in additional 10 ft.",
+      "fr": "Si l'attaque avec un sort touche, inflige 1d8 dégâts de feu (dégâts/niv). Émet une lumière vive sur 3 m et faible sur 3 m extra."
     },
     "desc": {
       "en": [
@@ -27043,7 +29041,15 @@
     "name": "Programmed Illusion",
     "nameLocalized": {
       "en": "Programmed Illusion",
+      "fr": "Illusion programmée"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create the image of an animated object or creature, with sounds, for 5 min, with a triggering condition.",
+      "fr": "Crée l'image d'un objet ou d'une créature animée, avec sons, durant 5 min, suite à un déclencheur."
     },
     "desc": {
       "en": [
@@ -27150,7 +29156,15 @@
     "name": "Project Image",
     "nameLocalized": {
       "en": "Project Image",
+      "fr": "Projection d'image"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a copy of the caster that mimics him, moves and emits sounds. The caster can see and hear through this double.",
+      "fr": "Crée un double du lanceur qui l'imite, se déplace et émet des sons. Le lanceur peut voir et entendre à travers ce double."
     },
     "desc": {
       "en": [
@@ -27258,7 +29272,15 @@
     "name": "Protection From Energy",
     "nameLocalized": {
       "en": "Protection From Energy",
+      "fr": "Protection contre une énergie"
+    },
+    "otherNameLocalized": {
+      "en": "Protection from Energy",
       "fr": null
+    },
+    "resume": {
+      "en": "The target gains resistance to one damage type (acid, cold, fire, lightning, or thunder).",
+      "fr": "La cible obtient la résistance à un type de dégâts (acide, froid, feu, foudre ou tonnerre)."
     },
     "desc": {
       "en": [
@@ -27406,7 +29428,15 @@
     "name": "Protection from Evil and Good",
     "nameLocalized": {
       "en": "Protection from Evil and Good",
+      "fr": "Protection contre le mal et le bien"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target is protected (disadvantage on attack rolls) against aberrations, celestials, elementals, fey, fiends, and undead.",
+      "fr": "La cible est protégée (désavantage à l'attaque) des aberrations, célestes, élémentaires, fées, fiélons et morts-vivants."
     },
     "desc": {
       "en": [
@@ -27549,7 +29579,15 @@
     "name": "Protection from Poison",
     "nameLocalized": {
       "en": "Protection from Poison",
+      "fr": "Protection contre le poison"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Neutralize 1 poison in one creature, give advantage on saving throws againt being poisoned, and resistance to poison damage.",
+      "fr": "Neutralise 1 poison d'une créature, donne l'avantage aux JdS pour ne pas être empoisonné et la résistance aux dégâts de poison."
     },
     "desc": {
       "en": [
@@ -27679,7 +29717,15 @@
     "name": "Purify Food and Drink",
     "nameLocalized": {
       "en": "Purify Food and Drink",
+      "fr": "Purification de nourriture et d'eau"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Purified and rendered free of poison and disease nonmagical food and drink in a 5-ft-radius sphere.",
+      "fr": "Purifie et enlève tous poisons et maladies de nourriture et boissons non magiques dans une sphère de 1,50 m de rayon."
     },
     "desc": {
       "en": [
@@ -27799,7 +29845,15 @@
     "name": "Raise Dead",
     "nameLocalized": {
       "en": "Raise Dead",
+      "fr": "Rappel à la vie"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Take back to life (1 hp) a creature died for no longer than 10 days. Doesn't restore missing body parts.",
+      "fr": "Ramène à la vie (1 pv) une créature morte depuis moins de 10 jours. Ne restaure pas les parties du corps amputées."
     },
     "desc": {
       "en": [
@@ -27924,7 +29978,15 @@
     "name": "Ray of Enfeeblement",
     "nameLocalized": {
       "en": "Ray of Enfeeblement",
+      "fr": "Rayon affaiblissant"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, the target deals only half damage with a weapon attack that use Strength (Con. save).",
+      "fr": "Si l'attaque avec un sort touche, la cible n'inflige que la moitié des dégâts avec une arme qui utilise la Force (JdS de Con)."
     },
     "desc": {
       "en": [
@@ -28036,7 +30098,15 @@
     "name": "Ray of Frost",
     "nameLocalized": {
       "en": "Ray of Frost",
+      "fr": "Rayon de givre"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 1d8 cold damage (damage/lvl) and the target's speed is reduced by 10 ft.",
+      "fr": "Si l'attaque avec un sort touche, inflige 1d8 dégâts de froid (dégâts/niv) et la vitesse de la cible est réduite de 3 m."
     },
     "desc": {
       "en": [
@@ -28147,7 +30217,15 @@
     "name": "Regenerate",
     "nameLocalized": {
       "en": "Regenerate",
+      "fr": "Régénération"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target regains 4d8+15 hp then 1 hp per round and its severed members are restored.",
+      "fr": "La cible récupère 4d8+15 pv puis 1 pv par round et ses membres sectionnés repoussent."
     },
     "desc": {
       "en": [
@@ -28264,7 +30342,15 @@
     "name": "Reincarnate",
     "nameLocalized": {
       "en": "Reincarnate",
+      "fr": "Réincarnation"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Reincarnate the soul of an humanoid died for no longer than 10 days. The race of the new body is determined at random.",
+      "fr": "Réincarne l'âme d'un humanoïde mort depuis 10 jours max. La race du nouveau corps est déterminée au hasard."
     },
     "desc": {
       "en": [
@@ -28386,7 +30472,15 @@
     "name": "Remove Curse",
     "nameLocalized": {
       "en": "Remove Curse",
+      "fr": "Délivrance des malédictions"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "End all curses affecting one creature or object.",
+      "fr": "Met fin à toutes les malédictions affligeant une créature ou un objet."
     },
     "desc": {
       "en": [
@@ -28513,8 +30607,15 @@
     "url": "/api/spells/resilient-sphere",
     "name": "Resilient Sphere",
     "nameLocalized": {
-      "en": "Resilient Sphere",
+      "en": "Resilient Sphere"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -28542,7 +30643,19 @@
         "fr": "30 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": true,
     "castingTime": {
@@ -28590,7 +30703,15 @@
     "name": "Resistance",
     "nameLocalized": {
       "en": "Resistance",
+      "fr": "Résistance"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target can add 1d4 to one saving throw of its choice.",
+      "fr": "La cible peut ajouter 1d4 à un jet de sauvegarde de son choix."
     },
     "desc": {
       "en": [
@@ -28703,7 +30824,15 @@
     "name": "Resurrection",
     "nameLocalized": {
       "en": "Resurrection",
+      "fr": "Résurrection"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Take back to life (all hp) a creature died for no longer than 100 years (except of old age). Restore any missing body parts.",
+      "fr": "Ramène à la vie (pv max) une créature morte depuis moins de 100 ans (sauf vieillesse). Restaure les parties du corps amputées."
     },
     "desc": {
       "en": [
@@ -28809,7 +30938,15 @@
     "name": "Reverse Gravity",
     "nameLocalized": {
       "en": "Reverse Gravity",
+      "fr": "Inversion de la gravité"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Invert gravity in a 50-ft-radius, 100-ft-high cylinder.",
+      "fr": "Inverse la gravité dans un cylindre de 30 x 30 m."
     },
     "desc": {
       "en": [
@@ -28926,7 +31063,15 @@
     "name": "Revivify",
     "nameLocalized": {
       "en": "Revivify",
+      "fr": "Retour à la vie"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Take back to 1 hp a creature that has died within the last minute (except of old age).",
+      "fr": "Ramène à 1 pv une créature morte depuis 1 minute ou moins (sauf vieillesse)."
     },
     "desc": {
       "en": [
@@ -29047,7 +31192,15 @@
     "name": "Rope Trick",
     "nameLocalized": {
       "en": "Rope Trick",
+      "fr": "Corde enchantée"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Vertically raise a rope that lead to an extradimensional space that can hold 8 Medium creatures.",
+      "fr": "Fait se dresser verticalement une corde qui donne dans un espace extradimensionnel qui peut contenir 8 créatures de taille M."
     },
     "desc": {
       "en": [
@@ -29153,7 +31306,15 @@
     "name": "Sacred Flame",
     "nameLocalized": {
       "en": "Sacred Flame",
+      "fr": "Flamme sacrée"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Dex. save or take 1d8 radiant damage (damage/lvl).",
+      "fr": "La cible doit réussir un JdS de Dex. ou subir 1d8 dégâts radiant (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -29254,7 +31415,15 @@
     "name": "Sanctuary",
     "nameLocalized": {
       "en": "Sanctuary",
+      "fr": "Sanctuaire"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target can make a Wis. save to avoid attacks or harmful spells that target it directly.",
+      "fr": "La cible a droit à un JdS de Sag. pour éviter les attaques ou les sorts ofensifs qui la visent en particulier."
     },
     "desc": {
       "en": [
@@ -29369,7 +31538,15 @@
     "name": "Scorching Ray",
     "nameLocalized": {
       "en": "Scorching Ray",
+      "fr": "Rayon ardent"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attacks hit, 3 rays deal 2d6 fire damage each (+1 ray/lvl).",
+      "fr": "Si les attaques touchent, 3 rayons infligent chacun 2d6 dégâts de feu (+1 rayon/niv)."
     },
     "desc": {
       "en": [
@@ -29495,7 +31672,15 @@
     "name": "Scrying",
     "nameLocalized": {
       "en": "Scrying",
+      "fr": "Scrutation"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Allow you to see and hear a specific creature (can also target a location) on the same plane (Wis. save).",
+      "fr": "Permet de voir et entendre une créature spécifique (on peut aussi cibler un lieu) sur le même plan (JdS de Sag)."
     },
     "desc": {
       "en": [
@@ -29648,8 +31833,15 @@
     "url": "/api/spells/secret-chest",
     "name": "Secret Chest",
     "nameLocalized": {
-      "en": "Secret Chest",
+      "en": "Secret Chest"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -29674,7 +31866,19 @@
         "fr": "touché"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": false,
     "concentration": false,
     "castingTime": {
@@ -29721,7 +31925,15 @@
     "name": "See Invisibility",
     "nameLocalized": {
       "en": "See Invisibility",
+      "fr": "Voir l'invisible"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster sees invisible creatures and objects, and into the Ethereal Plane.",
+      "fr": "Le lanceur voit les créatures ou objets invisibles, et dans le plan éthéré."
     },
     "desc": {
       "en": [
@@ -29844,7 +32056,15 @@
     "name": "Seeming",
     "nameLocalized": {
       "en": "Seeming",
+      "fr": "Apparence trompeuse"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Change physical appearance as well as clothing and equipment of targets (saving throw for unwilling).",
+      "fr": "Change l'apparence physique et vestimentaire de cibles (JdS si non consentante)."
     },
     "desc": {
       "en": [
@@ -29958,7 +32178,15 @@
     "name": "Sending",
     "nameLocalized": {
       "en": "Sending",
+      "fr": "Communication à distance"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Send a 25-words message to a creature you are familiar with, regardless of the distance or the plan. It can answer it.",
+      "fr": "Envoie un message de 25 mots à une créature familière, quelle que soit la distance ou le plan. Elle peut y répondre."
     },
     "desc": {
       "en": [
@@ -30082,7 +32310,15 @@
     "name": "Sequester",
     "nameLocalized": {
       "en": "Sequester",
+      "fr": "Dissimulation"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Protect a willing creature (who becomes invisible and unconscious) or an object from divination spells.",
+      "fr": "Protège une créature consentante (qui devient invisible et inconsciente) ou un objet contre les sorts de divination."
     },
     "desc": {
       "en": [
@@ -30176,7 +32412,15 @@
     "name": "Shapechange",
     "nameLocalized": {
       "en": "Shapechange",
+      "fr": "Changement de forme"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster takes the form of a creature he has seen at least once with a CR equal to its level or lower.",
+      "fr": "Le lanceur prend la forme d'une créature qu'il a déjà vue d'un FP égal ou inférieur à son niveau."
     },
     "desc": {
       "en": [
@@ -30284,7 +32528,15 @@
     "name": "Shatter",
     "nameLocalized": {
       "en": "Shatter",
+      "fr": "Fracassement"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 10-ft-radius sphere must succeed on a Con. save or take 3d8 thunder damage (damage/lvl).",
+      "fr": "Les créatures dans une sphère de 3 m de rayon doivent réussir un JdS de Con. ou subir 3d8 dégâts de tonnerre (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -30425,7 +32677,15 @@
     "name": "Shield",
     "nameLocalized": {
       "en": "Shield",
+      "fr": "Bouclier"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "In reaction, the caster gains a +5 bonus to AC and take no damage from the magic missile spell.",
+      "fr": "En réaction, la lanceur gagne un bonus de +5 à la CA et ne prend aucun dégât du sort projectile magique."
     },
     "desc": {
       "en": [
@@ -30534,7 +32794,15 @@
     "name": "Shield of Faith",
     "nameLocalized": {
       "en": "Shield of Faith",
+      "fr": "Bouclier de la foi"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target gets a +2 bonus to AC.",
+      "fr": "La cible obtient un bonus de +2 de CA."
     },
     "desc": {
       "en": [
@@ -30649,7 +32917,15 @@
     "name": "Shillelagh",
     "nameLocalized": {
       "en": "Shillelagh",
+      "fr": "Gourdin magique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Make magical a wooden weapon. Its damage become a d8 and the caster can use his spellcasting ability instead of Strength.",
+      "fr": "Rend magique une arme en bois. Ses dégâts sont des d8 et le lanceur peut utiliser sa carac d'incantation au lieu de la Force."
     },
     "desc": {
       "en": [
@@ -30752,7 +33028,15 @@
     "name": "Shocking Grasp",
     "nameLocalized": {
       "en": "Shocking Grasp",
+      "fr": "Poigne électrique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 1d8 lightning damage (damage/lvl) and the target can't take reactions.",
+      "fr": "Si l'attaque avec un sort touche, inflige 1d8 dégâts de foudre (dégâts/niv) et la cible ne peut pas prendre de réaction."
     },
     "desc": {
       "en": [
@@ -30861,7 +33145,15 @@
     "name": "Silence",
     "nameLocalized": {
       "en": "Silence",
+      "fr": "Silence"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Block all sounds within a 20-ft-radius sphere.",
+      "fr": "Bloque tous les sons dans une sphère de 6m de rayon."
     },
     "desc": {
       "en": [
@@ -30992,7 +33284,15 @@
     "name": "Silent Image",
     "nameLocalized": {
       "en": "Silent Image",
+      "fr": "Image silencieuse"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create the image of an object or a creature (without sound and no larger than a 15-ft cube) and lets it move.",
+      "fr": "Crée l'image d'un objet ou d'une créature (sans son et de la taille d'un cube de 4,50 m max) et permet de la faire bouger."
     },
     "desc": {
       "en": [
@@ -31119,7 +33419,15 @@
     "name": "Simulacrum",
     "nameLocalized": {
       "en": "Simulacrum",
+      "fr": "Simulacre"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a duplicate of a beast or humanoid with the same abilities, half of the hp and without equipment.",
+      "fr": "Crée un double d'une bête ou d'un humanoïde avec les mêmes capacités, la moitié des pv et sans équipement."
     },
     "desc": {
       "en": [
@@ -31214,7 +33522,15 @@
     "name": "Sleep",
     "nameLocalized": {
       "en": "Sleep",
+      "fr": "Sommeil"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "5d8 hp of creatures fall unconscious, starting with the creature with the lowest current hp (+2d8 hp/lvl).",
+      "fr": "5d8 pv de créatures s'endorment, par ordre croissant de leurs pv actuels (+2d8 pv/niv)."
     },
     "desc": {
       "en": [
@@ -31347,7 +33663,15 @@
     "name": "Sleet Storm",
     "nameLocalized": {
       "en": "Sleet Storm",
+      "fr": "Tempête de neige"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-ft-radius, 20-ft-tall cylinder (heavily obscured) must succeed on a Dex. save or fall prone.",
+      "fr": "Les créatures dans un cylindre de 12 x 6 m (visibilité nulle) doivent réussir un JdS de Dex. ou tomber à terre."
     },
     "desc": {
       "en": [
@@ -31483,7 +33807,15 @@
     "name": "Slow",
     "nameLocalized": {
       "en": "Slow",
+      "fr": "Lenteur"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 6 targets must succeed on a Wis. save, or have their speed and actions reduced and -2 to CA and Dex. saves.",
+      "fr": "Jusqu'à 6 cibles doivent réussir un JdS de Sag. ou avoir leur vitesse et leurs actions réduites, -2 en CA et aux JdS de Dex."
     },
     "desc": {
       "en": [
@@ -31610,7 +33942,15 @@
     "name": "Spare the Dying",
     "nameLocalized": {
       "en": "Spare the Dying",
+      "fr": "Stabilisation"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "1 living creature with 0 hit points becomes stable.",
+      "fr": "1 créature vivante à 0 point de vie est immédiatement stabilisée."
     },
     "desc": {
       "en": [
@@ -31698,7 +34038,15 @@
     "name": "Speak with Animals",
     "nameLocalized": {
       "en": "Speak with Animals",
+      "fr": "Communication avec les animaux"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster communicates with beats that can share information or help.",
+      "fr": "Le lanceur communique avec des bêtes qui peuvent ainsi partager des informations ou aider."
     },
     "desc": {
       "en": [
@@ -31817,7 +34165,15 @@
     "name": "Speak with Dead",
     "nameLocalized": {
       "en": "Speak with Dead",
+      "fr": "Communication avec les morts"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Allow a corpse that still has a mouth and is not an undead to answer 5 questions to the caster.",
+      "fr": "Permet à un cadavre qui possède encore une bouche et n'est pas un mort-vivant de répondre à 5 questions du lanceur."
     },
     "desc": {
       "en": [
@@ -31933,7 +34289,15 @@
     "name": "Speak with Plants",
     "nameLocalized": {
       "en": "Speak with Plants",
+      "fr": "Communication avec les plantes"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster can communicate with plants within 30 ft, and turns difficult terrain into ordinary terrain or vice versa.",
+      "fr": "Le lanceur peut communiquer avec des plantes à 9 m, et transforme un terrain difficile en un terrain ordinaire ou l'inverse."
     },
     "desc": {
       "en": [
@@ -32056,7 +34420,15 @@
     "name": "Spider Climb",
     "nameLocalized": {
       "en": "Spider Climb",
+      "fr": "Pattes d'araignée"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target can move along vertical surfaces while leaving its hands free and gains climbing speed.",
+      "fr": "La cible peut se déplacer le long de surfaces verticales tout en laissant ses mains libres et gagne une vitesse d'escalade."
     },
     "desc": {
       "en": [
@@ -32188,7 +34560,15 @@
     "name": "Spike Growth",
     "nameLocalized": {
       "en": "Spike Growth",
+      "fr": "Croissance d'épines"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-ft radius (difficult terrain) take 2d4 piercing damage for every 5 ft of movement.",
+      "fr": "Les créatures dans un rayon de 6 m (terrain difficile) subissent 2d4 dégâts perforants pour chaque 1,50 m de déplacement."
     },
     "desc": {
       "en": [
@@ -32313,7 +34693,15 @@
     "name": "Spirit Guardians",
     "nameLocalized": {
       "en": "Spirit Guardians",
+      "fr": "Esprits gardiens"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Targets in a 15-ft radius must succeed on a Wis. save or take 3d8 radiant or necrotic damage (damage/lvl).",
+      "fr": "Les cibles dans un rayon de 4,50 m doivent réussir un JdS de Sag. ou subir 3d8 dégâts radiants ou nécrotiques (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -32423,7 +34811,15 @@
     "name": "Spiritual Weapon",
     "nameLocalized": {
       "en": "Spiritual Weapon",
+      "fr": "Arme spirituelle"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 1d8+Ability.Mod force damage (damage/lvl). A bonus action allows another attack.",
+      "fr": "Si l'attaque avec un sort touche, inflige 1d8+Mod.Carac dégâts de force (dégâts/niv). Une action bonus permet une autre attaque."
     },
     "desc": {
       "en": [
@@ -32541,7 +34937,15 @@
     "name": "Stinking Cloud",
     "nameLocalized": {
       "en": "Stinking Cloud",
+      "fr": "Nuage nauséabond"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 20-ft-radius sphere must succeed on a Con. save or spend their action that turn retching and reeling.",
+      "fr": "Les créatures dans une sphère de 6 m de rayon doivent réussir un JdS de Con. ou être prises de nausée et perdre leur action."
     },
     "desc": {
       "en": [
@@ -32686,7 +35090,15 @@
     "name": "Stone Shape",
     "nameLocalized": {
       "en": "Stone Shape",
+      "fr": "Façonnage de la pierre"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Give a stone no more than 5 ft in any dimension any shape, or create an opening in it.",
+      "fr": "Donne à un bloc de pierre de 1,50 m de côté n'importe quelle forme, ou y crée une ouverture."
     },
     "desc": {
       "en": [
@@ -32808,7 +35220,15 @@
     "name": "Stoneskin",
     "nameLocalized": {
       "en": "Stoneskin",
+      "fr": "Peau de pierre"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target gets resistance to nonmagical bludgeoning, piercing, and slashing damage.",
+      "fr": "La cible obtient la résistante aux dégâts non magiques contondants, perforants et tranchants."
     },
     "desc": {
       "en": [
@@ -32941,7 +35361,15 @@
     "name": "Storm of Vengeance",
     "nameLocalized": {
       "en": "Storm of Vengeance",
+      "fr": "Tempête vengeresse"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 360-ft radius must succeed on a Con. save or be deafened and suffer various damage and effects.",
+      "fr": "Les créatures dans un rayon de 108 m doivent réussir un JdS de Con. ou être assourdies et subir divers dégâts et effets."
     },
     "desc": {
       "en": [
@@ -33039,7 +35467,15 @@
     "name": "Suggestion",
     "nameLocalized": {
       "en": "Suggestion",
+      "fr": "Suggestion"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Wis. save or follow the suggestion given by the caster in one or two sentences.",
+      "fr": "La cible doit réussir un JdS de Sag. ou suivre la suggestion que lui donne le lanceur en une ou deux phrases."
     },
     "desc": {
       "en": [
@@ -33176,7 +35612,15 @@
     "name": "Sunbeam",
     "nameLocalized": {
       "en": "Sunbeam",
+      "fr": "Rayon de soleil"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures on a 5-ft-wide, 60-ft-long line must succeed on a Con. save or take 6d8 radiant damage and be blinded.",
+      "fr": "Les créatures sur une ligne de 1,50 x 18 m doivent réussir un JdS de Con. ou subir 6d8 radiants et être aveuglées."
     },
     "desc": {
       "en": [
@@ -33291,7 +35735,15 @@
     "name": "Sunburst",
     "nameLocalized": {
       "en": "Sunburst",
+      "fr": "Éclat du soleil"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 60-ft radius must succeed on a Con. save or take 12d6 radiant damage and be blinded for 1 min.",
+      "fr": "Les créatures dans un rayon de 18 m doivent réussir un JdS de Con. ou subir 12d6 dégâts radiants et être aveuglées 1 min."
     },
     "desc": {
       "en": [
@@ -33407,7 +35859,15 @@
     "name": "Symbol",
     "nameLocalized": {
       "en": "Symbol",
+      "fr": "Symbole"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Set the trigger and the effect of a glyph on an object (death, discord, fear, hopelessness, insanity, pain, sleep, etc).",
+      "fr": "Défini le déclencheur et l'effet d'un glyphe sur un objet (mort, discorde, peur, désespoir, démence, douleur, sommeil, etc)."
     },
     "desc": {
       "en": [
@@ -33539,7 +35999,15 @@
     "name": "Telekinesis",
     "nameLocalized": {
       "en": "Telekinesis",
+      "fr": "Télékinésie"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Move a creature (Huge or smaller) or object (up to 1,000 pounds) by thought in case of successful contest.",
+      "fr": "Déplace une créature (taille TG max) ou un objet (jusqu'à 500 kg) par la pensée en cas de jet d'opposition réussi."
     },
     "desc": {
       "en": [
@@ -33646,8 +36114,15 @@
     "url": "/api/spells/telepathic-bond",
     "name": "Telepathic Bond",
     "nameLocalized": {
-      "en": "Telepathic Bond",
+      "en": "Telepathic Bond"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -33673,7 +36148,19 @@
         "fr": "30 metres"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": true,
     "concentration": false,
     "castingTime": {
@@ -33721,7 +36208,15 @@
     "name": "Teleport",
     "nameLocalized": {
       "en": "Teleport",
+      "fr": "Téléportation"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster and 8 creatures are teleported anywhere on the same plane. Risk of failure depending on the destination familiarity.",
+      "fr": "Le lanceur et 8 créatures sont téléportés n'importe où sur le même plan. Risque d'échec selon la familiarité de la destination."
     },
     "desc": {
       "en": [
@@ -33831,7 +36326,15 @@
     "name": "Teleportation Circle",
     "nameLocalized": {
       "en": "Teleportation Circle",
+      "fr": "Cercle de téléportation"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a circle that allows anyone to be teleported to another teleportation circle known to the caster.",
+      "fr": "Crée un cercle permettant à quiconque d’être téléporté vers un autre cercle de téléportation connu du lanceur."
     },
     "desc": {
       "en": [
@@ -33947,7 +36450,15 @@
     "name": "Thaumaturgy",
     "nameLocalized": {
       "en": "Thaumaturgy",
+      "fr": "Thaumaturgie"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create various minor effects to impress or distract creatures.",
+      "fr": "Crée divers effets mineurs visant à impressionner ou distraire des créatures."
     },
     "desc": {
       "en": [
@@ -34054,7 +36565,15 @@
     "name": "Thunderwave",
     "nameLocalized": {
       "en": "Thunderwave",
+      "fr": "Vague tonnante"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 15-ft cube must succeed on a Con. save or take 2d8 thunder damage (damage/lvl).",
+      "fr": "Les créatures dans un cube de 4,50 m doivent réussir un JdS de Con. ou subir 2d8 dégâts de tonnerre (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -34189,7 +36708,15 @@
     "name": "Time Stop",
     "nameLocalized": {
       "en": "Time Stop",
+      "fr": "Arrêt du temps"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Stop the time during 1d4+1 turns for everyone except for the caster.",
+      "fr": "Arrête le temps durant 1d4+1 tours pour tout le monde sauf pour le lanceur."
     },
     "desc": {
       "en": [
@@ -34286,8 +36813,15 @@
     "url": "/api/spells/tiny-hut",
     "name": "Tiny Hut",
     "nameLocalized": {
-      "en": "Tiny Hut",
+      "en": "Tiny Hut"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "no resume",
+      "fr": "no resume"
     },
     "desc": {
       "en": [
@@ -34312,7 +36846,19 @@
         "fr": "soi-même"
       }
     },
-    "components": null,
+    "components": {
+      "material": true,
+      "somatic": true,
+      "verbal": true,
+      "components": [
+        "V",
+        "S",
+        "M"
+      ],
+      "raw": {
+        "en": "V,S,M"
+      }
+    },
     "ritual": true,
     "concentration": false,
     "castingTime": {
@@ -34379,7 +36925,15 @@
     "name": "Tongues",
     "nameLocalized": {
       "en": "Tongues",
+      "fr": "Don des langues"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target understands and speaks any spoken language it hears.",
+      "fr": "La cible comprend et parle toutes les langues parlées qu'elle entend."
     },
     "desc": {
       "en": [
@@ -34521,7 +37075,15 @@
     "name": "Transport via Plants",
     "nameLocalized": {
       "en": "Transport via Plants",
+      "fr": "Voie végétale"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster can move from one plant to another plant (Large or larger) using 5 ft.",
+      "fr": "Le lanceur peut passer d'une plante à une autre plante (taille G ou supérieure) en utilisant 1,50 m."
     },
     "desc": {
       "en": [
@@ -34612,7 +37174,15 @@
     "name": "Tree Stride",
     "nameLocalized": {
       "en": "Tree Stride",
+      "fr": "Passage par les arbres"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster can move from one tree to another tree of the same kind (500 ft max between both) using 5 ft.",
+      "fr": "La lanceur peut passer d'un arbre à un autre arbre de la même espèce (150 m max entre les deux) en utilisant 1,50 m."
     },
     "desc": {
       "en": [
@@ -34722,7 +37292,15 @@
     "name": "True Polymorph",
     "nameLocalized": {
       "en": "True Polymorph",
+      "fr": "Métamorphose suprême"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Transform a creature or object into a new form (creature <-> object) of FP/level at most equal to the FP/level of the crea",
+      "fr": "Transforme une créature ou un objet en une nouvelle forme (créature <-> objet) de FP/niv au plus égal au FP/niv de la créa"
     },
     "desc": {
       "en": [
@@ -34848,7 +37426,15 @@
     "name": "True Resurrection",
     "nameLocalized": {
       "en": "True Resurrection",
+      "fr": "Résurrection suprême"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Take back to life (all hp) a creature died for no longer than 200 years (except of old age), even without the original body.",
+      "fr": "Ramène à la vie (pv max) une créature morte depuis moins de 200 ans (sauf vieillesse), même si le corps original n'existe plus."
     },
     "desc": {
       "en": [
@@ -34952,7 +37538,15 @@
     "name": "True Seeing",
     "nameLocalized": {
       "en": "True Seeing",
+      "fr": "Vision suprême"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target gets truesight, sees magic secret doors and in the Ethereal Plane.",
+      "fr": "La cible obtient vision véritable, voit les portes secrètes magiques et dans le plan éthéré."
     },
     "desc": {
       "en": [
@@ -35085,7 +37679,15 @@
     "name": "True Strike",
     "nameLocalized": {
       "en": "True Strike",
+      "fr": "Coup au but"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster gains advantage on his first attack roll against a target.",
+      "fr": "Le lanceur obtient l'avantage à son prochain jet d'attaque contre une cible."
     },
     "desc": {
       "en": [
@@ -35215,7 +37817,15 @@
     "name": "Unseen Servant",
     "nameLocalized": {
       "en": "Unseen Servant",
+      "fr": "Serviteur invisible"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create an invisible servant who performs simple tasks (bring something back, clean up, maintain a fire, serve at table, etc).",
+      "fr": "Crée un serviteur invisible qui exécute des tâches simples (rapporter qq chose, nettoyer, entretenir un feu, servir, etc)."
     },
     "desc": {
       "en": [
@@ -35342,7 +37952,15 @@
     "name": "Vampiric Touch",
     "nameLocalized": {
       "en": "Vampiric Touch",
+      "fr": "Toucher du vampire"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "If the spell attack hits, deals 3d6 necrotic damage (damage/lvl) and the caster regains 50% of his hp.",
+      "fr": "Si l'attaque avec un sort touche, inflige 3d6 dégâts nécrotiques (dégâts/niv) et le lanceur récupère 50% de ces pv ."
     },
     "desc": {
       "en": [
@@ -35457,7 +38075,15 @@
     "name": "Vicious Mockery",
     "nameLocalized": {
       "en": "Vicious Mockery",
+      "fr": "Moquerie cruelle"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target must succeed on a Wis. save or take 1d4 psychic damage and have disadvantage on its attack roll (damage/lvl).",
+      "fr": "La cible doit réussir un JdS de Sag. ou subir 1d4 dégâts psychiques et avoir un désavantage à sa prochaine attaque (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -35547,7 +38173,15 @@
     "name": "Wall of Fire",
     "nameLocalized": {
       "en": "Wall of Fire",
+      "fr": "Mur de feu"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a 60 x 20 x 1 ft wall of fire. Creatures inside or within 10ft of one side of the wall take 5d8 fire damage (damage/lvl).",
+      "fr": "Crée un mur de feu de 18 m x 6 m x 30 cm. Les créatures dans ou à 3 m du mur d'un côté subissent 5d8 dégâts de feu (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -35681,7 +38315,15 @@
     "name": "Wall of Force",
     "nameLocalized": {
       "en": "Wall of Force",
+      "fr": "Mur de force"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a physically insurmountable wall of force (ten 10-ft panels) immune to all types of damage.",
+      "fr": "Crée un mur de force infranchissable physiquement (dix panneaux de 3 m) immunisé à tous les types de dégâts."
     },
     "desc": {
       "en": [
@@ -35777,7 +38419,15 @@
     "name": "Wall of Ice",
     "nameLocalized": {
       "en": "Wall of Ice",
+      "fr": "Mur de glace"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a wall of ice (ten 10-ft panels) that can be damaged and can inflict 5d6 cold damage if passed through (damage/lvl).",
+      "fr": "Crée un mur de glace (dix panneaux de 3 m) qui peut être détruit et peut infliger 5d6 de froid si on le traverse (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -35880,7 +38530,15 @@
     "name": "Wall of Stone",
     "nameLocalized": {
       "en": "Wall of Stone",
+      "fr": "Mur de pierre"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a nonmagical wall of stone (ten 10-ft panels) that can be damaged.",
+      "fr": "Crée un mur de pierre non magique de (dix panneaux de 3 m) qui peut être détruit."
     },
     "desc": {
       "en": [
@@ -36010,7 +38668,15 @@
     "name": "Wall of Thorns",
     "nameLocalized": {
       "en": "Wall of Thorns",
+      "fr": "Mur d'épines"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create an 60-ft-long, 10-ft-high, 5-ft-thick wall of brush that slows movement and can inflict 7d8 piercing damage (damage/lvl).",
+      "fr": "Crée un mur de broussailles de 18 x 3 x 1,50 m qui ralentit les mouvements et peut infliger 7d8 dégâts tranchants (dégâts/niv)."
     },
     "desc": {
       "en": [
@@ -36113,7 +38779,15 @@
     "name": "Warding Bond",
     "nameLocalized": {
       "en": "Warding Bond",
+      "fr": "Lien de protection"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The target gains +1 on AC, +1 on saving throws and resistance to all damage, but the caster shares damage.",
+      "fr": "La cible gagne +1 à la CA, +1 aux JdS et la résistance à tous les dégâts, mais le lanceur partage ses dégâts."
     },
     "desc": {
       "en": [
@@ -36218,7 +38892,15 @@
     "name": "Water Breathing",
     "nameLocalized": {
       "en": "Water Breathing",
+      "fr": "Respiration aquatique"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 10 creatures gets the ability to breathe underwater.",
+      "fr": "Jusqu'à 10 créatures obtiennent la capacité de respirer sous l'eau."
     },
     "desc": {
       "en": [
@@ -36362,7 +39044,15 @@
     "name": "Water Walk",
     "nameLocalized": {
       "en": "Water Walk",
+      "fr": "Marche sur l'eau"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Up to 10 creatures can move on a liquid surface (water, acid, mud, lava, etc) as if it were harmless solid ground.",
+      "fr": "Jusqu'à 10 créatures peuvent se déplacer sur une surface liquide (eau, acide, boue, lave, etc) comme si c'était un sol normal."
     },
     "desc": {
       "en": [
@@ -36507,7 +39197,15 @@
     "name": "Web",
     "nameLocalized": {
       "en": "Web",
+      "fr": "Toile d'araignée"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a 20-ft cube filled by thick, sticky webs (difficult terrain) that can restrain creature (Dex. save).",
+      "fr": "Crée un cube de 6 m de toiles d'araignées collantes (terrain difficile) qui peuvent entraver des créatures (JdS de Dex)."
     },
     "desc": {
       "en": [
@@ -36635,7 +39333,15 @@
     "name": "Weird",
     "nameLocalized": {
       "en": "Weird",
+      "fr": "Ennemi subconscient"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures in a 30-ft-radius sphere must succeed on a Wis. save or be frightened and take 4d10 psychic damage each turn.",
+      "fr": "Les créatures dans un rayon de 9 m doivent réussir un JdS de Sag. ou être effrayées et subir 4d10 psychiques à leur tour."
     },
     "desc": {
       "en": [
@@ -36726,7 +39432,15 @@
     "name": "Wind Walk",
     "nameLocalized": {
       "en": "Wind Walk",
+      "fr": "Marche sur le vent"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster and up to 10 creatures assume gaseous form (flying speed of 300 ft and resistance to damage from nonmagical weapon).",
+      "fr": "Le lanceur et 10 créatures sont transformés en vapeur (vitesse de vol de 90 m et résistance aux dégâts d'armes non magiques)."
     },
     "desc": {
       "en": [
@@ -36822,7 +39536,15 @@
     "name": "Wind Wall",
     "nameLocalized": {
       "en": "Wind Wall",
+      "fr": "Mur de vent"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Create a 50-ft-long, 15-ft-high, 1-ft-thick wall of wind. Small flying creatures can't pass. Arrows and bolts are deflected.",
+      "fr": "Crée un mur de vent de 15 m x 4,50 m x 30 cm. Flèches et carreaux sont détournés."
     },
     "desc": {
       "en": [
@@ -36939,7 +39661,15 @@
     "name": "Wish",
     "nameLocalized": {
       "en": "Wish",
+      "fr": "Souhait"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Duplicate a 8th level spell or lower without components, or create another effect at the MD discretion.",
+      "fr": "Duplique un sort de niveau 8 ou inférieur sans composantes, ou crée un autre effet à la discrétion du MD."
     },
     "desc": {
       "en": [
@@ -37045,7 +39775,15 @@
     "name": "Word of Recall",
     "nameLocalized": {
       "en": "Word of Recall",
+      "fr": "Mot de retour"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "The caster and up to 5 other creatures are teleported to a previously designated sanctuary.",
+      "fr": "Le lanceur et jusqu'à 5 autres créatures sont téléportés dans un sanctuaire préalablement choisi."
     },
     "desc": {
       "en": [
@@ -37135,7 +39873,15 @@
     "name": "Zone of Truth",
     "nameLocalized": {
       "en": "Zone of Truth",
+      "fr": "Zone de vérité"
+    },
+    "otherNameLocalized": {
+      "en": null,
       "fr": null
+    },
+    "resume": {
+      "en": "Creatures within a 15-ft-radius sphere must succeed on a Cha. save or can not lie.",
+      "fr": "Les créatures dans une sphère de 4,50 m de rayon doivent réussir un JdS de Cha. ou ne pas pouvoir mentir."
     },
     "desc": {
       "en": [
