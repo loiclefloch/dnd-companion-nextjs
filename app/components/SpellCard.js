@@ -20,46 +20,62 @@ function SpellCard({ name }) {
 
   const otherNames = [
     spell.otherNameLocalized && spell.otherNameLocalized.fr,
-   !isDefaultLang && trDefaultLang(spell?.nameLocalized),
-  ].filter(Boolean)
+    spell.otherNameLocalized && spell.otherNameLocalized.en,
+    !isDefaultLang && trDefaultLang(spell?.nameLocalized),
+  ].filter(Boolean);
 
   return (
     <Card
       isLoading={spellResponse.isLoading}
-      name={tr(spell?.nameLocalized)}
-      meta={
-        <div>
-          <div>{spell?.type}</div>
-          <div>
-            {spell?.ritual && <Tag label="Ritual" color="red" />}
-            {spell?.concentration && <Tag label="Concentration" color="red" />}
-          </div>
-          {/* Other names */}
-          <div>
-          {otherNames.join(', ')}
-          </div>
+      name={
+        <div className="flex justify-between">
+          <span>{tr(spell?.nameLocalized)}</span>
+          <span
+            className="text-lg font-semibold inline-block uppercase rounded-full text-gray-600 bg-gray-200 text-center flex justify-center items-center"
+            style={{ width: 30, height: 30 }}
+          >
+            {spell?.level}
+          </span>
         </div>
       }
-      data={[
-        {
-          label: "Casting time",
-          value: tr(spell?.castingTime),
-        },
-        {
-          label: "Range",
-          value: tr(getRangeUnit(spell?.range)),
-        },
-        spell?.components && {
-          label: "Components",
-          value: tr(spell?.components.text),
-        },
-        {
-          label: "Duration",
-          value: tr(spell?.duration),
-        },
-      ]}
+      meta={
+        <div>
+          {/* Other names */}
+          <div>{otherNames.join(", ")}</div>
+          <div>{tr(spell?.school.nameLocalized)}</div>
+          {(spell?.ritual || spell?.concentration) && (
+              <div className="mt-2">
+                {spell?.ritual && <Tag label="Ritual" color="blue" />}
+                {spell?.concentration && (
+                  <Tag label="Concentration" color="blue" />
+                )}
+              </div>
+            )}
+        </div>
+      }
+      // data={[
+      //   {
+      //     label: "Casting time",
+      //     value: tr(spell?.castingTime),
+      //   },
+      //   {
+      //     label: "Range",
+      //     value: tr(getRangeUnit(spell?.range)),
+      //   },
+      //   spell?.components && {
+      //     label: "Components",
+      //     value: tr(spell?.components.text),
+      //   },
+      //   {
+      //     label: "Duration",
+      //     value: tr(spell?.duration),
+      //   },
+      // ]}
       description={
         <div>
+          <div className="my-4">
+            {tr(spell?.castingTime)} - {tr(getRangeUnit(spell?.range))} - {tr(spell?.duration)} - {tr(spell?.components.text)} 
+          </div>
           {spell?.resume && (
             <div className="mt-2">
               <b>Resume: </b>

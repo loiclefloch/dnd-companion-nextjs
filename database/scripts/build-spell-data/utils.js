@@ -235,7 +235,7 @@ function buildDuration(str) {
 function translateDurationUnit(lang, isUpTo, amount, durationUnit) {
   const tr = {
     fr: {
-      upTo: `Jusqu'à`,
+      upTo: `jusqu'à`,
       hours: "heures",
       hour: "heure",
       minutes: "minutes",

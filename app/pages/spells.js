@@ -13,7 +13,7 @@ function Spell({ spell, selected, onSelect }) {
   return (
     <div
       onClick={onSelect}
-      className={clsx("cursor-pointer my-2 p-2", {
+      className={clsx("cursor-pointer my-2 p-4", {
         [theme.listItemSelectedBackground]: selected,
       })}
     >
@@ -31,12 +31,14 @@ function Spells() {
   // ritual
   // const [selectedSpell, setSelectedSpell] = useState(spellsResponse.data.find(spell => spell.name === 'Meld Into Stone'));
   // Two french name
-  const [selectedSpell, setSelectedSpell] = useState(spellsResponse.data.find(spell => spell.name === 'Animate Objects'));
+  const [selectedSpell, setSelectedSpell] = useState(
+    spellsResponse.data.find((spell) => spell.name === "Animate Objects")
+  );
 
   return (
     <div className="flex">
-      <div className="w-1/2 ">
-        <div className="p-2 px-4">
+      <div className="w-1/2 py-4 overflow-y-auto" style={{ maxHeight: "100vh" }}>
+        <div className="">
           {spellsResponse.data.map((spell) => (
             <Spell
               key={spell.name}
@@ -47,7 +49,10 @@ function Spells() {
           ))}
         </div>
       </div>
-      <div className="w-1/2 ">
+      <div
+        className="w-1/2 py-4 pl-6 overflow-y-auto"
+        style={{ maxHeight: "100vh" }}
+      >
         {selectedSpell && <SpellCard name={selectedSpell.name} />}
       </div>
     </div>

@@ -10,9 +10,9 @@ function Card({ isLoading, name, meta, data, description, tags }) {
       }}
     >
       <h4 className="text-lg">{name}</h4>
-      <p className="text-sm italic">{meta}</p>
+      <div className="text-sm italic">{meta}</div>
       {data && (
-        <div className="">
+        <div className="my-4">
           {data
             .filter(Boolean)
             .filter((data) => data.value !== null && data.value !== undefined)
@@ -25,7 +25,7 @@ function Card({ isLoading, name, meta, data, description, tags }) {
             ))}
         </div>
       )}
-      <p>{description}</p>
+      <div>{description}</div>
       {tags && (
         <div className="flex flex-row mt-4">
           {tags.filter(Boolean).map((tag, index) => (

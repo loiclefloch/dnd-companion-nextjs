@@ -573,7 +573,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "transmutation",
@@ -966,7 +966,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 24 hours",
-      "fr": "Jusqu'à 24 heures"
+      "fr": "jusqu'à 24 heures"
     },
     "school": {
       "index": "transmutation",
@@ -1204,7 +1204,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "transmutation",
@@ -1323,7 +1323,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "abjuration",
@@ -1440,7 +1440,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "abjuration",
@@ -1675,7 +1675,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "divination",
@@ -1800,7 +1800,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -2007,7 +2007,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -2578,7 +2578,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -2709,7 +2709,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "abjuration",
@@ -2850,7 +2850,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "transmutation",
@@ -2978,7 +2978,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "abjuration",
@@ -3114,7 +3114,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "necromancy",
@@ -3245,7 +3245,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "conjuration",
@@ -3338,7 +3338,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "evocation",
@@ -3447,7 +3447,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -3989,7 +3989,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "illusion",
@@ -4120,7 +4120,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -4359,7 +4359,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "conjuration",
@@ -4478,7 +4478,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -5136,7 +5136,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "divination",
@@ -5384,7 +5384,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "conjuration",
@@ -6154,7 +6154,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -6392,7 +6392,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -6534,7 +6534,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "conjuration",
@@ -6661,7 +6661,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "conjuration",
@@ -6773,7 +6773,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "conjuration",
@@ -6901,7 +6901,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "conjuration",
@@ -7023,7 +7023,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "conjuration",
@@ -7149,7 +7149,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "conjuration",
@@ -7725,7 +7725,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "transmutation",
@@ -7848,7 +7848,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 8 hours",
-      "fr": "Jusqu'à 8 heures"
+      "fr": "jusqu'à 8 heures"
     },
     "school": {
       "index": "transmutation",
@@ -8804,7 +8804,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -8938,7 +8938,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "evocation",
@@ -9509,7 +9509,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -9726,7 +9726,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "divination",
@@ -9844,7 +9844,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "divination",
@@ -10016,7 +10016,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "divination",
@@ -10161,7 +10161,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "divination",
@@ -10677,7 +10677,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "abjuration",
@@ -11079,7 +11079,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -11298,7 +11298,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -11416,7 +11416,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "enchantment",
@@ -11554,7 +11554,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -11920,7 +11920,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -12167,7 +12167,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "transmutation",
@@ -12315,7 +12315,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "transmutation",
@@ -12436,7 +12436,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "conjuration",
@@ -12809,7 +12809,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "transmutation",
@@ -12942,7 +12942,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "necromancy",
@@ -13171,7 +13171,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -13516,7 +13516,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "illusion",
@@ -14274,7 +14274,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 24 hours",
-      "fr": "Jusqu'à 24 heures"
+      "fr": "jusqu'à 24 heures"
     },
     "school": {
       "index": "divination",
@@ -14992,7 +14992,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "evocation",
@@ -15240,7 +15240,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "conjuration",
@@ -15366,7 +15366,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "transmutation",
@@ -15587,7 +15587,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "transmutation",
@@ -15722,7 +15722,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "conjuration",
@@ -16479,7 +16479,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "transmutation",
@@ -16624,7 +16624,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "conjuration",
@@ -17014,7 +17014,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "transmutation",
@@ -17228,7 +17228,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "abjuration",
@@ -17702,7 +17702,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "illusion",
@@ -18189,7 +18189,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "divination",
@@ -18428,7 +18428,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -18936,7 +18936,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "transmutation",
@@ -19339,7 +19339,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "transmutation",
@@ -19667,7 +19667,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -19787,7 +19787,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -19908,7 +19908,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -20047,7 +20047,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -20217,7 +20217,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "abjuration",
@@ -20321,7 +20321,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "divination",
@@ -20433,7 +20433,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "illusion",
@@ -21093,7 +21093,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "conjuration",
@@ -21325,7 +21325,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "conjuration",
@@ -21554,7 +21554,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "illusion",
@@ -21701,7 +21701,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -22364,7 +22364,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "transmutation",
@@ -22894,7 +22894,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "divination",
@@ -23057,7 +23057,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "divination",
@@ -24138,7 +24138,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "transmutation",
@@ -24372,7 +24372,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "illusion",
@@ -25018,7 +25018,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "conjuration",
@@ -26141,7 +26141,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "illusion",
@@ -26394,7 +26394,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "enchantment",
@@ -26516,7 +26516,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -26633,7 +26633,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 2 hours",
-      "fr": "Jusqu'à 2 heures"
+      "fr": "jusqu'à 2 heures"
     },
     "school": {
       "index": "transmutation",
@@ -26885,7 +26885,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "abjuration",
@@ -27133,7 +27133,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "illusion",
@@ -27995,7 +27995,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "transmutation",
@@ -29224,7 +29224,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 24 hours",
-      "fr": "Jusqu'à 24 heures"
+      "fr": "jusqu'à 24 heures"
     },
     "school": {
       "index": "illusion",
@@ -29331,7 +29331,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "abjuration",
@@ -29492,7 +29492,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "abjuration",
@@ -30040,7 +30040,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "necromancy",
@@ -30672,7 +30672,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -30766,7 +30766,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "abjuration",
@@ -31005,7 +31005,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "transmutation",
@@ -31746,7 +31746,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "divination",
@@ -32480,7 +32480,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "transmutation",
@@ -32859,7 +32859,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "abjuration",
@@ -33207,7 +33207,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "illusion",
@@ -33351,7 +33351,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "illusion",
@@ -33730,7 +33730,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "conjuration",
@@ -33875,7 +33875,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "transmutation",
@@ -34483,7 +34483,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "transmutation",
@@ -34626,7 +34626,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "transmutation",
@@ -34763,7 +34763,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "conjuration",
@@ -35004,7 +35004,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "conjuration",
@@ -35283,7 +35283,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "abjuration",
@@ -35429,7 +35429,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "conjuration",
@@ -35534,7 +35534,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 8 hours",
-      "fr": "Jusqu'à 8 heures"
+      "fr": "jusqu'à 8 heures"
     },
     "school": {
       "index": "enchantment",
@@ -35677,7 +35677,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -36067,7 +36067,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "transmutation",
@@ -37234,7 +37234,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "conjuration",
@@ -37368,7 +37368,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "transmutation",
@@ -37739,7 +37739,7 @@
       "round": true,
       "type": "round",
       "en": "Up to 1 round",
-      "fr": "Jusqu'à 1 tour"
+      "fr": "jusqu'à 1 tour"
     },
     "school": {
       "index": "divination",
@@ -38017,7 +38017,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "necromancy",
@@ -38247,7 +38247,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
@@ -38381,7 +38381,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "evocation",
@@ -38492,7 +38492,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "evocation",
@@ -38600,7 +38600,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "evocation",
@@ -38741,7 +38741,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 10 minutes",
-      "fr": "Jusqu'à 10 minutes"
+      "fr": "jusqu'à 10 minutes"
     },
     "school": {
       "index": "conjuration",
@@ -39266,7 +39266,7 @@
       "hour": true,
       "type": "hour",
       "en": "Up to 1 hour",
-      "fr": "Jusqu'à 1 heure"
+      "fr": "jusqu'à 1 heure"
     },
     "school": {
       "index": "conjuration",
@@ -39394,7 +39394,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "illusion",
@@ -39603,7 +39603,7 @@
       "minute": true,
       "type": "minute",
       "en": "Up to 1 minute",
-      "fr": "Jusqu'à 1 minute"
+      "fr": "jusqu'à 1 minute"
     },
     "school": {
       "index": "evocation",
