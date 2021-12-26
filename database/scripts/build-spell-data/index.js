@@ -116,6 +116,10 @@ function getAiddSpell(baseSpell) {
       en: aiddSpellEN.Spell,
       fr: aiddSpellFR?.Sort,
     },
+    otherNameLocalized: {
+      en: null,
+      fr: aiddSpellFR?.Sort !== aiddSpellFR.VF ? aiddSpellFR.VF : null
+    },
     resume: {
       en: aiddSpellEN.Description,
       fr: aiddSpellFR.Description,
@@ -151,7 +155,8 @@ function transform(baseSpell) {
     en: (aiddSpell && nameLocalized.en !== aiddSpell.nameLocalized.en)
         ? aiddSpell.nameLocalized.en
         : null,
-    fr: null, // only one source right now
+    // only one source right now, but gives two possible names
+    fr: aiddSpell?.nameLocalized?.fr !== aiddSpell?.otherNameLocalized.fr ? aiddSpell?.otherNameLocalized?.fr : null,
   };
  
   return {

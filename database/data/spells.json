@@ -10,7 +10,7 @@
     },
     "otherNameLocalized": {
       "en": "Melf's Acid Arrow",
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, deals 4d4 acid damage, then 2d4 acid damage on the next round (damage/lvl).",
@@ -129,7 +129,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Aspersion acide"
     },
     "resume": {
       "en": "1 or 2 creatures within 5 feet must succeed on a Dex. save or take 1d6 acid damage (damage/lvl).",
@@ -248,7 +248,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Up to 3 creatures increase their hp maximum and current hp by 5 (+5 hp/lvl).",
@@ -387,7 +387,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Alert the caster or activate an alarm if a Tiny or larger creature enters a warded 20-ft cube.",
@@ -512,7 +512,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Give a new form depending on the chosen option (Aquatic Adaptation, Change Appearance, or Natural Weapons).",
@@ -635,7 +635,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "A beast with Intelligence 3 or less must succeed on a Wis. save or be charmed (+1 beast/lvl).",
@@ -767,7 +767,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "A Tiny beast travels to deliver a 25 words message to a target (+48 h/lvl).",
@@ -907,7 +907,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Métamorphose animale"
     },
     "resume": {
       "en": "Willing targets within 30 ft turn into beasts of FP 4 or lower.",
@@ -1008,7 +1008,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a skeleton from bones or a zombie from a corpse, who is under the caster control (+2 creatures/lvl).",
@@ -1138,7 +1138,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Animation des objets"
     },
     "resume": {
       "en": "Animate up to 10 non-magic objects and control their actions up to 500 ft (+2 items/lvl).",
@@ -1266,7 +1266,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Prevent creatures other than undead and constructs from entering in a 10-ft radius.",
@@ -1365,7 +1365,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a 10-ft-radius sphere in which spells and magic items no longer work.",
@@ -1492,7 +1492,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Attract or repel (Wis. save in order to not be attracted or scared) a kind of creature designated within 60 ft.",
@@ -1612,7 +1612,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Oeil du mage"
     },
     "resume": {
       "en": "Create an invisible eye with darkvision that sends the caster the mental image of what it sees.",
@@ -1726,7 +1726,7 @@
     },
     "otherNameLocalized": {
       "en": "Bigby's Hand",
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a Large hand with a Strength of 26 that can strike (4d8 force damage), push, grapple, or protect (damage/lvl).",
@@ -1837,7 +1837,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Lock an objet (door, window, chest, etc) and the caster can set a password to suppresses the spell for 1 minute.",
@@ -1948,7 +1948,7 @@
     },
     "otherNameLocalized": {
       "en": "Mordenkainen's Faithful Hound",
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Summon an invisible watchdog that barks when a creature approaches and attacks it (4d8 piercing damage).",
@@ -2158,7 +2158,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster and up to 8 creatures are projected into the Astral Plane.",
@@ -2284,7 +2284,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster obtains an omen about the result of an action within the next 30 min (weal, woe, both or nothing).",
@@ -2400,7 +2400,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Give a beast or plant (Intelligence 3 or less) the ability to speek and senses similar to a human's for 30 days.",
@@ -2511,7 +2511,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Imprécation"
     },
     "resume": {
       "en": "Up to 3 targets must succeed on a Cha. save or subtract 1d4 from their attack roll or saving throw (+1 creature/lvl).",
@@ -2640,7 +2640,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Cha. save or be banished to a harmless demiplane (+1 creature/lvl).",
@@ -2791,7 +2791,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target's AC can't be less than 16.",
@@ -2921,7 +2921,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Targets gain advantage on Wis. saving throws and death saving throws, and regain the maximum number of hp from healing.",
@@ -3048,7 +3048,7 @@
     },
     "otherNameLocalized": {
       "en": "Bestow curse",
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Wis. save or suffer an effect as a disadvantage to a check or lose an action (duration/lvl).",
@@ -3280,7 +3280,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a 100 x 20 x 5 ft wall that provides three-quarters cover and can inflict 6d10 slashing damage if passed through.",
@@ -3380,7 +3380,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Up to 3 targets can add 1d4 to their attack roll or saving throw (+1 creature/lvl).",
@@ -3518,7 +3518,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Con. save or take 8d8 necrotic damage (damage/lvl).",
@@ -3664,7 +3664,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Con. save or become blinded or deafened (+1 creature/lvl).",
@@ -3817,7 +3817,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster has 50% of chance to switch to the Ethereal Plane, then returns to the space he vanished from on the next turn.",
@@ -3935,7 +3935,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster's body becomes blurred and creatures that attack him have disadvantage on attack rolls against him.",
@@ -4060,7 +4060,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If a weapon attack hits, deals an extra 2d6 radiant damage and the target sheds dim light in 5-ft radius (damage/lvl).",
@@ -4162,7 +4162,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 15-ft cone must succeed on a Dex. save or take 3d6 fire damage (damage/lvl).",
@@ -4294,7 +4294,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 5-ft radius must succeed on a Dex. save or take 3d10 lightning damage (damage/lvl) on each turn.",
@@ -4420,7 +4420,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-foot-radius sphere must succeed on a Cha. save or no longer be charmed/frightened, or be indifferents.",
@@ -4540,7 +4540,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Up to 4 different targets must succeed on a Dex. save or take 10d8 lightning damage (+1 target/lvl).",
@@ -4659,7 +4659,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The humanoid target must succeed on a Wis. save or be charmed by the caster (+1 creature/lvl).",
@@ -4814,7 +4814,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, deals 1d8 necrotic damage (damage/lvl) and the target can't regain hp immediately.",
@@ -4945,7 +4945,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 60-ft-radius sphere must succeed on a Con. save or take 8d6 necrotic damage (damage/lvl).",
@@ -5073,7 +5073,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create an invisible sensor in a familiar location within 1 mile, allowing to see or to hear (to choose, can switch).",
@@ -5218,7 +5218,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create in 120 days the inert double of a living creature. If the original creature dies, its soul is transferred to the clone.",
@@ -5319,7 +5319,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-ft-radius sphere must succeed on a Con. save or take 5d8 poison damage (damage/lvl).",
@@ -5446,7 +5446,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "6d10 creatures hp are dazzled in ascending order of their current hp (+2d10 hp/lvl).",
@@ -5574,7 +5574,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Wis. save or follow your order as Approach, Drop, Flee, Fall, Halt, etc (+1 creature/lvl).",
@@ -5718,7 +5718,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Allow to obtain from a divine entity the answers (yes or no) to 3 questions.",
@@ -5831,7 +5831,7 @@
     },
     "otherNameLocalized": {
       "en": "Commune with Nature",
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster gets 3 informations about the surrounding territory. Doesn't function in dungeons or towns.",
@@ -5954,7 +5954,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster understands any spoken and written (1 min/page) language. Doesn't decode secret messages.",
@@ -6096,7 +6096,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Targets within 30 ft must succeed on a Wis. save or move in a specified direction.",
@@ -6196,7 +6196,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 60-ft cone must succeed on a Con. save or take 8d8 cold damage (damage/lvl).",
@@ -6323,7 +6323,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 10-ft-radius sphere must succeed on a Wis. save or can't take actions normally (+ 5-ft-radius/lvl).",
@@ -6464,7 +6464,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Summon from 1 beast of CR 2 to 8 beasts of CR 1/4, friendly (nbr of creatures/lvl).",
@@ -6596,7 +6596,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Summon 1 celestial of CR 4, friendly (CR +1/lvl).",
@@ -6703,7 +6703,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Summon 1 elemental of CR 5, friendly (CR +1/lvl).",
@@ -6835,7 +6835,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Summon 1 fey of CR 6, friendly (CR +1/lvl).",
@@ -6953,7 +6953,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Summon from 1 elemental of CR 2 to 8 elemental of CR 1/4, friendly (nbr of creatures/lvl).",
@@ -7075,7 +7075,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Summon from 1 fey of CR 2 to 8 fey of CR 1/4, friendly (nbr of creatures/lvl).",
@@ -7201,7 +7201,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Contact avec les plans"
     },
     "resume": {
       "en": "Contact an extraplanar entity to ask it 5 questions if an Int. save is successful. Otherwise, 6d6 psychic damage.",
@@ -7308,7 +7308,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, target is afflicted with a disease to choose from 6 proposed.",
@@ -7429,7 +7429,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Anticipation"
     },
     "resume": {
       "en": "Condition the activation of a 5th level spell or lower that can target the caster.",
@@ -7532,7 +7532,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a flame that produces a light equivalent in brightness to a torch, but does not emit any heat.",
@@ -7652,7 +7652,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Control the water in a 100-ft cube (cause a flood, part the water, redirect the flow, create a whirlpool).",
@@ -7787,7 +7787,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Modify gradually the climatic conditions outdoors (precipitation, temperature and wind force).",
@@ -7920,7 +7920,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "In reaction, fail a spell of 3rd level or lower. Ability check if the spell is 4th level or higher (threshold/lvl).",
@@ -8043,7 +8043,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create 45 pounds of food and 30 gallons of water, enough to sustain 15 humanoids for 24 hours.",
@@ -8179,7 +8179,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Up to 3 Medium or Small humanoids corpses become a ghoul who obey the caster for 24 h (nbr and type of creatures/lvl).",
@@ -8309,7 +8309,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create or destroy up to 10 gallons of water (+10 gallons/lvl).",
@@ -8441,7 +8441,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a non-living object made of vegetable matter or mineral and no larger than a 5-ft cube (+5 ft/lvl).",
@@ -8570,7 +8570,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "1 creature regains 1d8+Ability.Mod (+1d8 hp/lvl).",
@@ -8742,7 +8742,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create up to 4 torch-sized lights that shed dim light in a 10-ft radius and can be moved later up to 60 ft.",
@@ -8876,7 +8876,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Fill a 15-ft-radius sphere of magical darkness.",
@@ -9019,7 +9019,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target can see in the dark within 60 feet.",
@@ -9160,7 +9160,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a sphere that sheds bright light in a 60-ft radius and dim light in an additional 60-ft radius.",
@@ -9320,7 +9320,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "When the target drops to 0 hp for the first time, it automatically returns to 1 hp.",
@@ -9439,7 +9439,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-ft-radius sphere must succeed on a Dex. save or take 12d6 fire damage (damage/lvl).",
@@ -9561,7 +9561,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a door that leads to a demiplane (30-ft cube). Creatures still in the demiplane at the end of the spell are trapped.",
@@ -9670,7 +9670,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster senses and locates aberration, celestial, elemental, fey, fiend, or undead within 30 ft.",
@@ -9788,7 +9788,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster senses the presence of magic in a 30-ft radius and learns its school of magic.",
@@ -9956,7 +9956,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster senses and identifies poison, poisonous creature, or disease within 30 ft.",
@@ -10098,7 +10098,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster detects the superficial thoughts of a creature within 30 ft, and the deepest if the target misses a Wis. save.",
@@ -10233,7 +10233,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster and another creature of the same size are teleported to a maximum of 500 feet.",
@@ -10362,7 +10362,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Modify the appearance of the caster (its physical and its equipment) thanks to an illusion.",
@@ -10492,7 +10492,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Dex. save or take 10d6+40 force damage (damage/lvl). An Large or smaller object is disintegrated.",
@@ -10613,7 +10613,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "End a condition (charmed, frightened, or possessed) or bannish a creature to its home plane (Cha. save).",
@@ -10729,7 +10729,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "End spells of 3rd level 3 or lower on a target. Ability check for each spell of 4th level or higher (threshold/lvl).",
@@ -10912,7 +10912,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster gets a truthful reply to 1 question about an event to occur within 7 days.",
@@ -11024,7 +11024,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If a weapon attack hits, deals an extra 1d4 radiant damage.",
@@ -11131,7 +11131,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Targets must succeed on a Cha. save or suffer an effect (deafened, blinded, etc). Some creatures are banned.",
@@ -11233,7 +11233,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Domination d'animal"
     },
     "resume": {
       "en": "A beast within 60 ft must succeed on a Wis. save or be charmed and obey the launcher (duration/lvl).",
@@ -11350,7 +11350,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Wis. save or be charmed and obey the caster (duration/lvl).",
@@ -11488,7 +11488,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "One humanoid must succeed on a Wis. save or be charmed and obey the caster (duration/lvl).",
@@ -11616,7 +11616,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Shape the dreams of a sleeping creature who can take 3d6 psychic damage if it fails on a Wis. save.",
@@ -11751,7 +11751,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Provide various minor effects related to nature (weather forecast, flowering, sensory effect, etc).",
@@ -11853,7 +11853,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 100-ft radius must succeed on a Dex. save or be knocked prone. Cause damage to structures.",
@@ -11982,7 +11982,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, deals 1d10 force damage (nbr of beam/lvl).",
@@ -12090,7 +12090,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target gains advantage on ability checks for one predefined ability, and other bonuses in such cases (+1 creature/lvl).",
@@ -12249,7 +12249,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Double or halve the size of a creature (Con. save) or an object.",
@@ -12377,7 +12377,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-ft square (difficult terrain) must succeed on a Str. save or be restrained.",
@@ -12488,7 +12488,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Targets must succeed on a Wis. save or have disadvantage on Wisdom (Perception) checks to perceive others creatures.",
@@ -12607,7 +12607,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster is projected into the Ethereal Plane (nbr of creatures/lvl).",
@@ -12754,7 +12754,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster can take the Dash action by using a bonus action.",
@@ -12881,7 +12881,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target in a 60-ft radius must succeed on a Wis. save or take on a the following effects: asleep, panicked or sickened.",
@@ -13014,7 +13014,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Convert raw materials into Large or smaller simples objects of the same material.",
@@ -13114,7 +13114,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-ft cube must succeed on a Dex. save or grant advantage against them to attackers.",
@@ -13318,7 +13318,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster gains 1d4+4 temporary hit points (+5 hp/lvl).",
@@ -13456,7 +13456,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Terreur"
     },
     "resume": {
       "en": "Creatures in a 30-ft cone must succeed on a Wis. save or drop whatever they are holding, become frightened and move away.",
@@ -13598,7 +13598,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Up to 5 creatures fall at 60 feet per round and take no falling damage before the spell ends.",
@@ -13730,7 +13730,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target take 4d6 psychic damage and must succeed on an Int. save or his Charisma and Intelligence scores become 1.",
@@ -13865,7 +13865,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Summon a small animal that obeys the caster and telepathically shares his senses with him.",
@@ -13973,7 +13973,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Summon a spirit that assumes the form a steed (horse, elk, etc) telepathically linked to the caster.",
@@ -14085,7 +14085,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Détection des pièges"
     },
     "resume": {
       "en": "The caster senses the presence of any trap in a 120-fr radius, but the spell don't give their location.",
@@ -14214,7 +14214,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Orientation"
     },
     "resume": {
       "en": "Determine the shortest and most direct physical path to reach a known destination.",
@@ -14327,7 +14327,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Con. save or take 7d8+30 necrotic damage. If killed, becomes a zombie under the caster command.",
@@ -14446,7 +14446,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, deals 1d10 fire damage (damage/lvl). An object can ignite.",
@@ -14555,7 +14555,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster gains resistance to cold or fire damage, and deals 2d8 damage to attackers who hit him within 5 ft.",
@@ -14668,7 +14668,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in ten 10-ft cube must succeed on a Dex. save or take 7d10 fire damage.",
@@ -14787,7 +14787,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-ft radius must succeed on a Dex. save or take 8d6 fire damage (damage/lvl).",
@@ -14925,7 +14925,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, deals 3d6 fire damage (damage/lvl). Shed bright light in 10 ft and dim light in additional 10 ft.",
@@ -15044,7 +15044,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 10-ft-radius, 40-ft-high cylinder must succeed on a Dex. save or take 4d6 fire and 4d6 radiant (damage/lvl).",
@@ -15171,7 +15171,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures within 5 ft from a 5-ft-diameter sphere must succeed on a Dex. save or take 2d6 fire damage (damage/lvl).",
@@ -15302,7 +15302,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target within 60 ft must succeed on a Con. save or be restrained, or petrified after 3 failures.",
@@ -15522,7 +15522,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target gets a flying speed of 60 ft (+1 creature/lvl).",
@@ -15659,7 +15659,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Makes an area heavily obscured in a 20-ft-radius sphere (+20 ft/lvl).",
@@ -15804,7 +15804,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Prevent teleporting to the protected area and inflicts 5d10 radiant or necrotic damage to some type of creatures.",
@@ -15908,7 +15908,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creates a 20-ft cage or a 10-ft box of magical force that traps a creature. Escape by magicial means only.",
@@ -16036,7 +16036,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "1 creature sees its near future, can not be surprised and has advantage on his rolls. Attacks against it have disadvantage.",
@@ -16168,7 +16168,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Target's movement is unaffected by difficult terrain, spells or water.",
@@ -16418,7 +16418,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target turns into a cloud, gets a flying speed of 10 ft, and can pass through small holes.",
@@ -16560,7 +16560,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a portal to another plan. Also allows to summon a creature from another plane.",
@@ -16686,7 +16686,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Wis. save or be charmed and take 5d10 psychic if it doesn't obey (duration/lvl).",
@@ -16832,7 +16832,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Doux repos"
     },
     "resume": {
       "en": "Protect a corpse from decay or to become undead.",
@@ -16954,7 +16954,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Transform insects (from 10 centipedes to 1 scorpion) into giant creatures that obey the caster's orders.",
@@ -17056,7 +17056,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Give 15 to a Charisma check and hides the lies during a magic detection.",
@@ -17162,7 +17162,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Block 5th level spells or lower within a 10-ft radius (threshold/lvl).",
@@ -17280,7 +17280,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Glyphe de garde"
     },
     "resume": {
       "en": "A glyph on an object deals 5d8 damage in a 20-ft radius (damage/lvl) or casts a 3rd level spell (lvl/lvl) when triggered.",
@@ -17422,7 +17422,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create up to 10 berries that restore 1 hp each and keep their power for 24 hours.",
@@ -17533,7 +17533,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 10-ft square (difficult terrain) must succeed on a Dex. save or fall prone.",
@@ -17647,7 +17647,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Invisibilité suprême"
     },
     "resume": {
       "en": "The target becomes invisible for 1 minute.",
@@ -17774,7 +17774,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Restauration suprême"
     },
     "resume": {
       "en": "End one condition (charmed or petrified), one curse, any ability scores or hp reduction, or one exhaustion level.",
@@ -17898,7 +17898,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Hostiles creatures within a 10-ft radius of the created guardian must succeed on a Dex. save or take 20 radiant damage.",
@@ -18006,7 +18006,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a ward that protect a 50-ft square. Can set a password to immunize individuals.",
@@ -18134,7 +18134,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target can add 1d4 to one ability check of its choice.",
@@ -18251,7 +18251,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Rayon traçant"
     },
     "resume": {
       "en": "If the spell attack hits, deals 4d6 radiant damage (damage/lvl) and the next attack roll will have advantage.",
@@ -18366,7 +18366,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures on a 60-ft-long, 10-ft-wide line mus succeed on a Str. save or be pushed 15 ft away.",
@@ -18500,7 +18500,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Prevent celestials, elementals, fey, fiends, and undead to enter a 60-ft-radius area and protect/handicap the targets.",
@@ -18632,7 +18632,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Make a natural terrain looks like another type (for example a road becomes a swamp or a crevasse).",
@@ -18776,7 +18776,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Con. save or take 14d6 necrotic damage. The spell can't kill it however.",
@@ -18874,7 +18874,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Target's speed is doubled. It also gains a +2 bonus to AC, advantage to Dex. saves and 1 additional action.",
@@ -19007,7 +19007,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "1 creature regains 70 hp and are cured of diseases, blindness, and deafness (+10 hp/lvl).",
@@ -19127,7 +19127,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "1 creature regains 1d4+Ability.Mod (+1d4 hp/lvl).",
@@ -19271,7 +19271,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in physical contact with the metal object take 2d8 fire damage (damage/lvl).",
@@ -19401,7 +19401,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Dex. save or take 2d10 fire damage (damage/lvl).",
@@ -19499,7 +19499,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Produce a feast for 12 guests that cures diseases, immunizes to poison and increases hp by 2d10 for 24 hours.",
@@ -19612,7 +19612,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target is immune to being frightened and gains temporary hp equal to its Ability.Mod each turns (+1 creature/lvl).",
@@ -19841,7 +19841,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Target must succeed on a Wis. save or be paralyzed (+1 creature/lvl).",
@@ -19980,7 +19980,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Wis. save or be paralyzed (+1 creature/lvl).",
@@ -20158,7 +20158,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Targets in a 30-ft radius have advantage on saving throws. Other creatures have disadvantage on attack rolls against them.",
@@ -20259,7 +20259,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target take an extra 1d6 damage and caster has advantage on Wisdom (Perception/Survival) checks to find it (duration/lvl).",
@@ -20372,7 +20372,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 30-ft cube must succeed on a Wis. save or be charmed and incapacitated, with a speed of 0.",
@@ -20515,7 +20515,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-ft-radius, 40-ft-high cylinder must succeed on a Dex. save or take 2d8 bludgeoning damage and 4d6 cold damage.",
@@ -20654,7 +20654,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster obtains properties of a magic item (attunement, charges) or knows if an item or a creature is affected by a spell.",
@@ -20775,7 +20775,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Write a secret message that can only be read by a designated target or a creature with truesight.",
@@ -20908,7 +20908,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target within 30 ft must succeed on a Wis. save or be held prisoner. The form is to choose from 6 options.",
@@ -21034,7 +21034,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-ft-radius sphere must succeed on a Dex. save or take 10d8 fire damage.",
@@ -21145,7 +21145,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, deals 3d10 necrotic damage (damage/lvl).",
@@ -21257,7 +21257,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-ft-radius sphere must succeed on a Con. save or take 4d10 piercing damage (damage/lvl).",
@@ -21489,7 +21489,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target becomes invisible during 1 hour or until she attacks or casts a spell (+1 creature/lvl).",
@@ -21745,7 +21745,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target gets a jump distance multiplicated by 3.",
@@ -21886,7 +21886,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Unlock or unbar 1 object (door, chest, padlock, set of manacles, etc) or suppressed the arcane lock spell for 10 minutes.",
@@ -22016,7 +22016,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster obtains information about a person, place, or object. The lore consist of tales or stories.",
@@ -22137,7 +22137,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "End one disease or one condition (blinded, deafened, paralyzed, or poisoned) on 1 creature.",
@@ -22301,7 +22301,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "1 creature or object that weighs up to 500 pounds rises vertically up to 20 ft then remains suspended.",
@@ -22426,7 +22426,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Make an object to shed bright light in a 20-ft radius and dim light in an additional 20-ft radius.",
@@ -22567,7 +22567,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures on a 100-ft-long, 5-ft-wide line must succeed on a Dex. save or take 8d6 lightning damage (damage/lvl).",
@@ -22703,7 +22703,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Give the direction and distance to a kind of beast or plant within 5 miles.",
@@ -22833,7 +22833,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster senses the direction in which a familiar creature is within a 1000-ft radius.",
@@ -22996,7 +22996,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster senses the direction to the location of an objet you are familiar with, within a 1000 ft radius.",
@@ -23159,7 +23159,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target gets a speed increased by 10 ft (+1 creature/lvl).",
@@ -23306,7 +23306,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Armure du mage"
     },
     "resume": {
       "en": "The target, willing and not wearing armor, gets an AC equal to 13+Dex.Mod.",
@@ -23427,7 +23427,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Main du mage"
     },
     "resume": {
       "en": "Create a spectral hand that can in a 30-ft radius manipulate an object, open a door, stow an item, etc.",
@@ -23568,7 +23568,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a 10-ft-radius, 20-ft-tall cylinder that protect from celestials, elementals, fey, fiends, and/or undead (+1 h/lvl).",
@@ -23722,7 +23722,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Possession"
     },
     "resume": {
       "en": "The caster projects his soul into an urn and then returns to his body or possesses a humanoid body.",
@@ -23828,7 +23828,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "3 missiles deal automatically 1d4+1 force damage each to one or several creatures (+1 missile/lvl).",
@@ -23952,7 +23952,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creates a magical mouth that will repeat a message of up to 25 words when a trigger condition is met.",
@@ -24077,7 +24077,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Turn a weapon into a +1 magic weapon for attack rolls and damage rolls (+2 or +3 bonus/lvl).",
@@ -24303,7 +24303,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create the image of an animated object or creature, with sounds and smells (without concentration/lvl).",
@@ -24454,7 +24454,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Up to 6 creatures regain 3d8+Spell.Ability.Mod (+1d8 hp/lvl).",
@@ -24595,7 +24595,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Several creatures regain a total of 700 ph and are cured of diseases, blindness, and deafness.",
@@ -24696,7 +24696,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Up to 6 creatures regain 1d4+Ability.Mod (+1d4 hp/lvl).",
@@ -24818,7 +24818,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Up to 12 targets must succeed on a Wis. save or follow the suggestion given by the caster (duration/lvl).",
@@ -24959,7 +24959,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Banish a creature into a labyrinthine demiplane. Intelligence check to escape before the end of the spell.",
@@ -25060,7 +25060,7 @@
     },
     "otherNameLocalized": {
       "en": "Meld into Stone",
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster can penetrate the stone.",
@@ -25179,7 +25179,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Repair break or tear in an object (broken chain link, two halves of a broken key, torn cloak, leaking wineskin, etc).",
@@ -25330,7 +25330,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster whispers a message to a creature within 120 ft who will be the only one to hear it. It can reply the same way.",
@@ -25464,7 +25464,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 40-ft-radius sphere must succeed on a Dex. save or take 20d6 fire damage and 20d6 bludgeoning damage.",
@@ -25573,7 +25573,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target is immune to psychic damage, reading thoughts, divination spells, and the charmed condition.",
@@ -25680,7 +25680,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a sound or an immobile image of an object no larger than a 5-ft cube.",
@@ -25825,7 +25825,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Tansform the appearance (sight, sound, smell and feel) of a 1 mile square.",
@@ -25945,7 +25945,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create 3 illusory duplicates of the caster, each of them having a CA equal to 10 + Dex.Mod and being destroyed if they are hit.",
@@ -26085,7 +26085,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster becomes invisible and creates a double that moves, acts and speaks. The caster can see and hear through this double.",
@@ -26193,7 +26193,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster is teleported up to 30 feet.",
@@ -26327,7 +26327,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Wis. save or be charmed and its memory altered (seniority of memories/lvl).",
@@ -26446,7 +26446,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 5-ft-radius, 40-ft-high cylinder must succeed on a Con. save or take 2d10 radiant damage (damage/lvl).",
@@ -26568,7 +26568,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Glissement de terrain"
     },
     "resume": {
       "en": "Shape dirt, sand, or clay, but not stone (raise, lower, flatten, create a trench, etc) in a 40-ft square in 10 min.",
@@ -26695,7 +26695,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Protect a creature or an object from any divination magic or magical scrying.",
@@ -26826,7 +26826,7 @@
     },
     "otherNameLocalized": {
       "en": "Pass without Trace",
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster and his allies within 30 ft get a +10 bonus to Dexterity (Discretion) checks and leave behind no tracks or traces.",
@@ -26956,7 +26956,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Open a 5-ft wide, 8-ft tall, 20-ft deep passage through stone, wood or plaster.",
@@ -27070,7 +27070,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Wis. save or be frightened then take 4d10 psychic damage (damage/lvl) on each of it's turn.",
@@ -27175,7 +27175,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a quasi-real Large horselike creature and everything to mount it.",
@@ -27285,7 +27285,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Summon a celestial, elemental, or fiend that will help the caster in exchange for payment (1000 gp/h, sacrifice, quest, etc).",
@@ -27388,7 +27388,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Entrave planaire"
     },
     "resume": {
       "en": "The target (celestial, elemental, fey, or fiend) must succeed on a Cha. save or serve the caster (duration/lvl).",
@@ -27528,7 +27528,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster and up to 8 creatures are transported to another plane of existence, or a creature is banished (Cha. save).",
@@ -27670,7 +27670,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Plants in the area grow vigorously, or over a year the plants produce twice the normal amount of food.",
@@ -27810,7 +27810,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Con. save or take 1d12 poison damage (damage/lvl).",
@@ -27930,7 +27930,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Transform a target into a new beast form whose CR/level is equal to or less than the target's CR/level.",
@@ -28067,7 +28067,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target (100 hp or fewer) dies!",
@@ -28194,7 +28194,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target (150 hp or fewer) is stunned until it succeeds on a Con. save.",
@@ -28322,7 +28322,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Up to 6 creatures regain 2d8+Ability.Mod (+1d8 hp/lvl).",
@@ -28445,7 +28445,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Minor magical trick (sensory effect, light a torch, clean an object, warm, make a symbol appear, create a trinket, etc).",
@@ -28591,7 +28591,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Embruns prismatiques"
     },
     "resume": {
       "en": "Creatures in a 60-ft cone must succeed on a Dex. save or take 10d6 damage of a randomly determined type.",
@@ -28713,7 +28713,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a multi-layered wall that inflicts different effects and damage depending on the layer.",
@@ -28936,7 +28936,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, deals 1d8 fire damage (damage/lvl). Shed bright light in 10 ft and dim light in additional 10 ft.",
@@ -29045,7 +29045,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create the image of an animated object or creature, with sounds, for 5 min, with a triggering condition.",
@@ -29160,7 +29160,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Image projetée"
     },
     "resume": {
       "en": "Create a copy of the caster that mimics him, moves and emits sounds. The caster can see and hear through this double.",
@@ -29276,7 +29276,7 @@
     },
     "otherNameLocalized": {
       "en": "Protection from Energy",
-      "fr": null
+      "fr": "Protection contre l'énergie"
     },
     "resume": {
       "en": "The target gains resistance to one damage type (acid, cold, fire, lightning, or thunder).",
@@ -29432,7 +29432,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target is protected (disadvantage on attack rolls) against aberrations, celestials, elementals, fey, fiends, and undead.",
@@ -29583,7 +29583,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Neutralize 1 poison in one creature, give advantage on saving throws againt being poisoned, and resistance to poison damage.",
@@ -29721,7 +29721,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Purification de la nourriture et de l'eau"
     },
     "resume": {
       "en": "Purified and rendered free of poison and disease nonmagical food and drink in a 5-ft-radius sphere.",
@@ -29849,7 +29849,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Take back to life (1 hp) a creature died for no longer than 10 days. Doesn't restore missing body parts.",
@@ -29982,7 +29982,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, the target deals only half damage with a weapon attack that use Strength (Con. save).",
@@ -30102,7 +30102,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, deals 1d8 cold damage (damage/lvl) and the target's speed is reduced by 10 ft.",
@@ -30221,7 +30221,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target regains 4d8+15 hp then 1 hp per round and its severed members are restored.",
@@ -30346,7 +30346,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Reincarnate the soul of an humanoid died for no longer than 10 days. The race of the new body is determined at random.",
@@ -30476,7 +30476,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "End all curses affecting one creature or object.",
@@ -30707,7 +30707,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target can add 1d4 to one saving throw of its choice.",
@@ -30828,7 +30828,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Take back to life (all hp) a creature died for no longer than 100 years (except of old age). Restore any missing body parts.",
@@ -30942,7 +30942,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Invert gravity in a 50-ft-radius, 100-ft-high cylinder.",
@@ -31067,7 +31067,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Take back to 1 hp a creature that has died within the last minute (except of old age).",
@@ -31196,7 +31196,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Vertically raise a rope that lead to an extradimensional space that can hold 8 Medium creatures.",
@@ -31310,7 +31310,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Dex. save or take 1d8 radiant damage (damage/lvl).",
@@ -31419,7 +31419,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target can make a Wis. save to avoid attacks or harmful spells that target it directly.",
@@ -31542,7 +31542,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attacks hit, 3 rays deal 2d6 fire damage each (+1 ray/lvl).",
@@ -31676,7 +31676,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Allow you to see and hear a specific creature (can also target a location) on the same plane (Wis. save).",
@@ -31929,7 +31929,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Détection de l'invisibilité"
     },
     "resume": {
       "en": "The caster sees invisible creatures and objects, and into the Ethereal Plane.",
@@ -32060,7 +32060,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Change physical appearance as well as clothing and equipment of targets (saving throw for unwilling).",
@@ -32182,7 +32182,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Send a 25-words message to a creature you are familiar with, regardless of the distance or the plan. It can answer it.",
@@ -32314,7 +32314,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Dissimulation suprême"
     },
     "resume": {
       "en": "Protect a willing creature (who becomes invisible and unconscious) or an object from divination spells.",
@@ -32416,7 +32416,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster takes the form of a creature he has seen at least once with a CR equal to its level or lower.",
@@ -32532,7 +32532,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 10-ft-radius sphere must succeed on a Con. save or take 3d8 thunder damage (damage/lvl).",
@@ -32681,7 +32681,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "In reaction, the caster gains a +5 bonus to AC and take no damage from the magic missile spell.",
@@ -32798,7 +32798,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target gets a +2 bonus to AC.",
@@ -32921,7 +32921,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Crosse des druides"
     },
     "resume": {
       "en": "Make magical a wooden weapon. Its damage become a d8 and the caster can use his spellcasting ability instead of Strength.",
@@ -33032,7 +33032,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, deals 1d8 lightning damage (damage/lvl) and the target can't take reactions.",
@@ -33149,7 +33149,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Block all sounds within a 20-ft-radius sphere.",
@@ -33288,7 +33288,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create the image of an object or a creature (without sound and no larger than a 15-ft cube) and lets it move.",
@@ -33423,7 +33423,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a duplicate of a beast or humanoid with the same abilities, half of the hp and without equipment.",
@@ -33526,7 +33526,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "5d8 hp of creatures fall unconscious, starting with the creature with the lowest current hp (+2d8 hp/lvl).",
@@ -33667,7 +33667,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-ft-radius, 20-ft-tall cylinder (heavily obscured) must succeed on a Dex. save or fall prone.",
@@ -33811,7 +33811,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Up to 6 targets must succeed on a Wis. save, or have their speed and actions reduced and -2 to CA and Dex. saves.",
@@ -33946,7 +33946,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "1 living creature with 0 hit points becomes stable.",
@@ -34042,7 +34042,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster communicates with beats that can share information or help.",
@@ -34169,7 +34169,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Allow a corpse that still has a mouth and is not an undead to answer 5 questions to the caster.",
@@ -34293,7 +34293,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster can communicate with plants within 30 ft, and turns difficult terrain into ordinary terrain or vice versa.",
@@ -34424,7 +34424,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target can move along vertical surfaces while leaving its hands free and gains climbing speed.",
@@ -34564,7 +34564,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-ft radius (difficult terrain) take 2d4 piercing damage for every 5 ft of movement.",
@@ -34697,7 +34697,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Targets in a 15-ft radius must succeed on a Wis. save or take 3d8 radiant or necrotic damage (damage/lvl).",
@@ -34815,7 +34815,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "If the spell attack hits, deals 1d8+Ability.Mod force damage (damage/lvl). A bonus action allows another attack.",
@@ -34941,7 +34941,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 20-ft-radius sphere must succeed on a Con. save or spend their action that turn retching and reeling.",
@@ -35094,7 +35094,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Give a stone no more than 5 ft in any dimension any shape, or create an opening in it.",
@@ -35224,7 +35224,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target gets resistance to nonmagical bludgeoning, piercing, and slashing damage.",
@@ -35365,7 +35365,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 360-ft radius must succeed on a Con. save or be deafened and suffer various damage and effects.",
@@ -35471,7 +35471,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Wis. save or follow the suggestion given by the caster in one or two sentences.",
@@ -35616,7 +35616,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures on a 5-ft-wide, 60-ft-long line must succeed on a Con. save or take 6d8 radiant damage and be blinded.",
@@ -35739,7 +35739,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 60-ft radius must succeed on a Con. save or take 12d6 radiant damage and be blinded for 1 min.",
@@ -35863,7 +35863,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Set the trigger and the effect of a glyph on an object (death, discord, fear, hopelessness, insanity, pain, sleep, etc).",
@@ -36003,7 +36003,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Move a creature (Huge or smaller) or object (up to 1,000 pounds) by thought in case of successful contest.",
@@ -36212,7 +36212,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster and 8 creatures are teleported anywhere on the same plane. Risk of failure depending on the destination familiarity.",
@@ -36330,7 +36330,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a circle that allows anyone to be teleported to another teleportation circle known to the caster.",
@@ -36454,7 +36454,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create various minor effects to impress or distract creatures.",
@@ -36569,7 +36569,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 15-ft cube must succeed on a Con. save or take 2d8 thunder damage (damage/lvl).",
@@ -36712,7 +36712,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Stop the time during 1d4+1 turns for everyone except for the caster.",
@@ -36929,7 +36929,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target understands and speaks any spoken language it hears.",
@@ -37079,7 +37079,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster can move from one plant to another plant (Large or larger) using 5 ft.",
@@ -37178,7 +37178,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster can move from one tree to another tree of the same kind (500 ft max between both) using 5 ft.",
@@ -37296,7 +37296,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Transform a creature or object into a new form (creature <-> object) of FP/level at most equal to the FP/level of the crea",
@@ -37430,7 +37430,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Take back to life (all hp) a creature died for no longer than 200 years (except of old age), even without the original body.",
@@ -37542,7 +37542,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target gets truesight, sees magic secret doors and in the Ethereal Plane.",
@@ -37683,7 +37683,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster gains advantage on his first attack roll against a target.",
@@ -37821,7 +37821,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create an invisible servant who performs simple tasks (bring something back, clean up, maintain a fire, serve at table, etc).",
@@ -37956,7 +37956,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Caresse du vampire"
     },
     "resume": {
       "en": "If the spell attack hits, deals 3d6 necrotic damage (damage/lvl) and the caster regains 50% of his hp.",
@@ -38079,7 +38079,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target must succeed on a Wis. save or take 1d4 psychic damage and have disadvantage on its attack roll (damage/lvl).",
@@ -38177,7 +38177,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a 60 x 20 x 1 ft wall of fire. Creatures inside or within 10ft of one side of the wall take 5d8 fire damage (damage/lvl).",
@@ -38319,7 +38319,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a physically insurmountable wall of force (ten 10-ft panels) immune to all types of damage.",
@@ -38423,7 +38423,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a wall of ice (ten 10-ft panels) that can be damaged and can inflict 5d6 cold damage if passed through (damage/lvl).",
@@ -38534,7 +38534,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a nonmagical wall of stone (ten 10-ft panels) that can be damaged.",
@@ -38672,7 +38672,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create an 60-ft-long, 10-ft-high, 5-ft-thick wall of brush that slows movement and can inflict 7d8 piercing damage (damage/lvl).",
@@ -38783,7 +38783,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The target gains +1 on AC, +1 on saving throws and resistance to all damage, but the caster shares damage.",
@@ -38896,7 +38896,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Up to 10 creatures gets the ability to breathe underwater.",
@@ -39048,7 +39048,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Marche sur l'onde"
     },
     "resume": {
       "en": "Up to 10 creatures can move on a liquid surface (water, acid, mud, lava, etc) as if it were harmless solid ground.",
@@ -39201,7 +39201,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a 20-ft cube filled by thick, sticky webs (difficult terrain) that can restrain creature (Dex. save).",
@@ -39337,7 +39337,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures in a 30-ft-radius sphere must succeed on a Wis. save or be frightened and take 4d10 psychic damage each turn.",
@@ -39436,7 +39436,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": "Vent divin"
     },
     "resume": {
       "en": "The caster and up to 10 creatures assume gaseous form (flying speed of 300 ft and resistance to damage from nonmagical weapon).",
@@ -39540,7 +39540,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Create a 50-ft-long, 15-ft-high, 1-ft-thick wall of wind. Small flying creatures can't pass. Arrows and bolts are deflected.",
@@ -39665,7 +39665,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Duplicate a 8th level spell or lower without components, or create another effect at the MD discretion.",
@@ -39779,7 +39779,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "The caster and up to 5 other creatures are teleported to a previously designated sanctuary.",
@@ -39877,7 +39877,7 @@
     },
     "otherNameLocalized": {
       "en": null,
-      "fr": null
+      "fr": ""
     },
     "resume": {
       "en": "Creatures within a 15-ft-radius sphere must succeed on a Cha. save or can not lie.",

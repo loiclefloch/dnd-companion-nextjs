@@ -28,7 +28,10 @@ function Spell({ spell, selected, onSelect }) {
 
 function Spells() {
   const spellsResponse = useSpells();
-  const [selectedSpell, setSelectedSpell] = useState(spellsResponse.data.find(spell => spell.name === 'Meld Into Stone'));
+  // ritual
+  // const [selectedSpell, setSelectedSpell] = useState(spellsResponse.data.find(spell => spell.name === 'Meld Into Stone'));
+  // Two french name
+  const [selectedSpell, setSelectedSpell] = useState(spellsResponse.data.find(spell => spell.name === 'Animate Objects'));
 
   return (
     <div className="flex">

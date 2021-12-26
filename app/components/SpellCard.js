@@ -13,10 +13,15 @@ function createClassTag(clss) {
 }
 
 function SpellCard({ name }) {
-  const { tr, getRangeUnit } = useI18n();
+  const { tr, getRangeUnit, isDefaultLang, trDefaultLang } = useI18n();
   const spellResponse = useSpell(name);
 
   const spell = spellResponse.data;
+
+  const otherNames = [
+    spell.otherNameLocalized && spell.otherNameLocalized.fr,
+   !isDefaultLang && trDefaultLang(spell?.nameLocalized),
+  ].filter(Boolean)
 
   return (
     <Card
@@ -28,6 +33,10 @@ function SpellCard({ name }) {
           <div>
             {spell?.ritual && <Tag label="Ritual" color="red" />}
             {spell?.concentration && <Tag label="Concentration" color="red" />}
+          </div>
+          {/* Other names */}
+          <div>
+          {otherNames.join(', ')}
           </div>
         </div>
       }
