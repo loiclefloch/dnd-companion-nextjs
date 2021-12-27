@@ -4,6 +4,7 @@ import useTheme from "../modules/theme/useTheme";
 import useI18n from "../modules/i18n/useI18n";
 import useSpells from "../modules/api/useSpells";
 import SpellCard from "../components/SpellCard";
+import SpellDetail from "../components/SpellDetail";
 import clsx from "clsx";
 
 function Spell({ spell, selected, onSelect }) {
@@ -34,9 +35,13 @@ function Spells() {
   // const [selectedSpell, setSelectedSpell] = useState(
   //   spellsResponse.data.find((spell) => spell.name === "Animate Objects")
   // );
-  // Dice parsing
+  // Dice action damage spell level
+  // const [selectedSpell, setSelectedSpell] = useState(
+  //   spellsResponse.data.find((spell) => spell.name === "Thunderwave")
+  // );
+  // Dice action damages character level
   const [selectedSpell, setSelectedSpell] = useState(
-    spellsResponse.data.find((spell) => spell.name === "Thunderwave")
+    spellsResponse.data.find((spell) => spell.name === "Acid Splash")
   );
 
 
@@ -59,6 +64,7 @@ function Spells() {
         style={{ maxHeight: "100vh" }}
       >
         {selectedSpell && <SpellCard name={selectedSpell.name} />}
+        {selectedSpell && <SpellDetail name={selectedSpell.name} />}
       </div>
     </div>
   );

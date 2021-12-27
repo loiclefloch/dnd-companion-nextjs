@@ -26,8 +26,6 @@ function SpellCard({ name }) {
     return null
   }
 
-  console.log({spellResponse})
-
   const otherNames = [
     spell.otherNameLocalized && spell.otherNameLocalized.fr,
     spell.otherNameLocalized && spell.otherNameLocalized.en,

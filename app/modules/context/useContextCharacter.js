@@ -2,8 +2,8 @@
 
 function useContextCharacter() {
 	return {
-		level: 5,
-		maxSpellLevel: 3,
+		level: 1,
+		maxSpellLevel: 1,
 	}
 	// return null
 }

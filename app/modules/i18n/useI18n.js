@@ -9,7 +9,15 @@ function useI18n() {
     lang,
     isDefaultLang: lang === defaultLang,
     trDefaultLang: obj => !obj ? null : obj['en'] || null,
-    tr: obj => !obj ? null : obj[lang] || obj[defaultLang] || null,
+    tr: obj => {
+      if (typeof obj === 'string' || obj instanceof String) {
+        // translation key
+        // TODO: handle
+        return obj
+      }
+      // translation object, containing the translations
+      return !obj ? null : obj[lang] || obj[defaultLang] || null
+    },
     getRangeUnit: range => {
       switch (rangeUnit) {
         case RangeUnit.METERS:

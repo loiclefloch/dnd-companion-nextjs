@@ -89,6 +89,35 @@ function formatComponents(baseSpellComponents, baseSpellMaterials, vorpalhexSpel
   }
 }
 
+/**
+ * data has a level has key. But sometimes, level are not all defined. 
+ * We define them all.
+ * For example:
+ * level 1: 1d4
+ * level 4: 2d4
+ * 
+ * becomes:
+ * level 1: 1d4
+ * level 2: 1d4
+ * level 3: 1d4
+ * level 4: 2d4
+ */
+function buildMissingLevel(data, maximum) {
+  if (!data) {
+    return null
+  }
+  const res = { ...data }
+
+  let last = null
+  for (let step = 0; step < maximum; step++) {
+    const level = step + 1 // index based 1
+    last = data[level] || last
+    res[level] = last
+  }
+  
+  return res
+}
+
 function getAiddSpell(baseSpell) {
  const aiddSpellEN = aiddEN.find(
    (spell) =>
@@ -134,6 +163,9 @@ function buildDamage(baseSpell) {
     return null
   }
  
+  const MAX_SPELL_LEVEL = 9 // maximum spell level
+  const MAX_CHARACTER_LEVEL = 20 // maximum character level
+
   return {
     // ex: Prismatic Spray does not have a type.
     type: !baseSpellDamage.damage_type ? null : {
@@ -145,8 +177,8 @@ function buildDamage(baseSpell) {
         fr: baseSpellDamage.damage_type.name, // TODO: translate
       }
     },
-    damageAtSlotLevel: baseSpellDamage.damage_at_slot_level,
-    damageAtCharacterLevel: baseSpellDamage.damage_at_character_level,
+    damageAtSlotLevel: buildMissingLevel(baseSpellDamage.damage_at_slot_level, MAX_SPELL_LEVEL),
+    damageAtCharacterLevel: buildMissingLevel(baseSpellDamage.damage_at_character_level, MAX_CHARACTER_LEVEL),
   }
 }
 

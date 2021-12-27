@@ -87,6 +87,7 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
         "2": "4d4",
         "3": "5d4",
         "4": "6d4",
@@ -95,7 +96,8 @@
         "7": "9d4",
         "8": "10d4",
         "9": "11d4"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -221,11 +223,28 @@
           "fr": "Acid"
         }
       },
+      "damageAtSlotLevel": null,
       "damageAtCharacterLevel": {
         "1": "1d6",
+        "2": "1d6",
+        "3": "1d6",
+        "4": "1d6",
         "5": "2d6",
+        "6": "2d6",
+        "7": "2d6",
+        "8": "2d6",
+        "9": "2d6",
+        "10": "2d6",
         "11": "3d6",
-        "17": "4d6"
+        "12": "3d6",
+        "13": "3d6",
+        "14": "3d6",
+        "15": "3d6",
+        "16": "3d6",
+        "17": "4d6",
+        "18": "4d6",
+        "19": "4d6",
+        "20": "4d6"
       }
     },
     "school": {
@@ -2090,8 +2109,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "7": "3d10"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": "3d10",
+        "8": "3d10",
+        "9": "3d10"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -3361,8 +3389,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "4": "3d6"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": "3d6",
+        "5": "3d6",
+        "6": "3d6",
+        "7": "3d6",
+        "8": "3d6",
+        "9": "3d6"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "conjuration",
@@ -3469,8 +3506,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "6": "6d10"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": "6d10",
+        "7": "6d10",
+        "8": "6d10",
+        "9": "6d10"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -3730,13 +3776,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
         "4": "8d8",
         "5": "9d8",
         "6": "10d8",
         "7": "11d8",
         "8": "12d8",
         "9": "13d8"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "necromancy",
@@ -4294,6 +4344,7 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
         "2": "2d6",
         "3": "3d6",
         "4": "4d6",
@@ -4302,7 +4353,8 @@
         "7": "7d6",
         "8": "8d6",
         "9": "9d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -4428,7 +4480,8 @@
         "7": "9d6",
         "8": "10d6",
         "9": "11d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -4578,6 +4631,8 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
         "3": "3d10",
         "4": "4d10",
         "5": "5d10",
@@ -4585,7 +4640,8 @@
         "7": "7d10",
         "8": "8d10",
         "9": "9d10"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "conjuration",
@@ -4849,8 +4905,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "6": "10d8"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": "10d8",
+        "7": "10d8",
+        "8": "10d8",
+        "9": "10d8"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -5131,11 +5196,28 @@
           "fr": "Necrotic"
         }
       },
+      "damageAtSlotLevel": null,
       "damageAtCharacterLevel": {
         "1": "1d8",
+        "2": "1d8",
+        "3": "1d8",
+        "4": "1d8",
         "5": "2d8",
+        "6": "2d8",
+        "7": "2d8",
+        "8": "2d8",
+        "9": "2d8",
+        "10": "2d8",
         "11": "3d8",
-        "17": "4d8"
+        "12": "3d8",
+        "13": "3d8",
+        "14": "3d8",
+        "15": "3d8",
+        "16": "3d8",
+        "17": "4d8",
+        "18": "4d8",
+        "19": "4d8",
+        "20": "4d8"
       }
     },
     "school": {
@@ -5288,11 +5370,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
         "6": "8d6",
         "7": "10d6",
         "8": "12d6",
         "9": "14d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "necromancy",
@@ -5683,12 +5771,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
         "5": "5d8",
         "6": "6d8",
         "7": "7d8",
         "8": "8d8",
         "9": "9d8"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "conjuration",
@@ -6591,12 +6684,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
         "5": "8d8",
         "6": "9d8",
         "7": "10d8",
         "8": "11d8",
         "9": "12d8"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -8096,8 +8194,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "4": "2d8"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": "2d8",
+        "5": "2d8",
+        "6": "2d8",
+        "7": "2d8",
+        "8": "2d8",
+        "9": "2d8"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "transmutation",
@@ -9920,10 +10027,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
         "7": "12d6",
         "8": "13d6",
         "9": "14d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -10728,8 +10842,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "4": "4d6"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": "4d6",
+        "5": "4d6",
+        "6": "4d6",
+        "7": "4d6",
+        "8": "4d6",
+        "9": "4d6"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "conjuration",
@@ -11016,8 +11139,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "6": "10d6 + 40"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": "10d6 + 40",
+        "7": "10d6 + 40",
+        "8": "10d6 + 40",
+        "9": "10d6 + 40"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "transmutation",
@@ -11555,8 +11687,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "1": "1d4"
-      }
+        "1": "1d4",
+        "2": "1d4",
+        "3": "1d4",
+        "4": "1d4",
+        "5": "1d4",
+        "6": "1d4",
+        "7": "1d4",
+        "8": "1d4",
+        "9": "1d4"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -12178,8 +12319,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "5": "3d6"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": "3d6",
+        "6": "3d6",
+        "7": "3d6",
+        "8": "3d6",
+        "9": "3d6"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "illusion",
@@ -12555,11 +12705,28 @@
           "fr": "Force"
         }
       },
+      "damageAtSlotLevel": null,
       "damageAtCharacterLevel": {
         "1": "1d10",
+        "2": "1d10",
+        "3": "1d10",
+        "4": "1d10",
         "5": "2d10",
+        "6": "2d10",
+        "7": "2d10",
+        "8": "2d10",
+        "9": "2d10",
+        "10": "2d10",
         "11": "3d10",
-        "17": "4d10"
+        "12": "3d10",
+        "13": "3d10",
+        "14": "3d10",
+        "15": "3d10",
+        "16": "3d10",
+        "17": "4d10",
+        "18": "4d10",
+        "19": "4d10",
+        "20": "4d10"
       }
     },
     "school": {
@@ -13837,8 +14004,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "4": "4d8"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": "4d8",
+        "5": "4d8",
+        "6": "4d8",
+        "7": "4d8",
+        "8": "4d8",
+        "9": "4d8"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "conjuration",
@@ -14369,8 +14545,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "8": "4d6"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": "4d6",
+        "9": "4d6"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "enchantment",
@@ -14983,8 +15168,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "7": "7d8 + 30"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": "7d8 + 30",
+        "8": "7d8 + 30",
+        "9": "7d8 + 30"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "necromancy",
@@ -15116,11 +15310,28 @@
           "fr": "Fire"
         }
       },
+      "damageAtSlotLevel": null,
       "damageAtCharacterLevel": {
         "1": "1d10",
+        "2": "1d10",
+        "3": "1d10",
+        "4": "1d10",
         "5": "2d10",
+        "6": "2d10",
+        "7": "2d10",
+        "8": "2d10",
+        "9": "2d10",
+        "10": "2d10",
         "11": "3d10",
-        "17": "4d10"
+        "12": "3d10",
+        "13": "3d10",
+        "14": "3d10",
+        "15": "3d10",
+        "16": "3d10",
+        "17": "4d10",
+        "18": "4d10",
+        "19": "4d10",
+        "20": "4d10"
       }
     },
     "school": {
@@ -15248,8 +15459,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "4": "2d8"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": "2d8",
+        "5": "2d8",
+        "6": "2d8",
+        "7": "2d8",
+        "8": "2d8",
+        "9": "2d8"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -15372,8 +15592,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "7": "7d10"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": "7d10",
+        "8": "7d10",
+        "9": "7d10"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -15516,6 +15745,8 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
         "3": "8d6",
         "4": "9d6",
         "5": "10d6",
@@ -15523,7 +15754,8 @@
         "7": "12d6",
         "8": "13d6",
         "9": "14d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -15675,11 +15907,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
         "2": "3d6",
+        "3": "3d6",
         "4": "4d6",
+        "5": "4d6",
         "6": "5d6",
-        "8": "6d6"
-      }
+        "7": "5d6",
+        "8": "6d6",
+        "9": "6d6"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -15811,12 +16049,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
         "5": "4d6 + 4d6",
         "6": "4d6 + 5d6",
         "7": "4d6 + 6d6",
         "8": "4d6 + 7d6",
         "9": "4d6 + 8d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -15960,6 +16203,7 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
         "2": "2d6",
         "3": "3d6",
         "4": "4d6",
@@ -15968,7 +16212,8 @@
         "7": "7d6",
         "8": "8d6",
         "9": "9d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "conjuration",
@@ -17141,8 +17386,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "6": "10d6"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": "10d6",
+        "7": "10d6",
+        "8": "10d6",
+        "9": "10d6"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -18752,8 +19006,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "4": "20"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": "20",
+        "5": "20",
+        "6": "20",
+        "7": "20",
+        "8": "20",
+        "9": "20"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "conjuration",
@@ -19139,7 +19402,8 @@
         "7": "10d6",
         "8": "11d6",
         "9": "12d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -19677,8 +19941,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "6": "14d6"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": "14d6",
+        "7": "14d6",
+        "8": "14d6",
+        "9": "14d6"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "necromancy",
@@ -20207,6 +20480,7 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
         "2": "2d8",
         "3": "3d8",
         "4": "4d8",
@@ -20215,7 +20489,8 @@
         "7": "7d8",
         "8": "8d8",
         "9": "9d8"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "transmutation",
@@ -20347,8 +20622,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "1": "2d10"
-      }
+        "1": "2d10",
+        "2": "2d10",
+        "3": "2d10",
+        "4": "2d10",
+        "5": "2d10",
+        "6": "2d10",
+        "7": "2d10",
+        "8": "2d10",
+        "9": "2d10"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -21503,13 +21787,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
         "4": "2d8 + 4d6",
         "5": "3d8 + 4d6",
         "6": "4d8 + 4d6",
         "7": "5d8 + 4d6",
         "8": "6d8 + 4d6",
         "9": "7d8 + 4d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -22040,8 +22328,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "8": "10d8"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": "10d8",
+        "9": "10d8"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "conjuration",
@@ -22176,7 +22473,8 @@
         "7": "9d10",
         "8": "10d10",
         "9": "11d10"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "necromancy",
@@ -22310,12 +22608,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
         "5": "4d10",
         "6": "5d10",
         "7": "6d10",
         "8": "7d10",
         "9": "8d10"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "conjuration",
@@ -23654,6 +23957,8 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
         "3": "8d6",
         "4": "9d6",
         "5": "10d6",
@@ -23661,7 +23966,8 @@
         "7": "12d6",
         "8": "13d6",
         "9": "14d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -24958,7 +25264,8 @@
         "7": "1d4 + 1",
         "8": "1d4 + 1",
         "9": "1d4 + 1"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -26630,8 +26937,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": null,
         "9": "20d6 + 20d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -27654,6 +27970,7 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
         "2": "2d10",
         "3": "3d10",
         "4": "4d10",
@@ -27662,7 +27979,8 @@
         "7": "7d10",
         "8": "8d10",
         "9": "9d10"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -28301,8 +28619,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "4": "4d10"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": "4d10",
+        "5": "4d10",
+        "6": "4d10",
+        "7": "4d10",
+        "8": "4d10",
+        "9": "4d10"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "illusion",
@@ -29059,11 +29386,28 @@
           "fr": "Poison"
         }
       },
+      "damageAtSlotLevel": null,
       "damageAtCharacterLevel": {
         "1": "1d12",
+        "2": "1d12",
+        "3": "1d12",
+        "4": "1d12",
         "5": "2d12",
+        "6": "2d12",
+        "7": "2d12",
+        "8": "2d12",
+        "9": "2d12",
+        "10": "2d12",
         "11": "3d12",
-        "17": "4d12"
+        "12": "3d12",
+        "13": "3d12",
+        "14": "3d12",
+        "15": "3d12",
+        "16": "3d12",
+        "17": "4d12",
+        "18": "4d12",
+        "19": "4d12",
+        "20": "4d12"
       }
     },
     "school": {
@@ -29875,8 +30219,17 @@
     "damage": {
       "type": null,
       "damageAtSlotLevel": {
-        "7": "10d6"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": "10d6",
+        "8": "10d6",
+        "9": "10d6"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -30225,11 +30578,28 @@
           "fr": "Fire"
         }
       },
+      "damageAtSlotLevel": null,
       "damageAtCharacterLevel": {
         "1": "1d8",
+        "2": "1d8",
+        "3": "1d8",
+        "4": "1d8",
         "5": "2d8",
+        "6": "2d8",
+        "7": "2d8",
+        "8": "2d8",
+        "9": "2d8",
+        "10": "2d8",
         "11": "3d8",
-        "17": "4d8"
+        "12": "3d8",
+        "13": "3d8",
+        "14": "3d8",
+        "15": "3d8",
+        "16": "3d8",
+        "17": "4d8",
+        "18": "4d8",
+        "19": "4d8",
+        "20": "4d8"
       }
     },
     "school": {
@@ -31425,11 +31795,28 @@
           "fr": "Cold"
         }
       },
+      "damageAtSlotLevel": null,
       "damageAtCharacterLevel": {
         "1": "1d8",
+        "2": "1d8",
+        "3": "1d8",
+        "4": "1d8",
         "5": "2d8",
+        "6": "2d8",
+        "7": "2d8",
+        "8": "2d8",
+        "9": "2d8",
+        "10": "2d8",
         "11": "3d8",
-        "17": "4d8"
+        "12": "3d8",
+        "13": "3d8",
+        "14": "3d8",
+        "15": "3d8",
+        "16": "3d8",
+        "17": "4d8",
+        "18": "4d8",
+        "19": "4d8",
+        "20": "4d8"
       }
     },
     "school": {
@@ -32670,11 +33057,28 @@
           "fr": "Radiant"
         }
       },
+      "damageAtSlotLevel": null,
       "damageAtCharacterLevel": {
         "1": "1d8",
+        "2": "1d8",
+        "3": "1d8",
+        "4": "1d8",
         "5": "2d8",
+        "6": "2d8",
+        "7": "2d8",
+        "8": "2d8",
+        "9": "2d8",
+        "10": "2d8",
         "11": "3d8",
-        "17": "4d8"
+        "12": "3d8",
+        "13": "3d8",
+        "14": "3d8",
+        "15": "3d8",
+        "16": "3d8",
+        "17": "4d8",
+        "18": "4d8",
+        "19": "4d8",
+        "20": "4d8"
       }
     },
     "school": {
@@ -32929,8 +33333,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "2": "2d6"
-      }
+        "1": null,
+        "2": "2d6",
+        "3": "2d6",
+        "4": "2d6",
+        "5": "2d6",
+        "6": "2d6",
+        "7": "2d6",
+        "8": "2d6",
+        "9": "2d6"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -33952,6 +34365,7 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
         "2": "3d8",
         "3": "4d8",
         "4": "5d8",
@@ -33960,7 +34374,8 @@
         "7": "8d8",
         "8": "9d8",
         "9": "10d8"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -34467,11 +34882,28 @@
           "fr": "Lightning"
         }
       },
+      "damageAtSlotLevel": null,
       "damageAtCharacterLevel": {
         "1": "1d8",
+        "2": "1d8",
+        "3": "1d8",
+        "4": "1d8",
         "5": "2d8",
+        "6": "2d8",
+        "7": "2d8",
+        "8": "2d8",
+        "9": "2d8",
+        "10": "2d8",
         "11": "3d8",
-        "17": "4d8"
+        "12": "3d8",
+        "13": "3d8",
+        "14": "3d8",
+        "15": "3d8",
+        "16": "3d8",
+        "17": "4d8",
+        "18": "4d8",
+        "19": "4d8",
+        "20": "4d8"
       }
     },
     "school": {
@@ -34992,8 +35424,17 @@
     "damage": {
       "type": null,
       "damageAtSlotLevel": {
-        "1": "5d8"
-      }
+        "1": "5d8",
+        "2": "5d8",
+        "3": "5d8",
+        "4": "5d8",
+        "5": "5d8",
+        "6": "5d8",
+        "7": "5d8",
+        "8": "5d8",
+        "9": "5d8"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "enchantment",
@@ -36310,6 +36751,7 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
         "2": "1d8 + MOD",
         "3": "1d8 + MOD",
         "4": "2d8 + MOD",
@@ -36318,7 +36760,8 @@
         "7": "3d8 + MOD",
         "8": "4d8 + MOD",
         "9": "4d8 + MOD"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -36887,8 +37330,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": null,
         "9": "2d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "conjuration",
@@ -37152,8 +37604,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "6": "6d8"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": "6d8",
+        "7": "6d8",
+        "8": "6d8",
+        "9": "6d8"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -37291,8 +37752,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "8": "12d6"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": "12d6",
+        "9": "12d6"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -38156,7 +38626,8 @@
         "7": "8d8",
         "8": "9d8",
         "9": "10d8"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -39577,6 +40048,8 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
         "3": "3d6",
         "4": "4d6",
         "5": "5d6",
@@ -39584,7 +40057,8 @@
         "7": "7d6",
         "8": "8d6",
         "9": "9d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "necromancy",
@@ -39715,11 +40189,28 @@
           "fr": "Psychic"
         }
       },
+      "damageAtSlotLevel": null,
       "damageAtCharacterLevel": {
         "1": "1d4",
+        "2": "1d4",
+        "3": "1d4",
+        "4": "1d4",
         "5": "2d4",
+        "6": "2d4",
+        "7": "2d4",
+        "8": "2d4",
+        "9": "2d4",
+        "10": "2d4",
         "11": "3d4",
-        "17": "4d4"
+        "12": "3d4",
+        "13": "3d4",
+        "14": "3d4",
+        "15": "3d4",
+        "16": "3d4",
+        "17": "4d4",
+        "18": "4d4",
+        "19": "4d4",
+        "20": "4d4"
       }
     },
     "school": {
@@ -39846,8 +40337,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "4": "5d8"
-      }
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": "5d8",
+        "5": "5d8",
+        "6": "5d8",
+        "7": "5d8",
+        "8": "5d8",
+        "9": "5d8"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -40108,11 +40608,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
         "6": "10d6",
         "7": "12d6",
         "8": "14d6",
         "9": "16d6"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",
@@ -40377,11 +40883,17 @@
         }
       },
       "damageAtSlotLevel": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
         "6": "7d8",
         "7": "8d8",
         "8": "9d8",
         "9": "10d8"
-      }
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "conjuration",
@@ -41269,8 +41781,17 @@
         }
       },
       "damageAtSlotLevel": {
-        "3": "3d8"
-      }
+        "1": null,
+        "2": null,
+        "3": "3d8",
+        "4": "3d8",
+        "5": "3d8",
+        "6": "3d8",
+        "7": "3d8",
+        "8": "3d8",
+        "9": "3d8"
+      },
+      "damageAtCharacterLevel": null
     },
     "school": {
       "index": "evocation",

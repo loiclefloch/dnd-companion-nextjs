@@ -1,15 +1,13 @@
 // https://dice-roller.github.io/documentation/guide/#how-it-works
 import { DiceRoll } from '@dice-roller/rpg-dice-roller';
 
-function Dice({ dice }) {
-
-	const onRun = () => {
-		const roll = new DiceRoll(dice)
-		alert(`Run dice with ${dice} : ${roll}`)
-	}
-
+function Dice({ dice, onRoll }) {
 	return (
-		<span className="cursor-pointer" onClick={onRun}>
+		<span className="cursor-pointer select-none" onClick={() => {
+			// TODO: handle 1d8 + MOD (ex: Cure Wounds)
+			const roll = new DiceRoll(dice)
+			onRoll(dice, roll)
+		}}>
 			{dice}
 		</span>
 	)

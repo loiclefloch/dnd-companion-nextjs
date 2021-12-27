@@ -6,7 +6,7 @@ function DamageTypeLabel({ damageType }) {
 	const { tr } = useI18n()
 	
 	return <span>
-		{tr(damageType.nameLocalized)}
+		{damageType ? tr(damageType.nameLocalized) : tr('unknown')}
 	</span>
 }
 
