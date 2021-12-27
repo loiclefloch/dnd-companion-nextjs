@@ -1,5 +1,7 @@
+import clsx from "clsx";
 import useSpell from "../modules/api/useSpell";
 import useI18n from "../modules/i18n/useI18n";
+import useTheme from "../modules/theme/useTheme";
 
 import Card from "./Card";
 import Tag from './Tag'
@@ -14,6 +16,7 @@ function createClassTag(clss) {
 
 function SpellCard({ name }) {
   const { tr, getRangeUnit, isDefaultLang, trDefaultLang } = useI18n();
+  const theme = useTheme()
   const spellResponse = useSpell(name);
 
   const spell = spellResponse.data;
@@ -46,8 +49,8 @@ function SpellCard({ name }) {
       }
       meta={
         <div>
-          <div className="mt-1 italic">{otherNames.join(", ")}</div>
-          <div className="mt-1 italic">{tr(spell.school.nameLocalized)}</div>
+          <div className={clsx("mt-1", theme.metaColor)}>{otherNames.join(", ")}</div>
+          <div className={clsx("mt-1", theme.metaColor)}>{tr(spell.school.nameLocalized)}</div>
           {(spell.ritual || spell.concentration) && (
               <div className="mt-2">
                 {spell.ritual && <Tag label="Ritual" color="blue" />}
@@ -86,21 +89,21 @@ function SpellCard({ name }) {
             {tr(spell.duration)}
             <span> - </span>
             {spell.components.components.join(", ")}
-            {spell.components.materials && <span className="text-sm italic">&nbsp;({spell.components.materials.join(", ")})</span>}
+            {spell.components.materials && <span className={clsx("text-sm", theme.metaColor)}>&nbsp;({spell.components.materials.join(", ")})</span>}
           </div>
           {spell.resume && (
             <div className="mt-2">
-              <b>Resume: </b>
+              <span className="font-semibold">Resume: </span>
               {tr(spell.resume)}
             </div>
           )}
           <div className="mt-2">
-            <b>Description: </b>
+            <span className="font-semibold">Description: </span>
             {spell.desc.en}
           </div>
           {spell.higherLevel && (
             <div className="mt-2">
-              <b>At Higher Levels.</b> {tr(spell.higherLevel)}
+              <span className="font-semibold">At Higher Levels.</span> {tr(spell.higherLevel)}
               {/* TODO: add avanced mode : healAtSlotLevel */}
             </div>
           )}

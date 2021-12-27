@@ -13,12 +13,12 @@ function Spell({ spell, selected, onSelect }) {
   return (
     <div
       onClick={onSelect}
-      className={clsx("cursor-pointer my-2 p-4", {
+      className={clsx("cursor-pointer my-2 p-4 pt-1 border-b", {
         [theme.listItemSelectedBackground]: selected,
       })}
     >
-      {tr(spell.nameLocalized)}
-      <div className="text-sm italic">
+      <span className="font-semibold">{tr(spell.nameLocalized)}</span>
+      <div className={clsx("text-sm", theme.metaColor)}>
         <span>{spell.type}</span>
       </div>
       <p className="text-sm">{tr(spell.resume)}</p>
