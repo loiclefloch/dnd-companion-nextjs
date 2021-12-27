@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ModalContext } from './modalContext'
+import { ModalContext } from './modal/modalContext'
 
 function useModal() {
 	let { showModal, hideModal } = useContext(ModalContext);

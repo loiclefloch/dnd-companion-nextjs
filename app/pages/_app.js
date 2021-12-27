@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/globals.css'
-import { ModalProvider } from "../components/modalContext";
+import { ModalProvider } from "../components/modal/modalContext";
 
 function MyApp({ Component, pageProps }) {
   return <>
