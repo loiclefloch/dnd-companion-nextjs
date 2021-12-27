@@ -36,7 +36,7 @@ function Spells() {
   // );
   // Dice parsing
   const [selectedSpell, setSelectedSpell] = useState(
-    spellsResponse.data.find((spell) => spell.name === "Acid Arrow")
+    spellsResponse.data.find((spell) => spell.name === "Thunderwave")
   );
 
 

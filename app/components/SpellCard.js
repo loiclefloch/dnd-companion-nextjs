@@ -4,7 +4,8 @@ import useI18n from "../modules/i18n/useI18n";
 import useTheme from "../modules/theme/useTheme";
 
 import Card from "./Card";
-import Tag from './Tag'
+import Tag from './Tag';
+import SpellRunner from "./SpellRunner";
 
 function createClassTag(clss) {
   return {
@@ -91,6 +92,9 @@ function SpellCard({ name }) {
             {spell.components.components.join(", ")}
             {spell.components.materials && <span className={clsx("text-sm", theme.metaColor)}>&nbsp;({spell.components.materials.join(", ")})</span>}
           </div>
+
+          <SpellRunner spell={spell} />
+
           {spell.resume && (
             <div className="mt-2">
               <span className="font-semibold">Resume: </span>

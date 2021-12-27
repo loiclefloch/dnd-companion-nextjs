@@ -128,6 +128,38 @@ function getAiddSpell(baseSpell) {
   }
 }
 
+function buildDamage(baseSpell) {
+  const baseSpellDamage = baseSpell.damage
+  if (!baseSpellDamage) {
+    return null
+  }
+ 
+  return {
+    // ex: Prismatic Spray does not have a type.
+    type: !baseSpellDamage.damage_type ? null : {
+      index: baseSpellDamage.damage_type.index,
+      name: baseSpellDamage.damage_type.name,
+      url: baseSpellDamage.damage_type.url,
+      nameLocalized: {
+        en: baseSpellDamage.damage_type.name,
+        fr: baseSpellDamage.damage_type.name, // TODO: translate
+      }
+    },
+    damageAtSlotLevel: baseSpellDamage.damage_at_slot_level,
+    damageAtCharacterLevel: baseSpellDamage.damage_at_character_level,
+  }
+}
+
+function buildHeal(baseSpell) {
+  if (!baseSpell.heal_at_slot_level) {
+    return null
+  }
+
+  return {
+    healAtSlotLevel: baseSpell.heal_at_slot_level,
+  }
+}
+
 function transform(baseSpell) {
   const vorpalhexSpell = vorpalhex.find(
     (spell) => spell.name.toLowerCase() === baseSpell.name.toLowerCase() || spell.name.toLowerCase() === transformNameForVorpalhexSpell(baseSpell.name).toLowerCase()
@@ -186,7 +218,10 @@ function transform(baseSpell) {
     concentration: baseSpell.concentration,
     castingTime: buildCastingTime(baseSpell.casting_time),
     duration: buildDuration(baseSpell.duration),
-    healAtSlotLevel: baseSpell.heal_at_slot_level,
+
+    heal: buildHeal(baseSpell),
+    damage: buildDamage(baseSpell),
+
     school: {
       index: baseSpell.school.index,
       url: baseSpell.school.url,

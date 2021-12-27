@@ -75,6 +75,28 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "acid",
+        "name": "Acid",
+        "url": "/api/damage-types/acid",
+        "nameLocalized": {
+          "en": "Acid",
+          "fr": "Acid"
+        }
+      },
+      "damageAtSlotLevel": {
+        "2": "4d4",
+        "3": "5d4",
+        "4": "6d4",
+        "5": "7d4",
+        "6": "8d4",
+        "7": "9d4",
+        "8": "10d4",
+        "9": "11d4"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -187,6 +209,24 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "acid",
+        "name": "Acid",
+        "url": "/api/damage-types/acid",
+        "nameLocalized": {
+          "en": "Acid",
+          "fr": "Acid"
+        }
+      },
+      "damageAtCharacterLevel": {
+        "1": "1d6",
+        "5": "2d6",
+        "11": "3d6",
+        "17": "4d6"
+      }
     },
     "school": {
       "index": "conjuration",
@@ -317,16 +357,19 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
-    "healAtSlotLevel": {
-      "2": "5",
-      "3": "10",
-      "4": "15",
-      "5": "20",
-      "6": "25",
-      "7": "30",
-      "8": "35",
-      "9": "40"
+    "heal": {
+      "healAtSlotLevel": {
+        "2": "5",
+        "3": "10",
+        "4": "15",
+        "5": "20",
+        "6": "25",
+        "7": "30",
+        "8": "35",
+        "9": "40"
+      }
     },
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -452,6 +495,8 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -575,6 +620,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -698,6 +745,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -837,6 +886,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -968,6 +1019,8 @@
       "en": "Up to 24 hours",
       "fr": "jusqu'à 24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -1078,6 +1131,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -1206,6 +1261,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -1325,6 +1382,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -1442,6 +1501,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -1562,6 +1623,8 @@
       "en": "10 days",
       "fr": "10 jours"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -1677,6 +1740,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -1802,6 +1867,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -1898,6 +1965,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -2009,6 +2078,21 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "force",
+        "name": "Force",
+        "url": "/api/damage-types/force",
+        "nameLocalized": {
+          "en": "Force",
+          "fr": "Force"
+        }
+      },
+      "damageAtSlotLevel": {
+        "7": "3d10"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -2115,6 +2199,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -2224,6 +2310,8 @@
       "en": "Special",
       "fr": "Spécial"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -2350,6 +2438,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -2461,6 +2551,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -2580,6 +2672,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -2711,6 +2805,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -2852,6 +2948,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -2980,6 +3078,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -3116,6 +3216,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -3247,6 +3349,21 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning",
+        "url": "/api/damage-types/bludgeoning",
+        "nameLocalized": {
+          "en": "Bludgeoning",
+          "fr": "Bludgeoning"
+        }
+      },
+      "damageAtSlotLevel": {
+        "4": "3d6"
+      }
+    },
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -3339,6 +3456,21 @@
       "type": "minute",
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "slashing",
+        "name": "Slashing",
+        "url": "/api/damage-types/slashing",
+        "nameLocalized": {
+          "en": "Slashing",
+          "fr": "Slashing"
+        }
+      },
+      "damageAtSlotLevel": {
+        "6": "6d10"
+      }
     },
     "school": {
       "index": "evocation",
@@ -3449,6 +3581,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -3583,6 +3717,26 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "necrotic",
+        "name": "Necrotic",
+        "url": "/api/damage-types/necrotic",
+        "nameLocalized": {
+          "en": "Necrotic",
+          "fr": "Necrotic"
+        }
+      },
+      "damageAtSlotLevel": {
+        "4": "8d8",
+        "5": "9d8",
+        "6": "10d8",
+        "7": "11d8",
+        "8": "12d8",
+        "9": "13d8"
+      }
     },
     "school": {
       "index": "necromancy",
@@ -3728,6 +3882,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -3875,6 +4031,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -3991,6 +4149,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -4122,6 +4282,28 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "radiant",
+        "name": "Radiant",
+        "url": "/api/damage-types/radiant",
+        "nameLocalized": {
+          "en": "Radiant",
+          "fr": "Radiant"
+        }
+      },
+      "damageAtSlotLevel": {
+        "2": "2d6",
+        "3": "3d6",
+        "4": "4d6",
+        "5": "5d6",
+        "6": "6d6",
+        "7": "7d6",
+        "8": "8d6",
+        "9": "9d6"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -4224,6 +4406,29 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "1": "3d6",
+        "2": "4d6",
+        "3": "5d6",
+        "4": "6d6",
+        "5": "7d6",
+        "6": "8d6",
+        "7": "9d6",
+        "8": "10d6",
+        "9": "11d6"
+      }
     },
     "school": {
       "index": "evocation",
@@ -4361,6 +4566,27 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "lightning",
+        "name": "Lightning",
+        "url": "/api/damage-types/lightning",
+        "nameLocalized": {
+          "en": "Lightning",
+          "fr": "Lightning"
+        }
+      },
+      "damageAtSlotLevel": {
+        "3": "3d10",
+        "4": "4d10",
+        "5": "5d10",
+        "6": "6d10",
+        "7": "7d10",
+        "8": "8d10",
+        "9": "9d10"
+      }
+    },
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -4480,6 +4706,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -4609,6 +4837,21 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "lightning",
+        "name": "Lightning",
+        "url": "/api/damage-types/lightning",
+        "nameLocalized": {
+          "en": "Lightning",
+          "fr": "Lightning"
+        }
+      },
+      "damageAtSlotLevel": {
+        "6": "10d8"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -4724,6 +4967,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -4875,6 +5120,24 @@
       "en": "1 round",
       "fr": "1 tour"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "necrotic",
+        "name": "Necrotic",
+        "url": "/api/damage-types/necrotic",
+        "nameLocalized": {
+          "en": "Necrotic",
+          "fr": "Necrotic"
+        }
+      },
+      "damageAtCharacterLevel": {
+        "1": "1d8",
+        "5": "2d8",
+        "11": "3d8",
+        "17": "4d8"
+      }
+    },
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -5013,6 +5276,24 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "necrotic",
+        "name": "Necrotic",
+        "url": "/api/damage-types/necrotic",
+        "nameLocalized": {
+          "en": "Necrotic",
+          "fr": "Necrotic"
+        }
+      },
+      "damageAtSlotLevel": {
+        "6": "8d6",
+        "7": "10d6",
+        "8": "12d6",
+        "9": "14d6"
+      }
+    },
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -5138,6 +5419,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -5279,6 +5562,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -5385,6 +5670,25 @@
       "type": "minute",
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "poison",
+        "name": "Poison",
+        "url": "/api/damage-types/poison",
+        "nameLocalized": {
+          "en": "Poison",
+          "fr": "Poison"
+        }
+      },
+      "damageAtSlotLevel": {
+        "5": "5d8",
+        "6": "6d8",
+        "7": "7d8",
+        "8": "8d8",
+        "9": "9d8"
+      }
     },
     "school": {
       "index": "conjuration",
@@ -5514,6 +5818,8 @@
       "en": "1 round",
       "fr": "1 tour"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -5649,6 +5955,8 @@
       "en": "1 round",
       "fr": "1 tour"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -5781,6 +6089,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -5894,6 +6204,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -6016,6 +6328,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -6156,6 +6470,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -6262,6 +6578,25 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "cold",
+        "name": "Cold",
+        "url": "/api/damage-types/cold",
+        "nameLocalized": {
+          "en": "Cold",
+          "fr": "Cold"
+        }
+      },
+      "damageAtSlotLevel": {
+        "5": "8d8",
+        "6": "9d8",
+        "7": "10d8",
+        "8": "11d8",
+        "9": "12d8"
+      }
     },
     "school": {
       "index": "evocation",
@@ -6394,6 +6729,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -6536,6 +6873,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -6663,6 +7002,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -6775,6 +7116,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -6903,6 +7246,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -7025,6 +7370,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -7151,6 +7498,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -7258,6 +7607,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -7379,6 +7730,8 @@
       "en": "7 days",
       "fr": "7 jours"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -7492,6 +7845,8 @@
       "en": "10 days",
       "fr": "10 jours"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -7592,6 +7947,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -7727,6 +8084,21 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning",
+        "url": "/api/damage-types/bludgeoning",
+        "nameLocalized": {
+          "en": "Bludgeoning",
+          "fr": "Bludgeoning"
+        }
+      },
+      "damageAtSlotLevel": {
+        "4": "2d8"
+      }
+    },
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -7850,6 +8222,8 @@
       "en": "Up to 8 hours",
       "fr": "jusqu'à 8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -7983,6 +8357,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -8101,6 +8477,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -8249,6 +8627,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -8381,6 +8761,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -8520,6 +8902,8 @@
       "en": "Special",
       "fr": "Spécial"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -8632,17 +9016,20 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
-    "healAtSlotLevel": {
-      "1": "1d8 + MOD",
-      "2": "2d8 + MOD",
-      "3": "3d8 + MOD",
-      "4": "4d8 + MOD",
-      "5": "5d8 + MOD",
-      "6": "6d8 + MOD",
-      "7": "7d8 + MOD",
-      "8": "8d8 + MOD",
-      "9": "9d8 + MOD"
+    "heal": {
+      "healAtSlotLevel": {
+        "1": "1d8 + MOD",
+        "2": "2d8 + MOD",
+        "3": "3d8 + MOD",
+        "4": "4d8 + MOD",
+        "5": "5d8 + MOD",
+        "6": "6d8 + MOD",
+        "7": "7d8 + MOD",
+        "8": "8d8 + MOD",
+        "9": "9d8 + MOD"
+      }
     },
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -8806,6 +9193,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -8940,6 +9329,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -9080,6 +9471,8 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -9221,6 +9614,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -9379,6 +9774,8 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -9511,6 +9908,23 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "7": "12d6",
+        "8": "13d6",
+        "9": "14d6"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -9620,6 +10034,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -9728,6 +10144,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -9846,6 +10264,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -10018,6 +10438,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -10163,6 +10585,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -10291,6 +10715,21 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "force",
+        "name": "Force",
+        "url": "/api/damage-types/force",
+        "nameLocalized": {
+          "en": "Force",
+          "fr": "Force"
+        }
+      },
+      "damageAtSlotLevel": {
+        "4": "4d6"
+      }
     },
     "school": {
       "index": "conjuration",
@@ -10421,6 +10860,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -10563,6 +11004,21 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "force",
+        "name": "Force",
+        "url": "/api/damage-types/force",
+        "nameLocalized": {
+          "en": "Force",
+          "fr": "Force"
+        }
+      },
+      "damageAtSlotLevel": {
+        "6": "10d6 + 40"
+      }
+    },
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -10679,6 +11135,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -10793,6 +11251,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -10974,6 +11434,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -11080,6 +11542,21 @@
       "type": "minute",
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "radiant",
+        "name": "Radiant",
+        "url": "/api/damage-types/radiant",
+        "nameLocalized": {
+          "en": "Radiant",
+          "fr": "Radiant"
+        }
+      },
+      "damageAtSlotLevel": {
+        "1": "1d4"
+      }
     },
     "school": {
       "index": "evocation",
@@ -11193,6 +11670,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -11300,6 +11779,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -11418,6 +11899,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -11556,6 +12039,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -11680,6 +12165,21 @@
       "type": "hour",
       "en": "8 hours",
       "fr": "8 heures"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "psychic",
+        "name": "Psychic",
+        "url": "/api/damage-types/psychic",
+        "nameLocalized": {
+          "en": "Psychic",
+          "fr": "Psychic"
+        }
+      },
+      "damageAtSlotLevel": {
+        "5": "3d6"
+      }
     },
     "school": {
       "index": "illusion",
@@ -11813,6 +12313,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -11922,6 +12424,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -12039,6 +12543,24 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "force",
+        "name": "Force",
+        "url": "/api/damage-types/force",
+        "nameLocalized": {
+          "en": "Force",
+          "fr": "Force"
+        }
+      },
+      "damageAtCharacterLevel": {
+        "1": "1d10",
+        "5": "2d10",
+        "11": "3d10",
+        "17": "4d10"
+      }
     },
     "school": {
       "index": "evocation",
@@ -12169,6 +12691,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -12317,6 +12841,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -12438,6 +12964,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -12547,6 +13075,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -12674,6 +13204,8 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -12811,6 +13343,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -12944,6 +13478,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -13074,6 +13610,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -13173,6 +13711,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -13285,6 +13825,21 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "piercing",
+        "name": "Piercing",
+        "url": "/api/damage-types/piercing",
+        "nameLocalized": {
+          "en": "Piercing",
+          "fr": "Piercing"
+        }
+      },
+      "damageAtSlotLevel": {
+        "4": "4d8"
+      }
+    },
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -13385,17 +13940,20 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
-    "healAtSlotLevel": {
-      "1": "1d4 + 4",
-      "2": "1d4 + 9",
-      "3": "1d4 + 14",
-      "4": "1d4 + 19",
-      "5": "1d4 + 24",
-      "6": "1d4 + 29",
-      "7": "1d4 + 34",
-      "8": "1d4 + 39",
-      "9": "1d4 + 44"
+    "heal": {
+      "healAtSlotLevel": {
+        "1": "1d4 + 4",
+        "2": "1d4 + 9",
+        "3": "1d4 + 14",
+        "4": "1d4 + 19",
+        "5": "1d4 + 24",
+        "6": "1d4 + 29",
+        "7": "1d4 + 34",
+        "8": "1d4 + 39",
+        "9": "1d4 + 44"
+      }
     },
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -13518,6 +14076,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -13660,6 +14220,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -13794,6 +14356,21 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "psychic",
+        "name": "Psychic",
+        "url": "/api/damage-types/psychic",
+        "nameLocalized": {
+          "en": "Psychic",
+          "fr": "Psychic"
+        }
+      },
+      "damageAtSlotLevel": {
+        "8": "4d6"
+      }
     },
     "school": {
       "index": "enchantment",
@@ -13933,6 +14510,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -14035,6 +14614,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -14144,6 +14725,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -14276,6 +14859,8 @@
       "en": "Up to 24 hours",
       "fr": "jusqu'à 24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -14385,6 +14970,21 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "necrotic",
+        "name": "Necrotic",
+        "url": "/api/damage-types/necrotic",
+        "nameLocalized": {
+          "en": "Necrotic",
+          "fr": "Necrotic"
+        }
+      },
+      "damageAtSlotLevel": {
+        "7": "7d8 + 30"
+      }
     },
     "school": {
       "index": "necromancy",
@@ -14505,6 +15105,24 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtCharacterLevel": {
+        "1": "1d10",
+        "5": "2d10",
+        "11": "3d10",
+        "17": "4d10"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -14618,6 +15236,21 @@
       "en": "10 minutes",
       "fr": "10 minutes"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "4": "2d8"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -14726,6 +15359,21 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "7": "7d10"
+      }
     },
     "school": {
       "index": "evocation",
@@ -14855,6 +15503,27 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "3": "8d6",
+        "4": "9d6",
+        "5": "10d6",
+        "6": "11d6",
+        "7": "12d6",
+        "8": "13d6",
+        "9": "14d6"
+      }
     },
     "school": {
       "index": "evocation",
@@ -14994,6 +15663,24 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "2": "3d6",
+        "4": "4d6",
+        "6": "5d6",
+        "8": "6d6"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -15111,6 +15798,25 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "5": "4d6 + 4d6",
+        "6": "4d6 + 5d6",
+        "7": "4d6 + 6d6",
+        "8": "4d6 + 7d6",
+        "9": "4d6 + 8d6"
+      }
     },
     "school": {
       "index": "evocation",
@@ -15242,6 +15948,28 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "2": "2d6",
+        "3": "3d6",
+        "4": "4d6",
+        "5": "5d6",
+        "6": "6d6",
+        "7": "7d6",
+        "8": "8d6",
+        "9": "9d6"
+      }
+    },
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -15368,6 +16096,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -15479,6 +16209,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -15589,6 +16321,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -15724,6 +16458,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -15868,6 +16604,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -15976,6 +16714,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -16098,6 +16838,8 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -16230,6 +16972,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -16385,6 +17129,21 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "cold",
+        "name": "Cold",
+        "url": "/api/damage-types/cold",
+        "nameLocalized": {
+          "en": "Cold",
+          "fr": "Cold"
+        }
+      },
+      "damageAtSlotLevel": {
+        "6": "10d6"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -16481,6 +17240,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -16626,6 +17387,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -16752,6 +17515,8 @@
       "en": "30 days",
       "fr": "30 jours"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -16894,6 +17659,8 @@
       "en": "10 days",
       "fr": "10 jours"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -17016,6 +17783,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -17112,6 +17881,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -17230,6 +18001,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -17352,6 +18125,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -17483,6 +18258,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -17597,6 +18374,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -17704,6 +18483,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -17838,6 +18619,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -17956,6 +18739,21 @@
       "type": "hour",
       "en": "8 hours",
       "fr": "8 heures"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "radiant",
+        "name": "Radiant",
+        "url": "/api/damage-types/radiant",
+        "nameLocalized": {
+          "en": "Radiant",
+          "fr": "Radiant"
+        }
+      },
+      "damageAtSlotLevel": {
+        "4": "20"
+      }
     },
     "school": {
       "index": "conjuration",
@@ -18084,6 +18882,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -18191,6 +18991,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -18316,6 +19118,29 @@
       "en": "1 round",
       "fr": "1 tour"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "radiant",
+        "name": "Radiant",
+        "url": "/api/damage-types/radiant",
+        "nameLocalized": {
+          "en": "Radiant",
+          "fr": "Radiant"
+        }
+      },
+      "damageAtSlotLevel": {
+        "1": "4d6",
+        "2": "5d6",
+        "3": "6d6",
+        "4": "7d6",
+        "5": "8d6",
+        "6": "9d6",
+        "7": "10d6",
+        "8": "11d6",
+        "9": "12d6"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -18430,6 +19255,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -18582,6 +19409,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -18696,6 +19525,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -18834,6 +19665,21 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "necrotic",
+        "name": "Necrotic",
+        "url": "/api/damage-types/necrotic",
+        "nameLocalized": {
+          "en": "Necrotic",
+          "fr": "Necrotic"
+        }
+      },
+      "damageAtSlotLevel": {
+        "6": "14d6"
+      }
+    },
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -18938,6 +19784,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -19071,12 +19919,15 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
-    "healAtSlotLevel": {
-      "6": "70",
-      "7": "80",
-      "8": "90",
-      "9": "100"
+    "heal": {
+      "healAtSlotLevel": {
+        "6": "70",
+        "7": "80",
+        "8": "90",
+        "9": "100"
+      }
     },
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -19190,17 +20041,20 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
-    "healAtSlotLevel": {
-      "1": "1d4 + MOD",
-      "2": "2d4 + MOD",
-      "3": "3d4 + MOD",
-      "4": "4d4 + MOD",
-      "5": "5d4 + MOD",
-      "6": "6d4 + MOD",
-      "7": "7d4 + MOD",
-      "8": "8d4 + MOD",
-      "9": "9d4 + MOD"
+    "heal": {
+      "healAtSlotLevel": {
+        "1": "1d4 + MOD",
+        "2": "2d4 + MOD",
+        "3": "3d4 + MOD",
+        "4": "4d4 + MOD",
+        "5": "5d4 + MOD",
+        "6": "6d4 + MOD",
+        "7": "7d4 + MOD",
+        "8": "8d4 + MOD",
+        "9": "9d4 + MOD"
+      }
     },
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -19341,6 +20195,28 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "2": "2d8",
+        "3": "3d8",
+        "4": "4d8",
+        "5": "5d8",
+        "6": "6d8",
+        "7": "7d8",
+        "8": "8d8",
+        "9": "9d8"
+      }
+    },
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -19459,6 +20335,21 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "1": "2d10"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -19562,6 +20453,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -19669,6 +20562,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -19789,6 +20684,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -19910,6 +20807,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -20049,6 +20948,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -20219,6 +21120,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -20323,6 +21226,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -20435,6 +21340,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -20584,6 +21491,26 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning",
+        "url": "/api/damage-types/bludgeoning",
+        "nameLocalized": {
+          "en": "Bludgeoning",
+          "fr": "Bludgeoning"
+        }
+      },
+      "damageAtSlotLevel": {
+        "4": "2d8 + 4d6",
+        "5": "3d8 + 4d6",
+        "6": "4d8 + 4d6",
+        "7": "5d8 + 4d6",
+        "8": "6d8 + 4d6",
+        "9": "7d8 + 4d6"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -20715,6 +21642,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -20838,6 +21767,8 @@
       "en": "10 days",
       "fr": "10 jours"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -20984,6 +21915,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -21094,6 +22027,21 @@
       "type": "minute",
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "8": "10d8"
+      }
     },
     "school": {
       "index": "conjuration",
@@ -21206,6 +22154,29 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "necrotic",
+        "name": "Necrotic",
+        "url": "/api/damage-types/necrotic",
+        "nameLocalized": {
+          "en": "Necrotic",
+          "fr": "Necrotic"
+        }
+      },
+      "damageAtSlotLevel": {
+        "1": "3d10",
+        "2": "4d10",
+        "3": "5d10",
+        "4": "6d10",
+        "5": "7d10",
+        "6": "8d10",
+        "7": "9d10",
+        "8": "10d10",
+        "9": "11d10"
+      }
     },
     "school": {
       "index": "necromancy",
@@ -21326,6 +22297,25 @@
       "type": "minute",
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "piercing",
+        "name": "Piercing",
+        "url": "/api/damage-types/piercing",
+        "nameLocalized": {
+          "en": "Piercing",
+          "fr": "Piercing"
+        }
+      },
+      "damageAtSlotLevel": {
+        "5": "4d10",
+        "6": "5d10",
+        "7": "6d10",
+        "8": "7d10",
+        "9": "8d10"
+      }
     },
     "school": {
       "index": "conjuration",
@@ -21456,6 +22446,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -21556,6 +22548,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -21703,6 +22697,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -21806,6 +22802,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -21946,6 +22944,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -22077,6 +23077,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -22193,6 +23195,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -22366,6 +23370,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -22487,6 +23493,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -22634,6 +23642,27 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "lightning",
+        "name": "Lightning",
+        "url": "/api/damage-types/lightning",
+        "nameLocalized": {
+          "en": "Lightning",
+          "fr": "Lightning"
+        }
+      },
+      "damageAtSlotLevel": {
+        "3": "8d6",
+        "4": "9d6",
+        "5": "10d6",
+        "6": "11d6",
+        "7": "12d6",
+        "8": "13d6",
+        "9": "14d6"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -22763,6 +23792,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -22896,6 +23927,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -23059,6 +24092,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -23226,6 +24261,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -23367,6 +24404,8 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -23488,6 +24527,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -23642,6 +24683,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -23788,6 +24831,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -23891,6 +24936,29 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "force",
+        "name": "Force",
+        "url": "/api/damage-types/force",
+        "nameLocalized": {
+          "en": "Force",
+          "fr": "Force"
+        }
+      },
+      "damageAtSlotLevel": {
+        "1": "1d4 + 1",
+        "2": "1d4 + 1",
+        "3": "1d4 + 1",
+        "4": "1d4 + 1",
+        "5": "1d4 + 1",
+        "6": "1d4 + 1",
+        "7": "1d4 + 1",
+        "8": "1d4 + 1",
+        "9": "1d4 + 1"
+      }
     },
     "school": {
       "index": "evocation",
@@ -24017,6 +25085,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -24140,6 +25210,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -24261,6 +25333,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -24374,6 +25448,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -24518,13 +25594,16 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
-    "healAtSlotLevel": {
-      "5": "3d8 + MOD",
-      "6": "4d8 + MOD",
-      "7": "5d8 + MOD",
-      "8": "6d8 + MOD",
-      "9": "7d8 + MOD"
+    "heal": {
+      "healAtSlotLevel": {
+        "5": "3d8 + MOD",
+        "6": "4d8 + MOD",
+        "7": "5d8 + MOD",
+        "8": "6d8 + MOD",
+        "9": "7d8 + MOD"
+      }
     },
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -24653,9 +25732,12 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
-    "healAtSlotLevel": {
-      "9": "700"
+    "heal": {
+      "healAtSlotLevel": {
+        "9": "700"
+      }
     },
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -24759,15 +25841,18 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
-    "healAtSlotLevel": {
-      "3": "1d4 + MOD",
-      "4": "2d4 + MOD",
-      "5": "3d4 + MOD",
-      "6": "4d4 + MOD",
-      "7": "5d4 + MOD",
-      "8": "6d4 + MOD",
-      "9": "7d4 + MOD"
+    "heal": {
+      "healAtSlotLevel": {
+        "3": "1d4 + MOD",
+        "4": "2d4 + MOD",
+        "5": "3d4 + MOD",
+        "6": "4d4 + MOD",
+        "7": "5d4 + MOD",
+        "8": "6d4 + MOD",
+        "9": "7d4 + MOD"
+      }
     },
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -24889,6 +25974,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -25020,6 +26107,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -25119,6 +26208,8 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -25240,6 +26331,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -25394,6 +26487,8 @@
       "en": "1 round",
       "fr": "1 tour"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -25523,6 +26618,21 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "9": "20d6 + 20d6"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -25630,6 +26740,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -25745,6 +26857,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -25885,6 +26999,8 @@
       "en": "10 days",
       "fr": "10 jours"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -26006,6 +27122,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -26143,6 +27261,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -26248,6 +27368,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -26396,6 +27518,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -26518,6 +27642,28 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "radiant",
+        "name": "Radiant",
+        "url": "/api/damage-types/radiant",
+        "nameLocalized": {
+          "en": "Radiant",
+          "fr": "Radiant"
+        }
+      },
+      "damageAtSlotLevel": {
+        "2": "2d10",
+        "3": "3d10",
+        "4": "4d10",
+        "5": "5d10",
+        "6": "6d10",
+        "7": "7d10",
+        "8": "8d10",
+        "9": "9d10"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -26635,6 +27781,8 @@
       "en": "Up to 2 hours",
       "fr": "jusqu'à 2 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -26756,6 +27904,8 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -26887,6 +28037,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -27020,6 +28172,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -27135,6 +28289,21 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "psychic",
+        "name": "Psychic",
+        "url": "/api/damage-types/psychic",
+        "nameLocalized": {
+          "en": "Psychic",
+          "fr": "Psychic"
+        }
+      },
+      "damageAtSlotLevel": {
+        "4": "4d10"
+      }
+    },
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -27235,6 +28404,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -27348,6 +28519,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -27458,6 +28631,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -27590,6 +28765,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -27731,6 +28908,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -27869,6 +29048,24 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "poison",
+        "name": "Poison",
+        "url": "/api/damage-types/poison",
+        "nameLocalized": {
+          "en": "Poison",
+          "fr": "Poison"
+        }
+      },
+      "damageAtCharacterLevel": {
+        "1": "1d12",
+        "5": "2d12",
+        "11": "3d12",
+        "17": "4d12"
+      }
+    },
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -27997,6 +29194,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -28124,6 +29323,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -28252,6 +29453,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -28385,16 +29588,19 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
-    "healAtSlotLevel": {
-      "2": "2d8 + MOD",
-      "3": "3d8 + MOD",
-      "4": "4d8 + MOD",
-      "5": "5d8 + MOD",
-      "6": "6d8 + MOD",
-      "7": "7d8 + MOD",
-      "8": "8d8 + MOD",
-      "9": "9d8 + MOD"
+    "heal": {
+      "healAtSlotLevel": {
+        "2": "2d8 + MOD",
+        "3": "3d8 + MOD",
+        "4": "4d8 + MOD",
+        "5": "5d8 + MOD",
+        "6": "6d8 + MOD",
+        "7": "7d8 + MOD",
+        "8": "8d8 + MOD",
+        "9": "9d8 + MOD"
+      }
     },
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -28511,6 +29717,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -28663,6 +29871,13 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": null,
+      "damageAtSlotLevel": {
+        "7": "10d6"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -28790,6 +30005,8 @@
       "en": "10 minutes",
       "fr": "10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -28903,6 +30120,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -28994,6 +30213,24 @@
       "type": "minute",
       "en": "10 minutes",
       "fr": "10 minutes"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtCharacterLevel": {
+        "1": "1d8",
+        "5": "2d8",
+        "11": "3d8",
+        "17": "4d8"
+      }
     },
     "school": {
       "index": "conjuration",
@@ -29110,6 +30347,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -29226,6 +30465,8 @@
       "en": "Up to 24 hours",
       "fr": "jusqu'à 24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -29333,6 +30574,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -29494,6 +30737,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -29641,6 +30886,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -29779,6 +31026,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -29912,6 +31161,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -30042,6 +31293,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -30160,6 +31413,24 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "cold",
+        "name": "Cold",
+        "url": "/api/damage-types/cold",
+        "nameLocalized": {
+          "en": "Cold",
+          "fr": "Cold"
+        }
+      },
+      "damageAtCharacterLevel": {
+        "1": "1d8",
+        "5": "2d8",
+        "11": "3d8",
+        "17": "4d8"
+      }
     },
     "school": {
       "index": "evocation",
@@ -30283,9 +31554,12 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
-    "healAtSlotLevel": {
-      "7": "4d8 + 15"
+    "heal": {
+      "healAtSlotLevel": {
+        "7": "4d8 + 15"
+      }
     },
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -30436,6 +31710,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -30532,6 +31808,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -30674,6 +31952,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -30768,6 +32048,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -30892,6 +32174,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -31007,6 +32291,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -31127,6 +32413,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -31260,6 +32548,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -31368,6 +32658,24 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "radiant",
+        "name": "Radiant",
+        "url": "/api/damage-types/radiant",
+        "nameLocalized": {
+          "en": "Radiant",
+          "fr": "Radiant"
+        }
+      },
+      "damageAtCharacterLevel": {
+        "1": "1d8",
+        "5": "2d8",
+        "11": "3d8",
+        "17": "4d8"
+      }
     },
     "school": {
       "index": "evocation",
@@ -31483,6 +32791,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -31606,6 +32916,21 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "2": "2d6"
+      }
     },
     "school": {
       "index": "evocation",
@@ -31748,6 +33073,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -31896,6 +33223,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -31990,6 +33319,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -32122,6 +33453,8 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -32244,6 +33577,8 @@
       "en": "1 round",
       "fr": "1 tour"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -32376,6 +33711,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -32482,6 +33819,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -32600,6 +33939,28 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "thunder",
+        "name": "Thunder",
+        "url": "/api/damage-types/thunder",
+        "nameLocalized": {
+          "en": "Thunder",
+          "fr": "Thunder"
+        }
+      },
+      "damageAtSlotLevel": {
+        "2": "3d8",
+        "3": "4d8",
+        "4": "5d8",
+        "5": "6d8",
+        "6": "7d8",
+        "7": "8d8",
+        "8": "9d8",
+        "9": "10d8"
+      }
     },
     "school": {
       "index": "evocation",
@@ -32738,6 +34099,8 @@
       "en": "1 round",
       "fr": "1 tour"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -32861,6 +34224,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -32982,6 +34347,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -33088,6 +34455,24 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "lightning",
+        "name": "Lightning",
+        "url": "/api/damage-types/lightning",
+        "nameLocalized": {
+          "en": "Lightning",
+          "fr": "Lightning"
+        }
+      },
+      "damageAtCharacterLevel": {
+        "1": "1d8",
+        "5": "2d8",
+        "11": "3d8",
+        "17": "4d8"
+      }
     },
     "school": {
       "index": "evocation",
@@ -33209,6 +34594,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -33353,6 +34740,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -33486,6 +34875,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -33596,6 +34987,13 @@
       "type": "minute",
       "en": "1 minute",
       "fr": "1 minute"
+    },
+    "heal": null,
+    "damage": {
+      "type": null,
+      "damageAtSlotLevel": {
+        "1": "5d8"
+      }
     },
     "school": {
       "index": "enchantment",
@@ -33732,6 +35130,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -33877,6 +35277,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -34002,6 +35404,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -34099,6 +35503,8 @@
       "en": "10 minutes",
       "fr": "10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -34233,6 +35639,8 @@
       "en": "10 minutes",
       "fr": "10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -34354,6 +35762,8 @@
       "en": "10 minutes",
       "fr": "10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -34485,6 +35895,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -34628,6 +36040,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -34765,6 +36179,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -34881,6 +36297,28 @@
       "type": "minute",
       "en": "1 minute",
       "fr": "1 minute"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "force",
+        "name": "Force",
+        "url": "/api/damage-types/force",
+        "nameLocalized": {
+          "en": "Force",
+          "fr": "Force"
+        }
+      },
+      "damageAtSlotLevel": {
+        "2": "1d8 + MOD",
+        "3": "1d8 + MOD",
+        "4": "2d8 + MOD",
+        "5": "2d8 + MOD",
+        "6": "3d8 + MOD",
+        "7": "3d8 + MOD",
+        "8": "4d8 + MOD",
+        "9": "4d8 + MOD"
+      }
     },
     "school": {
       "index": "evocation",
@@ -35006,6 +36444,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -35154,6 +36594,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -35285,6 +36727,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -35431,6 +36875,21 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "thunder",
+        "name": "Thunder",
+        "url": "/api/damage-types/thunder",
+        "nameLocalized": {
+          "en": "Thunder",
+          "fr": "Thunder"
+        }
+      },
+      "damageAtSlotLevel": {
+        "9": "2d6"
+      }
+    },
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -35536,6 +36995,8 @@
       "en": "Up to 8 hours",
       "fr": "jusqu'à 8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -35679,6 +37140,21 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "radiant",
+        "name": "Radiant",
+        "url": "/api/damage-types/radiant",
+        "nameLocalized": {
+          "en": "Radiant",
+          "fr": "Radiant"
+        }
+      },
+      "damageAtSlotLevel": {
+        "6": "6d8"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -35802,6 +37278,21 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "radiant",
+        "name": "Radiant",
+        "url": "/api/damage-types/radiant",
+        "nameLocalized": {
+          "en": "Radiant",
+          "fr": "Radiant"
+        }
+      },
+      "damageAtSlotLevel": {
+        "8": "12d6"
+      }
     },
     "school": {
       "index": "evocation",
@@ -35943,6 +37434,8 @@
       "en": "Until dispelled",
       "fr": "Jusqu'à désactivation"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -36069,6 +37562,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -36179,6 +37674,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -36270,6 +37767,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -36394,6 +37893,8 @@
       "en": "1 round",
       "fr": "1 tour"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -36519,6 +38020,8 @@
       "en": "1 minute",
       "fr": "1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -36631,6 +38134,29 @@
       "amount": 0,
       "en": "Instantaneous",
       "fr": "Instantané"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "thunder",
+        "name": "Thunder",
+        "url": "/api/damage-types/thunder",
+        "nameLocalized": {
+          "en": "Thunder",
+          "fr": "Thunder"
+        }
+      },
+      "damageAtSlotLevel": {
+        "1": "2d8",
+        "2": "3d8",
+        "3": "4d8",
+        "4": "5d8",
+        "5": "6d8",
+        "6": "7d8",
+        "7": "8d8",
+        "8": "9d8",
+        "9": "10d8"
+      }
     },
     "school": {
       "index": "evocation",
@@ -36768,6 +38294,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -36877,6 +38405,8 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -36989,6 +38519,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -37138,6 +38670,8 @@
       "en": "1 round",
       "fr": "1 tour"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -37236,6 +38770,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -37370,6 +38906,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -37492,6 +39030,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -37603,6 +39143,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -37741,6 +39283,8 @@
       "en": "Up to 1 round",
       "fr": "jusqu'à 1 tour"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "divination",
       "url": "/api/magic-schools/divination",
@@ -37886,6 +39430,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -38019,6 +39565,27 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "necrotic",
+        "name": "Necrotic",
+        "url": "/api/damage-types/necrotic",
+        "nameLocalized": {
+          "en": "Necrotic",
+          "fr": "Necrotic"
+        }
+      },
+      "damageAtSlotLevel": {
+        "3": "3d6",
+        "4": "4d6",
+        "5": "5d6",
+        "6": "6d6",
+        "7": "7d6",
+        "8": "8d6",
+        "9": "9d6"
+      }
+    },
     "school": {
       "index": "necromancy",
       "url": "/api/magic-schools/necromancy",
@@ -38137,6 +39704,24 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "psychic",
+        "name": "Psychic",
+        "url": "/api/damage-types/psychic",
+        "nameLocalized": {
+          "en": "Psychic",
+          "fr": "Psychic"
+        }
+      },
+      "damageAtCharacterLevel": {
+        "1": "1d4",
+        "5": "2d4",
+        "11": "3d4",
+        "17": "4d4"
+      }
+    },
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
@@ -38248,6 +39833,21 @@
       "type": "minute",
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "fire",
+        "name": "Fire",
+        "url": "/api/damage-types/fire",
+        "nameLocalized": {
+          "en": "Fire",
+          "fr": "Fire"
+        }
+      },
+      "damageAtSlotLevel": {
+        "4": "5d8"
+      }
     },
     "school": {
       "index": "evocation",
@@ -38383,6 +39983,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -38494,6 +40096,24 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "cold",
+        "name": "Cold",
+        "url": "/api/damage-types/cold",
+        "nameLocalized": {
+          "en": "Cold",
+          "fr": "Cold"
+        }
+      },
+      "damageAtSlotLevel": {
+        "6": "10d6",
+        "7": "12d6",
+        "8": "14d6",
+        "9": "16d6"
+      }
+    },
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -38602,6 +40222,8 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "evocation",
       "url": "/api/magic-schools/evocation",
@@ -38743,6 +40365,24 @@
       "en": "Up to 10 minutes",
       "fr": "jusqu'à 10 minutes"
     },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "piercing",
+        "name": "Piercing",
+        "url": "/api/damage-types/piercing",
+        "nameLocalized": {
+          "en": "Piercing",
+          "fr": "Piercing"
+        }
+      },
+      "damageAtSlotLevel": {
+        "6": "7d8",
+        "7": "8d8",
+        "8": "9d8",
+        "9": "10d8"
+      }
+    },
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -38846,6 +40486,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "abjuration",
       "url": "/api/magic-schools/abjuration",
@@ -38959,6 +40601,8 @@
       "en": "24 hours",
       "fr": "24 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -39112,6 +40756,8 @@
       "en": "1 hour",
       "fr": "1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -39268,6 +40914,8 @@
       "en": "Up to 1 hour",
       "fr": "jusqu'à 1 heure"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -39396,6 +41044,8 @@
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "illusion",
       "url": "/api/magic-schools/illusion",
@@ -39500,6 +41150,8 @@
       "en": "8 hours",
       "fr": "8 heures"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "transmutation",
       "url": "/api/magic-schools/transmutation",
@@ -39604,6 +41256,21 @@
       "type": "minute",
       "en": "Up to 1 minute",
       "fr": "jusqu'à 1 minute"
+    },
+    "heal": null,
+    "damage": {
+      "type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning",
+        "url": "/api/damage-types/bludgeoning",
+        "nameLocalized": {
+          "en": "Bludgeoning",
+          "fr": "Bludgeoning"
+        }
+      },
+      "damageAtSlotLevel": {
+        "3": "3d8"
+      }
     },
     "school": {
       "index": "evocation",
@@ -39729,6 +41396,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -39837,6 +41506,8 @@
       "en": "Instantaneous",
       "fr": "Instantané"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "conjuration",
       "url": "/api/magic-schools/conjuration",
@@ -39937,6 +41608,8 @@
       "en": "10 minutes",
       "fr": "10 minutes"
     },
+    "heal": null,
+    "damage": null,
     "school": {
       "index": "enchantment",
       "url": "/api/magic-schools/enchantment",
