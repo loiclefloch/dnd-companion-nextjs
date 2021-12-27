@@ -6,7 +6,7 @@ function SpellDetailLevelTable({ data }) {
 	return (
 		<div>
 			{map(data, (value, level) => !value ?  null : (
-				<div className="flex items-center">
+				<div key={level} className="flex items-center">
 					<div className="text-sm w-6">{level}</div>
 					<div>{value}</div>
 				</div>

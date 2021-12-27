@@ -1,13 +1,14 @@
 import { useState } from "react"
-
+import useModal from "./useModal"
 
 function useDiceHistory() {
+	const { showInfoModal } = useModal()
 	const [diceHistory, _setDiceHistory] = useState([])
 
 	return {
 		addDice: ({ label, dice, roll, context }) => {
 			_setDiceHistory([ ...diceHistory, { label, dice, roll, context }])
-			alert(`Added dice ${label} with ${dice} : ${roll}`)
+			showInfoModal({ content: `Added dice ${label} with ${dice} : ${roll}` })
 		},
 		diceHistory
 	}

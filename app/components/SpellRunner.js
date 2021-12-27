@@ -8,7 +8,7 @@ import useDiceHistory from './useDiceHistory'
 import useI18n from '../modules/i18n/useI18n'
 
 function HealRunner({ spellName, healAtSlotLevel, spellLevel }) {
-	const { addValidation } = useValidation()
+	const { askValidation } = useValidation()
 	const { addDice } = useDiceHistory()
 	const { 
 		chosenSpellLevel,
@@ -31,7 +31,7 @@ function HealRunner({ spellName, healAtSlotLevel, spellLevel }) {
 					const shouldWarn = isAboveMaximumSpellLevel
 					if (shouldWarn) {
 						// warn about dice being above the max level then run dice if confirm
-						addValidation(
+						askValidation(
 							'Are you sure?',
 							'The dice you are about to roll is for a level above the character spell maximum level',
 							result
@@ -55,7 +55,7 @@ function HealRunner({ spellName, healAtSlotLevel, spellLevel }) {
 
 function DamageSlotLevel({ spellName, spellLevel, damageAtSlotLevel, damageType }) {
 	const { tr } = useI18n()
-	const { addValidation } = useValidation()
+	const { askValidation } = useValidation()
 	const { addDice } = useDiceHistory()
 	const {
 		chosenSpellLevel,
@@ -77,7 +77,7 @@ function DamageSlotLevel({ spellName, spellLevel, damageAtSlotLevel, damageType 
 					const shouldWarn = isAboveMaximumSpellLevel
 					if (shouldWarn) {
 						// warn about dice being above the max level then run dice if confirm
-						addValidation(
+						askValidation(
 							'Are you sure?',
 							'The dice you are about to roll is for a level above the character spell maximum level',
 							result
@@ -101,7 +101,7 @@ function DamageSlotLevel({ spellName, spellLevel, damageAtSlotLevel, damageType 
 
 function DamageCharacterLevel({ spellName, spellLevel, damageAtCharacterLevel, damageType }) {
 	const { tr } = useI18n()
-	const { addValidation } = useValidation()
+	const { askValidation } = useValidation()
 	const { addDice } = useDiceHistory()
 	const {
 		characterLevel,
@@ -123,7 +123,7 @@ function DamageCharacterLevel({ spellName, spellLevel, damageAtCharacterLevel, d
 					const shouldWarn = isAboveMaximumCharacterLevel
 					if (shouldWarn) {
 						// warn about dice being above the max level then run dice if confirm
-						addValidation(
+						askValidation(
 							'Are you sure?',
 							'The dice you are about to roll is for a level above the character level',
 							result

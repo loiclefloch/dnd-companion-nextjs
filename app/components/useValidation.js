@@ -1,10 +1,16 @@
-
+import useModal from './useModal'
 
 function useValidation() {
+	const { showValidationModal } = useModal()
+	
 	return {
-		addValidation: (title, message, onValidate, onCancel) => {
-			alert(title + ' ' + message)
-			onValidate()
+		askValidation: (title, message, onValidate, onCancel) => {
+			showValidationModal({
+				title,
+				message,
+				onValidate,
+				onCancel,
+			})
 		}
 	}
 }
