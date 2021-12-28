@@ -16,7 +16,15 @@ function useI18n() {
         return obj
       }
       // translation object, containing the translations
-      return !obj ? null : obj[lang] || obj[defaultLang] || null
+      const translated = !obj ? null : obj[lang] || obj[defaultLang] || null
+      if (!translated) {
+        return null
+      }
+      if (Array.isArray(translated)) {
+        // requires className whitespace-pre-wrap to display break lines
+        return translated.join('\n\n') 
+      }
+      return translated
     },
     getRangeUnit: range => {
       switch (rangeUnit) {

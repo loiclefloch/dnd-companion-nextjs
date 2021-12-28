@@ -1,5 +1,4 @@
 import map from "lodash/map";
-import useSpell from "../modules/api/useSpell";
 
 function SpellDetailLevelTable({ data }) {
 
@@ -32,14 +31,7 @@ function SpellDetailLevel({ spell })  {
 }
 
 
-function SpellDetail({ name }) {
-  const spellResponse = useSpell(name);
-  const spell = spellResponse.data;
-
-  if (spellResponse.isLoading) {
-    return null
-  }
-
+function SpellDetail({ spell }) {
 	return  (
 		<div>
 			<SpellDetailLevel spell={spell} />

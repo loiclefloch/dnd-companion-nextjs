@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import useSpell from "../modules/api/useSpell";
 import useI18n from "../modules/i18n/useI18n";
 import useTheme from "../modules/theme/useTheme";
 
@@ -15,16 +14,10 @@ function createClassTag(clss) {
   };
 }
 
-function SpellCard({ name }) {
+function SpellCard({ spell }) {
   const { tr, getRangeUnit, isDefaultLang, trDefaultLang } = useI18n();
   const theme = useTheme()
-  const spellResponse = useSpell(name);
-
-  const spell = spellResponse.data;
-
-  if (spellResponse.isLoading) {
-    return null
-  }
+ 
 
   const otherNames = [
     spell.otherNameLocalized && spell.otherNameLocalized.fr,
@@ -34,7 +27,6 @@ function SpellCard({ name }) {
 
   return (
     <Card
-      isLoading={spellResponse.isLoading}
       name={
         <div className="flex justify-between">
           <span>{tr(spell.nameLocalized)}</span>
@@ -96,12 +88,12 @@ function SpellCard({ name }) {
           {spell.resume && (
             <div className="mt-2">
               <span className="font-semibold">Resume: </span>
-              {tr(spell.resume)}
+              <div className="whitespace-pre-wrap">{tr(spell.resume)}</div>
             </div>
           )}
           <div className="mt-2">
             <span className="font-semibold">Description: </span>
-            {spell.desc.en}
+            <div className="whitespace-pre-wrap">{tr(spell.desc)}</div>
           </div>
           {spell.higherLevel && (
             <div className="mt-2">

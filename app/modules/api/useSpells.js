@@ -1,7 +1,8 @@
 import spells from '../../../database/data/spells.json'
+import useApi from "./useApi"
 
 function useSpells() {
-  return { data: spells }
+  return useApi(spells)
 }
 
 export default useSpells

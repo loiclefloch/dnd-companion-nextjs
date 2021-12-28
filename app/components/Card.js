@@ -3,7 +3,7 @@ import Tag from "./Tag";
 function Card({ isLoading, name, meta, data, description, tags }) {
   return (
     <div
-      className="max-w-lg p-4 border shadow-sm"
+      className="md:max-w-lg p-4 border shadow-sm"
       style={{
         // background: 'url("https://www.aidedd.org/images/fond-ph.jpg")',
       }}
