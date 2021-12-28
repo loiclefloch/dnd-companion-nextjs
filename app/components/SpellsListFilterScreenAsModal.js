@@ -43,7 +43,12 @@ function Section({ title, isLoading, children, filters, type, onChange }) {
 		)}
 		{!open && filter && (
 			<div className="mb-2 pl-2 mt-2 text-xs text-slate-600">
-				{Array.isArray(filter.value) && filter.value.map(v => tr(v)).join(', ')}
+				{Array.isArray(filter.value) && filter.value.map(v => {
+					if (v === 0 && type === FilterType.SPELL_LEVEL) {
+						return tr('cantrip')
+					}
+					return tr(v)
+				}).join(', ')}
 				{typeof filter.value == 'boolean' && (value ? "oui" : "non")}
 				{typeof filter.value == 'string' && tr(value)}
 			</div>
@@ -128,7 +133,7 @@ function FilterSpellLevel({ filters, onChange }) {
 
 	const list = [...Array(MAX_SPELL_LEVEL + 1)].map((_, index) => ({
 		index: index,
-		label: index,
+		label: index === 0 ? 'Cantrip' : index,
 		value: index,
 	}))
 

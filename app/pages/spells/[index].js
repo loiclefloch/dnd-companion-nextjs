@@ -4,8 +4,7 @@ import useSpell from "../../modules/api/useSpell";
 import useI18n from "../../modules/i18n/useI18n";
 
 import Screen from "../../components/Screen";
-import SpellCard from "../../components/SpellCard";
-import SpellDetail from "../../components/SpellDetail";
+import SpellView from "../../components/SpellView";
 
 function Spell() {
 	const router = useRouter()
@@ -20,12 +19,7 @@ function Spell() {
 			withBottomSpace
 		>
 			{spell && (
-				<>
-					<SpellCard spell={spell} />
-					<div className='px-4 pt-4'>
-						<SpellDetail spell={spell} />
-					</div>
-				</>
+					<SpellView spell={spell} />
 			)}
 		</Screen>
 	)

@@ -29,9 +29,11 @@ function Screen({ title, isLoading, rightAction, children, root, withBottomSpace
 				{rightAction && !isLoading && rightAction}
 			</header>
 			<div className="flex-1 overflow-y-auto">
-				{isLoading ? <ScreenLoading /> : children}
+				{isLoading 
+					? <ScreenLoading /> 
+					:  <div className='flex-1 w-full h-full'>{children}</div>
+				}
 			</div>
-			<div className='pb-12' />
 		</div>
 	)
 }

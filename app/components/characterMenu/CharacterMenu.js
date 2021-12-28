@@ -2,10 +2,11 @@ import Link from "next/link"
 import useCharacterMenu from "./useCharacterMenu"
 import ButtonBottomScreen from "../ButtonBottomScreen"
 
-function Item({ label, href }) {
+function Item({ label, href, onClick }) {
 	return (
 		<Link href={href}>
-			<div className="w-full py-2 font-semibold text-lg text-slate-800 text-center">
+			<div onClick={onClick} className="w-full py-2 text-lg text-center text-gray-600 rounded-lg 
+			transition-colors duration-200 hover:text-gray-800 hover:bg-gray-100 ">
 				{label}
 			</div>
 		</Link>
@@ -48,8 +49,8 @@ function CharacterMenu() {
 
 	return (
 		<div className="flex fixed z-50 top-0 bottom-0 left-0 right-0 bg-white shadow-inner">
-			<div className="flex flex-1 flex-col-reverse items-center mb-12">
-				{menuItems.reverse().map((item, index) => <Item key={index} label={item.label} href={item.href} />)}
+			<div className="flex flex-1 flex-col-reverse items-center mb-16">
+				{menuItems.reverse().map((item, index) => <Item key={index} label={item.label} href={item.href} onClick={hideCharacterMenu} />)}
 			</div>
 			<ButtonBottomScreen
 				variant="cta"
