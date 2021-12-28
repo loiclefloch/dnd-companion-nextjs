@@ -7,8 +7,8 @@ import ScreenAsModalLoading from "./screenAsModal/ScreenAsModalLoading"
 import useSpell from "../modules/api/useSpell";
 import useI18n from "../modules/i18n/useI18n";
 
-function SpellScreenAsModal({ name, onCloseScreen }) {
- const spellResponse = useSpell(name);
+function SpellScreenAsModal({ index, onCloseScreen }) {
+ const spellResponse = useSpell(index);
  const { tr } = useI18n()
 
   const spell = spellResponse.data;
@@ -32,8 +32,8 @@ export function useSpellModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
-		showSpellModal: (name) => {
-			showScreenAsModal(SpellScreenAsModal, { name })
+		showSpellModal: (index) => {
+			showScreenAsModal(SpellScreenAsModal, { index })
 		}
 	}
 }

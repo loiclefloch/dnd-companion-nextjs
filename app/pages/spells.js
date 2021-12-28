@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+import Link from 'next/link'
 import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
 import { FilterType, getSpellFiltersMatchingData } from "../modules/spells/spellsFilter"
@@ -22,28 +23,30 @@ function SpellFilters({ spell, filters, onSelect }) {
   </div>
 }
 
-function Spell({ spell, filters, onSelect }) {
+function Spell({ spell, filters, /*onSelect*/ }) {
   const { tr } = useI18n();
   const theme = useTheme();
 
   return (
-    <div
-      onClick={onSelect}
-      className={clsx("cursor-pointer my-2 p-4 pt-1 border-b border-slate-100 border-solid")}
-    >
-      <span className="font-semibold">{tr(spell.nameLocalized)}</span>
-      <div className={clsx("text-sm", theme.metaColor)}>
-        <span>{spell.type}</span>
+    <Link href={`/spells/${spell.index}`}>
+      <div
+        // onClick={onSelect}
+        className={clsx("cursor-pointer my-2 p-4 pt-1 border-b border-slate-100 border-solid")}
+      >
+        <span className="font-semibold">{tr(spell.nameLocalized)}</span>
+        <div className={clsx("text-sm", theme.metaColor)}>
+          <span>{spell.type}</span>
+        </div>
+        <p className="text-sm">{tr(spell.resume)}</p>
+        {!isEmpty(filters) && <SpellFilters spell={spell} filters={filters} />}
       </div>
-      <p className="text-sm">{tr(spell.resume)}</p>
-      {!isEmpty(filters) && <SpellFilters spell={spell} filters={filters} />}
-    </div>
+    </Link>
   );
 }
 
 function Spells() {
   const spellsResponse = useSpells();
-  const { showSpellModal } = useSpellModal()
+  // const { showSpellModal } = useSpellModal()
   const { filters, filterSpells, showSpellsListFilterScreen } = useSpellsListFilterScreenAsModal()
   
   useEffect(() => {
@@ -65,6 +68,7 @@ function Spells() {
   return (
     <Screen
       title="Liste des sorts"
+      root
       isLoading={spellsResponse.isLoading}
       rightAction={
         <button onClick={showSpellsListFilterScreen}>
@@ -81,7 +85,7 @@ function Spells() {
             <Spell
               key={spell.name}
               spell={spell}
-              onSelect={() => showSpellModal(spell.name)}
+              // onSelect={() => showSpellModal(spell.index)}
               filters={filters}
             />
           ))}
