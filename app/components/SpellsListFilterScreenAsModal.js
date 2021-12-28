@@ -100,11 +100,11 @@ function FilterClasses({ filters, onChange }) {
 	const classesResponse = useClasses()
 
 	return (
-		<Section 
-			title="Classes" 
-			isLoading={classesResponse.isLoading} 
-			filters={filters} 
-			type={FilterType.CLASS} 
+		<Section
+			title="Classes"
+			isLoading={classesResponse.isLoading}
+			filters={filters}
+			type={FilterType.CLASS}
 			onChange={onChange}
 		>
 			<ListSelector
@@ -177,6 +177,7 @@ function SpellsListFilterScreenAsModal({ onFilter, filters: defaultFilters, onCl
 			<div>
 				<BottomScreen>
 					<Button
+						variant='outlined'
 						onClick={() => {
 							onFilter([])
 							onCloseScreen()
@@ -185,8 +186,7 @@ function SpellsListFilterScreenAsModal({ onFilter, filters: defaultFilters, onCl
 						Reset
 					</Button>
 					<Button
-						color="success"
-						variant="contained"
+						variant='cta'
 						onClick={() => {
 							onFilter(filters)
 							onCloseScreen()

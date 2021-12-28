@@ -74,7 +74,7 @@ function Spells() {
         <button onClick={showSpellsListFilterScreen}>
           <IconFilter className={clsx("h-6 w-6 text-gray-500", {
             // change color when they are filters
-            "text-orange-300": !isEmpty(filters),
+            "text-blue-300": !isEmpty(filters),
           })} />
         </button>
       }

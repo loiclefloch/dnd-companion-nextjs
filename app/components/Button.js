@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 
-function Button({ children, className, variant = "outlined", color, ...props }) {
+function Button({ children, className, variant = "none", color, ...props }) {
 	return (
-		<button className={clsx("flex justify-center w-full p-2 bg-white text-slate-800 uppercase", {
+		<button className={clsx("flex justify-center w-full p-2 uppercase", {
 			"": color === "primary",
 			"": color === "secondary",
 			"text-green-400 border-green-400": color === "success",
@@ -14,6 +14,7 @@ function Button({ children, className, variant = "outlined", color, ...props }) 
 			"border-t border-solid border-slate-300 bg-slate-300 text-black": variant === "contained",
 			"border border-solid border-slate-300 bg-none": variant === "outlined",
 			"border-none": variant === "text",
+			"bg-slate-800 text-white": variant === "cta"
 		}, className)} {...props}>
 			{children}
 		</button>

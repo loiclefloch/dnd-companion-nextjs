@@ -7,7 +7,7 @@ function useApi(resultData) {
 
 	useTimeout(() => {
 		setData(resultData)
-	}, 500)
+	}, 200)
 
 	return { data, isLoading: data === null }
 }

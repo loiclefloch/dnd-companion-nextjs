@@ -1,4 +1,5 @@
 import useCharacterMenu from "./useCharacterMenu"
+import ButtonBottomScreen from "../ButtonBottomScreen"
 
 function Item({ label, url }) {
 	return (
@@ -43,18 +44,16 @@ function CharacterMenu() {
 	]
 
 	return (
-		<div className="flex fixed z-50 top-0 bottom-0 left-0 right-0 bg-white">
+		<div className="flex fixed z-50 top-0 bottom-0 left-0 right-0 bg-white shadow-inner">
 			<div className="flex flex-1 flex-col-reverse items-center mb-12">
 				{menuItems.reverse().map((item, index) => <Item key={index} label={item.label} url={item.url} />)}
 			</div>
-			<button 
-				className="absolute bottom-0 left-0 right-0 flex justify-center w-full p-2 bg-white text-slate-800 uppercase border-t border-solid border-slate-300"
-			 	onClick={hideCharacterMenu}
+			<ButtonBottomScreen
+				variant="cta"
+				onClick={hideCharacterMenu}
 			>
-				<span>
-					Fermer
-				</span>
-			</button>
+				Fermer
+			</ButtonBottomScreen>
 		</div>
 	)
 }
