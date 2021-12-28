@@ -1,3 +1,4 @@
+import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import SpellCard from "../components/SpellCard";
 import SpellDetail from "../components/SpellDetail";
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
@@ -17,13 +18,24 @@ function SpellScreenAsModal({ name, onCloseScreen }) {
   }
 
 	return (
-		<ScreenAsModal label={tr(spell.nameLocalized)} onCloseScreen={onCloseScreen}>
+		<ScreenAsModal title={`Sort - ${tr(spell.nameLocalized)}`} onCloseScreen={onCloseScreen}>
 			<>
 				<SpellCard spell={spell} />
 				<SpellDetail spell={spell} />
 			</>
 		</ScreenAsModal>
 	)
+}
+
+
+export function useSpellModal() {
+	const { showScreenAsModal } = useScreenAsModal()
+
+	return {
+		showSpellModal: (name) => {
+			showScreenAsModal(SpellScreenAsModal, { name })
+		}
+	}
 }
 
 export default SpellScreenAsModal

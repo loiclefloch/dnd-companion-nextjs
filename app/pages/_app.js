@@ -4,6 +4,7 @@ import { ModalProvider } from "../components/modal/modalContext";
 import { CharacterMenuProvider } from "../components/characterMenu/CharacterMenuContext";
 import { ScreenAsModalProvider } from "../components/screenAsModal/screenAsModalContext";
 import useCharacterMenu from "../components/characterMenu/useCharacterMenu";
+import IconMenu from "../components/icons/IconMenu"
 
 function CharacterMenuButton() {
   const { show, showCharacterMenu } = useCharacterMenu()
@@ -12,10 +13,10 @@ function CharacterMenuButton() {
   // TODO: show not updated?
   return show ? null : (
     <button 
-      className="fixed bottom-0 left-0 right-0 flex w-full content-center bg-black text-white"
+      className="fixed bottom-0 right-0 flex justify-center w-10 p-2 bg-slate-800 text-white uppercase"
       onClick={showCharacterMenu}
     >
-      MENU
+      <IconMenu className="w-5 h-5" />
     </button>
   )
 }
