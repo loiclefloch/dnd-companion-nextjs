@@ -9,7 +9,7 @@ import SpellRunner from "./SpellRunner";
 function createClassTag(clss) {
   return {
     label: clss.nameLocalized.en,
-    color: "blue", // TODO:
+    className: "text-blue-600 bg-blue-200",
     link: "",
   };
 }
@@ -112,7 +112,7 @@ function SpellCard({ spell }) {
               {spell.sourcePage && <span> (p.{spell.sourcePage})</span>}
             </span>
           ),
-          color: "amber",
+          className: "text-amber-600 bg-amber-200",
           link: "",
         },
       ]}

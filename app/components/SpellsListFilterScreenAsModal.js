@@ -20,7 +20,7 @@ function Section({ title, isLoading, children, filters, type, onChange }) {
 	const filter = filters.find(f => f.type === type)
 
 	return <div className='px-2 mb-2'>
-		<div className='flex bg-slate-200 pl-2 py-1'>
+		<div className='flex bg-slate-800 text-white pl-2 py-1'>
 			<h4
 				className="flex-1"
 				onClick={() => setOpen(!open)}
@@ -32,7 +32,7 @@ function Section({ title, isLoading, children, filters, type, onChange }) {
 					className="pr-1"
 					onClick={() => onChange(deleteObjectOnArray(filters, f => f.type === type))}
 				>
-					<IconX className="w-5 h-5 text-slate-600" />
+					<IconX className="w-5 h-5 text-slate-200" />
 				</span>
 			)}
 		</div>

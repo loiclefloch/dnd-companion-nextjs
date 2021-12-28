@@ -11,7 +11,7 @@ function ScreenLoading() {
 	)
 }
 
-function Screen({ title, isLoading, rightAction, children, root }) {
+function Screen({ title, isLoading, rightAction, children, root, withBottomSpace }) {
 	const router = useRouter()
 
 	return (
@@ -31,6 +31,7 @@ function Screen({ title, isLoading, rightAction, children, root }) {
 			<div className="flex-1 overflow-y-auto">
 				{isLoading ? <ScreenLoading /> : children}
 			</div>
+			<div className='pb-12' />
 		</div>
 	)
 }

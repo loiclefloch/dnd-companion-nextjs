@@ -14,11 +14,13 @@ function Spell() {
 	const spell = spellResponse.data;
  
 	return (
-		<Screen title={!spell ? 'Sort' : `Sort - ${tr(spell?.nameLocalized)}`} isLoading={spellResponse.isLoading}>
+		<Screen title={!spell ? 'Sort' : `Sort - ${tr(spell?.nameLocalized)}`} isLoading={spellResponse.isLoading} withBottomSpace>
 			{spell && (
 				<>
 					<SpellCard spell={spell} />
-					<SpellDetail spell={spell} />
+					<div className='px-4 pt-4'>
+						<SpellDetail spell={spell} />
+					</div>
 				</>
 			)}
 		</Screen>

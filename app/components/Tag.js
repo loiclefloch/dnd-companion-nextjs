@@ -3,12 +3,11 @@
 //
 import clsx from 'clsx'
 
-function Tag({ label, children, color, rounded = false, className }) {
+function Tag({ label, children, rounded = false, className }) {
   return (
     <span
       className={clsx(
-        `text-xs font-semibold inline-block py-1 px-2 uppercase rounded uppercase last:mr-0 mr-1`,
-        `text-${color}-600 bg-${color}-200`,
+        `text-xs font-semibold inline-block py-1 px-2 uppercase rounded last:mr-0 mr-1`,
         {
           "rounded-full": rounded,
         },
