@@ -59,7 +59,7 @@ function Spells() {
     // Dice action damages character level
     // showSpellModal(spellsResponse.data.find((spell) => spell.name === "Acid Splash").name)
 
-    showSpellsListFilterScreen()
+    // showSpellsListFilterScreen()
   }, [])
 
   return (
