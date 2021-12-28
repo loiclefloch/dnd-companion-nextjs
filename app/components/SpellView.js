@@ -83,18 +83,27 @@ function SpellView({ spell }) {
           <SpellRunner spell={spell} />
 
           {spell.resume && (
-            <div className="mt-2">
-              <span className="font-semibold">Resume: </span>
+            <div className="mt-4">
+              <div className="font-semibold width-full border-b border-solid border-gray-600 border-opacity-10 mb-2 pb-0.5">
+                Résumé:
+              </div>
               <div className="whitespace-pre-wrap">{tr(spell.resume)}</div>
             </div>
           )}
-          <div className="mt-2">
-            <span className="font-semibold">Description: </span>
+          <div className="mt-4">
+            <div className="font-semibold width-full border-b border-solid border-gray-600 border-opacity-10 mb-2 pb-0.5">
+              Description:
+            </div>
             <div className="whitespace-pre-wrap">{tr(spell.desc)}</div>
           </div>
           {spell.higherLevel && (
-            <div className="mt-2">
-              <span className="font-semibold">At Higher Levels.</span> {tr(spell.higherLevel)}
+            <div className="mt-4">
+              <div className="font-semibold width-full border-b border-solid border-gray-600 border-opacity-10 mb-2 pb-0.5">
+                At Higher Levels:
+              </div> 
+              <div>
+                {tr(spell.higherLevel)}
+              </div>
               {/* TODO: add avanced mode : healAtSlotLevel */}
             </div>
           )}
@@ -110,7 +119,7 @@ function SpellView({ spell }) {
         </div>
       )}
 
-      <div className='mt-4'>
+      <div className='mt-8'>
         <SpellDetail spell={spell} />
       </div>
     </div>

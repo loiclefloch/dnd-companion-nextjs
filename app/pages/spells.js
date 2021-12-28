@@ -17,7 +17,7 @@ import Tag from "../components/Tag"
 function SpellFilters({ spell, filters, onSelect }) {
   return <div className="flex mt-2">
     {getSpellFiltersMatchingData(spell, filters).map(data => (
-      <Tag key={`${data.label}-${data.value}`} className="pr-2 text-xs" color="slate">
+      <Tag key={`${data.label}-${data.value}`} className="text-xs text-gray-600 border border-solid border-slate-400 pr-1 pl-1 pt-1 pb-1" color="slate">
         {data.label && <span className="text-xs lowercase">{data.label}: </span>}{data.value}
       </Tag>
     ))}

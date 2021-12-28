@@ -1,6 +1,6 @@
 import DiceDamage from './DiceDamage'
 import DiceHeal from './DiceHeal'
-import ChooseSpellLevel from './ChooseSpellLevel'
+import ChooseNumber from './ChooseNumber'
 import useCharacterLevelSelector from "./useCharacterLevelSelector"
 import useSpellLevelSelector from "./useSpellLevelSelector"
 import useValidation from './useValidation'
@@ -42,8 +42,8 @@ function HealRunner({ spellName, healAtSlotLevel, spellLevel }) {
 					}
 				}}
 			/>
-			<span className="px-1"></span>
-			<ChooseSpellLevel
+			<span className="pl-3"></span>
+			<ChooseNumber
 				label="character level"
 				level={chosenSpellLevel}
 				onChange={setSpellLevel}
@@ -88,8 +88,8 @@ function DamageSlotLevel({ spellName, spellLevel, damageAtSlotLevel, damageType 
 					}
 				}}
 			/>
-			<span className="px-1"></span>
-			<ChooseSpellLevel
+			<span className="pl-3"></span>	
+			<ChooseNumber
 				label='spell level'
 				level={chosenSpellLevel}
 				onChange={setSpellLevel}
@@ -134,8 +134,8 @@ function DamageCharacterLevel({ spellName, spellLevel, damageAtCharacterLevel, d
 					}
 				}}
 			/>
-			<span className="px-1"></span>
-			<ChooseSpellLevel
+			<span className="pl-3"></span>
+			<ChooseNumber
 				label='character level'
 				level={characterLevel}
 				onChange={setCharacterLevel}
