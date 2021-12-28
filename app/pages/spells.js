@@ -13,10 +13,10 @@ import IconFilter from "../components/icons/IconFilter";
 import Tag from "../components/Tag"
 
 function SpellFilters({ spell, filters, onSelect }) {
-  return <div className="flex">
+  return <div className="flex mt-2">
     {getSpellFiltersMatchingData(spell, filters).map(data => (
-      <Tag key={`${data.label}-${data.value}`} className="pr-2" color="slate">
-        <span className="text-xs lowercase">{data.label}</span>: {data.value}
+      <Tag key={`${data.label}-${data.value}`} className="pr-2 text-xs" color="slate">
+        {data.label && <span className="text-xs lowercase">{data.label}: </span>}{data.value}
       </Tag>
     ))}
   </div>

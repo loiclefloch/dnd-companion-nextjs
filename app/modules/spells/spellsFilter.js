@@ -45,7 +45,7 @@ export function getSpellFiltersMatchingData(spell, filters) {
   if (classFilter) {
     data.push({
       filter: classFilter,
-      label: 'Classe',
+      label: '', // no label, we understand with the class label
       value: spell.classes.find(clss => classFilter.value.includes(clss.index))?.name,
     })
   }
@@ -54,7 +54,7 @@ export function getSpellFiltersMatchingData(spell, filters) {
   if (levelFilter) {
     data.push({
       filter: levelFilter,
-      label: 'Niveau',
+      label: 'Sort lvl',
       value: spell.level
     })
   }

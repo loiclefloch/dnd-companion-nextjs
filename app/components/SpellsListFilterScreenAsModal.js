@@ -4,29 +4,45 @@ import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import { FilterType, filterSpells } from "../modules/spells/spellsFilter"
 import useI18n from "../modules/i18n/useI18n";
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
-import ButtonBottomScreen from "./ButtonBottomScreen"
+import Button from "./Button"
+import BottomScreen from "./BottomScreen"
 import useClasses from "../modules/api/useClasses"
 import useTheme from '../modules/theme/useTheme';
-import { toggleValueOnArray, updateObjectOrCreateOnArray } from '../modules/utils/array';
+import { deleteObjectOnArray, toggleValueOnArray, updateObjectOrCreateOnArray } from '../modules/utils/array';
 import IconX from './icons/IconX';
 
 const MAX_SPELL_LEVEL = 9 // maximum spell level
 
-function Section({ title, isLoading, children, filters, type }) {
+function Section({ title, isLoading, children, filters, type, onChange }) {
 	const { tr } = useI18n()
 	const [open, setOpen] = useState()
 
 	const filter = filters.find(f => f.type === type)
 
 	return <div className='px-2 mb-2'>
-		<h4 onClick={() => setOpen(!open)}>{title}</h4>
+		<div className='flex bg-slate-200 pl-2 py-1'>
+			<h4
+				className="flex-1"
+				onClick={() => setOpen(!open)}
+			>
+				{title}
+			</h4>
+			{filter && (
+				<span
+					className="pr-1"
+					onClick={() => onChange(deleteObjectOnArray(filters, f => f.type === type))}
+				>
+					<IconX className="w-5 h-5 text-slate-600" />
+				</span>
+			)}
+		</div>
 		{open && (
 			<div className='mb-4'>
 				{children}
 			</div>
 		)}
 		{!open && filter && (
-			<div className="mb-2 text-xs text-slate-600">
+			<div className="mb-2 pl-2 mt-2 text-xs text-slate-600">
 				{Array.isArray(filter.value) && filter.value.map(v => tr(v)).join(', ')}
 				{typeof filter.value == 'boolean' && (value ? "oui" : "non")}
 				{typeof filter.value == 'string' && tr(value)}
@@ -84,7 +100,13 @@ function FilterClasses({ filters, onChange }) {
 	const classesResponse = useClasses()
 
 	return (
-		<Section title="Classes" isLoading={classesResponse.isLoading} filters={filters} type={FilterType.CLASS}>
+		<Section 
+			title="Classes" 
+			isLoading={classesResponse.isLoading} 
+			filters={filters} 
+			type={FilterType.CLASS} 
+			onChange={onChange}
+		>
 			<ListSelector
 				type={FilterType.CLASS}
 				filters={filters}
@@ -111,7 +133,7 @@ function FilterSpellLevel({ filters, onChange }) {
 	}))
 
 	return (
-		<Section title="Spell level" isLoading={classesResponse.isLoading} filters={filters} type={FilterType.SPELL_LEVEL}>
+		<Section title="Spell level" isLoading={classesResponse.isLoading} filters={filters} type={FilterType.SPELL_LEVEL} onChange={onChange}>
 			<ListSelector
 				type={FilterType.SPELL_LEVEL}
 				filters={filters}
@@ -153,12 +175,27 @@ function SpellsListFilterScreenAsModal({ onFilter, filters: defaultFilters, onCl
 				<div>Source</div> */}
 			</>
 			<div>
-				<ButtonBottomScreen onClick={() => {
-					onFilter(filters)
-					onCloseScreen()
-				}}>
-					Valider
-				</ButtonBottomScreen>
+				<BottomScreen>
+					<Button
+						onClick={() => {
+							onFilter([])
+							onCloseScreen()
+						}}
+					>
+						Reset
+					</Button>
+					<Button
+						color="success"
+						variant="contained"
+						onClick={() => {
+							onFilter(filters)
+							onCloseScreen()
+						}}
+					>
+						Valider
+					</Button>
+				</BottomScreen>
+
 			</div>
 		</ScreenAsModal>
 	)
