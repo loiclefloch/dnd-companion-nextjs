@@ -1,7 +1,7 @@
 
 function useTheme() {
   return {
-    listItemSelectedBackground: 'bg-slate-50', // TODO: better color
+    listItemSelectedBackground: 'bg-slate-100', // TODO: better color?
     metaColor: 'text-slate-600',
   }
 }

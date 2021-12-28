@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 
 import isEmpty from "lodash/isEmpty"
-import clsx from "clsx";
+import clsx from "clsx"
+import { FilterType, getSpellFiltersMatchingData } from "../modules/spells/spellsFilter"
 import useTheme from "../modules/theme/useTheme";
 import useI18n from "../modules/i18n/useI18n";
 import useSpells from "../modules/api/useSpells";
@@ -9,8 +10,19 @@ import { useSpellModal } from "../components/SpellScreenAsModal";
 import { useSpellsListFilterScreenAsModal } from "../components/SpellsListFilterScreenAsModal"
 import Screen from "../components/Screen";
 import IconFilter from "../components/icons/IconFilter";
+import Tag from "../components/Tag"
 
-function Spell({ spell, onSelect }) {
+function SpellFilters({ spell, filters, onSelect }) {
+  return <div className="flex">
+    {getSpellFiltersMatchingData(spell, filters).map(data => (
+      <Tag key={`${data.label}-${data.value}`} className="pr-2" color="slate">
+        <span className="text-xs lowercase">{data.label}</span>: {data.value}
+      </Tag>
+    ))}
+  </div>
+}
+
+function Spell({ spell, filters, onSelect }) {
   const { tr } = useI18n();
   const theme = useTheme();
 
@@ -24,6 +36,7 @@ function Spell({ spell, onSelect }) {
         <span>{spell.type}</span>
       </div>
       <p className="text-sm">{tr(spell.resume)}</p>
+      {!isEmpty(filters) && <SpellFilters spell={spell} filters={filters} />}
     </div>
   );
 }
@@ -33,8 +46,6 @@ function Spells() {
   const { showSpellModal } = useSpellModal()
   const { filters, filterSpells, showSpellsListFilterScreen } = useSpellsListFilterScreenAsModal()
   
-  console.log({filters})
-
   useEffect(() => {
     // ritual
     // showSpellModal(spellsResponse.data.find((spell) => spell.name === "Meld Into Stone").name)
@@ -47,6 +58,8 @@ function Spells() {
 
     // Dice action damages character level
     // showSpellModal(spellsResponse.data.find((spell) => spell.name === "Acid Splash").name)
+
+    showSpellsListFilterScreen()
   }, [])
 
   return (
@@ -69,6 +82,7 @@ function Spells() {
               key={spell.name}
               spell={spell}
               onSelect={() => showSpellModal(spell.name)}
+              filters={filters}
             />
           ))}
         </div>

@@ -3,7 +3,7 @@
 //
 import clsx from 'clsx'
 
-function Tag({ label, children, color, rounded = false }) {
+function Tag({ label, children, color, rounded = false, className }) {
   return (
     <span
       className={clsx(
@@ -11,7 +11,8 @@ function Tag({ label, children, color, rounded = false }) {
         `text-${color}-600 bg-${color}-200`,
         {
           "rounded-full": rounded,
-        }
+        },
+        className
       )}
     >
       {children || label}

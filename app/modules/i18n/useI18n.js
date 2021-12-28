@@ -10,6 +10,9 @@ function useI18n() {
     isDefaultLang: lang === defaultLang,
     trDefaultLang: obj => !obj ? null : obj['en'] || null,
     tr: obj => {
+      if (typeof obj === 'number') {
+        return `${obj}`
+      }
       if (typeof obj === 'string' || obj instanceof String) {
         // translation key
         // TODO: handle
