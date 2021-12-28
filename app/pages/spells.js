@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-
+import useContextCharacter from "../modules/character/useContextCharacter"
 import Link from 'next/link'
 import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
-import { FilterType, getSpellFiltersMatchingData } from "../modules/spells/spellsFilter"
+import { getSpellFiltersMatchingData, buildSpellFiltersForCharacter } from "../modules/spells/spellsFilter"
+import { sortSpells } from "../modules/spells/spellsSorter"
 import useTheme from "../modules/theme/useTheme";
 import useI18n from "../modules/i18n/useI18n";
 import useSpells from "../modules/api/useSpells";
@@ -45,9 +46,13 @@ function Spell({ spell, filters, /*onSelect*/ }) {
 }
 
 function Spells() {
+  const { lang } = useI18n()
+  const contextCharacter = useContextCharacter()
   const spellsResponse = useSpells();
   // const { showSpellModal } = useSpellModal()
-  const { filters, filterSpells, showSpellsListFilterScreen } = useSpellsListFilterScreenAsModal()
+  const { filters, filterSpells, showSpellsListFilterScreen } = useSpellsListFilterScreenAsModal(
+    buildSpellFiltersForCharacter(contextCharacter)
+  )
   
   useEffect(() => {
     // ritual
@@ -67,7 +72,7 @@ function Spells() {
 
   return (
     <Screen
-      title="Liste des sorts"
+      title="Sorts"
       root
       isLoading={spellsResponse.isLoading}
       rightAction={
@@ -81,7 +86,7 @@ function Spells() {
     >
       <div className="flex">
         <div className="" data-cy-id="spells-list">
-          {filterSpells(spellsResponse.data)?.map((spell) => (
+          {sortSpells(filterSpells(spellsResponse.data), lang)?.map((spell) => (
             <Spell
               key={spell.name}
               spell={spell}

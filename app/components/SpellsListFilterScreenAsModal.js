@@ -155,7 +155,7 @@ const TEST_FILTERS = [
 	}
 ]
 
-function SpellsListFilterScreenAsModal({ onFilter, filters: defaultFilters, onCloseScreen }) {
+function SpellsListFilterScreenAsModal({ onFilter, onReset, filters: defaultFilters, onCloseScreen }) {
 	const [filters, setFilters] = useState(defaultFilters || [])
 	const { tr } = useI18n()
 
@@ -179,7 +179,7 @@ function SpellsListFilterScreenAsModal({ onFilter, filters: defaultFilters, onCl
 					<Button
 						variant='outlined'
 						onClick={() => {
-							onFilter([])
+							onReset()
 							onCloseScreen()
 						}}
 					>
@@ -201,8 +201,8 @@ function SpellsListFilterScreenAsModal({ onFilter, filters: defaultFilters, onCl
 	)
 }
 
-export function useSpellsListFilterScreenAsModal() {
-	const [filters, setFilters] = useState([])
+export function useSpellsListFilterScreenAsModal(defaultFilters = []) {
+	const [filters, setFilters] = useState(defaultFilters)
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
@@ -210,6 +210,7 @@ export function useSpellsListFilterScreenAsModal() {
 		filterSpells: (spells) => filterSpells(spells, filters),
 		showSpellsListFilterScreen: () => {
 			showScreenAsModal(SpellsListFilterScreenAsModal, {
+				onReset: () => setFilters(defaultFilters),
 				onFilter: setFilters,
 				filters,
 			})

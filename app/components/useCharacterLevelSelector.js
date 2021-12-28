@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react"
-import useContextCharacter from "../modules/context/useContextCharacter"
+import useContextCharacter from "../modules/character/useContextCharacter"
 
 const MAX_CHARACTER_LEVEL = 20 // maximum character level
 

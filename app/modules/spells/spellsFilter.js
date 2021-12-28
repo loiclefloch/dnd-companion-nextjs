@@ -61,3 +61,23 @@ export function getSpellFiltersMatchingData(spell, filters) {
 
 	return data
 }
+
+/**
+ * Creates default filters that match the character
+ */
+export function buildSpellFiltersForCharacter(character) {
+	if (!character) {
+		return []
+	}
+
+	return [
+		{
+			type: FilterType.CLASS,
+			value: character.classes.map(clss => clss.index)
+		},
+		{
+			type: FilterType.SPELL_LEVEL,
+			value: [...Array(character.maxSpellLevel + 1)].map((_, index) => index)
+		},
+	]
+}

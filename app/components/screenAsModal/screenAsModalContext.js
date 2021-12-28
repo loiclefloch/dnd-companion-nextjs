@@ -5,6 +5,8 @@ import ScreenAsModalRenderer from "./ScreenAsModalRenderer";
 let ScreenAsModalContext;
 let { Provider } = (ScreenAsModalContext = createContext());
 
+ScreenAsModalContext.displayName = 'ScreenAsModalContext'
+
 let ScreenAsModalProvider = ({ children }) => {
 	let { show, showScreenAsModal, hideScreenAsModal, screenAsModalConfiguration } = useScreenAsModalCreator();
 

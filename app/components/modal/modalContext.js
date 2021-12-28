@@ -5,6 +5,8 @@ import Modal from "./Modal";
 let ModalContext;
 let { Provider } = (ModalContext = createContext());
 
+ModalContext.displayName = 'ModalContext'
+
 let ModalProvider = ({ children }) => {
 	let { show, showModal, hideModal, modalConfiguration } = useModalCreator();
 

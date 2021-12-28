@@ -12,9 +12,13 @@ function Spell() {
 	const { tr } = useI18n()
 	const spellResponse = useSpell(router.query.index);
 	const spell = spellResponse.data;
- 
+
 	return (
-		<Screen title={!spell ? 'Sort' : `Sort - ${tr(spell?.nameLocalized)}`} isLoading={spellResponse.isLoading} withBottomSpace>
+		<Screen 
+			title={!spell ? 'Sort' : `Sort - ${tr(spell?.nameLocalized)}`}
+			isLoading={spellResponse.isLoading}
+			withBottomSpace
+		>
 			{spell && (
 				<>
 					<SpellCard spell={spell} />

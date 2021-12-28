@@ -5,6 +5,8 @@ import CharacterMenu from "./CharacterMenu";
 let CharacterMenuContext;
 let { Provider } = (CharacterMenuContext = createContext());
 
+CharacterMenuContext.displayName = 'CharacterMenuContext'
+
 let CharacterMenuProvider = ({ children }) => {
 	let { show, showCharacterMenu, hideCharacterMenu } = useCharacterMenuCreator();
 
