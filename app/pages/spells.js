@@ -15,7 +15,7 @@ import IconFilter from "../components/icons/IconFilter";
 import Tag from "../components/Tag"
 
 function SpellFilters({ spell, filters, onSelect }) {
-  return <div className="flex mt-2">
+  return <div className="flex mt-2 flex-wrap gap-1">
     {getSpellFiltersMatchingData(spell, filters).map(data => (
       <Tag key={`${data.label}-${data.value}`} className="text-xs text-gray-600 border border-solid border-slate-400 pr-1 pl-1 pt-1 pb-1" color="slate">
         {data.label && <span className="text-xs lowercase">{data.label}: </span>}{data.value}
@@ -72,7 +72,7 @@ function Spells() {
 
   return (
     <Screen
-      title="Sorts"
+      title={contextCharacter ? `Sorts - ${contextCharacter.name}` : "Sorts"}
       root
       isLoading={spellsResponse.isLoading}
       rightAction={

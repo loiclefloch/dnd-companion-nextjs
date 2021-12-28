@@ -45,19 +45,19 @@ function SpellView({ spell }) {
     >
       <div className="flex justify-between">
         <div>
-          <div className="text-xs">
+          <div className="text-xs gap-1">
             <div className={clsx("mb-1 ml-1", theme.metaColor)}>{otherNames.join(", ")}</div>
             <Tag className={clsx("mt-1 bg-slate-200", theme.metaColor)}>{tr(spell.school.nameLocalized)}</Tag>
           </div>
         </div>
-        <div>
+        <div className="">
           <Tag
             className="text-gray-600 bg-gray-200 flex justify-center items-center"
           >
             {spell.level === 0 ? "cantrip" : `Niveau ${spell.level}`}
           </Tag>
           {(spell.ritual || spell.concentration) && (
-            <div className="mt-2">
+            <div className="mt-2 flex flex-wrap gap-1">
               {spell.ritual && <Tag label="Ritual" className="flex text-orange-600 bg-orange-200" />}
               {spell.concentration && (
                 <Tag label="Concentration" className="flex text-blue-600 bg-blue-200" />
@@ -110,7 +110,7 @@ function SpellView({ spell }) {
         </div>
       </div>
       {tags && (
-        <div className="flex flex-row mt-8 flex-wrap">
+        <div className="flex flex-row mt-8 flex-wrap gap-1">
           {tags.filter(Boolean).map((tag, index) => (
             <Tag key={index} className={clsx('', tag.className)}>
               {tag.label}

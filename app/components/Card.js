@@ -26,7 +26,7 @@ function Card({ isLoading, name, meta, data, description, tags }) {
       )}
       <div>{description}</div>
       {tags && (
-        <div className="flex flex-row mt-4 flex-wrap">
+        <div className="flex flex-row mt-4 flex-wrap gap-1">
           {tags.filter(Boolean).map((tag, index) => (
             <Tag key={index} className={tag.className}>
               {tag.label}

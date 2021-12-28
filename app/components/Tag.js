@@ -7,7 +7,7 @@ function Tag({ label, children, rounded = false, className }) {
   return (
     <span
       className={clsx(
-        `text-xs font-semibold inline-block py-1 px-2 uppercase rounded last:mr-0 mr-1`,
+        `text-xs font-semibold inline-block py-1 px-2 uppercase rounded last:mr-0`,
         {
           "rounded-full": rounded,
         },

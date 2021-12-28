@@ -16,7 +16,7 @@ function Button({ children, className, variant = "none", color, ...props }) {
 				"border-t border-solid border-slate-300 bg-slate-300 text-black": variant === "contained",
 				"border border-solid border-slate-300 bg-none": variant === "outlined",
 				"border-none": variant === "text",
-				"bg-slate-800 text-white": variant === "cta"
+				"bg-slate-800 text-white border-slate-800": variant === "cta"
 			}, className)} {...props}
 		>
 			{children}
