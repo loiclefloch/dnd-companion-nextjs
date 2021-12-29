@@ -5,6 +5,7 @@ import useI18n from "../../modules/i18n/useI18n";
 
 import Screen from "../../components/Screen";
 import SpellView from "../../components/SpellView";
+import IconBookOpen from "../../components/icons/IconBookOpen";
 
 function Spell() {
 	const router = useRouter()
@@ -13,13 +14,14 @@ function Spell() {
 	const spell = spellResponse.data;
 
 	return (
-		<Screen 
-			title={!spell ? 'Sort' : `Sort - ${tr(spell?.nameLocalized)}`}
+		<Screen
+			title={!spell ? 'Sort' : `${tr(spell?.nameLocalized)}`}
+			titleIcon={<IconBookOpen className="w-6 h-6" />}
 			isLoading={spellResponse.isLoading}
 			withBottomSpace
 		>
 			{spell && (
-					<SpellView spell={spell} />
+				<SpellView spell={spell} />
 			)}
 		</Screen>
 	)

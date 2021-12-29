@@ -12,9 +12,7 @@ let CharacterMenuProvider = ({ children }) => {
 
 	return (
 		<Provider value={{ show, showCharacterMenu, hideCharacterMenu }}>
-			{show && (
-				<CharacterMenu />
-			)}
+			<CharacterMenu open={show} />
 			{children}
 		</Provider>
 	);

@@ -8,13 +8,15 @@ import { sortSpells } from "../modules/spells/spellsSorter"
 import useTheme from "../modules/theme/useTheme";
 import useI18n from "../modules/i18n/useI18n";
 import useSpells from "../modules/api/useSpells";
-import { useSpellModal } from "../components/SpellScreenAsModal";
 import { useSpellsListFilterScreenAsModal } from "../components/SpellsListFilterScreenAsModal"
 import Screen from "../components/Screen";
 import IconFilter from "../components/icons/IconFilter";
 import Tag from "../components/Tag"
+import IconBookOpen from "../components/icons/IconBookOpen"
 
-function SpellFilters({ spell, filters, onSelect }) {
+function SpellFilters({ spell, filters }) {
+  // TODO: hide if context character
+
   return <div className="flex mt-2 flex-wrap gap-1">
     {getSpellFiltersMatchingData(spell, filters).map(data => (
       <Tag key={`${data.label}-${data.value}`} className="text-xs text-gray-600 border border-solid border-slate-400 pr-1 pl-1 pt-1 pb-1" color="slate">
@@ -27,6 +29,8 @@ function SpellFilters({ spell, filters, onSelect }) {
 function Spell({ spell, filters, /*onSelect*/ }) {
   const { tr } = useI18n();
   const theme = useTheme();
+
+  // TODO: if context character has the spell -> style with star / background
 
   return (
     <Link href={`/spells/${spell.index}`}>
@@ -73,6 +77,7 @@ function Spells() {
   return (
     <Screen
       title={contextCharacter ? `Sorts - ${contextCharacter.name}` : "Sorts"}
+      titleIcon={<IconBookOpen className="w-6 h-6" />}
       root
       isLoading={spellsResponse.isLoading}
       rightAction={
