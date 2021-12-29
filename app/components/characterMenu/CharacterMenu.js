@@ -84,7 +84,7 @@ function CharacterMenu({ open }) {
 			<div className="mt-6">
 				<div className="flex justify-center">
 					<div className="p-3 border border-solid border-gray-500 rounded-full">
-						<IconClass clss={character.classes[0].index} className="w-12 h-12 fill-gray-600" />
+						<IconClass clss={character.classes[0].index} className="w-12 h-12 fill-slate-600" />
 					</div>
 				</div>
 				<h1 className="text-2xl text-center mt-4">

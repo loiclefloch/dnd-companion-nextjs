@@ -9,7 +9,7 @@ function ScreenAsModal({ title, onCloseScreen, children }) {
 					<button onClick={onCloseScreen}><IconX className="h-5 w-5" /></button>
 				</div>
 			</header>
-			<div className='flex=1 overflow-y-auto'>
+			<div className='flex-1 overflow-y-auto'>
 				{children}
 			</div>
 		</div>

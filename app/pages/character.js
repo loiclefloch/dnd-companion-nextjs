@@ -1,6 +1,5 @@
-import clsx from "clsx"
 import useI18n from "../modules/i18n/useI18n"
-import useTheme from "../modules/theme/useTheme"
+import StatsSmall from "../components/StatsSmall"
 
 const char = {
 	campaign: {
@@ -48,12 +47,12 @@ const char = {
 	},
 
 	statsDetail: [
-		{ type: 'STR', label: { en: 'Strength', fr: 'Force' }, value: 8, modifier: '-1' },
-		{ type: 'DEX', label: { en: 'Dexterity', fr: 'Dextérité' }, value: 15, modifier: '+2' },
-		{ type: 'CON', label: { en: 'Constitution', fr: 'Constitution' }, value: 14, modifier: '+2' },
-		{ type: 'INT', label: { en: 'Intelligence', fr: 'Intelligence' }, value: 10, modifier: '+0' },
-		{ type: 'WIS', label: { en: 'Wisdom', fr: 'Sagesse' }, value: 16, modifier: '+3' },
-		{ type: 'CHA', label: { en: 'Charsime', fr: 'Charisme' }, value: 12, modifier: '+1' },
+		{ type: 'STR', label: { en: 'Strength', fr: 'Force' }, value: 8, modifier: -1 },
+		{ type: 'DEX', label: { en: 'Dexterity', fr: 'Dextérité' }, value: 15, modifier: +2 },
+		{ type: 'CON', label: { en: 'Constitution', fr: 'Constitution' }, value: 14, modifier: +2 },
+		{ type: 'INT', label: { en: 'Intelligence', fr: 'Intelligence' }, value: 10, modifier: 0 },
+		{ type: 'WIS', label: { en: 'Wisdom', fr: 'Sagesse' }, value: 16, modifier: 3 },
+		{ type: 'CHA', label: { en: 'Charsime', fr: 'Charisme' }, value: 12, modifier: 1 },
 	],
 
 	// modifiers: {
@@ -140,36 +139,12 @@ const char = {
 	// }
 }
 
-function Stat({ label, value, modifier }) {
-	const theme = useTheme()
-	// TODO: run dice
-	return (
-		<div className="flex flex-col items-center pointer-cursor" style={{ maxWidth: 81 }}>
-			<div className={clsx('uppercase', theme.metaColor)} style={{ fontSize: 10 }}>{label}</div>
-			<div className="text-2xl" style={{ marginLeft: -2 }}>{modifier}</div>
-			<div className="text-sm">{value}</div>
-		</div>
-	)
-}
-
-function Stats({ statsDetail }) {
-	const { tr } = useI18n()
-
-	return (
-		<div className="flex space space-x-4">
-			{statsDetail.map((stat) => (
-				<Stat key={stat.type} label={tr(stat.label)} modifier={stat.modifier} value={stat.value} />
-			))}
-		</div>
-	)
-}
-
 function Character() {
 
 	return <div>
 		<h1>Name</h1>
 
-		<Stats statsDetail={char.statsDetail} />
+		<StatsSmall stats={char.stats} />
 	</div>
 }
 

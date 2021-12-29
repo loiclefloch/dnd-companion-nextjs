@@ -62,6 +62,7 @@ function SidebarMenu({ open, onClose }) {
 						<Item href="/" label="Dashboard" icon={<IconHome className="w-6 h-6" />} />
 						<Item href="/characters" label="Characters" icon={<IconUsers className="w-6 h-6" />} />
 						<Item href="/spells" label="Sorts" icon={<IconBookOpen className="w-6 h-6" />} />
+						<Item href="/monsters" label="Monsters" icon={<IconBookOpen className="w-6 h-6" />} />
 					</div>
 				</nav>
 				<div class="absolute bottom-0 my-4 w-full">
