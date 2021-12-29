@@ -6,12 +6,9 @@ import useI18n from "../modules/i18n/useI18n";
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import Button from "./Button"
 import BottomScreen from "./BottomScreen"
-import useClasses from "../modules/api/useClasses"
 import useTheme from '../modules/theme/useTheme';
 import { deleteObjectOnArray, toggleValueOnArray, updateObjectOrCreateOnArray } from '../modules/utils/array';
 import IconX from './icons/IconX';
-
-const MAX_MONSTER_LEVEL = 9 // maximum monster level
 
 function Section({ title, isLoading, children, filters, type, onChange }) {
 	const { tr } = useI18n()
@@ -100,47 +97,51 @@ function ListSelector({ filters, type, list, onChange }) {
 	)
 }
 
-function FilterClasses({ filters, onChange }) {
-	const { tr } = useI18n()
-	const classesResponse = useClasses()
-
-	return (
-		<Section
-			title="Classes"
-			isLoading={classesResponse.isLoading}
-			filters={filters}
-			type={FilterType.CLASS}
-			onChange={onChange}
-		>
-			<ListSelector
-				type={FilterType.CLASS}
-				filters={filters}
-				list={classesResponse.data?.map(clss => ({
-					index: clss.index,
-					label: tr(clss.nameLocalized),
-					value: clss.index,
-				}))}
-				onChange={onChange}
-			/>
-		</Section>
-	)
-}
-
-
-function FilterMonsterLevel({ filters, onChange }) {
-	const { tr } = useI18n()
-	const classesResponse = useClasses()
-
-	const list = [...Array(MAX_MONSTER_LEVEL + 1)].map((_, index) => ({
-		index: index,
-		label: index === 0 ? 'Cantrip' : index,
-		value: index,
+function FilterDifficulty({ filters, onChange }) {
+	const list =  [
+		"0",
+		"1/8",
+		"1/4",
+		"1/2",
+		"1",
+		"2",
+		"3",
+		"4",
+		"5",
+		"6",
+		"7",
+		"8",
+		"9",
+		"10",
+		"11",
+		"12",
+		"13",
+		"14",
+		"15",
+		"16",
+		"17",
+		"19",
+		"20",
+		"21",
+		"22",
+		"23",
+		"24",
+		"30",
+	].map((value) => ({
+		index: value,
+		label: value,
+		value: value,
 	}))
 
 	return (
-		<Section title="Monster level" isLoading={classesResponse.isLoading} filters={filters} type={FilterType.MONSTER_LEVEL} onChange={onChange}>
+		<Section 
+			title="Difficulty" 
+			filters={filters} 
+			type={FilterType.DIFFICULTY} 
+			onChange={onChange}
+			>
 			<ListSelector
-				type={FilterType.MONSTER_LEVEL}
+				type={FilterType.DIFFICULTY}
 				filters={filters}
 				list={list}
 				onChange={onChange}
@@ -149,17 +150,6 @@ function FilterMonsterLevel({ filters, onChange }) {
 	)
 }
 
-const TEST_FILTERS = [
-	{
-		type: FilterType.CLASS,
-		value: ['druid']
-	},
-	{
-		type: FilterType.MONSTER_LEVEL,
-		value: [0, 1]
-	}
-]
-
 function MonstersListFilterScreenAsModal({ onFilter, onReset, filters: defaultFilters, onCloseScreen }) {
 	const [filters, setFilters] = useState(defaultFilters || [])
 	const { tr } = useI18n()
@@ -167,17 +157,8 @@ function MonstersListFilterScreenAsModal({ onFilter, onReset, filters: defaultFi
 	return (
 		<ScreenAsModal title={`Filtres`} onCloseScreen={onCloseScreen}>
 			<>
-				<FilterClasses filters={filters} onChange={setFilters} />
-				<FilterMonsterLevel filters={filters} onChange={setFilters} />
+				<FilterDifficulty filters={filters} onChange={setFilters} />
 
-				{/* <div>Sub class</div>
-				<div>School</div>
-				<div>Damage type</div>
-				<div>Action</div>
-				<div>Range</div>
-				<div>Concentration</div>
-				<div>Ritual</div>
-				<div>Source</div> */}
 			</>
 			<div>
 				<BottomScreen>

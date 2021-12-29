@@ -11,10 +11,123 @@ function convertToSlug(Text) {
 
 const keys = {}
 
+function extractChallenge(challengeLabel) {
+	const regex = /(.*) \((.*) XP\)/
+
+	const match = challengeLabel.match(regex);
+  if (!match) {
+    throw new Error(`extractChallenger: ${challengeLabel} not handled`);
+  }
+
+	// [
+	// 	"0",
+	// 	"1",
+	// 	"2",
+	// 	"3",
+	// 	"4",
+	// 	"5",
+	// 	"6",
+	// 	"7",
+	// 	"8",
+	// 	"9",
+	// 	"10",
+	// 	"11",
+	// 	"12",
+	// 	"13",
+	// 	"14",
+	// 	"15",
+	// 	"16",
+	// 	"17",
+	// 	"19",
+	// 	"20",
+	// 	"21",
+	// 	"22",
+	// 	"23",
+	// 	"24",
+	// 	"30",
+	// 	"1/4",
+	// 	"1/2",
+	// 	"1/8"
+	// ]
+  const difficulty = match[1]
+// 	[
+//     10,
+//     100,
+//     10000,
+//     1100,
+//     11500,
+//     13000,
+//     15000,
+//     155000,
+//     1800,
+//     18000,
+//     200,
+//     22000,
+//     2300,
+//     25,
+//     25000,
+//     2900,
+//     33000,
+//     3900,
+//     41000,
+//     450,
+//     50,
+//     5000,
+//     50000,
+//     5900,
+//     62000,
+//     700,
+//     7200,
+//     8400
+// ]
+  const xp =  Number(match[2].replaceAll(",", ""));
+
+	// keys[xp] = true
+
+	return {
+		label: challengeLabel,
+		difficulty,
+		xp
+	}
+}
 function transform(baseMonster) {
-	forEach(baseMonster, (_, key) => {
-		keys[key] = true
-	})
+	// {
+	// 	"name": true,
+	// 	"meta": true,
+	// 	"Armor Class": true,
+	// 	"Hit Points": true,
+	// 	"Speed": true,
+	// 	"STR": true,
+	// 	"STR_mod": true,
+	// 	"DEX": true,
+	// 	"DEX_mod": true,
+	// 	"CON": true,
+	// 	"CON_mod": true,
+	// 	"INT": true,
+	// 	"INT_mod": true,
+	// 	"WIS": true,
+	// 	"WIS_mod": true,
+	// 	"CHA": true,
+	// 	"CHA_mod": true,
+	// 	"Saving Throws": true,
+	// 	"Skills": true,
+	// 	"Senses": true,
+	// 	"Languages": true,
+	// 	"Challenge": true,
+	// 	"Traits": true,
+	// 	"Actions": true,
+	// 	"Legendary Actions": true,
+	// 	"img_url": true,
+	// 	"Damage Immunities": true,
+	// 	"Condition Immunities": true,
+	// 	"Damage Resistances": true,
+	// 	"Damage Vulnerabilities": true,
+	// 	"Reactions": true
+	// }
+
+	// forEach(baseMonster, (_, key) => {
+	// 	keys[key] = true
+	// })
 
 	const defaultImages = [
 		// "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -26,6 +139,7 @@ function transform(baseMonster) {
 	const monster = monsters.find(m => m.index === index)
 
 	// TODO: Proficiency Bonus 
+	// TODO: size
 	return {
 		index, 
 		name: baseMonster.name,
@@ -63,13 +177,14 @@ function transform(baseMonster) {
 		senses: baseMonster.Senses && { en: baseMonster.Senses },
 		reactions: baseMonster.Reactions && { en: baseMonster.Reactions },
 		languages: baseMonster.Languages && { en: baseMonster.Languages },
-		challenge: baseMonster.Challenge,
+		challenge: extractChallenge(baseMonster.Challenge),
 		actions: baseMonster.Actions && { en: baseMonster.Actions },
 		legendaryActions: baseMonster['Legendary Actions'] && { en: baseMonster['Legendary Actions'] },
 		traits: baseMonster.Traits && { en: baseMonster.Traits },
 		imageUrl: baseMonster.img_url && defaultImages.includes(baseMonster.img_url) ? null : baseMonster.img_url,
 		source: 'Basic Rules', // TODO:
 		sourcePage: 119, // TODO:
+		isLegendary: !!(baseMonster['Legendary Actions']), // TODO: better?
 	}
 }
 
@@ -135,40 +250,7 @@ function main() {
   const monsters = tkfuMonsters.map(transform);
   console.log(JSON.stringify(monsters, null, 2));
 
-	// {
-	// 	"name": true,
-	// 	"meta": true,
-	// 	"Armor Class": true,
-	// 	"Hit Points": true,
-	// 	"Speed": true,
-	// 	"STR": true,
-	// 	"STR_mod": true,
-	// 	"DEX": true,
-	// 	"DEX_mod": true,
-	// 	"CON": true,
-	// 	"CON_mod": true,
-	// 	"INT": true,
-	// 	"INT_mod": true,
-	// 	"WIS": true,
-	// 	"WIS_mod": true,
-	// 	"CHA": true,
-	// 	"CHA_mod": true,
-	// 	"Saving Throws": true,
-	// 	"Skills": true,
-	// 	"Senses": true,
-	// 	"Languages": true,
-	// 	"Challenge": true,
-	// 	"Traits": true,
-	// 	"Actions": true,
-	// 	"Legendary Actions": true,
-	// 	"img_url": true,
-	// 	"Damage Immunities": true,
-	// 	"Condition Immunities": true,
-	// 	"Damage Resistances": true,
-	// 	"Damage Vulnerabilities": true,
-	// 	"Reactions": true
-	// }
-  // console.warn(JSON.stringify(keys, null, 2));
+  // console.warn(JSON.stringify(Object.keys(keys), null, 2));
 }
 
 main();

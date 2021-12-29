@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Link from 'next/link'
 import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
-import { getMonsterFiltersMatchingData } from "../modules/monsters/monstersFilter"
+import { FilterType, getMonsterFiltersMatchingData } from "../modules/monsters/monstersFilter"
 import { sortMonsters } from "../modules/monsters/monstersSorter"
 import useTheme from "../modules/theme/useTheme";
 import useI18n from "../modules/i18n/useI18n";
@@ -14,14 +14,22 @@ import Tag from "../components/Tag"
 import IconBookOpen from "../components/icons/IconBookOpen"
 
 function MonsterFilters({ monster, filters }) {
+	// ignore some filters, because the data is already displayed
+	const filterTypesToIgnore = [FilterType.DIFFICULTY]
+
   // TODO: hide if context character
 
   return <div className="flex mt-2 flex-wrap gap-1">
-    {getMonsterFiltersMatchingData(monster, filters).map(data => (
-      <Tag key={`${data.label}-${data.value}`} className="text-xs text-gray-600 border border-solid border-slate-400 pr-1 pl-1 pt-1 pb-1" color="slate">
-        {data.label && <span className="text-xs lowercase">{data.label}: </span>}{data.value}
-      </Tag>
-    ))}
+    {getMonsterFiltersMatchingData(monster, filters).map(data => {
+			if (filterTypesToIgnore.includes(data.filter.type)) {
+				return null
+			}
+			return (
+				<Tag key={`${data.label}-${data.value}`} className="text-xs text-gray-600 border border-solid border-slate-400 pr-1 pl-1 pt-1 pb-1" color="slate">
+					{data.label && <span className="text-xs lowercase">{data.label}: </span>}{data.value}
+				</Tag>
+			)
+		})}
   </div>
 }
 
@@ -29,7 +37,7 @@ function Monster({ monster, filters, /*onSelect*/ }) {
   const { tr } = useI18n();
   const theme = useTheme();
 
-  // TODO: if context character has the monster -> style with star / background
+	// TODO: isLegendary
 
   return (
     <Link href={`/monsters/${monster.index}`}>
@@ -37,16 +45,21 @@ function Monster({ monster, filters, /*onSelect*/ }) {
         // onClick={onSelect}
         className={clsx("cursor-pointer py-4 p-4 border-b border-slate-100 border-solid flex")}
       >
-				<div className="w-14 h-14 flex items-center">
+				<div className="w-1/6 flex items-center">
 					{monster.imageUrl && (
-						<img src={monster.imageUrl} />
+						<img src={monster.imageUrl} className="w-full"/>
 					)}
 				</div>
-				<div className="ml-4">
-					<span className="font-semibold">{tr(monster.nameLocalized)}</span>
+				<div className="ml-4 w-5/6">
+					<span className="font-semibold w-full flex justify-between">
+						{tr(monster.nameLocalized)}
+						{monster.isLegendary && (
+							<Tag label="L" small className="text-amber-600 border border-solid border-amber-600 ml-2" />
+						)}
+					</span>
 					<div className={clsx("text-sm", theme.metaColor)}>
 						<div>{tr(monster.meta)}</div>
-						<div>{monster.challenge}</div>
+						<div>{monster.challenge.label}</div>
 					</div>
 					<p className="text-sm">{tr(monster.resume)}</p>
 					{!isEmpty(filters) && <MonsterFilters monster={monster} filters={filters} />}
@@ -59,7 +72,7 @@ function Monster({ monster, filters, /*onSelect*/ }) {
 function Monsters() {
   const { lang } = useI18n()
   const monstersResponse = useMonsters();
-  // const { showMonsterModal } = useMonsterModal()
+	// TODO: how to keep filters when we go back on the page?
   const { filters, filterMonsters, showMonstersListFilterScreen } = useMonstersListFilterScreenAsModal([])
   
   // useEffect(() => {

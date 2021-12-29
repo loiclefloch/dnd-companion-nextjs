@@ -1,10 +1,12 @@
 import { isEmpty } from "lodash"
 
 export const FilterType = {
+	DIFFICULTY: 'DIFFICULTY',
 	SIZE: 'SIZE',
 }
 
 const filtersMethods = {
+	[FilterType.DIFFICULTY]: (value, monster) => value.includes(monster.challenge.difficulty),
 	// [FilterType.SIZE]: (value, monster) => monster.classes.find(clss => value.includes(clss.index)),
 	// TODO:
 }
@@ -30,43 +32,14 @@ export function filterMonsters(monsters, filters) {
 export function getMonsterFiltersMatchingData(monster, filters) {
 	const data = []
 
-  const classFilter = filters.find(filter => filter.type === FilterType.CLASS)
-  if (classFilter) {
+  const difficultyFilter = filters.find(filter => filter.type === FilterType.DIFFICULTY)
+  if (difficultyFilter) {
     data.push({
-      filter: classFilter,
-      label: '', // no label, we understand with the class label
-      value: monster.classes.find(clss => classFilter.value.includes(clss.index))?.name,
-    })
-  }
-
-  const levelFilter = filters.find(filter => filter.type === FilterType.MONSTER_LEVEL)
-  if (levelFilter) {
-    data.push({
-      filter: levelFilter,
-      label: '',
-      value: monster.level
+      filter: difficultyFilter,
+      label: '', // no label, we understand with the value 
+      value: monster.challenge.difficulty,
     })
   }
 
 	return data
-}
-
-/**
- * Creates default filters that match the character
- */
-export function buildMonsterFiltersForCharacter(character) {
-	if (!character) {
-		return []
-	}
-
-	return [
-		{
-			type: FilterType.CLASS,
-			value: character.classes.map(clss => clss.index)
-		},
-		{
-			type: FilterType.MONSTER_LEVEL,
-			value: [...Array(character.maxMonsterLevel + 1)].map((_, index) => index)
-		},
-	]
 }

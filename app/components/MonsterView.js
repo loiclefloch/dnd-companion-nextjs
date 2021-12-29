@@ -64,6 +64,11 @@ function MonsterView({ monster }) {
                 {tr(monster.meta)}
               </div>
             </div>
+            <div>
+              {monster.isLegendary && (
+                <Tag label="Legendaire" small className="text-amber-600 border border-solid border-amber-600" />
+              )}
+            </div>
           </div>
 
         </div>
@@ -94,6 +99,7 @@ function MonsterView({ monster }) {
           <div className="mt-6 mb-4">
             <StatsSmall stats={monster.stats} />
             {/* 
+             // TODO:
             - saving throws 
             - speed
             - skills
@@ -103,6 +109,7 @@ function MonsterView({ monster }) {
             - damageResistances
             - damageVulnerabilities
             - reactions
+            - isLegendary
             */}
           </div>
 
@@ -123,7 +130,7 @@ function MonsterView({ monster }) {
                 <span className="font-semibold">Sens</span> <span className="text-sm">{tr(monster.senses)}</span>
               </p>
               <p>
-                <span className="font-semibold">Challenge</span> <span className="text-sm">{tr(monster.challenge)}</span>
+                <span className="font-semibold">Challenge</span> <span className="text-sm">{tr(monster.challenge.label)}</span>
               </p>
               {/* TODO: Proficiency Bonus +2 */}
             </div>
