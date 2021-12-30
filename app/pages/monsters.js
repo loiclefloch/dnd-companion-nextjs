@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Link from 'next/link'
 import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
@@ -59,6 +58,7 @@ function Monster({ monster, filters, /*onSelect*/ }) {
 					</span>
 					<div className={clsx("text-sm", theme.metaColor)}>
 						<div>{tr(monster.meta)}</div>
+
 						<div>{monster.challenge.label}</div>
 						{/* TODO: or this? */}
 						{/* <div>{monster.challenge.difficulty}</div> */}
@@ -85,6 +85,7 @@ function Monsters() {
       title={"Monstres"}
       titleIcon={<IconBookOpen className="w-6 h-6" />}
       root
+			withCharacterMenu
       isLoading={monstersResponse.isLoading}
       rightAction={
         <button onClick={showMonstersListFilterScreen}>

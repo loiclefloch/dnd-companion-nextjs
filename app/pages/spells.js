@@ -79,6 +79,7 @@ function Spells() {
       title={contextCharacter ? `Sorts - ${contextCharacter.name}` : "Sorts"}
       titleIcon={<IconBookOpen className="w-6 h-6" />}
       root
+      withCharacterMenu
       isLoading={spellsResponse.isLoading}
       rightAction={
         <button onClick={showSpellsListFilterScreen}>

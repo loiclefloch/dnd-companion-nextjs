@@ -35,52 +35,54 @@ function Item({ href = "", icon, label }) {
 
 function SidebarMenu({ show, onClose }) {
 	return (
-		<div 
-			className={clsx("h-screen lg:block shadow-lg fixed w-full flex",
-				"transform ease-in-out transition-all duration-300", {
-				"translate-x-0": show,
-				"-translate-x-full": !show,
-			})}
-		>
-			<div className="bg-white h-screen dark:bg-gray-700 w-5/6 z-50">
-
-				<div className="flex">
-					<div className="items-center justify-center pt-6 flex-1">
-						{/* ICON */}
-					</div>
-					<div className="pt-2 px-2" onClick={onClose}>
-						<IconX className={clsx("w-6 h-6 text-white",
-							"transform ease-in-out transition-all", {
-							"opacity-100 duration-700": show,
-							"opacity-0 duration-100": !show,
-						})} />
-					</div>
-				</div>
-
-				<nav className="flex flex-col mt-6 h-full">
-					<div>
-						<Item href="/" label="Dashboard" icon={<IconHome className="w-6 h-6" />} />
-						<Item href="/characters" label="Characters" icon={<IconUsers className="w-6 h-6" />} />
-						<Item href="/spells" label="Sorts" icon={<IconBookOpen className="w-6 h-6" />} />
-						<Item href="/monsters" label="Monsters" icon={<IconBookOpen className="w-6 h-6" />} />
-					</div>
-					<div className="my-4 w-full flex flex-col flex-1 flex-end">
-						<Item href="/support" label="Support" icon={<IconQuestionMark className="w-6 h-6" />} />
-						<Item href="/settings" label="Settings" icon={<IconGear className="w-6 h-6" />} />
-					</div>
-				</nav>
-			</div>
+		<>
 			{/* right transparant panel TODO: fix */}
-			<div 
-				style={{ zIndex: 49 }} // z-50 - 1
-				className={clsx("fixed left-0 right-0 top-0 bottom-0 h-screen bg-gray-200",
-							"transform ease-linear transition-all", {
-							"opacity-50 duration-500": show,
-							"opacity-0 duration-100": !show,
-						})} 
+			<div
 				onClick={onClose}
+				style={{ zIndex: 49 }} // z-50 - 1
+				className={clsx("fixed left-0 right-0 top-0 bottom-0 h-screen bg-slate-900",
+					"transform ease-linear transition-all", {
+					"opacity-50 duration-1000 visible": show,
+					"opacity-0 duration-500 hidden": !show,
+				})}
 			>&nbsp;</div>
-		</div>
+			<div
+				className={clsx("h-screen lg:block shadow-lg fixed flex z-50 w-5/6",
+					"transform ease-in-out transition-all duration-300", {
+					"translate-x-0": show,
+					"-translate-x-full": !show,
+				})}
+			>
+				<div className="bg-white h-screen dark:bg-gray-700 z-50 w-full">
+
+					<div className="flex">
+						<div className="items-center justify-center pt-6 flex-1">
+							{/* ICON */}
+						</div>
+						<div className="pt-2 px-2" onClick={onClose}>
+							<IconX className={clsx("w-6 h-6 text-white",
+								"transform ease-in-out transition-all", {
+								"opacity-100 duration-700": show,
+								"opacity-0 duration-100": !show,
+							})} />
+						</div>
+					</div>
+
+					<nav className="flex flex-col pt-6 h-full">
+						<div>
+							<Item href="/" label="Dashboard" icon={<IconHome className="w-6 h-6" />} />
+							<Item href="/characters" label="Characters" icon={<IconUsers className="w-6 h-6" />} />
+							<Item href="/spells" label="Sorts" icon={<IconBookOpen className="w-6 h-6" />} />
+							<Item href="/monsters" label="Monsters" icon={<IconBookOpen className="w-6 h-6" />} />
+						</div>
+						<div className="my-4 pb-8 w-full flex flex-col flex-1 flex-end items-stretch">
+							<Item href="/support" label="Support" icon={<IconQuestionMark className="w-6 h-6" />} />
+							<Item href="/settings" label="Settings" icon={<IconGear className="w-6 h-6" />} />
+						</div>
+					</nav>
+				</div>
+			</div>
+		</>
 	)
 }
 
