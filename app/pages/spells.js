@@ -16,9 +16,9 @@ import IconBookOpen from "../components/icons/IconBookOpen"
 function SpellFilters({ spell, filters }) {
   // TODO: hide if context character
 
-  return <div className="flex mt-2 flex-wrap gap-1">
+  return <div className="flex flex-wrap gap-1 mt-2">
     {getSpellFiltersMatchingData(spell, filters).map(data => (
-      <Tag key={`${data.label}-${data.value}`} className="text-xs text-gray-600 border border-solid border-slate-400 pr-1 pl-1 pt-1 pb-1" color="slate">
+      <Tag key={`${data.label}-${data.value}`} className="pt-1 pb-1 pl-1 pr-1 text-xs text-gray-600 border border-solid border-slate-400" color="slate">
         {data.label && <span className="text-xs lowercase">{data.label}: </span>}{data.value}
       </Tag>
     ))}
@@ -34,14 +34,27 @@ function Spell({ spell, filters, /*onSelect*/ }) {
     <Link href={`/spells/${spell.index}`}>
       <div
         // onClick={onSelect}
-        className={clsx("cursor-pointer my-2 p-4 pt-1 border-b border-slate-100 dark:border-gray-50 border-solid")}
+        className={`cursor-pointer my-2 p-4 pt-1 border-b border-slate-100 dark:border-gray-50 border-solid 
+        relative`}
       >
-        <span className="font-semibold">{tr(spell.nameLocalized)}</span>
-        <div className="text-sm text-meta">
-          <span>{spell.type}</span>
+        {spell.school && spell.school?.imageUrl && (
+          <img 
+            src={spell.school?.imageUrl} 
+            alt={tr(spell.school.nameLocalized)} 
+            className="absolute right-0 w-8 h-8 mr-2 grayscale"
+            style={{
+              marginTop: -6
+            }}
+          />
+        )}
+        <div>
+          <span className="font-semibold">{tr(spell.nameLocalized)}</span>
+          <div className="text-sm text-meta">
+            <span>{spell.type}</span>
+          </div>
+          <p className="text-sm">{tr(spell.resume)}</p>
+          {!isEmpty(filters) && <SpellFilters spell={spell} filters={filters} />}
         </div>
-        <p className="text-sm">{tr(spell.resume)}</p>
-        {!isEmpty(filters) && <SpellFilters spell={spell} filters={filters} />}
       </div>
     </Link>
   );

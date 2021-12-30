@@ -5,7 +5,7 @@ import { CharacterMenuProvider } from "../components/characterMenu/CharacterMenu
 import { ScreenAsModalProvider } from "../components/screenAsModal/screenAsModalContext";
 import { SidebarMenuProvider } from "../components/sidebarMenu/sidebarMenuContext";
 function MyApp({ Component, pageProps }) {
-  return <div className='dark'>
+  return <div className='//dark'>
     <ModalProvider>
       <SidebarMenuProvider>
         <CharacterMenuProvider>
