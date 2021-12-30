@@ -52,10 +52,10 @@ export function ListSelectRowAsCard({ icon, image, title, subtitle, onClick }) {
 	)
 }
 
-export function ListRowSelectContainer({ children }) {
+export function ListRowSelectContainer({ className, children }) {
 	return (
 		// <ul className='flex flex-col divide divide-y container'>
-		<ul className='flex flex-col container'>
+		<ul className={clsx(className, 'flex flex-col container')}>
 			{children}
 		</ul>
 	)

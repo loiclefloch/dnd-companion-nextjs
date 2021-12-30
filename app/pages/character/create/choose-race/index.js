@@ -5,11 +5,14 @@ import useRaces from '../../../../modules/api/useRaces';
 import useI18n from '../../../../modules/i18n/useI18n';
 import { ListSelectRowAsCard, ListRowSelectContainer } from "../../../../components/ListSelectRow"
 import IconRace from "../../../../components/icons/IconRace"
+import ScreenIntroduction from "../../../../components/ScreenIntroduction"
 
 function RaceRow({ race }) {
 	const { tr } = useI18n()
 	const router = useRouter()
-	const url = `/character/create/choose-race/${race.index}`
+	const url = race.hasSubraces 
+		? `/character/create/choose-subrace/${race.index}` 
+		: `/character/create/choose-class`
 
 	return (
 		<ListSelectRowAsCard
@@ -30,13 +33,14 @@ function ChooseCharacterRace() {
 			isLoading={racesResponse.isLoading}
     >
 			<div className="flex flex-col">
-				<div className="px-4 py-5 sm:px-6 border-b w-full">
-					<h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">Choisissez une race</h3>
-					<p className="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-200">
-						De nombreuses races existent dans le monde de Donjon & Dragons.
-					</p>
-					<button>En savoir plus</button>
-				</div>
+				<ScreenIntroduction
+					title="Choisissez votre race"
+					description={`De nombreuses races existent dans le monde de Donjon & Dragons.`}
+					actions={
+						<button>En savoir plus</button>
+					}
+				/>
+
 				<ListRowSelectContainer className="px-4 mt-12">
 					{racesResponse.data?.map(race => (
 						<RaceRow key={race.index} race={race} />

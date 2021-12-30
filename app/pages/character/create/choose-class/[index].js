@@ -26,7 +26,7 @@ function DisplayCharacterClass() {
 					<ButtonBottomScreen 
 						variant="cta"
 						onClick={() => {
-							router.push('/')
+							router.push('/character/create/stats')
 						}}
 					>
 						Choisir
