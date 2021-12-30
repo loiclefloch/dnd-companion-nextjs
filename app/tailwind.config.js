@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: 'class',
   // TODO: mode jit?
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",

@@ -4,6 +4,7 @@ function IconClass({ clss, ...props }) {
 	switch (clss) {
 		case 'druid':
 			return <ClassDruid {...props} />
+
 		default:
 			return null
 	}
