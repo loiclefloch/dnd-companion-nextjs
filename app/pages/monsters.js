@@ -3,7 +3,6 @@ import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
 import { FilterType, getMonsterFiltersMatchingData } from "../modules/monsters/monstersFilter"
 import { sortMonsters } from "../modules/monsters/monstersSorter"
-import useTheme from "../modules/theme/useTheme";
 import useI18n from "../modules/i18n/useI18n";
 import useMonsters from "../modules/api/useMonsters";
 import { useMonstersListFilterScreenAsModal } from "../components/MonstersListFilterScreenAsModal"
@@ -34,7 +33,6 @@ function MonsterFilters({ monster, filters }) {
 
 function Monster({ monster, filters, /*onSelect*/ }) {
   const { tr } = useI18n();
-  const theme = useTheme();
 
 	// TODO: isLegendary
 
@@ -42,7 +40,7 @@ function Monster({ monster, filters, /*onSelect*/ }) {
     <Link href={`/monsters/${monster.index}`}>
       <div
         // onClick={onSelect}
-        className={clsx("cursor-pointer py-4 p-4 border-b border-slate-100 border-solid flex")}
+        className={clsx("cursor-pointer py-4 p-4 border-b border-slate-100 dark:border-gray-50 border-solid flex")}
       >
 				<div className="w-1/6 flex items-center">
 					{monster.imageUrl && (
@@ -56,7 +54,7 @@ function Monster({ monster, filters, /*onSelect*/ }) {
 							<Tag label="L" small className="text-amber-600 border border-solid border-amber-600 ml-2" />
 						)}
 					</span>
-					<div className={clsx("text-sm", theme.metaColor)}>
+					<div className={clsx("text-sm", 'text-slate-600 dark:text-slate-600')}>
 						<div>{tr(monster.meta)}</div>
 
 						<div>{monster.challenge.label}</div>

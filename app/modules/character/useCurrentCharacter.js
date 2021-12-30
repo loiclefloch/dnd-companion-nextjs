@@ -1,14 +1,9 @@
 import classes from '../../../database/data/classes.json'
+import useCharacter from '../api/useCharacter'
 
 function useCurrentCharacter() {
-	return {
-		name: 'Ylvir',
-		level: 1,
-		maxSpellLevel: 1,
-		classes: [
-			classes.find(clss => clss.index === 'druid')
-		]
-	}
+	const characterResponse = useCharacter(1)
+	return characterResponse.data
 }
 
 export default useCurrentCharacter

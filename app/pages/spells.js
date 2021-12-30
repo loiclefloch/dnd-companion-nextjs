@@ -5,7 +5,6 @@ import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
 import { getSpellFiltersMatchingData, buildSpellFiltersForCharacter } from "../modules/spells/spellsFilter"
 import { sortSpells } from "../modules/spells/spellsSorter"
-import useTheme from "../modules/theme/useTheme";
 import useI18n from "../modules/i18n/useI18n";
 import useSpells from "../modules/api/useSpells";
 import { useSpellsListFilterScreenAsModal } from "../components/SpellsListFilterScreenAsModal"
@@ -28,7 +27,6 @@ function SpellFilters({ spell, filters }) {
 
 function Spell({ spell, filters, /*onSelect*/ }) {
   const { tr } = useI18n();
-  const theme = useTheme();
 
   // TODO: if context character has the spell -> style with star / background
 
@@ -36,10 +34,10 @@ function Spell({ spell, filters, /*onSelect*/ }) {
     <Link href={`/spells/${spell.index}`}>
       <div
         // onClick={onSelect}
-        className={clsx("cursor-pointer my-2 p-4 pt-1 border-b border-slate-100 border-solid")}
+        className={clsx("cursor-pointer my-2 p-4 pt-1 border-b border-slate-100 dark:border-gray-50 border-solid")}
       >
         <span className="font-semibold">{tr(spell.nameLocalized)}</span>
-        <div className={clsx("text-sm", theme.metaColor)}>
+        <div className="text-sm text-meta">
           <span>{spell.type}</span>
         </div>
         <p className="text-sm">{tr(spell.resume)}</p>

@@ -15,6 +15,7 @@ function Character() {
 			title={character?.name}
 			// titleIcon={<IconUsers className="w-6 h-6" />}
 			isLoading={characterResponse.isLoading}
+			withCharacterMenu
 			rightAction={
 				// TODO: edit?
 				<button onClick={() => router.push("/character/create")}>

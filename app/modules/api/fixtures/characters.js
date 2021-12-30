@@ -1,3 +1,5 @@
+import classes from '../../../../database/data/classes.json'
+
 export default [
 	{
 		id: 1,
@@ -6,6 +8,13 @@ export default [
 			name: '',
 			id: 1,
 		},
+
+		level: 1,
+		maxSpellLevel: 1,
+
+		classes: [
+			classes.find(clss => clss.index === 'druid')
+		],
 
 		name: 'Ylvir',
 		age: 245,
@@ -30,12 +39,6 @@ export default [
 			isSubRace: true,
 		},
 
-		classes: [
-			{
-				name: 'druid'
-				// TODO: format with class data from the API
-			}
-		],
 
 		stats: {
 			STR: 8,

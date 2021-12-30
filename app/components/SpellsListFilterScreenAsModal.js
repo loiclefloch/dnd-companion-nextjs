@@ -7,7 +7,6 @@ import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import Button from "./Button"
 import BottomScreen from "./BottomScreen"
 import useClasses from "../modules/api/useClasses"
-import useTheme from '../modules/theme/useTheme';
 import { deleteObjectOnArray, toggleValueOnArray, updateObjectOrCreateOnArray } from '../modules/utils/array';
 import IconX from './icons/IconX';
 
@@ -57,12 +56,10 @@ function Section({ title, isLoading, children, filters, type, onChange }) {
 }
 
 function ListItem({ item, selected, onClick }) {
-	const theme = useTheme()
-
 	return (
 		<li
 			className={clsx("flex flex-row items-center content-between w-full px-2 py-1", {
-				[theme.listItemSelectedBackground]: selected,
+				"bg-list-item-selected": selected,
 			})}
 			onClick={onClick}
 		>

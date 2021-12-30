@@ -17,8 +17,8 @@ function Item({ href = "", icon, label }) {
 		<Link href={href}>
 			<a
 				className={clsx("w-full font-thin uppercase flex items-centerflex items-center transition-colors duration-200 justify-start p-4 my-2 border-solid", {
-				 "text-blue-500 bg-gradient-to-r from-white to-blue-100 border-r-4 border-blue-500 dark:from-gray-700 dark:to-gray-800": selected,
-				 "text-gray-500 dark:text-gray-200 hover:text-blue-500": !selected
+				 "text-blue-500 bg-gradient-to-r border-r-4 border-blue-500 from-gray-700 to-gray-800": selected,
+				 "text-gray-200 hover:text-blue-500": !selected
 			 })}
 				href="#"
 			>
@@ -53,18 +53,20 @@ function SidebarMenu({ show, onClose }) {
 					"-translate-x-full": !show,
 				})}
 			>
-				<div className="bg-white h-screen dark:bg-gray-700 z-50 w-full">
+				<div className="bg-gray-700 h-screen dark:bg-gray-700 z-50 w-full">
 
 					<div className="flex">
 						<div className="items-center justify-center pt-6 flex-1">
 							{/* ICON */}
 						</div>
 						<div className="pt-2 px-2" onClick={onClose}>
-							<IconX className={clsx("w-6 h-6 text-white",
-								"transform ease-in-out transition-all", {
-								"opacity-100 duration-700": show,
-								"opacity-0 duration-100": !show,
-							})} />
+							<IconX 
+								className={clsx("w-6 h-6 text-white",
+									"transform ease-in-out transition-all", {
+									"opacity-100 duration-700": show,
+									"opacity-0 duration-100": !show,
+								})}
+							/>
 						</div>
 					</div>
 
@@ -75,7 +77,7 @@ function SidebarMenu({ show, onClose }) {
 							<Item href="/spells" label="Sorts" icon={<IconBookOpen className="w-6 h-6" />} />
 							<Item href="/monsters" label="Monsters" icon={<IconBookOpen className="w-6 h-6" />} />
 						</div>
-						<div className="my-4 pb-8 w-full flex flex-col flex-1 flex-end items-stretch">
+						<div className="my-4 pb-8 w-full flex flex-col flex-1 flex-end justify-end">
 							<Item href="/support" label="Support" icon={<IconQuestionMark className="w-6 h-6" />} />
 							<Item href="/settings" label="Settings" icon={<IconGear className="w-6 h-6" />} />
 						</div>

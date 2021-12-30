@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import useI18n from "../modules/i18n/useI18n";
-import useTheme from "../modules/theme/useTheme";
 
 import Tag from './Tag';
 import SpellRunner from "./SpellRunner";
@@ -16,8 +15,6 @@ function createClassTag(clss) {
 
 function SpellView({ spell }) {
   const { tr, getRangeUnit, isDefaultLang, trDefaultLang } = useI18n();
-  const theme = useTheme()
-
 
   const otherNames = [
     spell.otherNameLocalized && spell.otherNameLocalized.fr,
@@ -46,8 +43,8 @@ function SpellView({ spell }) {
       <div className="flex justify-between">
         <div>
           <div className="text-xs gap-1">
-            <div className={clsx("mb-1 ml-1", theme.metaColor)}>{otherNames.join(", ")}</div>
-            <Tag className={clsx("mt-1 bg-slate-200", theme.metaColor)}>{tr(spell.school.nameLocalized)}</Tag>
+            <div className="mb-1 ml-1 text-meta">{otherNames.join(", ")}</div>
+            <Tag className="mt-1 bg-slate-200 text-meta">{tr(spell.school.nameLocalized)}</Tag>
           </div>
         </div>
         <div className="">

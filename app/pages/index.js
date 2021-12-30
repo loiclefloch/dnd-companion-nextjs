@@ -5,7 +5,6 @@ import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
 import { getSpellFiltersMatchingData, buildSpellFiltersForCharacter } from "../modules/spells/spellsFilter"
 import { sortSpells } from "../modules/spells/spellsSorter"
-import useTheme from "../modules/theme/useTheme";
 import useI18n from "../modules/i18n/useI18n";
 import useSpells from "../modules/api/useSpells";
 import { useSpellModal } from "../components/SpellScreenAsModal";

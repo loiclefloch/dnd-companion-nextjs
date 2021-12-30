@@ -34,13 +34,24 @@ function CharacterMenuButton() {
   )
 }
 
-function Screen({ title, titleIcon, isLoading, rightAction, children, root, fullScreen, withBottomSpace, iconClassName, withCharacterMenu }) {
+function Screen({ 
+	title, 
+	titleIcon, 
+	isLoading, 
+	rightAction,
+	children, 
+	root, 
+	fullScreen, 
+	withBottomSpace, 
+	iconClassName, 
+	withCharacterMenu 
+}) {
 	const { show: sidebarMenuShown, showSidebarMenu } =  useSidebarMenu()
 
 	const router = useRouter()
 
 	return (
-		<div className="flex flex-col h-screen">
+		<div className="flex flex-col h-screen bg-dark dark:text-white">
 			<header className={clsx('flex flex-row p-2 items-center', { "absolute z-40": fullScreen, "hidden": /* TRICK */fullScreen && sidebarMenuShown })}>
 				<div className="mr-4 ml-1">
 					{!root && (

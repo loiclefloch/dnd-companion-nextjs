@@ -1,3 +1,18 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer components {
+
+  .text-meta {
+		@apply text-slate-600 dark:text-slate-600
+ }
+
+ .bg-list-item-selected {
+	 @apply bg-slate-100
+ }
+
+ .bg-dark {
+	 @apply dark:bg-gray-900
+ }
+}

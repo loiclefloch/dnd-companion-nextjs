@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import useI18n from "../modules/i18n/useI18n";
-import useTheme from "../modules/theme/useTheme";
 
 import HtmlContent from "./HtmlContent"
 import Tag from './Tag';
@@ -20,7 +19,6 @@ function Section({ title, children }) {
 
 function MonsterView({ monster }) {
   const { tr, isDefaultLang, trDefaultLang } = useI18n();
-  const theme = useTheme()
 
   const otherNames = [
     monster.otherNameLocalized && monster.otherNameLocalized.fr,
@@ -58,7 +56,7 @@ function MonsterView({ monster }) {
       <div className="flex justify-between">
         <div>
           <div className="text-xs gap-1">
-            <div className={clsx("mb-1 ml-1", theme.metaColor)}>
+            <div className="mb-1 ml-1 text-meta">
               {otherNames.join(", ")}
               <div>
                 {tr(monster.meta)}

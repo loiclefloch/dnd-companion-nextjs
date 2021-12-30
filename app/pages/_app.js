@@ -5,7 +5,7 @@ import { CharacterMenuProvider } from "../components/characterMenu/CharacterMenu
 import { ScreenAsModalProvider } from "../components/screenAsModal/screenAsModalContext";
 import { SidebarMenuProvider } from "../components/sidebarMenu/sidebarMenuContext";
 function MyApp({ Component, pageProps }) {
-  return <>
+  return <div className='dark'>
     <ModalProvider>
       <SidebarMenuProvider>
         <CharacterMenuProvider>
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
     </ModalProvider>
 
     <div id="modal-root" />
-  </>
+  </div>
 }
 
 export default MyApp

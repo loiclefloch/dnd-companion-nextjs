@@ -35,10 +35,14 @@ function CharacterMenu({ open }) {
 	const { hideCharacterMenu } = useCharacterMenu()
 	const { tr } = useI18n()
 
+	if (!character) {
+		return null
+	}
+
 	const menuItems = [
 		{
 			label: 'Personnage',
-			href: '/character',
+			href: `/character/${character.id}`,
 		},
 		{
 			label: 'Grimoire',
