@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import IconSpin from "./icons/IconSpin"
 import IconMenu from "./icons/IconMenu"
 import IconBack from "./icons/IconBack"
-import SidebarMenu from './SidebarMenu'
+import useSidebarMenu from './sidebarMenu/useSidebarMenu'
 
 function ScreenLoading() {
 	return (
@@ -14,22 +14,19 @@ function ScreenLoading() {
 }
 
 function Screen({ title, titleIcon, isLoading, rightAction, children, root, withBottomSpace }) {
-	const [sidebarOpen, setSidebarOpen] = useState(false)
+	const { showSidebarMenu } =  useSidebarMenu()
 
 	const router = useRouter()
 
 	return (
 		<div className="flex flex-col h-screen">
-			{root && (
-				<SidebarMenu open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-			)}
 			<header className='flex flex-row p-2 items-center'>
 				<div className="mr-4 ml-1">
 					{!root && (
 						<IconBack className="w-4 h-4" onClick={router.back} />
 					)}
 					{root && (
-						<IconMenu className="w-5 h-5" onClick={() => setSidebarOpen(true)} />
+						<IconMenu className="w-5 h-5" onClick={showSidebarMenu} />
 					)}
 				</div>
 				<div className='flex-1 text-lg font-semibold flex items-center'>

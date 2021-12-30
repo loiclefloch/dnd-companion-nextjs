@@ -60,6 +60,8 @@ function Monster({ monster, filters, /*onSelect*/ }) {
 					<div className={clsx("text-sm", theme.metaColor)}>
 						<div>{tr(monster.meta)}</div>
 						<div>{monster.challenge.label}</div>
+						{/* TODO: or this? */}
+						{/* <div>{monster.challenge.difficulty}</div> */}
 					</div>
 					<p className="text-sm">{tr(monster.resume)}</p>
 					{!isEmpty(filters) && <MonsterFilters monster={monster} filters={filters} />}

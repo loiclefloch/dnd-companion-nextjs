@@ -176,7 +176,7 @@ function transform(baseMonster) {
 		damageVulnerabilities: baseMonster['Damage Vulnerabilities'],
 		senses: baseMonster.Senses && { en: baseMonster.Senses },
 		reactions: baseMonster.Reactions && { en: baseMonster.Reactions },
-		languages: baseMonster.Languages && { en: baseMonster.Languages },
+		languages: baseMonster.Languages && baseMonster.Languages !== "--" && { en: baseMonster.Languages },
 		challenge: extractChallenge(baseMonster.Challenge),
 		actions: baseMonster.Actions && { en: baseMonster.Actions },
 		legendaryActions: baseMonster['Legendary Actions'] && { en: baseMonster['Legendary Actions'] },

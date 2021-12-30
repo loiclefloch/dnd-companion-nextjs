@@ -6,7 +6,7 @@ function ImageFullScreenAsModal({ alt, src, onCloseScreen }) {
 	return (
 		<ScreenAsModal title={alt} alt={alt} onCloseScreen={onCloseScreen}>
 			<div className='flex content-center items-center flex-1 h-full'>
-				<img src={src} />
+				<img src={src} className='w-full' />
 			</div>
 		</ScreenAsModal>
 	)

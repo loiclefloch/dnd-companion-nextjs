@@ -74,12 +74,12 @@ function MonsterView({ monster }) {
         </div>
         <div className="">
           <Tag
-            className="text-gray-600 bg-gray-200 flex justify-center items-center"
+            className="text-gray-600 bg-gray-200 flex justify-center items-center normal-case"
           >
             {monster.ac}
           </Tag>
           <Tag
-            className="text-gray-600 bg-gray-200 flex justify-center items-center mt-2"
+            className="text-gray-600 bg-gray-200 flex justify-center items-center mt-2 normal-case"
           >
             {monster.hp}
           </Tag>
@@ -124,13 +124,23 @@ function MonsterView({ monster }) {
             </div>
             <div className="whitespace-pre-wrap text-md">
               <p>
-                <span className="font-semibold">Languages</span> <span className="text-sm">{tr(monster.languages)}</span>
+                <span className="font-semibold">Languages</span>
+                <span> </span>
+                {monster.languages ? (
+                  <span className="text-sm">{tr(monster.languages)}</span>
+                ) : (
+                  <span>-</span>
+                )}
               </p>
               <p>
-                <span className="font-semibold">Sens</span> <span className="text-sm">{tr(monster.senses)}</span>
+                <span className="font-semibold">Sens</span>
+                <span> </span>
+                <span className="text-sm">{tr(monster.senses)}</span>
               </p>
               <p>
-                <span className="font-semibold">Challenge</span> <span className="text-sm">{tr(monster.challenge.label)}</span>
+                <span className="font-semibold">Challenge</span>
+                <span> </span>
+                <span className="text-sm">{tr(monster.challenge.label)}</span>
               </p>
               {/* TODO: Proficiency Bonus +2 */}
             </div>
