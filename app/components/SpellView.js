@@ -4,6 +4,7 @@ import useI18n from "../modules/i18n/useI18n";
 import Tag from './Tag';
 import SpellRunner from "./SpellRunner";
 import SpellDetail from "./SpellDetail";
+import IconMagicSchool from "../components/icons/IconMagicSchool"
 
 function createClassTag(clss) {
   return {
@@ -44,11 +45,21 @@ function SpellView({ spell }) {
         <div>
           <div className="gap-1 text-xs">
             <div className="mb-1 ml-1 text-meta">{otherNames.join(", ")}</div>
-            <Tag className="mt-1 bg-slate-200 text-meta">{tr(spell.school.nameLocalized)}</Tag>
+            <Tag 
+              small 
+              className="mt-1 bg-slate-200 text-meta"
+            >
+              <IconMagicSchool
+                school={spell.school.name}
+                className="w-5 h-5 mr-1 text-slate-700"
+              />
+              {tr(spell.school.nameLocalized)}
+            </Tag>
           </div>
         </div>
         <div className="">
           <Tag
+            small
             className="flex items-center justify-center text-gray-600 bg-gray-200"
           >
             {spell.level === 0 ? "cantrip" : `Niveau ${spell.level}`}

@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import map from "lodash/map";
 
 import SectionWithToggle from "./SectionWithToggle";
@@ -5,11 +6,23 @@ function SpellDetailLevelTable({ title, data }) {
 
 	return (
 		<SectionWithToggle title={title} className="mt-4">
-			<div className="flex flex-col pt-4">
-				{map(data, (value, level) => !value ? null : (
-					<div key={level} className="flex items-center border-b border-solid border-slate-200 px-4 py-1 last:border-0">
-						<div className="text-sm w-6">{level}</div>
-						<div className="pl-4">{value}</div>
+			<div className="grid grid-cols-3 pt-4 place-items-stretch">
+				{/* trick to add 21 level, to have a multiple of 3 (grid-cols-3) */}
+				{map({ ...data, 21: '_'}, (value, level) => !value ? null : (
+					<div 
+						key={level} 
+						className={clsx("flex flex-row items-center p-3 text-sm border-b border-r border-solid border-slate-200", {
+							"border-t": level <= 3,
+							"border-l": level % 3 === 1,
+							
+						})}
+					>
+						{level != 21 && (
+							<>
+								<div className="w-6 text-sm">{level}</div>
+								<div className="pl-4">{value}</div>
+							</>
+						)}
 					</div>
 				))}
 			</div>

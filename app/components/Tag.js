@@ -16,7 +16,9 @@ function Tag({ label, children, rounded = false, className, small = false }) {
         className
       )}
     >
-      {children || label}
+      <div className='flex items-center'>
+        {children || label}
+      </div>
     </span>
   );
 }

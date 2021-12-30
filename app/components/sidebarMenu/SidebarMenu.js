@@ -53,13 +53,13 @@ function SidebarMenu({ show, onClose }) {
 					"-translate-x-full": !show,
 				})}
 			>
-				<div className="bg-gray-700 h-screen dark:bg-gray-700 z-50 w-full">
+				<div className="z-50 w-full h-screen bg-gray-700 dark:bg-gray-700">
 
 					<div className="flex">
-						<div className="items-center justify-center pt-6 flex-1">
+						<div className="items-center justify-center flex-1 pt-6">
 							{/* ICON */}
 						</div>
-						<div className="pt-2 px-2" onClick={onClose}>
+						<div className="px-2 pt-2" onClick={onClose}>
 							<IconX 
 								className={clsx("w-6 h-6 text-white",
 									"transform ease-in-out transition-all", {
@@ -70,14 +70,14 @@ function SidebarMenu({ show, onClose }) {
 						</div>
 					</div>
 
-					<nav className="flex flex-col pt-6 h-full">
+					<nav className="flex flex-col h-full pt-6">
 						<div>
 							<Item href="/" label="Dashboard" icon={<IconHome className="w-6 h-6" />} />
 							<Item href="/characters" label="Characters" icon={<IconUsers className="w-6 h-6" />} />
 							<Item href="/spells" label="Sorts" icon={<IconBookOpen className="w-6 h-6" />} />
-							<Item href="/monsters" label="Monsters" icon={<IconBookOpen className="w-6 h-6" />} />
+							<Item href="/monsters" label="Monstres" icon={<IconBookOpen className="w-6 h-6" />} />
 						</div>
-						<div className="my-4 pb-8 w-full flex flex-col flex-1 flex-end justify-end">
+						<div className="flex flex-col justify-end flex-1 w-full pb-8 my-4 flex-end">
 							<Item href="/support" label="Support" icon={<IconQuestionMark className="w-6 h-6" />} />
 							<Item href="/settings" label="Settings" icon={<IconGear className="w-6 h-6" />} />
 						</div>

@@ -41,16 +41,30 @@ function Spell({ spell, filters, /*onSelect*/ }) {
         className={`cursor-pointer my-2 p-4 pt-1 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
       >
         {spell.school && (
-          <IconMagicSchool 
-            school={spell.school.name} 
-            className="absolute right-0 w-8 h-8 mr-2 text-slate-700"
+          <div 
+            className="absolute right-0 pr-2 mt-1"
             style={{
               marginTop: -6
             }}
-          />
+          >
+          {/* <Tag small className="mr-2 bg-slate-200 text-meta"> */}
+            <IconMagicSchool
+              school={spell.school.name}
+              className="h-6 pt-1 w-7 text-slate-700"
+          
+            />
+          {/* </Tag> */}
+          </div>
         )}
         <div>
-          <span className="font-semibold">{tr(spell.nameLocalized)}</span>
+          <span className="flex items-center font-semibold">       
+            {/* <IconMagicSchool
+              school={spell.school.name}
+              className="h-6 w-7 text-slate-700"
+
+            /> */}
+            {tr(spell.nameLocalized)}
+          </span>
           <div className="text-sm text-meta">
             <span>{spell.type}</span>
           </div>
