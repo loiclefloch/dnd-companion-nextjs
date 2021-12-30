@@ -12,13 +12,17 @@ import Screen from "../components/Screen";
 import IconFilter from "../components/icons/IconFilter";
 import Tag from "../components/Tag"
 import IconBookOpen from "../components/icons/IconBookOpen"
+import IconMagicSchool from "../components/icons/IconMagicSchool"
 
 function SpellFilters({ spell, filters }) {
   // TODO: hide if context character
 
   return <div className="flex flex-wrap gap-1 mt-2">
     {getSpellFiltersMatchingData(spell, filters).map(data => (
-      <Tag key={`${data.label}-${data.value}`} className="pt-1 pb-1 pl-1 pr-1 text-xs text-gray-600 border border-solid border-slate-400" color="slate">
+      <Tag 
+        key={`${data.label}-${data.value}`} className="pt-1 pb-1 pl-1 pr-1 text-xs text-gray-600 border border-solid border-slate-400"
+        color="slate"
+      >
         {data.label && <span className="text-xs lowercase">{data.label}: </span>}{data.value}
       </Tag>
     ))}
@@ -34,14 +38,12 @@ function Spell({ spell, filters, /*onSelect*/ }) {
     <Link href={`/spells/${spell.index}`}>
       <div
         // onClick={onSelect}
-        className={`cursor-pointer my-2 p-4 pt-1 border-b border-slate-100 dark:border-gray-50 border-solid 
-        relative`}
+        className={`cursor-pointer my-2 p-4 pt-1 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
       >
-        {spell.school && spell.school?.imageUrl && (
-          <img 
-            src={spell.school?.imageUrl} 
-            alt={tr(spell.school.nameLocalized)} 
-            className="absolute right-0 w-8 h-8 mr-2 grayscale"
+        {spell.school && (
+          <IconMagicSchool 
+            school={spell.school.name} 
+            className="absolute right-0 w-8 h-8 mr-2 text-slate-700"
             style={{
               marginTop: -6
             }}
