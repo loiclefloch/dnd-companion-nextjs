@@ -2,9 +2,9 @@ import { useContext } from "react"
 import { ScreenAsModalContext } from './screenAsModalContext'
 
 function useScreenAsModal() {
-	let { showScreenAsModal, hideScreenAsModal } = useContext(ScreenAsModalContext);
+	let { show, showScreenAsModal, hideScreenAsModal } = useContext(ScreenAsModalContext);
 
-	return { showScreenAsModal, hideScreenAsModal }
+	return { show, showScreenAsModal, hideScreenAsModal }
 };
 
 export default useScreenAsModal

@@ -5,6 +5,7 @@ import IconBack from "./icons/IconBack"
 import useCharacterMenu from "./characterMenu/useCharacterMenu";
 import useSidebarMenu from "./sidebarMenu/useSidebarMenu";
 import IconMenu from "./icons/IconMenu"
+import useScreenAsModal from './screenAsModal/useScreenAsModal';
 
 function ScreenLoading() {
 	return (
@@ -16,16 +17,17 @@ function ScreenLoading() {
 
 function CharacterMenuButton() {
 	const { show: sidebarMenuShown } =  useSidebarMenu()
+	const { show: screenAsModalShown } = useScreenAsModal()
   const { show: characterMenuShown, showCharacterMenu } = useCharacterMenu()
 
-  const showButton = characterMenuShown || sidebarMenuShown
+  const hideButton = characterMenuShown || sidebarMenuShown || screenAsModalShown
 
   // do not display if character menu is open
   return (
     <button 
       className={clsx("fixed z-40 bottom-0 right-0 flex justify-center w-10 p-2 bg-slate-800 text-white uppercase", {
-        "opacity-100 duration-500": !showButton,
-        "opacity-0 duration-500": showButton,
+        "opacity-100 duration-500": !hideButton,
+        "opacity-0 duration-500": hideButton,
       })}
       onClick={showCharacterMenu}
     >
@@ -62,7 +64,7 @@ function Screen({
 					)}
 				</div>
 				{!fullScreen && (
-					<div className='flex items-center flex-1 text-lg font-semibold'>
+					<div className='flex items-center flex-1 text-lg font-semibold select-none'>
 						{titleIcon && <span className="mr-2">{titleIcon}</span>}
 						<span>{title}</span>
 					</div>

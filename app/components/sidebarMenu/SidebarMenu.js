@@ -11,7 +11,7 @@ import IconX from "../icons/IconX"
 
 function Item({ href = "", icon, label }) {
 	const router = useRouter()
-	const selected = href === "/" ? router.route === "/" : router.route.startsWith(href)
+	const selected = href === "/" ? router.asPath === "/" : router.asPath.startsWith(href)
 
 	return (
 		<Link href={href}>

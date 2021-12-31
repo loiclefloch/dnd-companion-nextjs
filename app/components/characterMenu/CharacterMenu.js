@@ -11,9 +11,9 @@ import IconUsers from "../icons/IconUsers"
 import IconD8 from "../icons/IconD8"
 import useDiceHistory from "../useDiceHistory"
 
-function Item({ label, href, onClick }) {
+function Item({ label, href, route, onClick }) {
 	const router = useRouter()
-	const selected = router.route === href
+	const selected = router.asPath === href
 
 	return (
 		<Link href={href}>
@@ -119,7 +119,14 @@ function CharacterMenu({ open }) {
 				</div>
 			</div>
 			<div className="flex flex-col-reverse items-center flex-1 mb-16">
-				{menuItems.reverse().map((item, index) => <Item key={index} label={item.label} href={item.href} onClick={hideCharacterMenu} />)}
+				{menuItems.reverse().map((item, index) => 
+					<Item 
+						key={index}
+						label={item.label}
+						href={item.href}
+						onClick={hideCharacterMenu} 
+					/>
+				)}
 			</div>
 			<ButtonBottomScreen
 				variant="cta"
