@@ -104,6 +104,7 @@ const Modal = () => {
 			throw new Error(`type not handled ${modalConfiguration.type}`)
 		}
 
+		// return createElement(modalView, {modalConfiguration, hideModal })
 		return ReactDOM.createPortal(
 			createElement(modalView, {modalConfiguration, hideModal }),
 			document.querySelector("#modal-root")

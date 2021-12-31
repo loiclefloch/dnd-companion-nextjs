@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import IconDice20Simple from "./icons/IconDice20Simple"
 import Button from "./Button"
+import IconRefresh from "./icons/IconRefresh";
+import IconD8 from "./icons/IconD8";
 
 function DiceModal({
 	label,
@@ -8,8 +10,10 @@ function DiceModal({
 	context,
 	onReroll,
 	onValidate,
+	showDiceHistoryScreen, // must be given as props, since we are on a model, we cannot access the ScreenModal context
 	hideModal
 }) {
+
 	return (
 		<div className="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 			<div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
@@ -73,7 +77,7 @@ function DiceModal({
 
 								<div className="mt-3 text-sm text-meta">
 									<div>
-										{roll.diceRollResult.rolls.map(roll => roll.toString()).join(', ')}
+										{roll.diceRollResult.rolls.map(roll => roll.label).join(', ')}
 									</div>
 									<div className="mt-1">
 										{roll.diceFormatted} {roll.successCheckLabel}
@@ -87,16 +91,26 @@ function DiceModal({
 					</div>
 					<div className="px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">
 						<Button
-
-							className="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+							className="inline-flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
 							variant="cta"
 							onClick={() => {
 								hideModal()
 								onReroll && onReroll()
 							}}
 						>
-							Relancer
+							<IconRefresh className="w-4 h-4 mr-2 text-white" /> Relancer
 						</Button>
+					
+						<Button
+							className="inline-flex items-center justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+							onClick={() => {
+								hideModal()
+								showDiceHistoryScreen()
+							}}
+						>
+							<IconD8 className="w-5 h-5 mr-2 text-gray-700" /> Historique
+						</Button>
+
 						<Button className="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
 							onClick={() => {
 								hideModal()

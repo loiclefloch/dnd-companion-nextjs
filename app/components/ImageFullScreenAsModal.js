@@ -4,9 +4,9 @@ import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 
 function ImageFullScreenAsModal({ alt, src, onCloseScreen }) {
 	return (
-		<ScreenAsModal title={alt} alt={alt} onCloseScreen={onCloseScreen}>
-			<div className='flex content-center items-center flex-1 h-full'>
-				<img src={src} className='w-full' />
+		<ScreenAsModal title={alt} onCloseScreen={onCloseScreen}>
+			<div className='flex items-center content-center flex-1 h-full'>
+				<img src={src} className='w-full' alt={alt} />
 			</div>
 		</ScreenAsModal>
 	)

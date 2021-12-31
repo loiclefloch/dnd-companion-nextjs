@@ -5,8 +5,8 @@ import useDiceHistory from './useDiceHistory';
 
 function useDice() {
 	const { addDice } = useDiceHistory()
-
-	function rollStat(label, value, successValue = null) {
+	function rollStat(label, value, options = {}) {
+		const { successValue = null, isReroll = false } = options
 		const modifier = valueToModifier(value)
 
 		const dice = `1d20`
@@ -20,6 +20,7 @@ function useDice() {
 		const roll = {
 			dice,
 			diceFormatted: `1d20${modifier >= 0 ? '+' : '-'}${Math.abs(modifier)}`,
+			isReroll,
 			value,
 			modifier,
 			modifierLabel: valueToModifierLabel(value),
@@ -33,7 +34,12 @@ function useDice() {
 			isCritic: diceResult === 20 || diceResult === 1,
 			isCriticSuccess: diceResult === 20,
 			isCriticFailure: diceResult === 1,
-			diceRollResult,
+			diceRollResult: { // transform class object to json, to have a proper JSON history
+				...diceRollResult.toJSON(), rolls: diceRollResult.rolls.map(roll => ({
+					label: roll.toString(),
+					...roll.toJSON()
+				}))
+			},
 		}
 
 		addDice({
@@ -41,8 +47,8 @@ function useDice() {
 			roll,
 			onValidate: () => { },
 			onReroll: () => {
-				rollStat(label, value)
-			}
+				rollStat(label, value, { ...options, isReroll: true })
+			},
 		})
 	}
 

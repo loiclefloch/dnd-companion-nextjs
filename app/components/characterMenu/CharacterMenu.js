@@ -8,6 +8,8 @@ import useCharacterMenu from "./useCharacterMenu"
 import ButtonBottomScreen from "../ButtonBottomScreen"
 import IconClass from "../icons/IconClass"
 import IconUsers from "../icons/IconUsers"
+import IconD8 from "../icons/IconD8"
+import useDiceHistory from "../useDiceHistory"
 
 function Item({ label, href, onClick }) {
 	const router = useRouter()
@@ -33,6 +35,7 @@ function Item({ label, href, onClick }) {
 function CharacterMenu({ open }) {
 	const character = useCurrentCharacter()
 	const { hideCharacterMenu } = useCharacterMenu()
+	const { showDiceHistoryScreen } = useDiceHistory()
 	const { tr } = useI18n()
 
 	if (!character) {
@@ -80,8 +83,18 @@ function CharacterMenu({ open }) {
 				"translate-y-full": !open,
 			})}
 		>
+			<button 
+				type="button"
+				onClick={() => {
+					showDiceHistoryScreen()
+					hideCharacterMenu()
+				}}
+				className="absolute left-0 px-2 pt-2"
+			>
+				<IconD8 className="w-8 h-8 text-gray-700" />
+			</button>
 			<Link href="/characters">
-				<div className="absolute right-0 pt-2 pr-2">
+				<div className="absolute right-0 px-2 pt-2">
 					<IconUsers className="w-6 h-6 text-gray-700" />
 				</div>
 			</Link>

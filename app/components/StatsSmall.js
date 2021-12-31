@@ -1,5 +1,5 @@
 import { useStatsDetailsScreenAsModal } from "./StatsDetailsScreenAsModal"
-import { valueToModifier, valueToModifierLabel } from "../modules/stats"
+import { valueToModifierLabel } from "../modules/stats"
 import useDice from "./useDice";
 import useI18n from "../modules/i18n/useI18n";
 
@@ -27,16 +27,17 @@ function Stat({ label, shortcut, value }) {
 }
 
 function StatsSmall({ stats, withDetail }) {
+	const { tr } = useI18n()
 	const { showStatsDetailsScreenModal } = useStatsDetailsScreenAsModal()
 	return (
 		<>
 			<div className="flex justify-between w-full">
-				<Stat shortcut="STR" value={stats.STR} />
-				<Stat shortcut="DEX" value={stats.DEX} />
-				<Stat shortcut="CON" value={stats.CON} />
-				<Stat shortcut="INT" value={stats.INT} />
-				<Stat shortcut="WIS" value={stats.WIS} />
-				<Stat shortcut="CHA" value={stats.CHA} />
+				<Stat label={tr("STR")} shortcut="STR" value={stats.STR} />
+				<Stat label={tr("DEX")} shortcut="DEX" value={stats.DEX} />
+				<Stat label={tr("CON")} shortcut="CON" value={stats.CON} />
+				<Stat label={tr("INT")} shortcut="INT" value={stats.INT} />
+				<Stat label={tr("WIS")} shortcut="WIS" value={stats.WIS} />
+				<Stat label={tr("CHA")} shortcut="CHA" value={stats.CHA} />
 			</div>
 			{withDetail && (
 				<span 

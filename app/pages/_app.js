@@ -11,11 +11,11 @@ function MyApp({ Component, pageProps }) {
     >
       <ModalProvider>
         <SidebarMenuProvider>
-          <CharacterMenuProvider>
-            <ScreenAsModalProvider>
+          <ScreenAsModalProvider>
+            <CharacterMenuProvider>
               <Component {...pageProps} />
-            </ScreenAsModalProvider>
-          </CharacterMenuProvider>
+            </CharacterMenuProvider>
+          </ScreenAsModalProvider>
         </SidebarMenuProvider>
       </ModalProvider>
 
