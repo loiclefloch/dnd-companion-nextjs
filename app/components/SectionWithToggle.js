@@ -22,7 +22,7 @@ function SectionWithToggle({ title, className, children }) {
 				</span>
 			</div>
 			{open && (
-				<div className="pb-4 bg-slate-50 bg-dark ">
+				<div className="bg-slate-50 bg-dark">
 					{children}
 				</div>
 			)}

@@ -21,7 +21,14 @@ function useModal() {
 		})
 	}
 
-	return { showInfoModal, showValidationModal, showModal, hideModal }
+	function showCustomModal(view, props) {
+		showModal({
+			type: 'CUSTOM',
+			view,
+			...props
+		})
+	}
+	return { showInfoModal, showValidationModal, showModal, hideModal, showCustomModal  }
 };
 
 export default useModal

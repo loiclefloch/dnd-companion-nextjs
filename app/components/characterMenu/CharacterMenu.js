@@ -74,7 +74,7 @@ function CharacterMenu({ open }) {
 
 	return (
 		<div
-			className={clsx("flex flex-col fixed z-50 top-0 bottom-0 left-0 right-0 bg-white shadow-inner",
+			className={clsx("flex flex-col fixed z-50 top-0 bottom-0 left-0 right-0 bg-white shadow-inner bg-app",
 				"transform ease-in-out transition-all duration-300", {
 				"-translate-y-0": open,
 				"translate-y-full": !open,
@@ -87,11 +87,11 @@ function CharacterMenu({ open }) {
 			</Link>
 			<div className="mt-6">
 				<div className="flex justify-center">
-					<div className="p-3 border border-solid border-gray-500 rounded-full">
+					<div className="p-3 border border-gray-500 border-solid rounded-full">
 						<IconClass clss={character.classes[0].index} className="w-12 h-12 fill-slate-600" />
 					</div>
 				</div>
-				<h1 className="text-2xl text-center mt-4">
+				<h1 className="mt-4 text-2xl text-center">
 					{character.name}
 				</h1>
 				<div className="flex flex-col items-center justify-center px-10 mt-1">
@@ -99,13 +99,13 @@ function CharacterMenu({ open }) {
 						{character.classes.map(clss => tr(clss.name)).join(" / ")}
 					</div>
 					<div className="mt-4">
-						<div className="flex justify-center items-center w-9 h-9 rounded-full border-2 border-solid text-gray-700 border-slate-600 text-xl">
+						<div className="flex items-center justify-center text-xl text-gray-700 border-2 border-solid rounded-full w-9 h-9 border-slate-600">
 							{character.level}
 						</div>
 					</div>
 				</div>
 			</div>
-			<div className="flex flex-1 flex-col-reverse items-center mb-16">
+			<div className="flex flex-col-reverse items-center flex-1 mb-16">
 				{menuItems.reverse().map((item, index) => <Item key={index} label={item.label} href={item.href} onClick={hideCharacterMenu} />)}
 			</div>
 			<ButtonBottomScreen

@@ -1,4 +1,8 @@
 import classes from '../../../../database/data/classes.json'
+import races from '../../../../database/data/races.json'
+import subraces from '../../../../database/data/subraces.json'
+import { format as formatSubrace } from "../useSubrace"
+import { format as formatClass } from "../useClass"
 
 export default [
 	{
@@ -13,7 +17,7 @@ export default [
 		maxSpellLevel: 1,
 
 		classes: [
-			classes.find(clss => clss.index === 'druid')
+			formatClass(classes.find(clss => clss.index === 'druid'))
 		],
 
 		name: 'Ylvir',
@@ -37,6 +41,8 @@ export default [
 			},
 
 			isSubRace: true,
+
+			...formatSubrace(subraces.find(subrace => subrace.index === 'high-elf'))
 		},
 
 
@@ -46,7 +52,7 @@ export default [
 			CON: 14,
 			INT: 10,
 			WIS: 16,
-			CHA: 12,
+			CHA: 2,
 		},
 
 		statsDetail: [

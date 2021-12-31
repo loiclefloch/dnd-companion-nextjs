@@ -15,4 +15,17 @@
  .bg-dark {
 	 @apply dark:bg-gray-900
  }
+
+ .bg-app {
+   background: #f9f9f9 url("/background_texture.png") repeat;
+ }
+
+ .text-success {
+	 @apply text-green-500
+ }
+
+ .text-failure {
+	@apply text-red-500
+ }
+
 }

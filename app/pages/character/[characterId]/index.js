@@ -6,6 +6,7 @@ import Screen from "../../../components/Screen"
 
 function Character() {
 	const router = useRouter()
+	const { tr } = useI18n()
 	const characterResponse = useCharacter(router.query.characterId)
 
 	const character = characterResponse.data
@@ -25,8 +26,11 @@ function Character() {
 		>
 			{character && (
 				<>
+					<div className="px-4">
+						{tr(character.race.nameLocalized)} - {character.classes.map(clss => tr(clss.nameLocalized)).join(', ')}
+					</div>
 					<div className="px-4 my-4">
-					<StatsSmall stats={character?.stats} />
+						<StatsSmall stats={character?.stats} withDetail />
 					</div>
 				</>
 			)}

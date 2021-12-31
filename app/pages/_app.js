@@ -5,19 +5,23 @@ import { CharacterMenuProvider } from "../components/characterMenu/CharacterMenu
 import { ScreenAsModalProvider } from "../components/screenAsModal/screenAsModalContext";
 import { SidebarMenuProvider } from "../components/sidebarMenu/sidebarMenuContext";
 function MyApp({ Component, pageProps }) {
-  return <div className='//dark'>
-    <ModalProvider>
-      <SidebarMenuProvider>
-        <CharacterMenuProvider>
-          <ScreenAsModalProvider>
-            <Component {...pageProps} />
-          </ScreenAsModalProvider>
-        </CharacterMenuProvider>
-      </SidebarMenuProvider>
-    </ModalProvider>
+  return (
+    <div 
+      className='//dark bg-app'
+    >
+      <ModalProvider>
+        <SidebarMenuProvider>
+          <CharacterMenuProvider>
+            <ScreenAsModalProvider>
+              <Component {...pageProps} />
+            </ScreenAsModalProvider>
+          </CharacterMenuProvider>
+        </SidebarMenuProvider>
+      </ModalProvider>
 
-    <div id="modal-root" />
-  </div>
+      <div id="modal-root" />
+    </div>
+  )
 }
 
 export default MyApp

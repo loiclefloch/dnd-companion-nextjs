@@ -45,22 +45,22 @@ function SpellView({ spell }) {
         <div>
           <div className="gap-1 text-xs">
             <div className="mb-1 ml-1 text-meta">{otherNames.join(", ")}</div>
-            <Tag 
-              small 
-              className="mt-1 bg-slate-200 text-meta"
-            >
-              <IconMagicSchool
-                school={spell.school.name}
-                className="w-5 h-5 mr-1 text-slate-700"
-              />
-              {tr(spell.school.nameLocalized)}
-            </Tag>
           </div>
         </div>
         <div className="">
+          <Tag 
+            small
+            className="mt-1 bg-slate-200 text-meta"
+          >
+            <IconMagicSchool
+              school={spell.school.name}
+              className="w-5 h-5 mr-1 text-slate-700"
+            />
+            {tr(spell.school.nameLocalized)}
+          </Tag>
           <Tag
             small
-            className="flex items-center justify-center text-gray-600 bg-gray-200"
+            className="flex items-center justify-center mt-1 text-gray-600 bg-gray-200"
           >
             {spell.level === 0 ? "cantrip" : `Niveau ${spell.level}`}
           </Tag>
@@ -74,7 +74,7 @@ function SpellView({ spell }) {
           )}
         </div>
       </div>
-    
+
       <div className="flex-1">
         <div>
           <div className="my-3 text-sm">
@@ -108,7 +108,7 @@ function SpellView({ spell }) {
             <div className="mt-4">
               <div className="font-semibold width-full border-b border-solid border-gray-600 border-opacity-10 mb-2 pb-0.5">
                 At Higher Levels:
-              </div> 
+              </div>
               <div>
                 {tr(spell.higherLevel)}
               </div>

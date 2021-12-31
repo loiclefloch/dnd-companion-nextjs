@@ -12,12 +12,17 @@ export default function Screen404() {
 			root
 		>
 			<div 
-				className="h-full w-full bg-slate-900"
+				className="w-full h-full bg-slate-900"
 			>
-				<div style={{ backgroundImage: `url("${diceBackground.src}")` }} className="bg-cover bg-center h-full w-full" />
-				<h4 className="absolute text-2xl top-1/4 text-white text-center w-full font-semibold">
-					404
-				</h4>
+				<div style={{ backgroundImage: `url("${diceBackground.src}")` }} className="w-full h-full bg-center bg-cover" />
+				<div className="absolute flex flex-col justify-center w-full top-1/4">
+					<h4 className="w-full text-2xl font-semibold text-center text-white">
+						404
+					</h4>
+					<h5 className="mt-2 font-semibold text-center text-white">
+						Le jet d'Investigation a échoué
+					</h5>
+				</div>
 			</div>
 		</Screen>
 	)
