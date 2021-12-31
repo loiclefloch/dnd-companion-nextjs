@@ -16,6 +16,7 @@ export const FilterType = {
 const filtersMethods = {
 	[FilterType.CLASS]: (value, spell) => spell.classes.find(clss => value.includes(clss.index)),
 	[FilterType.SPELL_LEVEL]: (value, spell) => value.includes(spell.level),
+	[FilterType.MAGIC_SCHOOL]: (value, spell) => value.includes(spell.school.index),
 	// TODO:
 	// [FilterType.SUBCLASS]: (value, spell) => false
 }
@@ -58,6 +59,16 @@ export function getSpellFiltersMatchingData(spell, filters) {
       value: spell.level === 0 ? 'Cantrip' : `lvl ${spell.level}`
     })
   }
+
+	const magicSchoolFilter = filters.find(filter => filter.type === FilterType.MAGIC_SCHOOL)
+  if (magicSchoolFilter) {
+    data.push({
+      filter: magicSchoolFilter,
+      label: '',
+      value: spell.school.name
+    })
+  }
+
 
 	return data
 }

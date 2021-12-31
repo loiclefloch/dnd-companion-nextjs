@@ -7,8 +7,10 @@ import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import Button from "./Button"
 import BottomScreen from "./BottomScreen"
 import useClasses from "../modules/api/useClasses"
+import useMagicSchools from "../modules/api/useMagicSchools"
 import { deleteObjectOnArray, toggleValueOnArray, updateObjectOrCreateOnArray } from '../modules/utils/array';
 import IconX from './icons/IconX';
+import IconMagicSchool from './icons/IconMagicSchool';
 
 const MAX_SPELL_LEVEL = 9 // maximum spell level
 
@@ -146,16 +148,36 @@ function FilterSpellLevel({ filters, onChange }) {
 	)
 }
 
-const TEST_FILTERS = [
-	{
-		type: FilterType.CLASS,
-		value: ['druid']
-	},
-	{
-		type: FilterType.SPELL_LEVEL,
-		value: [0, 1]
-	}
-]
+function FilterMagicSchool({ filters, onChange }) {
+	const { tr } = useI18n()
+	const magicSchoolsResponse = useMagicSchools()
+
+	return (
+		<Section
+			title="Magic schools"
+			isLoading={magicSchoolsResponse.isLoading}
+			filters={filters}
+			type={FilterType.MAGIC_SCHOOL}
+			onChange={onChange}
+		>
+			<ListSelector
+				type={FilterType.MAGIC_SCHOOL}
+				filters={filters}
+				list={magicSchoolsResponse.data?.map(magicSchool => ({
+					index: magicSchool.index,
+					label: (
+						<span className='flex items-center'>
+							<IconMagicSchool school={magicSchool.index} className="h-6 mr-2 2-6" />
+							{tr(magicSchool.nameLocalized)}
+						</span>
+					),
+					value: magicSchool.index,
+				}))}
+				onChange={onChange}
+			/>
+		</Section>
+	)
+}
 
 function SpellsListFilterScreenAsModal({ onFilter, onReset, filters: defaultFilters, onCloseScreen }) {
 	const [filters, setFilters] = useState(defaultFilters || [])
@@ -165,7 +187,9 @@ function SpellsListFilterScreenAsModal({ onFilter, onReset, filters: defaultFilt
 		<ScreenAsModal title={`Filtres`} onCloseScreen={onCloseScreen}>
 			<>
 				<FilterClasses filters={filters} onChange={setFilters} />
-				<FilterSpellLevel filters={filters} onChange={setFilters} />
+				<FilterSpellLevel filters={filters} onChange={setFilters} />	
+				<FilterMagicSchool filters={filters} onChange={setFilters} />
+
 
 				{/* <div>Sub class</div>
 				<div>School</div>
