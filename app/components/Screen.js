@@ -8,8 +8,8 @@ import IconMenu from "./icons/IconMenu"
 
 function ScreenLoading() {
 	return (
-		<div className="flex w-full h-full justify-center">
-			<IconSpin className="w-12 h-12 text-slate-400 absolute inset-y-1/3" />
+		<div className="flex justify-center w-full h-full">
+			<IconSpin className="absolute w-12 h-12 text-slate-400 inset-y-1/3" />
 		</div>
 	)
 }
@@ -42,7 +42,7 @@ function Screen({
 	children, 
 	root, 
 	fullScreen, 
-	withBottomSpace, 
+	withBottomSpace = false, 
 	iconClassName, 
 	withCharacterMenu 
 }) {
@@ -53,7 +53,7 @@ function Screen({
 	return (
 		<div className="flex flex-col h-screen bg-dark dark:text-white">
 			<header className={clsx('flex flex-row p-2 items-center', { "absolute z-40": fullScreen, "hidden": /* TRICK */fullScreen && sidebarMenuShown })}>
-				<div className="mr-4 ml-1">
+				<div className="ml-1 mr-4">
 					{!root && (
 						<IconBack className={clsx("w-4 h-4", iconClassName)} onClick={router.back} />
 					)}
@@ -62,7 +62,7 @@ function Screen({
 					)}
 				</div>
 				{!fullScreen && (
-					<div className='flex-1 text-lg font-semibold flex items-center'>
+					<div className='flex items-center flex-1 text-lg font-semibold'>
 						{titleIcon && <span className="mr-2">{titleIcon}</span>}
 						<span>{title}</span>
 					</div>
@@ -75,9 +75,14 @@ function Screen({
 					? <ScreenLoading />
 					: (
 						<div
-							className={clsx('flex-1 w-full h-full', {
-								'pb-12': withBottomSpace
-							})}>
+							className={clsx(
+								'flex-1 w-full',
+								// "h-full",
+								{
+									'pb-12': withBottomSpace
+								}
+							)}
+						>
 							{children}
 						</div>
 					)}

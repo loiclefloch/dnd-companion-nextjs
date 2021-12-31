@@ -1,18 +1,18 @@
 import { useEffect } from "react";
-import useContextCharacter from "../modules/character/useContextCharacter"
 import Link from 'next/link'
 import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
-import { getSpellFiltersMatchingData, buildSpellFiltersForCharacter } from "../modules/spells/spellsFilter"
-import { sortSpells } from "../modules/spells/spellsSorter"
-import useI18n from "../modules/i18n/useI18n";
-import useSpells from "../modules/api/useSpells";
-import { useSpellsListFilterScreenAsModal } from "../components/SpellsListFilterScreenAsModal"
-import Screen from "../components/Screen";
-import IconFilter from "../components/icons/IconFilter";
-import Tag from "../components/Tag"
-import IconBookOpen from "../components/icons/IconBookOpen"
-import IconMagicSchool from "../components/icons/IconMagicSchool"
+import { getSpellFiltersMatchingData, buildSpellFiltersForCharacter } from "../../modules/spells/spellsFilter"
+import useContextCharacter from "../../modules/character/useContextCharacter"
+import { sortSpells } from "../../modules/spells/spellsSorter"
+import useI18n from "../../modules/i18n/useI18n";
+import useSpells from "../../modules/api/useSpells";
+import { useSpellsListFilterScreenAsModal } from "../../components/SpellsListFilterScreenAsModal"
+import Screen from "../../components/Screen";
+import IconFilter from "../../components/icons/IconFilter";
+import Tag from "../../components/Tag"
+import IconBookOpen from "../../components/icons/IconBookOpen"
+import IconMagicSchool from "../../components/icons/IconMagicSchool"
 
 function SpellFilters({ spell, filters }) {
   // TODO: hide if context character
@@ -107,6 +107,7 @@ function Spells() {
       titleIcon={<IconBookOpen className="w-6 h-6" />}
       root
       withCharacterMenu
+      withBottomSpace
       isLoading={spellsResponse.isLoading}
       rightAction={
         <button onClick={showSpellsListFilterScreen}>
