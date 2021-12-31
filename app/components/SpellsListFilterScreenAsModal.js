@@ -19,7 +19,7 @@ function Section({ title, isLoading, children, filters, type, onChange }) {
 	const filter = filters.find(f => f.type === type)
 
 	return <div className='px-2 mb-2'>
-		<div className='flex bg-slate-800 text-white pl-2 py-1'>
+		<div className='flex py-1 pl-2 text-white bg-slate-800'>
 			<h4
 				className="flex-1"
 				onClick={() => setOpen(!open)}
@@ -41,7 +41,7 @@ function Section({ title, isLoading, children, filters, type, onChange }) {
 			</div>
 		)}
 		{!open && filter && (
-			<div className="mb-2 pl-2 mt-2 text-xs text-slate-600">
+			<div className="pl-2 mt-2 mb-2 text-xs text-slate-600">
 				{Array.isArray(filter.value) && filter.value.map(v => {
 					if (v === 0 && type === FilterType.SPELL_LEVEL) {
 						return tr('cantrip')
@@ -179,6 +179,7 @@ function SpellsListFilterScreenAsModal({ onFilter, onReset, filters: defaultFilt
 			<div>
 				<BottomScreen>
 					<Button
+						size="big"
 						variant='outlined'
 						onClick={() => {
 							onReset()
@@ -188,6 +189,7 @@ function SpellsListFilterScreenAsModal({ onFilter, onReset, filters: defaultFilt
 						Reset
 					</Button>
 					<Button
+						size="big"
 						variant='cta'
 						onClick={() => {
 							onFilter(filters)

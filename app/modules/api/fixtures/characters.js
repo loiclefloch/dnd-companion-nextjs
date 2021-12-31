@@ -103,11 +103,11 @@ export default [
 		},
 
 		currencies: {
-			cp: 0,
-			sp: 0,
-			gp: 0,
-			ep: 0,
-			pp: 0
+			cp: 3578,
+			sp: 1232,
+			gp: 300,
+			ep: 3,
+			pp: 1
 		},
 
 		spells: {

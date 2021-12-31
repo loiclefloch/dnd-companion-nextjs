@@ -10,7 +10,7 @@ function DiceHistoryRow({ diceHistory }) {
 	return (
 		<div className="flex px-4 pt-2 mt-3 sm:mt-0 sm:ml-4 sm:text-left">
 			<div className="flex-1">
-					<h3 className="font-medium leading-6 text-gray-900 text-md" id="modal-title">
+					<h3 className="font-medium leading-6 text-gray-900 text-md">
 						{label || 'Inconnu'}
 					</h3>
 

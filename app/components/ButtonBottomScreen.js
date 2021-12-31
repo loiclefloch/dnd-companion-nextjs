@@ -5,7 +5,7 @@ import Button from "./Button"
 function ButtonBottomScreen({ children, className, ...props }) {
 	return (
 		<BottomScreen className="border-t border-solid border-slate-300" >
-			<Button className={clsx("border-0", className)} {...props}>{children}</Button>
+			<Button size="big" className={clsx("border-0", className)} {...props}>{children}</Button>
 		</BottomScreen>
 	
 	)

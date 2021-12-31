@@ -59,7 +59,7 @@ function ModalValidation({ modalConfiguration, hideModal }) {
 					</div>
 					<div className="px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">
 						<Button
-
+							size="big"
 							className="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
 							variant="cta"
 							onClick={() => {
@@ -69,7 +69,9 @@ function ModalValidation({ modalConfiguration, hideModal }) {
 						>
 							Valider
 						</Button>
-						<Button className="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+						<Button
+							size="big"
+							className="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
 							onClick={() => {
 								hideModal()
 								modalConfiguration.onCancel && modalConfiguration.onCancel()
@@ -106,7 +108,7 @@ const Modal = () => {
 
 		// return createElement(modalView, {modalConfiguration, hideModal })
 		return ReactDOM.createPortal(
-			createElement(modalView, {modalConfiguration, hideModal }),
+			createElement(modalView, { modalConfiguration, hideModal }),
 			document.querySelector("#modal-root")
 		);
 	}
