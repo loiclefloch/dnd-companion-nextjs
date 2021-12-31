@@ -19,7 +19,7 @@ function ClassRow({ clss }) {
 					withBgColor
 					// withTextColor
 					clss={clss.index}
-					className="w-12 h-12"
+					className="w-12 h-12 fill-white"
 				/>
 			}
 			title={tr(clss.nameLocalized)}
