@@ -73,13 +73,13 @@ function SidebarMenu({ show, onClose }) {
 					<nav className="flex flex-col h-full pt-6">
 						<div>
 							<Item href="/" label="Dashboard" icon={<IconHome className="w-6 h-6" />} />
-							<Item href="/characters" label="Characters" icon={<IconUsers className="w-6 h-6" />} />
+							<Item href="/characters" label="Personnages" icon={<IconUsers className="w-6 h-6" />} />
 							<Item href="/spells" label="Sorts" icon={<IconBookOpen className="w-6 h-6" />} />
 							<Item href="/monsters" label="Monstres" icon={<IconBookOpen className="w-6 h-6" />} />
 						</div>
 						<div className="flex flex-col justify-end flex-1 w-full pb-8 my-4 flex-end">
 							<Item href="/support" label="Support" icon={<IconQuestionMark className="w-6 h-6" />} />
-							<Item href="/settings" label="Settings" icon={<IconGear className="w-6 h-6" />} />
+							<Item href="/settings" label="Paramètres" icon={<IconGear className="w-6 h-6" />} />
 						</div>
 					</nav>
 				</div>

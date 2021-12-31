@@ -5,6 +5,7 @@ import IconBack from "./icons/IconBack"
 import useCharacterMenu from "./characterMenu/useCharacterMenu";
 import useSidebarMenu from "./sidebarMenu/useSidebarMenu";
 import IconMenu from "./icons/IconMenu"
+import IconUser from "./icons/IconUser"
 import useScreenAsModal from './screenAsModal/useScreenAsModal';
 
 function ScreenLoading() {
@@ -25,13 +26,13 @@ function CharacterMenuButton() {
   // do not display if character menu is open
   return (
     <button 
-      className={clsx("fixed z-40 bottom-0 right-0 flex justify-center w-10 p-2 bg-slate-800 text-white uppercase", {
+      className={clsx("fixed z-40 bottom-0 right-0 flex justify-center w-10 p-2 bg-slate-800 text-white uppercase rounded-tl", {
         "opacity-100 duration-500": !hideButton,
         "opacity-0 duration-500": hideButton,
       })}
       onClick={showCharacterMenu}
     >
-      <IconMenu className="w-5 h-5" />
+      <IconUser className="w-5 h-5" />
     </button>
   )
 }

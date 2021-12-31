@@ -17,6 +17,12 @@ function FilterClasses({ filters, onChange }) {
 	const { tr } = useI18n()
 	const classesResponse = useClasses()
 
+	const options = classesResponse.data?.map(clss => ({
+		index: clss.index,
+		label: tr(clss.nameLocalized),
+		value: clss.index,
+	}))
+
 	return (
 		<FilterSection
 			title="Classes"
@@ -24,16 +30,13 @@ function FilterClasses({ filters, onChange }) {
 			filters={filters}
 			type={FilterType.CLASS}
 			onChange={onChange}
+			options={options}
 		>
 			<FilterListSelector
 				type={FilterType.CLASS}
 				filters={filters}
 				className="divide-y bg-slate-100 divide"
-				list={classesResponse.data?.map(clss => ({
-					index: clss.index,
-					label: tr(clss.nameLocalized),
-					value: clss.index,
-				}))}
+				options={options}
 				onChange={onChange}
 			/>
 		</FilterSection>
@@ -45,7 +48,7 @@ function FilterSpellLevel({ filters, onChange }) {
 	const { tr } = useI18n()
 	const classesResponse = useClasses()
 
-	const list = [...Array(MAX_SPELL_LEVEL + 1)].map((_, index) => ({
+	const options = [...Array(MAX_SPELL_LEVEL + 1)].map((_, index) => ({
 		index: index,
 		label: index === 0 ? 'Cantrip' : index,
 		value: index,
@@ -58,11 +61,12 @@ function FilterSpellLevel({ filters, onChange }) {
 			filters={filters} 
 			type={FilterType.SPELL_LEVEL} 
 			onChange={onChange}
+			options={options}
 		>
 			<FilterListSelector
 				type={FilterType.SPELL_LEVEL}
 				filters={filters}
-				list={list}
+				options={options}
 				onChange={onChange}
 				className="grid grid-cols-4 gap-1 p-1 bg-slate-100"
 				itemClassName="bg-white m-0"
@@ -75,11 +79,23 @@ function FilterMagicSchool({ filters, onChange }) {
 	const { tr } = useI18n()
 	const magicSchoolsResponse = useMagicSchools()
 
+	const options = magicSchoolsResponse.data?.map(magicSchool => ({
+		index: magicSchool.index,
+		label: (
+			<span className='flex items-center'>
+				<IconMagicSchool school={magicSchool.index} className="h-6 mr-2 2-6" />
+				{tr(magicSchool.nameLocalized)}
+			</span>
+		),
+		value: magicSchool.index,
+	}))
+
 	return (
 		<FilterSection
 			title="Magic schools"
 			isLoading={magicSchoolsResponse.isLoading}
 			filters={filters}
+			options={options}
 			type={FilterType.MAGIC_SCHOOL}
 			onChange={onChange}
 		>
@@ -87,16 +103,7 @@ function FilterMagicSchool({ filters, onChange }) {
 				type={FilterType.MAGIC_SCHOOL}
 				filters={filters}
 				className="divide-y bg-slate-100 divide"
-				list={magicSchoolsResponse.data?.map(magicSchool => ({
-					index: magicSchool.index,
-					label: (
-						<span className='flex items-center'>
-							<IconMagicSchool school={magicSchool.index} className="h-6 mr-2 2-6" />
-							{tr(magicSchool.nameLocalized)}
-						</span>
-					),
-					value: magicSchool.index,
-				}))}
+				options={options}
 				onChange={onChange}
 			/>
 		</FilterSection>

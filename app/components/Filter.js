@@ -1,11 +1,33 @@
 import { useState } from "react";
 import clsx from "clsx"
 import { deleteObjectOnArray, toggleValueOnArray, updateObjectOrCreateOnArray } from '../modules/utils/array';
-import { FilterType as SpellsFilterType } from "../modules/spells/spellsFilter"
 import useI18n from "../modules/i18n/useI18n";
 import IconX from './icons/IconX';
+import { isEmpty } from "lodash";
 
-export function FilterSection({ title, isLoading, children, filters, type, onChange, containerClassName }) {
+
+function cleanFilters(filters) {
+	// remove empty filters
+	return filters.map(filter => {
+		// we selected values from a list and then remove all the values one by one.
+		// array is now empty. we need to remove the filter, otherwise we will filter with an empty 
+		// array which makes 0 results because they are 0 match.
+		if (Array.isArray(filter.value) && isEmpty(filter.value)) {
+			return null
+		}
+		return filter
+	}).filter(Boolean)
+}
+
+export function FilterSection({
+	title,
+	children,
+	filters,
+	options, // when filter is an array, used to find the value's label
+	type,
+	onChange,
+	containerClassName
+}) {
 	const { tr } = useI18n()
 	const [open, setOpen] = useState()
 
@@ -25,7 +47,7 @@ export function FilterSection({ title, isLoading, children, filters, type, onCha
 			{filter && (
 				<span
 					className="pr-1"
-					onClick={() => onChange(deleteObjectOnArray(filters, f => f.type === type))}
+					onClick={() => onChange(cleanFilters(deleteObjectOnArray(filters, f => f.type === type)))}
 				>
 					<IconX className="w-5 h-5 text-slate-200" />
 				</span>
@@ -37,13 +59,23 @@ export function FilterSection({ title, isLoading, children, filters, type, onCha
 			</div>
 		)}
 		{!open && filter && (
-			<div className="pt-2 pb-2 pl-2 text-xs text-slate-600 bg-slate-100">
-				{Array.isArray(filter.value) && filter.value.map(v => {
-					if (v === 0 && type === SpellsFilterType.SPELL_LEVEL) {
-						return tr('cantrip')
+			<div className="flex flex-wrap gap-2 pt-2 pb-2 pl-2 text-xs text-slate-600 bg-slate-100">
+				{Array.isArray(filter.value) &&
+					filter.value.map(v => {
+						const option = options.find(option => option.value === v)
+						// add span for flex to be able to work when the label is not a JSX element (string, number)
+						return (
+							<span onClick={() => {
+								const updatedFilter = { ...filter }
+								updatedFilter.value = toggleValueOnArray(updatedFilter.value, option.value, a => a)
+								const updatedFilters = updateObjectOrCreateOnArray(filters, updatedFilter, f => f.type === type)
+								onChange(cleanFilters(updatedFilters))
+							}}>
+								{option.label}
+							</span>
+						)
+					})
 					}
-					return tr(v)
-				}).join(', ')}
 				{typeof filter.value == 'boolean' && (value ? "oui" : "non")}
 				{typeof filter.value == 'string' && tr(value)}
 			</div>
@@ -68,19 +100,19 @@ export function FilterListItem({ item, selected, className, onClick }) {
 	)
 }
 
-export function FilterListSelector({ filters, type, list, className, itemClassName, onChange }) {
+export function FilterListSelector({ filters, type, options, className, itemClassName, onChange }) {
 	const filter = filters.find(f => f.type === type) || { type, value: [] }
 
 	function toggle(item) {
 		const updatedFilter = { ...filter }
 		updatedFilter.value = toggleValueOnArray(updatedFilter.value, item.value, a => a)
 		const updatedFilters = updateObjectOrCreateOnArray(filters, updatedFilter, f => f.type === type)
-		onChange(updatedFilters)
+		onChange(cleanFilters(updatedFilters))
 	}
 
 	return (
 		<ul className={clsx('w-full', className)}>
-			{list?.map(item => {
+			{options?.map(item => {
 				return (
 					<FilterListItem
 						key={item.index}
