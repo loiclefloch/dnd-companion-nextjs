@@ -8,6 +8,8 @@ import IconGear from "../icons/IconGear"
 import IconHome from "../icons/IconHome"
 import IconQuestionMark from "../icons/IconQuestionMark"
 import IconX from "../icons/IconX"
+import IconMonster from "../icons/IconMonster"
+import IconGroup from "../icons/IconGroup"
 
 function Item({ href = "", icon, label }) {
 	const router = useRouter()
@@ -53,11 +55,12 @@ function SidebarMenu({ show, onClose }) {
 					"-translate-x-full": !show,
 				})}
 			>
-				<div className="z-50 w-full h-screen bg-gray-700 dark:bg-gray-700">
+				<div className="z-50 flex flex-col w-full h-screen bg-gray-700 dark:bg-gray-700">
 
 					<div className="flex">
-						<div className="items-center justify-center flex-1 pt-6">
+						<div className="flex items-center justify-center flex-1 pt-2">
 							{/* ICON */}
+							<IconGroup className="w-36 text-stone-300" />
 						</div>
 						<div className="px-2 pt-2" onClick={onClose}>
 							<IconX 
@@ -70,14 +73,14 @@ function SidebarMenu({ show, onClose }) {
 						</div>
 					</div>
 
-					<nav className="flex flex-col h-full pt-6">
+					<nav className="flex flex-col flex-1 pt-6">
 						<div>
 							<Item href="/" label="Dashboard" icon={<IconHome className="w-6 h-6" />} />
 							<Item href="/characters" label="Personnages" icon={<IconUsers className="w-6 h-6" />} />
 							<Item href="/spells" label="Sorts" icon={<IconBookOpen className="w-6 h-6" />} />
-							<Item href="/monsters" label="Monstres" icon={<IconBookOpen className="w-6 h-6" />} />
+							<Item href="/monsters" label="Monstres" icon={<IconMonster className="w-6 h-6 fill-white" />} />
 						</div>
-						<div className="flex flex-col justify-end flex-1 w-full pb-8 my-4 flex-end">
+						<div className="flex flex-col justify-end flex-1 w-full my-4 flex-end">
 							<Item href="/support" label="Support" icon={<IconQuestionMark className="w-6 h-6" />} />
 							<Item href="/settings" label="Paramètres" icon={<IconGear className="w-6 h-6" />} />
 						</div>

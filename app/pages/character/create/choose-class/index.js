@@ -14,7 +14,14 @@ function ClassRow({ clss }) {
 	return (
 		<ListSelectRowAsCard 
 			onClick={() => router.push(url)}
-			icon={<IconClass clss={clss.index} className="h-8 fill-slate-600" />}
+			icon={
+				<IconClass
+					withBgColor
+					// withTextColor
+					clss={clss.index}
+					className="w-12 h-12"
+				/>
+			}
 			title={tr(clss.nameLocalized)}
 			subtitle={tr(clss.resume)}
 		/>

@@ -9,7 +9,7 @@ import { useMonstersListFilterScreenAsModal } from "../../components/MonstersLis
 import Screen from "../../components/Screen";
 import IconFilter from "../../components/icons/IconFilter";
 import Tag from "../../components/Tag"
-import IconBookOpen from "../../components/icons/IconBookOpen"
+import IconMonster from "../../components/icons/IconMonster"
 
 function MonsterFilters({ monster, filters }) {
 	// ignore some filters, because the data is already displayed
@@ -81,7 +81,7 @@ function Monsters() {
   return (
     <Screen
       title={"Monstres"}
-      titleIcon={<IconBookOpen className="w-6 h-6" />}
+      titleIcon={<IconMonster className="w-6 h-6 fill-slate-700" />}
       root
 			withCharacterMenu
 			withBottomSpace
