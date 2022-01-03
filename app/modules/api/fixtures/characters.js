@@ -3,6 +3,9 @@ import races from '../../../../database/data/races.json'
 import subraces from '../../../../database/data/subraces.json'
 import { format as formatSubrace } from "../useSubrace"
 import { format as formatClass } from "../useClass"
+import { getLevelExperienceStage } from "../../levelling"
+
+const level = 17
 
 export default [
 	{
@@ -13,8 +16,35 @@ export default [
 			id: 1,
 		},
 
-		level: 1,
+		level,
 		maxSpellLevel: 1,
+		
+		levelling: {
+			xp: getLevelExperienceStage(level + 1) * 0.26,
+			history: [
+				{
+					id: 0,
+					label: 'Initial XP',
+					amount: 3000,
+				},
+				{
+					id: 1,
+					label: 'Killed a wolf',
+					amount: 200,
+				},
+				{
+					id: 2,
+					label: 'Saved a cow',
+					amount: 200,
+
+				},
+				{
+					id: 3,
+					label: 'Some gobelins',
+					amount: 300,
+				}
+			].reverse()
+		},
 
 		classes: [
 			formatClass(classes.find(clss => clss.index === 'druid'))

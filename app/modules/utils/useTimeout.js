@@ -5,7 +5,7 @@ function useTimeout(callback, delay) {
   const savedCallback = useRef(callback)
 
   // Remember the latest callback if it changes.
-  useLayoutEffect(() => {
+  useEffect(() => {
     savedCallback.current = callback
   }, [callback])
 

@@ -45,7 +45,7 @@ function ChooseCharacterClass() {
 					}
 				/>
 
-				<ListRowSelectContainer className="px-4 mt-12">
+				<ListRowSelectContainer className="px-4 mt-6">
 					{classesResponse.data?.map(clss => (
 						<ClassRow key={clss.index} clss={clss} />
 					))}

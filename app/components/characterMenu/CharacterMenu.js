@@ -65,7 +65,7 @@ function CharacterMenu({ open }) {
 		},
 		{
 			label: 'XP',
-			href: '/character/xp',
+			href: '/character/levelling',
 		},
 		{
 			label: 'Liste des sorts',
