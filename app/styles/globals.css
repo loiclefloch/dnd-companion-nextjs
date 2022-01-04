@@ -28,4 +28,9 @@
 	@apply text-red-500
  }
 
+ .text-2xs { /* TODO: better name */
+	 font-size: 0.70rem;
+	 line-height: 0.8rem;
+ }
+
 }

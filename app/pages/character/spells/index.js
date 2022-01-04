@@ -1,6 +1,6 @@
-import { CharacterProvider} from "../../modules/character/ContextCharacter"
-import useCurrentCharacter from "../../modules/character/useCurrentCharacter"
-import Spells from "../spells"
+import { CharacterProvider} from "../../../modules/character/ContextCharacter"
+import useCurrentCharacter from "../../../modules/character/useCurrentCharacter"
+import SpellsView from "../../../components/SpellsView"
 
 /**
  * Spell list with the character as context
@@ -12,7 +12,7 @@ function CharacterSpells() {
 	// automatic filtering for the character
 	return (
 		<CharacterProvider character={character} withCharacterMenu>
-			<Spells />
+			<SpellsView contextCharacter={character} />
 		</CharacterProvider>
 	)
 }

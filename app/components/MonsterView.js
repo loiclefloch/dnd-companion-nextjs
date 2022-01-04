@@ -55,7 +55,7 @@ function MonsterView({ monster }) {
     >
       <div className="flex justify-between">
         <div>
-          <div className="text-xs gap-1">
+          <div className="gap-1 text-xs">
             <div className="mb-1 ml-1 text-meta">
               {otherNames.join(", ")}
               <div>
@@ -64,7 +64,7 @@ function MonsterView({ monster }) {
             </div>
             <div>
               {monster.isLegendary && (
-                <Tag label="Legendaire" small className="text-amber-600 border border-solid border-amber-600" />
+                <Tag label="Legendaire" size="small" className="border border-solid text-amber-600 border-amber-600" />
               )}
             </div>
           </div>
@@ -72,12 +72,12 @@ function MonsterView({ monster }) {
         </div>
         <div className="">
           <Tag
-            className="text-gray-600 bg-gray-200 flex justify-center items-center normal-case"
+            className="flex items-center justify-center text-gray-600 normal-case bg-gray-200"
           >
             {monster.ac}
           </Tag>
           <Tag
-            className="text-gray-600 bg-gray-200 flex justify-center items-center mt-2 normal-case"
+            className="flex items-center justify-center mt-2 text-gray-600 normal-case bg-gray-200"
           >
             {monster.hp}
           </Tag>
@@ -182,7 +182,7 @@ function MonsterView({ monster }) {
       </div>
 
       {tags && (
-        <div className="flex flex-row mt-8 flex-wrap gap-1">
+        <div className="flex flex-row flex-wrap gap-1 mt-8">
           {tags.filter(Boolean).map((tag, index) => (
             <Tag key={index} className={clsx('', tag.className)}>
               {tag.label}

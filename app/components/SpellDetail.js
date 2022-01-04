@@ -53,9 +53,9 @@ function SpellDetailLevel({ spell }) {
 
 function SpellDetail({ spell }) {
 	return (
-		<div className="pb-20">
+		<>
 			<SpellDetailLevel spell={spell} />
-		</div>
+		</>
 	)
 }
 

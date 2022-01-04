@@ -55,8 +55,19 @@ function Screen({
 
 	return (
 		<div className="flex flex-col h-screen bg-dark dark:text-white">
-			<header className={clsx('flex flex-row p-2 items-center', { "absolute z-40": fullScreen, "hidden": /* TRICK */fullScreen && sidebarMenuShown })}>
-				<div className="ml-1 mr-4">
+			<header 
+				className={clsx(
+					'flex flex-row p-2 items-center', 
+					// used to debug header, if its wrap, we have a design problem
+					// TODO: fix on http://localhost:3000/character/spells/purify-food-and-drink
+					'flex-wrap', 
+					{ 
+						"absolute z-40": fullScreen, 
+						"hidden": /* TRICK */fullScreen && sidebarMenuShown 
+					})
+			}
+			>
+				<div className="py-1 pl-1 pr-4">
 					{!root && (
 						<IconBack className={clsx("w-4 h-4", iconClassName)} onClick={router.back} />
 					)}
@@ -67,10 +78,12 @@ function Screen({
 				{!fullScreen && (
 					<div className='flex items-center flex-1 text-lg font-semibold select-none'>
 						{titleIcon && <span className="mr-2">{titleIcon}</span>}
-						<span>{title}</span>
+						<span className='whitespace-nowrap'>{title}</span>
 					</div>
 				)}
-				{rightAction && !isLoading && rightAction}
+				{rightAction && !isLoading && (
+					<div className="px-2">{rightAction}</div>
+				)}
 			</header>
 
 			<div className="flex-1 overflow-y-auto">
@@ -79,8 +92,8 @@ function Screen({
 					: (
 						<div
 							className={clsx(
-								'flex-1 w-full',
-								// "h-full",
+								'w-full',
+								"h-full",
 								{
 									'pb-12': withBottomSpace
 								}

@@ -13,25 +13,28 @@ function Button({ children, className, variant = "none", size = "medium", color,
 				// "": color === "secondary",
 
 				"text-green-400 border-green-400": color === "success",
-				"bg-green-400": color === "success" && variant === "contained",
+				"bg-green-400 border-green-400": color === "success" && variant === "contained",
 				"border-green-400": color === "success" && variant === "outlined",
 
-				"text-orange-400 border-orange-400": color === "warning",
-				"bg-orange-400": color === "warning" && variant === "contained",
-				"border-orange-400": color === "warning" && variant === "outlined",
+				"text-orange-400 border-orange-400": color === "warning" && !color,
+				"bg-orange-400 border-orange-400 text-black": color === "warning" && variant === "contained",
+				"border-orange-400 text-orange-400": color === "warning" && variant === "outlined",
 
-				"text-red-400 border-red-400": color === "error",
-				"bg-red-400": color === "error" && variant === "contained",
-				"border-red-400": color === "error" && variant === "outlined",
+				"text-red-400 border-red-400": color === "error" && !color,
+				"bg-red-400 border-red-400 text-black": color === "error" && variant === "contained",
+				"border-red-400 text-red-500": color === "error" && variant === "outlined",
 
 				// "": color === "info",
-				// "": color === "warning",
 
-				"border-t border-solid border-slate-300 bg-slate-300 text-black": variant === "contained",
+				"border-t border-solid": variant === "contained",
+				"border-slate-300 bg-slate-300 text-black": variant === "contained" && !color,
+
 				"border border-solid bg-none": variant === "outlined",
-				"border-slate-300 ": variant === "outlined" && !color,
+				"border-slate-500 ": variant === "outlined" && !color,
+
 				"border-none": variant === "text",
-				"bg-slate-800 text-white border-slate-800": variant === "cta"
+
+				"border border-solid bg-slate-800 text-white border-slate-800": variant === "cta"
 			}, className)} {...props}
 		>
 			{children}

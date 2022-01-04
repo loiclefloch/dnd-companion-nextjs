@@ -1,20 +1,21 @@
 import clsx from "clsx";
 import useI18n from "../modules/i18n/useI18n";
 
+import IconMagicSchool from "../components/icons/IconMagicSchool"
 import Tag from './Tag';
 import SpellRunner from "./SpellRunner";
 import SpellDetail from "./SpellDetail";
-import IconMagicSchool from "../components/icons/IconMagicSchool"
+import CharacterSpellTag from "./CharacterSpellTag";
 
 function createClassTag(clss) {
   return {
     label: clss.nameLocalized.en,
-    className: "text-blue-600 bg-blue-200",
+    className: "text-blue-600 border border-blue-600",
     link: "",
   };
 }
 
-function SpellView({ spell }) {
+function SpellView({ contextCharacter, spell }) {
   const { tr, getRangeUnit, isDefaultLang, trDefaultLang } = useI18n();
 
   const otherNames = [
@@ -32,25 +33,28 @@ function SpellView({ spell }) {
           {spell.sourcePage && <span> (p.{spell.sourcePage})</span>}
         </span>
       ),
-      className: "text-amber-600 bg-amber-200",
+      className: "text-amber-600 border border-amber-600",
       link: "",
     },
   ]
 
   return (
     <div
-      className="px-4"
+      className="flex flex-col flex-1 h-full px-4"
     >
       <div className="flex justify-between">
         <div>
           <div className="gap-1 text-xs">
             <div className="mb-1 ml-1 text-meta">{otherNames.join(", ")}</div>
           </div>
+          <>
+            <CharacterSpellTag character={contextCharacter} spell={spell} />
+          </>
         </div>
-        <div className="">
+        <div className="flex flex-col items-end">
           <Tag 
-            small
-            className="mt-1 bg-slate-200 text-meta"
+            size="small"
+            className="border border-gray-400 text-meta"
           >
             <IconMagicSchool
               school={spell.school.name}
@@ -59,16 +63,26 @@ function SpellView({ spell }) {
             {tr(spell.school.nameLocalized)}
           </Tag>
           <Tag
-            small
-            className="flex items-center justify-center mt-1 text-gray-600 bg-gray-200"
+            size="small"
+            className="flex items-center justify-center mt-1 text-gray-600 border border-gray-400"
           >
             {spell.level === 0 ? "cantrip" : `Niveau ${spell.level}`}
           </Tag>
           {(spell.ritual || spell.concentration) && (
             <div className="flex flex-wrap gap-1 mt-2">
-              {spell.ritual && <Tag label="Ritual" className="flex text-orange-600 bg-orange-200" />}
+              {spell.ritual && (
+                <Tag 
+                  label="Ritual"
+                  size="small"
+                  className="flex text-orange-500 border border-orange-500" 
+                />
+              )}
               {spell.concentration && (
-                <Tag label="Concentration" className="flex text-blue-600 bg-blue-200" />
+                <Tag 
+                  label="Concentration" 
+                  size="small"
+                  className="flex text-blue-500 border border-blue-500" 
+                />
               )}
             </div>
           )}
@@ -118,18 +132,23 @@ function SpellView({ spell }) {
         </div>
       </div>
       {tags && (
-        <div className="flex flex-row flex-wrap gap-1 mt-8">
+        <div className="flex flex-row flex-wrap gap-1 pb-4 mt-8">
           {tags.filter(Boolean).map((tag, index) => (
-            <Tag key={index} className={clsx('', tag.className)}>
+            <Tag 
+              key={index} 
+              className={clsx('', tag.className)}
+              size="small"
+            >
               {tag.label}
             </Tag>
           ))}
         </div>
       )}
 
-      <div className='mt-8'>
-        <SpellDetail spell={spell} />
-      </div>
+      <SpellDetail spell={spell} />
+
+      {/* add some space at the end of the page */}
+      <div className="py-4" />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import classes from '../../../../database/data/classes.json'
 import races from '../../../../database/data/races.json'
 import subraces from '../../../../database/data/subraces.json'
+import spells from '../../../../database/data/spells.json'
 import { format as formatSubrace } from "../useSubrace"
 import { format as formatClass } from "../useClass"
 import { getLevelExperienceStage } from "../../levelling"
@@ -147,6 +148,14 @@ export default [
 			item: [],
 			race: []
 		},
+
+		spellsList: [
+			{ ...spells.find(spell => spell.index === "druidcraft"), isPrepared: true },
+			{ ...spells.find(spell => spell.index === "animal-friendship"), isPrepared: true },
+			{ ...spells.find(spell => spell.index === "thunderwave"), isPrepared: true },
+			{ ...spells.find(spell => spell.index === "guidance"), isPrepared: false },
+			{ ...spells.find(spell => spell.index === "purify-food-and-drink"), isPrepared: true },
+		],
 
 		// actions: {
 		// 	class: [

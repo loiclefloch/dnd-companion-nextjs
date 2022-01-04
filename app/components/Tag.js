@@ -3,22 +3,23 @@
 //
 import clsx from 'clsx'
 
-function Tag({ label, children, rounded = false, className, small = false }) {
+function Tag({ label, children, rounded = false, className, size = "medium" }) {
   return (
     <span
       className={clsx(
-        `text-xs font-semibold inline-block uppercase rounded select-none last:mr-0`,
+        `font-semibold inline-block uppercase rounded select-none last:mr-0`,
+        'border-solid ', // in case we want it custom with a border
         {
           "rounded-full": rounded,
-          "py-1 px-2": !small,
-          "py-0.5 px-2": small,
+          "py-1 px-2 text-xs": size === "medium",
+          "py-0.5 px-2 text-2xs": size === "small",
         },
         className
       )}
     >
-      <div className='flex items-center'>
+      <span className='flex items-center'>
         {children || label}
-      </div>
+      </span>
     </span>
   );
 }

@@ -18,7 +18,6 @@ function Spell() {
 			title={!spell ? 'Sort' : `${tr(spell?.nameLocalized)}`}
 			titleIcon={<IconBookOpen className="w-6 h-6" />}
 			isLoading={spellResponse.isLoading}
-			withBottomSpace
 		>
 			{spell && (
 				<SpellView spell={spell} />
