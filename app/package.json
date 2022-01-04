@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "@dice-roller/rpg-dice-roller": "^5.1.0",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
+    "jest": "^27.4.5",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.7"
   }

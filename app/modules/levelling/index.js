@@ -83,3 +83,45 @@ export function getLevelProficiencyBonus(level) {
 
 	return levellingProficiencyBonus[level]
 }
+
+
+// TODO: implement
+export function getSpellLevelForCharacterLevel(characterClasses, characterLevel) {
+	const map = {
+		druid: {
+			// level: 1
+			1: {
+				0: 2,
+				1: 2,
+			},
+			2: {
+				0: 2,
+				1: 3,
+			},
+			3: {
+				0: 2,
+				1: 3,
+				2: 2,
+			},
+			3: {
+				0: 3,
+				1: 4,
+				2: 3
+			}
+		}
+	}
+
+	function getMaxLevel(levelSpellData) {
+		if (!levelSpellData) {
+			return 0
+		}
+
+		return Math.max(...Object.keys(levelSpellData))
+	}
+
+	const levelsPerClasses = characterClasses.map(clss => {
+		return getMaxLevel(map[clss.index][characterLevel])
+	})
+
+	return Math.max(levelsPerClasses)
+}

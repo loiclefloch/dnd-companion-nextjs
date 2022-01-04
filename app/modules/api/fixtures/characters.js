@@ -4,9 +4,13 @@ import subraces from '../../../../database/data/subraces.json'
 import spells from '../../../../database/data/spells.json'
 import { format as formatSubrace } from "../useSubrace"
 import { format as formatClass } from "../useClass"
-import { getLevelExperienceStage } from "../../levelling"
+import { getLevelExperienceStage, getSpellLevelForCharacterLevel } from "../../levelling"
 
 const level = 17
+
+const classes = [
+	formatClass(classes.find(clss => clss.index === 'druid'))
+]
 
 export default [
 	{
@@ -18,7 +22,7 @@ export default [
 		},
 
 		level,
-		maxSpellLevel: 1,
+		maxSpellLevel: getSpellLevelForCharacterLevel(classes, level),
 		
 		levelling: {
 			xp: getLevelExperienceStage(level + 1) * 0.26,
@@ -47,9 +51,7 @@ export default [
 			].reverse()
 		},
 
-		classes: [
-			formatClass(classes.find(clss => clss.index === 'druid'))
-		],
+		classes,
 
 		name: 'Ylvir',
 		age: 245,

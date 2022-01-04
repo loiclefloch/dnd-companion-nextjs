@@ -1,12 +1,9 @@
 import { useState } from "react"
 import clsx from 'clsx'
-import IconChevronUp from "./icons/IconChevronUp"
-import IconChevronDown from "./icons/IconChevronDown"
+import IconChevronToggle from "./icons/IconChevronToggle"
 
 function SectionWithToggle({ title, className, children }) {
 	const [open, setOpen] = useState(false)
-
-	const Icon = open ? IconChevronUp : IconChevronDown 
 
 	return (
 		<div className="shadow-md">
@@ -18,7 +15,7 @@ function SectionWithToggle({ title, className, children }) {
 			>
 				<h4 className="text-md">{title}</h4>
 				<span>
-					<Icon className="text-gray-600 dark:text-gray-400" />
+					<IconChevronToggle open={open} className="text-gray-600 dark:text-gray-400" />
 				</span>
 			</div>
 			{open && (

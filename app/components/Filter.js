@@ -3,6 +3,7 @@ import clsx from "clsx"
 import { deleteObjectOnArray, toggleValueOnArray, updateObjectOrCreateOnArray } from '../modules/utils/array';
 import useI18n from "../modules/i18n/useI18n";
 import IconX from './icons/IconX';
+import IconChevronToggle from './icons/IconChevronToggle';
 import { isEmpty } from "lodash";
 
 
@@ -45,14 +46,9 @@ export function FilterSection({
 			>
 				{title}
 			</h4>
-			{filter && (
-				<span
-					className="pr-1"
-					onClick={() => onChange(cleanFilters(deleteObjectOnArray(filters, f => f.type === type)))}
-				>
-					<IconX className="w-5 h-5 text-slate-200" />
-				</span>
-			)}
+			<div>
+				<IconChevronToggle open={open} className="pr-2" />
+			</div>
 		</div>
 		{open && (
 			<div className={clsx('mb-4', containerClassName)}>
@@ -60,28 +56,39 @@ export function FilterSection({
 			</div>
 		)}
 		{!open && filter && !isLoading && (
-			<div className="flex flex-wrap gap-2 pt-2 pb-2 pl-2 text-xs text-slate-600 bg-slate-100">
-				{Array.isArray(filter.value) &&
-					filter.value.map(v => {
-						const option = options.find(option => option.value === v)
-						// add span for flex to be able to work when the label is not a JSX element (string, number)
-						return (
-							<span
-								key={String(v)}
-								onClick={() => {
-									const updatedFilter = { ...filter }
-									updatedFilter.value = toggleValueOnArray(updatedFilter.value, option.value, a => a)
-									const updatedFilters = updateObjectOrCreateOnArray(filters, updatedFilter, f => f.type === type)
-									onChange(cleanFilters(updatedFilters))
-								}}
-							>
-								{option.label}
-							</span>
-						)
-					})
+			<div className="flex pt-2 pb-2 pl-2 text-xs text-slate-600 bg-slate-100">
+				<div className="flex flex-wrap flex-1 gap-2">
+					{Array.isArray(filter.value) &&
+						filter.value.map(v => {
+							const option = options.find(option => option.value === v)
+							// add span for flex to be able to work when the label is not a JSX element (string, number)
+							return (
+								<span
+									key={String(v)}
+									onClick={() => {
+										const updatedFilter = { ...filter }
+										updatedFilter.value = toggleValueOnArray(updatedFilter.value, option.value, a => a)
+										const updatedFilters = updateObjectOrCreateOnArray(filters, updatedFilter, f => f.type === type)
+										onChange(cleanFilters(updatedFilters))
+									}}
+								>
+									{option.label}
+								</span>
+							)
+						})
 					}
-				{typeof filter.value == 'boolean' && (value ? "oui" : "non")}
-				{typeof filter.value == 'string' && tr(value)}
+					{typeof filter.value == 'boolean' && (value ? "oui" : "non")}
+					{typeof filter.value == 'string' && tr(value)}
+				</div>
+				{filter && (
+					<span
+						className="px-2"
+						onClick={() => onChange(cleanFilters(deleteObjectOnArray(filters, f => f.type === type)))}
+					>
+						<IconX className="w-5 h-5 text-slate-600" />
+					</span>
+				)}
+
 			</div>
 		)}
 	</div>

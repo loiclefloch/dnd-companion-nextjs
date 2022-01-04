@@ -132,7 +132,7 @@ function Spells({ contextCharacter }) {
         <button onClick={() => showSpellsListFilterScreen()}>
           <IconFilter className={clsx("h-6 w-6 text-gray-500", {
             // change color when they are filters
-            "text-blue-300": !isEmpty(filters),
+            "text-blue-400": !isEmpty(filters),
           })} />
         </button>
       }
