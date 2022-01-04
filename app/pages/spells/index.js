@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from 'next/link'
 import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
@@ -80,11 +80,18 @@ function Spells() {
   const { lang } = useI18n()
   const contextCharacter = useContextCharacter()
   const spellsResponse = useSpells();
+  const [defaultFilters, setDefaultFilters ] = useState(null)
+
   // const { showSpellModal } = useSpellModal()
   const { filters, filterSpells, showSpellsListFilterScreen } = useSpellsListFilterScreenAsModal(
-    buildSpellFiltersForCharacter(contextCharacter)
+    defaultFilters
   )
   
+  useEffect(() => {
+    if (contextCharacter) {
+      setDefaultFilters(buildSpellFiltersForCharacter(contextCharacter))
+    }
+  }, [contextCharacter])
   useEffect(() => {
     // ritual
     // showSpellModal(spellsResponse.data.find((spell) => spell.name === "Meld Into Stone").name)
@@ -110,7 +117,7 @@ function Spells() {
       withBottomSpace
       isLoading={spellsResponse.isLoading}
       rightAction={
-        <button onClick={showSpellsListFilterScreen}>
+        <button onClick={() => showSpellsListFilterScreen()}>
           <IconFilter className={clsx("h-6 w-6 text-gray-500", {
             // change color when they are filters
             "text-blue-300": !isEmpty(filters),

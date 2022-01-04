@@ -21,6 +21,7 @@ function cleanFilters(filters) {
 
 export function FilterSection({
 	title,
+	isLoading,
 	children,
 	filters,
 	options, // when filter is an array, used to find the value's label
@@ -58,19 +59,22 @@ export function FilterSection({
 				{children}
 			</div>
 		)}
-		{!open && filter && (
+		{!open && filter && !isLoading && (
 			<div className="flex flex-wrap gap-2 pt-2 pb-2 pl-2 text-xs text-slate-600 bg-slate-100">
 				{Array.isArray(filter.value) &&
 					filter.value.map(v => {
 						const option = options.find(option => option.value === v)
 						// add span for flex to be able to work when the label is not a JSX element (string, number)
 						return (
-							<span onClick={() => {
-								const updatedFilter = { ...filter }
-								updatedFilter.value = toggleValueOnArray(updatedFilter.value, option.value, a => a)
-								const updatedFilters = updateObjectOrCreateOnArray(filters, updatedFilter, f => f.type === type)
-								onChange(cleanFilters(updatedFilters))
-							}}>
+							<span
+								key={String(v)}
+								onClick={() => {
+									const updatedFilter = { ...filter }
+									updatedFilter.value = toggleValueOnArray(updatedFilter.value, option.value, a => a)
+									const updatedFilters = updateObjectOrCreateOnArray(filters, updatedFilter, f => f.type === type)
+									onChange(cleanFilters(updatedFilters))
+								}}
+							>
 								{option.label}
 							</span>
 						)

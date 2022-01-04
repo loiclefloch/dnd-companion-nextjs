@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import { FilterType, filterSpells } from "../modules/spells/spellsFilter"
 import useI18n from "../modules/i18n/useI18n";
@@ -163,6 +163,10 @@ function SpellsListFilterScreenAsModal({ onFilter, onReset, filters: defaultFilt
 export function useSpellsListFilterScreenAsModal(defaultFilters = []) {
 	const [filters, setFilters] = useState(defaultFilters)
 	const { showScreenAsModal } = useScreenAsModal()
+
+	useEffect(() => {
+		setFilters(defaultFilters)
+	}, [defaultFilters])
 
 	return {
 		filters,
