@@ -6,9 +6,9 @@ import { format as formatSubrace } from "../useSubrace"
 import { format as formatClass } from "../useClass"
 import { getLevelExperienceStage, getSpellLevelForCharacterLevel } from "../../levelling"
 
-const level = 17
+const level = 2
 
-const classes = [
+const charactedClasses = [
 	formatClass(classes.find(clss => clss.index === 'druid'))
 ]
 
@@ -22,7 +22,7 @@ export default [
 		},
 
 		level,
-		maxSpellLevel: getSpellLevelForCharacterLevel(classes, level),
+		maxSpellLevel: getSpellLevelForCharacterLevel(charactedClasses, level),
 		
 		levelling: {
 			xp: getLevelExperienceStage(level + 1) * 0.26,
@@ -51,7 +51,7 @@ export default [
 			].reverse()
 		},
 
-		classes,
+		classes: charactedClasses,
 
 		name: 'Ylvir',
 		age: 245,

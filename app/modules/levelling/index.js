@@ -84,44 +84,99 @@ export function getLevelProficiencyBonus(level) {
 	return levellingProficiencyBonus[level]
 }
 
-
 // TODO: implement
-export function getSpellLevelForCharacterLevel(characterClasses, characterLevel) {
-	const map = {
+export function getLevellingSpellDataForClasses() {
+	return {
 		druid: {
-			// level: 1
 			1: {
-				0: 2,
-				1: 2,
+				features: [
+					"druidic",
+					"spellcasting-druid",
+				],
+				slots: {
+					0: 2,
+					1: 2,
+				}
 			},
 			2: {
-				0: 2,
-				1: 3,
+				features: [
+					// TODO: list wild shapes
+					// "wild-shape",
+					"druid-circle",
+				],
+				slots: {
+					0: 2,
+					1: 3,
+				}
 			},
 			3: {
-				0: 2,
-				1: 3,
-				2: 2,
+				features: [],
+				slots: {
+					0: 2,
+					1: 3,
+					2: 2,
+				}
 			},
-			3: {
-				0: 3,
-				1: 4,
-				2: 3
+			4: {
+				features: [
+				  // TODO: list wild shapes
+					// "wild-shape",
+					"druid-ability-score-improvement-1"
+				],
+				slots: {
+					0: 3,
+					1: 4,
+					2: 3
+				}
+			},
+
+			17: {
+				
+				features: [
+					// nothing
+				],
+				slots: {
+					0: 4,
+					1: 4,
+					2: 3,
+					3: 3,
+					4: 3,
+					5: 2,
+					6: 1,
+					7: 1,
+					8: 1,
+					9: 1,
+				}
 			}
-		}
+		},
 	}
+}
+
+export function getSpellLevelForCharacterLevel(characterClasses, characterLevel) {
+	const levellingSpellDataForClasses = getLevellingSpellDataForClasses()
 
 	function getMaxLevel(levelSpellData) {
 		if (!levelSpellData) {
 			return 0
 		}
 
-		return Math.max(...Object.keys(levelSpellData))
+		return Math.max(...Object.keys(levelSpellData.slots))
 	}
 
-	const levelsPerClasses = characterClasses.map(clss => {
-		return getMaxLevel(map[clss.index][characterLevel])
-	})
+	
+	// TODO: how to with multiclass ? use getSpellLevelDataForClassesAndLevel?
+		return getMaxLevel(levellingSpellDataForClasses[characterClasses[0].index][characterLevel])
 
-	return Math.max(levelsPerClasses)
+	// const levelsPerClasses = characterClasses.map(clss => {
+		// return getMaxLevel(levellingSpellDataForClasses[clss.index][characterLevel])
+	// })
+
+	// return Math.max(levelsPerClasses)
+}
+
+export function getSpellLevelDataForClassesAndLevel(characterClasses, characterLevel)  {
+	const levellingSpellDataForClasses = getLevellingSpellDataForClasses()
+
+	// TODO: how to with multiclass ?
+	return levellingSpellDataForClasses[characterClasses[0].index][characterLevel]
 }
