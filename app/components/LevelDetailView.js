@@ -7,10 +7,13 @@ import SpellLevelData from "./SpellLevelData"
 import { getSpellLevelDataForClassesAndLevel } from "../modules/levelling"
 import { isEmpty } from "lodash";
 import useFeature from "../modules/api/useFeature"
+import { useFeatureScreenAsModal } from "./FeatureScreenAsModal"
+import LevellingDetail from "./levellingDetail/LevellingDetail"
 
 function Feature({ index }) {
 	const { tr } = useI18n()
 	const featuresResponse = useFeature(index)
+	const { showFeatureScreenAsModal } = useFeatureScreenAsModal()
 
 	const feature = featuresResponse.data
 
@@ -19,19 +22,19 @@ function Feature({ index }) {
 	}
 
 	return (
-		<Link href={`/features/${feature.index}`}>
+		<div onClick={() => showFeatureScreenAsModal(feature)}>
 			<div>
 				{tr(feature.nameLocalized)}
 			</div>
-		</Link>
+		</div>
 	)
 }
 
 function FeaturesLevelData({ classes, level }) {
 	const spellLevelData = getSpellLevelDataForClassesAndLevel(classes, level)
 
-	if (isEmpty(spellLevelData)) {
-		return <p>Pas de features</p>
+	if (isEmpty(spellLevelData.features)) {
+		return <p className="px-4 mt-2">Pas de features</p>
 	}
 
 	return (
@@ -63,6 +66,12 @@ function LevelDetailView({ clss, level, onCloseScreen }) {
 				<FeaturesLevelData classes={[clss]} level={level} />
 			</>
 			
+			<>
+				<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">Détail</h3>
+				<div className="mx-4 mt-2">
+					<LevellingDetail clss={clss} level={level} />
+				</div>
+			</>
 		</>
 	)
 }

@@ -7,6 +7,8 @@ import useI18n from "../../../../modules/i18n/useI18n"
 import IconBookOpen from "../../../../components/icons/IconBookOpen";
 import BottomScreen from '../../../../components/BottomScreen';
 import Button from '../../../../components/Button';
+import IconChevronRight from "../../../../components/icons/IconChevronRight"
+import IconChevronLeft from "../../../../components/icons/IconChevronLeft"
 
 function LevellingClassLevel() {
 	const router = useRouter()
@@ -32,21 +34,32 @@ function LevellingClassLevel() {
 			<BottomScreen>
 				<Button 
 					disabled={level === 1}
-					variant='outlined'
+					variant='cta'
 					size="small"
-					className="border-b-0"
+					className="flex items-center justify-between pr-6 text-xs border-b-0 border-l-0 border-r-0 border-l-white"
 					onClick={() => router.replace(`/levelling/${classIndex}/${level - 1}`)}
 				>
-						Level {level === 1 ? '' : level - 1}
+					<span>
+						<IconChevronLeft />
+					</span>
+					<span>
+						Level {level === 20 ? '' : level - 1}
+					</span>
+			
 				</Button>
 				<Button
 					disabled={level === 20}
-					variant='outlined'
+					variant='cta'
 					size="small"
-					className="border-b-0 border-l-0"
+					className="flex items-center justify-between pl-6 text-xs border-b-0 border-r-0 border-l-white"
 					onClick={() => router.replace(`/levelling/${classIndex}/${level + 1}`)}
 				>
-					Level {level === 20 ? '' : level + 1}
+					<span>
+						Level {level === 20 ? '' : level + 1}
+					</span>
+					<span>
+						<IconChevronRight />
+					</span>
 				</Button>
 			</BottomScreen>
 		</Screen>
