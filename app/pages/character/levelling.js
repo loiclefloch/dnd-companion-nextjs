@@ -7,6 +7,7 @@ import Screen from "../../components/Screen"
 import Button from "../../components/Button"
 import IconPlus from "../../components/icons/IconPlus"
 import { useLevellingAddScreenAsModal } from "../../components/LevellingAddScreenAsModal"
+import { useRouter } from "next/router"
 
 function HistoryLine({ history }) {
 	return (
@@ -54,6 +55,7 @@ function Progress({ level, currentXp, nextLevelXp }) {
 }
 
 function CharacterWallet() {
+	const router = useRouter()
 	const { showLevellingAddScreenAsModal } = useLevellingAddScreenAsModal()
 	const character = useCurrentCharacter()
 
@@ -87,7 +89,10 @@ function CharacterWallet() {
 				withCharacterMenu
 			>
 				{character && <>
-					<div className="flex justify-between mt-2">
+					<div 
+						className="flex justify-between mt-2" 
+						onClick={() => router.push(`/levelling/${character.classes[0].index}/${character.level}`)}
+					>
 						<div className="flex items-center justify-center w-full">
 							<div className="flex items-center justify-center w-16 h-16 text-xl border-2 border-blue-400 border-solid rounded-full shadow-md">
 								{character.level}
