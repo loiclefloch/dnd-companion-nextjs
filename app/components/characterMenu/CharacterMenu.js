@@ -33,6 +33,7 @@ function Item({ label, href, route, onClick }) {
 }
 
 function CharacterMenu({ open }) {
+	const router = useRouter()
 	const character = useCurrentCharacter()
 	const { hideCharacterMenu } = useCharacterMenu()
 	const { showDiceHistoryScreen } = useDiceHistory()
@@ -112,7 +113,13 @@ function CharacterMenu({ open }) {
 						{character.classes.map(clss => tr(clss.name)).join(" / ")}
 					</div>
 					<div className="mt-4">
-						<div className="flex items-center justify-center text-xl text-gray-700 border-2 border-solid rounded-full w-9 h-9 border-slate-600">
+						<div 
+							className="flex items-center justify-center text-xl text-gray-700 border-2 border-solid rounded-full w-9 h-9 border-slate-600"
+							onClick={() => {
+								router.replace(`/levelling/${character.classes[0].index}/${character.level}`)
+								hideCharacterMenu()
+							}}
+						>
 							{character.level}
 						</div>
 					</div>

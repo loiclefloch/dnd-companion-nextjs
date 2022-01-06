@@ -39,13 +39,16 @@ function LevellingClassLevel() {
 					className="flex items-center justify-between pr-6 text-xs border-b-0 border-l-0 border-r-0 border-l-white"
 					onClick={() => router.replace(`/levelling/${classIndex}/${level - 1}`)}
 				>
-					<span>
-						<IconChevronLeft />
-					</span>
-					<span>
-						Level {level === 20 ? '' : level - 1}
-					</span>
-			
+					{level !== 1 && (
+						<>
+							<span>
+								<IconChevronLeft />
+							</span>
+							<span>
+								Level {level - 1}
+							</span>
+						</>
+					)}
 				</Button>
 				<Button
 					disabled={level === 20}
@@ -54,12 +57,16 @@ function LevellingClassLevel() {
 					className="flex items-center justify-between pl-6 text-xs border-b-0 border-r-0 border-l-white"
 					onClick={() => router.replace(`/levelling/${classIndex}/${level + 1}`)}
 				>
-					<span>
-						Level {level === 20 ? '' : level + 1}
-					</span>
-					<span>
-						<IconChevronRight />
-					</span>
+					{level !== 20 && (
+						<>
+							<span>
+								Level {level + 1}
+							</span>
+							<span>
+								<IconChevronRight />
+							</span>
+						</>
+					)}
 				</Button>
 			</BottomScreen>
 		</Screen>

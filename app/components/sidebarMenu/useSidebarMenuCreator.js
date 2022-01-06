@@ -1,15 +1,17 @@
 import { useState } from "react";
 
-export default () => {
+function useSidebarMenuCreator() {
 	let [show, setShowSidebarMenu] = useState(false);
 
-	const showSidebarMenu = (component, componentsProps) => {
-		setShowSidebarMenu(!show);
+	return {
+		show,
+		showSidebarMenu: () => {
+			setShowSidebarMenu(!show);
+		},
+		hideSidebarMenu: () => {
+			setShowSidebarMenu(false)
+		}
 	};
-
-	const hideSidebarMenu = () => {
-		setShowSidebarMenu(false)
-	}
-
-	return { show, showSidebarMenu, hideSidebarMenu  };
 };
+
+export default useSidebarMenuCreator

@@ -52,8 +52,8 @@ function LevelDetailView({ clss, level, onCloseScreen }) {
 	return (
 		<>
 			<ScreenIntroduction 
-				title={``}
-				description={null}
+				// title={"Levelling"}
+				description={`Retrouvez le détail du niveau ${level} pour les ${tr(clss.nameLocalized)}`}
 			/>
 
 			<>
