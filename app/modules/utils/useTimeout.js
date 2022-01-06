@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 // function useTimeout(callback: () => void, delay: number | null) {
 function useTimeout(callback, delay) {

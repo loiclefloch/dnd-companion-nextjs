@@ -7,7 +7,7 @@ let { Provider } = (ModalContext = createContext());
 
 ModalContext.displayName = 'ModalContext'
 
-let ModalProvider = ({ children }) => {
+function ModalProvider({ children }) {
 	let { show, showModal, hideModal, modalConfiguration } = useModalCreator();
 
 	return (

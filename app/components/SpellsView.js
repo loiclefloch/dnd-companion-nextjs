@@ -13,20 +13,25 @@ import Tag from "../components/Tag"
 import IconBookOpen from "../components/icons/IconBookOpen"
 import IconMagicSchool from "../components/icons/IconMagicSchool"
 import CharacterSpellTag from "./CharacterSpellTag";
+import Div from "../components/elem/Div"
+import Span from "../components/elem/Span"
+import P from "../components/elem/P"
+import Text from "../components/elem/Text"
 
 function SpellFilters({ spell, filters }) {
   return (
-    <div className="flex flex-wrap gap-1 mt-2">
+    <Div className="flex flex-wrap gap-1 mt-2">
       {getSpellFiltersMatchingData(spell, filters).map(data => (
         <Tag
-          key={`${data.label}-${data.value}`} className="pt-1 pb-1 pl-1 pr-1 text-xs text-gray-600 border border-solid border-slate-400"
+          key={`${data.label}-${data.value}`} 
+          className="pt-1 pb-1 pl-1 pr-1 text-xs text-gray-600 border border-solid border-slate-400"
           color="slate"
           size="small"
         >
-          {data.label && <span className="text-xs lowercase">{data.label}: </span>}{data.value}
+          {data.label && <Text className="text-xs lowercase">{data.label}: </Text>}<Text>{data.value}</Text>
         </Tag>
       ))}
-    </div>
+    </Div>
   )
 }
 
@@ -39,30 +44,31 @@ function Spell({ spell, filters, isLearned, isPrepared, contextCharacter /*onSel
 
   return (
     <Link href={isContextCharacter ? `/character/spells/${spell.index}` : `/spells/${spell.index}`}>
-      <div
+      <Div
         // onClick={onSelect}
         className={`cursor-pointer py-1 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
+        data-test={`spell-${spell.index}`}
       >
-        <div className="pl-3">
-          <div className="flex">
-            <div className="flex flex-col flex-1">
-              <span className="flex items-center font-semibold">
+        <Div className="pl-3">
+          <Div className="flex flex-row">
+            <Div className="flex flex-col flex-1">
+              <Span className="flex flex-row items-center font-semibold">
                 {/* <IconMagicSchool
               school={spell.school.name}
               className="h-6 w-7 text-slate-700"
 
             /> */}
-                {tr(spell.nameLocalized)}
-              </span>
-              <div className="text-sm text-meta">
-                <span>{spell.type}</span>
-              </div>
-            </div>
+                <Text>{tr(spell.nameLocalized)}</Text>
+              </Span>
+              <Div className="text-sm text-meta">
+                <Text>{spell.type}</Text>
+              </Div>
+            </Div>
 
-            <div
+            <Div
               className="pr-2 mt-1"
             >
-              <div className="flex flex-row items-end gap-1">
+              <Div className="flex flex-row items-end gap-1">
                 <>
 									<CharacterSpellTag character={contextCharacter} spell={spell} />
                 </>
@@ -72,17 +78,17 @@ function Spell({ spell, filters, isLearned, isPrepared, contextCharacter /*onSel
                   className="h-6 pt-1 w-7 text-slate-700"
                 />
 
-              </div>
-            </div>
+              </Div>
+            </Div>
 
-          </div>
+          </Div>
 
-          <p className="pr-2 text-sm">{tr(spell.resume)}</p>
+          <P className="pr-2 text-sm">{tr(spell.resume)}</P>
 
           {!isEmpty(filters) && !isContextCharacter && <SpellFilters spell={spell} filters={filters} />}
 
-        </div>
-      </div>
+        </Div>
+      </Div>
     </Link>
   );
 }
@@ -137,7 +143,7 @@ function Spells({ contextCharacter }) {
         </button>
       }
     >
-      <div className="flex flex-col gap-2" data-cy-id="spells-list">
+      <Div className="flex flex-col gap-2" data-cy-id="spells-list">
         {sortSpells(filterSpells(spellsResponse.data), lang)?.map((spell) => (
           <Spell
             key={spell.name}
@@ -149,7 +155,7 @@ function Spells({ contextCharacter }) {
             isPrepared={contextCharacter && contextCharacter.spellsList.find(s => spell.index === s.index)?.isPrepared || false}
           />
         ))}
-      </div>
+      </Div>
     </Screen>
   );
 }

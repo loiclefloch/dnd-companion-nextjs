@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default () => {
+function useModalCreator() {
 	let [show, setShowModal] = useState(false);
 	// - content
 	// - type: WARN, INFO, SUCCESS, VALIDATION
@@ -19,3 +19,5 @@ export default () => {
 
 	return { show, showModal, hideModal, modalConfiguration };
 };
+
+export default useModalCreator

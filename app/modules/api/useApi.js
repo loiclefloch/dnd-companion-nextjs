@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import useTimeout from "../utils/useTimeout"
 
 // for now just do like there is a loading
