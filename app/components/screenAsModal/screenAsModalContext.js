@@ -7,7 +7,7 @@ let { Provider } = (ScreenAsModalContext = createContext());
 
 ScreenAsModalContext.displayName = 'ScreenAsModalContext'
 
-let ScreenAsModalProvider = ({ children }) => {
+function ScreenAsModalProvider({ children }) {
 	let { show, showScreenAsModal, hideScreenAsModal, screenAsModalConfiguration } = useScreenAsModalCreator();
 
 	return (

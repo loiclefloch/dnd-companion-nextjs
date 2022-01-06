@@ -1,0 +1,14 @@
+[
+	{
+		"index": "aboleth",
+		"type": "Aberration",
+		"speedType": "nage",
+		"alignment": "loyal mauvais",
+		"images": [
+			{
+				"url": "https://www.aidedd.org/dnd/images/aboleth.jpg",
+				"label": ""
+			}
+		]
+	}
+]

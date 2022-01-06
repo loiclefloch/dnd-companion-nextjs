@@ -80,7 +80,7 @@ function Monsters() {
 
   return (
     <Screen
-      title={"Monstres"}
+      title={"Bestiaire"}
       titleIcon={<IconMonster className="w-6 h-6 fill-slate-700" />}
       root
 			withCharacterMenu

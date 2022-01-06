@@ -40,7 +40,7 @@ function UnlearnButton() {
 			color="error"
 			onClick={() => { }}
 		>
-			Enlever des sorts appris
+			Enlever des sorts connus
 		</Button>
 	)
 }
@@ -74,8 +74,8 @@ function EditCharacterSpellScreenAsModal({ spell, contextCharacter, onCloseScree
 				description={
 					<>
 						{!isLearned && <span>Vous ne connaissez pas ce sort.</span>}
-						{isLearned && !isPrepared && <span>Ce sort est appris mais n'est pas préparé.</span>}
-						{isPrepared && <span>Ce sort est appris et préparé</span>}
+						{isLearned && !isPrepared && <span>Ce sort est connu mais n'est pas préparé.</span>}
+						{isPrepared && <span>Ce sort est connu et préparé</span>}
 					</>
 				}
 				actions={

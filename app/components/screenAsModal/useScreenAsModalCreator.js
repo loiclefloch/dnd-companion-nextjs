@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default () => {
+function useScreenAsModalCreator() {
 	let [show, setShowScreenAsModal] = useState(false);
 	let [screenAsModalConfiguration, setScreenAsModalConfiguration] = useState(null);
 
@@ -15,3 +15,5 @@ export default () => {
 
 	return { show, showScreenAsModal, hideScreenAsModal, screenAsModalConfiguration };
 };
+
+export default useScreenAsModalCreator

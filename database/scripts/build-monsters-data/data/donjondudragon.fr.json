@@ -1,0 +1,34 @@
+[
+	{
+		"index": "aboleth",
+		"desc": {
+			"fr": [
+				"L'aboleth est une écœurante créature amphibie qui vit au fond des lacs ou dans les grottes souterraines. Il méprise la plupart des créatures de la surface et tente d'asservir les races douées de pensée. Il est aussi cruel qu'intelligent, ce qui n’est pas peu dire.",
+				"Il ressemble à un gros poisson long de 6 m, queue barbelée comprise. Sa tête est bulbeuse, son corps bleu-vert est moucheté de taches grises et son ventre rose cache une bouche caoutchouteuse dépourvue de dents. Trois yeux pourpres ayant la forme de fentes horizontales et protégés par des excroissances osseuses sont disposés, l'un au-dessus de l'autre, à l'avant de sa tête. Quatre orifices bleu-noir animés de pulsations s'ouvrent le long de son ventre et sécrètent une bave grise dont l'odeur est semblable à celle de la graisse rance. Quatre tentacules résistants et longs de 3 m jaillissent de sa tête. L'aboleth utilise sa queue pour se propulser sous l'eau et ses tentacules pour se traîner sur la terre ferme."
+			]
+		},
+		"environment": {
+			"fr": [
+        "Une nichée d'aboleths est constituée d'un adulte et d'un à trois rejetons. Bien que ces derniers soient aussi grands et aussi forts que leur géniteur, ils lui montrent un respect considérable et lui obéissent en tout point.",
+        "Les aboleths sont dotés d'organes géniteurs mâles et femelles. Une fois adultes, ils se reproduisent tous les 5 ans en se cachant au fond d'une caverne ou dans un autre lieu isolé. Ils pondent alors un œuf unique, qu'ils recouvrent de bave. Le géniteur garde son œuf jusqu'à ce qu'il éclose, ce qui prend environ 5 ans. Un aboleth nouveau-né devient adulte au bout d'une dizaine d'années.",
+        "Les aboleths passent le plus clair de leur temps à se chercher des esclaves, humains de préférence. On prétend qu'ils les utilisent pour bâtir de gigantesques cités sous-marines, mais aucune d'entre elles n'a jamais été découverte. Ils connaîtraient également d'anciens secrets plus vieux que les premiers hommes, mais là encore rien ne vient confirmer ces rumeurs. Il est par contre indéniable qu'ils détiennent un savoir immense. Le rejeton acquiert toutes les connaissances de son géniteur à la naissance et un adulte s'empare également du savoir des êtres intelligents qu'il dévore.",
+        "Le trésor d'un aboleth est constitué d'objets pris à ses esclaves. Ces objets sont enterrés sous une couche de bave ressemblant à de la vase grise, mais très reconnaissable grâce à l'odeur de graisse rance qui s'en dégage."
+      ]
+		},
+		"ecology": {
+			"fr": [
+				"L'aboleth est omnivore et se nourrit de tout ce qui est organique. Algues et micro-organismes constituent l'essentiel de son régime alimentaire, mais il aime tout particulièrement ingérer des créatures douées d'intelligence pour, littéralement, se nourrir le corps et l'esprit. Les aboleths n'ont aucun ennemi naturel, car même les plus puissantes créatures marines préfèrent les éviter. Leur bave sert parfois d'ingrédient pour la préparation de [potions de respiration aquatique](object:potion-of-water-breathing)."
+			]
+		},
+		"images": [
+			{
+				"url": "/monsters/aboleth.png",
+				"label": ""
+			},
+			{
+				"url": "/monsters/aboleth2.jpg",
+				"label": ""
+			}
+		]
+	}
+]

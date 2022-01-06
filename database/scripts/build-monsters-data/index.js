@@ -1,7 +1,9 @@
 const forEach = require("lodash/forEach")
 const srdMonsters = require("./data/dnd-5e-srd__monsters.json")
 const tkfuMonsters = require("./data/tkfu__srd_5e_monsters.json")
-const monsters = require("./data/monsters.json")
+const manual = require("./data/manual.json")
+const aidedd = require("./data/aidedd.json")
+const donjondudragonfr = require("./data/donjondudragon.fr.json")
 
 function convertToSlug(Text) {
   return Text.toLowerCase()
@@ -136,7 +138,9 @@ function transform(baseMonster) {
 	]
 
 	const index = convertToSlug(baseMonster.name) 
-	const monster = monsters.find(m => m.index === index)
+	const manualMonster = manual.find(m => m.index === index)
+	const aideddMonster = aidedd.find(m => m.index === index)
+	const donjondudragonfrMonster = donjondudragonfr.find(m => m.index === index) 
 
 	// TODO: Proficiency Bonus 
 	// TODO: size
@@ -148,7 +152,17 @@ function transform(baseMonster) {
 			fr: baseMonster.name,
 		},
 		resume: '', // TODO:
-		desc: monster?.desc || {// TODO:
+
+		type: aideddMonster?.type,
+		speed: baseMonster.speed, // TODO: which priority
+		speedType: aideddMonster?.speedType,
+		alignment: aideddMonster?.alignment,
+
+		environment: donjondudragonfrMonster?.ecology,
+		ecology: donjondudragonfrMonster?.environment,
+
+		// first manual, then donjondudragonfrMonster
+		desc: donjondudragonfrMonster?.desc || manualMonster?.desc || {// TODO:
 			en: '',
 			fr: '',
 		}, 
@@ -159,7 +173,6 @@ function transform(baseMonster) {
 		environments: [ "mountain" ], // TODO:
 		ac: baseMonster['Armor Class'],
 		hp: baseMonster['Hit Points'],
-		speed: baseMonster.speed,
 		stats: {
 			STR: Number(baseMonster.STR),
 			DEX: Number(baseMonster.DEX),
@@ -182,6 +195,11 @@ function transform(baseMonster) {
 		legendaryActions: baseMonster['Legendary Actions'] && { en: baseMonster['Legendary Actions'] },
 		traits: baseMonster.Traits && { en: baseMonster.Traits },
 		imageUrl: baseMonster.img_url && defaultImages.includes(baseMonster.img_url) ? null : baseMonster.img_url,
+		images: [
+			...(manualMonster?.images || []),
+			...(aideddMonster?.images || []),
+			...(donjondudragonfrMonster?.images || []),
+		],
 		source: 'Basic Rules', // TODO:
 		sourcePage: 119, // TODO:
 		isLegendary: !!(baseMonster['Legendary Actions']), // TODO: better?

@@ -81,10 +81,6 @@ function MonsterView({ monster }) {
           >
             {monster.hp}
           </Tag>
-          <div>
-            {/* TODO: */}
-            {monster.speed}
-          </div>
         </div>
       </div>
     
@@ -140,6 +136,18 @@ function MonsterView({ monster }) {
                 <span> </span>
                 <span className="text-sm">{tr(monster.challenge.label)}</span>
               </p>
+
+              <p>
+                <span className="font-semibold">Speed</span>
+                <span> </span>
+                <span className="text-sm">{tr(monster.speedType)} {tr(monster.speed)}</span>
+              </p>
+
+              <p>
+                <span className="font-semibold">Alignement</span>
+                <span> </span>
+                <span className="text-sm">{tr(monster.alignment)}</span>
+              </p>
               {/* TODO: Proficiency Bonus +2 */}
             </div>
           </div>
@@ -156,6 +164,14 @@ function MonsterView({ monster }) {
             <div className="mt-4">
               <Section title="Description">
                <HtmlContent html={tr(monster.desc)} />
+              </Section>
+            </div>
+          )}
+
+          {monster.ecology && (
+            <div className="mt-4">
+              <Section title="Écologie">
+                {tr(monster.ecology)}
               </Section>
             </div>
           )}
@@ -187,6 +203,20 @@ function MonsterView({ monster }) {
             <Tag key={index} className={clsx('', tag.className)}>
               {tag.label}
             </Tag>
+          ))}
+        </div>
+      )}
+
+      {/* TODO: Gallery component */}
+      {monster.images && (
+        <div className="flex gap-2 mt-8">
+          {monster.images.map((imageData) => (
+            <Image 
+              key={imageData.url} 
+              src={imageData.url} 
+              alt={imageData.label} 
+              className={monster.images.length === 1 ? "w-full" : "w-1/3"} 
+            />
           ))}
         </div>
       )}
