@@ -14,6 +14,7 @@ export function formatEquipmentItem(itemParam) {
 		return null
 	}
 	const item = camelize(itemParam)
+	item.isEquipmentItem = true
 	item.nameLocalized = {
 		en: item.name
 	}

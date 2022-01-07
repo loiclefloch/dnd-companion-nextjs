@@ -1,34 +1,27 @@
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
-
+import skills from "../database/data/skills.json"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import useI18n from "../modules/i18n/useI18n";
-import { valueToModifier, valueToModifierLabel } from "../modules/stats"
+import { valueToModifierLabel } from "../modules/stats"
 import useDice from "./useDice";
+import useModal from "./useModal"
+import useTipAbilityScore from "./useTipAbilityScore"
 
 function StatsDetailsScreenAsModal({ stats, onCloseScreen }) {
 	const { tr } = useI18n()
+	const { showInfoModal } = useModal()
 	const { rollStat } = useDice()
+	const { showAbilityScoreTip } = useTipAbilityScore()
 
-	const detailedStats = [
-			{ label: tr('Acrobatics'), value: stats['DEX'] },
-			{ label: tr('Animal Handling'), value: stats['WIS'] },
-			{ label: tr('Arcana'), value: stats['INT'] },
-			{ label: tr('Athletics'), value: stats['STR'] },
-			{ label: tr('Deception'), value: stats['CHA'] },
-			{ label: tr('History'), value: stats['INT'] },
-			{ label: tr('Insight'), value: stats['WIS'] },
-			{ label: tr('Intimidation'), value: stats['CHA'] },
-			{ label: tr('Investigation'), value: stats['INT'] },
-			{ label: tr('Medicine'), value: stats['WIS'] },
-			{ label: tr('Nature'), value: stats['INT'] },
-			{ label: tr('Perception'), value: stats['WIS'] },
-			{ label: tr('Performance'), value: stats['CHA'] },
-			{ label: tr('Persuasion'), value: stats['CHA'] },
-			{ label: tr('Religion'), value: stats['INT'] },
-			{ label: tr('Sleight of Hand'), value: stats['DEX'] },
-			{ label: tr('Stealth'), value: stats['DEX'] },
-			{ label: tr('Survival'), value: stats['WIS'] },
-	]
+	const detailedStats = skills.map(skill => {
+		return {
+			index: skill.index,
+			label: tr(skill.name),
+			description: skill.desc,
+			ability: skill.ability_score.name,
+			value: stats[skill.ability_score.name]
+		}
+	})
 
 	return (
 		<ScreenAsModal 
@@ -39,18 +32,26 @@ function StatsDetailsScreenAsModal({ stats, onCloseScreen }) {
 				{detailedStats.map(detailedStat => (
 					<div
 						key={detailedStat.label}
-						className="flex justify-between py-2"
+						className="flex flex-row justify-between py-2"
 					>
 						<div 
-							className="pl-4" 
+							className="flex-1 pl-4" 
 							onClick={() => {
-								// TODO: open description
+								showInfoModal({
+									content:  <p>{detailedStat.description}</p>
+								})
 							}}
 						>
 							{detailedStat.label}
 						</div>
 						<div 
-							className="pr-6"
+							className="flex flex-row items-center mt-1 text-2xs text-meta"
+							onClick={() => showAbilityScoreTip(detailedStat.ability)}
+						>
+							{detailedStat.ability}
+						</div>
+						<div 
+							className="px-6"
 							onClick={() => rollStat(tr(detailedStat.label), detailedStat.value)}
 						>
 							{valueToModifierLabel(detailedStat.value)}

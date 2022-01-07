@@ -1,17 +1,25 @@
 import { useStatsDetailsScreenAsModal } from "./StatsDetailsScreenAsModal"
 import { valueToModifierLabel } from "../modules/stats"
 import useDice from "./useDice";
+import useTipAbilityScore from "./useTipAbilityScore";
 import useI18n from "../modules/i18n/useI18n";
 
 function Stat({ label, shortcut, value }) {
 	const { tr } = useI18n()
 	const { rollStat } = useDice()
+	const { showAbilityScoreTip } = useTipAbilityScore()
 	const modifierLabel = valueToModifierLabel(value)
 
 	// TODO: run dice
 	return (
 		<div className="flex flex-col items-center pr-4 pointer-cursor">
-			<div className='uppercase text-slate-600' style={{ fontSize: 10 }}>{shortcut}</div>
+			<div 
+				className='uppercase text-slate-600' 
+				style={{ fontSize: 10 }}
+				onClick={() => showAbilityScoreTip(shortcut)}
+			>
+				{shortcut}
+			</div>
 			<div 
 				className="text-2xl" 
 				style={{ marginLeft: -4 }}

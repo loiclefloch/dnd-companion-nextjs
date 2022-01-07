@@ -1,10 +1,10 @@
 import groupBy from "lodash/groupBy"
 import Link from "next/link"
 import Screen from "../../components/Screen"
-import useEquipments from "../../modules/api/useEquipments";
+import useEquipmentCategories from "../../modules/api/useEquipmentCategories";
 import useI18n from "../../modules/i18n/useI18n";
 
-function ItemRow({ item, onClick }) {
+function ItemRow({ item }) {
 	const { tr } = useI18n()
 
 	return (
@@ -15,7 +15,7 @@ function ItemRow({ item, onClick }) {
 			<div className="pl-1">
 				<div className="flex flex-row">
 					<div className="flex flex-col flex-1">
-						<Link href={`/equipment/${item.index}`}>
+						<Link href={item.isMagicItem ? `/magic-item/${item.index}` : `/equipment/${item.index}`}>
 							<span className="flex flex-row items-center font-semibold">
 								<span>{tr(item.nameLocalized)}</span>
 							</span>
@@ -49,19 +49,6 @@ function ItemRow({ item, onClick }) {
 								</>
 							)}
 
-
-							{item.isAdventuringGear && (
-								<>
-									<span>{item.gearCategory.name}</span>
-								</>
-							)}
-
-							{item.isTools && (
-								<>
-									<span>{item.toolCategory}</span>
-								</>
-							)}
-
 							{item.isMountAndVehicules && (
 								<>
 									<span>{item.vehicleCategory} </span>
@@ -90,14 +77,16 @@ function ItemRow({ item, onClick }) {
   );
 }
 
-function Group({ title, items }) {
+function Group({ category }) {
+	const { tr } = useI18n()
+
 	return (
 		<div className="mx-4 mt-2 mb-4 select-none">
-			<div className="font-semibold text-md">{title}</div>
+			<div className="font-semibold text-md">{tr(category.nameLocalized)}</div>
 			<div className="py-2">
-				{items.map((item, index) => (
+				{category.equipment.map(item => (
 					<ItemRow
-						key={index}
+						key={`${category.index}_${item.index}`}
 						item={item}
 					/>
 				))}
@@ -107,24 +96,25 @@ function Group({ title, items }) {
 }
 
 function Equipments() {
-	const equipmentsResponse = useEquipments()
-
-	const grouped = groupBy(equipmentsResponse.data || [], item => item.equipmentCategory.index)
+	const equipmentCategoriesResponse = useEquipmentCategories()
 
   return (
 		<Screen
 			title={"Équipements"}
 			// titleIcon={<IconScale className="w-6 h-6" />}
-			isLoading={equipmentsResponse.isLoading}
+			isLoading={equipmentCategoriesResponse.isLoading}
 			root
 			withBottomSpace
 		>
 			<div className="flex flex-col" data-cy-id="equipments-list">
-				<Group title="Armes" items={grouped.weapon} />
+				{equipmentCategoriesResponse.data?.map(category => (
+					<Group key={category.index} category={category} />
+				))}
+				{/* <Group title="Armes" items={grouped.weapon} />
 				<Group title="Armure" items={grouped.armor} />
 				<Group title="adventuring-gear" items={grouped['adventuring-gear']} />
 				<Group title="Outils" items={grouped.tools} />
-				<Group title="Montures et véhicules" items={grouped['mounts-and-vehicles']} />
+				<Group title="Montures et véhicules" items={grouped['mounts-and-vehicles']} /> */}
 			</div>
 		</Screen>
 	);
