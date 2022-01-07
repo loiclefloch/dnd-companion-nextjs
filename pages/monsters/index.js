@@ -51,7 +51,11 @@ function Monster({ monster, filters, /*onSelect*/ }) {
 					<span className="flex justify-between w-full font-semibold">
 						{tr(monster.nameLocalized)}
 						{monster.isLegendary && (
-							<Tag label="L" size="small" className="ml-2 border border-solid text-amber-600 border-amber-600" />
+							<Tag 
+								label="L" 
+								size="small" 
+								className="pt-1 ml-2 border border-solid text-amber-600 border-amber-600" 
+							/>
 						)}
 					</span>
 					<div className={clsx("text-sm", 'text-slate-600 dark:text-slate-600')}>

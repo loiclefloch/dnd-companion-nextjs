@@ -47,7 +47,7 @@ function Spell({ spell, filters, isLearned, isPrepared, contextCharacter /*onSel
       <Div
         // onClick={onSelect}
         className={`cursor-pointer py-1 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
-        data-test={`spell-${spell.index}`}
+        data-cy-spell-index={`spell-${spell.index}`}
       >
         <Div className="pl-3">
           <Div className="flex flex-row">

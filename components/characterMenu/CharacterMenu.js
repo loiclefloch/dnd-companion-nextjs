@@ -53,6 +53,10 @@ function CharacterMenu({ open }) {
 			href: '/character/grimoire',
 		},
 		{
+			label: 'Équipement',
+			href: '/character/equipment',
+		},
+		{
 			label: 'Actions',
 			href: '/character/actions',
 		},

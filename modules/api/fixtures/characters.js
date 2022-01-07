@@ -2,9 +2,11 @@ import classes from '../../../database/data/classes.json'
 import races from '../../../database/data/races.json'
 import subraces from '../../../database/data/subraces.json'
 import spells from '../../../database/data/spells.json'
+import equipmentList from '../../../database/data/equipment.json'
 import { format as formatSubrace } from "../useSubrace"
 import { format as formatClass } from "../useClass"
 import { getLevelExperienceStage, getSpellLevelForCharacterLevel } from "../../levelling"
+import { formatEquipmentItem } from "../useEquipmentItem"
 
 const level = 2
 
@@ -159,6 +161,16 @@ export default [
 			{ ...spells.find(spell => spell.index === "purify-food-and-drink"), isPrepared: true },
 		],
 
+		equipment: [
+			equipmentList.find(equipmentItem => equipmentItem.index === "club"),
+			equipmentList.find(equipmentItem => equipmentItem.index === "dagger"),
+			equipmentList.find(equipmentItem => equipmentItem.index === "javelin"),
+			equipmentList.find(equipmentItem => equipmentItem.index === "crossbow-bolt"),
+			equipmentList.find(equipmentItem => equipmentItem.index === "warship"),
+			equipmentList.find(equipmentItem => equipmentItem.index === "clothes-costume"),
+			equipmentList.find(equipmentItem => equipmentItem.index === "splint-armor"),
+			equipmentList.find(equipmentItem => equipmentItem.index === "alchemists-supplies"),
+		].filter(Boolean).map(formatEquipmentItem),
 		// actions: {
 		// 	class: [
 		// 		{

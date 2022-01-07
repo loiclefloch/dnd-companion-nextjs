@@ -10,7 +10,7 @@ import IconSupport from "../icons/IconSupport"
 import IconX from "../icons/IconX"
 import IconMonster from "../icons/IconMonster"
 import IconGroup from "../icons/IconGroup"
-import IconScale from "../icons/IconScale"
+import IconAcademicCap from "../icons/IconAcademicCap"
 
 function Item({ href = "", icon, label }) {
 	const router = useRouter()
@@ -80,7 +80,7 @@ function SidebarMenu({ show, onClose }) {
 							<Item href="/characters" label="Personnages" icon={<IconUsers className="w-6 h-6" />} />
 							<Item href="/spells" label="Sorts" icon={<IconBookOpen className="w-6 h-6" />} />
 							<Item href="/monsters" label="Bestiaire" icon={<IconMonster className="w-6 h-6" />} />
-							<Item href="/rules" label="Règles" icon={<IconScale className="w-6 h-6" />} />
+							<Item href="/rules" label="Règles" icon={<IconAcademicCap className="w-6 h-6" />} />
 						</div>
 						<div className="flex flex-col justify-end flex-1 w-full my-4 flex-end">
 							<Item href="/support" label="Support" icon={<IconSupport className="w-6 h-6" />} />

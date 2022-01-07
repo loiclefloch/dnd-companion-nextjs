@@ -56,6 +56,8 @@ function DiceModal({
 									</h3>
 								}
 
+								{roll.damageType && <span>({roll.damageType.name})</span>}
+
 								<div 
 									className={clsx("mt-2 text-4xl font-semibold",
 										{
@@ -77,7 +79,7 @@ function DiceModal({
 
 								<div className="mt-3 text-sm text-meta">
 									<div>
-										{roll.diceRollResult.rolls.map(roll => roll.label).join(', ')}
+										{roll.diceRollResult.rolls.map(roll => roll.label).join(' ')}
 									</div>
 									<div className="mt-1">
 										{roll.diceFormatted} {roll.successCheckLabel}
