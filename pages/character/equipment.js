@@ -7,6 +7,7 @@ import useCurrentCharacter from "../../modules/character/useCurrentCharacter"
 import IconBriefcase from "../../components/icons/IconBriefcase"
 import IconPlus from "../../components/icons/IconPlus"
 import useDice from "../../components/useDice";
+import { useEquipmentItemScreenAsModal } from "../../components/EquipmentItemScreenAsModal"
 
 // function ItemRow({ item, onClick }) {
 // 	return (
@@ -35,40 +36,81 @@ function ItemRow({ item, onClick }) {
 	const { rollDamage } = useDice()
 
 	const isWeapon = item.equipmentCategory.index === "weapon"
+	const isArmor = item.equipmentCategory.index === "armor"
+	const isAdventuringGear = item.equipmentCategory.index === "adventuring-gear"
+	const isTools = item.equipmentCategory.index === "tools"
+	const isMountAndVehicules = item.equipmentCategory.index === "mounts-and-vehicles"
 
 	// TODO:
 	const modifier = +2
 
 	return (
 		<div
-			className={`cursor-pointer py-1 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
+			className={`py-1 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
 			data-cy-item-index={`item-${item.index}`}
 		>
 			<div className="pl-1">
 				<div className="flex flex-row">
-					<div className="flex flex-col flex-1">
-						<Link href={`/items/${item.index}`}>
-							<span className="flex flex-row items-center font-semibold">
-								<span>{tr(item.nameLocalized)}</span>
-							</span>
-						</Link>
+					<div className="flex flex-col flex-1" onClick={onClick}>
+						<span className="flex flex-row items-center font-semibold">
+							<span>{tr(item.nameLocalized)}</span>
+						</span>
 						<div className="text-sm text-meta">
-							{isWeapon && (
+							{item.isWeapon && (
 								<>
-									<span>{item.categoryRange} - </span>
-									<span
-										onClick={(e) => {
-											rollDamage(
-												`${tr(item.nameLocalized)}`, 
-												item.damage.damageDice, 
-												modifier,
-												item.damage.damageType
-											)
-											e.preventDefault()
-										}}
-									>
-										{item.damage.damageDice} {modifier >= 0 ? '+' : '-'}{modifier} {item.damage.damageType.name}
+									{item.damage && (
+										<>
+											<span>{item.categoryRange} - </span>
+											<span
+												className="cursor-pointer"
+												onClick={(e) => {
+													rollDamage(
+														`${tr(item.nameLocalized)}`,
+														item.damage.damageDice,
+														modifier,
+														item.damage.damageType
+													)
+													e.preventDefault()
+												}}
+											>
+												{item.damage.damageDice} {modifier >= 0 ? '+' : '-'}{modifier} {item.damage.damageType.name}
+											</span>
+										</>
+									)}
+									{!item.damage && (
+										<span>No damages defined, look at the description</span>
+									)}
+								</>
+							)}
+
+							{item.isArmor && (
+								<>
+									<span>{item.armorCategory} - </span>
+									<span>
+										AC {item.armorClass.base} {item.stealthDisadvantage && <span>Stealth disavantage</span>}
 									</span>
+								</>
+							)}
+
+
+							{item.isAdventuringGear && (
+								<>
+									<span>{item.gearCategory.name}</span>
+								</>
+							)}
+
+							{item.isTools && (
+								<>
+									<span>{item.toolCategory}</span>
+								</>
+							)}
+
+							{item.isMountAndVehicules && (
+								<>
+									<span>{item.vehicleCategory} </span>
+									{item.speed && (
+										<span> - {item.speed.quantity} {item.speed.unit}</span>
+									)}
 								</>
 							)}
 						</div>
@@ -92,31 +134,33 @@ function ItemRow({ item, onClick }) {
 }
 
 function Group({ title, items }) {
-return (
-	<div className="mx-4 mt-2 mb-4">
-		<div className="font-semibold text-md">{title}</div>
-		<div className="py-2">
-			{items.map((item, index) => (
-				<ItemRow
-					key={index}
-					item={item}
-				/>
-			))}
+	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
+
+	return (
+		<div className="mx-4 mt-2 mb-4 select-none">
+			<div className="font-semibold text-md">{title}</div>
+			<div className="py-2">
+				{items.map((item, index) => (
+					<ItemRow
+						key={index} // index since we could have multiple times the same item for a character?
+						item={item}
+						onClick={() => showEquipmentItemScreenAsModal(item.index)}
+					/>
+				))}
+			</div>
 		</div>
-	</div>
-)
+	)
 }
 
 function Character() {
 	const router = useRouter()
 	const { tr } = useI18n()
 	const character = useCurrentCharacter()
-
 	const grouped = groupBy(character?.equipment, item => item.equipmentCategory.index)
 
 	return (
 		<Screen
-			title={character?.name}
+			title={`${character?.name} - Matériel`}
 			titleIcon={<IconBriefcase className="w-6 h-6" />}
 			withCharacterMenu
 			rightAction={

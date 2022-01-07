@@ -16,7 +16,7 @@ function DiceHistoryRow({ diceHistory }) {
 
 				<div className="mt-0 text-sm text-meta">
 					<div>
-						{roll.diceRollResult.rolls.map(roll => roll.label).join(', ')}
+						{roll.diceRollResult.rolls.map(roll => roll.label).join('')}
 					</div>
 					<div className="mt-1">
 						{roll.diceFormatted} {roll.successCheckLabel}

@@ -11,6 +11,7 @@ function useScreenAsModalCreator() {
 
 	const hideScreenAsModal = () => {
 		setShowScreenAsModal(false)
+		setScreenAsModalConfiguration(null)
 	}
 
 	return { show, showScreenAsModal, hideScreenAsModal, screenAsModalConfiguration };

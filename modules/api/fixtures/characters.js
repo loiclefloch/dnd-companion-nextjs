@@ -162,14 +162,15 @@ export default [
 		],
 
 		equipment: [
-			equipmentList.find(equipmentItem => equipmentItem.index === "club"),
-			equipmentList.find(equipmentItem => equipmentItem.index === "dagger"),
-			equipmentList.find(equipmentItem => equipmentItem.index === "javelin"),
-			equipmentList.find(equipmentItem => equipmentItem.index === "crossbow-bolt"),
-			equipmentList.find(equipmentItem => equipmentItem.index === "warship"),
-			equipmentList.find(equipmentItem => equipmentItem.index === "clothes-costume"),
-			equipmentList.find(equipmentItem => equipmentItem.index === "splint-armor"),
-			equipmentList.find(equipmentItem => equipmentItem.index === "alchemists-supplies"),
+			...equipmentList
+			// equipmentList.find(equipmentItem => equipmentItem.index === "club"),
+			// equipmentList.find(equipmentItem => equipmentItem.index === "dagger"),
+			// equipmentList.find(equipmentItem => equipmentItem.index === "javelin"),
+			// equipmentList.find(equipmentItem => equipmentItem.index === "crossbow-bolt"),
+			// equipmentList.find(equipmentItem => equipmentItem.index === "warship"),
+			// equipmentList.find(equipmentItem => equipmentItem.index === "clothes-costume"),
+			// equipmentList.find(equipmentItem => equipmentItem.index === "splint-armor"),
+			// equipmentList.find(equipmentItem => equipmentItem.index === "alchemists-supplies"),
 		].filter(Boolean).map(formatEquipmentItem),
 		// actions: {
 		// 	class: [

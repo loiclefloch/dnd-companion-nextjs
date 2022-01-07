@@ -9,7 +9,6 @@ export default function Screen404() {
 			title={"Page not found"}
 			fullScreen
 			iconClassName="fill-white"
-			root
 		>
 			<div 
 				className="w-full h-full bg-slate-900"

@@ -96,7 +96,7 @@ function useDice() {
 			successValue: '',
 			successCheckLabel: ``,
 			diceResult,
-			canCalculateSuccess: true,
+			canCalculateSuccess: false,
 			isCritic: false,
 			isCriticSuccess: false,
 			isCriticFailure: false,
@@ -104,7 +104,7 @@ function useDice() {
 		}
 
 		addDice({
-			label,
+			label: `${label} (${damageType.name})`,
 			roll,
 			onValidate: () => { },
 			onReroll: () => {

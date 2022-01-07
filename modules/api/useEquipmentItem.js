@@ -1,4 +1,6 @@
+import equipment from "../../database/data/equipment.json"
 import camelize from "../utils/camelize"
+import useApi from "./useApi"
 
 // possible equipment_category
 // - weapon
@@ -7,7 +9,11 @@ import camelize from "../utils/camelize"
 // - tools
 // - mounts-and-vehicles
 
-export function formatEquipmentItem(item) {
+export function formatEquipmentItem(itemParam) {
+	if (!itemParam) {
+		return null
+	}
+	const item = camelize(itemParam)
 	item.nameLocalized = {
 		en: item.name
 	}
@@ -17,11 +23,26 @@ export function formatEquipmentItem(item) {
 	}
 
 	item.description = {
-		en: ''
+		en: item.desc
 	}
+
+	delete item.desc
+
 	// TODO: add resume
 	// TODO: add description
 	// TODO: add image
 
-	return camelize(item)
+	item.isWeapon = item.equipmentCategory.index === "weapon"
+	item.isArmor = item.equipmentCategory.index === "armor"
+	item.isAdventuringGear = item.equipmentCategory.index === "adventuring-gear"
+	item.isTools = item.equipmentCategory.index === "tools"
+	item.isMountAndVehicules = item.equipmentCategory.index === "mounts-and-vehicles"
+
+	return item
 }
+
+function useEquipmentItem(index) {
+	return useApi(formatEquipmentItem(equipment.find(item => item.index === index)))
+}
+
+export default useEquipmentItem
