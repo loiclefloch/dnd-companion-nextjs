@@ -1,4 +1,4 @@
-import races from '../../../database/data/races.json'
+import races from '../../database/data/races.json'
 import isEmpty from 'lodash/isEmpty'
 import useApi from "./useApi"
 

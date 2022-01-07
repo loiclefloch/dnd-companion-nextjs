@@ -1,4 +1,4 @@
-import ruleSections from '../../../database/data/rule-sections.json'
+import ruleSections from '../../database/data/rule-sections.json'
 import useApi from "./useApi"
 
 export function format(rule) {

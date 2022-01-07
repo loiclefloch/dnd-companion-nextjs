@@ -1,4 +1,4 @@
-import classes from '../../../database/data/classes.json'
+import classes from '../../database/data/classes.json'
 import useCharacter from '../api/useCharacter'
 
 function useCurrentCharacter() {

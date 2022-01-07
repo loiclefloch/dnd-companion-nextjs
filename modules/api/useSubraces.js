@@ -1,4 +1,4 @@
-import subraces from '../../../database/data/subraces.json'
+import subraces from '../../database/data/subraces.json'
 import useApi from "./useApi"
 
 import { format } from "./useRace"

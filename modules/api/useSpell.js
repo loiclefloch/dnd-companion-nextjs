@@ -1,4 +1,4 @@
-import spells from '../../../database/data/spells.json'
+import spells from '../../database/data/spells.json'
 import useApi from "./useApi"
 
 export function format(spell) {

@@ -1,4 +1,4 @@
-import features from '../../../database/data/features.json'
+import features from '../../database/data/features.json'
 import useApi from "./useApi"
 
 import { format } from "./useRace"

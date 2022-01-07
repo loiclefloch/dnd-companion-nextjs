@@ -1,4 +1,4 @@
-import magicSchools from '../../../database/data/magic-schools.json'
+import magicSchools from '../../database/data/magic-schools.json'
 import useApi from "./useApi"
 
 import { format } from './useMagicSchool'

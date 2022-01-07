@@ -1,4 +1,4 @@
-import monsters from '../../../database/data/monsters.json'
+import monsters from '../../database/data/monsters.json'
 import useApi from "./useApi"
 
 function useMonster(index) {

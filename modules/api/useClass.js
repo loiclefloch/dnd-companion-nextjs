@@ -1,4 +1,4 @@
-import classes from '../../../database/data/classes.json'
+import classes from '../../database/data/classes.json'
 import useApi from "./useApi"
 
 export function format(clss) {
