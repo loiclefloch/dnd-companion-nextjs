@@ -1,5 +1,5 @@
 import Screen from "../../components/Screen"
-import IconBookOpen from "../../components/icons/IconBookOpen"
+import IconScale from "../../components/icons/IconScale"
 import ReactMarkdown from 'react-markdown'
 
 import TheOrderOfCombat from "../../components/rule-sections/the-order-of-combat.mdx"
@@ -43,8 +43,8 @@ function Rule() {
 
   return (
 		<Screen
-			title={`Règles - ${ruleResponse.data?.name}`}
-			titleIcon={<IconBookOpen className="w-6 h-6" />}
+			title={`Règles - ${ruleResponse.data?.name || ''}`}
+			titleIcon={<IconScale className="w-6 h-6" />}
 			isLoading={ruleResponse.isLoading}
 			withBottomSpace
 		>

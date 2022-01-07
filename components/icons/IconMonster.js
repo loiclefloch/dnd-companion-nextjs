@@ -52,7 +52,7 @@ export default createIcon('IconMonster', () => (
 		C711.198,124.308,718.343,128.238,727.607,127.053z"/>
 </g>), {
 	viewBox: '0 0 864 864',
-	fill: 'none',
+	fill: 'inherit',
 	stroke: 'currentColor',
 	className: 'h-6 w-6'
 })

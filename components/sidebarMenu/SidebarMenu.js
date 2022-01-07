@@ -6,10 +6,11 @@ import IconBookOpen from "../icons/IconBookOpen"
 import IconUsers from "../icons/IconUsers"
 import IconGear from "../icons/IconGear"
 import IconHome from "../icons/IconHome"
-import IconQuestionMark from "../icons/IconQuestionMark"
+import IconSupport from "../icons/IconSupport"
 import IconX from "../icons/IconX"
 import IconMonster from "../icons/IconMonster"
 import IconGroup from "../icons/IconGroup"
+import IconScale from "../icons/IconScale"
 
 function Item({ href = "", icon, label }) {
 	const router = useRouter()
@@ -19,8 +20,8 @@ function Item({ href = "", icon, label }) {
 		<Link href={href}>
 			<a
 				className={clsx("w-full font-thin uppercase flex items-centerflex items-center transition-colors duration-200 justify-start p-4 my-2 border-solid", {
-				 "text-blue-500 bg-gradient-to-r border-r-4 border-blue-500 from-gray-700 to-gray-800": selected,
-				 "text-gray-200 hover:text-blue-500": !selected
+				 "text-blue-500 bg-gradient-to-r border-r-4 border-blue-500 from-gray-700 to-gray-800 fill-blue-500": selected,
+				 "text-gray-200 hover:text-blue-500 fill-white": !selected
 			 })}
 				href="#"
 			>
@@ -78,11 +79,11 @@ function SidebarMenu({ show, onClose }) {
 							<Item href="/" label="Dashboard" icon={<IconHome className="w-6 h-6" />} />
 							<Item href="/characters" label="Personnages" icon={<IconUsers className="w-6 h-6" />} />
 							<Item href="/spells" label="Sorts" icon={<IconBookOpen className="w-6 h-6" />} />
-							<Item href="/monsters" label="Bestiaire" icon={<IconMonster className="w-6 h-6 fill-white" />} />
-							<Item href="/rules" label="Règles" icon={<IconMonster className="w-6 h-6 fill-white" />} />
+							<Item href="/monsters" label="Bestiaire" icon={<IconMonster className="w-6 h-6" />} />
+							<Item href="/rules" label="Règles" icon={<IconScale className="w-6 h-6" />} />
 						</div>
 						<div className="flex flex-col justify-end flex-1 w-full my-4 flex-end">
-							<Item href="/support" label="Support" icon={<IconQuestionMark className="w-6 h-6" />} />
+							<Item href="/support" label="Support" icon={<IconSupport className="w-6 h-6" />} />
 							<Item href="/settings" label="Paramètres" icon={<IconGear className="w-6 h-6" />} />
 						</div>
 					</nav>

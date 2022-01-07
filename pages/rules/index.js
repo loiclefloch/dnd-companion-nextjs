@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Text from "../../components/elem/Text"
 import Screen from "../../components/Screen"
-import IconBookOpen from "../../components/icons/IconBookOpen"
+import IconScale from "../../components/icons/IconScale"
 import useRules from "../../modules/api/useRules";
 
 function Rules() {
@@ -10,7 +10,7 @@ function Rules() {
   return (
 		<Screen
 			title={"Règles"}
-			titleIcon={<IconBookOpen className="w-6 h-6" />}
+			titleIcon={<IconScale className="w-6 h-6" />}
 			isLoading={rulesResponse.isLoading}
 			root
 			withBottomSpace
