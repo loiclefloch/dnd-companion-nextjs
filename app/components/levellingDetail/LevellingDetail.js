@@ -1,6 +1,7 @@
 import { createElement } from "react"
 import get from "lodash/get"
-import DruidLevel2 from "./DruidLevel2"
+
+import DruidLevel2 from "./DruidLevel2.mdx"
 
 function LevellingDetail({ level, clss, ...otherProps }) {
 	const map = {

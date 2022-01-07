@@ -8,7 +8,10 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    // add prose className arround markdown / vanilla html
+    require('@tailwindcss/typography'),
+  ],
   safelist: [
     'bg-red-400',
   ]

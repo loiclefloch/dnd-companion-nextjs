@@ -3,6 +3,9 @@ import isEmpty from 'lodash/isEmpty'
 import useApi from "./useApi"
 
 export function format(race) {
+  if (!race) { // required so we can build while all the races are not created
+    return null
+  }
   race.nameLocalized = {
     en: race.name,
   }

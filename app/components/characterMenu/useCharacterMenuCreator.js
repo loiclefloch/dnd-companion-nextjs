@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default () => {
+function useCharacterMenuCreator() {
 	let [show, setShowCharacterMenu] = useState(false);
 
 	const showCharacterMenu = () => {
@@ -13,3 +13,5 @@ export default () => {
 
 	return { show, showCharacterMenu, hideCharacterMenu };
 };
+
+export default useCharacterMenuCreator

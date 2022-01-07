@@ -79,6 +79,7 @@ function SidebarMenu({ show, onClose }) {
 							<Item href="/characters" label="Personnages" icon={<IconUsers className="w-6 h-6" />} />
 							<Item href="/spells" label="Sorts" icon={<IconBookOpen className="w-6 h-6" />} />
 							<Item href="/monsters" label="Bestiaire" icon={<IconMonster className="w-6 h-6 fill-white" />} />
+							<Item href="/rules" label="Règles" icon={<IconMonster className="w-6 h-6 fill-white" />} />
 						</div>
 						<div className="flex flex-col justify-end flex-1 w-full my-4 flex-end">
 							<Item href="/support" label="Support" icon={<IconQuestionMark className="w-6 h-6" />} />
