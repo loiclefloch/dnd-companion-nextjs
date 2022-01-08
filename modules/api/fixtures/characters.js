@@ -4,7 +4,7 @@ import subraces from '../../../database/data/subraces.json'
 import spells from '../../../database/data/spells.json'
 import equipmentList from '../../../database/data/equipment.json'
 import magicItems from '../../../database/data/magic-items.json'
-import { format as formatSubrace } from "../useSubrace"
+import { format as formatRace } from "../useRace"
 import { format as formatClass } from "../useClass"
 import { getLevelExperienceStage, getSpellLevelForCharacterLevel } from "../../levelling"
 import { formatEquipmentItem } from "../useEquipmentItem"
@@ -60,7 +60,6 @@ export default [
 		name: 'Ylvir',
 		age: 245,
 
-		age: '',
 		alignementIndex: 'chaotic-good',
 
 		race: {
@@ -79,7 +78,7 @@ export default [
 
 			isSubRace: true,
 
-			...formatSubrace(subraces.find(subrace => subrace.index === 'high-elf'))
+			...formatRace(subraces.find(subrace => subrace.index === 'high-elf'))
 		},
 
 

@@ -7,7 +7,8 @@ function ClassDetailsView({ clss }) {
 	}
 
 	if (!view[clss]) {
-		throw new Error(`Class not handled: ${clss}`)
+		return <p>Not yet created</p>
+		// throw new Error(`Class not handled: ${clss}`)
 	}
 	return createElement(view[clss])
 }

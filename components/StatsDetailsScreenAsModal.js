@@ -11,7 +11,7 @@ function StatsDetailsScreenAsModal({ stats, onCloseScreen }) {
 	const { tr } = useI18n()
 	const { showInfoModal } = useModal()
 	const { rollStat } = useDice()
-	const { showAbilityScoreTip } = useTipAbilityScore()
+	const { showTipAbilityScore } = useTipAbilityScore()
 
 	const detailedStats = skills.map(skill => {
 		return {
@@ -46,7 +46,7 @@ function StatsDetailsScreenAsModal({ stats, onCloseScreen }) {
 						</div>
 						<div 
 							className="flex flex-row items-center mt-1 text-2xs text-meta"
-							onClick={() => showAbilityScoreTip(detailedStat.ability)}
+							onClick={() => showTipAbilityScore(detailedStat.ability)}
 						>
 							{detailedStat.ability}
 						</div>

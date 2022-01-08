@@ -46,6 +46,8 @@ function Screen({
 	root, 
 	fullScreen, 
 	withBottomSpace = false, 
+	// for screen that takes the whole screen only, no scroll. Ex: 404
+	contentFull = false,
 	iconClassName, 
 	withCharacterMenu 
 }) {
@@ -91,10 +93,13 @@ function Screen({
 					? <ScreenLoading />
 					: (
 						<div
+							style={{
+								minHeight: '100vh',
+							}}
 							className={clsx(
 								'w-full',
-								"h-full",
 								{
+									"h-full": contentFull,
 									'pb-12': withBottomSpace
 								}
 							)}

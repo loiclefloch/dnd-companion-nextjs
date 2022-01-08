@@ -19,7 +19,7 @@ function useI18n() {
         return obj
       }
       // translation object, containing the translations
-      const translated = !obj ? null : obj[lang] || obj[defaultLang] || null
+      const translated = !obj ? null : obj[lang] || obj[defaultLang] || obj
       if (!translated) {
         return null
       }

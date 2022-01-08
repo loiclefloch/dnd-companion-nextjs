@@ -1,13 +1,18 @@
 import { createElement } from "react"
-import Elf from "./Elf"
+
+import elf from "./elf.mdx"
+import dwarf from "./dwarf.mdx"
+
 
 function RaceDetailsView({ race }) {
 	const view = {
-		elf: Elf
+		elf: elf,
+		dwarf: dwarf
 	}
 
 	if (!view[race]) {
-		throw new Error(`Race not handled: ${race}`)
+		return <p>Not yet created</p>
+		// throw new Error(`Race not handled: ${race}`)
 	}
 	return createElement(view[race])
 }

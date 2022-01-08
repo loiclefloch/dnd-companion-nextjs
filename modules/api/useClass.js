@@ -2,6 +2,9 @@ import classes from '../../database/data/classes.json'
 import useApi from "./useApi"
 
 export function format(clss) {
+  if (!clss) { // required for build
+    return null
+  }
   clss.nameLocalized = {
     en: clss.name,
     fr: clss.name,

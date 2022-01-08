@@ -1,13 +1,16 @@
+import Link from "next/link"
 import useI18n from "../../../modules/i18n/useI18n"
 import useCharacter from "../../../modules/api/useCharacter"
 import StatsSmall from "../../../components/StatsSmall"
 import { useRouter } from "next/router"
 import Screen from "../../../components/Screen"
 import SpellLevelData from "../../../components/SpellLevelData"
+import useTipAlignement from "../../../components/useTipAlignement"
 
 function Character() {
 	const router = useRouter()
 	const { tr } = useI18n()
+	const { showTipAlignement } = useTipAlignement()
 	const characterResponse = useCharacter(router.query.characterId)
 
 	const character = characterResponse.data
@@ -28,7 +31,13 @@ function Character() {
 			{character && (
 				<>
 					<div className="px-4">
-						{tr(character.race.nameLocalized)} - {character.classes.map(clss => tr(clss.nameLocalized)).join(', ')}
+						<Link href={`/race/${character.race.index}`}>
+							{tr(character.race.nameLocalized)}
+						</Link>
+						<span> - </span>
+						<Link href={`/class/${character.classes[0].index}`}>
+							{character.classes.map(clss => tr(clss.nameLocalized)).join(', ')}
+						</Link>
 					</div>
 					<div className="px-4 my-4">
 						<StatsSmall stats={character?.stats} withDetail />
@@ -39,6 +48,14 @@ function Character() {
 						<SpellLevelData classes={character.classes} level={character.level} />
 					</div>
 
+					<div className="px-4 mt-4">
+						<div>
+							Age: {character.age}
+						</div>
+						<div onClick={() => showTipAlignement(character.alignementIndex)}>
+							{character.alignementIndex}
+						</div>
+					</div>
 				</>
 			)}
 		</Screen>

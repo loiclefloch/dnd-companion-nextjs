@@ -27,11 +27,14 @@ export function ListSelectRow({ icon, image, title, subtitle, onClick }) {
 	)
 }
 
-export function ListSelectRowAsCard({ icon, image, title, subtitle, onClick }) {
+export function ListSelectRowAsCard({ icon, image, title, subtitle, onClick, size = "medium" }) {
 	const hasLeftPart = !!(icon || image)
 	return (
 		<li className="flex flex-row mb-2 border-gray-400" onClick={onClick}>
-			<div className="flex items-center flex-1 p-4 bg-white border rounded-md shadow cursor-pointer select-none dark:bg-gray-800">
+			<div className={clsx("flex items-center flex-1  bg-white border rounded-md shadow cursor-pointer select-none dark:bg-gray-800", {
+				"p-4": size === "medium",
+				"p-2": size === "small",
+			})}>
 				{hasLeftPart && (
 					<div className="flex flex-col items-center justify-center w-10 h-10 mr-4">
 						{image && <img src={image} />}

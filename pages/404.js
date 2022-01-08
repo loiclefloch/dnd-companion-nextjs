@@ -8,12 +8,16 @@ export default function Screen404() {
 		<Screen
 			title={"Page not found"}
 			fullScreen
-			iconClassName="fill-white"
+			contentFull
+			iconClassName="text-white"
 		>
 			<div 
 				className="w-full h-full bg-slate-900"
 			>
-				<div style={{ backgroundImage: `url("${diceBackground.src}")` }} className="w-full h-full bg-center bg-cover" />
+				<div 
+					style={{ backgroundImage: `url("${diceBackground.src}")` }} 
+					className="w-full h-full bg-center bg-cover" 
+				/>
 				<div className="absolute flex flex-col justify-center w-full top-1/4">
 					<h4 className="w-full text-2xl font-semibold text-center text-white">
 						404

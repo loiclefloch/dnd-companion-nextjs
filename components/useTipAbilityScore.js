@@ -7,10 +7,10 @@ function useTipAbilityScore() {
 	const { showInfoModal } = useModal()
 
 	return {
-		showAbilityScoreTip: (name) => { // STR, DEX
+		showTipAbilityScore: (name) => { // STR, DEX
 			const abilityData = abilityScores.find(a => a.name === name)
 			showInfoModal({ 
-				content: <p>{abilityData.desc.join("\n")}</p> 
+				content: <div className="whitespace-pre-wrap">{tr(abilityData.desc)}</div> 
 			})
 		}
 	}
