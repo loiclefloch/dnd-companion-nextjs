@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import useI18n from "../modules/i18n/useI18n";
 import { useEquipmentItemScreenAsModal } from "../components/EquipmentItemScreenAsModal"
+import useTipDamageType from "../components/useTipDamageType"
 
 function Section({ title, children }) {
 	return (
@@ -13,6 +14,7 @@ function Section({ title, children }) {
 
 function EquipmentItemView({ item }) {
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
+	const { showTipDamageType } = useTipDamageType()
 	const { tr } = useI18n()
 
 	return (
@@ -28,8 +30,9 @@ function EquipmentItemView({ item }) {
 					{item.damage && (
 						<>
 							<span>{item.categoryRange}</span>
+							<span> </span>
 							<span>
-								{item.damage.damageDice} {item.damage.damageType.name}
+								{item.damage.damageDice} <span onClick={() => showTipDamageType(item.damage.damageType.index)}>{item.damage.damageType.name}</span>
 							</span>
 						</>
 					)}

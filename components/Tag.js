@@ -3,7 +3,7 @@
 //
 import clsx from 'clsx'
 
-function Tag({ label, children, rounded = false, className, size = "medium" }) {
+function Tag({ label, children, rounded = false, className, size = "medium", ...otherProps }) {
   return (
     <span
       className={clsx(
@@ -16,6 +16,7 @@ function Tag({ label, children, rounded = false, className, size = "medium" }) {
         },
         className
       )}
+      {...otherProps}
     >
       <span className='flex items-center'>
         {children || label}

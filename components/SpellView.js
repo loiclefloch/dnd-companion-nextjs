@@ -6,6 +6,7 @@ import Tag from './Tag';
 import SpellRunner from "./SpellRunner";
 import SpellDetail from "./SpellDetail";
 import CharacterSpellTag from "./CharacterSpellTag";
+import useTipMagicSchool from "./useTipMagicSchool"
 
 function createClassTag(clss) {
   return {
@@ -17,7 +18,8 @@ function createClassTag(clss) {
 
 function SpellView({ contextCharacter, spell }) {
   const { tr, getRangeUnit, isDefaultLang, trDefaultLang } = useI18n();
-
+  const { showTipMagicSchool } = useTipMagicSchool()
+  
   const otherNames = [
     spell.otherNameLocalized && spell.otherNameLocalized.fr,
     spell.otherNameLocalized && spell.otherNameLocalized.en,
@@ -55,6 +57,7 @@ function SpellView({ contextCharacter, spell }) {
           <Tag 
             size="small"
             className="border border-gray-400 text-meta"
+            onClick={() => showTipMagicSchool(spell.school.index)}
           >
             <IconMagicSchool
               school={spell.school.name}

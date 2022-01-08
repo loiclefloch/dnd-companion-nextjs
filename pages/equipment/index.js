@@ -3,9 +3,11 @@ import Link from "next/link"
 import Screen from "../../components/Screen"
 import useEquipmentCategories from "../../modules/api/useEquipmentCategories";
 import useI18n from "../../modules/i18n/useI18n";
+import useTipDamageType from "../../components/useTipDamageType"
 
 function ItemRow({ item }) {
 	const { tr } = useI18n()
+	const { showTipDamageType } = useTipDamageType()
 
 	return (
 		<div
@@ -30,7 +32,9 @@ function ItemRow({ item }) {
 										<>
 											<span>{item.categoryRange} - </span>
 											<span className="cursor-pointer">
-												{item.damage.damageDice} {item.damage.damageType.name}
+												<span>{item.damage.damageDice}</span>
+												<span> </span>
+												<span onClick={() => showTipDamageType(item.damage.damageType.index)}>{item.damage.damageType.name}</span>
 											</span>
 										</>
 									)}
@@ -60,17 +64,9 @@ function ItemRow({ item }) {
 						</div>
 					</div>
 
-					<div
-						className="pr-2 mt-1"
-					>
-						<div className="flex flex-row items-end gap-1">
-
-						</div>
-					</div>
-
 				</div>
 
-				<p className="pr-2 text-sm">{tr(item.resume)}</p>
+				{/* <p className="pr-2 text-sm">{tr(item.resume)}</p> */}
 
 			</div>
 		</div>

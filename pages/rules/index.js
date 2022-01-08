@@ -4,10 +4,32 @@ import Screen from "../../components/Screen"
 import IconAcademicCap from "../../components/icons/IconAcademicCap"
 import useRules from "../../modules/api/useRules";
 
+function Section({ title, subItems }) {
+	return (
+		<div>
+			<Text>{title}</Text>
+
+			<div className="my-2">
+				{subItems}
+			</div>
+		</div>
+	)
+}
+
+function SubItem({ title, href }) {
+	return (
+		<div key={href} className="pl-4 py-0.5">
+			<Link href={href}>
+				<Text>{title}</Text>
+			</Link>
+		</div>
+	)
+}
+
 function Rules() {
 	const rulesResponse = useRules()
 
-  return (
+	return (
 		<Screen
 			title={"Règles"}
 			titleIcon={<IconAcademicCap className="w-6 h-6" />}
@@ -17,32 +39,37 @@ function Rules() {
 		>
 			<div className="flex flex-col gap-2 p-4" data-cy-id="spells-list">
 
-				<Link href={`/race`}>
-					<Text>
-						Races
-					</Text>
-				</Link>
+				<Section 
+					title="Introduction"
+					subItems={[
+						<SubItem href={`/race`} title="Races" />,
+						<SubItem href={`/class`} title="Classes" />,
+					]}
+				/>
 
-				<Link href={`/class`}>
-					<Text>
-						Classes
-					</Text>
-				</Link>
-				
+				{/* TODO: create those rules*/}
+				<Section
+					title="Personnality and background"
+					subItems={[
+						<SubItem href={`/rules/character-details`} title="Character details" />,
+						<SubItem href={`/rules/inspiration`} title="Inspiration" />,
+						<SubItem href={`/rules/background`} title="Background" />
+					]}
+				/>
+
+
 				{rulesResponse.data?.map(section => (
-					<div key={section.index}>
-						<Text>{section.name}</Text>
-
-						<div className="my-2">
-							{section.subsections.map(subsection => (
-								<div key={subsection.index} className="pl-4 py-0.5">
-									<Link href={`/rules/${subsection.index}`}>
-										<Text>{subsection.name}</Text>
-									</Link>
-								</div>
-							))}
-						</div>
-					</div>
+					<Section
+						key={section.index}
+						title={section.name}
+						subItems={section.subsections.map(subsection => (
+							<SubItem
+								key={subsection.index}
+								href={`/rules/${subsection.index}`}
+								title={subsection.name}
+							/>
+						))}
+					/>
 				))}
 
 			</div>

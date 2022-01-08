@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router'
-import Link from "next/link"
 import Screen from "../../components/Screen";
 import useClasses from '../../modules/api/useClasses';
 import useI18n from '../../modules/i18n/useI18n';
 import { ListSelectRowAsCard, ListRowSelectContainer } from "../../components/ListSelectRow"
 import IconRace from "../../components/icons/IconRace"
+import IconAcademicCap from "../../components/icons/IconAcademicCap"
 
 function ClassRow({ clss }) {
 	const { tr } = useI18n()
@@ -28,6 +28,7 @@ function Race() {
   return (
     <Screen
       title={"Les classes"}
+			titleIcon={<IconAcademicCap className="w-6 h-6" />}
 			isLoading={classResponse.isLoading}
 			withBottomSpace
     >

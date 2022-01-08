@@ -1,7 +1,6 @@
 import groupBy from "lodash/groupBy"
 import useI18n from "../../modules/i18n/useI18n"
 import { useRouter } from "next/router"
-import Link from "next/link"
 import Screen from "../../components/Screen"
 import useCurrentCharacter from "../../modules/character/useCurrentCharacter"
 import IconBriefcase from "../../components/icons/IconBriefcase"
@@ -9,11 +8,12 @@ import IconPlus from "../../components/icons/IconPlus"
 import useDice from "../../components/useDice";
 import { useEquipmentItemScreenAsModal } from "../../components/EquipmentItemScreenAsModal"
 import { useMagicItemScreenAsModal } from "../../components/MagicItemScreenAsModal"
-
+import useTipDamageType from "../../components/useTipDamageType"
 
 function ItemRow({ item, onClick }) {
 	const { tr } = useI18n()
 	const { rollDamage } = useDice()
+	const { showTipDamageType } = useTipDamageType()
 
 	// TODO:
 	const modifier = +2
@@ -37,17 +37,23 @@ function ItemRow({ item, onClick }) {
 											<span>{item.categoryRange} - </span>
 											<span
 												className="cursor-pointer"
-												onClick={(e) => {
-													rollDamage(
-														`${tr(item.nameLocalized)}`,
-														item.damage.damageDice,
-														modifier,
-														item.damage.damageType
-													)
-													e.preventDefault()
-												}}
+												
 											>
-												{item.damage.damageDice} {modifier >= 0 ? '+' : '-'}{modifier} {item.damage.damageType.name}
+												<span
+													onClick={(e) => {
+														rollDamage(
+															`${tr(item.nameLocalized)}`,
+															item.damage.damageDice,
+															modifier,
+															item.damage.damageType
+														)
+														e.preventDefault()
+													}}
+												>
+													{item.damage.damageDice} {modifier >= 0 ? '+' : '-'}{modifier}
+												</span>
+												<span> </span>
+												<span onClick={() => showTipDamageType(item.damage.damageType.index)}>{item.damage.damageType.name}</span>
 											</span>
 										</>
 									)}

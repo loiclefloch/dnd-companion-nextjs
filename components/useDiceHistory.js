@@ -595,10 +595,19 @@ function useDiceHistory() {
 
 	return {
 		showDiceHistoryScreen,
-		addDice: ({ label, dice, roll, context, onReroll, onValidate, }) => {
-			_setDiceHistory([ { label, dice, roll, context }, ...diceHistory ])
+		addDice: ({ 
+			historyLabel, // label to display on the history, fallback to label if it does not exists
+			label,  // label to display on the DiceModal
+			dice,
+			roll, 
+			context, 
+			onReroll, 
+			onValidate, 
+		}) => {
+			_setDiceHistory([ { label, historyLabel, dice, roll, context }, ...diceHistory ])
 			showCustomModal(DiceModal, { 
 				label, 
+				historyLabel,
 				dice,
 				roll, 
 				context,

@@ -1,4 +1,3 @@
-
 import Dice from './Dice'
 import DamageTypeLabel from './DamageTypeLabel'
 

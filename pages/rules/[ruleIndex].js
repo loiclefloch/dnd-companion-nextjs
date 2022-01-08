@@ -1,5 +1,5 @@
 import Screen from "../../components/Screen"
-import IconScale from "../../components/icons/IconScale"
+import IconAcademicCap from "../../components/icons/IconAcademicCap"
 import ReactMarkdown from 'react-markdown'
 
 import TheOrderOfCombat from "../../components/rule-sections/the-order-of-combat.mdx"
@@ -19,7 +19,7 @@ function RuleContent({ index, ruleResponse }) {
 
 	const View = map[index]
 	if (View) {
-		return <View />
+		return <p>Rule not created yet</p>
 	}
 
 	return (
@@ -44,7 +44,7 @@ function Rule() {
   return (
 		<Screen
 			title={`Règles - ${ruleResponse.data?.name || ''}`}
-			titleIcon={<IconScale className="w-6 h-6" />}
+			titleIcon={<IconAcademicCap className="w-6 h-6" />}
 			isLoading={ruleResponse.isLoading}
 			withBottomSpace
 		>

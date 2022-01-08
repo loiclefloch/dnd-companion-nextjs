@@ -59,6 +59,7 @@ function useDice() {
 
 		addDice({
 			label,
+			historyLabel: label,
 			roll,
 			onValidate: () => { },
 			onReroll: () => {
@@ -104,7 +105,8 @@ function useDice() {
 		}
 
 		addDice({
-			label: `${label} (${damageType.name})`,
+			label,
+			historyLabel: `${label} (${damageType.name})`, 
 			roll,
 			onValidate: () => { },
 			onReroll: () => {

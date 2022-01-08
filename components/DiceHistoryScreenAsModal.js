@@ -5,13 +5,13 @@ import useDiceHistory from './useDiceHistory';
 import IconRefresh from "./icons/IconRefresh"
 
 function DiceHistoryRow({ diceHistory }) {
-	const { label, dice, roll, context } = diceHistory
+	const { historyLabel, label, dice, roll, context } = diceHistory
 
 	return (
 		<div className="flex px-4 pt-2 mt-3 sm:mt-0 sm:ml-4 sm:text-left">
 			<div className="flex-1">
 					<h3 className="font-medium leading-6 text-gray-900 text-md">
-						{label || 'Inconnu'}
+						{historyLabel || label || 'Inconnu'}
 					</h3>
 
 				<div className="mt-0 text-sm text-meta">
