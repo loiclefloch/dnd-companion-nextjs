@@ -5,7 +5,8 @@ function useScreenAsModalCreator() {
 	let [screenAsModalConfiguration, setScreenAsModalConfiguration] = useState(null);
 
 	const showScreenAsModal = (component, componentsProps) => {
-		setShowScreenAsModal(!show);
+		// TODO: stack to enable multi-modal opening on top on another
+		setShowScreenAsModal(true);
 		setScreenAsModalConfiguration({ component, props: componentsProps });
 	};
 

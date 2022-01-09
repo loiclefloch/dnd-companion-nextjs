@@ -69,7 +69,7 @@ function SpellView({ contextCharacter, spell }) {
             size="small"
             className="flex items-center justify-center mt-1 text-gray-600 border border-gray-400"
           >
-            {spell.level === 0 ? "cantrip" : `Niveau ${spell.level}`}
+            {spell.isCantrip ? "cantrip" : `Niveau ${spell.level}`}
           </Tag>
           {(spell.ritual || spell.concentration) && (
             <div className="flex flex-wrap gap-1 mt-2">
@@ -105,7 +105,7 @@ function SpellView({ contextCharacter, spell }) {
             {spell.components.materials && <span className="text-sm text-meta">&nbsp;({spell.components.materials.join(", ")})</span>}
           </div>
 
-          <SpellRunner spell={spell} />
+          <SpellRunner spell={spell} contextCharacter={contextCharacter} />
 
           {spell.resume && (
             <div className="mt-4">

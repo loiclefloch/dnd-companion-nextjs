@@ -56,7 +56,7 @@ export function getSpellFiltersMatchingData(spell, filters) {
     data.push({
       filter: levelFilter,
       label: '',
-      value: spell.level === 0 ? 'Cantrip' : `lvl ${spell.level}`
+      value: spell.isCantrip ? 'Cantrip' : `lvl ${spell.level}`
     })
   }
 

@@ -21,7 +21,7 @@ function Spell() {
 	const spell = spellResponse.data;
 
 	return (
-		<CharacterProvider character={currentCharacter} withCharacterMenu>
+		<CharacterProvider character={currentCharacter}>
 			<Screen
 				title={!spell ? 'Sort' : `${tr(spell?.nameLocalized)}`}
 				titleIcon={<IconBookOpen className="w-6 h-6" />}

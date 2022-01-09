@@ -9,6 +9,7 @@ import { format as formatClass } from "../useClass"
 import { getLevelExperienceStage, getSpellLevelForCharacterLevel } from "../../levelling"
 import { formatEquipmentItem } from "../useEquipmentItem"
 import { formatMagicItem } from "../useMagicItem"
+import { formatSpell } from "../useSpell"
 
 const level = 2
 
@@ -154,13 +155,18 @@ export default [
 			race: []
 		},
 
+		spellMod: 'CHA',
+		spellModValue: 3,
+
 		spellsList: [
 			{ ...spells.find(spell => spell.index === "druidcraft"), isPrepared: true },
 			{ ...spells.find(spell => spell.index === "animal-friendship"), isPrepared: true },
+			{ ...spells.find(spell => spell.index === "chill-touch"), isPrepared: true },
 			{ ...spells.find(spell => spell.index === "thunderwave"), isPrepared: true },
+			{ ...spells.find(spell => spell.index === "aid"), isPrepared: true },
 			{ ...spells.find(spell => spell.index === "guidance"), isPrepared: false },
 			{ ...spells.find(spell => spell.index === "purify-food-and-drink"), isPrepared: true },
-		],
+		].map(formatSpell),
 
 		equipment: [
 			...magicItems.map(formatMagicItem),

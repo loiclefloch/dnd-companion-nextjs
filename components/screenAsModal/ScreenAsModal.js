@@ -5,7 +5,7 @@ function ScreenAsModal({ title, onCloseScreen, children }) {
 		<div className='flex flex-col h-screen bg-app'>
 			<header className='flex flex-row p-2'>
 				<div className='flex-1 text-lg font-semibold text-center'>{title}</div>
-				<div>
+				<div className='flex'>
 					<button onClick={onCloseScreen}><IconX className="w-5 h-5" /></button>
 				</div>
 			</header>

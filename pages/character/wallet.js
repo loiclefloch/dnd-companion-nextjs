@@ -163,7 +163,7 @@ function CharacterWallet() {
 	// define character on context
 	// automatic filtering for the character
 	return (
-		<CharacterProvider character={character} withCharacterMenu>
+		<CharacterProvider character={character}>
 			<Screen
 				title="Porte monnaie"
 				titleIcon={<IconCoins className="w-7 h-7 text-amber-700" />}

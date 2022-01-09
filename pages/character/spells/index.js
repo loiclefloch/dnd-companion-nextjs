@@ -11,7 +11,7 @@ function CharacterSpells() {
 	// define character on context
 	// automatic filtering for the character
 	return (
-		<CharacterProvider character={character} withCharacterMenu>
+		<CharacterProvider character={character}>
 			<SpellsView contextCharacter={character} />
 		</CharacterProvider>
 	)

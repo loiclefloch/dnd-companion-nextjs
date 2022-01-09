@@ -32,7 +32,9 @@ function EquipmentItemView({ item }) {
 							<span>{item.categoryRange}</span>
 							<span> </span>
 							<span>
-								{item.damage.damageDice} <span onClick={() => showTipDamageType(item.damage.damageType.index)}>{item.damage.damageType.name}</span>
+								<span>{item.damage.damageDice}</span>
+								<span> </span>
+								<span onClick={() => showTipDamageType(item.damage.damageType.index)}>{item.damage.damageType.name}</span>
 							</span>
 						</>
 					)}

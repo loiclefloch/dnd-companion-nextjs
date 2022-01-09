@@ -1,166 +1,109 @@
-import DiceDamage from './DiceDamage'
-import DiceHeal from './DiceHeal'
-import ChooseNumber from './ChooseNumber'
-import useCharacterLevelSelector from "./useCharacterLevelSelector"
-import useSpellLevelSelector from "./useSpellLevelSelector"
-import useValidation from './useValidation'
-import useDiceHistory from './useDiceHistory'
 import useI18n from '../modules/i18n/useI18n'
+import DamageTypeLabel from "./DamageTypeLabel"
+import Button from "./Button"
+import { useSpellRunner } from "./SpellRunnerScreenAsModal"
 
-function HealRunner({ spellName, healAtSlotLevel, spellLevel }) {
-	const { askValidation } = useValidation()
-	const { addDice } = useDiceHistory()
-	const { 
-		chosenSpellLevel,
-		setSpellLevel, 
-		maxSpellLevel, 
-		isAboveMaximumSpellLevel
-		// characterInContext, To use?
-	} = useSpellLevelSelector(spellLevel)
-
-	// TODO: Aid is not a dice but a fix value
-	// TODO: Aid is per character level, some per slot level
+function HealRunner({ healAtSlotLevel, spellLevel, formatMod }) {
 	return (
-		<div className="flex">
-			<DiceHeal
-				dice={healAtSlotLevel[chosenSpellLevel]}
-				onRoll={(dice, roll) => {
-					const result = () => {
-						addDice({ label: `${spellName} Heal`, dice, roll })
-					}
-					const shouldWarn = isAboveMaximumSpellLevel
-					if (shouldWarn) {
-						// warn about dice being above the max level then run dice if confirm
-						askValidation(
-							'Are you sure?',
-							'The dice you are about to roll is for a level above the character spell maximum level',
-							result
-						)
-					} else {
-						// run dice directly
-						result()
-					}
-				}}
-			/>
-			<span className="pl-3"></span>
-			<ChooseNumber
-				label="character level"
-				level={chosenSpellLevel}
-				onChange={setSpellLevel}
-				maxLevel={maxSpellLevel}
-			/>
+		<div>
+			+ {formatMod(healAtSlotLevel[spellLevel])} PV
 		</div>
 	)
 }
 
-function DamageSlotLevel({ spellName, spellLevel, damageAtSlotLevel, damageType }) {
-	const { tr } = useI18n()
-	const { askValidation } = useValidation()
-	const { addDice } = useDiceHistory()
-	const {
-		chosenSpellLevel,
-		setSpellLevel,
-		maxSpellLevel,
-		isAboveMaximumSpellLevel,
-		// characterInContext, To use?
-	} = useSpellLevelSelector(spellLevel)
-
+function DamageSlotLevel({ spellLevel, damageAtSlotLevel, damageType, formatMod }) {
 	return (
-		<div className='flex'>
-			<DiceDamage
-				dice={damageAtSlotLevel[chosenSpellLevel]}
-				damageType={damageType}
-				onRoll={(dice, roll) => {
-					const result = () => {
-						addDice({ label: `${spellName} ${tr(damageType.nameLocalized)} damages`, dice, roll })
-					}
-					const shouldWarn = isAboveMaximumSpellLevel
-					if (shouldWarn) {
-						// warn about dice being above the max level then run dice if confirm
-						askValidation(
-							'Are you sure?',
-							'The dice you are about to roll is for a level above the character spell maximum level',
-							result
-						)
-					} else {
-						// run dice directly
-						result()
-					}
-				}}
-			/>
-			<span className="pl-3"></span>	
-			<ChooseNumber
-				label='spell level'
-				level={chosenSpellLevel}
-				onChange={setSpellLevel}
-				maxLevel={maxSpellLevel}
-			/>
+		<div>
+			{formatMod(damageAtSlotLevel[spellLevel])}
+			<span> </span>
+			<DamageTypeLabel damageType={damageType} />
 		</div>
 	)
 }
 
-function DamageCharacterLevel({ spellName, spellLevel, damageAtCharacterLevel, damageType }) {
-	const { tr } = useI18n()
-	const { askValidation } = useValidation()
-	const { addDice } = useDiceHistory()
-	const {
-		characterLevel,
-		setCharacterLevel,
-		isAboveMaximumCharacterLevel,
-		characterMaxLevel,
-		// characterInContext, To use?	
-	} = useCharacterLevelSelector()
-
+function DamageCharacterLevel({ characterLevel, damageAtCharacterLevel, damageType, formatMod }) {
 	return (
-		<div className='flex'>
-			<DiceDamage
-				dice={damageAtCharacterLevel[characterLevel]}
-				damageType={damageType}
-				onRoll={(dice, roll) => {
-					const result = () => {
-						addDice({ label: `${spellName} ${tr(damageType.nameLocalized)} damages`, dice, roll })
-					}
-					const shouldWarn = isAboveMaximumCharacterLevel
-					if (shouldWarn) {
-						// warn about dice being above the max level then run dice if confirm
-						askValidation(
-							'Are you sure?',
-							'The dice you are about to roll is for a level above the character level',
-							result
-						)
-					} else {
-						// run dice directly
-						result()
-					}
-				}}
-			/>
-			<span className="pl-3"></span>
-			<ChooseNumber
-				label='character level'
-				level={characterLevel}
-				onChange={setCharacterLevel}
-				maxLevel={characterMaxLevel}
-			/>
+		<div>
+			{formatMod(damageAtCharacterLevel[characterLevel])}
+			<span> </span>
+			<DamageTypeLabel damageType={damageType} />
 		</div>
 	)
 }
 
-function SpellRunner({ spell }) {
+function SpellDefinition({ contextCharacter, spell, formatMod }) {
 	const { tr } = useI18n()
 
 	if (spell.heal) {
-		return <HealRunner spellName={tr(spell.nameLocalized)} healAtSlotLevel={spell.heal.healAtSlotLevel} spellLevel={spell.level} />
+		return (
+			<HealRunner
+				healAtSlotLevel={spell.heal.healAtSlotLevel}
+				spellLevel={spell.level}
+				formatMod={formatMod}
+			/>
+		)
 	}
 
 	if (spell.damage && spell.damage.damageAtSlotLevel) {
-		return <DamageSlotLevel spellName={tr(spell.nameLocalized)} spellLevel={spell.level} damageAtSlotLevel={spell.damage.damageAtSlotLevel} damageType={spell.damage.type} />
+		return (
+			<DamageSlotLevel
+				spellLevel={spell.level}
+				damageAtSlotLevel={spell.damage.damageAtSlotLevel}
+				damageType={spell.damage.type}
+				formatMod={formatMod}
+			/>
+		)
 	}
 
 	if (spell.damage && spell.damage.damageAtCharacterLevel) {
-		return <DamageCharacterLevel spellName={tr(spell.nameLocalized)} spellLevel={spell.level} damageAtCharacterLevel={spell.damage.damageAtCharacterLevel} damageType={spell.damage.type} />
+		return (
+			<DamageCharacterLevel
+				characterLevel={contextCharacter?.level ?? 1}
+				damageAtCharacterLevel={spell.damage.damageAtCharacterLevel}
+				damageType={spell.damage.type}
+				formatMod={formatMod}
+			/>
+		)
 	}
 
+
 	return null
+}
+
+function SpellRunner({ contextCharacter, spell }) {
+	const { showSpellRunner } = useSpellRunner()
+
+	function formatMod(dice) {
+		if (contextCharacter) {
+			if (dice.includes("MOD")) {
+				return <span>{dice.replaceAll("MOD", ``)} {contextCharacter.spellModValue} <span className='text-xs text-meta'>({contextCharacter.spellMod})</span></span>
+			}
+		}
+		return dice
+	}
+
+	return (
+		<div className="flex items-center justify-between">
+			<div>
+				<SpellDefinition
+					contextCharacter={contextCharacter}
+					spell={spell}
+					formatMod={formatMod}
+				/>
+			</div>
+			{!spell.isCantripWithoutNeedToRun && (
+				<Button
+					className="w-1/3 rounded-sm text-slate-700"
+					size="small"
+					color="cta"
+					variant='outlined'
+					onClick={() => showSpellRunner(spell, contextCharacter)}
+				>
+					Caster
+				</Button>
+			)}
+		</div>
+	)
 }
 
 export default SpellRunner

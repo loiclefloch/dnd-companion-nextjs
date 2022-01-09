@@ -1,10 +1,10 @@
 import spells from '../../database/data/spells.json'
 import useApi from "./useApi"
 
-import { format } from './useSpell'
+import { formatSpell } from './useSpell'
 
 function useSpells() {
-  return useApi(spells.map(format))
+  return useApi(spells.map(formatSpell))
 }
 
 export default useSpells

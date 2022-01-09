@@ -71,7 +71,7 @@ function CharacterWallet() {
 	// define character on context
 	// automatic filtering for the character
 	return (
-		<CharacterProvider character={character} withCharacterMenu>
+		<CharacterProvider character={character}>
 			<Screen
 				title="Levelling"
 				titleIcon={<IconTrendingUp className="w-7 h-7 text-slate-700" />}

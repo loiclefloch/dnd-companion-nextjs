@@ -115,6 +115,52 @@ function useDice() {
 		})
 	}
 
+	function rollHeal(label, diceToRun, modifier, options = {}) {
+		const { isReroll = false } = options
+
+		const dice = `${diceToRun}${modifier >= 0 ? '+' : '-'}${Math.abs(modifier)}`
+
+		const diceRollResult = new DiceRoll(dice)
+
+		const diceResult = Number(diceRollResult.total)
+
+		const result = diceResult
+		const isSuccess = true
+
+		const roll = {
+			isRollHeal: true,
+
+			// specific to this roll
+			modifier,
+			modifierLabel: `${modifier >= 0 ? '+' : '-'}${Math.abs(modifier)}`,
+			// generic roll data 
+			dice,
+			diceFormatted: `${dice}`,
+			isReroll,
+			isSuccess,
+			isFailure: !isSuccess,
+			result,
+			successValue: '',
+			successCheckLabel: ``,
+			diceResult,
+			canCalculateSuccess: false,
+			isCritic: false,
+			isCriticSuccess: false,
+			isCriticFailure: false,
+			diceRollResult: diceRollResultToString(diceRollResult),
+		}
+
+		addDice({
+			label,
+			historyLabel: label,
+			roll,
+			onValidate: () => { },
+			onReroll: () => {
+				rollDamage(label, diceToRun, modifier, { ...options, isReroll: true })
+			},
+		})
+	}
+
 	return {
 		rollDice: (label, dice) => {
 			// TODO: refactor
@@ -122,6 +168,7 @@ function useDice() {
 			addDice({ label, dice, roll })
 		},
 		rollDamage,
+		rollHeal,
 		rollStat,
 	}
 }

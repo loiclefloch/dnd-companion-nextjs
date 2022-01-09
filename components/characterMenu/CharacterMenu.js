@@ -62,7 +62,7 @@ function CharacterMenu({ open }) {
 		},
 		{
 			label: 'Traits',
-			href: '/character/grimoire',
+			href: '/character/traits',
 		},
 		{
 			label: 'Porte monnaie',
