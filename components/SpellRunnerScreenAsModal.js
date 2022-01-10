@@ -22,11 +22,11 @@ function ChooseNumber({ level, onChange, maxLevel, label = '' }) {
 		<div className="flex flex-col items-center select-none">
 			<div className="text-lg">{label}</div>
 			<div className="flex items-center justify-center mt-6">
-				<Button size="big" label={<IconMinusMd className="w-8 h-8" />} onClick={() => onChange(level - 1)} />
+				<Button size="big" label={<IconMinusMd className="w-8 h-8" />} onClick={() => onChange(Math.min(level - 1, 5))} />
 				<div className={clsx("text-3xl px-4", {
 					"text-orange-400": isAboveMaximum
 				})}>{level}</div>
-				<Button size="big" label={<IconPlusMd className="w-8 h-8" />} onClick={() => onChange(level + 1)} />
+				<Button size="big" label={<IconPlusMd className="w-8 h-8" />} onClick={() => onChange(Math.max(level + 1, 18))} />
 			</div>
 		</div>
 	)

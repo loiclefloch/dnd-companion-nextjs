@@ -61,7 +61,7 @@ export default [
 		name: 'Ylvir',
 		age: 245,
 
-		alignementIndex: 'chaotic-good',
+		alignmentIndex: 'chaotic-good',
 
 		race: {
 			index: 'high-elf',

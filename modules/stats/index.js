@@ -42,3 +42,18 @@ export function valueToModifierLabel(value) {
 
 	return `${modifier >= 0 ? '+' : '-'}${Math.abs(modifier)}`
 }
+
+export function getAbilityScorePointCost(score) {
+	const abilityScorePointCost = {
+		// score: cost
+		8: 0,
+		9: 1,
+		10: 2,
+		11: 3,
+		12: 4,
+		13: 5,
+		14: 7,
+		15: 9,
+	}
+	return abilityScorePointCost[score] || 0
+}

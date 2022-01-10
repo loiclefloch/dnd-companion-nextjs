@@ -5,12 +5,12 @@ import StatsSmall from "../../../components/StatsSmall"
 import { useRouter } from "next/router"
 import Screen from "../../../components/Screen"
 import SpellLevelData from "../../../components/SpellLevelData"
-import useTipAlignement from "../../../components/useTipAlignement"
+import useTipAlignment from "../../../components/useTipAlignment"
 
 function Character() {
 	const router = useRouter()
 	const { tr } = useI18n()
-	const { showTipAlignement } = useTipAlignement()
+	const { showTipAlignment } = useTipAlignment()
 	const characterResponse = useCharacter(router.query.characterId)
 
 	const character = characterResponse.data
@@ -52,8 +52,8 @@ function Character() {
 						<div>
 							Age: {character.age}
 						</div>
-						<div onClick={() => showTipAlignement(character.alignementIndex)}>
-							{character.alignementIndex}
+						<div onClick={() => showTipAlignment(character.alignmentIndex)}>
+							{character.alignmentIndex}
 						</div>
 					</div>
 				</>

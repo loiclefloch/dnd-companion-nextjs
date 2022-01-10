@@ -1,5 +1,6 @@
 [
   {
+    "// TODO:": "merge subraces data with main race -> languages, traits etc",
     "index": "hill-dwarf",
     "name": "Hill Dwarf",
     "race": {
@@ -70,7 +71,18 @@
         "url": "/api/proficiencies/longbows"
       }
     ],
-    "languages": [],
+    "languages": [
+      {
+        "index": "common",
+        "name": "Common",
+        "url": "/api/languages/common"
+      },
+      {
+        "index": "elvish",
+        "name": "Elvish",
+        "url": "/api/languages/elvish"
+      }
+    ],
     "language_options": {
       "choose": 1,
       "from": [

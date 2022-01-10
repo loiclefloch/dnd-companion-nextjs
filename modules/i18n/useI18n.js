@@ -1,7 +1,34 @@
 import useConfiguration from '../configuration/useConfiguration'
-import { isEmpty, isNil, isString, isArray } from 'lodash'
+import { get, isEmpty, isNil, isString, isArray } from 'lodash'
 
 const defaultLang = 'en'
+
+const translations = {
+  STR: {
+    fr: 'Force',
+    en: 'Strength'
+  },
+  DEX: {
+    fr: 'Dextérité',
+    en: 'Dexterity'
+  },
+  CON: {
+    fr: 'Constitution',
+    en: 'Constitution',
+  },
+  INT: {
+    fr: 'Intelligence',
+    en: 'Intelligence',
+  },
+  WIS: {
+    fr: 'Sagesse',
+    en: 'Wisdom',
+  },
+  CHA: {
+    fr: 'Charisme',
+    en: 'Charisma',
+  },
+}
 
 function useI18n() {
   const { rangeUnit, RangeUnit, lang } = useConfiguration()
@@ -16,8 +43,8 @@ function useI18n() {
       }
       if (typeof obj === 'string' || obj instanceof String) {
         // translation key
-        // TODO: handle
-        return obj
+        // || better have object key than empty/null value (not yet translated)
+        return get(translations, [obj, lang]) || obj
       }
 
       // TODO: this is a trick for strings not translated yet, and being an array:
