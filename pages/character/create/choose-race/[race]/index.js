@@ -4,6 +4,31 @@ import useRace from '../../../../../modules/api/useRace';
 import useI18n from '../../../../../modules/i18n/useI18n';
 import RaceDetailsView from '../../../../../components/races/RaceDetailsView';
 import ButtonBottomScreen from '../../../../../components/ButtonBottomScreen';
+import useCreateCharacter from '../../../../../components/useCreateCharacter';
+
+function Form({ race }) {
+	const router = useRouter()
+	const { updateCharacter } = useCreateCharacter()
+
+	return (
+		<div className="flex flex-col">
+			<div className="relative w-full px-4 mt-12">
+				<RaceDetailsView race={race.index} />
+			</div>
+
+			<ButtonBottomScreen
+				variant="cta"
+				onClick={() => {
+					const url = '/character/create/choose-class'
+					router.push(url)
+					updateCharacter({ race: race.index, step: 'choose-class', url })
+				}}
+			>
+				Choisir
+			</ButtonBottomScreen>
+		</div>
+	)
+}
 
 function DisplayCharacterRace() {
 	const { tr } = useI18n()
@@ -18,20 +43,7 @@ function DisplayCharacterRace() {
 			isLoading={raceResponse.isLoading}
 		>
 			{race && (
-				<div className="flex flex-col">
-					<div className="relative w-full px-4 mt-12">
-						<RaceDetailsView race={race.index} />
-					</div>
-
-					<ButtonBottomScreen 
-						variant="cta"
-						onClick={() => {
-							router.push('/')
-						}}
-					>
-						Choisir
-					</ButtonBottomScreen>
-				</div>
+				<Form race={race} />
 			)}
 		</Screen>
   );

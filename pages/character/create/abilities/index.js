@@ -12,6 +12,7 @@ import ButtonBottomScreen from "../../../../components/ButtonBottomScreen";
 import useTipAbilityScore from "../../../../components/useTipAbilityScore";
 import IconPlusMd from "../../../../components/icons/IconPlusMd"
 import IconMinusMd from "../../../../components/icons/IconMinusMd"
+import useCreateCharacter from '../../../../components/useCreateCharacter';
 
 function IconAbilityButton({ label, onClick }) {
 	return <div className="px-2 text-lg cursor-pointer" onClick={onClick}>{label}</div>
@@ -72,15 +73,17 @@ function Form() {
 		WIS: 10,
 		CHA: 8,
 	})
-
+	const { updateCharacter } = useCreateCharacter()
+	const router = useRouter()
 
 	// 2 score = 1 point
 	const MAX_POINTS = 27
 	const usedPoints = Object.values(abilities).reduce((total, value) => total + getAbilityScorePointCost(value), 0)
 	const remainingPoints = MAX_POINTS - usedPoints
 
+	// TODO: display for the class which abilities are important, which are not (very important, important, neutral, not important)
 	return (
-		<div>
+		<>
 			<Ability ability="STR" abilities={abilities} onChange={setAbilities} />
 			<Ability ability="DEX" abilities={abilities} onChange={setAbilities} />
 			<Ability ability="CON" abilities={abilities} onChange={setAbilities} />
@@ -91,10 +94,23 @@ function Form() {
 			<div className="px-4 mt-8 text-center">
 				Il vous reste {remainingPoints} points à répartir
 			</div>
-		</div>
+
+			<>
+				<ButtonBottomScreen
+					variant="cta"
+					onClick={() => {
+						const url = '/character/create/choose-creation-mode'
+						router.push(url)
+						// TODO: rename abilities to stats or the inverse?
+						updateCharacter({ stats: abilities, step: 'choose-creation-mode', url })
+					}}
+				>
+					Valider
+				</ButtonBottomScreen>
+			</>
+		</>
 	)
 }
-
 
 function AbilitiesScreen() {
 	const { tr } = useI18n()
@@ -120,12 +136,12 @@ function AbilitiesScreen() {
 
 	return (
 		<Screen	
-			title={tr('Abilitiés')}
+			title={tr('Capacités')}
 			// isLoading={raceResponse.isLoading || subracesResponse.isLoading}
 		>
 			<>
 				<ScreenIntroduction 
-					title="Définition des abilitiés"
+					title="Définition des Capacités"
 					description="Votre personnage compte sur six abilités. Vous avez 27 points à répartir, todo..."
 					actions={
 						<div className="mt-2">
@@ -137,20 +153,8 @@ function AbilitiesScreen() {
 				/>
 			</>
 
-			<>
-				<Form />
-			</>
+			<Form />
 
-			<>
-				<ButtonBottomScreen
-					variant="cta"
-					onClick={() => {
-						router.push('/character/create/choose-creation-mode')
-					}}
-				>
-					Valider
-				</ButtonBottomScreen>
-			</>
 		</Screen>
   );
 }

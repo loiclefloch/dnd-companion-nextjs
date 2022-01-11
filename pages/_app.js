@@ -4,7 +4,7 @@ import { ModalProvider } from "../components/modal/modalContext";
 import { CharacterMenuProvider } from "../components/characterMenu/CharacterMenuContext";
 import { ScreenAsModalProvider } from "../components/screenAsModal/screenAsModalContext";
 import { SidebarMenuProvider } from "../components/sidebarMenu/sidebarMenuContext";
-
+import { CreateCharacterProvider } from "../components/useCreateCharacter"
 function MyApp({ Component, pageProps }) {
   return (
     <div 
@@ -14,7 +14,9 @@ function MyApp({ Component, pageProps }) {
         <SidebarMenuProvider>
           <ScreenAsModalProvider>
             <CharacterMenuProvider>
-              <Component {...pageProps} />
+              <CreateCharacterProvider>
+                <Component {...pageProps} />
+              </CreateCharacterProvider>
             </CharacterMenuProvider>
           </ScreenAsModalProvider>
         </SidebarMenuProvider>

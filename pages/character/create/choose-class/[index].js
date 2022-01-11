@@ -4,6 +4,31 @@ import useClass from '../../../../modules/api/useClass';
 import useI18n from '../../../../modules/i18n/useI18n';
 import ClassDetailsView from '../../../../components/classes/ClassDetailsView';
 import ButtonBottomScreen from '../../../../components/ButtonBottomScreen';
+import useCreateCharacter from '../../../../components/useCreateCharacter';
+
+function Form({ clss }) {
+	const { updateCharacter } = useCreateCharacter()
+	const router = useRouter()
+
+	return (
+		<div className="flex flex-col">
+			<div className="relative w-full px-4 mt-12">
+				<ClassDetailsView clss={clss.index} />
+			</div>
+
+			<ButtonBottomScreen
+				variant="cta"
+				onClick={() => {
+					const url = '/character/create/abilities'
+					router.push(url)
+					updateCharacter({ classes: [ clss.index ], step: 'abilities', url })
+				}}
+			>
+				Choisir
+			</ButtonBottomScreen>
+		</div>
+	)
+}
 
 function DisplayCharacterClass() {
 	const { tr } = useI18n()
@@ -18,20 +43,7 @@ function DisplayCharacterClass() {
 			isLoading={clssResponse.isLoading}
 		>
 			{clss && (
-				<div className="flex flex-col">
-					<div className="relative w-full px-4 mt-12">
-						<ClassDetailsView clss={clss.index} />
-					</div>
-
-					<ButtonBottomScreen 
-						variant="cta"
-						onClick={() => {
-							router.push('/character/create/abilities')
-						}}
-					>
-						Choisir
-					</ButtonBottomScreen>
-				</div>
+				<Form clss={clss} />
 			)}
 		</Screen>
   );

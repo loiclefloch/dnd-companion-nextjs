@@ -11,33 +11,18 @@ import useRace from '../../../modules/api/useRace';
 import Link from "next/link"
 import useTipLanguage from "../../../components/useTipLanguage";
 import useI18n from "../../../modules/i18n/useI18n";
+import useCreateCharacter from '../../../components/useCreateCharacter';
 
-function CreateCharacterLanguages() {
+function Form({ race, updateCharacter }) {
 	const { tr } = useI18n()
 	const [raceSelectedLanguages, setRaceSelectedLanguages] = useState([])
 	const [backgroundSelectedLanguages, setBackgroundSelectedLanguages] = useState([])
 	const { showTipLanguage } = useTipLanguage()
 	const router = useRouter()
 
-	// TODO: get from state
-	const character = {
-		race: {
-			index: 'high-elf',
-			isSubRace: true,
-		},
-	}
-
-	const raceResponse = useRace(character.race.index)
-	const race = raceResponse?.data
-
-	const knownLanguages = race?.languages?.map(l => l.index)
+	const knownLanguages = race.languages?.map(l => l.index)
 
 	return (
-		<Screen
-			title={"Languages parlés"}
-			isLoading={raceResponse.isLoading}
-			withBottomSpace
-		>
 			<div className="flex flex-col">
 				<ScreenIntroduction
 					title="Choisissez les langues parlées"
@@ -120,12 +105,36 @@ function CreateCharacterLanguages() {
 				<ButtonBottomScreen 
 					variant="cta"
 					onClick={() => {
-						router.push('/character/create/personnality-traits')
+						const url = '/character/create/personnality-traits'
+						router.push(url)
+
+						const languages = [
+							...(raceSelectedLanguages || []),
+							...(backgroundSelectedLanguages || []),
+							...(knownLanguages || []),
+						]
+						updateCharacter({ languages: languages, step: 'personnality-traits', url })
 					}}
 				>
 					Suivant
 				</ButtonBottomScreen>
 			</div>
+  );
+}
+
+function CreateCharacterLanguages() {
+	const { character, updateCharacter } = useCreateCharacter()
+
+	const raceResponse = useRace(character.race)
+	const race = raceResponse?.data
+
+	return (
+		<Screen
+			title={"Languages parlés"}
+			isLoading={raceResponse.isLoading}
+			withBottomSpace
+		>
+			<Form race={race} character={character} updateCharacter={updateCharacter} />
     </Screen>
   );
 }

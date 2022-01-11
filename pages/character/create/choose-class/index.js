@@ -5,15 +5,20 @@ import useI18n from '../../../../modules/i18n/useI18n';
 import { ListSelectRowAsCard, ListRowSelectContainer } from "../../../../components/ListSelectRow"
 import IconClass from "../../../../components/icons/IconClass"
 import ScreenIntroduction from "../../../../components/ScreenIntroduction"
+import useCreateCharacter from '../../../../components/useCreateCharacter';
 
 function ClassRow({ clss }) {
 	const { tr } = useI18n()
 	const router = useRouter()
+	const { updateCharacter } = useCreateCharacter()
 	const url = `/character/create/choose-class/${clss.index}`
 
 	return (
 		<ListSelectRowAsCard 
-			onClick={() => router.push(url)}
+			onClick={() => {
+				router.push(url)
+				updateCharacter({ step: 'choose-class', url })
+			}}
 			icon={
 				<IconClass
 					withBgColor
@@ -28,6 +33,26 @@ function ClassRow({ clss }) {
 	)
 }
 
+function Form({ classes }) {
+	return (
+		<div className="flex flex-col">
+			<ScreenIntroduction
+				title="Choisissez votre classe"
+				description={`De nombreuses classes existent dans le monde de Donjon & Dragons.`}
+				actions={
+					<button>En savoir plus</button>
+				}
+			/>
+
+			<ListRowSelectContainer className="px-4 mt-6">
+				{classes?.map(clss => (
+					<ClassRow key={clss.index} clss={clss} />
+				))}
+			</ListRowSelectContainer>
+		</div>
+	)
+}
+
 function ChooseCharacterClass() {
 	const classesResponse = useClasses()
 
@@ -36,21 +61,7 @@ function ChooseCharacterClass() {
 			title={"Choix de la classe"}
 			isLoading={classesResponse.isLoading}
 		>
-			<div className="flex flex-col">
-				<ScreenIntroduction
-					title="Choisissez votre classe"
-					description={`De nombreuses classes existent dans le monde de Donjon & Dragons.`}
-					actions={
-						<button>En savoir plus</button>
-					}
-				/>
-
-				<ListRowSelectContainer className="px-4 mt-6">
-					{classesResponse.data?.map(clss => (
-						<ClassRow key={clss.index} clss={clss} />
-					))}
-				</ListRowSelectContainer>
-			</div>
+			{classesResponse.data && (<Form classes={classesResponse.data} />)}
 		</Screen>
   );
 }
