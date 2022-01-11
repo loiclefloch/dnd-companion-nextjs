@@ -55,14 +55,7 @@ function Character() {
 						<SpellLevelData classes={character.classes} level={character.level} />
 					</div>
 
-					<div className="px-4 mt-4">
-						<div>
-							Age: {character.age}
-						</div>
-						<div onClick={() => showTipAlignment(character.alignmentIndex)}>
-							{character.alignmentIndex}
-						</div>
-					</div>
+					
 				</>
 			)}
 		</Screen>

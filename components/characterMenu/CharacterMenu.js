@@ -76,6 +76,10 @@ function CharacterMenu({ open }) {
 			label: 'Liste des sorts',
 			href: '/character/spells',
 		},
+		{
+			label: 'Background',
+			href: '/character/background',
+		},
 	]
 
 	// TODO: add icon on top right/left to switch character (if change hard reload the page)
@@ -129,7 +133,7 @@ function CharacterMenu({ open }) {
 					</div>
 				</div>
 			</div>
-			<div className="flex flex-col-reverse items-center flex-1 mb-16">
+			<div className="flex flex-col-reverse items-center flex-1 mb-16 overflow-scroll">
 				{menuItems.reverse().map((item, index) => 
 					<Item 
 						key={index}

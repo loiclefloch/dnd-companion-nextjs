@@ -1,6 +1,8 @@
 import classes from '../../../database/data/classes.json'
 import races from '../../../database/data/races.json'
+import subraces from '../../../database/data/subraces.json'
 import spells from '../../../database/data/spells.json'
+import alignments from '../../../database/data/alignments.json'
 import equipmentList from '../../../database/data/equipment.json'
 import magicItems from '../../../database/data/magic-items.json'
 import { format as formatRace } from "../useRace"
@@ -10,29 +12,26 @@ import { formatEquipmentItem } from "../useEquipmentItem"
 import { formatMagicItem } from "../useMagicItem"
 import { formatSpell } from "../useSpell"
 
+const allRaces = [...races, ...subraces]
+
 const isBrowser = typeof window !== "undefined";
-
-const level = 2
-
-const charactedClasses = [
-	formatClass(classes.find(clss => clss.index === 'druid'))
-]
 
 function format(character) {
 	character.race = {
 		index: character.race,
-		...formatRace(races.find(subrace => subrace.index === character.race))
+		...formatRace(allRaces.find(r => r.index === character.race))
 	}
 	character.classes = character.classes.map(clss => formatClass(classes.find(c => clss === c.index)))
 	// TODO:
 	character.statsDetail = []
+	character.alignment = alignments.find(a => a.index === character.alignmentIndex)
+
 	character.spellMode = 'CHA' // TODO: from class
 	character.spellModValue = 3
 
 	character.spellsList = [] // TODO: from spells
 
 	character.maxSpellLevel = 1 // TODO: from class and level
-
 
 	if (!character.wallet) {
 		character.wallet = {
@@ -42,6 +41,17 @@ function format(character) {
 
 	return character
 }
+
+//
+//
+//
+
+const level = 2
+
+const charactedClasses = [
+	formatClass(classes.find(clss => clss.index === 'druid'))
+]
+
 
 export default [
 	{

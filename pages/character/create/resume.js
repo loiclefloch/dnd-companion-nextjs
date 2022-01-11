@@ -7,6 +7,15 @@ import Link from "next/link"
 import useCreateCharacter from '../../../components/useCreateCharacter';
 import StatsSmall from "../../../components/StatsSmall";
 
+function Section({ title, children }) {
+	return (
+		<div className="pt-2 mt-2">
+			<h3 className="mb-2 font-semibold border-b border-solid border-slate-200">{title}</h3>
+			<div>{children}</div>
+		</div>
+	)
+}
+
 function CreateCharacterResume() {
 	const { character, finalizeCharacter } = useCreateCharacter()
 	const router = useRouter()
@@ -34,12 +43,40 @@ function CreateCharacterResume() {
 					<div>
 						<div>{character.race}</div>
 						<div>{character.classes.join(', ')}</div>
-						<div>{character.bonds}</div>
-						<div>{character.flaws}</div>
-						<div>{character.ideals}</div>
-						{character.traits.map((trait, index) => (
-							<p key={index}>{trait}</p>
-						))}
+
+						<div className="mt-4">
+							<Section title="Physic">
+								<div>TODO: body.age</div>
+								<div>TODO: body.sex</div>
+								<div>TODO: body.height</div>
+								<div>TODO: body.weight</div>
+								<div>TODO: body.hairColor</div>
+								<div>TODO: body.eyeColor</div>
+								<div>TODO: body.skinColor</div>
+								<div>TODO: body.physicalCaracteristics</div>
+							</Section>
+
+							<Section title="IDEALS">
+								<div>{character.ideals}</div>
+							</Section>
+							<Section title="FLAWS">
+								<div>{character.flaws}</div>
+							</Section>
+							<Section title="BONDS">
+								<div>{character.bonds}</div>
+							</Section>
+
+							<Section title="PERSONNALITY TRAITS">
+								{character.traits.map((trait, index) => (
+									<p key={index}>{trait}</p>
+								))}
+							</Section>
+							<Section title="LANGUAGES">
+								{character.languages.map((language, index) => (
+									<p key={index}>{language}</p>
+								))}
+							</Section>
+						</div>
 
 						<StatsSmall stats={character.stats} />
 					</div>
