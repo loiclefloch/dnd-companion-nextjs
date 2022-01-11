@@ -19,53 +19,71 @@ function createCharacterReducer(state, action) {
   }
 }
 
-const initialState = !isBrowser ? null : JSON.parse(localStorage.getItem("createCharacter")) || {
+function getDefaultData() {
+  return {
     id: uuid(),
-		name: '',
-    age: 0, // TODO:
+    name: '',
+    body: {
+      age: 0, // TODO:
+      sex: '',
+      height: '',
+      weight: '',
+      hairColor: '',
+      eyeColor: '',
+      skinColor: '',
+      physicalCaracteristics: '',
+    },
+  
     level: 1,
-		classes: [],
-		race: null,
+    classes: [],
+    race: null,
     bonds: '',
     flaws: '',
     ideals: '',
     traits: ['', ''],
     stats: null,
-
-
+  
+  
     levelling: {
       xp: 0,
       history: [],
     },
-
+  
     // TODO:
     spellSlots: [],
+  
+    deathSaves: {
+      nbFailed: null,
+      nbSucceeed: null,
+      isStabilized: false
+    },
+  
+    currencies: {
+      cp: 0,
+      sp: 0,
+      gp: 0,
+      ep: 0,
+      pp: 0,
+    },
+  
+    spells: {
+      background: [],
+      class: [],
+      feat: [],
+      item: [],
+      race: []
+    },
+  
+    equipment: [],
 
-  deathSaves: {
-    nbFailed: null,
-    nbSucceeed: null,
-    isStabilized: false
-  },
-
-  currencies: {
-    cp: 0,
-    sp: 0,
-    gp: 0,
-    ep: 0,
-    pp: 0,
-  },
-
-  spells: {
-    background: [],
-    class: [],
-    feat: [],
-    item: [],
-    race: []
-  },
-
-  equipment: [],
-
+    wallet: {
+      history: []
+    }
+  
+  }
 }
+
+const initialState = !isBrowser ? null : JSON.parse(localStorage.getItem("createCharacter")) || getDefaultData()
 
 function getNextStep(step) {
   const map = {
@@ -111,8 +129,8 @@ function getStepUrl(step) {
 
   return `${root}${map[step]}`
 }
-  
-export function CreateCharacterProvider({children}) {
+
+export function CreateCharacterProvider({ children }) {
   const router = useRouter()
   const [character, dispatchCharacter] = useReducer(createCharacterReducer, initialState)
 
@@ -122,29 +140,35 @@ export function CreateCharacterProvider({children}) {
 
   // NOTE: you *might* need to memoize this value
   // Learn more in http://kcd.im/optimize-context
-  const value = { 
-    character, 
+  const value = {
+    startCreateCharacter: () => {
+      dispatchCharacter({
+        type: 'update',
+        data: getDefaultData()
+      })
+    },
+    character,
     updateCharacter: (data) => {
       const currentStep = data.step
       const nextStep = getNextStep(currentStep)
       const url = getStepUrl(nextStep)
-      
+
       console.info({ currentStep, nextStep, url })
 
       router.push(url)
 
-      dispatchCharacter({ 
-        type: 'update', 
-        data: { 
-          ...data, 
-          currentStep: nextStep, 
+      dispatchCharacter({
+        type: 'update',
+        data: {
+          ...data,
+          currentStep: nextStep,
           url
-        } 
+        }
       })
-    }, 
+    },
     finalizeCharacter: () => {
       const currentCaracters = JSON.parse(localStorage.getItem("characters")) || []
-      const characters = [ ...currentCaracters, character ]
+      const characters = [...currentCaracters, character]
       localStorage.setItem('characters', JSON.stringify(characters))
       router.push("/characters")
     },
@@ -152,18 +176,18 @@ export function CreateCharacterProvider({children}) {
   }
 
   return (
-		<CreateCharacterContext.Provider value={value}>
-			{children}
-		</CreateCharacterContext.Provider>
-	)
+    <CreateCharacterContext.Provider value={value}>
+      {children}
+    </CreateCharacterContext.Provider>
+  )
 }
 
 function useCreateCharacter() {
-	const context = useContext(CreateCharacterContext)
+  const context = useContext(CreateCharacterContext)
 
   console.info(context.character)
 
-	if (context === undefined) {
+  if (context === undefined) {
     throw new Error('useCreateCharacter must be used within a CreateCharacterProvider')
   }
   return context

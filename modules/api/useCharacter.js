@@ -6,7 +6,7 @@ export function format(character) {
 }
 
 function useCharacter(id) {
-  return useApi(format(characters.find(character => character.id === Number(id))))
+  return useApi(format(characters.find(character => character.id === id)))
 }
 
 export default useCharacter

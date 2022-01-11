@@ -50,7 +50,7 @@ function Form({ racesResponse }) {
 							if (!race.hasSubraces) {
 								updateCharacter({ step: 'choose-race', url })
 							} else {
-								updateCharacter({ step: 'choose-subrace', url })
+								router.push("/character/create/choose-subrace/" + race.index)
 							}
 						}}
 					/>

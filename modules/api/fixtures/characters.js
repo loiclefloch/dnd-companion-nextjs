@@ -30,12 +30,22 @@ function format(character) {
 	character.spellModValue = 3
 
 	character.spellsList = [] // TODO: from spells
+
+	character.maxSpellLevel = 1 // TODO: from class and level
+
+
+	if (!character.wallet) {
+		character.wallet = {
+			history: []
+		}
+	}
+
 	return character
 }
 
 export default [
 	{
-		id: 1,
+		id: "1",
 
 		campaign: {
 			name: '',
@@ -159,6 +169,40 @@ export default [
 			gp: 300,
 			ep: 3,
 			pp: 1
+		},
+
+		wallet: {
+			history: [
+				{
+					id: 1,
+					label: 'Loot from gobelins',
+					isAdd: true,
+					amount: {
+						gp: 2,
+						sp: 100
+					},
+					amountLabel: `2G 100S`,
+				},
+				{
+					id: 2,
+					label: 'Buy a cow',
+					isAdd: false,
+					amount: {
+						gp: 2,
+						sp: 100
+					},
+					amountLabel: `2G 100S`,
+				},
+				{
+					id: 2,
+					label: 'Buy a book',
+					isAdd: false,
+					amount: {
+						sp: 123
+					},
+					amountLabel: `123S`,
+				}
+			]
 		},
 
 		spells: {

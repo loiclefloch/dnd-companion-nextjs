@@ -103,38 +103,6 @@ function Currencies({ currencies }) {
 	)
 }
 
-const history = [
-	{
-		id: 1,
-		label: 'Loot from gobelins',
-		isAdd: true,
-		amount: {
-			gp: 2,
-			sp: 100
-		},
-		amountLabel: `2G 100S`,
-	},
-	{
-		id: 2,
-		label: 'Buy a cow',
-		isAdd: false,
-		amount: {
-			gp: 2,
-			sp: 100
-		},
-		amountLabel: `2G 100S`,
-	},
-	{
-		id: 2,
-		label: 'Buy a book',
-		isAdd: false,
-		amount: {
-			sp: 123
-		},
-		amountLabel: `123S`,
-	}
-]
-
 function HistoryLine({ history }) {
 	return (
 		<div className="flex py-1 mx-4 my-1">
@@ -182,7 +150,7 @@ function CharacterWallet() {
 					<div className="mt-4">
 						<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">Historique</h3>
 						<div className="mt-2 divide-y divide">
-							{history.map(history => (
+							{character.wallet?.history?.map(history => (
 								<HistoryLine key={history.id} history={history} />
 							))}
 						</div>

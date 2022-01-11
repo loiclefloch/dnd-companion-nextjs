@@ -117,11 +117,15 @@ function Group({ title, items }) {
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
 	const { showMagicItemScreenAsModal } = useMagicItemScreenAsModal()
 
+	if (!items) {
+		return null
+	}
+
 	return (
 		<div className="mx-4 mt-2 mb-4 select-none">
 			<div className="font-semibold text-md">{title}</div>
 			<div className="py-2">
-				{items.map((item, index) => (
+				{items?.map((item, index) => (
 					<ItemRow
 						key={index} // index since we could have multiple times the same item for a character?
 						item={item}

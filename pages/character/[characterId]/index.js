@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import Link from "next/link"
 import useI18n from "../../../modules/i18n/useI18n"
 import useCharacter from "../../../modules/api/useCharacter"
@@ -14,6 +15,12 @@ function Character() {
 	const characterResponse = useCharacter(router.query.characterId)
 
 	const character = characterResponse.data
+
+	useEffect(() => {
+		if (character) {
+			localStorage.setItem("currentCharacterId", character.id)
+		}
+	}, [character])
 
 	return (
 		<Screen

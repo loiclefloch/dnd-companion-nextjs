@@ -5,6 +5,7 @@ import { ListSelectRowAsCard, ListRowSelectContainer } from "../../components/Li
 import Screen from "../../components/Screen"
 import useI18n from "../../modules/i18n/useI18n"
 import useCharacters from "../../modules/api/useCharacters"
+import useCreateCharacter from '../../components/useCreateCharacter';
 
 function Character({ character }) {
 	const { tr } = useI18n()
@@ -26,6 +27,7 @@ function Character({ character }) {
 
 function CharactersScreen() {
 	const router = useRouter()
+	const { startCreateCharacter } = useCreateCharacter()
 	const charactersResponse = useCharacters()
 
 	return (
@@ -35,7 +37,10 @@ function CharactersScreen() {
 			root
 			isLoading={charactersResponse.isLoading}
 			rightAction={
-				<button onClick={() => router.push("/character/create")}>
+				<button onClick={() => {
+					startCreateCharacter()
+					router.push("/character/create")
+				}}>
 					<IconPlus className={"h-6 w-6 text-slate-800"} />
 				</button>
 			}
@@ -44,7 +49,7 @@ function CharactersScreen() {
 				<ListRowSelectContainer className="px-4 pb-12 mt-12" data-cy-id="characters-list">
 					{charactersResponse.data?.map((character) => (
 						<Character
-							key={character.name}
+							key={character.id}
 							character={character}
 						/>
 					))}
