@@ -105,15 +105,13 @@ function Form({ race, updateCharacter }) {
 				<ButtonBottomScreen 
 					variant="cta"
 					onClick={() => {
-						const url = '/character/create/personnality-traits'
-						router.push(url)
 
 						const languages = [
 							...(raceSelectedLanguages || []),
 							...(backgroundSelectedLanguages || []),
 							...(knownLanguages || []),
 						]
-						updateCharacter({ languages: languages, step: 'personnality-traits', url })
+						updateCharacter({ languages: languages, step: 'languages' })
 					}}
 				>
 					Suivant

@@ -19,8 +19,7 @@ function Form({ subrace }) {
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					router.push('/character/create/choose-class')
-					updateCharacter({ race: subrace.index, step: 'choose-class', url: '/character/create/choose-class' })
+					updateCharacter({ race: subrace.index, step: 'choose-race', url: '/character/create/choose-class' })
 				}}
 			>
 				Choisir

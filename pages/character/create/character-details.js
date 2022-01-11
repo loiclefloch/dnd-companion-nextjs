@@ -33,6 +33,9 @@ function Form({ clss }) {
 
 			<div className="relative w-full px-4 mt-12">
 				<div>
+					// TODO: age
+				</div>
+				<div>
 					// TODO: sex
 				</div>
 				<div>
@@ -54,9 +57,7 @@ function Form({ clss }) {
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					const url = '/character/create/alignment'
-					router.push(url)
-					updateCharacter({ step: 'alignment', url })
+					updateCharacter({ step: 'character-details' })
 				}}
 			>
 				Suivant

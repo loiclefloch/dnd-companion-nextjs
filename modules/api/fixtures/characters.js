@@ -1,6 +1,5 @@
 import classes from '../../../database/data/classes.json'
 import races from '../../../database/data/races.json'
-import subraces from '../../../database/data/subraces.json'
 import spells from '../../../database/data/spells.json'
 import equipmentList from '../../../database/data/equipment.json'
 import magicItems from '../../../database/data/magic-items.json'
@@ -11,11 +10,28 @@ import { formatEquipmentItem } from "../useEquipmentItem"
 import { formatMagicItem } from "../useMagicItem"
 import { formatSpell } from "../useSpell"
 
+const isBrowser = typeof window !== "undefined";
+
 const level = 2
 
 const charactedClasses = [
 	formatClass(classes.find(clss => clss.index === 'druid'))
 ]
+
+function format(character) {
+	character.race = {
+		index: character.race,
+		...formatRace(races.find(subrace => subrace.index === character.race))
+	}
+	character.classes = character.classes.map(clss => formatClass(classes.find(c => clss === c.index)))
+	// TODO:
+	character.statsDetail = []
+	character.spellMode = 'CHA' // TODO: from class
+	character.spellModValue = 3
+
+	character.spellsList = [] // TODO: from spells
+	return character
+}
 
 export default [
 	{
@@ -77,9 +93,7 @@ export default [
 				}
 			},
 
-			isSubRace: true,
-
-			...formatRace(subraces.find(subrace => subrace.index === 'high-elf'))
+			...formatRace(races.find(subrace => subrace.index === 'high-elf'))
 		},
 
 
@@ -208,5 +222,6 @@ export default [
 
 		// 	]
 		// }
-	}
+	},
+  ...(!isBrowser ? [] : JSON.parse(localStorage.getItem("characters")) || []).map(format)
 ]

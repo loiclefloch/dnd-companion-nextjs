@@ -9,9 +9,8 @@ import useI18n from "../../../modules/i18n/useI18n";
 import useCreateCharacter from '../../../components/useCreateCharacter';
 
 function Form() {
-	const [ideals, setIdeals] = useState('')
-	const router = useRouter()
-	const { updateCharacter } = useCreateCharacter()
+	const { character, updateCharacter } = useCreateCharacter()
+	const [ideals, setIdeals] = useState(character?.ideals || '')
 
 	return (
 		<div className="flex flex-col">
@@ -39,9 +38,7 @@ function Form() {
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					const url = '/character/create/bonds'
-					router.push(url)
-					updateCharacter({ ideals, step: 'bonds', url })
+					updateCharacter({ ideals, step: 'ideals' })
 				}}
 			>
 				Suivant

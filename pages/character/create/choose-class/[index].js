@@ -19,9 +19,7 @@ function Form({ clss }) {
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					const url = '/character/create/abilities'
-					router.push(url)
-					updateCharacter({ classes: [ clss.index ], step: 'abilities', url })
+					updateCharacter({ classes: [ clss.index ], step: 'choose-class' })
 				}}
 			>
 				Choisir

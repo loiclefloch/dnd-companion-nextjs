@@ -4,10 +4,11 @@ import ButtonBottomScreen from "../../../components/ButtonBottomScreen";
 import ScreenIntroduction from "../../../components/ScreenIntroduction";
 import Screen from "../../../components/Screen";
 import Link from "next/link"
-import useI18n from "../../../modules/i18n/useI18n";
+import useCreateCharacter from '../../../components/useCreateCharacter';
+import StatsSmall from "../../../components/StatsSmall";
 
 function CreateCharacterResume() {
-	const { tr } = useI18n()
+	const { character, finalizeCharacter } = useCreateCharacter()
 	const router = useRouter()
 
 	return (
@@ -29,9 +30,20 @@ function CreateCharacterResume() {
 				/>
 
 				<div className="px-4 mt-4">
+					<h3>{character.name}</h3>
 					<div>
-						TODO: resume character
+						<div>{character.race}</div>
+						<div>{character.classes.join(', ')}</div>
+						<div>{character.bonds}</div>
+						<div>{character.flaws}</div>
+						<div>{character.ideals}</div>
+						{character.traits.map((trait, index) => (
+							<p key={index}>{trait}</p>
+						))}
+
+						<StatsSmall stats={character.stats} />
 					</div>
+
 					<div>
 				// TODO: if need to choose spells add a tip to how choose them
 					</div>
@@ -40,7 +52,7 @@ function CreateCharacterResume() {
 				<ButtonBottomScreen 
 					variant="cta"
 					onClick={() => {
-						router.push('/')
+						finalizeCharacter()
 					}}
 				>
 					Terminer la création

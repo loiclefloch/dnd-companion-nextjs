@@ -10,14 +10,12 @@ import useCreateCharacter from '../../../../components/useCreateCharacter';
 function ClassRow({ clss }) {
 	const { tr } = useI18n()
 	const router = useRouter()
-	const { updateCharacter } = useCreateCharacter()
 	const url = `/character/create/choose-class/${clss.index}`
 
 	return (
 		<ListSelectRowAsCard 
 			onClick={() => {
 				router.push(url)
-				updateCharacter({ step: 'choose-class', url })
 			}}
 			icon={
 				<IconClass

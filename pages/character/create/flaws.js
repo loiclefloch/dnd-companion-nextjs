@@ -9,9 +9,8 @@ import useI18n from "../../../modules/i18n/useI18n";
 import useCreateCharacter from '../../../components/useCreateCharacter';
 
 function Form() {
-	const [flaws, setFlaws] = useState('')
-	const router = useRouter()
-	const { updateCharacter } = useCreateCharacter()
+	const { character, updateCharacter } = useCreateCharacter()
+	const [flaws, setFlaws] = useState(character?.flaws || '')
 
 	return (
 		<div className="flex flex-col">
@@ -39,9 +38,7 @@ function Form() {
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					const url = '/character/create/equipment'
-					router.push(url)
-					updateCharacter({ flaws, step: 'flaws', url })
+					updateCharacter({ flaws, step: 'flaws' })
 				}}
 			>
 				Suivant

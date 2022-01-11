@@ -1,3 +1,5 @@
+import { uuid } from 'uuidv4';
+import { useRouter } from "next/router";
 import { createContext, useContext, useReducer, useEffect } from "react"
 
 const isBrowser = typeof window !== "undefined";
@@ -18,12 +20,100 @@ function createCharacterReducer(state, action) {
 }
 
 const initialState = !isBrowser ? null : JSON.parse(localStorage.getItem("createCharacter")) || {
+    id: uuid(),
 		name: '',
-		class: null,
+    age: 0, // TODO:
+    level: 1,
+		classes: [],
 		race: null,
-	}
+    bonds: '',
+    flaws: '',
+    ideals: '',
+    traits: ['', ''],
+    stats: null,
 
+
+    levelling: {
+      xp: 0,
+      history: [],
+    },
+
+    // TODO:
+    spellSlots: [],
+
+  deathSaves: {
+    nbFailed: null,
+    nbSucceeed: null,
+    isStabilized: false
+  },
+
+  currencies: {
+    cp: 0,
+    sp: 0,
+    gp: 0,
+    ep: 0,
+    pp: 0,
+  },
+
+  spells: {
+    background: [],
+    class: [],
+    feat: [],
+    item: [],
+    race: []
+  },
+
+  equipment: [],
+
+}
+
+function getNextStep(step) {
+  const map = {
+    'initial': 'choose-race',
+    'choose-race': 'choose-class',
+    'choose-class': 'abilities',
+    'abilities': 'choose-creation-mode',
+    'choose-creation-mode': ['choose-background', 'character-details'], // multiple possibility,
+    'character-details': 'alignment',
+    'alignment': 'languages',
+    'languages': 'personnality-traits',
+    'personnality-traits': 'ideals',
+    'ideals': 'bonds',
+    'bonds': 'flaws',
+    'flaws': 'equipment',
+    'equipment': 'resume',
+    'resume': '',
+  }
+
+  return map[step]
+}
+
+function getStepUrl(step) {
+  const map = {
+    'initial': '/',
+    'choose-race': '/choose-race',
+    'choose-class': '/choose-class',
+    'abilities': '/abilities',
+    'choose-creation-mode': '/choose-creation-mode',
+    'choose-background': '/choose-background',
+    'character-details': '/character-details',
+    'alignment': '/alignment',
+    'languages': '/languages',
+    'personnality-traits': '/personnality-traits',
+    'ideals': '/ideals',
+    'bonds': '/bonds',
+    'flaws': '/flaws',
+    'equipment': '/equipment',
+    'resume': '/resume',
+  }
+
+  const root = `/character/create`
+
+  return `${root}${map[step]}`
+}
+  
 export function CreateCharacterProvider({children}) {
+  const router = useRouter()
   const [character, dispatchCharacter] = useReducer(createCharacterReducer, initialState)
 
   useEffect(() => {
@@ -35,8 +125,29 @@ export function CreateCharacterProvider({children}) {
   const value = { 
     character, 
     updateCharacter: (data) => {
-      dispatchCharacter({ type:'update', data })
+      const currentStep = data.step
+      const nextStep = getNextStep(currentStep)
+      const url = getStepUrl(nextStep)
+      
+      console.info({ currentStep, nextStep, url })
+
+      router.push(url)
+
+      dispatchCharacter({ 
+        type: 'update', 
+        data: { 
+          ...data, 
+          currentStep: nextStep, 
+          url
+        } 
+      })
     }, 
+    finalizeCharacter: () => {
+      const currentCaracters = JSON.parse(localStorage.getItem("characters")) || []
+      const characters = [ ...currentCaracters, character ]
+      localStorage.setItem('characters', JSON.stringify(characters))
+      router.push("/characters")
+    },
     dispatchCharacter
   }
 
@@ -49,6 +160,8 @@ export function CreateCharacterProvider({children}) {
 
 function useCreateCharacter() {
 	const context = useContext(CreateCharacterContext)
+
+  console.info(context.character)
 
 	if (context === undefined) {
     throw new Error('useCreateCharacter must be used within a CreateCharacterProvider')

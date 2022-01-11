@@ -7,8 +7,8 @@ import useCreateCharacter from "../../../components/useCreateCharacter"
 
 function Form() {
 	const router = useRouter()
-	const [ name, setName ] = useState('')
-	const { updateCharacter } = useCreateCharacter()
+	const { character, updateCharacter } = useCreateCharacter()
+	const [ name, setName ] = useState(character?.name || '')
 
 	const formHasErrors = isEmpty(name)
 
@@ -25,14 +25,15 @@ function Form() {
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
+
 			</div>
 
 			<ButtonBottomScreen
-				disabled={formHasErrors}
+				// TODO:
+				// disabled={formHasErrors}
 				variant="cta"
 				onClick={() => {
-					updateCharacter({ name, step: 'choose-race', url: '/character/create/choose-race' })
-					router.push('/character/create/choose-race')
+					updateCharacter({ name, step: 'initial', url: '/character/create/choose-race' })
 				}}
 			>
 				Suivant

@@ -8,9 +8,11 @@ import Textarea from "../../../components/Textarea";
 import useCreateCharacter from '../../../components/useCreateCharacter';
 
 function Form() {
-	const [selectedTraits, setSelectedTraits] = useState(['', ''])
-	const router = useRouter()
-	const { updateCharacter } = useCreateCharacter()
+	const { character, updateCharacter } = useCreateCharacter()
+	const [selectedTraits, setSelectedTraits] = useState(character?.traits 
+		? [ character.traits[0] || '', character.traits[1] || ''] 
+		: ['', '']
+	)
 
 	return (
 		<div className="flex flex-col">
@@ -45,9 +47,7 @@ function Form() {
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					const url = '/character/create/ideals'
-					router.push(url)
-					updateCharacter({ traits: selectedTraits, step: 'ideals', url })
+					updateCharacter({ traits: selectedTraits, step: 'personnality-traits' })
 				}}
 			>
 				Suivant

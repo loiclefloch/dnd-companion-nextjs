@@ -4,11 +4,9 @@ import ButtonBottomScreen from "../../../components/ButtonBottomScreen";
 import ScreenIntroduction from "../../../components/ScreenIntroduction";
 import Screen from "../../../components/Screen";
 import Link from "next/link"
-import useI18n from "../../../modules/i18n/useI18n";
 import useCreateCharacter from '../../../components/useCreateCharacter';
 
 function Form() {
-	const router = useRouter()
 	const { updateCharacter } = useCreateCharacter()
 
 	return (
@@ -30,10 +28,7 @@ function Form() {
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					const url = '/character/create/resume'
-					router.push(url)
-					updateCharacter({ equipments: [], step: 'resume', url })
-
+					updateCharacter({ equipments: [], step: 'equipment' })
 				}}
 			>
 				Suivant
@@ -44,12 +39,9 @@ function Form() {
 
 
 function CreateCharacterEquipment() {
-	const { tr } = useI18n()
-	const router = useRouter()
-
 	return (
 		<Screen
-			title={"Idéaux"}
+			title={"Équipement"}
 			withBottomSpace
 		>
 			<Form />

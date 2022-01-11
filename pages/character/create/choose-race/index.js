@@ -52,8 +52,6 @@ function Form({ racesResponse }) {
 							} else {
 								updateCharacter({ step: 'choose-subrace', url })
 							}
-
-							router.push(url)
 						}}
 					/>
 				))}

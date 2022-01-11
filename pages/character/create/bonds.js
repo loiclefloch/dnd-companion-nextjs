@@ -8,9 +8,8 @@ import Link from "next/link"
 import useCreateCharacter from '../../../components/useCreateCharacter';
 
 function Form() {
-	const [bonds, setBonds] = useState('')
-	const router = useRouter()
-	const { updateCharacter } = useCreateCharacter()
+	const { character, updateCharacter } = useCreateCharacter()
+	const [bonds, setBonds] = useState(character?.bonds || '')
 
 	return (
 		<div className="flex flex-col">
@@ -38,9 +37,7 @@ function Form() {
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					const url = '/character/create/flaws'
-					router.push(url)
-					updateCharacter({ bonds, step: 'flaws', url })
+					updateCharacter({ bonds, step: 'bonds' })
 				}}
 			>
 				Suivant

@@ -20,8 +20,7 @@ function Form({ race }) {
 				variant="cta"
 				onClick={() => {
 					const url = '/character/create/choose-class'
-					router.push(url)
-					updateCharacter({ race: race.index, step: 'choose-class', url })
+					updateCharacter({ race: race.index, step: 'choose-race', url })
 				}}
 			>
 				Choisir

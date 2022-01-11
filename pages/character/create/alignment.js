@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { useRouter } from 'next/router'
 import alignments from "../../../database/data/alignments.json"
 import ButtonBottomScreen from "../../../components/ButtonBottomScreen";
 import ScreenIntroduction from "../../../components/ScreenIntroduction";
@@ -7,7 +6,6 @@ import Screen from "../../../components/Screen";
 import useTipAlignment from "../../../components/useTipAlignment";
 import ListSelector from "../../../components/ListSelector";
 import Link from "next/link"
-import useI18n from '../../../modules/i18n/useI18n';
 import useCreateCharacter from '../../../components/useCreateCharacter';
 
 // TODO: put on race data
@@ -32,10 +30,10 @@ const defaultData = {
 }
 
 function Form() {
-	const [selectedAlignment, setSelectedAlignment] = useState(null)
+	const { character, updateCharacter } = useCreateCharacter()
+	// TODO: default useState does not work
+	const [selectedAlignment, setSelectedAlignment] = useState(character?.alignmentIndex)
 	const { showTipAlignment } = useTipAlignment()
-	const router = useRouter()
-	const { updateCharacter } = useCreateCharacter()
 
 	return (
 		<div className="flex flex-col">
@@ -73,9 +71,7 @@ function Form() {
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					const url = '/character/create/languages'
-					router.push(url)
-					updateCharacter({ alignmentIndex: selectedAlignment, step: 'languages', url })
+					updateCharacter({ alignmentIndex: selectedAlignment, step: 'alignment' })
 				}}
 			>
 				Suivant

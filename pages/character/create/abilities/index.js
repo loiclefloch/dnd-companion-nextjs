@@ -65,7 +65,8 @@ function Ability({
 }
 
 function Form() {
-	const [abilities, setAbilities] = useState({
+	const { character, updateCharacter } = useCreateCharacter()
+	const [abilities, setAbilities] = useState(character?.stats || {
 		STR: 15,
 		DEX: 14,
 		CON: 12,
@@ -73,7 +74,6 @@ function Form() {
 		WIS: 10,
 		CHA: 8,
 	})
-	const { updateCharacter } = useCreateCharacter()
 	const router = useRouter()
 
 	// 2 score = 1 point
@@ -99,10 +99,8 @@ function Form() {
 				<ButtonBottomScreen
 					variant="cta"
 					onClick={() => {
-						const url = '/character/create/choose-creation-mode'
-						router.push(url)
 						// TODO: rename abilities to stats or the inverse?
-						updateCharacter({ stats: abilities, step: 'choose-creation-mode', url })
+						updateCharacter({ stats: abilities, step: 'abilities' })
 					}}
 				>
 					Valider
