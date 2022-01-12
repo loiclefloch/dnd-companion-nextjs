@@ -123,7 +123,7 @@ function Form({ race, updateCharacter }) {
 function CreateCharacterLanguages() {
 	const { character, updateCharacter } = useCreateCharacter()
 
-	const raceResponse = useRace(character.race)
+	const raceResponse = useRace(character?.race)
 	const race = raceResponse?.data
 
 	return (
@@ -132,7 +132,9 @@ function CreateCharacterLanguages() {
 			isLoading={raceResponse.isLoading}
 			withBottomSpace
 		>
-			<Form race={race} character={character} updateCharacter={updateCharacter} />
+			{race && (
+				<Form race={race} character={character} updateCharacter={updateCharacter} />
+			)}
     </Screen>
   );
 }

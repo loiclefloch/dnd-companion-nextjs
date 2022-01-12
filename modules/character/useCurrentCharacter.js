@@ -64,6 +64,7 @@ export function CurrentCharacterProvider({ children }) {
 			setCurrentCharacterId(newCurrentCharacterId)
 		},
 		characterDispatch: (action) => {
+			console.log(`dispatch ${action.type}`)
 			const nextState = produce(currentCharacter, draftState => {
 				// TODO: on character creation
 				if (!draftState.spellsList) {
@@ -75,12 +76,16 @@ export function CurrentCharacterProvider({ children }) {
 		}
 	}
 
-  return (
-    <Provider value={value}>
-      {children}
-    </Provider>
+	return (
+		<Provider value={value}>
+			{children}
+		</Provider>
   )
 }
+
+//
+// Actions
+//
 
 export function actionLearnSpell(spell) {
 	return {
@@ -124,7 +129,7 @@ function useCurrentCharacter() {
     throw new Error('useCurrentCharacter must be used within a CurrentCharacterProvider')
   }
 
-  console.info(context?.character)
+  // console.info(context?.character)
   return context
 }
 

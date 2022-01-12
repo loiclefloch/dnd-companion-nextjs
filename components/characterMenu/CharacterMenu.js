@@ -43,8 +43,6 @@ function CharacterMenu({ open }) {
 		return null
 	}
 
-	console.info({ character })
-
 	const menuItems = [
 		{
 			label: 'Personnage',

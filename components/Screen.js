@@ -66,10 +66,9 @@ function Screen({
 					{ 
 						"absolute z-40": fullScreen, 
 						"hidden": /* TRICK */fullScreen && sidebarMenuShown 
-					})
-			}
+					})}
 			>
-				<div className="py-1 pl-1 pr-4">
+				<div className="py-1 pl-1 pr-4 cursor-pointer">
 					{!root && (
 						<IconBack className={clsx("w-4 h-4", iconClassName)} onClick={router.back} />
 					)}
@@ -84,7 +83,7 @@ function Screen({
 					</div>
 				)}
 				{rightAction && !isLoading && (
-					<div className="px-2">{rightAction}</div>
+					<div className="px-2 cursor-pointer">{rightAction}</div>
 				)}
 			</header>
 

@@ -25,76 +25,78 @@ function CreateCharacterResume() {
 			title={"Votre personnage"}
 			withBottomSpace
 		>
-			<div className="flex flex-col">
-				<ScreenIntroduction
-					title="Résumé de votre personnage"
-					description={`Donnez à votre personnage ...`}
-					actions={
-						<div className="mt-2">
-							<Link href="/rules/create-character-equipment">
-								En savoir plus
-							</Link>
+			{character && (
+				<div className="flex flex-col">
+					<ScreenIntroduction
+						title="Résumé de votre personnage"
+						description={`Donnez à votre personnage ...`}
+						actions={
+							<div className="mt-2">
+								<Link href="/rules/create-character-equipment">
+									En savoir plus
+								</Link>
+							</div>
+						}
+					/>
+
+					<div className="px-4 mt-4">
+						<h3>{character.name}</h3>
+						<div>
+							<div>{character.race}</div>
+							<div>{character.classes.join(', ')}</div>
+
+							<div className="mt-4">
+								<Section title="Physic">
+									<div>TODO: body.age</div>
+									<div>TODO: body.sex</div>
+									<div>TODO: body.height</div>
+									<div>TODO: body.weight</div>
+									<div>TODO: body.hairColor</div>
+									<div>TODO: body.eyeColor</div>
+									<div>TODO: body.skinColor</div>
+									<div>TODO: body.physicalCaracteristics</div>
+								</Section>
+
+								<Section title="IDEALS">
+									<div>{character.ideals}</div>
+								</Section>
+								<Section title="FLAWS">
+									<div>{character.flaws}</div>
+								</Section>
+								<Section title="BONDS">
+									<div>{character.bonds}</div>
+								</Section>
+
+								<Section title="PERSONNALITY TRAITS">
+									{character.traits.map((trait, index) => (
+										<p key={index}>{trait}</p>
+									))}
+								</Section>
+								<Section title="LANGUAGES">
+									{character.languages.map((language, index) => (
+										<p key={index}>{language}</p>
+									))}
+								</Section>
+							</div>
+
+							<StatsSmall stats={character.stats} />
 						</div>
-					}
-				/>
 
-				<div className="px-4 mt-4">
-					<h3>{character.name}</h3>
-					<div>
-						<div>{character.race}</div>
-						<div>{character.classes.join(', ')}</div>
-
-						<div className="mt-4">
-							<Section title="Physic">
-								<div>TODO: body.age</div>
-								<div>TODO: body.sex</div>
-								<div>TODO: body.height</div>
-								<div>TODO: body.weight</div>
-								<div>TODO: body.hairColor</div>
-								<div>TODO: body.eyeColor</div>
-								<div>TODO: body.skinColor</div>
-								<div>TODO: body.physicalCaracteristics</div>
-							</Section>
-
-							<Section title="IDEALS">
-								<div>{character.ideals}</div>
-							</Section>
-							<Section title="FLAWS">
-								<div>{character.flaws}</div>
-							</Section>
-							<Section title="BONDS">
-								<div>{character.bonds}</div>
-							</Section>
-
-							<Section title="PERSONNALITY TRAITS">
-								{character.traits.map((trait, index) => (
-									<p key={index}>{trait}</p>
-								))}
-							</Section>
-							<Section title="LANGUAGES">
-								{character.languages.map((language, index) => (
-									<p key={index}>{language}</p>
-								))}
-							</Section>
-						</div>
-
-						<StatsSmall stats={character.stats} />
-					</div>
-
-					<div>
+						<div>
 				// TODO: if need to choose spells add a tip to how choose them
+						</div>
 					</div>
-				</div>
 
-				<ButtonBottomScreen 
-					variant="cta"
-					onClick={() => {
-						finalizeCharacter()
-					}}
-				>
-					Terminer la création
-				</ButtonBottomScreen>
-			</div>
+					<ButtonBottomScreen
+						variant="cta"
+						onClick={() => {
+							finalizeCharacter()
+						}}
+					>
+						Terminer la création
+					</ButtonBottomScreen>
+				</div>
+			)}
     </Screen>
   );
 }
