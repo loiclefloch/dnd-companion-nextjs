@@ -51,6 +51,7 @@ function getDefaultData() {
   
     // TODO:
     spellSlots: [],
+    spellsList: [],
   
     deathSaves: {
       nbFailed: null,
@@ -64,14 +65,6 @@ function getDefaultData() {
       gp: 0,
       ep: 0,
       pp: 0,
-    },
-  
-    spells: {
-      background: [],
-      class: [],
-      feat: [],
-      item: [],
-      race: []
     },
   
     equipment: [],

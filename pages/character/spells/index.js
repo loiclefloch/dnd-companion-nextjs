@@ -6,7 +6,7 @@ import SpellsView from "../../../components/SpellsView"
  * Spell list with the character as context
  */
 function CharacterSpells() {
-	const character = useCurrentCharacter()
+	const { character } = useCurrentCharacter()
 
 	// define character on context
 	// automatic filtering for the character

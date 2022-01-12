@@ -1,10 +1,11 @@
 import characters from './fixtures/characters'
 import useApi from "./useApi"
 
-import { format } from "./useCharacter"
+import { formatCharacter } from "./useCharacter"
 
-function useCharacters(race) {
-  return useApi(characters.map(format))
+function useCharacters() {
+  // TODO: not formated since already formatted on fixtures
+  return useApi(characters().map(formatCharacter))
 }
 
 export default useCharacters

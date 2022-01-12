@@ -5,22 +5,25 @@ import { CharacterMenuProvider } from "../components/characterMenu/CharacterMenu
 import { ScreenAsModalProvider } from "../components/screenAsModal/screenAsModalContext";
 import { SidebarMenuProvider } from "../components/sidebarMenu/sidebarMenuContext";
 import { CreateCharacterProvider } from "../components/useCreateCharacter"
+import { CurrentCharacterProvider } from "../modules/character/useCurrentCharacter"
 function MyApp({ Component, pageProps }) {
   return (
-    <div 
+    <div
       className='//dark bg-app'
     >
-      <ModalProvider>
-        <SidebarMenuProvider>
-          <ScreenAsModalProvider>
-            <CharacterMenuProvider>
-              <CreateCharacterProvider>
-                <Component {...pageProps} />
-              </CreateCharacterProvider>
-            </CharacterMenuProvider>
-          </ScreenAsModalProvider>
-        </SidebarMenuProvider>
-      </ModalProvider>
+      <CurrentCharacterProvider>
+        <ModalProvider>
+          <SidebarMenuProvider>
+            <ScreenAsModalProvider>
+              <CharacterMenuProvider>
+                <CreateCharacterProvider>
+                  <Component {...pageProps} />
+                </CreateCharacterProvider>
+              </CharacterMenuProvider>
+            </ScreenAsModalProvider>
+          </SidebarMenuProvider>
+        </ModalProvider>
+      </CurrentCharacterProvider>
 
       <div id="modal-root" />
     </div>

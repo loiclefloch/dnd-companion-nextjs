@@ -15,13 +15,13 @@ function Spell() {
 	const router = useRouter()
 	const { tr } = useI18n()
 	const spellResponse = useSpell(router.query.index);
-	const {showEditCharacterSpellModal } = useEditEditCharacterSpellScreenAsModal()
-	const currentCharacter = useCurrentCharacter()
+	const { showEditCharacterSpellModal } = useEditEditCharacterSpellScreenAsModal()
+	const { character, characterDispatch } = useCurrentCharacter()
 
 	const spell = spellResponse.data;
 
 	return (
-		<CharacterProvider character={currentCharacter}>
+		<CharacterProvider character={character}>
 			<Screen
 				title={!spell ? 'Sort' : `${tr(spell?.nameLocalized)}`}
 				titleIcon={<IconBookOpen className="w-6 h-6" />}
@@ -29,12 +29,12 @@ function Spell() {
 				rightAction={
 					<IconPencil
 						className="w-5 h-5 text-slate-700"
-						onClick={() => showEditCharacterSpellModal(spell, currentCharacter)}
+						onClick={() => showEditCharacterSpellModal(spell, character, characterDispatch)}
 					/>
 				}
 			>
 				{spell && (
-					<SpellView spell={spell} contextCharacter={currentCharacter} />
+					<SpellView spell={spell} contextCharacter={character} />
 				)}
 			</Screen>
 		</CharacterProvider>

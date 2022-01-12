@@ -146,7 +146,7 @@ function Group({ title, items }) {
 function Character() {
 	const router = useRouter()
 	const { tr } = useI18n()
-	const character = useCurrentCharacter()
+	const { character } = useCurrentCharacter()
 	const grouped = groupBy(character?.equipment, item => item.equipmentCategory.index)
 	
 	// X adventuring-gear

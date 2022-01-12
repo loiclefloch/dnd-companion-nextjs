@@ -7,10 +7,12 @@ import { useRouter } from "next/router"
 import Screen from "../../../components/Screen"
 import SpellLevelData from "../../../components/SpellLevelData"
 import useTipAlignment from "../../../components/useTipAlignment"
+import useCurrentCharacter from "../../../modules/character/useCurrentCharacter"
 
 function Character() {
 	const router = useRouter()
 	const { tr } = useI18n()
+	const { setCurrentCharacter } = useCurrentCharacter()
 	const { showTipAlignment } = useTipAlignment()
 	const characterResponse = useCharacter(router.query.characterId)
 
@@ -18,7 +20,7 @@ function Character() {
 
 	useEffect(() => {
 		if (character) {
-			localStorage.setItem("currentCharacterId", character.id)
+			setCurrentCharacter(character.id)
 		}
 	}, [character])
 

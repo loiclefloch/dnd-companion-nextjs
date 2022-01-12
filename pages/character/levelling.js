@@ -57,7 +57,7 @@ function Progress({ level, currentXp, nextLevelXp }) {
 function CharacterWallet() {
 	const router = useRouter()
 	const { showLevellingAddScreenAsModal } = useLevellingAddScreenAsModal()
-	const character = useCurrentCharacter()
+	const { character } = useCurrentCharacter()
 
 	function onAddLevelling({ label, amount }) {
 		// TODO: add on levelling.history

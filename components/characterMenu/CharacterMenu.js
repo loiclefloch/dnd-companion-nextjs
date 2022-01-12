@@ -34,7 +34,7 @@ function Item({ label, href, route, onClick }) {
 
 function CharacterMenu({ open }) {
 	const router = useRouter()
-	const character = useCurrentCharacter()
+	const { character } = useCurrentCharacter()
 	const { hideCharacterMenu } = useCharacterMenu()
 	const { showDiceHistoryScreen } = useDiceHistory()
 	const { tr } = useI18n()
@@ -42,6 +42,8 @@ function CharacterMenu({ open }) {
 	if (!character) {
 		return null
 	}
+
+	console.info({ character })
 
 	const menuItems = [
 		{
@@ -133,7 +135,7 @@ function CharacterMenu({ open }) {
 					</div>
 				</div>
 			</div>
-			<div className="flex flex-col-reverse items-center flex-1 mb-16 overflow-scroll">
+			<div className="flex flex-col-reverse items-center flex-1 mb-16 overflow-y-auto">
 				{menuItems.reverse().map((item, index) => 
 					<Item 
 						key={index}

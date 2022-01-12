@@ -126,7 +126,7 @@ function HistoryLine({ history }) {
 }
 
 function CharacterWallet() {
-	const character = useCurrentCharacter()
+	const { character } = useCurrentCharacter()
 
 	// define character on context
 	// automatic filtering for the character

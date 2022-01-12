@@ -79,7 +79,7 @@ function Spell({ spell, contextCharacter /*onSelect*/ }) {
 }
 
 function Grimoire() {
-	const character = useCurrentCharacter()
+	const { character } = useCurrentCharacter()
 
 	const spells = sortBy(character?.spellsList, 'level')
 

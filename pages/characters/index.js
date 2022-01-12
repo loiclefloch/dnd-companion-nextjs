@@ -6,11 +6,14 @@ import Screen from "../../components/Screen"
 import useI18n from "../../modules/i18n/useI18n"
 import useCharacters from "../../modules/api/useCharacters"
 import useCreateCharacter from '../../components/useCreateCharacter';
+import Button from '../../components/Button';
+import { isEmpty } from "lodash"
 
 function Character({ character }) {
 	const { tr } = useI18n()
 	const router = useRouter()
 
+	console.log({ character })
 	return (
 		<ListSelectRowAsCard 
 			title={character.name}
@@ -45,7 +48,19 @@ function CharactersScreen() {
 				</button>
 			}
 		>
-			<div className="flex">
+			<div>
+				{charactersResponse.data && isEmpty(charactersResponse.data) && (
+					<div className="flex flex-col items-center w-full p-4 mt-4">
+						<p>Vous n'avez pas encore de personnage</p>
+						<Button 
+							onClick={() => router.push("/character/create")}
+							variant="cta"
+							className="mt-4"
+						>
+							Créer mon personnage
+						</Button>
+					</div>
+				)}
 				<ListRowSelectContainer className="px-4 pb-12 mt-12" data-cy-id="characters-list">
 					{charactersResponse.data?.map((character) => (
 						<Character

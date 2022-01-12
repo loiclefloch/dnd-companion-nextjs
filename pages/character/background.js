@@ -16,7 +16,7 @@ function Section({ title, children }) {
 function Background() {
 	const router = useRouter()
 	const { tr } = useI18n()
-	const character = useCurrentCharacter()
+	const { character } = useCurrentCharacter()
 
 	return (
 		<Screen
