@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { createElement, useContext } from "react";
-import { ScreenAsModalContext } from "./screenAsModalContext";
+import { ScreenAsModalContext } from "./useScreenAsModal";
 
 const ScreenAsModalRenderer = () => {
 	const { screenAsModalConfiguration, show, hideScreenAsModal } = useContext(ScreenAsModalContext);

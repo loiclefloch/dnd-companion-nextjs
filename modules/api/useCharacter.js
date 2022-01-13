@@ -16,6 +16,10 @@ import { formatSpell } from "./useSpell"
 
 const allRaces = [...races, ...subraces]
 
+function calculateSpellsSlots(characterLevel,  classes, spellsUsed) {
+
+}
+
 export function formatCharacter(character) {
   if (!character) {
     return null
@@ -41,6 +45,15 @@ export function formatCharacter(character) {
       ...spell
     }
   })
+
+	character.spellsUsed = (character.spellsUsed || []).map(spellUsed => {
+		return {
+			...formatSpell(spells.find(s => s.index === spellUsed.index)),
+			...spellUsed, // spellLevel
+		}
+	})
+
+	character.spellsSlots = calculateSpellsSlots(character.level,  character.classes, character.spellsUsed)
 
 	character.maxSpellLevel = 1 // TODO: from class and level
 

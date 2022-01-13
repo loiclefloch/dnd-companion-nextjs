@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/globals.css'
 import { ModalProvider } from "../components/modal/modalContext";
 import { CharacterMenuProvider } from "../components/characterMenu/CharacterMenuContext";
-import { ScreenAsModalProvider } from "../components/screenAsModal/screenAsModalContext";
+import { ScreenAsModalProvider } from "../components/screenAsModal/useScreenAsModal";
 import { SidebarMenuProvider } from "../components/sidebarMenu/sidebarMenuContext";
 import { CreateCharacterProvider } from "../components/useCreateCharacter"
 import { CurrentCharacterProvider } from "../modules/character/useCurrentCharacter"

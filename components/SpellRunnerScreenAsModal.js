@@ -10,6 +10,7 @@ import IconPlusMd from "./icons/IconPlusMd"
 import IconMinusMd from "./icons/IconMinusMd"
 import { CharacterProvider} from "../modules/character/ContextCharacter"
 import useDice from "./useDice"
+import useCurrentCharacter, { actionCastSpell } from "../modules/character/useCurrentCharacter"
 
 function Button({ label, onClick }) {
 	return <div className="px-2 text-lg cursor-pointer" onClick={onClick}>{label}</div>
@@ -22,11 +23,11 @@ function ChooseNumber({ level, onChange, maxLevel, label = '' }) {
 		<div className="flex flex-col items-center select-none">
 			<div className="text-lg">{label}</div>
 			<div className="flex items-center justify-center mt-6">
-				<Button size="big" label={<IconMinusMd className="w-8 h-8" />} onClick={() => onChange(Math.min(level - 1, 5))} />
+				<Button size="big" label={<IconMinusMd className="w-8 h-8" />} onClick={() => onChange(Math.max(level - 1, 5))} />
 				<div className={clsx("text-3xl px-4", {
 					"text-orange-400": isAboveMaximum
 				})}>{level}</div>
-				<Button size="big" label={<IconPlusMd className="w-8 h-8" />} onClick={() => onChange(Math.max(level + 1, 18))} />
+				<Button size="big" label={<IconPlusMd className="w-8 h-8" />} onClick={() => onChange(Math.min(level + 1, 18))} />
 			</div>
 		</div>
 	)
@@ -171,7 +172,7 @@ function HealRunner({
 			)}
 			onRun={() => {
 				rollHeal(spellName, dice, modifier)
-				onRun()
+				onRun(chosenSpellLevel)
 			}}
 		/>
 	)
@@ -232,7 +233,7 @@ function DamageSlotLevel({
 			}
 			onRun={() => {
 				rollDamage(spellName, dice, modifier, damageType)
-				onRun()
+				onRun(chosenSpellLevel)
 			}}
 		/>
 	)
@@ -295,7 +296,7 @@ function DamageCharacterLevel({
 			onRun={() => {
 				const modifier = ''
 				rollDamage(spellName, dice, modifier, damageType)
-				onRun()
+				onRun(spellLevel)
 			}}
 		/>
 	)
@@ -367,9 +368,11 @@ function SpellRun({ contextCharacter, spell, onRun }) {
 
 function SpellRunnerScreenAsModal({ contextCharacter, spell, onCloseScreen }) {
 	const { tr } = useI18n()
+	const { characterDispatch } = useCurrentCharacter()
 
-	function onRun() {
+	function onRun(spellLevel) {
 		// TODO: impact spell slot from contextCharacter if given
+		characterDispatch(actionCastSpell(spell, spellLevel))
 		onCloseScreen()
 	}
 

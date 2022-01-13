@@ -1,8 +1,9 @@
 import { uuid } from 'uuidv4';
 import { useRouter } from "next/router";
 import { createContext, useContext, useReducer, useEffect } from "react"
+import { createStorage } from "../modules/utils/storage"
 
-const isBrowser = typeof window !== "undefined";
+const CreateCharacterStorage = createStorage("createCharacter")
 
 const CreateCharacterContext = createContext()
 
@@ -50,14 +51,7 @@ function getDefaultData() {
     },
   
     // TODO:
-    spellSlots: [],
     spellsList: [],
-  
-    deathSaves: {
-      nbFailed: null,
-      nbSucceeed: null,
-      isStabilized: false
-    },
   
     currencies: {
       cp: 0,
@@ -71,12 +65,20 @@ function getDefaultData() {
 
     wallet: {
       history: []
-    }
+    },
+
+    // between rest
+    spellsUsed: [],
+    deathSaves: {
+      nbFailed: null,
+      nbSucceeed: null,
+      isStabilized: false
+    },
   
   }
 }
 
-const initialState = !isBrowser ? null : JSON.parse(localStorage.getItem("createCharacter")) || getDefaultData()
+const initialState = CreateCharacterStorage.getItem() || getDefaultData()
 
 function getNextStep(step) {
   const map = {

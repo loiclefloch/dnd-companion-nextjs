@@ -3,7 +3,6 @@ import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import useI18n from "../modules/i18n/useI18n";
 import Button from "../components/Button";
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
-
 import ScreenIntroduction from "./ScreenIntroduction"
 import { 
 	actionLearnSpell,
@@ -12,57 +11,68 @@ import {
 	actionUnprepareSpell,
  } from "../modules/character/useCurrentCharacter"
 
-function LearnButton({ spell, characterDispatch }) {
+function LearnButton({ spell, characterDispatch, onCloseScreen }) {
 	return (
 		<Button
 			// size="small"
 			variant="outlined"
 			// color="success"
-			onClick={() => characterDispatch(actionLearnSpell(spell))}
+			onClick={() => {
+				characterDispatch(actionLearnSpell(spell))
+				onCloseScreen()
+			}}
 		>
 			Apprendre le sort
 		</Button>
 	)
 }
 
-function UnprepareButton({ spell, characterDispatch }) {
-	return (
-		<Button
-			// size="small"
-			variant="outlined"
-			color="warning"
-			onClick={() => characterDispatch(actionUnprepareSpell(spell))}
-		>
-			Ne pas préparer
-		</Button>
-	)
-}
-
-function UnlearnButton({ spell, characterDispatch }) {
+function UnlearnButton({ spell, characterDispatch, onCloseScreen }) {
 	return (
 		<Button
 			// size="small"
 			variant="outlined"
 			color="error"
-			onClick={() => characterDispatch(actionRemoveSpell(spell))}
+			onClick={() => {
+				characterDispatch(actionRemoveSpell(spell))
+				onCloseScreen()
+			}}
 		>
 			Enlever des sorts connus
 		</Button>
 	)
 }
 
-function PrepareButton({ spell, characterDispatch }) {
+function UnprepareButton({ spell, characterDispatch, onCloseScreen }) {
+	return (
+		<Button
+			// size="small"
+			variant="outlined"
+			color="warning"
+			onClick={() => {
+				characterDispatch(actionUnprepareSpell(spell))
+				onCloseScreen()
+			}}
+		>
+			Ne pas préparer
+		</Button>
+	)
+}
+
+function PrepareButton({ spell, characterDispatch, onCloseScreen }) {
 	return (
 		<Button
 			// size="small"
 			variant="outlined"
 			color="success"
-			onClick={() => characterDispatch(actionPrepareSpell(spell))}
+			onClick={() => {
+				characterDispatch(actionPrepareSpell(spell))
+				onCloseScreen()
+			}}
 		>
 			Préparer le sort
 		</Button>
 	)
-
 }
 
 function EditCharacterSpellScreenAsModal({
@@ -93,20 +103,40 @@ function EditCharacterSpellScreenAsModal({
 					<div className="flex flex-col gap-2 mt-4">
 						{isLearned && !isPrepared && (
 							<>
-								<UnlearnButton spell={spell} characterDispatch={characterDispatch} />
-								<PrepareButton spell={spell} characterDispatch={characterDispatch} />
+								<UnlearnButton 
+									spell={spell} 
+									characterDispatch={characterDispatch} 
+									onCloseScreen={onCloseScreen} 
+								/>
+								<PrepareButton 
+									spell={spell} 
+									characterDispatch={characterDispatch} 
+									onCloseScreen={onCloseScreen} 
+								/>
 							</>
 						)}
 
 						{isPrepared && (
 							<>
-								<UnlearnButton spell={spell} characterDispatch={characterDispatch} />
-								<UnprepareButton spell={spell} characterDispatch={characterDispatch} />
+								<UnlearnButton 
+									spell={spell} 
+									characterDispatch={characterDispatch} 
+									onCloseScreen={onCloseScreen} 
+								/>
+								<UnprepareButton 
+									spell={spell} 
+									characterDispatch={characterDispatch} 
+									onCloseScreen={onCloseScreen} 
+								/>
 							</>
 						)}
 
 						{!isLearned && !isPrepared && (
-							<LearnButton spell={spell} characterDispatch={characterDispatch} />
+							<LearnButton 
+								spell={spell} 
+								characterDispatch={characterDispatch} 
+								onCloseScreen={onCloseScreen} 
+							/>
 						)}
 					</div>
 				}

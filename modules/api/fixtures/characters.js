@@ -70,9 +70,7 @@ function getCharacters() {
 						 
 					]
 			 },
-			 "spellSlots":[
-					
-			 ],
+			 "spellsUsed":[],
 			 "deathSaves":{
 					"nbFailed":null,
 					"nbSucceeed":null,

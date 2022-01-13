@@ -5,6 +5,10 @@ import useCharacterNotFormatted from '../api/useCharacterNotFormatted'
 import { createContext, useContext, useState, useEffect } from "react"
 import { updateObjectOnArray } from '../utils/array';
 import { formatCharacter  } from "../api/useCharacter"
+import { createStorage } from "../utils/storage";
+
+const CharactersStorage = createStorage("characters")
+const CurrentCharacterIdStorage = createStorage("currentCharacterId")
 
 const isBrowser = typeof window !== "undefined";
 
@@ -18,7 +22,7 @@ function getDefaultCharacterId() {
 		return null
 	}
 
-	const id = localStorage.getItem("currentCharacterId")
+	const id = CurrentCharacterIdStorage.getItem()
 	if (id) {
 		return id
 	}
@@ -29,7 +33,7 @@ function getDefaultCharacterId() {
 	}
 
 	const defaultId = characters[0].id
-	localStorage.setItem("currentCharacterId", defaultId)
+	CurrentCharacterIdStorage.setItem(defaultId)
 	return defaultId 
 }
 
@@ -37,13 +41,15 @@ export function CurrentCharacterProvider({ children }) {
 	const [ currentCharacterId, setCurrentCharacterId ] = useState(getDefaultCharacterId())
 	const characterResponse = useCharacterNotFormatted(currentCharacterId)
 	const [ currentCharacter, setCurrentCharacter ] = useState(null)
+  // const [formattedCharacter, setFormattedCharacter] = useState(null)
 
 	// on mount, take the default character and set it
 	useEffect(() => {
 		if (characterResponse.data) {
-			setCurrentCharacter(characterResponse.data) 
+			setCurrentCharacter(cloneDeep(characterResponse.data))
+			// setFormattedCharacter(formatCharacter(cloneDeep(characterResponse.data)))
 		}
-	}, [characterResponse]) // only on mount, can be changed using value.setCurrentCharacter
+	}, [characterResponse?.data]) // only on mount, can be changed using value.setCurrentCharacter
 
 	const updateCharacter = (updatedCharacter) => {
 		const id = currentCharacter.id
@@ -51,16 +57,15 @@ export function CurrentCharacterProvider({ children }) {
 			throw new Error(`Invalid updateCharacter`)
 		}
 		const updatedCharacters = updateObjectOnArray(characters(), updatedCharacter, c => c.id === id)
-		localStorage.setItem('characters', JSON.stringify(updatedCharacters))
+		CharactersStorage.setItem(updatedCharacters)
 		setCurrentCharacter(updatedCharacter)
+		// setFormattedCharacter(formatCharacter(cloneDeep(updatedCharacter)))
 	}
 		
 	const value = { 
 		character: formatCharacter(cloneDeep(currentCharacter)),
 		setCurrentCharacter: (newCurrentCharacterId) => {
-			localStorage.setItem('currentCharacterId', newCurrentCharacterId)
-			// TODO: load and set new character -> useState of the id
-			// setCurrentCharacter(newCurrentCharacter)
+			CurrentCharacterIdStorage.setItem(newCurrentCharacterId)
 			setCurrentCharacterId(newCurrentCharacterId)
 		},
 		characterDispatch: (action) => {
@@ -89,6 +94,7 @@ export function CurrentCharacterProvider({ children }) {
 
 export function actionLearnSpell(spell) {
 	return {
+		type: 'actionLearnSpell',
 		apply: (character) => {
 			character.spellsList.push({ index: spell.index, isPrepared: false })
 		}
@@ -97,6 +103,7 @@ export function actionLearnSpell(spell) {
 
 export function actionPrepareSpell(spellToUpdate) {
 	return {
+		type: 'actionPrepareSpell',
 		apply: (character) => {
 			const spell = character.spellsList.find(s => s.index === spellToUpdate.index)
 			spell.isPrepared = true
@@ -106,6 +113,7 @@ export function actionPrepareSpell(spellToUpdate) {
 
 export function actionUnprepareSpell(spellToUpdate) {
 	return {
+		type: 'actionUnprepareSpell',
 		apply: (character) => {
 			const spell = character.spellsList.find(s => s.index === spellToUpdate.index)
 			spell.isPrepared = false
@@ -115,12 +123,23 @@ export function actionUnprepareSpell(spellToUpdate) {
 
 export function actionRemoveSpell(spellToRemove) {
 	return {
+		type: 'actionRemoveSpell',
 		apply: (character) => {
 			character.spellsList = character.spellsList.filter(s => s.index !== spellToRemove.index)
 		}
 	}
 }
 
+export function actionCastSpell(spell, spellLevel) {
+	return {
+		type: 'actionCastSpell',
+		apply: (character) => {
+			console.info({ spell, spellLevel })
+			character.spellsUsed = character.spellsUsed || []
+			character.spellsUsed.push({ spell: spell.index, spellLevel })
+		}
+	}
+}
 
 function useCurrentCharacter() {
 	const context = useContext(CurrentCharacterContext)
