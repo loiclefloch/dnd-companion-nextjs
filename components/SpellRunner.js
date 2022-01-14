@@ -70,7 +70,7 @@ function SpellDefinition({ contextCharacter, spell, formatMod }) {
 	return null
 }
 
-function SpellRunner({ contextCharacter, spell }) {
+function SpellRunner({ contextCharacter, hideCasting = false, spell }) {
 	const { showSpellRunner } = useSpellRunner()
 
 	function formatMod(dice) {
@@ -91,7 +91,7 @@ function SpellRunner({ contextCharacter, spell }) {
 					formatMod={formatMod}
 				/>
 			</div>
-			{!spell.isCantripWithoutNeedToRun && (
+			{!spell.isCantripWithoutNeedToRun && !hideCasting && (
 				<Button
 					className="w-1/3 rounded-sm text-slate-700"
 					size="small"

@@ -9,15 +9,35 @@ import equipmentList from '../../database/data/equipment.json'
 import magicItems from '../../database/data/magic-items.json'
 import { format as formatRace } from "./useRace"
 import { format as formatClass } from "./useClass"
-import { getLevelExperienceStage, getSpellLevelForCharacterLevel } from "../levelling"
+import { getSpellLevelDataForClassesAndLevel, getSpellLevelForCharacterLevel } from "../levelling"
 import { formatEquipmentItem } from "./useEquipmentItem"
 import { formatMagicItem } from "./useMagicItem"
 import { formatSpell } from "./useSpell"
 
 const allRaces = [...races, ...subraces]
+const MAX_SPELL_LEVEL = 9 // maximum spell level
 
-function calculateSpellsSlots(characterLevel,  classes, spellsUsed) {
+function calculateSpellsSlots(classes, characterLevel,  spellsUsed) {
+	const spellLevelData = getSpellLevelDataForClassesAndLevel(classes, characterLevel)
+	const legalSlotLevel = getSpellLevelForCharacterLevel(classes, characterLevel)
 
+	const slots = []
+	for (let spellLevel = 0; spellLevel < MAX_SPELL_LEVEL; spellLevel++) {
+		const usedSlots = spellsUsed.filter(s => s.spellLevel === spellLevel).length
+		const totalSlots = spellLevelData.slots[spellLevel] || 0
+
+		slots.push({
+			level: spellLevel,
+			totalSlots: spellLevel === 0 ? Infinity : totalSlots,
+			usedSlots,
+			remainingSlots: totalSlots - usedSlots,
+			isAboveLegalSlotLevel: spellLevel > legalSlotLevel,
+			legalSlotLevel,
+			hasData: usedSlots !== 0 || totalSlots !== 0,
+		})
+	}
+
+	return slots
 }
 
 export function formatCharacter(character) {
@@ -53,7 +73,7 @@ export function formatCharacter(character) {
 		}
 	})
 
-	character.spellsSlots = calculateSpellsSlots(character.level,  character.classes, character.spellsUsed)
+	character.spellsSlots = calculateSpellsSlots(character.classes, character.level, character.spellsUsed)
 
 	character.maxSpellLevel = 1 // TODO: from class and level
 

@@ -12,22 +12,37 @@ import { CharacterProvider} from "../modules/character/ContextCharacter"
 import useDice from "./useDice"
 import useCurrentCharacter, { actionCastSpell } from "../modules/character/useCurrentCharacter"
 
+const MAX_SPELL_LEVEL = 9 // maximum spell level
+const MAX_CHARACTER_LEVEL = 20 // maximum character level
+
 function Button({ label, onClick }) {
 	return <div className="px-2 text-lg cursor-pointer" onClick={onClick}>{label}</div>
 }
 
-function ChooseNumber({ level, onChange, maxLevel, label = '' }) {
+function ChooseNumber({ level, onChange, maxLevel, label = '', isCharacter }) {
 	const isAboveMaximum = level > maxLevel
 
 	return (
 		<div className="flex flex-col items-center select-none">
 			<div className="text-lg">{label}</div>
 			<div className="flex items-center justify-center mt-6">
-				<Button size="big" label={<IconMinusMd className="w-8 h-8" />} onClick={() => onChange(Math.max(level - 1, 5))} />
-				<div className={clsx("text-3xl px-4", {
-					"text-orange-400": isAboveMaximum
-				})}>{level}</div>
-				<Button size="big" label={<IconPlusMd className="w-8 h-8" />} onClick={() => onChange(Math.min(level + 1, 18))} />
+				<Button 
+					size="big" 
+					label={<IconMinusMd className="w-8 h-8" />} 
+					onClick={() => onChange(Math.max(level - 1, isCharacter ? 1 : 1))} 
+				/>
+				<div 
+					className={clsx("text-3xl px-4", {
+						"text-orange-400": isAboveMaximum
+					})}
+				>
+					{level}
+				</div>
+				<Button 
+					size="big" 
+					label={<IconPlusMd className="w-8 h-8" />} 
+					onClick={() => onChange(Math.min(level + 1, isCharacter ? MAX_CHARACTER_LEVEL : MAX_SPELL_LEVEL))} 
+				/>
 			</div>
 		</div>
 	)
@@ -46,7 +61,12 @@ function Warn({ show, message }) {
 	)
 }
 
-function RunnerBlock({ dice, spellLevel, chooser, message, onRun }) {
+function RunnerBlock({ dice, contextCharacter, spellLevel, chooser, message, onRun }) {
+	const spellSlot = contextCharacter?.spellsSlots?.find(spell => spell.level === spellLevel)
+	
+	const remainingSlots = contextCharacter && spellSlot && spellSlot.remainingSlots || 0
+	const hasNoRemainingSlots = remainingSlots <= 1
+
 	return (
 		<div className="flex flex-col justify-center flex-1 mt-12 align-center">
 			<div className="text-2xl font-semibold">
@@ -55,6 +75,11 @@ function RunnerBlock({ dice, spellLevel, chooser, message, onRun }) {
 
 			<div className="mt-12 text-center">
 				{message}
+				{contextCharacter && hasNoRemainingSlots &&  // TODO: tip
+					<p className="px-6 text-orange-600">
+						Il ne vous reste pas de slot de sort de niveau {spellLevel} disponible pour lancer ce sort
+					</p>
+				}
 			</div>
 
 			<div className="flex flex-col justify-end flex-1">
@@ -65,10 +90,10 @@ function RunnerBlock({ dice, spellLevel, chooser, message, onRun }) {
 				</div>
 
 				<div className="justify-end mb-20 text-center">
-					{spellLevel !== 0 ? (
+					{spellLevel !== 0 && contextCharacter ? (
 						<>
 							<p>Ce sort utilisera un emplacement de sort de niveau {spellLevel}</p>
-							<p>(X restants)</p>
+							<p>({remainingSlots} {remainingSlots === 1 ? 'restant' : 'restants'})</p>
 						</>
 					) : (
 						<>
@@ -154,6 +179,7 @@ function HealRunner({
 			chooser={
 				<ChooseNumber
 					label="Niveau du personnage"
+					isCharacter
 					level={chosenSpellLevel}
 					onChange={setSpellLevel}
 					maxLevel={maxSpellLevel}
