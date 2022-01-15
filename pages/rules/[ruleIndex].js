@@ -1,40 +1,10 @@
 import Screen from "../../components/Screen"
 import IconAcademicCap from "../../components/icons/IconAcademicCap"
-import ReactMarkdown from 'react-markdown'
-
-import TheOrderOfCombat from "../../components/rule-sections/the-order-of-combat.mdx"
-import cover from "../../components/rule-sections/cover.mdx"
-import movementAndPosition from "../../components/rule-sections/movement-and-position.mdx"
 
 import { useRouter } from "next/router"
 import useRule from "../../modules/api/useRule"
 
-function RuleContent({ index, ruleResponse }) {
-	const map = {
-		"the-order-of-combat": TheOrderOfCombat,
-		"cover": cover,
-		"movement-and-position": movementAndPosition,
-		// TODO: move rest of the md files
-	}
-
-	const View = map[index]
-	if (View) {
-		return <p>Rule not created yet</p>
-	}
-
-	return (
-		<>
-			<div>TODO: transform to markdown</div>
-			<div>
-				<ReactMarkdown>
-					{/* TRICK: remove first h1 from the markdown, that contains the rule name */}
-					{/* TODO: remove trick, change on data file */}
-					{ruleResponse.data?.desc.replaceAll(`## ${ruleResponse.data.name}\n\n`, '')}
-				</ReactMarkdown>
-			</div>
-		</>
-	)
-}
+import RuleContent from "../../components/RuleContent"
 
 function Rule() {
 	const router = useRouter()

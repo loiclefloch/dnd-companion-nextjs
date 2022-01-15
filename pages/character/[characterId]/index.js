@@ -5,8 +5,9 @@ import useCharacter from "../../../modules/api/useCharacter"
 import StatsSmall from "../../../components/StatsSmall"
 import { useRouter } from "next/router"
 import Screen from "../../../components/Screen"
-import SpellLevelData from "../../../components/SpellLevelData"
 import useTipAlignment from "../../../components/useTipAlignment"
+import Button from "../../../components/Button"
+import { useRestScreenAsModal} from "../../../components/RestScreenAsModal"
 import useCurrentCharacter from "../../../modules/character/useCurrentCharacter"
 
 function Character() {
@@ -14,6 +15,7 @@ function Character() {
 	const { tr } = useI18n()
 	const { setCurrentCharacter } = useCurrentCharacter()
 	const { showTipAlignment } = useTipAlignment()
+	const { showRestModalAsScreen } = useRestScreenAsModal()
 	const characterResponse = useCharacter(router.query.characterId)
 
 	const character = characterResponse.data
@@ -51,13 +53,11 @@ function Character() {
 					<div className="px-4 my-4">
 						<StatsSmall stats={character?.stats} withDetail />
 					</div>
+					
 
 					<div>
-						<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">Spells slots</h3>
-						<SpellLevelData classes={character.classes} level={character.level} />
+						<Button onClick={() => showRestModalAsScreen()}>Se reposer</Button>
 					</div>
-
-					
 				</>
 			)}
 		</Screen>

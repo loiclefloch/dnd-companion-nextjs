@@ -2,6 +2,7 @@ import { uuid } from 'uuidv4';
 import { useRouter } from "next/router";
 import { createContext, useContext, useReducer, useEffect } from "react"
 import { createStorage } from "../modules/utils/storage"
+import { getDefaultData } from "../modules/character/useCurrentCharacter"
 
 const CreateCharacterStorage = createStorage("createCharacter")
 
@@ -20,63 +21,7 @@ function createCharacterReducer(state, action) {
   }
 }
 
-function getDefaultData() {
-  return {
-    id: uuid(),
-    name: '',
-    body: {
-      age: 0, // TODO:
-      sex: '',
-      height: '',
-      weight: '',
-      hairColor: '',
-      eyeColor: '',
-      skinColor: '',
-      physicalCaracteristics: '',
-    },
-  
-    level: 1,
-    classes: [],
-    race: null,
-    bonds: '',
-    flaws: '',
-    ideals: '',
-    traits: ['', ''],
-    stats: null,
-  
-  
-    levelling: {
-      xp: 0,
-      history: [],
-    },
-  
-    // TODO:
-    spellsList: [],
-  
-    currencies: {
-      cp: 0,
-      sp: 0,
-      gp: 0,
-      ep: 0,
-      pp: 0,
-    },
-  
-    equipment: [],
 
-    wallet: {
-      history: []
-    },
-
-    // between rest
-    spellsUsed: [],
-    deathSaves: {
-      nbFailed: null,
-      nbSucceeed: null,
-      isStabilized: false
-    },
-  
-  }
-}
 
 const initialState = CreateCharacterStorage.getItem() || getDefaultData()
 

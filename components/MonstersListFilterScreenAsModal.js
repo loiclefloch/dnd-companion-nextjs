@@ -117,5 +117,3 @@ export function useMonstersListFilterScreenAsModal(defaultFilters = []) {
 		}
 	}
 }
-
-export default MonstersListFilterScreenAsModal

@@ -73,14 +73,14 @@ function SpellView({ contextCharacter, spell }) {
           </Tag>
           {(spell.ritual || spell.concentration) && (
             <div className="flex flex-wrap gap-1 mt-2">
-              {spell.ritual && (
+              {spell.ritual && ( // TODO: tip
                 <Tag 
                   label="Ritual"
                   size="small"
                   className="flex text-orange-500 border border-orange-500" 
                 />
               )}
-              {spell.concentration && (
+              {spell.concentration && ( // TODO: tip
                 <Tag 
                   label="Concentration" 
                   size="small"

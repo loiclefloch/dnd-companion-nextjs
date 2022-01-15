@@ -77,6 +77,9 @@ export function formatCharacter(character) {
 
 	character.maxSpellLevel = 1 // TODO: from class and level
 
+	character.maximumHitDice = 0 // TODO:
+	character.currentHitDice = character.currentHitDice || character.maximumHitDice
+
 	if (!character.wallet) {
 		character.wallet = {
 			history: []

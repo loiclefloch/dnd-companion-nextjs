@@ -19,15 +19,15 @@ function Spell({ spell, contextCharacter /*onSelect*/ }) {
 	// TODO: if context character has the spell -> style with star / background
 
 	return (
-		<Link href={`/character/spells/${spell.index}`}>
 			<div
 				// onClick={onSelect}
-				className={`cursor-pointer py-1 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
+				className={`cursor-pointer py-2 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
 				data-cy-spell-index={`spell-${spell.index}`}
 			>
 				<div className="pl-3">
 					<div className="flex flex-row">
 						<div className="flex flex-col flex-1">
+		<Link href={`/character/spells/${spell.index}`}>
 							<span className="flex flex-row items-center font-semibold">
 								{/* <IconMagicSchool
               school={spell.school.name}
@@ -36,8 +36,9 @@ function Spell({ spell, contextCharacter /*onSelect*/ }) {
             /> */}
 								<p>{tr(spell.nameLocalized)}</p>
 							</span>
+							</Link>
 							<div className="text-sm text-meta">
-								<p>{spell.type}</p>
+									{tr(spell.castingTime)} - {tr(spell.duration)} 
 							</div>
 						</div>
 
@@ -65,36 +66,43 @@ function Spell({ spell, contextCharacter /*onSelect*/ }) {
 					</div>
 
 			{/* - + modifier
-				- + spell attack
 				- Save DC
 				- time
-				- range
 				- hit dc
 				- effect */}
 					<div>
-						<Tag
-							size="small"
-							className="border text-slate-700 border-slate-700"
-						>
-							{tr(spell.castingTime)}
-						</Tag>
-
-
+					
 						{spell.damage?.type && (
 							<Tag
 								size="small"
-								className="ml-2 border text-slate-700 border-slate-700"
+								className="mr-2 border text-slate-700 border-slate-700"
 							>
 								<SpellRunner contextCharacter={contextCharacter} spell={spell} hideCasting />
 							</Tag>
 						)}
+						
+						{spell.ritual && ( // TODO: tip
+							<Tag
+								label="Ritual"
+								size="small"
+								className="mr-2 text-orange-500 border border-orange-500"
+							/>
+						)}
+						{spell.concentration && ( // TODO: tip
+							<Tag
+								label="Concentration"
+								size="small"
+								className="mr-2 text-blue-500 border border-blue-500"
+							/>
+						)}
+
 					</div>
 
+				<Link href={`/character/spells/${spell.index}`}>
 					<p className="pt-2 pr-2 text-sm">{tr(spell.resume)}</p>
-
+				</Link>
 				</div>
 			</div>
-		</Link>
 	);
 }
 
@@ -137,6 +145,7 @@ function Grimoire() {
 			title={`${character?.name} - Grimoire`}
 			titleIcon={<IconBookOpen className="w-6 h-6" />}
 			withCharacterMenu
+			withBottomSpace
 			rightAction={
 				<button
 					onClick={() => {

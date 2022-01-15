@@ -17,6 +17,67 @@ let { Provider } = (CurrentCharacterContext = createContext());
 
 // TODO: put somewhere to not forgot to add data on
 
+export function getDefaultData() {
+  return {
+    id: uuid(),
+    name: '',
+
+    maxHp: 0, // TODO: Add on form
+
+    body: {
+      age: 0, // TODO:
+      sex: '',
+      height: '',
+      weight: '',
+      hairColor: '',
+      eyeColor: '',
+      skinColor: '',
+      physicalCaracteristics: '',
+    },
+  
+    level: 1,
+    classes: [],
+    race: null,
+    bonds: '',
+    flaws: '',
+    ideals: '',
+    traits: ['', ''],
+    stats: null,
+  
+  
+    levelling: {
+      xp: 0,
+      history: [],
+    },
+  
+    // TODO:
+    spellsList: [],
+  
+    currencies: {
+      cp: 0,
+      sp: 0,
+      gp: 0,
+      ep: 0,
+      pp: 0,
+    },
+  
+    equipment: [],
+
+    wallet: {
+      history: []
+    },
+
+    // between rest
+    currentHp: 0,
+    spellsUsed: [],
+    deathSaves: {
+      nbFailed: null,
+      nbSucceeed: null,
+      isStabilized: false
+    },
+  
+  }
+}
 function getDefaultCharacterId() {
 	if (!isBrowser) {
 		return null
@@ -141,6 +202,82 @@ export function actionCastSpell(spell, spellLevel) {
 	}
 }
 
+export function actionShortRest(hpToAdd, hitDiceToReduce) {
+	return {
+		type: 'actionShortRest',
+		apply: (character) => {
+			const defaultData = getDefaultData()
+			// clean death saves
+			character.deathSaves =  defaultData.deathSaves
+		}
+	}
+}
+
+export function actionLongRest() {
+	return {
+		type: 'actionLongRest',
+		apply: (character) => {
+			const defaultData = getDefaultData()
+			character.currentHp = character.maxHp
+			character.spellsUsed = []
+			// clean death saves TODO: clean after a fight?
+			character.deathSaves =  defaultData.deathSaves
+		}
+	}
+}
+
+//
+// utils
+//
+
+export function buildShortRest(character) {
+
+	return {
+		hp: {
+			from: 0,
+			to: 20,
+		},
+		// TODO: for druide
+		// spellsSlots: {
+		// 	1: {
+		// 		from: 0,
+		// 		to: 1,
+		// 	}
+		// },
+		hitDice: { // TODO: better name
+			from: 3,
+			to: 2
+		},
+
+	}
+}
+
+export function buildLongRest(character) {
+	const currentHitDice = character.currentHitDice
+	const maximumHitDice = character.maximumHitDice
+	if (currentHitDice < 1) {
+		// TODO:
+	}
+	// must have 1 hit dice to gain benefits
+	return {
+		hp: {
+			from: 0,
+			to: 20,
+		},
+		// TODO: should empty spellsUsed
+		
+		// up to a number of dice equal to character's total Hit dice / 2 with a minimum of 1.
+		// e.g: if 8 hit dices, can regain 4.
+		hitDice: { // TODO: better name
+			from: currentHitDice,
+			to: Math.max(1, maximumHitDice / 2)
+		},
+
+	}
+}
+
+
+
 function useCurrentCharacter() {
 	const context = useContext(CurrentCharacterContext)
 
@@ -151,5 +288,6 @@ function useCurrentCharacter() {
   // console.info(context?.character)
   return context
 }
+
 
 export default useCurrentCharacter
