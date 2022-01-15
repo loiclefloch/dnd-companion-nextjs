@@ -46,6 +46,11 @@ function CreateCharacterResume() {
 							<div>{character.classes.join(', ')}</div>
 
 							<div className="mt-4">
+								<Section title="">
+									<div>HP: {character.maximumHp}</div>
+									<div>DC: </div>
+									<div>Hit dices: {character.maximumHitDice}</div>
+									</Section>
 								<Section title="Physic">
 									<div>TODO: body.age</div>
 									<div>TODO: body.sex</div>

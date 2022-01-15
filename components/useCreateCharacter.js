@@ -3,6 +3,7 @@ import { createContext, useContext, useReducer, useEffect } from "react"
 import { createStorage } from "../modules/utils/storage"
 import { getDefaultData } from "../modules/character/useCurrentCharacter"
 
+import classes from '../database/data/classes.json'
 import subraces from '../database/data/subraces.json'
 import races from "../database/data/races.json"
 import { format as formatRace } from "../modules/api/useRace"
@@ -52,6 +53,10 @@ function getNextStep(step) {
   return map[step]
 }
 
+function getBeforeResumeStep() {
+  return 'equipment'
+}
+
 function getStepUrl(step) {
   const map = {
     'initial': '/',
@@ -71,7 +76,6 @@ function getStepUrl(step) {
     'equipment': '/equipment',
     'resume': '/resume',
   }
-
   const root = `/character/create`
 
   if (!map[step]) {
@@ -79,6 +83,33 @@ function getStepUrl(step) {
   }
 
   return `${root}${map[step]}`
+}
+
+function onFinalize(character) {
+  console.log('onFinalize')
+
+  const data = {}
+
+  const clss = classes.find(clss => clss.index === character.classes[0])
+  
+  //
+  // setup Hit points and hit dice
+  //
+  // Les points de vie de votre personnage définissent sa résistance au combat ou dans toutes autres 
+  // situations dangereuses. Vos points de vie sont déterminés par votre dé de vie (raccourcis pour Dé de points de vie).
+  // Au niveau 1, votre personnage possède 1 dé de vie, et le type de ce dé est défini par votre classe. 
+  // Vos points de vie de départ sont égaux au maximum de votre dé de vie, comme indiqué dans la description de votre classe 
+  // (vous ajouterez aussi votre modificateur de Constitution, qui sera déterminé à l'étape 3). 
+  // Cette valeur finale est aussi votre maximum de points de vie.
+  const hitDice = 1 + clss.hit_dice
+  data.maximumHitDice = hitDice
+  data.maximumHp = hitDice + character.stats.CON
+  data.currentHitDice = data.maximumHitDice
+  data.currentHp = data.maximumHp
+
+  // 
+
+  return data
 }
 
 export function CreateCharacterProvider({ children }) {
@@ -102,8 +133,9 @@ export function CreateCharacterProvider({ children }) {
     },
     character,
     race,
-    updateCharacter: (data) => {
-      const currentStep = data.step
+    updateCharacter: (newDataParam) => {
+      let newData = newDataParam
+      const currentStep = newData.step
       const nextStep = getNextStep(currentStep)
       const nextStepUrl = getStepUrl(nextStep)
 
@@ -114,14 +146,21 @@ export function CreateCharacterProvider({ children }) {
         router.push(nextStepUrl)
       }
 
+      if (currentStep === getBeforeResumeStep()) {
+        newData = {
+          ...onFinalize(character)
+        }
+      }
+
       dispatchCharacter({
         type: 'update',
         data: {
-          ...data,
+          ...newData,
           currentStep: nextStep,
-          url: nextStepUrl ? nextStepUrl : data.url
+          url: nextStepUrl ? nextStepUrl : newData.url
         }
       })
+
     },
     finalizeCharacter: () => {
       const currentCaracters = JSON.parse(localStorage.getItem("characters")) || []

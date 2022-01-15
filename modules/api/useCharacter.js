@@ -44,10 +44,10 @@ export function formatCharacter(character) {
   if (!character) {
     return null
   }
-	if (!character.maxHp) { // TODO: remove fixture
-		character.maxHp = 10
+	if (!character.maximumHp) { // TODO: remove fixture
+		character.maximumHp = 10
 	}
-	character.currentHp = character.currentHp || character.maxHp
+	character.currentHp = character.currentHp || character.maximumHp
 
 	character.isKo = character.currentHp < 0
 

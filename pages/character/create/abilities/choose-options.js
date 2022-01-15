@@ -1,4 +1,5 @@
 import { useState } from "react"
+import clsx from 'clsx'
 import Link from "next/link"
 import { valueToModifierLabel, getAbilityScorePointCost } from "../../../../modules/stats"
 import Screen from "../../../../components/Screen";
@@ -7,6 +8,12 @@ import ScreenIntroduction from '../../../../components/ScreenIntroduction';
 import ButtonBottomScreen from "../../../../components/ButtonBottomScreen";
 import useCreateCharacter from '../../../../components/useCreateCharacter';
 import ListSelector from '../../../../components/ListSelector';
+import {
+	AbilityImportance,
+	getImportanceForClass,
+	getImportanceTip,
+} from "../../../../modules/character/utils"
+import useTip from "../../../../components/useTip"
 
 function getBaseStats(baseStats, statsBonuses) {
 	const stats = { ...baseStats }
@@ -22,12 +29,14 @@ function getBaseStats(baseStats, statsBonuses) {
 function Form() {
 	const { character, race, updateCharacter } = useCreateCharacter()
 	const [chosenBonuses, setChosenBonuses] = useState((character.statsBonuses || []).filter(bonus => bonus.type === 'race-options').map(stat => stat.ability))
+	const { showTip } = useTip()
 
 	const bonusOptions = race?.ability_bonus_options || {}
 
 	const baseStats = getBaseStats(character.baseStats, character.statsBonuses)
 
-	console.log({ bonusOptions })
+	const importanceForClass = getImportanceForClass(character.classes[0])
+
 	return (
 		<>
 			<div className="px-4 mt-4">
@@ -38,28 +47,44 @@ function Form() {
 					value={chosenBonuses}
 					multiple
 					nbMaxValues={bonusOptions.choose}
-					options={bonusOptions.from?.map(option => ({
-						label: <div className="flex">
-							<div className="w-10">
-								{option.ability_score.name}
-							</div>
-							<div className="flex ml-8">
-								<div className="w-8">{baseStats[option.ability_score.name]}</div>
-								<div className="w-8 text-meta">({valueToModifierLabel(baseStats[option.ability_score.name])})</div>
-								{chosenBonuses.includes(option.ability_score.name) && ( // only when selected
-									<>
-										<div className="w-6"> → </div>
-										{/* TODO: + 0 on score or +1 modifier? */}
-										<div className="w-8">{baseStats[option.ability_score.name] + 1}</div>
-										<div className="w-8 text-meta">({valueToModifierLabel(baseStats[option.ability_score.name] + 1)})</div>
-									</>
-								)}
-						
-							</div>
-						</div>,
-						value: option.ability_score.name,
-						selected: chosenBonuses.includes(option.ability_score.name)
-					}))}
+					options={bonusOptions.from?.map(option => {
+						const importance = importanceForClass && importanceForClass[option.ability_score.name]
+						return ({
+							label: <div className="flex">
+								<div className="flex items-center w-14 align-center">
+									<div
+										className={clsx("w-2 h-2", {
+											"bg-blue-400": importance === AbilityImportance.FANTASTIC,
+											"bg-green-400": importance === AbilityImportance.GOOD,
+											"bg-yellow-400": importance === AbilityImportance.OK,
+											"bg-red-400": importance === AbilityImportance.BAD,
+										})}
+										onClick={() => {
+											showTip(getImportanceTip(importance))
+										}}
+									/>
+									<div className="ml-2">
+										{option.ability_score.name}
+									</div>
+								</div>
+								<div className="flex ml-8">
+									<div className="w-8">{baseStats[option.ability_score.name]}</div>
+									<div className="w-8 text-meta">({valueToModifierLabel(baseStats[option.ability_score.name])})</div>
+									{chosenBonuses.includes(option.ability_score.name) && ( // only when selected
+										<>
+											<div className="w-6"> → </div>
+											{/* TODO: + 0 on score or +1 modifier? */}
+											<div className="w-8">{baseStats[option.ability_score.name] + 1}</div>
+											<div className="w-8 text-meta">({valueToModifierLabel(baseStats[option.ability_score.name] + 1)})</div>
+										</>
+									)}
+
+								</div>
+							</div>,
+							value: option.ability_score.name,
+							selected: chosenBonuses.includes(option.ability_score.name)
+						})
+					})}
 					onChange={setChosenBonuses}
 				/>
 			</div>

@@ -22,9 +22,6 @@ export function getDefaultData() {
   return {
     id: uuid(),
     name: '',
-
-    maxHp: 0, // TODO: Add on form
-
     body: {
       age: 0, // TODO:
       sex: '',
@@ -86,6 +83,8 @@ export function getDefaultData() {
     wallet: {
       history: []
     },
+
+		maximumHp: 0,
 
     // between rest
     currentHp: 0,
@@ -238,7 +237,7 @@ export function actionLongRest() {
 		type: 'actionLongRest',
 		apply: (character) => {
 			const defaultData = getDefaultData()
-			character.currentHp = character.maxHp
+			character.currentHp = character.maximumHp
 			character.spellsUsed = []
 			// clean death saves TODO: clean after a fight?
 			character.deathSaves =  defaultData.deathSaves
@@ -254,7 +253,7 @@ export function actionModifyCurrentHp({
 	hpToModify,
 	willBeKo,
 	willStabilize,
-	isAboveMaxHp,
+	isAboveMaximumHp,
 }) { 
 	return {
 		type: 'actionModifyCurrentHp',
@@ -267,7 +266,7 @@ export function actionModifyCurrentHp({
 			if (willStabilize) {
 				// TODO:
 			}
-			if (isAboveMaxHp) {
+			if (isAboveMaximumHp) {
 				// TODO:
 			}
 		}

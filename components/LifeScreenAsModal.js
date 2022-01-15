@@ -19,8 +19,8 @@ function LifeScreenAsModal({ character, characterDispatch, onCloseScreen }) {
 	const { tr } = useI18n()
 	
 	const willBeKo = (character.currentHp + hpToModify) <= 0
-	const willStabilize = character.currentHp <= 0 && (character.currentHp + hpToModify > 0) > character.maxHp
-	const isAboveMaxHp = (character.currentHp + hpToModify) > character.maxHp
+	const willStabilize = character.currentHp <= 0 && (character.currentHp + hpToModify > 0) > character.maximumHp
+	const isAboveMaximumHp = (character.currentHp + hpToModify) > character.maximumHp
 
 	return (
 		<ScreenAsModal 
@@ -30,7 +30,7 @@ function LifeScreenAsModal({ character, characterDispatch, onCloseScreen }) {
 
 			<div>
 				<h2 className='mt-5 text-xl text-center text-semibold'>
-					HP: {character.currentHp} / {character.maxHp}
+					HP: {character.currentHp} / {character.maximumHp}
 				</h2>
 
 				<div className="flex flex-row items-center justify-center gap-2 mt-12 mr-4">
@@ -75,7 +75,7 @@ function LifeScreenAsModal({ character, characterDispatch, onCloseScreen }) {
 					</p>
 				)}
 
-				{isAboveMaxHp && (
+				{isAboveMaximumHp && (
 					<p>
 						Le montant
 					</p>
@@ -91,7 +91,7 @@ function LifeScreenAsModal({ character, characterDispatch, onCloseScreen }) {
 							hpToModify,
 							willBeKo,
 							willStabilize,
-							isAboveMaxHp,
+							isAboveMaximumHp,
 						}))
 						onCloseScreen()
 					}}
