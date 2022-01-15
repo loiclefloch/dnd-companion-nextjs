@@ -3,6 +3,12 @@ import { createContext, useContext, useReducer, useEffect } from "react"
 import { createStorage } from "../modules/utils/storage"
 import { getDefaultData } from "../modules/character/useCurrentCharacter"
 
+import subraces from '../database/data/subraces.json'
+import races from "../database/data/races.json"
+import { format as formatRace } from "../modules/api/useRace"
+
+const allRaces = [...races, ...subraces]
+
 const CreateCharacterStorage = createStorage("createCharacter")
 
 const CreateCharacterContext = createContext()
@@ -77,6 +83,8 @@ export function CreateCharacterProvider({ children }) {
     localStorage.setItem('createCharacter', JSON.stringify(character))
   }, [character])
 
+  const race = formatRace(allRaces.find(r => r.index === character.race))
+
   // NOTE: you *might* need to memoize this value
   // Learn more in http://kcd.im/optimize-context
   const value = {
@@ -87,6 +95,7 @@ export function CreateCharacterProvider({ children }) {
       })
     },
     character,
+    race,
     updateCharacter: (data) => {
       const currentStep = data.step
       const nextStep = getNextStep(currentStep)

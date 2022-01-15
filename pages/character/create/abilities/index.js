@@ -22,7 +22,8 @@ function IconAbilityButton({ label, onClick }) {
 function Ability({ 
 	ability, 
 	abilities, 
-	onChange 
+	bonus,
+	onChange
 }) {
 	const { tr } = useI18n()
 	const { showTipAbilityScore } = useTipAbilityScore()
@@ -47,9 +48,17 @@ function Ability({
 					})}
 				/>
 				<div className={clsx("text-xl px-4 w-24 text-right")}>
-					<span>{value}</span>
+					<span>{value + bonus}</span>
 					<span> </span>
 					<span className="w-10">({valueToModifierLabel(value)})</span>
+					{bonus > 0 && (
+						<div 
+							className="text-sm text-center text-meta"
+							// TODO: tip
+						>
+							+{bonus}
+						</div>
+					)}
 				</div>
 				<IconAbilityButton 
 					size="big" 
@@ -65,16 +74,11 @@ function Ability({
 }
 
 function Form() {
-	const { character, updateCharacter } = useCreateCharacter()
-	const [abilities, setAbilities] = useState(character?.stats || {
-		STR: 15,
-		DEX: 14,
-		CON: 12,
-		INT: 12,
-		WIS: 10,
-		CHA: 8,
-	})
+	const { character, race, updateCharacter } = useCreateCharacter()
+	const [abilities, setAbilities] = useState(character?.baseStats)
 	const router = useRouter()
+
+	const bonusFromRace = race?.ability_bonuses || []
 
 	// 2 score = 1 point
 	const MAX_POINTS = 27
@@ -84,12 +88,42 @@ function Form() {
 	// TODO: display for the class which abilities are important, which are not (very important, important, neutral, not important)
 	return (
 		<>
-			<Ability ability="STR" abilities={abilities} onChange={setAbilities} />
-			<Ability ability="DEX" abilities={abilities} onChange={setAbilities} />
-			<Ability ability="CON" abilities={abilities} onChange={setAbilities} />
-			<Ability ability="INT" abilities={abilities} onChange={setAbilities} />
-			<Ability ability="WIS" abilities={abilities} onChange={setAbilities} />
-			<Ability ability="CHA" abilities={abilities} onChange={setAbilities} />
+			<Ability 
+				ability="STR" 
+				abilities={abilities} 
+				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "STR")?.bonus || 0} 
+				onChange={setAbilities} 
+			/>
+			<Ability
+				ability="DEX"
+				abilities={abilities}
+				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "DEX")?.bonus || 0}
+				onChange={setAbilities}
+			/>
+			<Ability
+				ability="CON"
+				abilities={abilities}
+				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "CON")?.bonus || 0}
+				onChange={setAbilities}
+			/>
+			<Ability
+				ability="INT"
+				abilities={abilities}
+				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "INT")?.bonus || 0}
+				onChange={setAbilities}
+			/>
+			<Ability
+				ability="WIS"
+				abilities={abilities}
+				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "WIS")?.bonus || 0}
+				onChange={setAbilities}
+			/>
+			<Ability
+				ability="CHA"
+				abilities={abilities}
+				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "CHA")?.bonus || 0}
+				onChange={setAbilities}
+			/>
 
 			<div className="px-4 mt-8 text-center">
 				Il vous reste {remainingPoints} points à répartir
@@ -100,7 +134,25 @@ function Form() {
 					variant="cta"
 					onClick={() => {
 						// TODO: rename abilities to stats or the inverse?
-						updateCharacter({ stats: abilities, step: 'abilities' })
+						const stats = {
+							...abilities
+						}
+
+						const statsBonuses = bonusFromRace.map(bonus => {
+							return {
+								ability: bonus.ability_score.name,
+								from: 'race',
+								bonus: bonus.bonus,
+							}
+						})
+
+						
+						// add bonuses
+						statsBonuses.forEach(bonus => {
+							stats[bonus.ability] += bonus.bonus
+						})
+
+						updateCharacter({ stats: stats, baseStats: abilities, statsBonuses, step: 'abilities' })
 					}}
 				>
 					Valider

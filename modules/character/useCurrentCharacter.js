@@ -43,8 +43,27 @@ export function getDefaultData() {
     flaws: '',
     ideals: '',
     traits: ['', ''],
-    stats: null,
+
+		stats: { // baseStats + bonuses applied
+			STR: 15,
+			DEX: 14,
+			CON: 12,
+			INT: 12,
+			WIS: 10,
+			CHA: 8,
+		},
+
+		statsBonuses: [], // list of bonuses to apply on the stats. they come from the race
   
+
+		baseStats: { // stats chosen without bonuses applied
+			STR: 15,
+			DEX: 14,
+			CON: 12,
+			INT: 12,
+			WIS: 10,
+			CHA: 8,
+		},
   
     levelling: {
       xp: 0,

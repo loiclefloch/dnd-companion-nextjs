@@ -10,6 +10,7 @@ import IconMinus from "./icons/IconMinus"
 import IconPlus from "./icons/IconPlus"
 
 function KoView({ character, characterDispatch }) {
+	// TODO: death throws + tuto
 	return null
 }
 
@@ -79,6 +80,8 @@ function LifeScreenAsModal({ character, characterDispatch, onCloseScreen }) {
 						Le montant
 					</p>
 				)}
+
+				{/* --- Conditions: list conditions, allow to toggle them, remove them on rest, after combat too? */}
 
 				<ButtonBottomScreen
 					hide={hpToModify === 0}
