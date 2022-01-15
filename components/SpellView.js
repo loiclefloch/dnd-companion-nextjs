@@ -7,6 +7,8 @@ import SpellRunner from "./SpellRunner";
 import SpellDetail from "./SpellDetail";
 import CharacterSpellTag from "./CharacterSpellTag";
 import useTipMagicSchool from "./useTipMagicSchool"
+import useTipConcentration from "./useTipConcentration"
+import useTipRitual from "./useTipRitual"
 
 function createClassTag(clss) {
   return {
@@ -19,6 +21,8 @@ function createClassTag(clss) {
 function SpellView({ contextCharacter, spell }) {
   const { tr, getRangeUnit, isDefaultLang, trDefaultLang } = useI18n();
   const { showTipMagicSchool } = useTipMagicSchool()
+  const { showTipConcentration } = useTipConcentration()
+  const { showTipRitual } = useTipRitual()
   
   const otherNames = [
     spell.otherNameLocalized && spell.otherNameLocalized.fr,
@@ -78,6 +82,7 @@ function SpellView({ contextCharacter, spell }) {
                   label="Ritual"
                   size="small"
                   className="flex text-orange-500 border border-orange-500" 
+                  onClick={() => showTipRitual()}
                 />
               )}
               {spell.concentration && ( // TODO: tip
@@ -85,6 +90,7 @@ function SpellView({ contextCharacter, spell }) {
                   label="Concentration" 
                   size="small"
                   className="flex text-blue-500 border border-blue-500" 
+                  onClick={() => showTipConcentration()}
                 />
               )}
             </div>

@@ -19,7 +19,7 @@ import {
 	getAbilityOptimizedExample,
 	getImportanceForClass,
 	getImportanceTip,
-} from "../../../../modules/character/utils"
+} from "../../../../modules/character"
 
 
 function IconAbilityButton({ label, onClick }) {

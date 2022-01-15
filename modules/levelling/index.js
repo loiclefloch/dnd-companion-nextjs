@@ -180,3 +180,31 @@ export function getSpellLevelDataForClassesAndLevel(characterClasses, characterL
 	// TODO: how to with multiclass ?
 	return levellingSpellDataForClasses[characterClasses[0].index][characterLevel]
 }
+
+export function getProficiencyBonus(clss, characterLevel) {
+	// TODO: complete
+	const bonus = {
+		druid: [
+			{
+				fromLevel: 1,
+				toLevel: 4,
+				value: 2
+			},
+			{
+				fromLevel: 5,
+				toLevel: 10, // TODO:
+				value: 3
+			}
+		]
+	}
+	//  In D&D 5e the calculation is so complicated that the numbers are repeated at every class description 
+	// (see the tables listing your class features for levels 1-20 in the PHB).
+	// https://rpg.stackexchange.com/questions/31854/can-someone-explain-what-the-proficiency-bonus-is-in-dd-5e-next-exactly
+
+	const forClass = bonus[clss]
+	if (forClass) {
+		const desc = forClass.find(desc => desc.fromLevel <= characterLevel && characterLevel < desc.toLevel)
+		return desc?.value ?? 2
+	}
+	return 2
+}

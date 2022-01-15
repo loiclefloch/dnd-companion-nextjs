@@ -10,11 +10,15 @@ import IconPlus from "../../components/icons/IconPlus"
 import IconMagicSchool from "../../components/icons/IconMagicSchool"
 import CharacterSpellTag from "../../components/CharacterSpellTag"
 import SpellRunner from "../../components/SpellRunner"
+import useTipConcentration from "../../components/useTipConcentration"
+import useTipRitual from "../../components/useTipRitual"
 import Tag from "../../components/Tag"
 import clsx from "clsx"
 
 function Spell({ spell, contextCharacter /*onSelect*/ }) {
 	const { tr } = useI18n();
+	const { showTipConcentration } = useTipConcentration()
+  const { showTipRitual } = useTipRitual()
 
 	// TODO: if context character has the spell -> style with star / background
 
@@ -86,13 +90,15 @@ function Spell({ spell, contextCharacter /*onSelect*/ }) {
 								label="Ritual"
 								size="small"
 								className="mr-2 text-orange-500 border border-orange-500"
+								onClick={() => showTipRitual()}
 							/>
 						)}
-						{spell.concentration && ( // TODO: tip
+						{spell.concentration && ( 
 							<Tag
 								label="Concentration"
 								size="small"
 								className="mr-2 text-blue-500 border border-blue-500"
+								onClick={() => showTipConcentration()}
 							/>
 						)}
 

@@ -12,7 +12,7 @@ import {
 	AbilityImportance,
 	getImportanceForClass,
 	getImportanceTip,
-} from "../../../../modules/character/utils"
+} from "../../../../modules/character"
 import useTip from "../../../../components/useTip"
 
 function getBaseStats(baseStats, statsBonuses) {

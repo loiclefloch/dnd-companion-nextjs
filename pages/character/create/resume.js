@@ -50,6 +50,7 @@ function CreateCharacterResume() {
 									<div>HP: {character.maximumHp}</div>
 									<div>DC: </div>
 									<div>Hit dices: {character.maximumHitDice}</div>
+									<div>Proficiency {character.proficiencyBonus}</div>
 									</Section>
 								<Section title="Physic">
 									<div>TODO: body.age</div>
@@ -78,13 +79,18 @@ function CreateCharacterResume() {
 									))}
 								</Section>
 								<Section title="LANGUAGES">
-									{character.languages.map((language, index) => (
+									{character.languages?.map((language, index) => (
 										<p key={index}>{language}</p>
 									))}
 								</Section>
 							</div>
 
-							<StatsSmall stats={character.stats} />
+							<StatsSmall 
+								withDetail
+								stats={character.stats}
+								proficiencyBonus={character.proficiencyBonus}
+								proficiencies={character.proficiencies}
+							/>
 						</div>
 
 						<div>

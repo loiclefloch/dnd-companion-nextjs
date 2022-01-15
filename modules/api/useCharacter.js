@@ -13,6 +13,7 @@ import { getSpellLevelDataForClassesAndLevel, getSpellLevelForCharacterLevel } f
 import { formatEquipmentItem } from "./useEquipmentItem"
 import { formatMagicItem } from "./useMagicItem"
 import { formatSpell } from "./useSpell"
+import { getProficiencyBonus } from "../levelling"
 
 const allRaces = [...races, ...subraces]
 const MAX_SPELL_LEVEL = 9 // maximum spell level
@@ -24,7 +25,7 @@ function calculateSpellsSlots(classes, characterLevel,  spellsUsed) {
 	const slots = []
 	for (let spellLevel = 0; spellLevel < MAX_SPELL_LEVEL; spellLevel++) {
 		const usedSlots = spellsUsed.filter(s => s.spellLevel === spellLevel).length
-		const totalSlots = spellLevelData.slots[spellLevel] || 0
+		const totalSlots = spellLevelData?.slots[spellLevel] || 0
 
 		slots.push({
 			level: spellLevel,
@@ -44,6 +45,8 @@ export function formatCharacter(character) {
   if (!character) {
     return null
   }
+
+	// character.level = 8 // fixture for tests
 	if (!character.maximumHp) { // TODO: remove fixture
 		character.maximumHp = 10
 	}
@@ -92,6 +95,8 @@ export function formatCharacter(character) {
 			history: []
 		}
 	}
+
+	character.proficiencyBonus = getProficiencyBonus(character.classes[0].index, character.level)
 
 	return character
 }

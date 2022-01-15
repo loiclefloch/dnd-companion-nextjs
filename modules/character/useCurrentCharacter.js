@@ -84,6 +84,10 @@ export function getDefaultData() {
       history: []
     },
 
+		proficiencies: [],
+		// TODO: if not always 2 at level 1, set on useCreateCharacter#onFinalize
+		proficiencyBonus: 2, // will be override according to class and level
+
 		maximumHp: 0,
 
     // between rest

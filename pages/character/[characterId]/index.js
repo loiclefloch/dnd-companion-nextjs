@@ -53,7 +53,12 @@ function Character() {
 						</Link>
 					</div>
 					<div className="px-4 my-4">
-						<StatsSmall stats={character?.stats} withDetail />
+						<StatsSmall 
+							withDetail 
+							stats={character?.stats} 
+							proficiencyBonus={character.proficiencyBonus}
+							proficiencies={character.proficiencies}
+						/>
 					</div>
 					
 
@@ -67,7 +72,7 @@ function Character() {
 					</div>
 
 					<div>
-						
+
 						<div 
 							className="flex items-center justify-center h-full"
 							onClick={() => showLifeScreenAsModal(character, characterDispatch)}

@@ -7,7 +7,8 @@ import useDice from "./useDice";
 import useModal from "./useModal"
 import useTipAbilityScore from "./useTipAbilityScore"
 
-function StatsDetailsScreenAsModal({ stats, onCloseScreen }) {
+// TODO: proficiences
+function StatsDetailsScreenAsModal({ stats, proficiencyBonus, proficiencies, onCloseScreen }) {
 	const { tr } = useI18n()
 	const { showInfoModal } = useModal()
 	const { rollStat } = useDice()
@@ -28,6 +29,7 @@ function StatsDetailsScreenAsModal({ stats, onCloseScreen }) {
 			title={`Détail des statistiques`} 
 			onCloseScreen={onCloseScreen}
 		>
+			<div>Proficiency +{proficiencyBonus}</div>
 			<div className="px-4 divide-y divide">
 				{detailedStats.map(detailedStat => (
 					<div
@@ -67,8 +69,8 @@ export function useStatsDetailsScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
-		showStatsDetailsScreenModal: (stats) => {
-			showScreenAsModal(StatsDetailsScreenAsModal, { stats })
+		showStatsDetailsScreenModal: (stats, proficiencyBonus, proficiencies) => {
+			showScreenAsModal(StatsDetailsScreenAsModal, { stats, proficiencyBonus, proficiencies })
 		}
 	}
 }
