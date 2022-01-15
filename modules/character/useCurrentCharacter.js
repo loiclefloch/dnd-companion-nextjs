@@ -6,6 +6,7 @@ import { createContext, useContext, useState, useEffect } from "react"
 import { updateObjectOnArray } from '../utils/array';
 import { formatCharacter  } from "../api/useCharacter"
 import { createStorage } from "../utils/storage";
+import { uuid } from 'uuidv4';
 
 const CharactersStorage = createStorage("characters")
 const CurrentCharacterIdStorage = createStorage("currentCharacterId")
@@ -222,6 +223,34 @@ export function actionLongRest() {
 			character.spellsUsed = []
 			// clean death saves TODO: clean after a fight?
 			character.deathSaves =  defaultData.deathSaves
+		}
+	}
+}
+
+/**
+ * 
+ * @param {number} hpToModify positive or negative, the number to impact on currentHp
+ */
+export function actionModifyCurrentHp({
+	hpToModify,
+	willBeKo,
+	willStabilize,
+	isAboveMaxHp,
+}) { 
+	return {
+		type: 'actionModifyCurrentHp',
+		apply: (character) => {
+			character.currentHp += hpToModify
+
+			if (willBeKo) {
+				// TODO:
+			}
+			if (willStabilize) {
+				// TODO:
+			}
+			if (isAboveMaxHp) {
+				// TODO:
+			}
 		}
 	}
 }

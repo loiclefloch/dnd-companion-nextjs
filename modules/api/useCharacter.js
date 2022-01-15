@@ -44,6 +44,13 @@ export function formatCharacter(character) {
   if (!character) {
     return null
   }
+	if (!character.maxHp) { // TODO: remove fixture
+		character.maxHp = 10
+	}
+	character.currentHp = character.currentHp || character.maxHp
+
+	character.isKo = character.currentHp < 0
+
 	character.race = {
 		index: character.race,
 		...formatRace(allRaces.find(r => r.index === character.race))

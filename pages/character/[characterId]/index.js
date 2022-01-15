@@ -7,21 +7,23 @@ import { useRouter } from "next/router"
 import Screen from "../../../components/Screen"
 import useTipAlignment from "../../../components/useTipAlignment"
 import Button from "../../../components/Button"
-import { useRestScreenAsModal} from "../../../components/RestScreenAsModal"
+import { useRestScreenAsModal } from "../../../components/RestScreenAsModal"
+import { useLifeScreenAsModal } from "../../../components/LifeScreenAsModal"
 import useCurrentCharacter from "../../../modules/character/useCurrentCharacter"
 
 function Character() {
 	const router = useRouter()
 	const { tr } = useI18n()
-	const { setCurrentCharacter } = useCurrentCharacter()
+	const { currentCharacter, setCurrentCharacter, characterDispatch } = useCurrentCharacter()
 	const { showTipAlignment } = useTipAlignment()
 	const { showRestModalAsScreen } = useRestScreenAsModal()
 	const characterResponse = useCharacter(router.query.characterId)
+	const { showLifeScreenAsModal } = useLifeScreenAsModal()
 
 	const character = characterResponse.data
 
 	useEffect(() => {
-		if (character) {
+		if (character && (!currentCharacter || character?.id !== currentCharacter?.id)) {
 			setCurrentCharacter(character.id)
 		}
 	}, [character])
@@ -57,6 +59,28 @@ function Character() {
 
 					<div>
 						<Button onClick={() => showRestModalAsScreen()}>Se reposer</Button>
+					</div>
+
+					<div>
+						{/* TODO: */}
+						DC: 15
+					</div>
+
+					<div>
+						
+						<div 
+							className="flex items-center justify-center h-full"
+							onClick={() => showLifeScreenAsModal(character, characterDispatch)}
+						>
+							<div className="relative w-8 h-8 rotate-45 bg-pink-600">
+								<div className="absolute w-8 h-8 bg-pink-600 rounded-[50%] left-[-50%]"></div>
+								<div className="absolute w-8 h-8 bg-pink-600 rounded-[50%] top-[-50%]"></div>
+							</div>
+							<div className="absolute flex items-center -mt-3 text-2xl font-semibold text-center text-slate-900">
+								{character.currentHp}
+							</div>
+						</div>
+
 					</div>
 				</>
 			)}
