@@ -4,8 +4,6 @@ import Link from "next/link"
 import { useRouter } from 'next/router'
 import { valueToModifierLabel, getAbilityScorePointCost } from "../../../../modules/stats"
 import Screen from "../../../../components/Screen";
-import useSubraces from '../../../../modules/api/useSubraces';
-import useRace from '../../../../modules/api/useRace';
 import useI18n from '../../../../modules/i18n/useI18n';
 import ScreenIntroduction from '../../../../components/ScreenIntroduction';
 import ButtonBottomScreen from "../../../../components/ButtonBottomScreen";
@@ -13,6 +11,7 @@ import useTipAbilityScore from "../../../../components/useTipAbilityScore";
 import IconPlusMd from "../../../../components/icons/IconPlusMd"
 import IconMinusMd from "../../../../components/icons/IconMinusMd"
 import useCreateCharacter from '../../../../components/useCreateCharacter';
+import { isEmpty } from "lodash"
 
 function IconAbilityButton({ label, onClick }) {
 	return <div className="px-2 text-lg cursor-pointer" onClick={onClick}>{label}</div>
@@ -80,6 +79,8 @@ function Form() {
 
 	const bonusFromRace = race?.ability_bonuses || []
 
+	// TODO: ability_bonus_options
+
 	// 2 score = 1 point
 	const MAX_POINTS = 27
 	const usedPoints = Object.values(abilities).reduce((total, value) => total + getAbilityScorePointCost(value), 0)
@@ -141,7 +142,7 @@ function Form() {
 						const statsBonuses = bonusFromRace.map(bonus => {
 							return {
 								ability: bonus.ability_score.name,
-								from: 'race',
+								type: 'race',
 								bonus: bonus.bonus,
 							}
 						})
@@ -152,7 +153,15 @@ function Form() {
 							stats[bonus.ability] += bonus.bonus
 						})
 
-						updateCharacter({ stats: stats, baseStats: abilities, statsBonuses, step: 'abilities' })
+						const abilityBonusOptions = race?.ability_bonus_options || []
+						if (!isEmpty(abilityBonusOptions)) {
+							// half-elf race
+							// do not update step yet
+							updateCharacter({ stats: stats, baseStats: abilities, statsBonuses })
+							router.push("/character/create/abilities/choose-options")
+						} else {
+							updateCharacter({ stats: stats, baseStats: abilities, statsBonuses, step: 'abilities' })
+						}
 					}}
 				>
 					Valider
@@ -164,30 +173,10 @@ function Form() {
 
 function AbilitiesScreen() {
 	const { tr } = useI18n()
-	const router = useRouter()
-
-	// TODO: get from state
-	// const character = {
-	// 	race: {
-	// 		index: 'elf'
-	// 	},
-	// 	subrace: {
-	// 		index: 'high-elf'
-	// 	},
-	// }
-
-	// const subracesResponse = useSubraces(character.subrace.index)
-	// const raceResponse = useRace(character.race.index)
-
-	// const race = raceResponse.data
-	// const subraces = subracesResponse.data
-
-	// TODO: display race ability_bonuses
 
 	return (
 		<Screen	
-			title={tr('Capacités')}
-			// isLoading={raceResponse.isLoading || subracesResponse.isLoading}
+			title={tr('Capacités - bonus')}
 		>
 			<>
 				<ScreenIntroduction 

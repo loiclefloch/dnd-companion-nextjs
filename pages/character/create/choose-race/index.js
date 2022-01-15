@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import Link from "next/link"
 import Screen from "../../../../components/Screen";
 import useRaces from '../../../../modules/api/useRaces';
 import useI18n from '../../../../modules/i18n/useI18n';
@@ -10,14 +9,10 @@ import useCreateCharacter from "../../../../components/useCreateCharacter"
 
 function RaceRow({ race, onSelect }) {
 	const { tr } = useI18n()
-	const url = race.hasSubraces 
-		? `/character/create/choose-subrace/${race.index}` 
-		: `/character/create/choose-race/${race.index}`
-
 	return (
 		<ListSelectRowAsCard
 			onClick={() => {
-				onSelect(url)
+				onSelect()
 			}}
 			icon={<IconRace race={race.index} className="h-8 fill-slate-600" />}
 			title={tr(race.nameLocalized)}
@@ -48,7 +43,7 @@ function Form({ racesResponse }) {
 						race={race}
 						onSelect={(url) => {
 							if (!race.hasSubraces) {
-								updateCharacter({ step: 'choose-race', url })
+								router.push("/character/create/choose-race/" + race.index)
 							} else {
 								router.push("/character/create/choose-subrace/" + race.index)
 							}

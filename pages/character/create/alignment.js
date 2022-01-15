@@ -49,7 +49,6 @@ function Form() {
 				}
 			/>
 
-			{/* TODO: use ListSelector */}
 			<ListSelector
 				value={selectedAlignment}
 				options={alignments.map(alignment => ({

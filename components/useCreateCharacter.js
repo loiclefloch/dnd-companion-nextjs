@@ -36,6 +36,7 @@ function getNextStep(step) {
     'choose-race': 'choose-class',
     'choose-class': 'abilities',
     'abilities': 'choose-creation-mode',
+    'abilities-with-bonus-options': 'choose-creation-mode',
     'choose-creation-mode': ['choose-background', 'character-details'], // multiple possibility,
     'character-details': 'alignment',
     'alignment': 'languages',
@@ -57,6 +58,7 @@ function getStepUrl(step) {
     'choose-race': '/choose-race',
     'choose-class': '/choose-class',
     'abilities': '/abilities',
+    'abilities-with-bonus-options': '/abilities/choose-options',
     'choose-creation-mode': '/choose-creation-mode',
     'choose-background': '/choose-background',
     'character-details': '/character-details',
@@ -71,6 +73,10 @@ function getStepUrl(step) {
   }
 
   const root = `/character/create`
+
+  if (!map[step]) {
+    return null
+  }
 
   return `${root}${map[step]}`
 }
@@ -99,18 +105,21 @@ export function CreateCharacterProvider({ children }) {
     updateCharacter: (data) => {
       const currentStep = data.step
       const nextStep = getNextStep(currentStep)
-      const url = getStepUrl(nextStep)
+      const nextStepUrl = getStepUrl(nextStep)
 
-      console.info({ currentStep, nextStep, url })
+      console.info({ currentStep, nextStep, url: nextStepUrl })
 
-      router.push(url)
+      if (nextStepUrl) {
+        console.log({ nextStepUrl })
+        router.push(nextStepUrl)
+      }
 
       dispatchCharacter({
         type: 'update',
         data: {
           ...data,
           currentStep: nextStep,
-          url
+          url: nextStepUrl ? nextStepUrl : data.url
         }
       })
     },
