@@ -5,6 +5,8 @@ import HtmlContent from "./HtmlContent"
 import Tag from './Tag';
 import StatsSmall from "./StatsSmall"
 import Image from "./Image"
+import Gallery from "./Gallery"
+import { useGalleryFullScreenAsModal } from "./GalleryFullScreenAsModal"
 
 function Section({ title, children }) {
   return (
@@ -19,6 +21,7 @@ function Section({ title, children }) {
 
 function MonsterView({ monster }) {
   const { tr, isDefaultLang, trDefaultLang } = useI18n();
+	const { showGalleryFullScreen } = useGalleryFullScreenAsModal()
 
   const otherNames = [
     monster.otherNameLocalized && monster.otherNameLocalized.fr,
@@ -109,7 +112,15 @@ function MonsterView({ monster }) {
 
           {monster.imageUrl && (
             <div className="flex justify-center shadow-md">
-              <Image alt={tr(monster.nameLocalized)} src={monster.imageUrl} />
+              <Image 
+                alt={tr(monster.nameLocalized)} 
+                src={monster.imageUrl} 
+                onClick={() => showGalleryFullScreen(
+                  `Gallerie - ${tr(monster.nameLocalized)}`, 
+                  monster.images, 
+                  monster.images[0]
+                )}
+              />
             </div>
           )}
 
@@ -209,15 +220,8 @@ function MonsterView({ monster }) {
 
       {/* TODO: Gallery component */}
       {monster.images && (
-        <div className="flex gap-2 mt-8">
-          {monster.images.map((imageData) => (
-            <Image 
-              key={imageData.url} 
-              src={imageData.url} 
-              alt={imageData.label} 
-              className={monster.images.length === 1 ? "w-full" : "w-1/3"} 
-            />
-          ))}
+        <div className="mt-8">
+          <Gallery title={`Gallerie - ${tr(monster.nameLocalized)}`} images={monster.images} />
         </div>
       )}
 

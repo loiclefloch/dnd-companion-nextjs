@@ -288,18 +288,13 @@ export function buildShortRest(character) {
 			from: 0,
 			to: 20,
 		},
-		// TODO: for druide
+		// TODO: for druid
 		// spellsSlots: {
 		// 	1: {
 		// 		from: 0,
 		// 		to: 1,
 		// 	}
 		// },
-		hitDice: { // TODO: better name
-			from: 3,
-			to: 2
-		},
-
 	}
 }
 
@@ -321,7 +316,7 @@ export function buildLongRest(character) {
 		// e.g: if 8 hit dices, can regain 4.
 		hitDice: { // TODO: better name
 			from: currentHitDice,
-			to: Math.max(1, maximumHitDice / 2)
+			to: Math.ceil(Math.max(1, maximumHitDice / 2))
 		},
 
 	}
