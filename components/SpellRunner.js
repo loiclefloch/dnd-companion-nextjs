@@ -76,7 +76,7 @@ function SpellRunner({ contextCharacter, hideCasting = false, spell }) {
 	function formatMod(dice) {
 		if (contextCharacter) {
 			if (dice.includes("MOD")) {
-				return <span>{dice.replaceAll("MOD", ``)} {contextCharacter.spellModValue} <span className='text-xs text-meta'>({contextCharacter.spellMod})</span></span>
+				return <span>{dice.replaceAll("MOD", ``)} {contextCharacter.spellcastingAbilityValue} <span className='text-xs text-meta'>({contextCharacter.spellcastingAbility})</span></span>
 			}
 		}
 		return dice

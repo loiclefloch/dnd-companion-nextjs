@@ -322,8 +322,6 @@ export function buildLongRest(character) {
 	}
 }
 
-
-
 function useCurrentCharacter() {
 	const context = useContext(CurrentCharacterContext)
 

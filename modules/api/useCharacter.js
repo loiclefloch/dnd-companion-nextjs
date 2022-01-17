@@ -14,6 +14,7 @@ import { formatEquipmentItem } from "./useEquipmentItem"
 import { formatMagicItem } from "./useMagicItem"
 import { formatSpell } from "./useSpell"
 import { getProficiencyBonus } from "../levelling"
+import { valueToModifier, valueToModifierLabel } from "../stats"
 
 const allRaces = [...races, ...subraces]
 const MAX_SPELL_LEVEL = 9 // maximum spell level
@@ -46,7 +47,7 @@ export function formatCharacter(character) {
     return null
   }
 
-	// character.level = 8 // fixture for tests
+	character.level = 5 // fixture for tests
 	if (!character.maximumHp) { // TODO: remove fixture
 		character.maximumHp = 10
 	}
@@ -66,8 +67,8 @@ export function formatCharacter(character) {
 	character.statsDetail = []
 	character.alignment = alignments.find(a => a.index === character.alignmentIndex)
 
-	character.spellMode = 'CHA' // TODO: from class
-	character.spellModValue = 3
+	character.spellcastingAbility = 'CHA' // TODO: from class
+	character.spellcastingAbilityValue = 3
 
 	character.spellsList = (character.spellsList || []).map(spell => {
     return {
@@ -97,6 +98,49 @@ export function formatCharacter(character) {
 	}
 
 	character.proficiencyBonus = getProficiencyBonus(character.classes[0].index, character.level)
+
+	// The DC to resist one of your Spells equals 8 + your Spellcasting ability modifier + your 
+	// Proficiency Bonus + any Special modifiers.
+	// here we do not handle special modifiers.
+	// TODO: use on spell view
+	character.spellSaveDC = 8 + character.proficiencyBonus + character.spellcastingAbilityValue
+
+	character.DC = 15 // TODO:
+
+	// Some Spells require the caster to make an Attack roll to determine whether the spell Effect hits 
+	// the intended target. Your Attack bonus with a spell Attack equals your Spellcasting ability 
+	// modifier + your Proficiency Bonus.
+	// Most Spells that require Attack rolls involve Ranged Attacks. Remember that you have 
+	// disadvantage on a ranged Attack roll if you are within 5 feet of a Hostile creature that can 
+	// see you and that isn’t Incapacitated.
+	// TODO: handle on spell + tip 
+	character.spellAttackBonus = character.proficiencyBonus + character.spellcastingAbilityValue
+
+	// saving throws
+	// Each class gives proficiency in at least two Saving Throws. 
+	// As with skill Proficiencies, proficiency in a saving throw lets a character add his or her 
+	// Proficiency Bonus to Saving Throws made using a particular ability score. 
+	// Some Monsters have saving throw Proficiencies as well.
+	
+	function buildSavingThrow(ability) {
+		const isProeficient = character.classes[0].saving_throws.some(savingThrow => savingThrow.name === ability)
+		const value = character.stats[ability] + (isProeficient ? character.proficiencyBonus : 0)
+		return {
+			value,
+			modifier: valueToModifier(value),
+			modifierLabel: valueToModifierLabel(value),
+			isProeficient
+		}
+	}
+	character.savingThrows = {
+		STR: buildSavingThrow('STR'),
+		DEX: buildSavingThrow('DEX'),
+		CON: buildSavingThrow('CON'),
+		INT: buildSavingThrow('INT'),
+		WIS: buildSavingThrow('WIS'),
+		CHA: buildSavingThrow('CHA'),
+	}
+	//classes[0].saving_throws
 
 	return character
 }

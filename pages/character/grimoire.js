@@ -164,6 +164,13 @@ function Grimoire() {
 		>
 			{character && (
 				<div>
+					<div>
+						Spell DC: {character.spellSaveDC}
+						<br />
+						Spellcasing ability: {character.spellcastingAbilityValue >= 0 ? '+' : ''}{character.spellcastingAbilityValue} <span className="text-xs text-meta">{character.spellcastingAbility}</span>
+						<br />
+						Spell Attack bonus: {character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}
+					</div>
 					<div className="flex flex-col gap-2" data-cy-id="spells-list">
 						{map(groupedBySpellLevel, (spells, level) => (
 							<div key={level}>

@@ -10,6 +10,7 @@ import Button from "../../../components/Button"
 import { useRestScreenAsModal } from "../../../components/RestScreenAsModal"
 import { useLifeScreenAsModal } from "../../../components/LifeScreenAsModal"
 import useCurrentCharacter from "../../../modules/character/useCurrentCharacter"
+import SavingThrows from "../../../components/SavingThrows"
 
 function Character() {
 	const router = useRouter()
@@ -68,9 +69,24 @@ function Character() {
 
 					<div>
 						{/* TODO: */}
-						DC: 15
+						DC: {character.DC}
+						<br />
+						15 Sagess perception passive // TODO
 					</div>
 
+					<div>
+						Spell DC: {character.spellSaveDC}
+						<br />
+						Spellcasing ability: {character.spellcastingAbilityValue >= 0 ? '+' : ''}{character.spellcastingAbilityValue} <span className="text-xs text-meta">{character.spellcastingAbility}</span>
+						<br />
+						Spell Attack bonus: {character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}
+					</div>
+
+					<div>
+						Saving throws
+
+						<SavingThrows savingThrows={character.savingThrows} />
+					</div>
 					<div>
 
 						<div 

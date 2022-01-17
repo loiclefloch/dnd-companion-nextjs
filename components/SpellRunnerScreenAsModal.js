@@ -333,7 +333,7 @@ function SpellRun({ contextCharacter, spell, onRun }) {
 
 	function formatMod(dice) {
 		if (contextCharacter) {
-			return dice.replaceAll("MOD", contextCharacter.spellModValue)
+			return dice.replaceAll("MOD", contextCharacter.spellcastingAbilityValue)
 		}
 		return dice
 	}
