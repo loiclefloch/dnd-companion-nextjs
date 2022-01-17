@@ -33,7 +33,7 @@ function Stat({ label, shortcut, value }) {
 	)
 }
 
-function StatsSmall({ stats, proficiencyBonus, proficiencies, withDetail }) {
+function StatsSmall({ stats, skills, withDetail }) {
 	const { tr } = useI18n()
 	const { showStatsDetailsScreenModal } = useStatsDetailsScreenAsModal()
 	return (
@@ -49,7 +49,7 @@ function StatsSmall({ stats, proficiencyBonus, proficiencies, withDetail }) {
 			{withDetail && (
 				<span 
 					className="flex justify-end mt-2 mr-2 text-xs uppercase"
-					onClick={() => showStatsDetailsScreenModal(stats, proficiencyBonus, proficiencies)}
+					onClick={() => showStatsDetailsScreenModal(skills)}
 				>
 					Détail
 				</span>

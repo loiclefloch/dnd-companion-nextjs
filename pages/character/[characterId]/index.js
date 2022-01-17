@@ -56,9 +56,8 @@ function Character() {
 					<div className="px-4 my-4">
 						<StatsSmall 
 							withDetail 
-							stats={character?.stats} 
-							proficiencyBonus={character.proficiencyBonus}
-							proficiencies={character.proficiencies}
+							stats={character.stats} 
+							skills={character.skills}
 						/>
 					</div>
 					

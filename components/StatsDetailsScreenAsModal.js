@@ -1,62 +1,60 @@
+import clsx from "clsx"
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
-import skills from "../database/data/skills.json"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import useI18n from "../modules/i18n/useI18n";
 import { valueToModifierLabel } from "../modules/stats"
 import useDice from "./useDice";
 import useModal from "./useModal"
 import useTipAbilityScore from "./useTipAbilityScore"
+import Character from "../pages/character/[characterId]";
 
 // TODO: proficiences
-function StatsDetailsScreenAsModal({ stats, proficiencyBonus, proficiencies, onCloseScreen }) {
+function StatsDetailsScreenAsModal({ skills, proficiencyBonus, proficiencies, onCloseScreen }) {
 	const { tr } = useI18n()
 	const { showInfoModal } = useModal()
 	const { rollStat } = useDice()
 	const { showTipAbilityScore } = useTipAbilityScore()
 
-	const detailedStats = skills.map(skill => {
-		return {
-			index: skill.index,
-			label: tr(skill.name),
-			description: skill.desc,
-			ability: skill.ability_score.name,
-			value: stats[skill.ability_score.name]
-		}
-	})
-
 	return (
 		<ScreenAsModal 
-			title={`Détail des statistiques`} 
+			title={`Compétences`} 
 			onCloseScreen={onCloseScreen}
 		>
-			<div>Proficiency +{proficiencyBonus}</div>
+			{/* <div>Proficiency +{proficiencyBonus}</div> */}
 			<div className="px-4 divide-y divide">
-				{detailedStats.map(detailedStat => (
+				{skills.map(skill => (
 					<div
-						key={detailedStat.label}
+						key={skill.label}
 						className="flex flex-row justify-between py-2"
 					>
 						<div 
-							className="flex-1 pl-4" 
+							className="flex items-center flex-1 pl-4" 
 							onClick={() => {
 								showInfoModal({
-									content:  <p>{detailedStat.description}</p>
+									content:  <p>{skill.description}</p>
 								})
 							}}
 						>
-							{detailedStat.label}
+							<div
+								className={clsx("w-2 h-2 border border-solid border-slate-600 rounded-full", {
+									"bg-slate-600": skill.isProeficient
+								})}
+							/>
+							<div className="ml-2">
+								{tr(skill.label)}
+							</div>
 						</div>
 						<div 
 							className="flex flex-row items-center mt-1 text-2xs text-meta"
-							onClick={() => showTipAbilityScore(detailedStat.ability)}
+							onClick={() => showTipAbilityScore(skill.ability)}
 						>
-							{detailedStat.ability}
+							{skill.ability}
 						</div>
 						<div 
 							className="px-6"
-							onClick={() => rollStat(tr(detailedStat.label), detailedStat.value)}
+							onClick={() => rollStat(tr(skill.label), skill.value)}
 						>
-							{valueToModifierLabel(detailedStat.value)}
+							{skill.modifierLabel}
 						</div>
 					</div>
 				))}
@@ -69,8 +67,8 @@ export function useStatsDetailsScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
-		showStatsDetailsScreenModal: (stats, proficiencyBonus, proficiencies) => {
-			showScreenAsModal(StatsDetailsScreenAsModal, { stats, proficiencyBonus, proficiencies })
+		showStatsDetailsScreenModal: (skills) => {
+			showScreenAsModal(StatsDetailsScreenAsModal, { skills })
 		}
 	}
 }

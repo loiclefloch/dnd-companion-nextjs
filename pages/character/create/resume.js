@@ -88,8 +88,7 @@ function CreateCharacterResume() {
 							<StatsSmall 
 								withDetail
 								stats={character.stats}
-								proficiencyBonus={character.proficiencyBonus}
-								proficiencies={character.proficiencies}
+								skills={character.skills}
 							/>
 						</div>
 

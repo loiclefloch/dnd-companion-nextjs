@@ -1,5 +1,6 @@
 import useApi from './useApi'
 import characters from './fixtures/characters'
+import skills from "../../database/data/skills.json"
 import classes from '../../database/data/classes.json'
 import races from '../../database/data/races.json'
 import subraces from '../../database/data/subraces.json'
@@ -140,7 +141,29 @@ export function formatCharacter(character) {
 		WIS: buildSavingThrow('WIS'),
 		CHA: buildSavingThrow('CHA'),
 	}
-	//classes[0].saving_throws
+
+	// TODO: on create character
+	character.skillsProficiencies = ["nature", "stealth", "survival"]
+
+	character.skills = skills.map(skillData => {
+		const ability = skillData.ability_score.name
+		const skill = skillData.index
+		const isProeficient = character.skillsProficiencies.some(s => skill === s)
+
+		const value = character.stats[ability] + (isProeficient ? character.proficiencyBonus : 0)
+		return {
+			index: skillData.index,
+			label: skillData.name, // TODO: i18n
+			description: skillData.desc, // TODO: i18n
+			ability,
+			name,
+			skill,
+			value,
+			isProeficient,
+			modifierLabel: valueToModifierLabel(value),
+			modifier: valueToModifier(value),
+		}
+	})
 
 	return character
 }
