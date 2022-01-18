@@ -1,6 +1,15 @@
 import IconX from '../icons/IconX'
+import IconSpin from "../icons/IconSpin"
 
-function ScreenAsModal({ title, onCloseScreen, children }) {
+function ScreenLoading() {
+	return (
+		<div className="flex justify-center w-full h-full">
+			<IconSpin className="absolute w-12 h-12 text-slate-400 inset-y-1/3" />
+		</div>
+	)
+}
+
+function ScreenAsModal({ title, isLoading, onCloseScreen, children }) {
 	return (
 		<div className='flex flex-col h-screen bg-app'>
 			<header className='flex flex-row p-2'>
@@ -10,7 +19,10 @@ function ScreenAsModal({ title, onCloseScreen, children }) {
 				</div>
 			</header>
 			<div className='flex-1 overflow-y-auto'>
-				{children}
+			{isLoading
+					? <ScreenLoading />
+					: children
+				}
 			</div>
 		</div>
 	)

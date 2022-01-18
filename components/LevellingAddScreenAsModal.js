@@ -3,7 +3,7 @@ import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import useI18n from "../modules/i18n/useI18n";
 import ButtonBottomScreen from "./ButtonBottomScreen"
-import ScreenIntroduction from "../components/ScreenIntroduction"
+import ScreenIntroduction from "./ScreenIntroduction"
 
 function LevellingAddScreenAsModal({ onAddLevelling, onCloseScreen }) {
 	const { tr } = useI18n()

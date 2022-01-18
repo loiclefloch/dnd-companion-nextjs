@@ -1,3 +1,4 @@
+import isEmpty from "lodash/isEmpty"
 import groupBy from "lodash/groupBy"
 import useI18n from "../../modules/i18n/useI18n"
 import { useRouter } from "next/router"
@@ -8,7 +9,9 @@ import IconPlus from "../../components/icons/IconPlus"
 import useDice from "../../components/useDice";
 import { useEquipmentItemScreenAsModal } from "../../components/EquipmentItemScreenAsModal"
 import { useMagicItemScreenAsModal } from "../../components/MagicItemScreenAsModal"
+import { useChooseEquipmentScreenAsModal } from "../../components/ChooseEquipmentScreenAsModal"
 import useTipDamageType from "../../components/useTipDamageType"
+import Button from "../../components/Button"
 
 function ItemRow({ item, onClick }) {
 	const { tr } = useI18n()
@@ -147,6 +150,7 @@ function Character() {
 	const router = useRouter()
 	const { tr } = useI18n()
 	const { character } = useCurrentCharacter()
+	const { showChooseEquipmentModal } = useChooseEquipmentScreenAsModal()
 	const grouped = groupBy(character?.equipment, item => item.equipmentCategory.index)
 	
 	// X adventuring-gear
@@ -163,6 +167,14 @@ function Character() {
 	// weapon
 	// wondrous-items
 
+	function onShowChooseEquipmentModal() {
+		showChooseEquipmentModal(
+			function onChooseEquipment(list) {
+
+			}
+		)
+	}
+
 	return (
 		<Screen
 			title={`${character?.name} - Matériel`}
@@ -170,14 +182,26 @@ function Character() {
 			withCharacterMenu
 			rightAction={
 				<button 
-					onClick={() => {
-
-					}}
+					onClick={onShowChooseEquipmentModal}
 				>
 					<IconPlus className={"h-6 w-6 text-slate-800"} />
 				</button>
 			}
 		>
+			{isEmpty(character?.equipment) && (
+				<div className="px-4">
+					<p className="mt-12 text-center">
+						Vous n'avez pas d'équipment.
+					</p>
+					<Button 
+						variant="outlined"
+						className="mt-12"
+						onClick={onShowChooseEquipmentModal}
+					>
+						Ajouter de l'équipment
+					</Button>
+				</div>
+			)}
 			{character && (
 				<>
 					<Group title="Armes" items={grouped.weapon} />
