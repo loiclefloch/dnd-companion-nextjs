@@ -57,3 +57,7 @@ export function getAbilityScorePointCost(score) {
 	}
 	return abilityScorePointCost[score] || 0
 }
+
+export function modifierToModifierLabel(modifier) {
+	return (modifier >= 0 ? '+' : '') + modifier
+}

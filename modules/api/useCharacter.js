@@ -1,5 +1,7 @@
+import { uniqBy, isEmpty } from 'lodash'
 import useApi from './useApi'
 import characters from './fixtures/characters'
+import proficiencies from "../../database/data/proficiencies.json"
 import skills from "../../database/data/skills.json"
 import classes from '../../database/data/classes.json'
 import races from '../../database/data/races.json'
@@ -15,12 +17,12 @@ import { formatEquipmentItem } from "./useEquipmentItem"
 import { formatMagicItem } from "./useMagicItem"
 import { formatSpell } from "./useSpell"
 import { getProficiencyBonus } from "../levelling"
-import { valueToModifier, valueToModifierLabel } from "../stats"
+import { valueToModifier, valueToModifierLabel, modifierToModifierLabel } from "../stats"
 
 const allRaces = [...races, ...subraces]
 const MAX_SPELL_LEVEL = 9 // maximum spell level
 
-function calculateSpellsSlots(classes, characterLevel,  spellsUsed) {
+function calculateSpellsSlots(classes, characterLevel, spellsUsed) {
 	const spellLevelData = getSpellLevelDataForClassesAndLevel(classes, characterLevel)
 	const legalSlotLevel = getSpellLevelForCharacterLevel(classes, characterLevel)
 
@@ -44,9 +46,9 @@ function calculateSpellsSlots(classes, characterLevel,  spellsUsed) {
 }
 
 export function formatCharacter(character) {
-  if (!character) {
-    return null
-  }
+	if (!character) {
+		return null
+	}
 
 	character.level = 5 // fixture for tests
 	if (!character.maximumHp) { // TODO: remove fixture
@@ -61,8 +63,8 @@ export function formatCharacter(character) {
 		...formatRace(allRaces.find(r => r.index === character.race))
 	}
 	character.classes = character.classes
-    .map(clss => classes.find(c => clss === c.index))
-    .map(formatClass)
+		.map(clss => classes.find(c => clss === c.index))
+		.map(formatClass)
 
 	// TODO:
 	character.statsDetail = []
@@ -72,11 +74,11 @@ export function formatCharacter(character) {
 	character.spellcastingAbilityValue = 3
 
 	character.spellsList = (character.spellsList || []).map(spell => {
-    return {
-      ...formatSpell(spells.find(s => s.index === spell.index)),
-      ...spell
-    }
-  })
+		return {
+			...formatSpell(spells.find(s => s.index === spell.index)),
+			...spell
+		}
+	})
 
 	character.spellsUsed = (character.spellsUsed || []).map(spellUsed => {
 		return {
@@ -117,12 +119,15 @@ export function formatCharacter(character) {
 	// TODO: handle on spell + tip 
 	character.spellAttackBonus = character.proficiencyBonus + character.spellcastingAbilityValue
 
+	character.attackRollModifier = valueToModifier(character.stats.STR)
+	character.attackRollModifierLabel = valueToModifierLabel(character.stats.STR)
+
 	// saving throws
 	// Each class gives proficiency in at least two Saving Throws. 
 	// As with skill Proficiencies, proficiency in a saving throw lets a character add his or her 
 	// Proficiency Bonus to Saving Throws made using a particular ability score. 
 	// Some Monsters have saving throw Proficiencies as well.
-	
+
 	function buildSavingThrow(ability) {
 		const isProeficient = character.classes[0].saving_throws.some(savingThrow => savingThrow.name === ability)
 		const value = character.stats[ability] + (isProeficient ? character.proficiencyBonus : 0)
@@ -165,13 +170,57 @@ export function formatCharacter(character) {
 		}
 	})
 
+	character.equipment = (character.equipment || []).map(item => {
+		return {
+			...equipmentList.find(i => i.index === item.index),
+			...item,
+			isCharacterContextItem: true,
+		}
+	}).map(formatEquipmentItem)
+
+	character.hasNoEquipment = isEmpty(character?.equipment)
+
+	function formatProficiency(proficiency) {
+		return {
+			...proficiency,
+			...proficiencies.find(p => p.index === proficiency.index),
+		}
+	}
+
+	character.proficiencies = uniqBy([
+		// always proeficient in unarmed-strike
+		formatProficiency({
+			"index": 'unarmed-strike',
+			'iname': 'Unarmed Strike',
+			url: '/api/proficiencies/unarmed-strike',
+		}),
+		...character.classes[0].proficiencies.map(formatProficiency),
+		...character.race.starting_proficiencies.map(formatProficiency),
+	], proficiency => proficiency.index)
+
+	character.actionsEquipment = [
+		formatEquipmentItem(equipmentList.find(i => i.index === "unarmed-strike")),
+		...character.equipment.filter(item => item.equipmentCategory?.index === "weapon")
+	].map(item => {
+		// Proficiency Bonus. You add your proficiency bonus to your attack roll when you attack using a 
+		// weapon with which you have proficiency, as well as when you attack with a spell.
+
+		const isProeficient = item.index === 'unarmed-strike' 
+			|| character.proficiencies.some(proficiency => proficiency.reference.index === item.index)
+
+		item.isProeficient = isProeficient
+		item.attackRollModifier = character.attackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
+		item.attackRollModifierLabel = modifierToModifierLabel(item.attackRollModifier)
+		return item
+	})
+
+	console.log({ character })
 	return character
 }
 
-
 function useCharacter(id) {
-  // TODO: not formated since already formatted on fixtures
-  return useApi(formatCharacter(characters().find(character => character.id === id)))
+	// TODO: not formated since already formatted on fixtures
+	return useApi(formatCharacter(characters().find(character => character.id === id)))
 }
 
 export default useCharacter

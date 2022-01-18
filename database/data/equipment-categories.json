@@ -4,6 +4,11 @@
     "name": "Weapon",
     "equipment": [
       {
+        "index": "unarmed-strike",
+        "name": "Unarmed Strike",
+        "url": "/api/equipment/unarmed-strike"
+      },
+      {
         "index": "club",
         "name": "Club",
         "url": "/api/equipment/club"

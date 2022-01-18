@@ -78,7 +78,10 @@ export function getDefaultData() {
       pp: 0,
     },
   
-    equipment: [],
+		// list of objects
+		// - index
+		// - quantity
+    equipment: [], 
 
     wallet: {
       history: []
@@ -273,6 +276,26 @@ export function actionModifyCurrentHp({
 			if (isAboveMaximumHp) {
 				// TODO:
 			}
+		}
+	}
+}
+
+export function actionAddEquipment(list) {
+	return {
+		type: 'actionAddEquipment',
+		apply: (character) => {
+			character.equipment = character.equipment ?? []
+			list.forEach(item => {
+				const foundItem = character.equipment.find(i => i.index === item.index)
+				if (foundItem) {
+					foundItem.quantity++
+				} else {
+					character.equipment.push({
+						index: item.index,
+						quantity: 1,
+					})
+				}
+			})
 		}
 	}
 }

@@ -1,5 +1,50 @@
 [
   {
+    "index": "unarmed-strike",
+    "name": "Unarmed Strike",
+    "equipmentCategory": {
+      "index": "weapon",
+      "name": "Weapon",
+      "url": "/api/equipment-categories/weapon"
+    },
+    "weaponCategory": "Simple",
+    "weaponRange": "Melee",
+    "categoryRange": "Simple Melee",
+    "cost": null,
+    "damage": {
+      "// TODO:": "// On a hit, an unarmed strike deals bludgeoning damage equal to 1 + your Strength modifier.",
+      "// TODO2:": "// You are proficient with your unarmed strikes.",
+      "damageDice": "1",
+      "damageType": {
+        "// TODO:": "",
+        "index": "bludgeoning",
+        "name": "Bludgeoning",
+        "url": "/api/damage-types/bludgeoning"
+      }
+    },
+    "range": {
+      "normal": 5,
+      "long": null
+    },
+    "weight": 2,
+    "// TODO:": "properties",
+    "properties": [],
+    "url": "/api/equipment/unarmed-strike",
+    "isEquipmentItem": true,
+    "nameLocalized": {
+      "en": "Unarmed Strike"
+    },
+    "resume": {
+      "en": ""
+    },
+    "description": {},
+    "isWeapon": true,
+    "isArmor": false,
+    "isAdventuringGear": false,
+    "isTools": false,
+    "isMountAndVehicules": false
+  },
+  {
     "index": "club",
     "name": "Club",
     "equipment_category": {

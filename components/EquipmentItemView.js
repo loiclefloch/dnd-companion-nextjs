@@ -25,6 +25,15 @@ function EquipmentItemView({ item }) {
 
 			<p>{tr(item.description)}</p>
 
+			{item.isCharacterContextItem && (
+				<div>
+					<div>isProeficient: {item.isProeficient}</div>
+					<div>attackRollModifier: {item.attackRollModifier}</div>
+					<div>attackRollModifierLabel: {item.attackRollModifierLabel}</div>
+					<div>quantity: x{item.quantity}</div>
+				</div>
+			)}
+
 			{item.isWeapon && (
 				<>
 					{item.damage && (
@@ -51,7 +60,7 @@ function EquipmentItemView({ item }) {
 				<>
 					<span>{item.armorCategory}</span>
 					<span>
-						AC {item.armorClass.base} {item.stealthDisadvantage && <span>Stealth disavantage</span>}
+						AC {item.armorClass.base} {item.stealthDisadvantage && <span>Stealth disadvantage</span>}
 					</span>
 					{item.armorClass.dexBonus === true && <span>DEX bonus (max: {item.armorClass.maxBonus})</span>}
 					<span>STR min: {item.strMinimum}</span>
@@ -97,7 +106,7 @@ function EquipmentItemView({ item }) {
 						{item.contents.map(subItem => (
 							<li
 								key={subItem.item.index}
-								onClick={() => showEquipmentItemScreenAsModal(subItem.item.index)}
+								onClick={() => showEquipmentItemScreenAsModal(subItem.item)}
 							>
 								{subItem.item.name} {subItem.quantity}
 							</li>

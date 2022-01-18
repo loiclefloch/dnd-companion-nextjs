@@ -1,5 +1,19 @@
 [
   {
+    "index": "unarmed-strike",
+    "type": "Weapons",
+    "name": "Unarmed Strike",
+    "//TODO:": "format to add all classes and races",
+    "classes": [],
+    "races": [],
+    "url": "/api/proficiencies/unarmed-strike",
+    "reference": {
+      "index": "unarmed-strike",
+      "name": "Unarmed Strike",
+      "url": "/api/equipment-categories/unarmed-strike"
+    }
+  },
+  {
     "index": "light-armor",
     "type": "Armor",
     "name": "Light Armor",

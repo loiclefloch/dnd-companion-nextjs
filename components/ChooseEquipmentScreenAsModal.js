@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react"
-import { uniqBy } from "lodash"
+import { uniqBy, isEmpty } from "lodash"
 import clsx from "clsx"
-import Link from "next/link"
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import useI18n from "../modules/i18n/useI18n";
@@ -9,7 +8,7 @@ import useEquipmentCategories from "../modules/api/useEquipmentCategories";
 import useTipDamageType from "./useTipDamageType"
 import { useEquipmentItemScreenAsModal } from "./EquipmentItemScreenAsModal"
 import ButtonBottomScreen from "./ButtonBottomScreen"
-import { isEmpty } from "lodash"
+import { toggleObjectOnArray } from "../modules/utils/array"
 import IconChevronToggle from "./icons/IconChevronToggle"
 import useLocalSearch from "./useLocalSearch"
 
@@ -31,7 +30,7 @@ function ItemRow({ item, onSelect, selected }) {
 					<div className="flex flex-col flex-1">
 						<span
 							className="flex flex-row items-center font-semibold"
-							onClick={() => showEquipmentItemScreenAsModal(item.index)}
+							onClick={() => showEquipmentItemScreenAsModal(item)}
 						>
 							<span>{tr(item.nameLocalized)}</span>
 						</span>
@@ -59,7 +58,7 @@ function ItemRow({ item, onSelect, selected }) {
 								<>
 									<span>{item.armorCategory} - </span>
 									<span>
-										AC {item.armorClass.base} {item.stealthDisadvantage && <span>Stealth disavantage</span>}
+										AC {item.armorClass.base} {item.stealthDisadvantage && <span>Stealth disadvantage</span>}
 									</span>
 								</>
 							)}
@@ -172,7 +171,7 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 	})
 
 	function onSelect(item) {
-		setSelectedItems([ ...selectedItems, item ])
+		setSelectedItems(toggleObjectOnArray(selectedItems, item, i => i.index === item.index))
 	}
 
 	return (

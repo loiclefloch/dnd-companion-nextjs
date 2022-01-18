@@ -48,7 +48,7 @@ function ItemRow({ item }) {
 								<>
 									<span>{item.armorCategory} - </span>
 									<span>
-										AC {item.armorClass.base} {item.stealthDisadvantage && <span>Stealth disavantage</span>}
+										AC {item.armorClass.base} {item.stealthDisadvantage && <span> - Stealth disadvantage</span>}
 									</span>
 								</>
 							)}
