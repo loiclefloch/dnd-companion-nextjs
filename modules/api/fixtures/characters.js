@@ -55,7 +55,7 @@ function getCharacters() {
 			 "id":"f4bda887-6ffb-4436-bf55-b268cca29070",
 			 "body":{
 					"age":0,
-					"sex":"",
+					"geneder":"",
 					"height":"",
 					"weight":"",
 					"hairColor":"",

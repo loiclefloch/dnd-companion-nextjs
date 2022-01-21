@@ -123,7 +123,7 @@ function PhysicSection({ character }) {
 	return (
 		<Section title="Physique">
 			<div>age: {body.age}</div>
-			<div>sex: {body.sex}</div>
+			<div>gender: {body.gender}</div>
 			<div>height: {body.height}</div>
 			<div>weight: {body.weight}</div>
 			<div>hairColor: {body.hairColor}</div>

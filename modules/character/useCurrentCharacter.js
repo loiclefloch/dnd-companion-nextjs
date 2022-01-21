@@ -23,8 +23,8 @@ export function getDefaultData() {
     id: uuid(),
     name: '',
     body: {
-      age: 0, // TODO:
-      sex: '',
+      age: 30, // TODO:
+      gender: '',
       height: '',
       weight: '',
       hairColor: '',
