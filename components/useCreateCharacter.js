@@ -5,7 +5,6 @@ import { getDefaultData } from "../modules/character/useCurrentCharacter"
 
 import classes from '../database/data/classes.json'
 import allRaces from "../database/data/allRaces"
-import proficiencies from "../database/data/proficiencies"
 import backgrounds from "../database/data/backgrounds.json"
 import { formatRace } from "../modules/api/useRace"
 import { formatBackground } from "../modules/api/useBackground"
@@ -133,7 +132,17 @@ function buildCharacter(characterParam) {
   }))
 
   character.alignment = characterParam.alignment?.index || characterParam.alignment || characterParam.alignmentIndex // TODO: remove ||
-  delete character.alignmentIndex
+
+  const toDelete = [
+    'alignmentIndex',
+    'step',
+    'currentStep',
+    'url'
+  ]
+
+  toDelete.forEach(d => {
+    delete character[d]
+  })
 
   // add unarmed strike
   character.proficiencies.unshift({
@@ -207,10 +216,8 @@ export function CreateCharacterProvider({ children }) {
     finalizeCharacter: () => {
       const currentCaracters = JSON.parse(localStorage.getItem("characters")) || []
       const createdCharacter = buildCharacter(character)
-
-      console.info(createdCharacter)
       const characters = [...currentCaracters, createdCharacter]
-      // localStorage.setItem('characters', JSON.stringify(characters))
+      localStorage.setItem('characters', JSON.stringify(characters))
       router.push("/characters")
     },
     getBuildedCharacter: () => !isBrowser ? null : formatCharacter(buildCharacter(character)),

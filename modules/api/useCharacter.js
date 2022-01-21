@@ -10,6 +10,7 @@ import spells from '../../database/data/spells.json'
 import alignments from '../../database/data/alignments.json'
 import equipmentList from '../../database/data/equipment.json'
 import magicItems from '../../database/data/magic-items.json'
+import traits from '../../database/data/traits.json'
 import { formatRace } from "./useRace"
 import { formatClass } from "./useClass"
 import { getSpellLevelDataForClassesAndLevel, getSpellLevelForCharacterLevel } from "../levelling"
@@ -18,6 +19,7 @@ import { formatMagicItem } from "./useMagicItem"
 import { formatSpell } from "./useSpell"
 import { getProficiencyBonus } from "../levelling"
 import { valueToModifier, valueToModifierLabel, modifierToModifierLabel } from "../stats"
+import { formatProficiency } from "./useProficiency"
 
 const MAX_SPELL_LEVEL = 9 // maximum spell level
 
@@ -49,7 +51,6 @@ export function formatCharacter(character) {
 		return null
 	}
 
-	character.level = 5 // fixture for tests
 	if (!character.maximumHp) { // TODO: remove fixture
 		character.maximumHp = 10
 	}
@@ -89,9 +90,11 @@ export function formatCharacter(character) {
 
 	character.spellsSlots = calculateSpellsSlots(character.classes, character.level, character.spellsUsed)
 
-	character.maxSpellLevel = 1 // TODO: from class and level
+	const spellLevelData = getSpellLevelDataForClassesAndLevel(character.classes, character.level)
+	const maxSpellLevel = Math.max(...Object.keys(spellLevelData.slots))
 
-	character.maximumHitDice = 0 // TODO:
+	character.maxSpellLevel = maxSpellLevel
+
 	character.currentHitDice = character.currentHitDice || character.maximumHitDice
 
 	if (!character.wallet) {
@@ -180,12 +183,13 @@ export function formatCharacter(character) {
 
 	character.hasNoEquipment = isEmpty(character?.equipment)
 
-	function formatProficiency(proficiency) {
+	character.traits = character.traits.map(trait => {
+		const traitData = traits.find(t => t.index === trait.index)
 		return {
-			...proficiency,
-			...proficiencies.find(p => p.index === proficiency.index),
+			...trait,
+			...traitData,
 		}
-	}
+	})
 
 	character.proficiencies = uniqBy(character.proficiencies, proficiency => proficiency.index)
 		.map(formatProficiency)
@@ -265,6 +269,28 @@ export function formatCharacter(character) {
 		// console.log({ item })
 		return item
 	})
+
+	// Here are some ways to calculate your base AC:
+	// Unarmored: 10 + your Dexterity modifier.
+	// Armored: Use the AC entry for the armor you’re wearing (see PH, 145). 
+	// For example, in leather armor, you calculate your AC as 11 + your Dexterity modifier, and in chain mail, your AC is simply 16.
+	// Unarmored Defense (Barbarian): 10 + your Dexterity modifier + your Constitution modifier.
+	// Unarmored Defense (Monk): 10 + your Dexterity modifier + your Wisdom modifier.
+	// Draconic Resilience (Sorcerer): 13 + your Dexterity modifier.
+	// Natural Armor: 10 + your Dexterity modifier + your natural armor bonus. 
+	// This is a calculation method typically used only by monsters and NPCs, although it is also relevant 
+	// to a druid or another character who assumes a form that has natural armor.
+	const baseAc = 10 + valueToModifier(character.stats.DEX)
+	// TODO:
+	const armorAc = 0
+	const shieldAc = 0
+	character.ac = {
+		base: baseAc,
+		armor: armorAc,
+		shield: shieldAc,
+		// TODO: if equip
+		total: baseAc + armorAc + shieldAc
+	}
 
 	// console.log({ character })
 	return character

@@ -151,6 +151,7 @@ export function CurrentCharacterProvider({ children }) {
 		
 	const value = { 
 		character: formatCharacter(cloneDeep(currentCharacter)),
+		rawCharacter: currentCharacter,
 		setCurrentCharacter: (newCurrentCharacterId) => {
 			CurrentCharacterIdStorage.setItem(newCurrentCharacterId)
 			setCurrentCharacterId(newCurrentCharacterId)

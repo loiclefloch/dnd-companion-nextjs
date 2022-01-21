@@ -7,24 +7,8 @@ import Screen from "../../../components/Screen";
 import Link from "next/link"
 import useI18n from "../../../modules/i18n/useI18n";
 import useCreateCharacter from '../../../components/useCreateCharacter';
-import skills from "../../../database/data/skills.json"
 import useTipProficiency from "../../../components/useTipProficiency"
-
-import proficiencies from "../../../database/data/proficiencies.json"
-
-function formatProficiency(proficiency) {
-	const data = proficiencies.find(p => p.index === proficiency.index)
-
-	const isSkill = data.type === "Skills"
-	return {
-		...proficiency,
-		isSkill,
-		typeLabel: data.type,
-		...data,
-		type: data.type.toLowerCase(),
-		skill: isSkill && skills.find(s => s.index === proficiency.index.replaceAll("skill-", ""))
-	}
-}
+import { formatProficiency } from "../../../modules/api/useProficiency"
 
 function Proficiency({ proficiency }) {
 	const { tr } = useI18n()
@@ -35,9 +19,8 @@ function Proficiency({ proficiency }) {
 			key={proficiency.name}
 			className="flex px-4 py-1"
 		>
-			<div className="flex flex-1">
-				{proficiency.name} ({proficiency.type})
-				({proficiency.sourceType})
+			<div className="flex items-center flex-1">
+				{proficiency.name} <span className="ml-2 text-sm text-meta">({proficiency.sourceType})</span>
 			</div>
 			{proficiency.isSkill && (
 				<div

@@ -1,4 +1,4 @@
-import levellingSpellDataForClasses from "./levellingSpellDataForClasses.json"
+import levellingSpellDataForClasses from "./levellingSpellDataForClasses"
 // Experience Points	Level	Proficiency Bonus
 // 0	1	+2
 // 300	2	+2
