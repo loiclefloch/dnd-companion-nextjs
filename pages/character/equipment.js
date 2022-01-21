@@ -44,11 +44,9 @@ function Group({ title, items }) {
 }
 
 function Character() {
-	const router = useRouter()
-	const { tr } = useI18n()
 	const { character, characterDispatch } = useCurrentCharacter()
 	const { showChooseEquipmentModal } = useChooseEquipmentScreenAsModal()
-	const grouped = groupBy(character?.equipment, item => item.equipmentCategory.index)
+	const grouped = groupBy(character?.equipment, item => item.itemCategory)
 	
 	// X adventuring-gear
 	// X ammunition
@@ -85,7 +83,7 @@ function Character() {
 				</button>
 			}
 		>
-			{character.hasNoEquipment && (
+			{character && character.hasNoEquipment && (
 				<div className="px-4">
 					<p className="mt-12 text-center">
 						Vous n'avez pas d'équipment.

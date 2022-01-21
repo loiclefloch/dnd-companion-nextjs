@@ -1,4 +1,4 @@
-import { uniqBy, isEmpty } from 'lodash'
+import { map, uniqBy, isEmpty } from 'lodash'
 import camelize from "../utils/camelize"
 import useApi from './useApi'
 import characters from './fixtures/characters'
@@ -178,8 +178,10 @@ export function formatCharacter(character) {
 			...equipmentList.find(i => i.index === item.index),
 			...item,
 			isCharacterContextItem: true,
+			isEquipped: item.isEquipped || false,
 		}
-	}).map(formatEquipmentItem)
+	})
+		.map(formatEquipmentItem)
 
 	character.hasNoEquipment = isEmpty(character?.equipment)
 
@@ -280,19 +282,104 @@ export function formatCharacter(character) {
 	// Natural Armor: 10 + your Dexterity modifier + your natural armor bonus. 
 	// This is a calculation method typically used only by monsters and NPCs, although it is also relevant 
 	// to a druid or another character who assumes a form that has natural armor.
-	const baseAc = 10 + valueToModifier(character.stats.DEX)
+	const naturalAc = 10 + valueToModifier(character.stats.DEX)
+
+	// light armor
+	// Made from supple and thin materials, Light Armor favors agile Adventurers since it offers some 
+	// Protection without sacrificing mobility. If you wear Light Armor, you add your Dexterity 
+	// modifier to the base number from your armor type to determine your Armor Class.
+
+	
 	// TODO:
-	const armorAc = 0
-	const shieldAc = 0
-	character.ac = {
-		base: baseAc,
-		armor: armorAc,
-		shield: shieldAc,
-		// TODO: if equip
-		total: baseAc + armorAc + shieldAc
+	const armorEquipped = character.equipment.find(item => item.isArmor && item.isEquipped)
+	const shieldEquipped = character.equipment.find(item => item.isShield && item.isEquipped)
+
+	let armorAc = armorEquipped?.armorClass?.base ?? 0
+	if (armorEquipped?.armorClass?.dexBonus) { // == light armor
+		armorAc += valueToModifier(character.stats.DEX)
 	}
 
-	// console.log({ character })
+	let shieldAc = shieldEquipped?.armorClass?.base ?? 0
+	if (shieldEquipped?.armorClass?.dexBonus) { // == light armor
+		shieldAc += valueToModifier(character.stats.DEX)
+	}
+
+	const hasArmorEquipped = !!armorEquipped
+	const hasShieldEquipped = !!shieldEquipped
+
+	character.hasArmorEquipped = hasArmorEquipped
+	character.hasShieldEquipped = hasShieldEquipped
+
+	character.armorEquipped = armorEquipped
+	character.shieldEquipped = shieldEquipped
+
+	character.ac = {
+		natural: naturalAc,
+		armor: armorAc,
+		shield: shieldAc,
+		total: (hasArmorEquipped ? armorAc : naturalAc) + (hasShieldEquipped ? shieldAc : 0)
+	}
+
+	// Your class gives you proficiency with certain types of armor. If you wear armor that you lack 
+	// proficiency with, you have disadvantage on any ability check, saving throw, or Attack roll that
+	// involves Strength or Dexterity, and you can’t cast Spells.
+	function isProeficientForArmor() {
+		if (!armorEquipped) {
+			return true
+		}
+
+		const allArmor = character.proficiencies.some(p => p.index === 'all-armor')
+		if (allArmor) {
+			return true
+		}
+
+		const armorCategory = armorEquipped.armorCategory // eg: Heavy
+		const proficiencyIndex = armorCategory.toLowerCase()  + "-armor"
+		return character.proficiencies.some(p => p.index === proficiencyIndex)
+	}
+	character.isProeficientForArmor = isProeficientForArmor()
+	// character.isProeficientForArmor = false
+
+	// Heavy Armor: Heavier armor interferes with the wearer’s ability to move quickly, stealthily, and 
+	// freely. If the Armor table shows “Str 13” or “Str 15” in the Strength column for an armor type, 
+	// the armor reduces the wearer’s speed by 10 feet unless the wearer has a Strength score equal to 
+	// or higher than the listed score.
+	// TODO: handle
+	character.speedReduced = armorEquipped ? armorEquipped.strMinimum > character.stats.STR : false
+
+
+	// disadvantage per ability and skill
+	character.abilityDisadvantage = {}
+	character.skillDisadvantage = {} 
+
+
+	// Stealth: If the Armor table shows “Disadvantage” in the Stealth column, the wearer has disadvantage 
+	// on Dexterity (Stealth) checks.
+	if (armorEquipped?.stealthDisadvantage) {
+		character.skillDisadvantage.stealth = true
+	}
+
+	if (!character.isProeficientForArmor) {
+		character.abilityDisadvantage.str = true
+		character.abilityDisadvantage.dex = true
+
+		character.skillDisadvantage.stealth = true 
+
+		// TODO: handle
+		character.attackRollDisadvantage = true
+	}
+
+	// update skillDisadvantage using abilityDisadvantage
+	map(character.abilityDisadvantage, (_, ability) =>  {
+		const skillsForStat = skills.filter(s => s.ability_score.index === ability)
+		skillsForStat.forEach(skill => {
+			character.skillDisadvantage[skill.index] = true
+		})
+	})
+
+	character.baseSpeed = character.race.speed
+	character.currentSpeed = character.baseSpeed + (character.speedReduced ? -10 : 0)
+
 	return character
 }
 

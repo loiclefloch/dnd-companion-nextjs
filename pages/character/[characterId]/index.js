@@ -11,6 +11,59 @@ import { useRestScreenAsModal } from "../../../components/RestScreenAsModal"
 import { useLifeScreenAsModal } from "../../../components/LifeScreenAsModal"
 import useCurrentCharacter from "../../../modules/character/useCurrentCharacter"
 import SavingThrows from "../../../components/SavingThrows"
+import IconCampFire from "../../../components/icons/IconCampFire"
+import IconShield from "../../../components/icons/IconShield"
+import useTip from "../../../components/useTip"
+
+function Section({ title, children }) {
+	return (
+		<div className="pt-2 mt-2">
+			<h3 className="mb-2 font-semibold border-b border-solid border-slate-200">{title}</h3>
+			<div>{children}</div>
+		</div>
+	)
+}
+
+function HpView({character, characterDispatch}) {
+	const { showLifeScreenAsModal } = useLifeScreenAsModal()
+
+	return (
+		<div
+			className="flex items-center justify-center h-full"
+			onClick={() => showLifeScreenAsModal(character, characterDispatch)}
+		>
+			<div className="relative w-8 h-8 rotate-45 bg-pink-600">
+				<div className="absolute w-8 h-8 bg-pink-600 rounded-[50%] left-[-50%]"></div>
+				<div className="absolute w-8 h-8 bg-pink-600 rounded-[50%] top-[-50%]"></div>
+			</div>
+			<div className="absolute flex items-center -mt-3 text-xl font-semibold text-center text-slate-900">
+				{character.currentHp}
+			</div>
+		</div>
+	)
+}
+
+function AcView({ character }) {
+	const { showTip } = useTip()
+
+	return (
+		<div
+			className="relative flex items-center justify-center align-middle"
+			onClick={() => {
+				showTip(<div>
+					<div>Natural AC: {character.ac.natural}</div>
+					<div>Armor AC: {character.ac.armor}</div>
+					<div>Shield AC: {character.ac.shield}</div>
+					<div>Total AC: {character.ac.total}</div>
+				</div>)
+			}}
+		>
+			<IconShield className="w-14 h-14" />
+
+			<div className="absolute text-xl font-semibold" style={{ marginTop: -6 }}>{character.ac.total}</div>
+		</div>
+	)
+}
 
 function Character() {
 	const router = useRouter()
@@ -19,7 +72,6 @@ function Character() {
 	const { showTipAlignment } = useTipAlignment()
 	const { showRestModalAsScreen } = useRestScreenAsModal()
 	const characterResponse = useCharacter(router.query.characterId)
-	const { showLifeScreenAsModal } = useLifeScreenAsModal()
 
 	const character = characterResponse.data
 
@@ -35,6 +87,7 @@ function Character() {
 			// titleIcon={<IconUsers className="w-6 h-6" />}
 			isLoading={characterResponse.isLoading}
 			withCharacterMenu
+			withBottomSpace
 			rightAction={
 				// TODO: edit?
 				<button onClick={() => router.push("/character/create")}>
@@ -43,8 +96,8 @@ function Character() {
 			}
 		>
 			{character && (
-				<>
-					<div className="px-4">
+				<div className="px-4">
+					<div>
 						<Link href={`/race/${character.race.index}`}>
 							{tr(character.race.nameLocalized)}
 						</Link>
@@ -52,26 +105,47 @@ function Character() {
 						<Link href={`/class/${character.classes[0].index}`}>
 							{character.classes.map(clss => tr(clss.nameLocalized)).join(', ')}
 						</Link>
+						<span> - </span>
+						Niveau {character.level}
 					</div>
-					<div className="px-4 my-4">
+
+					<div className="relative flex items-center mt-6">
+						<div className="w-1/3" />
+						<HpView character={character} characterDispatch={characterDispatch} />
+						<div className="ml-12" />
+						<AcView character={character} characterDispatch={characterDispatch} />
+					</div>
+
+					<div className="my-4 mt-6">
 						<StatsSmall 
 							withDetail 
 							stats={character.stats} 
 							skills={character.skills}
+							character={character}
 						/>
 					</div>
 					
 
 					<div>
-						<Button onClick={() => showRestModalAsScreen()}>Se reposer</Button>
+						<Button 
+							variant="outlined"
+							size="small"
+							className="relative"
+							onClick={() => showRestModalAsScreen()}
+						>
+							<IconCampFire className="w-12 h-12 fill-slate-800"/>
+						</Button>
 					</div>
 
-					<div>
-						{/* TODO: */}
-						DC: {character.DC}
-						<br />
-						15 Sagess perception passive // TODO
-					</div>
+					<Section title="Caractéristiques">
+						<div>Hit dices: {character.maximumHitDice}</div>
+						<div>Proficiency: +{character.proficiencyBonus}</div>
+						<div>Base Speed: {character.baseSpeed} </div>
+						<div>Current speed: {character.currentSpeed} {character.speedReduced && 'Réduite'}</div>
+						<div>
+							15 Sagess perception passive // TODO
+						</div>
+					</Section>
 
 					<div>
 						Spell DC: {character.spellSaveDC}
@@ -81,28 +155,12 @@ function Character() {
 						Spell Attack bonus: {character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}
 					</div>
 
-					<div>
-						Saving throws
+					{/* TODO: on Modal? */}
+					<Section title="Saving throws">
+						<SavingThrows savingThrows={character.savingThrows} character={character} />
+					</Section>
 
-						<SavingThrows savingThrows={character.savingThrows} />
-					</div>
-					<div>
-
-						<div 
-							className="flex items-center justify-center h-full"
-							onClick={() => showLifeScreenAsModal(character, characterDispatch)}
-						>
-							<div className="relative w-8 h-8 rotate-45 bg-pink-600">
-								<div className="absolute w-8 h-8 bg-pink-600 rounded-[50%] left-[-50%]"></div>
-								<div className="absolute w-8 h-8 bg-pink-600 rounded-[50%] top-[-50%]"></div>
-							</div>
-							<div className="absolute flex items-center -mt-3 text-2xl font-semibold text-center text-slate-900">
-								{character.currentHp}
-							</div>
-						</div>
-
-					</div>
-				</>
+				</div>
 			)}
 		</Screen>
 	)

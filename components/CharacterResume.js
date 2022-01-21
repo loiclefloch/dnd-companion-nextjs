@@ -142,6 +142,7 @@ function StatsSection({ character }) {
 					withDetail
 					stats={character.stats}
 					skills={character.skills}
+					character={character}
 				/>
 			</div>
 		</Section>
@@ -201,10 +202,14 @@ function GlobalSection({ character }) {
 		<Section title="Caractéristiques">
 			<div>Niveau: {character.level}</div>
 			<div>HP: {character.maximumHp}</div>
-			<div>Base AC: {character.ac.base}</div>
+			<div>Natural AC: {character.ac.natural}</div>
+			<div>Armor AC: {character.ac.armor}</div>
+			<div>Shield AC: {character.ac.shield}</div>
 			<div>Total AC: {character.ac.total}</div>
 			<div>Hit dices: {character.maximumHitDice}</div>
 			<div>Proficiency: +{character.proficiencyBonus}</div>
+			<div>Base Speed: {character.baseSpeed} </div>
+			<div>Current speed: {character.currentSpeed} {character.speedReduced && 'Réduite'}</div>
 		</Section>
 	)
 }

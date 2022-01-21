@@ -1,4 +1,4 @@
-import produce from "immer"
+import produce, { current } from "immer"
 import { isEmpty, cloneDeep } from "lodash"
 import characters from "../api/fixtures/characters"
 import useCharacterNotFormatted from '../api/useCharacterNotFormatted'
@@ -7,6 +7,8 @@ import { updateObjectOnArray } from '../utils/array';
 import { formatCharacter  } from "../api/useCharacter"
 import { createStorage } from "../utils/storage";
 import { uuid } from 'uuidv4';
+import { formatEquipmentItem } from "../api/useEquipmentItem"
+import equipmentList from "../../database/data/equipment.json"
 
 const CharactersStorage = createStorage("characters")
 const CurrentCharacterIdStorage = createStorage("currentCharacterId")
@@ -301,6 +303,50 @@ export function actionAddEquipment(list) {
 	}
 }
 
+// format item to access properties, on the data we only have the index / quantity
+function getFormattedEquipmentItem(equipmentItem) {
+	return formatEquipmentItem({
+		...equipmentItem,
+		...equipmentList.find(i => i.index === equipmentItem.index),
+	})	
+}
+
+export function actionEquip(item) {
+	return {
+		type: 'actionEquip',
+		apply: (character) => {
+			if (item.isArmor) {
+				const equippedArmor = character.equipment.find(equipmentItem => {
+					const formatted = getFormattedEquipmentItem(equipmentItem)
+					return formatted.isArmor && formatted.isEquipped
+				})
+				if (equippedArmor) {
+					equippedArmor.isEquipped = false
+				}
+			}
+			if (item.isShield) {
+				const equippedShield = character.equipment.find(i => i.isShield && i.isEquipped)
+				if (equippedShield) {
+					equippedShield.isEquipped = false
+				}
+			}
+			const itemToEquip = character.equipment.find(i => i.index === item.index)
+			itemToEquip.isEquipped = true
+		}
+	}
+}
+
+export function actionUnequip(item) {
+	return {
+		type: 'actionUnequip',
+		apply: (character) => {
+			const itemToEquip = character.equipment.find(i => i.index === item.index)
+			itemToEquip.isEquipped = false
+		}
+	}
+}
+
+
 //
 // utils
 //
@@ -353,7 +399,7 @@ function useCurrentCharacter() {
     throw new Error('useCurrentCharacter must be used within a CurrentCharacterProvider')
   }
 
-  // console.info(context?.character)
+  console.info(context?.character)
   return context
 }
 

@@ -1,9 +1,13 @@
-import { useRouter } from "next/router";
 import useI18n from "../modules/i18n/useI18n";
 import { useEquipmentItemScreenAsModal } from "../components/EquipmentItemScreenAsModal"
+import useCurrentCharacter, { 
+	actionEquip,
+	actionUnequip,
+} from "../modules/character/useCurrentCharacter"
 import useTipDamageType from "./useTipDamageType"
 import useDice from "./useDice";
 import Button from "./Button"
+import ItemTagIsEquipped from "./ItemTagIsEquipped"
 
 function Section({ title, children }) {
 	return (
@@ -14,8 +18,9 @@ function Section({ title, children }) {
 	)
 }
 
-function EquipmentItemView({ item }) {
+function EquipmentItemView({ item, onCloseScreen }) {
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
+	const { characterDispatch } = useCurrentCharacter()
 	const { showTipDamageType } = useTipDamageType()
 	const { rollDamage } = useDice()
 	const { tr } = useI18n()
@@ -30,6 +35,42 @@ function EquipmentItemView({ item }) {
 
 			{item.isCharacterContextItem && (
 				<div>
+					<div>
+						{item.canBeEquipped && (
+							<>
+								<ItemTagIsEquipped item={item} />
+								
+
+								{item.isEquipped && (
+									<Button
+										size="small"
+										variant="outlined"
+										className="w-36"
+										onClick={() => {
+											characterDispatch(actionUnequip(item))
+											onCloseScreen()
+										}}
+									>
+										Déséquiper
+									</Button>
+								)}
+								{!item.isEquipped && (
+									<Button
+										size="small"
+										variant="outlined"
+										className="w-36"
+										onClick={() => {
+											characterDispatch(actionEquip(item))
+											onCloseScreen()
+										}}
+									>
+										Équiper
+									</Button>
+								)}
+							</>
+						)}	
+					</div>
+
 					<div>isProeficient: {item.isProeficient ? "oui" : "non"}</div>
 
 					<div>

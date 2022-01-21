@@ -33,11 +33,15 @@ export function formatEquipmentItem(itemParam) {
 	// TODO: add description
 	// TODO: add image
 
-	item.isWeapon = item.equipmentCategory.index === "weapon"
-	item.isArmor = item.equipmentCategory.index === "armor"
-	item.isAdventuringGear = item.equipmentCategory.index === "adventuring-gear"
-	item.isTools = item.equipmentCategory.index === "tools"
-	item.isMountAndVehicules = item.equipmentCategory.index === "mounts-and-vehicles"
+	item.isShield = item.armorCategory === "Shield"
+	item.isWeapon = item.equipmentCategory?.index === "weapon"
+	item.isArmor = item.equipmentCategory?.index === "armor" && !item.isShield
+	item.isAdventuringGear = item.equipmentCategory?.index === "adventuring-gear"
+	item.isTools = item.equipmentCategory?.index === "tools"
+	item.isMountAndVehicules = item.equipmentCategory?.index === "mounts-and-vehicles"
+	item.canBeEquipped = item.isArmor || item.isShield
+
+	item.itemCategory = item.equipmentCategory?.index || 'magic-item'
 
 	return item
 }

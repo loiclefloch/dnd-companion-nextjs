@@ -13,7 +13,7 @@ function EquipmentItemScreenAsModal({ item, onCloseScreen }) {
 			title={!item ? '' : tr(item.nameLocalized)}
 			onCloseScreen={onCloseScreen}
 		>
-			{item && <EquipmentItemView item={item} />}
+			{item && <EquipmentItemView item={item} onCloseScreen={onCloseScreen} />}
 		</ScreenAsModal>
 	)
 }

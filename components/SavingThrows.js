@@ -1,11 +1,15 @@
 import clsx from "clsx"
 import useI18n from "../modules/i18n/useI18n"
 
-function SavingThrow({ modifierLabel, ability, isProeficient }) {
+function SavingThrow({ modifierLabel, ability, isProeficient, character }) {
 	const { tr } = useI18n()
 
+	const disadvantage = character && character?.abilityDisadvantage[ability.toLowerCase()] === true
+
 	return (
-		<div className="flex items-center">
+		<div className={clsx("flex items-center", {
+			"text-red-800": disadvantage
+		})}>
 			<div 
 				className={clsx("w-2 h-2 border border-solid border-slate-600 rounded-full", {
 					"bg-slate-600": isProeficient
@@ -19,8 +23,7 @@ function SavingThrow({ modifierLabel, ability, isProeficient }) {
 	)
 }
 
-function SavingThrows({ savingThrows }) {
-
+function SavingThrows({ savingThrows, character }) {
 	return (
 		<div>
 			{[
@@ -36,6 +39,7 @@ function SavingThrows({ savingThrows }) {
 					ability={ability}
 					modifierLabel={savingThrows[ability].modifierLabel} 
 					isProeficient={savingThrows[ability].isProeficient} 
+					character={character}
 				/>
 			))}
 		</div>

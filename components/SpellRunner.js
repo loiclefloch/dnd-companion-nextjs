@@ -91,7 +91,7 @@ function SpellRunner({ contextCharacter, hideCasting = false, spell }) {
 					formatMod={formatMod}
 				/>
 			</div>
-			{!spell.isCantripWithoutNeedToRun && !hideCasting && (
+			{!spell.isCantripWithoutNeedToRun && !hideCasting && (contextCharacter ? contextCharacter.isProeficientForArmor : true) && (
 				<Button
 					className="w-1/3 rounded-sm text-slate-700"
 					size="small"
@@ -101,6 +101,11 @@ function SpellRunner({ contextCharacter, hideCasting = false, spell }) {
 				>
 					Caster
 				</Button>
+			)}
+			{contextCharacter && !contextCharacter.isProeficientForArmor && (
+				<p className="text-orange-600">
+					Impossible de caster un sort car vous n'avez pas la maîtrise de votre armure.
+				</p>
 			)}
 		</div>
 	)

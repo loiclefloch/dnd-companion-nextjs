@@ -1,5 +1,6 @@
 import useTipDamageType from "./useTipDamageType"
 import useI18n from "../modules/i18n/useI18n"
+import ItemTagIsEquipped from "./ItemTagIsEquipped"
 
 function CharacterEquipmentItemRow({ character, item, onClick }) {
 	const { tr } = useI18n()
@@ -13,10 +14,18 @@ function CharacterEquipmentItemRow({ character, item, onClick }) {
 			<div className="pl-1">
 				<div className="flex flex-row">
 					<div className="flex flex-col flex-1">
-						<span className="flex flex-row items-center font-semibold" onClick={onClick}>
+						<span 
+							className="flex flex-row items-center font-semibold" 
+							onClick={onClick}
+						>
 							<span>{tr(item.nameLocalized)}</span>
 							{item.quantity > 1 && <span className="ml-2 text-xs text-meta">x{item.quantity}</span>}
 						</span>
+						{item.canBeEquipped &&  (
+							<div>
+								<ItemTagIsEquipped item={item} onClick={onClick} />
+							</div>
+						)}
 						<div className="text-sm text-meta">
 							{item.isWeapon && (
 								<>
