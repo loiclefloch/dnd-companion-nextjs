@@ -1,9 +1,8 @@
-import races from '../../database/data/races.json'
-import subraces from '../../database/data/subraces.json'
+import allRaces from '../../database/data/allRaces'
 import isEmpty from 'lodash/isEmpty'
 import useApi from "./useApi"
 
-export function format(race) {
+export function formatRace(race) {
   if (!race) { // required so we can build while all the races are not created
     return null
   }
@@ -15,14 +14,14 @@ export function format(race) {
   race.isSubrace = !!race.race
 
   if (race.hasSubraces) {
-    race.subraces = race.subraces.map(format)
+    race.subraces = race.subraces.map(formatRace)
   }
 
   return race
 }
 
 function useRace(index) {
-  return useApi(format([ ...races, ...subraces ].find(race => race.index === index)))
+  return useApi(formatRace(allRaces.find(race => race.index === index)))
 }
 
 export default useRace

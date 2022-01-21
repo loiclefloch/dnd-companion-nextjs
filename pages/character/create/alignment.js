@@ -33,7 +33,7 @@ const defaultData = {
 function Form() {
 	const { character, background, updateCharacter } = useCreateCharacter()
 	// TODO: default useState does not work
-	const [selectedAlignment, setSelectedAlignment] = useState(character?.alignmentIndex)
+	const [selectedAlignment, setSelectedAlignment] = useState(character?.alignment)
 	const { showTipAlignment } = useTipAlignment()
 	
 	const { idealsData } = character
@@ -91,7 +91,7 @@ function Form() {
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					updateCharacter({ alignmentIndex: selectedAlignment, step: 'alignment' })
+					updateCharacter({ alignment: selectedAlignment, step: 'alignment' })
 				}}
 			>
 				Suivant

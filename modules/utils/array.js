@@ -247,3 +247,7 @@ export function moveOnArray(arrayParam, oldIndex, newIndex) {
   array.splice(newIndex, 0, array.splice(oldIndex, 1)[0]);
   return array;
 }
+
+export function arrayHasDuplicates(array, comparator) {
+  return (new Set(array.map(comparator))).size !== array.length;
+}

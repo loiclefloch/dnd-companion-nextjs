@@ -1,3 +1,4 @@
+import levellingSpellDataForClasses from "./levellingSpellDataForClasses.json"
 // Experience Points	Level	Proficiency Bonus
 // 0	1	+2
 // 300	2	+2
@@ -19,6 +20,8 @@
 // 265,000	18	+6
 // 305,000	19	+6
 // 355,000	20	+6
+
+import Error from "next/error"
 
 export function getLevellingStages() {
 	return {
@@ -86,70 +89,7 @@ export function getLevelProficiencyBonus(level) {
 
 // TODO: implement
 export function getLevellingSpellDataForClasses() {
-	return {
-		druid: {
-			1: {
-				features: [
-					"druidic",
-					"spellcasting-druid",
-				],
-				slots: {
-					0: 2,
-					1: 2,
-				}
-			},
-			2: {
-				features: [
-					// TODO: list wild shapes
-					// "wild-shape",
-					"druid-circle",
-				],
-				slots: {
-					0: 2,
-					1: 3,
-				}
-			},
-			3: {
-				features: [],
-				slots: {
-					0: 2,
-					1: 3,
-					2: 2,
-				}
-			},
-			4: {
-				features: [
-				  // TODO: list wild shapes
-					// "wild-shape",
-					"druid-ability-score-improvement-1"
-				],
-				slots: {
-					0: 3,
-					1: 4,
-					2: 3
-				}
-			},
-
-			17: {
-				
-				features: [
-					// nothing
-				],
-				slots: {
-					0: 4,
-					1: 4,
-					2: 3,
-					3: 3,
-					4: 3,
-					5: 2,
-					6: 1,
-					7: 1,
-					8: 1,
-					9: 1,
-				}
-			}
-		},
-	}
+	return levellingSpellDataForClasses
 }
 
 export function getSpellLevelForCharacterLevel(characterClasses, characterLevel) {
@@ -162,10 +102,12 @@ export function getSpellLevelForCharacterLevel(characterClasses, characterLevel)
 
 		return Math.max(...Object.keys(levelSpellData.slots))
 	}
-
 	
+	if (!levellingSpellDataForClasses[characterClasses[0].index]) {
+		throw new Error(`Class ${characterClasses[0].index} not handled yet`)
+	}	
 	// TODO: how to with multiclass ? use getSpellLevelDataForClassesAndLevel?
-		return getMaxLevel(levellingSpellDataForClasses[characterClasses[0].index][characterLevel])
+	return getMaxLevel(levellingSpellDataForClasses[characterClasses[0].index][characterLevel])
 
 	// const levelsPerClasses = characterClasses.map(clss => {
 		// return getMaxLevel(levellingSpellDataForClasses[clss.index][characterLevel])
@@ -176,8 +118,10 @@ export function getSpellLevelForCharacterLevel(characterClasses, characterLevel)
 
 export function getSpellLevelDataForClassesAndLevel(characterClasses, characterLevel)  {
 	const levellingSpellDataForClasses = getLevellingSpellDataForClasses()
-
 	// TODO: how to with multiclass ?
+	if (!levellingSpellDataForClasses[characterClasses[0].index]) {
+		throw new Error(`Class ${characterClasses[0].index} not handled yet`)
+	}
 	return levellingSpellDataForClasses[characterClasses[0].index][characterLevel]
 }
 

@@ -1,10 +1,10 @@
-import races from '../../database/data/races.json'
+import allRaces from '../../database/data/allRaces'
 import useApi from "./useApi"
 
-import { format } from "./useRace"
+import { formatRace } from "./useRace"
 
 function useRaces() {
-  return useApi(races.map(format))
+  return useApi(allRaces.map(formatRace))
 }
 
 export default useRaces

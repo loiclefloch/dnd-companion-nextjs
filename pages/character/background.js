@@ -53,7 +53,7 @@ function Background() {
 								<div>
 									Age: {character.age}
 								</div>
-								<div onClick={() => showTipAlignment(character.alignmentIndex)}>
+								<div onClick={() => showTipAlignment(character.alignment.index)}>
 									{character.alignment.name}
 								</div>
 
@@ -86,7 +86,7 @@ function Background() {
 							</Section>
 
 							<Section title="PERSONNALITY TRAITS">
-								{character.traits.map((trait, index) => (
+								{character.personnalityTraits.map((trait, index) => (
 									<p key={index}>{trait}</p>
 								))}
 							</Section>

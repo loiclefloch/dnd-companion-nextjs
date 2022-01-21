@@ -5,14 +5,13 @@ import characters from './fixtures/characters'
 import proficiencies from "../../database/data/proficiencies.json"
 import skills from "../../database/data/skills.json"
 import classes from '../../database/data/classes.json'
-import races from '../../database/data/races.json'
-import subraces from '../../database/data/subraces.json'
+import allRaces from '../../database/data/allRaces'
 import spells from '../../database/data/spells.json'
 import alignments from '../../database/data/alignments.json'
 import equipmentList from '../../database/data/equipment.json'
 import magicItems from '../../database/data/magic-items.json'
-import { format as formatRace } from "./useRace"
-import { format as formatClass } from "./useClass"
+import { formatRace } from "./useRace"
+import { formatClass } from "./useClass"
 import { getSpellLevelDataForClassesAndLevel, getSpellLevelForCharacterLevel } from "../levelling"
 import { formatEquipmentItem } from "./useEquipmentItem"
 import { formatMagicItem } from "./useMagicItem"
@@ -20,7 +19,6 @@ import { formatSpell } from "./useSpell"
 import { getProficiencyBonus } from "../levelling"
 import { valueToModifier, valueToModifierLabel, modifierToModifierLabel } from "../stats"
 
-const allRaces = [...races, ...subraces]
 const MAX_SPELL_LEVEL = 9 // maximum spell level
 
 function calculateSpellsSlots(classes, characterLevel, spellsUsed) {
@@ -69,7 +67,7 @@ export function formatCharacter(character) {
 
 	// TODO:
 	character.statsDetail = []
-	character.alignment = alignments.find(a => a.index === character.alignmentIndex)
+	character.alignment = alignments.find(a => a.index === character.alignment)
 
 	character.spellcastingAbility = 'CHA' // TODO: from class
 	character.spellcastingAbilityValue = 3
@@ -152,9 +150,6 @@ export function formatCharacter(character) {
 		CHA: buildSavingThrow('CHA'),
 	}
 
-	// TODO: on create character
-	character.skillsProficiencies = ["nature", "stealth", "survival"]
-
 	character.skills = skills.map(skillData => {
 		const ability = skillData.ability_score.name
 		const skill = skillData.index
@@ -192,16 +187,8 @@ export function formatCharacter(character) {
 		}
 	}
 
-	character.proficiencies = uniqBy([
-		// always proeficient in unarmed-strike
-		formatProficiency({
-			"index": 'unarmed-strike',
-			'iname': 'Unarmed Strike',
-			url: '/api/proficiencies/unarmed-strike',
-		}),
-		...character.classes[0].proficiencies.map(formatProficiency),
-		...character.race.starting_proficiencies.map(formatProficiency),
-	], proficiency => proficiency.index)
+	character.proficiencies = uniqBy(character.proficiencies, proficiency => proficiency.index)
+		.map(formatProficiency)
 
 	character.actionsEquipment = [
 		formatEquipmentItem(equipmentList.find(i => i.index === "unarmed-strike")),

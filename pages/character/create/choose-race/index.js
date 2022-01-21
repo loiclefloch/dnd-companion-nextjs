@@ -42,11 +42,7 @@ function Form({ racesResponse }) {
 						key={race.index}
 						race={race}
 						onSelect={(url) => {
-							if (!race.hasSubraces) {
-								router.push("/character/create/choose-race/" + race.index)
-							} else {
-								router.push("/character/create/choose-subrace/" + race.index)
-							}
+							router.push("/character/create/choose-race/" + race.index)
 						}}
 					/>
 				))}

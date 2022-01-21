@@ -40,7 +40,7 @@ function getCharacters() {
 					"WIS":15,
 					"CHA":14
 			 },
-			 "alignmentIndex":"chaotic-neutral",
+			 "alignment":"chaotic-neutral",
 			 "traits":[
 					"trait 1",
 					"trait 2"
@@ -48,7 +48,7 @@ function getCharacters() {
 			 "bonds":"Liens",
 			 "ideals":"Idéaux",
 			 "flaws":"Imperfections",
-			 "equipments":[
+			 "equipment":[
 					
 			 ],
 			 "currentStep":"resume",

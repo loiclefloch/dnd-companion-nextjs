@@ -12,45 +12,58 @@ import Link from "next/link"
 import useTipLanguage from "../../../components/useTipLanguage";
 import useI18n from "../../../modules/i18n/useI18n";
 import useCreateCharacter from '../../../components/useCreateCharacter';
+import { arrayHasDuplicates } from "../../../modules/utils/array"
 
-function Form({ race, updateCharacter }) {
+function Form({ race, backgroundLanguagesOptions, updateCharacter }) {
 	const { tr } = useI18n()
 	const [raceSelectedLanguages, setRaceSelectedLanguages] = useState([])
 	const [backgroundSelectedLanguages, setBackgroundSelectedLanguages] = useState([])
 	const { showTipLanguage } = useTipLanguage()
-	const router = useRouter()
 
 	const knownLanguages = race.languages?.map(l => l.index)
 
-	return (
-			<div className="flex flex-col">
-				<ScreenIntroduction
-					title="Choisissez les langues parlées"
-					description={`Votre personnage ...`}
-					actions={
-						<div className="mt-2">
-							<Link href="/rules/languages">
-								En savoir plus
-							</Link>
-						</div>
-					}
-				/>
+	const languages = [
+		...(raceSelectedLanguages || []),
+		...(backgroundSelectedLanguages || []),
+		...(knownLanguages || []),
+	]
 
+	const hasDupliacatesLanguages = arrayHasDuplicates(languages, l => l)
+	const isValid = !hasDupliacatesLanguages
+
+	return (
+		<div className="flex flex-col">
+			<ScreenIntroduction
+				title="Choisissez les langues parlées"
+				description={`Votre personnage ...`}
+				actions={
+					<div className="mt-2">
+						<Link href="/rules/languages">
+							En savoir plus
+						</Link>
+					</div>
+				}
+			/>
+
+			<div className="px-4 prose">
 				{race && (
-					<div className="relative w-full px-4 mt-12">
+					<div className="relative w-full mt-12">
 						<div>
 							<h3>Languages parlés</h3>
-							<p>{race.language_desc}</p>
-							{race.languages.map(language => (
-								<div>{tr(language.name)}</div>
-							))}
+							{race.language_desc && <p>{race.language_desc}</p>}
+							
+							<ul className="list-disc">
+								{race.languages.map(language => (
+									<li onClick={() => showTipLanguage(language.index)}>{tr(language.name)}</li>
+								))}
+							</ul>
 						</div>
 
 						{race.language_options && (
 							<div>
 								<h3>Options supplémentaires ({race.language_options.choose ?? 1} choix)</h3>
 
-								<ListSelector 
+								<ListSelector
 									multiple
 									nbMaxValues={race.language_options.choose ?? 1}
 									value={raceSelectedLanguages}
@@ -58,9 +71,9 @@ function Form({ race, updateCharacter }) {
 										label: language.name,
 										value: language.index,
 										selected: raceSelectedLanguages.includes(language.index),
-										disabled: false,
+										disabled: backgroundSelectedLanguages.includes(language.index),
 										rightView: (
-											<div 
+											<div
 												className="px-4 py-2 text-xs text-meta"
 												onClick={() => showTipLanguage(language.index)}
 											>
@@ -72,45 +85,43 @@ function Form({ race, updateCharacter }) {
 								/>
 							</div>
 						)}
-
-						<div>
-							<h3>Background</h3>
-
-							<p>TODO: explain</p>
-
-							<ListSelector
-								multiple
-								nbMaxValues={4} // TODO: how many?
-								value={backgroundSelectedLanguages}
-								options={languages.filter(language => !knownLanguages.includes(language.index)).map(language => ({
-									label: language.name,
-									value: language.index,
-									selected: backgroundSelectedLanguages.includes(language.index),
-									disabled: raceSelectedLanguages.includes(language.index),
-									rightView: (
-										<div
-											className="px-4 py-2 text-xs text-meta"
-											onClick={() => showTipLanguage(language.index)}
-										>
-											?
-										</div>
-									)
-								}))}
-								onChange={setBackgroundSelectedLanguages}
-							/>
-						</div>
 					</div>
 				)}
 
+				{backgroundLanguagesOptions && (
+					<div>
+						<h3>Background</h3>
+
+						<p>Votre background vous donne accès à {backgroundLanguagesOptions.choose} languages supplémentaires</p>
+
+						<ListSelector
+							multiple
+							nbMaxValues={backgroundLanguagesOptions.choose}
+							value={backgroundSelectedLanguages}
+							options={backgroundLanguagesOptions.from.filter(language => !knownLanguages.includes(language.index)).map(language => ({
+								label: language.name,
+								value: language.index,
+								selected: backgroundSelectedLanguages.includes(language.index),
+								disabled: raceSelectedLanguages.includes(language.index),
+								rightView: (
+									<div
+										className="px-4 py-2 text-xs text-meta"
+										onClick={() => showTipLanguage(language.index)}
+									>
+										?
+									</div>
+								)
+							}))}
+							onChange={setBackgroundSelectedLanguages}
+						/>
+					</div>
+				)}
+			</div>
+
 				<ButtonBottomScreen 
 					variant="cta"
+					hide={!isValid}
 					onClick={() => {
-
-						const languages = [
-							...(raceSelectedLanguages || []),
-							...(backgroundSelectedLanguages || []),
-							...(knownLanguages || []),
-						]
 						updateCharacter({ languages: languages, step: 'languages' })
 					}}
 				>
@@ -121,19 +132,20 @@ function Form({ race, updateCharacter }) {
 }
 
 function CreateCharacterLanguages() {
-	const { character, updateCharacter } = useCreateCharacter()
-
-	const raceResponse = useRace(character?.race)
-	const race = raceResponse?.data
+	const { background, race, character, updateCharacter } = useCreateCharacter()
 
 	return (
 		<Screen
 			title={"Languages parlés"}
-			isLoading={raceResponse.isLoading}
 			withBottomSpace
 		>
 			{race && (
-				<Form race={race} character={character} updateCharacter={updateCharacter} />
+				<Form 
+					race={race}
+					character={character} 
+					updateCharacter={updateCharacter} 
+					backgroundLanguagesOptions={background.languageOptions}
+				/>
 			)}
     </Screen>
   );

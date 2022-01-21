@@ -67,7 +67,7 @@ function Form() {
 	}
 
 	const { background, character, updateCharacter } = useCreateCharacter()
-	const [chosenTraits, setChosenTraits ] = useState(character?.traits || [])
+	const [chosenTraits, setChosenTraits ] = useState(character?.personnalityTraits || [])
 	const [mode, setMode] = useState(null)
 
 	const personalityTraits = background?.personalityTraits
@@ -129,7 +129,7 @@ function Form() {
 				variant="cta"
 				onClick={() => {
 					updateCharacter({ 
-						traits: chosenTraits,
+						personnalityTraits: chosenTraits,
 						step: 'personnality-traits' 
 					})
 				}}

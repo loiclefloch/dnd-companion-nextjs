@@ -5,7 +5,6 @@ import useI18n from '../../../../modules/i18n/useI18n';
 import { ListSelectRowAsCard, ListRowSelectContainer } from "../../../../components/ListSelectRow"
 import IconClass from "../../../../components/icons/IconClass"
 import ScreenIntroduction from "../../../../components/ScreenIntroduction"
-import useCreateCharacter from '../../../../components/useCreateCharacter';
 
 function ClassRow({ clss }) {
 	const { tr } = useI18n()

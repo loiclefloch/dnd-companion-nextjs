@@ -17,8 +17,9 @@ function Section({ title, children }) {
 }
 
 function CreateCharacterResume() {
-	const { character, finalizeCharacter } = useCreateCharacter()
-	const router = useRouter()
+	const { getBuildedCharacter, finalizeCharacter } = useCreateCharacter()
+
+	const character = getBuildedCharacter()
 
 	return (
 		<Screen
@@ -32,7 +33,7 @@ function CreateCharacterResume() {
 						description={`Donnez à votre personnage ...`}
 						actions={
 							<div className="mt-2">
-								<Link href="/rules/create-character-equipment">
+								<Link href="">
 									En savoir plus
 								</Link>
 							</div>
@@ -42,8 +43,8 @@ function CreateCharacterResume() {
 					<div className="px-4 mt-4">
 						<h3>{character.name}</h3>
 						<div>
-							<div>{character.race}</div>
-							<div>{character.classes.join(', ')}</div>
+							<div>{character.race.name}</div>
+							<div>{character.classes.map(clss => clss.name).join(', ')}</div>
 
 							<div className="mt-4">
 								<Section title="">
@@ -51,7 +52,7 @@ function CreateCharacterResume() {
 									<div>DC: </div>
 									<div>Hit dices: {character.maximumHitDice}</div>
 									<div>Proficiency {character.proficiencyBonus}</div>
-									</Section>
+								</Section>
 								<Section title="Physic">
 									<div>TODO: body.age</div>
 									<div>TODO: body.sex</div>
@@ -74,7 +75,7 @@ function CreateCharacterResume() {
 								</Section>
 
 								<Section title="PERSONNALITY TRAITS">
-									{character.traits.map((trait, index) => (
+									{character.personnalityTraits.map((trait, index) => (
 										<p key={index}>{trait}</p>
 									))}
 								</Section>
@@ -90,6 +91,18 @@ function CreateCharacterResume() {
 								stats={character.stats}
 								skills={character.skills}
 							/>
+
+							{/* TODO: traits */}
+							{/* TODO: proficiency */}
+
+							<Section title="Équipement">
+								{character.equipment.map(item => (
+									<div>
+										<div>x{item.quantity} {item.name}</div>
+									</div>
+								))}
+							</Section>
+
 						</div>
 
 						<div>

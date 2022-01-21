@@ -4,13 +4,16 @@ import { createStorage } from "../modules/utils/storage"
 import { getDefaultData } from "../modules/character/useCurrentCharacter"
 
 import classes from '../database/data/classes.json'
-import subraces from '../database/data/subraces.json'
-import races from "../database/data/races.json"
+import allRaces from "../database/data/allRaces"
+import proficiencies from "../database/data/proficiencies"
 import backgrounds from "../database/data/backgrounds.json"
-import { format as formatRace } from "../modules/api/useRace"
+import { formatRace } from "../modules/api/useRace"
 import { formatBackground } from "../modules/api/useBackground"
+import { formatCharacter } from "../modules/api/useCharacter"
+import { formatClass  } from "../modules/api/useClass"
+import { cloneDeep } from "lodash";
 
-const allRaces = [...races, ...subraces]
+const isBrowser = typeof window !== "undefined";
 
 const CreateCharacterStorage = createStorage("createCharacter")
 
@@ -29,8 +32,6 @@ function createCharacterReducer(state, action) {
   }
 }
 
-
-
 const initialState = CreateCharacterStorage.getItem() || getDefaultData()
 
 function getNextStep(step) {
@@ -46,7 +47,8 @@ function getNextStep(step) {
     'ideals': 'alignment',
     'alignment': 'bonds',
     'bonds': 'flaws',
-    'flaws': 'languages',
+    'flaws': 'proficiencies',
+    'proficiencies': 'languages',
     'languages': 'equipment',
     'equipment': 'resume',
     'resume': '',
@@ -64,6 +66,7 @@ function getStepUrl(step) {
     'initial': '/',
     'choose-race': '/choose-race',
     'choose-class': '/choose-class',
+    'proficiencies': '/proficiencies',
     'abilities': '/abilities',
     'abilities-with-bonus-options': '/abilities/choose-options',
     'choose-creation-mode': '/choose-creation-mode',
@@ -114,6 +117,38 @@ function onFinalize(character) {
   return data
 }
 
+function buildCharacter(characterParam) {
+  if (!characterParam) {
+    return null
+  }
+
+  const race = allRaces.find(r => r.index === characterParam.race)
+
+  const character = cloneDeep(characterParam)
+  delete character.idealsData
+
+  character.traits = race.traits.map(trait => ({
+    index: trait.index,
+    sourceType: 'race',
+  }))
+
+  character.alignment = characterParam.alignment?.index || characterParam.alignment || characterParam.alignmentIndex // TODO: remove ||
+  delete character.alignmentIndex
+
+  // add unarmed strike
+  character.proficiencies.unshift({
+    index: 'unarmed-strike',
+    sourceType: 'race', // TODO: or other?
+  })
+
+  character.skillsProficiencies = character.proficiencies
+    .filter(p => p.index.startsWith("skill-"))
+    .map(p => p.index.replaceAll("skill-", ""))
+
+  console.log(character)
+  return cloneDeep(character)
+}
+
 export function CreateCharacterProvider({ children }) {
   const router = useRouter()
   const [character, dispatchCharacter] = useReducer(createCharacterReducer, initialState)
@@ -123,6 +158,7 @@ export function CreateCharacterProvider({ children }) {
   }, [character])
 
   const race = formatRace(allRaces.find(r => r.index === character.race))
+  const clss = formatClass(classes.find(r => r.index === character.classes[0]))
   const background = formatBackground(backgrounds.find(r => r.index === character.background))
 
   // NOTE: you *might* need to memoize this value
@@ -136,6 +172,7 @@ export function CreateCharacterProvider({ children }) {
     },
     character,
     race,
+    clss,
     background,
     updateCharacter: (newDataParam) => {
       let newData = newDataParam
@@ -152,6 +189,7 @@ export function CreateCharacterProvider({ children }) {
 
       if (currentStep === getBeforeResumeStep()) {
         newData = {
+          ...newData,
           ...onFinalize(character)
         }
       }
@@ -168,10 +206,14 @@ export function CreateCharacterProvider({ children }) {
     },
     finalizeCharacter: () => {
       const currentCaracters = JSON.parse(localStorage.getItem("characters")) || []
-      const characters = [...currentCaracters, character]
-      localStorage.setItem('characters', JSON.stringify(characters))
+      const createdCharacter = buildCharacter(character)
+
+      console.info(createdCharacter)
+      const characters = [...currentCaracters, createdCharacter]
+      // localStorage.setItem('characters', JSON.stringify(characters))
       router.push("/characters")
     },
+    getBuildedCharacter: () => !isBrowser ? null : formatCharacter(buildCharacter(character)),
     dispatchCharacter
   }
 
