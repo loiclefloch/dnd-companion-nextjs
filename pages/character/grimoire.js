@@ -124,7 +124,7 @@ function SpellLevelHeader({ level, spellsSlots }) {
 				{/* TODO: on click -> tip */}
 				{level !== 0 && (
 					<div className="flex">
-						{([...Array(spellSlot.totalSlots)]).map((_, index) => (
+						{([...Array(spellSlot.totalSlots || 5)]).map((_, index) => ( // TODO: remove || 5
 							<div 
 								key={index} 
 								className={clsx("w-3 h-3 mr-1", {

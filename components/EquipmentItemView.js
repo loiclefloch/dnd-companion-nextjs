@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
 import useI18n from "../modules/i18n/useI18n";
 import { useEquipmentItemScreenAsModal } from "../components/EquipmentItemScreenAsModal"
-import useTipDamageType from "../components/useTipDamageType"
+import useTipDamageType from "./useTipDamageType"
+import useDice from "./useDice";
+import Button from "./Button"
 
 function Section({ title, children }) {
 	return (
@@ -15,6 +17,7 @@ function Section({ title, children }) {
 function EquipmentItemView({ item }) {
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
 	const { showTipDamageType } = useTipDamageType()
+	const { rollDamage } = useDice()
 	const { tr } = useI18n()
 
 	return (
@@ -27,9 +30,23 @@ function EquipmentItemView({ item }) {
 
 			{item.isCharacterContextItem && (
 				<div>
-					<div>isProeficient: {item.isProeficient}</div>
-					<div>attackRollModifier: {item.attackRollModifier}</div>
-					<div>attackRollModifierLabel: {item.attackRollModifierLabel}</div>
+					<div>isProeficient: {item.isProeficient ? "oui" : "non"}</div>
+
+					<div>
+						{item.isMelee && "Mélée"}
+						{item.isRanged && "Ranged"}
+						{item.hasPropertyThrown && "Peut être lancée"}
+					</div>
+
+					{item.isMelee && <>
+						<div>meleeAttackRollModifier: {item.meleeAttackRollModifier}</div>
+						<div>meleeAttackRollModifierLabel: {item.meleeAttackRollModifierLabel}</div>
+					</>}
+					{item.isRanged && <>
+						<div>rangedAttackRollModifier: {item.rangedAttackRollModifier}</div>
+						<div>rangedAttackRollModifierLabel: {item.rangedAttackRollModifierLabel}</div>
+					</>}
+
 					<div>quantity: x{item.quantity}</div>
 				</div>
 			)}
@@ -37,15 +54,96 @@ function EquipmentItemView({ item }) {
 			{item.isWeapon && (
 				<>
 					{item.damage && (
-						<>
-							<span>{item.categoryRange}</span>
-							<span> </span>
-							<span>
-								<span>{item.damage.damageDice}</span>
-								<span> </span>
-								<span onClick={() => showTipDamageType(item.damage.damageType.index)}>{item.damage.damageType.name}</span>
-							</span>
-						</>
+						<div>
+							<>
+								<div>{item.categoryRange}</div>
+								<div>
+									<span>{item.damage.damageDice}{item.attackRollModifierLabel}</span>
+									<span> </span>
+									<span onClick={() => showTipDamageType(item.damage.damageType.index)}>{item.damage.damageType.name}</span>
+								</div>
+
+								{item.hasPropertyTwoHandedDamages && (
+									<div>
+										<span>Deux mains : {item.twoHandedDamage.damageDice}{item.attackRollModifierLabel}</span>
+										<span> </span>
+										<span onClick={() => showTipDamageType(item.twoHandedDamage.damageType.index)}>{item.twoHandedDamage.damageType.name}</span>
+									</div>
+									)}
+							</>
+							<>
+								{/* 
+									- If Melee -> can attack
+									- If hasPropertyThrown
+										- can throw
+										-> throw is using DEX if finesse, STR otherwise. For now we force to use the higher one
+									- Ranged 
+										- ranged attack is using DEX
+								*/}
+								{item.isCharacterContextItem && (
+									<>
+										{item.isMelee && (
+											<Button
+												variant="outlined"
+											>
+												Attaquer (mélée)
+											</Button>
+										)}
+
+										{item.isRanged && (
+											<Button
+												variant="outlined"
+											>
+												Attaquer (à distance)
+											</Button>
+										)}
+
+										{item.hasPropertyThrown && (
+											<Button
+												variant="outlined"
+											>
+												Lancer
+											</Button>
+										)}
+									</>
+								)}
+
+								<>
+									<Button
+										variant="outlined"
+										onClick={(e) => {
+											rollDamage(
+												`${tr(item.nameLocalized)}`,
+												item.damage.damageDice,
+												0,
+												item.damage.damageType
+											)
+											e.preventDefault()
+										}}
+									>
+										Dégats (une main) <span>{item.damage.damageDice}{item.attackRollModifierLabel}</span>
+									</Button>
+
+									{item.hasPropertyTwoHandedDamages && (
+										<Button
+											variant="outlined"
+											onClick={(e) => {
+												rollDamage(
+													`${tr(item.nameLocalized)}`,
+													item.twoHandedDamage.damageDice,
+													0,
+													item.twoHandedDamage.damageType
+												)
+												e.preventDefault()
+											}}
+										>
+											Dégats (deux mains) <span>{item.twoHandedDamage.damageDice}{item.twoHandedDamage.damageType.name}</span>
+										</Button>
+									)}
+								</>
+
+							</>
+						</div>
 					)}
 					{!item.damage && (
 						<span>No damages defined, look at the description</span>

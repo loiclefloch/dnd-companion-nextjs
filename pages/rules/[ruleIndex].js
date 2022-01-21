@@ -19,11 +19,7 @@ function Rule() {
 			withBottomSpace
 		>
 			<div className="flex flex-col gap-2 p-4" data-cy-id="spells-list">
-
-				<div className="prose">
-					<RuleContent index={index} ruleResponse={ruleResponse} />
-
-				</div>
+				<RuleContent index={index} ruleResponse={ruleResponse} />
 			</div>
 		</Screen>
 	);

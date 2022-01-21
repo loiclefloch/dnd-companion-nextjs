@@ -39,7 +39,7 @@ function ListSelector({ value, options, onChange, multiple = false, nbMaxValues 
 		<div className="relative w-full gap-2 px-2 mt-4 divide-y divider">
 			{options?.map(option => (
 				<ListSelectorRow 
-					key={option.value} 
+					key={option.key || option.value} 
 					label={option.label} 
 					selected={option.selected}
 					rightView={option.rightView}

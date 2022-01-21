@@ -7,6 +7,7 @@ import useSidebarMenu from "./sidebarMenu/useSidebarMenu";
 import IconMenu from "./icons/IconMenu"
 import IconUser from "./icons/IconUser"
 import useScreenAsModal from './screenAsModal/useScreenAsModal';
+import Head from 'next/head'
 
 function ScreenLoading() {
 	return (
@@ -57,6 +58,9 @@ function Screen({
 
 	return (
 		<div className="flex flex-col h-screen bg-dark dark:text-white">
+			<Head>
+				<title>{title}</title>
+			</Head>
 			<header 
 				className={clsx(
 					'flex flex-row p-2 items-center', 

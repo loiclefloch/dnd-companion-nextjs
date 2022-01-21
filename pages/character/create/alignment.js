@@ -1,4 +1,5 @@
 import { useState } from "react"
+import clsx from "clsx";
 import alignments from "../../../database/data/alignments.json"
 import ButtonBottomScreen from "../../../components/ButtonBottomScreen";
 import ScreenIntroduction from "../../../components/ScreenIntroduction";
@@ -30,16 +31,23 @@ const defaultData = {
 }
 
 function Form() {
-	const { character, updateCharacter } = useCreateCharacter()
+	const { character, background, updateCharacter } = useCreateCharacter()
 	// TODO: default useState does not work
 	const [selectedAlignment, setSelectedAlignment] = useState(character?.alignmentIndex)
 	const { showTipAlignment } = useTipAlignment()
+	
+	const { idealsData } = character
 
 	return (
 		<div className="flex flex-col">
 			<ScreenIntroduction
 				title="Choisissez votre alignement"
-				description={`L'alignement ...`}
+				description={<span>
+					L'alignement ...
+					<br />
+					Les alignements grisés ne devraient pas être choisis, car ils ne correspondent pas à vos 
+					idéaux.
+				</span>}
 				actions={
 					<div className="mt-2">
 						<Link href="/rules/alignment">
@@ -49,23 +57,36 @@ function Form() {
 				}
 			/>
 
-			<ListSelector
-				value={selectedAlignment}
-				options={alignments.map(alignment => ({
-					label: alignment.name,
-					value: alignment.index,
-					selected: selectedAlignment === alignment.index,
-					rightView: (
-						<div
-							className="px-4 py-2 text-xs text-meta"
-							onClick={() => showTipAlignment(alignment.index)}
-						>
-							?
-						</div>
-					)
-				}))}
-				onChange={setSelectedAlignment}
-			/>
+			{idealsData && ( // need browser data here, not server side rended
+				<ListSelector
+					value={selectedAlignment}
+					options={alignments?.map(alignment => {
+						const withBackgroundIdeals = idealsData?.alignments?.some(a => a.index === alignment.index)
+						return {
+							label: (
+								<span
+									className={clsx({
+										"text-gray-600": !withBackgroundIdeals,
+									})}
+								>
+									{alignment.name}
+								</span>
+							),
+							value: alignment.index,
+							selected: selectedAlignment === alignment.index,
+							rightView: (
+								<div
+									className="px-4 py-2 text-xs text-meta"
+									onClick={() => showTipAlignment(alignment.index)}
+								>
+									?
+								</div>
+							)
+						}
+					})}
+					onChange={setSelectedAlignment}
+				/>
+			)}
 
 			<ButtonBottomScreen
 				variant="cta"

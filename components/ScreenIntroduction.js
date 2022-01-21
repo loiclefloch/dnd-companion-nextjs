@@ -1,7 +1,5 @@
 
-
 function ScreenIntroduction({ title, description, actions }) {
-
 	return (
 		<div className="w-full px-4 py-5 border-b sm:px-6">
 			{title && (

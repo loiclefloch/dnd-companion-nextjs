@@ -76,7 +76,7 @@ function Character() {
 					<div>
 						Spell DC: {character.spellSaveDC}
 						<br />
-						Spellcasing ability: {character.spellcastingAbilityValue >= 0 ? '+' : ''}{character.spellcastingAbilityValue} <span className="text-xs text-meta">{character.spellcastingAbility}</span>
+						Spellcasing ability: {character.spellcastingAbilityValueLabel} <span className="text-xs text-meta">{character.spellcastingAbility}</span>
 						<br />
 						Spell Attack bonus: {character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}
 					</div>

@@ -14,6 +14,8 @@ function RuleContent({ index, ruleResponse }) {
 
 	const View = map[index]
 	if (View) {
+		return <div className="prose"><View /></div>
+	} else {
 		return <p>Rule not created yet</p>
 	}
 

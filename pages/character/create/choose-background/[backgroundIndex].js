@@ -1,44 +1,40 @@
 import { useState } from "react"
 import { useRouter } from 'next/router'
 import ButtonBottomScreen from "../../../../components/ButtonBottomScreen";
-import { ListSelectRowAsCard, ListRowSelectContainer } from "../../../../components/ListSelectRow";
-import ScreenIntroduction from "../../../../components/ScreenIntroduction";
+import BackgroundContent from "../../../../components/background/BackgroundContent";
 import Screen from "../../../../components/Screen";
 import useBackground from "../../../../modules/api/useBackground"
-import Link from "next/link"
 import useI18n from "../../../../modules/i18n/useI18n";
+import useCreateCharacter from '../../../../components/useCreateCharacter';
 
-
-function BackgroundRow({ background }) {
+function CreateCharacterBackgroundDetail() {
 	const { tr } = useI18n()
 	const router = useRouter()
-	const url = `/character/create/choose-background/${background.index}`
-
-	return (
-		<ListSelectRowAsCard 
-			onClick={() => router.push(url)}
-			title={tr(background.nameLocalized)}
-			subtitle={tr(background.resume)}
-		/>
-	)
-}
-
-function CreateCharacterBackground() {
-	const { tr } = useI18n()
-	const router = useRouter()
+	const { updateCharacter } = useCreateCharacter()
 	const backgroundResponse = useBackground(router.query.backgroundIndex)
+
+	const background = backgroundResponse.data
 
 	return (
 		<Screen
-			title={"Background"}
+			title={background ? `Background - ${background.name}` : ''}
 			withBottomSpace
 			isPending={backgroundResponse.isPending}
 		>
-			<div className="flex flex-col">
-				{/* TODO: */}
+			<div className="flex flex-col px-4">
+				<BackgroundContent index={router.query.backgroundIndex} />
 			</div>
+
+			<ButtonBottomScreen
+				variant="cta"
+				onClick={() => {
+					updateCharacter({ background: background.index, step: 'choose-background' })
+				}}
+			>
+				Choisir
+			</ButtonBottomScreen>
     </Screen>
   );
 }
 
-export default CreateCharacterBackground;
+export default CreateCharacterBackgroundDetail;

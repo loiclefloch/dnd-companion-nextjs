@@ -6,7 +6,9 @@ import { getDefaultData } from "../modules/character/useCurrentCharacter"
 import classes from '../database/data/classes.json'
 import subraces from '../database/data/subraces.json'
 import races from "../database/data/races.json"
+import backgrounds from "../database/data/backgrounds.json"
 import { format as formatRace } from "../modules/api/useRace"
+import { formatBackground } from "../modules/api/useBackground"
 
 const allRaces = [...races, ...subraces]
 
@@ -36,16 +38,16 @@ function getNextStep(step) {
     'initial': 'choose-race',
     'choose-race': 'choose-class',
     'choose-class': 'abilities',
-    'abilities': 'choose-creation-mode',
-    'abilities-with-bonus-options': 'choose-creation-mode',
-    'choose-creation-mode': ['choose-background', 'character-details'], // multiple possibility,
-    'character-details': 'alignment',
-    'alignment': 'languages',
-    'languages': 'personnality-traits',
+    'abilities': 'choose-background',
+    'abilities-with-bonus-options': 'choose-background',
+    'choose-background': 'character-details',
+    'character-details': 'personnality-traits',
     'personnality-traits': 'ideals',
-    'ideals': 'bonds',
+    'ideals': 'alignment',
+    'alignment': 'bonds',
     'bonds': 'flaws',
-    'flaws': 'equipment',
+    'flaws': 'languages',
+    'languages': 'equipment',
     'equipment': 'resume',
     'resume': '',
   }
@@ -121,6 +123,7 @@ export function CreateCharacterProvider({ children }) {
   }, [character])
 
   const race = formatRace(allRaces.find(r => r.index === character.race))
+  const background = formatBackground(backgrounds.find(r => r.index === character.background))
 
   // NOTE: you *might* need to memoize this value
   // Learn more in http://kcd.im/optimize-context
@@ -133,6 +136,7 @@ export function CreateCharacterProvider({ children }) {
     },
     character,
     race,
+    background,
     updateCharacter: (newDataParam) => {
       let newData = newDataParam
       const currentStep = newData.step

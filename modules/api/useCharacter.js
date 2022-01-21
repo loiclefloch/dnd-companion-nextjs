@@ -1,4 +1,5 @@
 import { uniqBy, isEmpty } from 'lodash'
+import camelize from "../utils/camelize"
 import useApi from './useApi'
 import characters from './fixtures/characters'
 import proficiencies from "../../database/data/proficiencies.json"
@@ -72,6 +73,7 @@ export function formatCharacter(character) {
 
 	character.spellcastingAbility = 'CHA' // TODO: from class
 	character.spellcastingAbilityValue = 3
+	character.spellcastingAbilityValueLabel = `+3`
 
 	character.spellsList = (character.spellsList || []).map(spell => {
 		return {
@@ -119,8 +121,11 @@ export function formatCharacter(character) {
 	// TODO: handle on spell + tip 
 	character.spellAttackBonus = character.proficiencyBonus + character.spellcastingAbilityValue
 
-	character.attackRollModifier = valueToModifier(character.stats.STR)
-	character.attackRollModifierLabel = valueToModifierLabel(character.stats.STR)
+	character.meleeAttackRollModifier = valueToModifier(character.stats.STR)
+	character.meleeAttackRollModifierLabel = valueToModifierLabel(character.stats.STR)
+
+	character.rangedAttackRollModifier = valueToModifier(character.stats.DEX)
+	character.rangedAttackRollModifierLabel = valueToModifierLabel(character.stats.DEX)
 
 	// saving throws
 	// Each class gives proficiency in at least two Saving Throws. 
@@ -201,20 +206,80 @@ export function formatCharacter(character) {
 	character.actionsEquipment = [
 		formatEquipmentItem(equipmentList.find(i => i.index === "unarmed-strike")),
 		...character.equipment.filter(item => item.equipmentCategory?.index === "weapon")
-	].map(item => {
+	]
+	.map(camelize)
+	.map(item => {
 		// Proficiency Bonus. You add your proficiency bonus to your attack roll when you attack using a 
 		// weapon with which you have proficiency, as well as when you attack with a spell.
 
+		// const isUnarmedStrike = item.index === "unarmed-strike"
+
 		const isProeficient = item.index === 'unarmed-strike' 
 			|| character.proficiencies.some(proficiency => proficiency.reference.index === item.index)
-
 		item.isProeficient = isProeficient
-		item.attackRollModifier = character.attackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
-		item.attackRollModifierLabel = modifierToModifierLabel(item.attackRollModifier)
+
+		// Ability Modifier: The ability modifier used for a melee weapon Attack is Strength, and the ability 
+		// modifier used for a ranged weapon Attack is Dexterity. Weapons that have the Finesse or Thrown 
+		// property break this rule. 
+
+		// When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity 
+		// modifier for the attack and damage rolls.
+		item.hasPropertyFinesse = item.properties.some(property => property.index === 'finesse')
+		// If a weapon has the thrown property, you can throw the weapon to make a ranged attack. 
+		// If the weapon is a melee weapon, you use the same ability modifier for that attack roll and 
+		// damage roll that you would use for a melee attack with the weapon. For example, if you throw a 
+		// handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or 
+		// your Dexterity, since the dagger has the finesse property.
+		item.hasPropertyThrown = item.properties.some(property => property.index === 'thrown')
+		
+
+		// hasPropertyThrown = can be thrown
+		// hasPropertyFinesse = use DEX or STR when thrown. If has not finesse, use STR when thrown
+
+		item.isMelee = item.weapon_range === 'Melee'
+		item.isRanged = item.weapon_range === 'Ranged'
+
+		item.rangedProperty = item.isRanged ? 'DEX' : (item.hasPropertyThrown ? 'DEX' : 'STR')
+
+		if (item.hasPropertyFinesse) {
+			// For the moment we use the best attack roll possible.
+			// TODO: Should we propose to choose?
+			item.rangedProperty = character.meleeAttackRollModifier > character.rangedAttackRollModifier 
+				? character.meleeAttackRollModifier 
+				: character.rangedAttackRollModifier
+		}
+
+		// TODO: should we add proficiencyBonus for canBeThrown ?
+
+		item.meleeAttackRollModifier = character.meleeAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
+		item.meleeAttackRollModifierLabel = modifierToModifierLabel(character.meleeAttackRollModifier)
+
+		if (item.rangedProperty === 'DEX') {
+			item.rangedAttackRollModifier = character.rangedAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
+			item.rangedAttackRollModifierLabel = modifierToModifierLabel(character.rangedAttackRollModifier)
+		} else {
+			item.rangedAttackRollModifier = character.meleeAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
+			item.rangedAttackRollModifierLabel = modifierToModifierLabel(character.meleeAttackRollModifier)
+		}
+
+	  // TODO: property versatile two_handed_damage
+	  // This weapon can be used with one or two hands. A damage value in parentheses appears with the 
+	  // property--the damage when the weapon is used with two hands to make a melee attack.
+		item.hasPropertyTwoHandedDamages = item.properties.some(property => property.index === 'two-handed')
+		
+		if (item.hasPropertyTwoHandedDamages && !item.twoHandedDamage) {
+			item.twoHandedDamage = {...item.damage}
+		}
+
+		// TODO: property special, force description to be looked at
+
+		// TODO: other properties?
+
+		// console.log({ item })
 		return item
 	})
 
-	console.log({ character })
+	// console.log({ character })
 	return character
 }
 

@@ -1,10 +1,8 @@
 import useTipDamageType from "./useTipDamageType"
-import useDice from "./useDice";
 import useI18n from "../modules/i18n/useI18n"
 
 function CharacterEquipmentItemRow({ character, item, onClick }) {
 	const { tr } = useI18n()
-	const { rollDamage } = useDice()
 	const { showTipDamageType } = useTipDamageType()
 
 	return (
@@ -28,17 +26,7 @@ function CharacterEquipmentItemRow({ character, item, onClick }) {
 											<span
 												className="cursor-pointer"
 											>
-												<span
-													onClick={(e) => {
-														rollDamage(
-															`${tr(item.nameLocalized)}`,
-															item.damage.damageDice,
-															item?.attackRollModifier || 0,
-															item.damage.damageType
-														)
-														e.preventDefault()
-													}}
-												>
+												<span>
 													{item.damage.damageDice}{item?.attackRollModifierLabel || "+MOD"}
 												</span>
 												<span> </span>
