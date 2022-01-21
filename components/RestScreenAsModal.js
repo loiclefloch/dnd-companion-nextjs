@@ -37,6 +37,10 @@ function RestScreenAsModal({ onCloseScreen }) {
 				</div>
 			</>
 			<>
+				<div>
+					{/* TODO: */}
+					<h3>Hit dices: {character.maximumHitDice}</h3>
+				</div>
 				<div className="flex flex-col flex-1 mt-4 mb-12">
 					<h3 className="w-full pb-1 mx-4 text-lg font-semibold border-b border-solid border-slate-300">Repos court</h3>
 					<div className="px-4 mt-2">

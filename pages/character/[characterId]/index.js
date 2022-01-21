@@ -58,9 +58,11 @@ function AcView({ character }) {
 				</div>)
 			}}
 		>
-			<IconShield className="w-14 h-14" />
+			<IconShield className="w-14 h-14 fill-slate-700" />
 
-			<div className="absolute text-xl font-semibold" style={{ marginTop: -6 }}>{character.ac.total}</div>
+			<div className="absolute text-xl font-semibold text-slate-700" style={{ marginTop: -6 }}>
+				{character.ac.total}
+			</div>
 		</div>
 	)
 }
@@ -69,7 +71,7 @@ function Character() {
 	const router = useRouter()
 	const { tr } = useI18n()
 	const { currentCharacter, setCurrentCharacter, characterDispatch } = useCurrentCharacter()
-	const { showTipAlignment } = useTipAlignment()
+	const { showTipPassivePerception } = useTip()
 	const { showRestModalAsScreen } = useRestScreenAsModal()
 	const characterResponse = useCharacter(router.query.characterId)
 
@@ -114,6 +116,9 @@ function Character() {
 						<HpView character={character} characterDispatch={characterDispatch} />
 						<div className="ml-12" />
 						<AcView character={character} characterDispatch={characterDispatch} />
+						<div className="absolute right-0">
+							<IconCampFire className="w-10 h-10 fill-slate-700" onClick={() => showRestModalAsScreen()} />
+						</div>
 					</div>
 
 					<div className="my-4 mt-6">
@@ -124,26 +129,17 @@ function Character() {
 							character={character}
 						/>
 					</div>
-					
-
-					<div>
-						<Button 
-							variant="outlined"
-							size="small"
-							className="relative"
-							onClick={() => showRestModalAsScreen()}
-						>
-							<IconCampFire className="w-12 h-12 fill-slate-800"/>
-						</Button>
-					</div>
 
 					<Section title="Caractéristiques">
-						<div>Hit dices: {character.maximumHitDice}</div>
 						<div>Proficiency: +{character.proficiencyBonus}</div>
 						<div>Base Speed: {character.baseSpeed} </div>
 						<div>Current speed: {character.currentSpeed} {character.speedReduced && 'Réduite'}</div>
-						<div>
-							15 Sagess perception passive // TODO
+
+						<div 
+							className="mt-2"
+							onClick={() => showTipPassivePerception()}
+						>
+							Perception passive: {character.passivePerception}
 						</div>
 					</Section>
 

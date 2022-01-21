@@ -15,10 +15,10 @@ function SavingThrow({ modifierLabel, ability, isProeficient, character }) {
 					"bg-slate-600": isProeficient
 				})} 
 			/>
-			<div className="ml-1">
+			<div className="ml-4 w-28">
 				{tr(ability)}
 			</div>
-			<div className="ml-3">{modifierLabel}</div>
+			<div className="">{modifierLabel}</div>
 		</div>
 	)
 }

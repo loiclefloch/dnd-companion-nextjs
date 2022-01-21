@@ -173,6 +173,11 @@ export function formatCharacter(character) {
 		}
 	})
 
+
+	// 10 + Wisdom Score Modifier + Proficiency Bonus if proficiency in the Wisdom (Perception) skill
+	const isProefficientInPerception = character.skills.find(s => s.index === "perception").isProeficient
+	character.passivePerception = 10 + valueToModifier(character.stats.WIS) + (isProefficientInPerception ? character.proficiencyBonus : 0)
+
 	character.equipment = (character.equipment || []).map(item => {
 		return {
 			...equipmentList.find(i => i.index === item.index),
