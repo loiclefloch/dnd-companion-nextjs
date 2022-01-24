@@ -5,13 +5,25 @@ import ScreenIntroduction from "../../../components/ScreenIntroduction";
 import Screen from "../../../components/Screen";
 import Link from "next/link"
 import useCreateCharacter from '../../../components/useCreateCharacter';
+import { useEquipmentItemScreenAsModal } from '../../../components/EquipmentItemScreenAsModal';
 import useEquipmentItems from "../../../modules/api/useEquipmentItems";
 import ListSelector from "../../../components/ListSelector";
+import clsx from "clsx";
 
 function StartingEquipmentItem({ item }) {
+	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
+
 	return (
 		<div className="flex px-4 py-1">
-			<div className="flex flex-1">x{item.quantity} {item.equipment.name}</div>
+			<div className="flex flex-1">
+				x{item.quantity} {item.name}
+			</div>
+			<div
+				className="px-4 py-2 text-xs text-meta"
+				onClick={() => showEquipmentItemScreenAsModal(item)}
+			>
+				?
+			</div>
 		</div>
 	)
 }
@@ -38,13 +50,17 @@ function getItemsForType(type, from, equipmentItems) {
 		if (!categoryName) {
 			throw new Error(`Not handled`)
 		}
-		return equipmentItems.filter(item => item.gearCategory?.name === categoryName)
+		// TODO: better way take from the equipment-categories.
+		return equipmentItems.filter(item => item.gearCategory?.name === categoryName
+			|| item.toolCategory === categoryName
+			|| item.vehicleCategory === categoryName
+		)
 	}
 	throw new Error(`Not handled`)
 }
 
-function EquipmentCategoryChoice({ chosenItems, setChosenItems, option, equipmentItems }) {
-
+function EquipmentCategoryChoice({ chosenItems, character, setChosenItems, option, equipmentItems }) {
+	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
 	const itemsOptions = getItemsForType(option.type, option.from, equipmentItems)
 
 	return (
@@ -57,12 +73,23 @@ function EquipmentCategoryChoice({ chosenItems, setChosenItems, option, equipmen
 					multiple
 					nbMaxValues={option.choose}
 					options={itemsOptions?.map(item => {
+						// proficiency index is the same as the item
+						const isProefficient = character.proficiencies.find(p => item.index === p.index)
+
 						return ({
-							label: <div className="flex">
+							label: <div className={clsx("flex", {
+								"text-blue-500": isProefficient
+							})}>
 								{item.name}
 							</div>,
 							value: item,
-							selected: chosenItems.includes(item)
+							selected: chosenItems.includes(item),
+							rightView: 	<div
+								className="px-4 py-2 text-xs text-meta"
+								onClick={() => showEquipmentItemScreenAsModal(item)}
+							>
+								?
+							</div>
 						})
 					})}
 					onChange={setChosenItems}
@@ -72,7 +99,10 @@ function EquipmentCategoryChoice({ chosenItems, setChosenItems, option, equipmen
 	)
 }
 
-function EquipmentOptions({ chosenItems, setChosenItems, options, equipmentItems }) {
+function EquipmentOptions({ chosenItems, character, setChosenItems, options, equipmentItems }) {
+	if (!options) {
+		return null
+	}
 	return (
 		<>
 			{options.map((option, index) => (
@@ -82,6 +112,7 @@ function EquipmentOptions({ chosenItems, setChosenItems, options, equipmentItems
 					equipmentItems={equipmentItems} 
 					chosenItems={chosenItems}
 					setChosenItems={setChosenItems}
+					character={character}
 				/>
 			))}
 		</>
@@ -90,7 +121,7 @@ function EquipmentOptions({ chosenItems, setChosenItems, options, equipmentItems
 
 
 function Form({ equipmentItems }) {
-	const { background, updateCharacter } = useCreateCharacter()
+	const { background, character, updateCharacter } = useCreateCharacter()
 	const [chosenItems, setChosenItems] = useState([])
 
 	return (
@@ -111,12 +142,14 @@ function Form({ equipmentItems }) {
 				<StartingEquipment
 					startingEquipment={background.startingEquipment}
 					equipmentItems={equipmentItems}
+					character={character}
 				/>
 				<EquipmentOptions
 					chosenItems={chosenItems}
 					setChosenItems={setChosenItems}
 					options={background.startingEquipmentOptions}
 					equipmentItems={equipmentItems}
+					character={character}
 				/>
 			</div>
 
@@ -125,7 +158,7 @@ function Form({ equipmentItems }) {
 				onClick={() => {
 					const equipment = [
 						...background.startingEquipment.map(item => ({
-							index: item.equipment.index,
+							index: item.index,
 							quantity: item.quantity
 						})),
 						...chosenItems.map(item => ({

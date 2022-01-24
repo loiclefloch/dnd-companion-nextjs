@@ -1,5 +1,5 @@
 // TODO: add more backgrounds
-import backgrounds from '../../database/data/backgrounds.json'
+import backgrounds from '../../database/data/backgrounds'
 import useApi from "./useApi"
 
 import { formatBackground } from "./useBackground"

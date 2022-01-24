@@ -74,9 +74,51 @@ function ChooseRaceProficiency({
 	)
 }
 
+function ChooseBackgroundProficiency({ 
+	selectedBackgroundProficiencies,
+	setSelectedBackgroundProficiencies,
+	background
+}) {
+	const { showTipProficiency } = useTipProficiency()
+
+	const options = background.startingProficiencyOptions
+	if (!options) {
+		return null
+	}
+
+	return (
+		<div>
+			<h3>Choisissez</h3>
+			<div>
+				<ListSelector
+					multiple
+					nbMaxValues={options.choose}
+					value={selectedBackgroundProficiencies}
+					onChange={setSelectedBackgroundProficiencies}
+					options={options?.from.map(proficiency => ({
+						label: proficiency.name,
+						value: proficiency,
+						selected: selectedBackgroundProficiencies.includes(proficiency),
+						// disabled: raceSelectedLanguages.includes(proficiency.index),
+						rightView: (
+							<div
+								className="px-4 py-2 text-xs text-meta"
+								onClick={() => showTipProficiency(proficiency)}
+							>
+								?
+							</div>
+						)
+					}))}
+				/>
+			</div>
+		</div>
+	)
+}
+
 function Form({ race, background, clss, updateCharacter }) {
 	const { tr } = useI18n()
 	const [selectedRaceProficiencies, setSelectedRaceProficiencies] = useState([])
+	const [ selectedBackgroundProficiencies, setSelectedBackgroundProficiencies ] = useState([])
 
 	const allProficiencies = uniqBy([
 		...race.starting_proficiencies.map(p => ({
@@ -119,6 +161,14 @@ function Form({ race, background, clss, updateCharacter }) {
 				</div>
 
 				<div>
+					<ChooseBackgroundProficiency
+						selectedBackgroundProficiencies={selectedBackgroundProficiencies}
+						setSelectedBackgroundProficiencies={setSelectedBackgroundProficiencies}
+						background={background}
+					/>
+				</div>
+
+				<div>
 					{map(grouped, (list, groupName) => (
 						<div 
 							key={groupName}
@@ -145,6 +195,7 @@ function Form({ race, background, clss, updateCharacter }) {
 					const proficiencies = [
 						...allProficiencies,
 						...selectedRaceProficiencies,
+						...selectedBackgroundProficiencies,
 					].map(proficiency => ({
 						index: proficiency.index,
 						sourceType: proficiency.sourceType

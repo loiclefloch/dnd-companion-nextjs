@@ -1,7 +1,9 @@
 import { cloneDeep } from 'lodash'
-import backgrounds from '../../database/data/backgrounds.json'
+import equipment from '../../database/data/equipment.json'
+import backgrounds from '../../database/data/backgrounds'
 import camelize from "../utils/camelize"
 import useApi from "./useApi"
+import { formatEquipmentItem  } from './useEquipmentItem'
 
 export function formatBackground(backgroundParam) {
   if (!backgroundParam) {
@@ -26,8 +28,25 @@ export function formatBackground(backgroundParam) {
       title,
       desc,
       fullDesc,
-  }
+    }
   })
+
+  if (background.startingEquipment) {
+    background.startingEquipment = background.startingEquipment.map(item => {
+      return {
+        ...formatEquipmentItem(equipment.find(i => i.index === item.equipment.index)),
+        ...item,
+        equipment: undefined
+      }
+    })
+  }
+
+  if (background.startingProficiencyOptions) {
+		background.startingProficiencyOptions.from = background.startingProficiencyOptions.from.map(o => ({
+			...o,
+			sourceType: 'background'
+		}))
+	}
 
   return background
 }

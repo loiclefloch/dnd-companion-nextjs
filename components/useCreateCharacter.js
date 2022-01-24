@@ -5,7 +5,7 @@ import { getDefaultData } from "../modules/character/useCurrentCharacter"
 
 import classes from '../database/data/classes.json'
 import allRaces from "../database/data/allRaces"
-import backgrounds from "../database/data/backgrounds.json"
+import backgrounds from "../database/data/backgrounds"
 import { formatRace } from "../modules/api/useRace"
 import { formatBackground } from "../modules/api/useBackground"
 import { formatCharacter } from "../modules/api/useCharacter"
