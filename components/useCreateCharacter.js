@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { createContext, useContext, useReducer, useEffect } from "react"
 import { createStorage } from "../modules/utils/storage"
 import { getDefaultData } from "../modules/character/useCurrentCharacter"
+import applyLevelling from "../modules/levelling/applyLevelling"
 
 import classes from '../database/data/classes.json'
 import allRaces from "../database/data/allRaces"
@@ -89,12 +90,36 @@ function getStepUrl(step) {
   return `${root}${map[step]}`
 }
 
-function onFinalize(character) {
-  console.log('onFinalize')
+function buildCharacter(characterParam) {
+  if (!characterParam) {
+    return null
+  }
 
-  const data = {}
+  const race = allRaces.find(r => r.index === characterParam.race)
+  const clss = classes.find(clss => clss.index === characterParam.classes[0])
+  const background = backgrounds.find(b => b.index === characterParam.background)
 
-  const clss = classes.find(clss => clss.index === character.classes[0])
+  const character = cloneDeep(characterParam)
+
+  character.traits = race.traits.map(trait => ({
+    index: trait.index,
+    sourceType: 'race',
+  }))
+
+  character.alignment = characterParam.alignment
+
+  const toDelete = [
+    'alignmentIndex',
+    'step',
+    'currentStep',
+    'url',
+    'idealsData'
+  ]
+  toDelete.forEach(d => {
+    delete character[d]
+  })
+
+
   
   //
   // setup Hit points and hit dice
@@ -106,43 +131,15 @@ function onFinalize(character) {
   // (vous ajouterez aussi votre modificateur de Constitution, qui sera déterminé à l'étape 3). 
   // Cette valeur finale est aussi votre maximum de points de vie.
   const hitDice = 1 + clss.hit_dice
-  data.maximumHitDice = hitDice
-  data.maximumHp = hitDice + character.stats.CON
-  data.currentHitDice = data.maximumHitDice
-  data.currentHp = data.maximumHp
+  character.maximumHitDice = hitDice
+  character.maximumHp = hitDice + character.stats.CON
+  character.currentHitDice = character.maximumHitDice
+  character.currentHp = character.maximumHp
 
-  // 
-
-  return data
-}
-
-function buildCharacter(characterParam) {
-  if (!characterParam) {
-    return null
+  const DEFAULT_CURRENCIES = {
+    gp: 15,
   }
-
-  const race = allRaces.find(r => r.index === characterParam.race)
-
-  const character = cloneDeep(characterParam)
-  delete character.idealsData
-
-  character.traits = race.traits.map(trait => ({
-    index: trait.index,
-    sourceType: 'race',
-  }))
-
-  character.alignment = characterParam.alignment?.index || characterParam.alignment || characterParam.alignmentIndex // TODO: remove ||
-
-  const toDelete = [
-    'alignmentIndex',
-    'step',
-    'currentStep',
-    'url'
-  ]
-
-  toDelete.forEach(d => {
-    delete character[d]
-  })
+  character.currencies = background.startingCurrencies || DEFAULT_CURRENCIES
 
   // add unarmed strike
   character.proficiencies.unshift({
@@ -153,6 +150,8 @@ function buildCharacter(characterParam) {
   character.skillsProficiencies = character.proficiencies
     .filter(p => p.index.startsWith("skill-"))
     .map(p => p.index.replaceAll("skill-", ""))
+
+  applyLevelling(character, 1)
 
   console.log(character)
   return cloneDeep(character)
@@ -194,13 +193,6 @@ export function CreateCharacterProvider({ children }) {
       if (nextStepUrl) {
         console.log({ nextStepUrl })
         router.push(nextStepUrl)
-      }
-
-      if (currentStep === getBeforeResumeStep()) {
-        newData = {
-          ...newData,
-          ...onFinalize(character)
-        }
       }
 
       dispatchCharacter({

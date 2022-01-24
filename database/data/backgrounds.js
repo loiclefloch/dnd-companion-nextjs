@@ -102,7 +102,7 @@ export default [
         }
       ]
     },
-    "starting_wallet": {
+    "starting_currencies": {
       gp: 15,
     },
     "starting_equipment": [
@@ -381,7 +381,7 @@ export default [
       "from": proficiencies.filter(f => f.type === "Gaming Sets")
     },
     "language_options": null,
-    "starting_wallet": {
+    "starting_currencies": {
       gp: 15,
     },
     "starting_equipment": [
