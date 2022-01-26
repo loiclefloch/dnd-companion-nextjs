@@ -5,24 +5,19 @@ import useCharacter from "../../../modules/api/useCharacter"
 import StatsSmall from "../../../components/StatsSmall"
 import { useRouter } from "next/router"
 import Screen from "../../../components/Screen"
-import useTipAlignment from "../../../components/useTipAlignment"
-import Button from "../../../components/Button"
 import { useRestScreenAsModal } from "../../../components/RestScreenAsModal"
 import { useLifeScreenAsModal } from "../../../components/LifeScreenAsModal"
+import { useAcScreenAsModal } from "../../../components/AcScreenAsModal"
 import useCurrentCharacter from "../../../modules/character/useCurrentCharacter"
-import SavingThrows from "../../../components/SavingThrows"
 import IconCampFire from "../../../components/icons/IconCampFire"
 import IconShield from "../../../components/icons/IconShield"
 import useTip from "../../../components/useTip"
-
-function Section({ title, children }) {
-	return (
-		<div className="pt-2 mt-2">
-			<h3 className="mb-2 font-semibold border-b border-solid border-slate-200">{title}</h3>
-			<div>{children}</div>
-		</div>
-	)
-}
+import {
+	TraitsSection,
+	ProficienciesSection,
+} from "../../../components/CharacterResume"
+import Section from "../../../components/Section"
+import LineInfo from "../../../components/LineInfo"
 
 function HpView({character, characterDispatch}) {
 	const { showLifeScreenAsModal } = useLifeScreenAsModal()
@@ -44,19 +39,12 @@ function HpView({character, characterDispatch}) {
 }
 
 function AcView({ character }) {
-	const { showTip } = useTip()
+	const { showAcScreenAsModal } = useAcScreenAsModal()
 
 	return (
 		<div
 			className="relative flex items-center justify-center align-middle"
-			onClick={() => {
-				showTip(<div>
-					<div>Natural AC: {character.ac.natural}</div>
-					<div>Armor AC: {character.ac.armor}</div>
-					<div>Shield AC: {character.ac.shield}</div>
-					<div>Total AC: {character.ac.total}</div>
-				</div>)
-			}}
+			onClick={() => showAcScreenAsModal(character)}
 		>
 			<IconShield className="w-14 h-14 fill-slate-700" />
 
@@ -131,30 +119,27 @@ function Character() {
 					</div>
 
 					<Section title="Caractéristiques">
-						<div>Proficiency: +{character.proficiencyBonus}</div>
-						<div>Base Speed: {character.baseSpeed} </div>
-						<div>Current speed: {character.currentSpeed} {character.speedReduced && 'Réduite'}</div>
+						<LineInfo.Parent>
+							<LineInfo label="Maîtrise" value={<span>+{character.proficiencyBonus}</span>} />
+							<LineInfo 
+								label="Vitesse" 
+								value={
+									<>
+										{character.currentSpeed != character.baseSpeed && <span>{character.currentSpeed} {character.speedReduced && 'Réduite'}</span>}
+										{character.currentSpeed == character.baseSpeed && <span>{character.currentSpeed}</span>}
+									</>
+								} 
+							/>
+							<LineInfo label="Perception passive" value={<span>{character.passivePerception}</span>} onClick={() => showTipPassivePerception()} />
+							<LineInfo label="Spell DC" value={<span>{character.spellSaveDC}</span>} />
+							<LineInfo label="Spellcasing ability" value={<span><span className="text-xs text-meta">{character.spellcastingAbility}</span> {character.spellcastingAbilityValueLabel}</span>} />
+							<LineInfo label="Spell Attack bonus" value={<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>} />
+						</LineInfo.Parent>
 
-						<div 
-							className="mt-2"
-							onClick={() => showTipPassivePerception()}
-						>
-							Perception passive: {character.passivePerception}
-						</div>
 					</Section>
 
-					<div>
-						Spell DC: {character.spellSaveDC}
-						<br />
-						Spellcasing ability: {character.spellcastingAbilityValueLabel} <span className="text-xs text-meta">{character.spellcastingAbility}</span>
-						<br />
-						Spell Attack bonus: {character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}
-					</div>
-
-					{/* TODO: on Modal? */}
-					<Section title="Saving throws">
-						<SavingThrows savingThrows={character.savingThrows} character={character} />
-					</Section>
+					<TraitsSection character={character} />
+					<ProficienciesSection character={character} />
 
 				</div>
 			)}

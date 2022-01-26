@@ -7,25 +7,30 @@ import Screen from "../../../../components/Screen";
 import useBackgrounds from "../../../../modules/api/useBackgrounds"
 import Link from "next/link"
 import useI18n from "../../../../modules/i18n/useI18n";
+import useCreateCharacter from "../../../../components/useCreateCharacter";
 
 
-function BackgroundRow({ background }) {
+function BackgroundRow({ background, clss }) {
 	const { tr } = useI18n()
 	const router = useRouter()
 	const url = `/character/create/choose-background/${background.index}`
+	
+	const isGoodForClass = background.goodForClasses && background.goodForClasses.includes(clss)
 
 	return (
 		<ListSelectRowAsCard 
 			onClick={() => router.push(url)}
-			title={tr(background.nameLocalized)}
+			title={<div>
+				{tr(background.nameLocalized)}
+				{isGoodForClass && (<span className="text-meta text-xs ml-2 text-blue-400">Recommandé</span>)}
+			</div>}
 			subtitle={tr(background.resume)}
 		/>
 	)
 }
 
 function CreateCharacterBackground() {
-	const { tr } = useI18n()
-	const router = useRouter()
+	const { character } = useCreateCharacter()
 	const backgroundsResponse = useBackgrounds()
 
 	return (
@@ -49,7 +54,7 @@ function CreateCharacterBackground() {
 
 				<ListRowSelectContainer className="px-4 mt-6">
 					{backgroundsResponse.data?.map(background => (
-						<BackgroundRow key={background.index} background={background} />
+						<BackgroundRow key={background.index} background={background} clss={character.classes[0]} />
 					))}
 				</ListRowSelectContainer>
 			</div>

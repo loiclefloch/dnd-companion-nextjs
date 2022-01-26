@@ -28,6 +28,7 @@ function Character({ character }) {
 	)
 }
 
+
 function CharactersScreen() {
 	const router = useRouter()
 	const { startCreateCharacter } = useCreateCharacter()

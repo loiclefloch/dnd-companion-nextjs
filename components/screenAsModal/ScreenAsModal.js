@@ -1,5 +1,6 @@
 import IconX from '../icons/IconX'
 import IconSpin from "../icons/IconSpin"
+import useEscapeEffect from "../useEscapeEffect"
 
 function ScreenLoading() {
 	return (
@@ -10,6 +11,8 @@ function ScreenLoading() {
 }
 
 function ScreenAsModal({ title, isLoading, onCloseScreen, children }) {
+	useEscapeEffect(onCloseScreen)
+
 	return (
 		<div className='flex flex-col h-screen bg-app'>
 			<header className='flex flex-row p-2'>

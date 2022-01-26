@@ -4,6 +4,7 @@ import StatsSmall from "./StatsSmall";
 import useTipTrait from "./useTipTrait"
 import useTipProficiency from "./useTipProficiency"
 import { useEquipmentItemScreenAsModal } from "./EquipmentItemScreenAsModal"
+import LineInfo from "./LineInfo"
 
 function Section({ title, children }) {
 	return (
@@ -19,14 +20,14 @@ function Proficiency({ proficiency }) {
 	const { showTipProficiency } = useTipProficiency()
 
 	return (
-		<div
+		<LineInfo
 			key={proficiency.name}
-			className="flex py-1 mx-4"
-		>
-			<div className="flex items-center flex-1">
-				{proficiency.name} <span className="ml-2 text-sm text-meta">({proficiency.sourceType})</span>
-			</div>
-			{proficiency.isSkill && (
+			label={
+				<span>
+					{proficiency.name} <span className="ml-1 text-sm text-meta">({proficiency.sourceType})</span>
+				</span>
+			}
+			value={proficiency.isSkill && (
 				<div
 					onClick={() => showTipProficiency(proficiency)}
 					className="text-meta"
@@ -34,11 +35,11 @@ function Proficiency({ proficiency }) {
 					?
 				</div>
 			)}
-		</div>
+		/>
 	)
 }
 
-function ProficienciesSection({ character }) {
+export function ProficienciesSection({ character }) {
 	const grouped = groupBy(character.proficiencies, item => item.typeLabel)
 
 	return (
@@ -49,42 +50,42 @@ function ProficienciesSection({ character }) {
 					className="mt-4"
 				>
 					<h4 className="mx-2 mb-2 border-b border-gray-300 border-solid text-semibold">{groupName}</h4>
-					<div className="divide-y divide">
+					<LineInfo.Parent>
 						{list.map(proficiency => (
 							<Proficiency
 								key={proficiency.index}
 								proficiency={proficiency}
 							/>
 						))}
-					</div>
+					</LineInfo.Parent>
 				</div>
 			))}
 		</Section>
 	)
 }
 
-function TraitsSection({ character }) {
+export function TraitsSection({ character }) {
 	const { showTipTrait } = useTipTrait()
 
 	return (
 		<Section title="Traits">
-			<div className="divide-y divide">
+			<LineInfo.Parent>
 				{character.traits.map(trait => (
-					<div
+					<LineInfo
 						key={trait.index}
-						onClick={() => showTipTrait(trait)}
-						className="flex items-center py-1 mx-4"
-					>
-						<div className="flex flex-1">{trait.name}</div>
-						<div
-							onClick={() => showTipTrait(trait)}
-							className="text-meta"
-						>
-							?
+						// onClick={() => showTipTrait(trait)}
+						label={trait.name}
+						value={
+							<div
+								onClick={() => showTipTrait(trait)}
+								className="text-meta"
+							>
+								?
 						</div>
-					</div>
+						}
+					/>
 				))}
-			</div>
+			</LineInfo.Parent>
 		</Section>
 	)
 }
@@ -122,14 +123,16 @@ function PhysicSection({ character }) {
 
 	return (
 		<Section title="Physique">
-			<div>age: {body.age}</div>
-			<div>gender: {body.gender}</div>
-			<div>height: {body.height}</div>
-			<div>weight: {body.weight}</div>
-			<div>hairColor: {body.hairColor}</div>
-			<div>eyeColor: {body.eyeColor}</div>
-			<div>skinColor: {body.skinColor}</div>
-			<div>physicalCaracteristics: {body.physicalCaracteristics}</div>
+			<LineInfo.Parent>
+				<LineInfo label="age" value={body.age} />
+				<LineInfo label="gender" value={body.gender} />
+				<LineInfo label="height" value={body.height} />
+				<LineInfo label="weight" value={body.weight} />
+				<LineInfo label="hairColor" value={body.hairColor} />
+				<LineInfo label="eyeColor" value={body.eyeColor} />
+				<LineInfo label="skinColor" value={body.skinColor} />
+				<LineInfo label={<span>physical<br />caracteristics</span>} value={body.physicalCaracteristics} />
+			</LineInfo.Parent>
 		</Section>
 	)
 }
@@ -200,16 +203,32 @@ function IdealsSection({ character }) {
 function GlobalSection({ character }) {
 	return (
 		<Section title="Caractéristiques">
-			<div>Niveau: {character.level}</div>
-			<div>HP: {character.maximumHp}</div>
-			<div>Natural AC: {character.ac.natural}</div>
-			<div>Armor AC: {character.ac.armor}</div>
-			<div>Shield AC: {character.ac.shield}</div>
-			<div>Total AC: {character.ac.total}</div>
-			<div>Hit dices: {character.maximumHitDice}</div>
-			<div>Proficiency: +{character.proficiencyBonus}</div>
-			<div>Base Speed: {character.baseSpeed} </div>
-			<div>Current speed: {character.currentSpeed} {character.speedReduced && 'Réduite'}</div>
+			<LineInfo.Parent>
+
+				<LineInfo label="Niveau" value={character.level} />
+				<LineInfo label="HP" value={character.maximumHp} />
+				<LineInfo label="Natural AC" value={character.ac.natural} />
+				<LineInfo label="Armor AC" value={character.ac.armor} />
+				<LineInfo label="Shield AC" value={character.ac.shield} />
+				<LineInfo label="Total AC" value={character.ac.total} />
+				<LineInfo label="Hit dices" value={character.maximumHitDice} />
+
+				<LineInfo label="Maîtrise" value={<span>+{character.proficiencyBonus}</span>} />
+				<LineInfo
+					label="Vitesse"
+					value={
+						<>
+							{character.currentSpeed != character.baseSpeed && <span>{character.currentSpeed} {character.speedReduced && 'Réduite'}</span>}
+							{character.currentSpeed == character.baseSpeed && <span>{character.currentSpeed}</span>}
+						</>
+					}
+				/>
+				<LineInfo label="Perception passive" value={<span>{character.passivePerception}</span>} onClick={() => showTipPassivePerception()} />
+				<LineInfo label="Spell DC" value={<span>{character.spellSaveDC}</span>} />
+				<LineInfo label="Spellcasing ability" value={<span><span className="text-xs text-meta">{character.spellcastingAbility}</span> {character.spellcastingAbilityValueLabel}</span>} />
+				<LineInfo label="Spell Attack bonus" value={<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>} />
+			</LineInfo.Parent>
+
 		</Section>
 	)
 }
@@ -235,6 +254,8 @@ function CharacterResume({ character }) {
 				<EquipmentSection character={character} />
 				<TraitsSection character={character} />
 				<ProficienciesSection character={character} />
+
+				// TODO: background + background feature + add on character page
 			</div>
 
 			<div>

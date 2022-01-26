@@ -46,7 +46,6 @@ function Group({ title, character, items }) {
 }
 
 function Character() {
-	const router = useRouter()
 	const { tr } = useI18n()
 	const { character, characterDispatch } = useCurrentCharacter()
 	const { showChooseEquipmentModal } = useChooseEquipmentScreenAsModal()

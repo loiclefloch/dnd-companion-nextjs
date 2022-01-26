@@ -207,11 +207,14 @@ export function formatCharacter(character) {
 	]
 	.map(camelize)
 	.map(item => {
-		// Proficiency Bonus. You add your proficiency bonus to your attack roll when you attack using a 
-		// weapon with which you have proficiency, as well as when you attack with a spell.
+		item.isCharacterContextItem = true
+		// item.canBeEquipped = true
 
 		// const isUnarmedStrike = item.index === "unarmed-strike"
 
+		// Proficiency with a weapon allows you to add your Proficiency Bonus to the Attack roll for any 
+		// Attack you make with that weapon. If you make an Attack roll using a weapon with which you 
+		// lack proficiency, you do not add your Proficiency Bonus to the Attack roll.		
 		const isProeficient = item.index === 'unarmed-strike' 
 			|| character.proficiencies.some(proficiency => proficiency.reference.index === item.index)
 		item.isProeficient = isProeficient
@@ -234,8 +237,8 @@ export function formatCharacter(character) {
 		// hasPropertyThrown = can be thrown
 		// hasPropertyFinesse = use DEX or STR when thrown. If has not finesse, use STR when thrown
 
-		item.isMelee = item.weapon_range === 'Melee'
-		item.isRanged = item.weapon_range === 'Ranged'
+		item.isMelee = item.weaponRange === 'Melee'
+		item.isRanged = item.weaponRange === 'Ranged'
 
 		item.rangedProperty = item.isRanged ? 'DEX' : (item.hasPropertyThrown ? 'DEX' : 'STR')
 
@@ -276,6 +279,14 @@ export function formatCharacter(character) {
 		// console.log({ item })
 		return item
 	})
+
+	// HACK: remove weapons from equipment and add actionsEquipment which has been formatted.
+	// this allows to have the same data on the equipment and actions pages.
+	character.equipment = character.equipment.filter(item => item.equipmentCategory?.index !== "weapon")
+	character.equipment = [
+		...character.equipment, 
+		...character.actionsEquipment
+	].filter(item => item.index !== 'unarmed-strike' )
 
 	// Here are some ways to calculate your base AC:
 	// Unarmored: 10 + your Dexterity modifier.
