@@ -44,6 +44,7 @@ function Rules() {
 					subItems={[
 						<SubItem href={`/race`} title="Races" />,
 						<SubItem href={`/class`} title="Classes" />,
+						<SubItem href={`/background`} title="Backgrounds" />,
 					]}
 				/>
 
