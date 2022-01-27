@@ -108,6 +108,10 @@ function Form() {
 	const { background, character, updateCharacter } = useCreateCharacter()
 	const [chosenItems, setChosenItems] = useState([])
 
+	if (!background) {
+		return null
+	}
+
 	return (
 		<div className="flex flex-col">
 			<ScreenIntroduction

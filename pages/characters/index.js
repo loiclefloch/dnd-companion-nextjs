@@ -13,7 +13,6 @@ function Character({ character }) {
 	const { tr } = useI18n()
 	const router = useRouter()
 
-	console.log({ character })
 	return (
 		<ListSelectRowAsCard 
 			title={character.name}

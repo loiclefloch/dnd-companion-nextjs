@@ -28,7 +28,6 @@ function useLocalSearch({ data = [], options }) {
 
     const results = fuzzySearch({ data: data || [], term, fuse })
     setResults(results.filter(Boolean))
-		console.log({ term, results, data, options })
 	}, 1000), [])
 
   useEffect(() => {
