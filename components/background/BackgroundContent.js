@@ -1,28 +1,161 @@
-
-import { createElement } from "react"
 import useBackground from "../../modules/api/useBackground"
+import Section from "../Section"
+import LineInfo from "../LineInfo"
+
 import acolyte from "./acolyte.mdx"
 import criminal from "./criminal.mdx"
 import folkHero from "./folk-hero.mdx"
 import sage from "./sage.mdx"
+import useI18n from "../../modules/i18n/useI18n"
+import useTipProficiency from "../useTipProficiency"
+import { useEquipmentItemScreenAsModal } from "../EquipmentItemScreenAsModal"
+import useTipLanguage from "../useTipLanguage"
 
 function Content({ index }) {
+	const { tr } = useI18n()
 	const backgroundResponse = useBackground(index)
+	const { showTipProficiency } = useTipProficiency()
+	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
+	const { showTipLanguage } = useTipLanguage()
+
+	const background = backgroundResponse.data
+
+	if (!background) {
+		return null
+	}
 
 	// TODO: display data
-	// - good_for_classes
-	// - starting_proficiencies
-	// - starting_proficiency_options
-	// - language_options
 	// - starting_currencies
-	// - starting_equipment
-	// - starting_equipment_options
-	// - feature
-	// - personality_traits
-	// - ideals
-	// - bonds
-	// - flaws
-	return null
+	return (
+		<>
+			<Section title="Recommandé pour">
+				<LineInfo.Parent>
+					{background.goodForClasses.map(c => (
+						<LineInfo key={c.index} label={c.name} />
+					))}
+				</LineInfo.Parent>
+			</Section>
+
+			<Section title="Feature">
+				<h4>{background.feature.name}</h4>
+				<p>{tr(background.feature.desc)}</p>
+			</Section>
+
+			<Section title="starting_proficiencies">
+				<LineInfo.Parent>
+
+					{background.startingProficiencies.map(proficiency => (
+						<LineInfo 
+							key={proficiency.index}
+							label={proficiency.name}
+							value={<span>?</span>}
+							onClick={() => showTipProficiency(proficiency)}
+						/>
+					))}
+				</LineInfo.Parent>
+			</Section>
+
+
+			{background.startingProficiencyOptions && (
+				<Section title="starting_proficiencies options">
+					<h4>Choisir {background.startingProficiencyOptions.choose}</h4>
+					<LineInfo.Parent>
+						{background.startingProficiencyOptions.from.map((proficiency) => (
+							<LineInfo 
+								key={proficiency.index} 
+								label={<span>{proficiency.name}</span>} 
+								onClick={() => showTipProficiency(proficiency)}
+							/>
+						))}
+					</LineInfo.Parent>
+				</Section>
+			)}
+
+			<Section title="starting_equipment">
+				<LineInfo.Parent>
+					{background.startingEquipment.map(item => (
+						<LineInfo 
+							key={item.index} 
+							label={item.name} 
+							value={<span>x{item.quantity}</span>} 
+							onClick={() => showEquipmentItemScreenAsModal(item)}
+						/>
+					))}
+				</LineInfo.Parent>
+			</Section>
+
+			<Section title="starting_equipment options">
+				{background.startingEquipmentOptions.map((startingEquipmentOption, index) => (
+					<div key={index}>
+						<h4>Choisir {startingEquipmentOption.choose} {startingEquipmentOption.equipmentCategory.name}</h4>
+						<LineInfo.Parent>
+							{startingEquipmentOption.from.map(item => (
+								<LineInfo 
+									key={item.index} 
+									label={item.name} 
+									value={<span>?</span>}
+									onClick={() => showEquipmentItemScreenAsModal(item)}
+								/>
+							))}
+						</LineInfo.Parent>
+					</div>
+				))}
+			
+			</Section>
+
+			{background.languageOptions && (
+				<Section title="Languages options">
+					<h4>Choisir {background.languageOptions.choose}</h4>
+					<LineInfo.Parent>
+						{background.languageOptions.from.map((language) => (
+							<LineInfo 
+								key={language.index} 
+								label={<span>{language.name}</span>} 
+								value={<span>?</span>}
+								onClick={() => showTipLanguage(language.index)}
+							/>
+						))}
+					</LineInfo.Parent>
+				</Section>
+			)}
+
+			<Section title="personality_traits">
+				<LineInfo.Parent>
+					{background.personalityTraits.from.map((trait, index) => (
+						<LineInfo key={index} label={<span>{index + 1} - {trait}</span>}  />
+					))}
+				</LineInfo.Parent>
+			</Section>
+
+			<Section title="ideals">
+				<LineInfo.Parent>
+					{background.ideals.from.map((trait, index) => (
+						<LineInfo 
+							key={index} 
+							label={<span>{index + 1} - {trait.desc} <span className="text-meta text-sm">({trait.alignments.map(a => a.name).join(', ')})</span></span>}  
+						/>
+					))}
+				</LineInfo.Parent>
+			</Section>
+
+			<Section title="bonds">
+				<LineInfo.Parent>
+					{background.bonds.from.map((trait, index) => (
+						<LineInfo key={index} label={<span>{index + 1} - {trait}</span>}  />
+					))}
+				</LineInfo.Parent>
+			</Section>
+
+			<Section title="flaws">
+				<LineInfo.Parent>
+					{background.flaws.from.map((trait, index) => (
+						<LineInfo key={index} label={<span>{index + 1} - {trait}</span>}  />
+					))}
+				</LineInfo.Parent>
+			</Section>
+
+		</>
+	)
 }
 
 function BackgroundContent({ index }) {

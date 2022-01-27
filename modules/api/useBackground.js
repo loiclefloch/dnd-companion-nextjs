@@ -1,9 +1,11 @@
 import { cloneDeep } from 'lodash'
 import equipment from '../../database/data/equipment.json'
 import backgrounds from '../../database/data/backgrounds'
+import classes from '../../database/data/classes'
 import camelize from "../utils/camelize"
 import useApi from "./useApi"
 import { formatEquipmentItem  } from './useEquipmentItem'
+import { formatProficiency } from "./useProficiency"
 
 export function formatBackground(backgroundParam) {
   if (!backgroundParam) {
@@ -13,6 +15,8 @@ export function formatBackground(backgroundParam) {
   background.nameLocalized = {
     en: background.name
   }
+
+  background.goodForClasses = (background.goodForClasses || []).map(clss => classes.find(c => c.index === clss))
 
   background.ideals.from = background.ideals.from.map((ideal, index) => {
     // transform "Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld."
@@ -46,6 +50,11 @@ export function formatBackground(backgroundParam) {
 			...o,
 			sourceType: 'background'
 		}))
+    .map(formatProficiency)
+	}
+
+  if (background.startingProficiencies) {
+		background.startingProficiencies = background.startingProficiencies.map(formatProficiency)
 	}
 
   return background

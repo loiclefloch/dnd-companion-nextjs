@@ -44,24 +44,8 @@ function StartingEquipment({ startingEquipment }) {
 	)
 }
 
-function getItemsForType(type, from, equipmentItems) {
-	if (type === 'equipment') {
-		const categoryName = from.equipmentCategory.name
-		if (!categoryName) {
-			throw new Error(`Not handled`)
-		}
-		// TODO: better way take from the equipment-categories.
-		return equipmentItems.filter(item => item.gearCategory?.name === categoryName
-			|| item.toolCategory === categoryName
-			|| item.vehicleCategory === categoryName
-		)
-	}
-	throw new Error(`Not handled`)
-}
-
-function EquipmentCategoryChoice({ chosenItems, character, setChosenItems, option, equipmentItems }) {
+function EquipmentCategoryChoice({ chosenItems, character, setChosenItems, option }) {
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
-	const itemsOptions = getItemsForType(option.type, option.from, equipmentItems)
 
 	return (
 		<div className="mt-8">
@@ -72,7 +56,7 @@ function EquipmentCategoryChoice({ chosenItems, character, setChosenItems, optio
 					value={chosenItems}
 					multiple
 					nbMaxValues={option.choose}
-					options={itemsOptions?.map(item => {
+					options={option.from.map(item => {
 						// proficiency index is the same as the item
 						const isProefficient = character.proficiencies.find(p => item.index === p.index)
 
@@ -99,7 +83,7 @@ function EquipmentCategoryChoice({ chosenItems, character, setChosenItems, optio
 	)
 }
 
-function EquipmentOptions({ chosenItems, character, setChosenItems, options, equipmentItems }) {
+function EquipmentOptions({ chosenItems, character, setChosenItems, options }) {
 	if (!options) {
 		return null
 	}
@@ -120,7 +104,7 @@ function EquipmentOptions({ chosenItems, character, setChosenItems, options, equ
 }
 
 
-function Form({ equipmentItems }) {
+function Form() {
 	const { background, character, updateCharacter } = useCreateCharacter()
 	const [chosenItems, setChosenItems] = useState([])
 
@@ -141,14 +125,12 @@ function Form({ equipmentItems }) {
 			<div className="mx-4">
 				<StartingEquipment
 					startingEquipment={background.startingEquipment}
-					equipmentItems={equipmentItems}
 					character={character}
 				/>
 				<EquipmentOptions
 					chosenItems={chosenItems}
 					setChosenItems={setChosenItems}
 					options={background.startingEquipmentOptions}
-					equipmentItems={equipmentItems}
 					character={character}
 				/>
 			</div>
@@ -183,15 +165,12 @@ function Form({ equipmentItems }) {
 
 
 function CreateCharacterEquipment() {
-	const equipmentItemsResponse = useEquipmentItems()
-
 	return (
 		<Screen
 			title={"Équipement"}
 			withBottomSpace
-			isLoading={equipmentItemsResponse.isLoading}
 		>
-			{equipmentItemsResponse.data && <Form equipmentItems={equipmentItemsResponse.data} />}
+			<Form />
     </Screen>
   );
 }

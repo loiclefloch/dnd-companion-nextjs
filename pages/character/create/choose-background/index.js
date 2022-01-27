@@ -15,7 +15,7 @@ function BackgroundRow({ background, clss }) {
 	const router = useRouter()
 	const url = `/character/create/choose-background/${background.index}`
 	
-	const isGoodForClass = background.goodForClasses && background.goodForClasses.includes(clss)
+	const isGoodForClass = background.goodForClasses && background.goodForClasses.some(c => c.index === clss)
 
 	return (
 		<ListSelectRowAsCard 

@@ -1,11 +1,13 @@
 import proficiencies from "./proficiencies.json"
 import languages from "./languages.json"
-import equipment from "./equipment.json"
+import equipmentItems from "./equipment.json"
+import equipmentCategories from "./equipment-categories.json"
 
 import acolyte from "./backgrounds/acolyte"
 import criminalSpy from "./backgrounds/criminal-spy"
 import folkHero from "./backgrounds/folk-hero"
 import sage from "./backgrounds/sage"
+import { isEmpty } from "lodash"
 
 const api = {
   proficiencies,
@@ -29,7 +31,7 @@ const api = {
 		}))
   },
   buildEquipment: (index) => {
-    const item = equipment.find(i => i.index === index)
+    const item = equipmentItems.find(i => i.index === index)
     if (!item) {
       throw new Error(`Item not found ${item}`)
     }
@@ -40,16 +42,16 @@ const api = {
     }
   },
   buildChooseEquipmentFromCategory: (choose, categoryIndex) => {
+    const equipmentCategory = equipmentCategories.find(c => c.index === categoryIndex)
+    const items = equipmentCategory.equipment.map(e => equipmentItems.find(item => item.index === e.index))
+    if (isEmpty(items)) {
+      throw new Error(`Missing items for ${categoryIndex}`)
+    }
     return {
-			"choose": 1,
+			"choose": choose,
 			"type": "equipment",
-			"from": {
-				"equipment_category": { // TODO:
-					"index": categoryIndex,
-					"name": "Artisan's Tools",
-					"url": "/api/equipment-categories/" + categoryIndex
-				}
-			}
+			"equipmentCategory": equipmentCategory,
+			"from": items,
 		}
   },
   buildIdealAlignment: typeParam => {
