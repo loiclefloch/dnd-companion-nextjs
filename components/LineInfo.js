@@ -20,6 +20,19 @@ function LineInfo({ label, value, onClick }) {
 	)
 }
 
+function LineInfoParagraph({ label, value, onClick }) {
+	return (
+		<div 
+			onClick={onClick}
+			className="flex flex-col py-1 prose w-full"
+		>
+			<h4>{label}</h4>
+			<p>{value}</p>
+		</div>
+	)
+}
+
 LineInfo.Parent = LineInfoParent
+LineInfo.Paragraph = LineInfoParagraph
 
 export default LineInfo

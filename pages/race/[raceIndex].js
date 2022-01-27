@@ -3,7 +3,6 @@ import Screen from "../../components/Screen";
 import useRace from '../../modules/api/useRace';
 import useI18n from '../../modules/i18n/useI18n';
 import RaceDetailsView from '../../components/races/RaceDetailsView';
-import SubraceDetailsView from '../../components/subraces/SubraceDetailsView';
 
 function Race() {
 	const { tr } = useI18n()
@@ -20,11 +19,7 @@ function Race() {
 		>
 			<div className="p-4">
 				{race && (
-					race.isSubrace ? (
-						<SubraceDetailsView subrace={race.index} />
-					) : (
-						<RaceDetailsView race={race.index} />
-					)
+						<RaceDetailsView race={race} />
 				)}
 			</div>
 		</Screen>

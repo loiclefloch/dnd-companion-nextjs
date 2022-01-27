@@ -111,7 +111,7 @@ function Form() {
 	const [abilities, setAbilities] = useState(character?.baseStats)
 	const router = useRouter()
 
-	const bonusFromRace = race?.ability_bonuses || []
+	const bonusFromRace = race?.abilityBonuses || []
 
 	// 2 score = 1 point
 	const MAX_POINTS = 27
@@ -127,42 +127,42 @@ function Form() {
 			<Ability
 				ability="STR"
 				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "STR")?.bonus || 0}
+				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "STR")?.bonus || 0}
 				onChange={setAbilities}
 				importance={importanceForClass?.STR}
 			/>
 			<Ability
 				ability="DEX"
 				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "DEX")?.bonus || 0}
+				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "DEX")?.bonus || 0}
 				onChange={setAbilities}
 				importance={importanceForClass?.DEX}
 			/>
 			<Ability
 				ability="CON"
 				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "CON")?.bonus || 0}
+				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "CON")?.bonus || 0}
 				onChange={setAbilities}
 				importance={importanceForClass?.CON}
 			/>
 			<Ability
 				ability="INT"
 				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "INT")?.bonus || 0}
+				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "INT")?.bonus || 0}
 				onChange={setAbilities}
 				importance={importanceForClass?.INT}
 			/>
 			<Ability
 				ability="WIS"
 				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "WIS")?.bonus || 0}
+				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "WIS")?.bonus || 0}
 				onChange={setAbilities}
 				importance={importanceForClass?.WIS}
 			/>
 			<Ability
 				ability="CHA"
 				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.ability_score.name === "CHA")?.bonus || 0}
+				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "CHA")?.bonus || 0}
 				onChange={setAbilities}
 				importance={importanceForClass?.CHA}
 			/>
@@ -201,7 +201,7 @@ function Form() {
 
 						const statsBonuses = bonusFromRace.map(bonus => {
 							return {
-								ability: bonus.ability_score.name,
+								ability: bonus.abilityScore.name,
 								type: 'race',
 								bonus: bonus.bonus,
 							}
@@ -213,7 +213,7 @@ function Form() {
 							stats[bonus.ability] += bonus.bonus
 						})
 
-						const abilityBonusOptions = race?.ability_bonus_options || []
+						const abilityBonusOptions = race?.abilityBonusOptions || []
 						if (!isEmpty(abilityBonusOptions)) {
 							// half-elf race
 							// do not update step yet

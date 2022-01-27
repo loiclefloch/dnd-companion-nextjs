@@ -50,7 +50,7 @@ function Form({ race, backgroundLanguagesOptions, updateCharacter }) {
 					<div className="relative w-full mt-12">
 						<div>
 							<h3>Languages parlés</h3>
-							{race.language_desc && <p>{race.language_desc}</p>}
+							{race.languageDesc && <p>{race.languageDesc}</p>}
 							
 							<ul className="list-disc">
 								{race.languages.map(language => (
@@ -59,15 +59,15 @@ function Form({ race, backgroundLanguagesOptions, updateCharacter }) {
 							</ul>
 						</div>
 
-						{race.language_options && (
+						{race.languageOptions && (
 							<div>
-								<h3>Options supplémentaires ({race.language_options.choose ?? 1} choix)</h3>
+								<h3>Options supplémentaires ({race.languageOptions.choose ?? 1} choix)</h3>
 
 								<ListSelector
 									multiple
-									nbMaxValues={race.language_options.choose ?? 1}
+									nbMaxValues={race.languageOptions.choose ?? 1}
 									value={raceSelectedLanguages}
-									options={race.language_options.from.filter(language => !knownLanguages.includes(language.index)).map(language => ({
+									options={race.languageOptions.from.filter(language => !knownLanguages.includes(language.index)).map(language => ({
 										label: language.name,
 										value: language.index,
 										selected: raceSelectedLanguages.includes(language.index),

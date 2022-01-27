@@ -6,7 +6,7 @@ import { createContext, useContext, useState, useEffect } from "react"
 import { updateObjectOnArray } from '../utils/array';
 import { formatCharacter  } from "../api/useCharacter"
 import { createStorage } from "../utils/storage";
-import { uuid } from 'uuidv4';
+import { v4 as uuid } from 'uuid';
 import { formatEquipmentItem } from "../api/useEquipmentItem"
 import equipmentList from "../../database/data/equipment.json"
 

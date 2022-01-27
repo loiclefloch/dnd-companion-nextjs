@@ -40,7 +40,7 @@ function ChooseRaceProficiency({
 }) {
 	const { showTipProficiency } = useTipProficiency()
 
-	const options = race.starting_proficiency_options
+	const options = race.startingProficiencyOptions
 	if (!options) {
 		return null
 	}
@@ -121,7 +121,7 @@ function Form({ race, background, clss, updateCharacter }) {
 	const [ selectedBackgroundProficiencies, setSelectedBackgroundProficiencies ] = useState([])
 
 	const allProficiencies = uniqBy([
-		...race.starting_proficiencies.map(p => ({
+		...race.startingProficiencies.map(p => ({
 			...p,
 			sourceType: 'race',
 		})),
