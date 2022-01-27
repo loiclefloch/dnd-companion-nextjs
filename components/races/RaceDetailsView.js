@@ -4,8 +4,8 @@ import LineInfo from "../LineInfo"
 import Section from "../Section"
 import useI18n from "../../modules/i18n/useI18n"
 import useTipProficiency from "../useTipProficiency"
-import { useEquipmentItemScreenAsModal } from "../EquipmentItemScreenAsModal"
 import useTipLanguage from "../useTipLanguage"
+import useTipAbilityScore from "../useTipAbilityScore"
 import useTipTrait from "../useTipTrait"
 
 import dwarf from "./dwarf.mdx"
@@ -15,9 +15,9 @@ import HighElf from "./high-elf.mdx"
 
 function Content({ race }) {
 	const { showTipProficiency } = useTipProficiency()
-	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
 	const { showTipLanguage } = useTipLanguage()
 	const { showTipTrait } = useTipTrait()
+	const { showTipAbilityScore } = useTipAbilityScore()
 
 	return (
 		<>
@@ -43,6 +43,7 @@ function Content({ race }) {
 							key={abilityScore.abilityScore.index} 
 							label={abilityScore.abilityScore.name}
 							value={abilityScore.bonus}
+							onClick={() => showTipAbilityScore(abilityScore.abilityScore.name)}
 						/>
 					))}
 				</LineInfo.Parent>

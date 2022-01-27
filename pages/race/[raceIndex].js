@@ -19,7 +19,7 @@ function Race() {
 		>
 			<div className="p-4">
 				{race && (
-						<RaceDetailsView race={race} />
+					<RaceDetailsView race={race} />
 				)}
 			</div>
 		</Screen>

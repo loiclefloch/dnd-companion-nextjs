@@ -1,4 +1,4 @@
-import { cloneDeep } from "lodash"
+import { isEmpty, cloneDeep } from "lodash"
 import languages from "./languages.json"
 import proficiencies from "./proficiencies.json"
 import traits from "./traits.json"
@@ -16,6 +16,8 @@ import human from "./races/human"
 import lightfootHalfling from "./races/lightfoot-halfling"
 import rockGnome from "./races/rock-gnome"
 import tiefling from "./races/tiefling"
+import aasimar from "./races/aasimar"
+import protectoreAasimar from "./races/protector-aasimar"
 
 const _races = [
 	dragonborn,
@@ -31,6 +33,8 @@ const _races = [
 	lightfootHalfling,
 	rockGnome,
 	tiefling,
+	aasimar,
+	protectoreAasimar,
 ]
 
 const api = {
@@ -170,13 +174,19 @@ function merge(race, sub) {
 
 const allRaces = []
 races.forEach(race => {
-	if (race.subraces?.length === 0) {
+	if (race.subraces && race.subraces.length === 0) {
 		allRaces.push(race)
 	} else {
-		races.filter(r => r.race && r.race.index === race.index).forEach(sub => {
+		const subraces = races.filter(r => r.race && r.race.index === race.index);
+		// if (isEmpty(subraces)) {
+		// 	throw new Error(`No subraces found for ${race.index}`)
+		// }
+		subraces.forEach(sub => {
 			allRaces.push(merge(race, sub))
 		})
 	}
 })
+
+console.log(allRaces)
 
 export default allRaces
