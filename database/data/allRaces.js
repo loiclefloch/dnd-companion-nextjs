@@ -1,7 +1,102 @@
 import { cloneDeep } from "lodash"
-import Error from "next/error"
-import races from "./races.json"
-import subraces from "./subraces.json"
+import languages from "./languages.json"
+import proficiencies from "./proficiencies.json"
+import traits from "./traits.json"
+
+import dragonborn from "./races/dragonborn"
+import dwarf from "./races/dwarf"
+import elf from "./races/elf"
+import gnome from "./races/gnome"
+import halfEelf from "./races/half-elf"
+import halfling from "./races/halfling"
+import halfOrc from "./races/half-orc"
+import highElf from "./races/high-elf"
+import hillDwarf from "./races/hill-dwarf"
+import human from "./races/human"
+import lightfootHalfling from "./races/lightfoot-halfling"
+import rockGnome from "./races/rock-gnome"
+import tiefling from "./races/tiefling"
+
+const _races = [
+	dragonborn,
+	dwarf,
+	elf,
+	gnome,
+	halfEelf,
+	halfling,
+	halfOrc,
+	highElf,
+	hillDwarf,
+	human,
+	lightfootHalfling,
+	rockGnome,
+	tiefling,
+]
+
+const api = {
+	buildAbilityBonus: (ability, bonus) => {
+		return {
+			ability_score: {
+				index: ability.toLowerCase(),
+				name: ability.toUpperCase(),
+				url: `/api/ability-scores/${ability.toLowerCase()}`
+			},
+			bonus
+		}
+	},
+	buildLanguage: (index) => {
+		const language = languages.find(l => l.index === index)
+		if (!language) {
+			throw new Error(`language not found ${index}`)
+		}
+		return {
+			index: language.index,
+			name: language.name,
+			url: language.url,
+		}
+	},
+	buildTrait: (index) => {
+		const trait = traits.find(l => l.index === index)
+		if (!trait) {
+			throw new Error(`trait not found ${index}`)
+		}
+		return {
+			index: trait.index,
+			name: trait.name,
+			url: trait.url,
+		}
+	},
+	buildProficiency: (index) => {
+		const proficiency = proficiencies.find(l => l.index === index)
+		if (!proficiency) {
+			throw new Error(`proficiency not found ${index}`)
+		}
+		return {
+			index: proficiency.index,
+			name: proficiency.name,
+			url: proficiency.url,
+		}
+	},
+	buildRace: (index) => {
+		// const race = _races.find(r => r.index === index)
+		// if (!race) {
+		// 	throw new Error(`Race not found ${index}`)
+		// }
+		return {
+			index: index,
+			// name: index,
+			// url: race.url,
+		}
+	}
+}
+
+function build(race) {
+	race.url = `/api/subraces/${race.index}`
+	return race
+}
+
+
+const races = _races.map(r => build(r(api)))
 
 function mergeArray(final, race, sub, property) {
 	final[property] = [
@@ -18,17 +113,18 @@ function merge(race, sub) {
 		'ability_bonuses',
 		'starting_proficiencies',
 		'languages',
+		'traits'
 	]
 
 	arrayKeys.forEach(key => {
 		mergeArray(final, race, sub, key)
 	})
 
-	// race is using 'traits' while the sub has the 'racial_traits'
-	final.traits = [
-		...(race.traits || []),
-		...(sub.racial_traits || []),
-	]
+	// // race is using 'traits' while the sub has the 'racial_traits'
+	// final.traits = [
+	// 	...(race.traits || []),
+	// 	...(sub.traits || sub.racial_traits || []),
+	// ]
 
 	// sub race has priority on this keys
 	const objectKeys = [
@@ -74,10 +170,10 @@ function merge(race, sub) {
 
 const allRaces = []
 races.forEach(race => {
-	if (race.subraces.length === 0) {
+	if (race.subraces?.length === 0) {
 		allRaces.push(race)
 	} else {
-		subraces.filter(r => r.race.index === race.index).forEach(sub => {
+		races.filter(r => r.race && r.race.index === race.index).forEach(sub => {
 			allRaces.push(merge(race, sub))
 		})
 	}

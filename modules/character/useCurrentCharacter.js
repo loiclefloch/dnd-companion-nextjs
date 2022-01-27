@@ -13,8 +13,6 @@ import equipmentList from "../../database/data/equipment.json"
 const CharactersStorage = createStorage("characters")
 const CurrentCharacterIdStorage = createStorage("currentCharacterId")
 
-const isBrowser = typeof window !== "undefined";
-
 let CurrentCharacterContext;
 let { Provider } = (CurrentCharacterContext = createContext());
 
@@ -107,6 +105,7 @@ export function getDefaultData() {
   }
 }
 function getDefaultCharacterId() {
+	const isBrowser = typeof window !== "undefined";
 	if (!isBrowser) {
 		return null
 	}
