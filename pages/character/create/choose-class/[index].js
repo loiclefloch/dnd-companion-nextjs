@@ -13,7 +13,7 @@ function Form({ clss }) {
 	return (
 		<div className="flex flex-col">
 			<div className="relative w-full px-4 mt-12">
-				<ClassDetailsView clss={clss.index} />
+				<ClassDetailsView clss={clss} />
 			</div>
 
 			<ButtonBottomScreen

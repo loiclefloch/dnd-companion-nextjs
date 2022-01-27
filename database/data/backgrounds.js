@@ -13,11 +13,11 @@ import entertainer from "./backgrounds/entertainer"
 
 const backgrounds = [
   acolyte,
-criminalSpy,
-folkHero,
-sage,
-soldier,
-entertainer,
+  criminalSpy,
+  folkHero,
+  sage,
+  soldier,
+  entertainer,
 ]
 
 const api = {

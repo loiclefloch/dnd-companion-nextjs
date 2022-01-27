@@ -137,6 +137,8 @@ function Form() {
 					options={background.startingEquipmentOptions}
 					character={character}
 				/>
+
+				{/* TODO: class starting_equipment_options ex: barbarian */}
 			</div>
 
 			<ButtonBottomScreen

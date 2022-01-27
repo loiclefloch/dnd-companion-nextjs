@@ -24,7 +24,7 @@ function LineInfoParagraph({ label, value, onClick }) {
 	return (
 		<div 
 			onClick={onClick}
-			className="flex flex-col py-1 prose w-full"
+			className="flex flex-col py-1 prose w-full pt-4"
 		>
 			<h4>{label}</h4>
 			<p>{value}</p>

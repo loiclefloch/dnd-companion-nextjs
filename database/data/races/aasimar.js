@@ -3,9 +3,9 @@ export default (api) => ({
 	"name": "Aasimar",
 	"speed": 30,
 	"ability_bonuses": [
-		api.buildAbilityBonus("char", 2),
+		api.buildAbilityBonus("cha", 2),
 	],
-	"alignment": "",
+	"alignment": "Imbued with celestial power, most aasimar are good. Outcast aasimar are most often neutral or even evil.",
 	"age": "Aasimar mature at the same rate as humans, but they can live up to 160 years.",
 	"size": "Medium",
 	"size_description": "Aasimar have the same range of height and weight as humans. Your size is Medium.",

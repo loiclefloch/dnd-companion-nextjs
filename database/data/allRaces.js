@@ -18,6 +18,7 @@ import rockGnome from "./races/rock-gnome"
 import tiefling from "./races/tiefling"
 import aasimar from "./races/aasimar"
 import protectoreAasimar from "./races/protector-aasimar"
+import rabbitfolk from "./races/rabbitfolk"
 
 const _races = [
 	dragonborn,
@@ -35,6 +36,7 @@ const _races = [
 	tiefling,
 	aasimar,
 	protectoreAasimar,
+	rabbitfolk,
 ]
 
 const api = {
@@ -59,6 +61,13 @@ const api = {
 			url: language.url,
 		}
 	},
+	getAllLanguages: () => {
+    return  languages.map(l => ({
+			index: l.index,
+			name: l.name,
+			url: l.url,
+		}))
+  },
 	buildTrait: (index) => {
 		const trait = traits.find(l => l.index === index)
 		if (!trait) {
@@ -186,7 +195,5 @@ races.forEach(race => {
 		})
 	}
 })
-
-console.log(allRaces)
 
 export default allRaces

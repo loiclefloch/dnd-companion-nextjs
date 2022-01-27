@@ -36,16 +36,7 @@ function Race() {
 
 				<ListRowSelectContainer className="px-4 mt-4">
 					{racesResponse.data?.map(race => (
-						<>
-							<RaceRow key={`race_${race.index}`} race={race} />
-							{race.hasSubraces && (
-								<div className='ml-12'>
-									{race.subraces.map(subrace => (
-										<RaceRow key={`subrace_${subrace.index}`} race={subrace} />
-									))}
-								</div>
-							)}
-						</>
+						<RaceRow key={`race_${race.index}`} race={race} />
 					))}
 				</ListRowSelectContainer>
 			</div>

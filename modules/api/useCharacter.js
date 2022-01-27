@@ -135,7 +135,7 @@ export function formatCharacter(character) {
 	// Some Monsters have saving throw Proficiencies as well.
 
 	function buildSavingThrow(ability) {
-		const isProeficient = character.classes[0].saving_throws.some(savingThrow => savingThrow.name === ability)
+		const isProeficient = character.classes[0].savingThrows.some(savingThrow => savingThrow.name === ability)
 		const value = character.stats[ability] + (isProeficient ? character.proficiencyBonus : 0)
 		return {
 			value,

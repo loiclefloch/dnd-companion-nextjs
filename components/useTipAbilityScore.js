@@ -8,7 +8,10 @@ function useTipAbilityScore() {
 
 	return {
 		showTipAbilityScore: (name) => { // STR, DEX
-			const abilityData = abilityScores.find(a => a.name === name.toUpperCase())
+			const abilityData = abilityScores.find(a => a.name.toUpperCase() === name.toUpperCase())
+			if (!abilityData) {
+				throw new Error(`Invalid ability ${name}`)
+			}
 			showInfoModal({ 
 				content: <div className="whitespace-pre-wrap">{tr(abilityData.desc)}</div> 
 			})

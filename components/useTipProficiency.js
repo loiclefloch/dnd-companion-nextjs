@@ -10,7 +10,7 @@ function useTipProficiency() {
 			showInfoModal({ 
 				content: <div>
 					<p className="mt-2 whitespace-pre-wrap">
-						{proficiency.isSkill ? tr(proficiency.skill.desc) : ''}
+						{proficiency.isSkill ? tr(proficiency.skill.desc) : `Proeficient in ${proficiency.name}`}
 					</p>
 					</div>
 			})

@@ -26,30 +26,41 @@ function Content({ race }) {
 			<Section title="">
 				<LineInfo.Parent>
 					<LineInfo label="Speed" value={race.speed} />
-					<LineInfo label="size" value={race.size} />
+					<LineInfo label="Size" value={race.size} />
 
 					<LineInfo.Paragraph label="size_description" value={race.sizeDescription} />
 					<LineInfo.Paragraph label="alignment" value={race.alignment} />
 					<LineInfo.Paragraph label="age" value={race.age} />
-					<LineInfo.Paragraph label="age" value={race.languageDesc} />
-
+					<LineInfo.Paragraph label="language desc" value={race.languageDesc} />
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="Ability bonuses">
-				<LineInfo.Parent>
-					{race.abilityBonuses.map(abilityScore => (
-						<LineInfo 
-							key={abilityScore.abilityScore.index} 
-							label={abilityScore.abilityScore.name}
-							value={abilityScore.bonus}
-							onClick={() => showTipAbilityScore(abilityScore.abilityScore.name)}
-						/>
-					))}
-				</LineInfo.Parent>
-			</Section>
+			{race.abilityBonuses && (
+				<Section title="Ability bonuses">
+					{race.abilityBonuses.length === 0 && (
+						<p>
+							Aucun
+						</p>
+					)}
+					<LineInfo.Parent>
+						{race.abilityBonuses.map(abilityScore => (
+							<LineInfo
+								key={abilityScore.abilityScore.index}
+								label={abilityScore.abilityScore.name}
+								value={<span>+{abilityScore.bonus}</span>}
+								onClick={() => showTipAbilityScore(abilityScore.abilityScore.name)}
+							/>
+						))}
+					</LineInfo.Parent>
+				</Section>
+			)}
 			
-			<Section title="starting_proficiencies">
+			<Section title="starting proficiencies">
+				{race.startingProficiencies.length === 0 && (
+					<p>
+						Aucune
+					</p>
+				)}
 				<LineInfo.Parent>
 
 					{race.startingProficiencies.map(proficiency => (
@@ -80,6 +91,11 @@ function Content({ race }) {
 
 			<Section title="Languages">
 				<LineInfo.Parent>
+					{race.languages.length === 0 && (
+						<p>
+							Aucun /!\ Missing common language on data?
+						</p>
+					)}
 					{race.languages.map((language) => (
 						<LineInfo
 							key={language.index}
@@ -93,6 +109,11 @@ function Content({ race }) {
 
 			<Section title="Traits">
 				<LineInfo.Parent>
+					{race.traits.length === 0 && (
+						<p>
+							Aucun /!\ Missing traits on data?
+						</p>
+					)}
 					{race.traits.map((trait) => (
 						<LineInfo
 							key={trait.index}

@@ -31,7 +31,7 @@ function Form() {
 	const [chosenBonuses, setChosenBonuses] = useState((character.statsBonuses || []).filter(bonus => bonus.type === 'race-options').map(stat => stat.ability))
 	const { showTip } = useTip()
 
-	const bonusOptions = race?.ability_bonus_options || {}
+	const bonusOptions = race?.abilityBonusOptions || {}
 
 	const baseStats = getBaseStats(character.baseStats, character.statsBonuses)
 

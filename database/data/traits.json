@@ -1,9 +1,72 @@
 [
+    {
+      "index": "hare-trigger",
+      "name": "Hare trigger",
+      "desc": [
+        "You add your proficiency bonus to your initiative rolls."
+      ],
+      "races": [
+        {
+          "index": "rabbitfolk",
+          "name": "Rabbitfalk",
+          "url": "/api/races/rabbitfolk"
+        }
+      ]
+    },
+  {
+    "index": "lucky-footwork",
+    "name": "Lucky footwork",
+    "desc": [
+      "When you fail a Dexterity saving throw, you can use your reaction to roll a d4 and add it to the result, potentially turning the failure into a success."
+    ],
+    "races": [
+      {
+        "index": "rabbitfolk",
+        "name": "Rabbitfalk",
+        "url": "/api/races/rabbitfolk"
+      }
+    ]
+  },
+  {
+    "index": "rabbit-hop",
+    "name": "Rabbit hop",
+    "desc": [
+      "Once during each of your turns when you walk at least 5 feet, you can hop, rolling a d12 and moving that many feet in a direction of your choice. This extra distance doesn’t cost movement, but you can hop only if your speed isn’t 0."
+    ],
+    "races": [
+      {
+        "index": "rabbitfolk",
+        "name": "Rabbitfalk",
+        "url": "/api/races/rabbitfolk"
+      }
+    ]
+  },
+  {
+    "index": "leporine-senses",
+    "name": "Leporine senses",
+    "desc": [
+      "You have proficiency in the Perception skill."
+    ],
+    "races": [
+      {
+        "index": "rabbitfolk",
+        "name": "Rabbitfolk",
+        "url": "/api/races/rabbitfolk"
+      }
+    ]
+  },
   {
     "index": "light-bearer",
     "name": "Light bearer",
     "desc": [
       "You know the Light cantrip. Charisma is your spellcasting ability for it."
+    ],
+    "races": [
+      {
+        "index": "aasimar",
+        "name": "Aasimar",
+        "url": "/api/races/aasimar"
+      }
     ]
   },
   {
@@ -11,6 +74,13 @@
     "name": "Healing hands",
     "desc": [
       "As an action, you can touch a creature and cause it to regain a number of hit points equal to your level. Once you use this trait, you can't use it again until you finish a long rest."
+    ],
+    "races": [
+      {
+        "index": "aasimar",
+        "name": "Aasimar",
+        "url": "/api/races/aasimar"
+      }
     ]
   },
   {
@@ -18,6 +88,13 @@
     "name": "Celestial resistance",
     "desc": [
       "You have resistance to necrotic damage and radiant damage."
+    ],
+    "races": [
+      {
+        "index": "aasimar",
+        "name": "Aasimar",
+        "url": "/api/races/aasimar"
+      }
     ]
   },
   {
@@ -27,6 +104,13 @@
       "Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to glimmer and two luminous, incorporeal wings to sprout from your back.",
       "- Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you have a flying speed of 30 feet, and once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level.",
       "- Once you use this trait, you can't use it again until you finish a long rest."
+    ],
+    "races": [
+      {
+        "index": "aasimar",
+        "name": "Aasimar",
+        "url": "/api/races/aasimar"
+      }
     ]
   },
   {
