@@ -1,11 +1,13 @@
-import useBackground from "../../modules/api/useBackground"
-import Section from "../Section"
-import LineInfo from "../LineInfo"
-
 import acolyte from "./acolyte.mdx"
 import criminal from "./criminal.mdx"
 import folkHero from "./folk-hero.mdx"
 import sage from "./sage.mdx"
+import soldier from "./soldier.mdx"
+import entertainer from "./entertainer.mdx"
+
+import useBackground from "../../modules/api/useBackground"
+import Section from "../Section"
+import LineInfo from "../LineInfo"
 import useI18n from "../../modules/i18n/useI18n"
 import useTipProficiency from "../useTipProficiency"
 import { useEquipmentItemScreenAsModal } from "../EquipmentItemScreenAsModal"
@@ -36,10 +38,11 @@ function Content({ index }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="Feature">
-				<h4>{background.feature.name}</h4>
-				<p>{tr(background.feature.desc)}</p>
-			</Section>
+			{background.features.map((feature, index) => (
+				<Section key={index} title={`Feature ${feature.name}`}>
+					<p>{tr(feature.desc)}</p>
+				</Section>
+			))}
 
 			<Section title="starting_proficiencies">
 				<LineInfo.Parent>
@@ -164,6 +167,8 @@ function BackgroundContent({ index }) {
 		criminal: criminal,
 		'folk-hero': folkHero,
 		sage: sage,
+		entertainer: entertainer,
+		soldier: soldier,
 	}
 
 	const View = map[index]

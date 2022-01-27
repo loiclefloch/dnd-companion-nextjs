@@ -6,11 +6,7 @@ export default (api) => ({
 		api.buildProficiency("skill-stealth"),
 		api.buildProficiency("thieves-tools"),
 	],
-	"starting_proficiency_options": {
-		"choose": 1,
-		"type": "proficiency",
-		"from": api.proficiencies.filter(f => f.type === "Gaming Sets")
-	},
+	"starting_proficiency_options": api.buildProficiencyOption(1, 'Gaming Sets'),
 	"language_options": null,
 	"starting_currencies": {
 		gp: 15,
@@ -26,13 +22,14 @@ export default (api) => ({
 		}
 	],
 	"starting_equipment_options": null,
-	"feature": {
+	"features": [{
+		"index": "criminal-contact",
 		"name": "Criminal Contact",
 		"desc": [
 			"You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals.",
 			"You know how to get messages to and from your contact, even over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you."
 		]
-	},
+	}],
 	"personality_traits": {
 		"choose": 2,
 		"type": "personality_traits",

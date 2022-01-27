@@ -1,3 +1,4 @@
+import { isEmpty } from "lodash"
 import proficiencies from "./proficiencies.json"
 import languages from "./languages.json"
 import equipmentItems from "./equipment.json"
@@ -7,7 +8,17 @@ import acolyte from "./backgrounds/acolyte"
 import criminalSpy from "./backgrounds/criminal-spy"
 import folkHero from "./backgrounds/folk-hero"
 import sage from "./backgrounds/sage"
-import { isEmpty } from "lodash"
+import soldier from "./backgrounds/soldier"
+import entertainer from "./backgrounds/entertainer"
+
+const backgrounds = [
+  acolyte,
+criminalSpy,
+folkHero,
+sage,
+soldier,
+entertainer,
+]
 
 const api = {
   proficiencies,
@@ -33,7 +44,7 @@ const api = {
   buildEquipment: (index) => {
     const item = equipmentItems.find(i => i.index === index)
     if (!item) {
-      throw new Error(`Item not found ${item}`)
+      throw new Error(`Item not found ${index}`)
     }
     return {
       index: item.index,
@@ -53,6 +64,17 @@ const api = {
 			"equipmentCategory": equipmentCategory,
 			"from": items,
 		}
+  },
+  buildProficiencyOption: (choose, type) => {
+    const from = api.proficiencies.filter(f => f.type === type)
+    if (isEmpty(from)) {
+      throw new Error(`Missing proficiencies for ${type}`)
+    }
+    return {
+      choose,
+      "type": "proficiencies",
+      from
+    }
   },
   buildIdealAlignment: typeParam => {
     const type = typeParam.toLowerCase()
@@ -215,9 +237,4 @@ function build(background) {
   return background
 }
 
-export default [
-  build(acolyte(api)),
-  build(criminalSpy(api)),
-  build(folkHero(api)),
-  build(sage(api)),
-]
+export default backgrounds.map(b => build(b(api)))

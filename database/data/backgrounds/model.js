@@ -1,6 +1,8 @@
 export default (api) => ({
 	"index": "acolyte",
 	"name": "Acolyte",
+	"good_for_classes": [
+	],
 	"starting_proficiencies": [
 		api.buildProficiency("skill-insight"),
 		api.buildProficiency("skill-religion"),
@@ -26,12 +28,16 @@ export default (api) => ({
 	"starting_equipment_options": [
 		// api.buildChooseEquipmentFromCategory(1, "holy-symbols")
 	],
-	"feature": {
-		"name": "",
-		"desc": [
-			""
-		]
-	},
+
+	"starting_proficiency_options": api.buildProficiencyOption(1, "Artisan's Tools"),
+	"features": [
+		{
+			"name": "",
+			"desc": [
+				""
+			]
+		}
+	],
 	"personality_traits": {
 		"choose": 2,
 		"type": "personality_traits",
