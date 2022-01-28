@@ -13,7 +13,7 @@ function Form({ race }) {
 	return (
 		<div className="flex flex-col">
 			<div className="relative w-full px-4 mt-12">
-				<RaceDetailsView race={race.index} />
+				<RaceDetailsView race={race} />
 			</div>
 
 			<ButtonBottomScreen

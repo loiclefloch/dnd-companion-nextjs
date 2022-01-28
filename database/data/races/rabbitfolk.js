@@ -1,4 +1,4 @@
-export default (api) => ({
+const Rabittfolk = (api) => ({
 	"index": "rabbitfolk",
 	"name": "Rabbitfolk",
 	"speed": 30,
@@ -34,3 +34,5 @@ export default (api) => ({
 	],
 	"subraces": []
 })
+
+export default Rabittfolk

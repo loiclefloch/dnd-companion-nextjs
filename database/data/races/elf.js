@@ -1,4 +1,4 @@
-export default (api) => ({
+const elf = (api) => ({
 	"index": "elf",
 	"name": "Elf",
 	"speed": 30,
@@ -26,3 +26,5 @@ export default (api) => ({
 		api.buildRace("high-elf"),
 	],
 })
+
+export default elf

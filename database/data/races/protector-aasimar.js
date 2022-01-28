@@ -1,4 +1,4 @@
-export default api => ({
+const protectorAasimar = api => ({
 	"index": "protector-aasimar",
 	"name": "Protector Aasimar",
 	"race": api.buildRace("aasimar"),
@@ -12,3 +12,5 @@ export default api => ({
 		api.buildTrait("radiant-soul")
 	],
 })
+
+export default protectorAasimar

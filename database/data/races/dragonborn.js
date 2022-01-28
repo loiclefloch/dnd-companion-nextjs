@@ -1,4 +1,4 @@
-export default (api) => ({
+const dragonborn = (api) => ({
 	"index": "dragonborn",
 	"name": "Dragonborn",
 	"speed": 30,
@@ -23,3 +23,5 @@ export default (api) => ({
 	],
 	"subraces": [],
 })
+
+export default dragonborn

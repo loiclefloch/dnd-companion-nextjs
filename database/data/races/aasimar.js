@@ -1,4 +1,4 @@
-export default (api) => ({
+const Aasimar = (api) => ({
 	"index": "aasimar",
 	"name": "Aasimar",
 	"speed": 30,
@@ -34,3 +34,5 @@ export default (api) => ({
 		api.buildRace("protector-aasimar")
 	],
 })
+
+export default Aasimar

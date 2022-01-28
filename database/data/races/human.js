@@ -1,4 +1,4 @@
-export default api => ({
+const human = api => ({
 	"index": "human",
 	"name": "Human",
 	"speed": 30,
@@ -43,3 +43,5 @@ export default api => ({
 	"traits": [],
 	"subraces": [],
 })
+
+export default human

@@ -63,9 +63,9 @@ function Content({ clss }) {
 			</Section>
 
 {/* TODO: */}
-			{/* {clss.starting_equipment_options && (
+			{/* {clss.startingEquipmentOptions && (
 				<Section title="starting_equipment options">
-					{clss.starting_equipment_options.map((startingEquipmentOption, index) => (
+					{clss.startingEquipmentOptions.map((startingEquipmentOption, index) => (
 						<div key={index}>
 							<h4>Choisir {startingEquipmentOption.choose} {startingEquipmentOption.equipment_category?.name}</h4>
 							<LineInfo.Parent>

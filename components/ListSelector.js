@@ -70,4 +70,6 @@ function ListSelector({ value, options, onChange, multiple = false, nbMaxValues 
 	)
 }
 
+ListSelector.Row = ListSelectorRow
+
 export default ListSelector

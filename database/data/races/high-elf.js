@@ -1,4 +1,4 @@
-export default api => ({
+const highElf = api => ({
 	"index": "high-elf",
 	"name": "High Elf",
 	"race": api.buildRace("elf"),
@@ -42,3 +42,5 @@ export default api => ({
 		api.buildTrait("extra-language"),
 	],
 })
+
+export default highElf

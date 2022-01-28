@@ -1,4 +1,4 @@
-export default api => ({
+const halfling = api => ({
 	"index": "halfling",
 	"name": "Halfling",
 	"speed": 25,
@@ -24,3 +24,5 @@ export default api => ({
 		api.buildRace("lightfoot-halfling"),
 	],
 })
+
+export default halfling

@@ -1,4 +1,4 @@
-export default api => ({
+const gnome = api => ({
 	"index": "gnome",
 	"name": "Gnome",
 	"speed": 25,
@@ -23,3 +23,5 @@ export default api => ({
 		api.buildRace("rock-gnome"),
 	],
 })
+
+export default gnome

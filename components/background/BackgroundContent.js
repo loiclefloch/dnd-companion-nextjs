@@ -87,24 +87,26 @@ function Content({ index }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="starting_equipment options">
-				{background.startingEquipmentOptions.map((startingEquipmentOption, index) => (
-					<div key={index}>
-						<h4>Choisir {startingEquipmentOption.choose} {startingEquipmentOption.equipmentCategory.name}</h4>
-						<LineInfo.Parent>
-							{startingEquipmentOption.from.map(item => (
-								<LineInfo 
-									key={item.index} 
-									label={item.name} 
-									value={<span>?</span>}
-									onClick={() => showEquipmentItemScreenAsModal(item)}
-								/>
-							))}
-						</LineInfo.Parent>
-					</div>
-				))}
-			
-			</Section>
+			{background.startingEquipmentOptions && (
+				<Section title="starting_equipment options">
+					{background.startingEquipmentOptions.map((startingEquipmentOption, index) => (
+						<div key={index}>
+							<h4>Choisir {startingEquipmentOption.choose} {startingEquipmentOption.equipmentCategory.name}</h4>
+							<LineInfo.Parent>
+								{startingEquipmentOption.from.map(item => (
+									<LineInfo
+										key={item.index}
+										label={item.name}
+										value={<span>?</span>}
+										onClick={() => showEquipmentItemScreenAsModal(item)}
+									/>
+								))}
+							</LineInfo.Parent>
+						</div>
+					))}
+
+				</Section>
+			)}
 
 			{background.languageOptions && (
 				<Section title="Languages options">

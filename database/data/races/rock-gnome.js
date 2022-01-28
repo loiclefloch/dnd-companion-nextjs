@@ -1,4 +1,4 @@
-export default api => ({
+const rockGnome = api => ({
 	"index": "rock-gnome",
 	"name": "Rock Gnome",
 	"race": api.buildRace("gnome"),
@@ -15,3 +15,5 @@ export default api => ({
 		api.buildTrait("tinker"),
 	],
 })
+
+export default rockGnome

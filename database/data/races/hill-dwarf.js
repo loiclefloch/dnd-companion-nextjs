@@ -1,4 +1,4 @@
-export default api => ({
+const hillDwarf = api => ({
 	"index": "hill-dwarf",
 	"name": "Hill Dwarf",
 	"race": api.buildRace("dwarf"),
@@ -12,3 +12,5 @@ export default api => ({
 		api.buildTrait("dwarven-toughness")
 	],
 })
+
+export default hillDwarf

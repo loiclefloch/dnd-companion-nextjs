@@ -1,4 +1,4 @@
-export default api => ({
+const lightfootHalfing = api => ({
 	"index": "lightfoot-halfling",
 	"name": "Lightfoot Halfling",
 	"race": api.buildRace("halfling"),
@@ -12,3 +12,5 @@ export default api => ({
 		api.buildTrait("naturally-stealthy"),
 	],
 })
+
+export default lightfootHalfing

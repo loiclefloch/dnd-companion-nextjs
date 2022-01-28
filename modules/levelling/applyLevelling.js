@@ -71,7 +71,7 @@ function applyLevelling(character, level = 1) {
 		console.warn(`Levelling does not exists for level race ${character.race}`)
 	}
 	if (forClass) {
-		const forClassContent = forRace(character)
+		const forClassContent = forClass(character)
 		forClassContent.every()
 
 		if (forClassContent[level]) {

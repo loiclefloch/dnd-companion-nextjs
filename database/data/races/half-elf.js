@@ -1,4 +1,4 @@
-export default api => ({
+const halfElf = api => ({
 	"index": "half-elf",
 	"name": "Half-Elf",
 	"speed": 30,
@@ -77,3 +77,5 @@ export default api => ({
 	],
 	"subraces": [],
 })
+
+export default halfElf

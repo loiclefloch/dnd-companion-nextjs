@@ -1,4 +1,4 @@
-export default (api) => ({
+const tiefling = (api) => ({
 	"index": "tiefling",
 	"name": "Tiefling",
 	"speed": 30,
@@ -23,3 +23,5 @@ export default (api) => ({
 	],
 	"subraces": [],
 })
+
+export default tiefling
