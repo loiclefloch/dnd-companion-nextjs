@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { map, groupBy } from "lodash"
 import useI18n from "../modules/i18n/useI18n";
 import StatsSmall from "./StatsSmall";
@@ -60,6 +61,24 @@ export function ProficienciesSection({ character }) {
 					</LineInfo.Parent>
 				</div>
 			))}
+		</Section>
+	)
+}
+
+export function BackgroundSection({ character }) {
+	const { tr } = useI18n()
+	const background = character.background
+	return (
+		<Section title={`Background - ${background.name}`}>
+			
+			<Link href={`/background/${background.index}`}>Voir le background</Link>
+			{background.features.map((feature, index) => (
+				<div key={index} className="prose mt-2">
+					<h4>Feature: {feature.name}</h4>
+					<p>{tr(feature.desc)}</p>
+				</div>
+			))}
+
 		</Section>
 	)
 }
@@ -235,13 +254,11 @@ function GlobalSection({ character }) {
 
 function CharacterResume({ character }) {
 	return (
-		<div className="px-4 mt-4">
+		<div className="px-4 mt-4 prose">
 			<h3>{character.name}</h3>
 			<div>
 				<div>{character.race.name}</div>
 				<div>{character.classes.map(clss => clss.name).join(', ')}</div>
-
-				<div className="mt-4" />
 
 				<GlobalSection character={character} />
 				<PhysicSection character={character} />
@@ -255,7 +272,7 @@ function CharacterResume({ character }) {
 				<TraitsSection character={character} />
 				<ProficienciesSection character={character} />
 
-				// TODO: background + background feature + add on character page
+				<BackgroundSection character={character} />
 			</div>
 
 			<div>

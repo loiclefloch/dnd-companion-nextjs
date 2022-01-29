@@ -15,6 +15,7 @@ import useTip from "../../../components/useTip"
 import {
 	TraitsSection,
 	ProficienciesSection,
+	BackgroundSection,
 } from "../../../components/CharacterResume"
 import Section from "../../../components/Section"
 import LineInfo from "../../../components/LineInfo"
@@ -140,6 +141,7 @@ function Character() {
 
 					<TraitsSection character={character} />
 					<ProficienciesSection character={character} />
+					<BackgroundSection character={character} />
 
 				</div>
 			)}

@@ -4,6 +4,7 @@ import useApi from './useApi'
 import characters from './fixtures/characters'
 import proficiencies from "../../database/data/proficiencies.json"
 import skills from "../../database/data/skills.json"
+import backgrounds from "../../database/data/backgrounds"
 import classes from '../../database/data/classes.json'
 import allRaces from '../../database/data/allRaces'
 import spells from '../../database/data/spells.json'
@@ -65,6 +66,8 @@ export function formatCharacter(character) {
 	character.classes = character.classes
 		.map(clss => classes.find(c => clss === c.index))
 		.map(formatClass)
+
+	character.background = backgrounds.find(b => b.index === character.background)
 
 	// TODO:
 	character.statsDetail = []
