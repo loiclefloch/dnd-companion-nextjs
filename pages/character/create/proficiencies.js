@@ -22,13 +22,11 @@ function Proficiency({ proficiency }) {
 			<div className="flex items-center flex-1">
 				{proficiency.name} <span className="ml-2 text-sm text-meta">({proficiency.sourceType})</span>
 			</div>
-			{proficiency.isSkill && (
-				<div
-					onClick={() => showTipProficiency(proficiency)}
-				>
-					?
-				</div>
-			)}
+			<div
+				onClick={() => showTipProficiency(proficiency)}
+			>
+				?
+			</div>
 		</div>
 	)
 }

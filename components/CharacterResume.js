@@ -28,14 +28,14 @@ function Proficiency({ proficiency }) {
 					{proficiency.name} <span className="ml-1 text-sm text-meta">({proficiency.sourceType})</span>
 				</span>
 			}
-			value={proficiency.isSkill && (
+			value={
 				<div
 					onClick={() => showTipProficiency(proficiency)}
 					className="text-meta"
 				>
 					?
 				</div>
-			)}
+	}
 		/>
 	)
 }

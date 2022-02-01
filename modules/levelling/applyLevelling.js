@@ -3,6 +3,33 @@
 
 function noop() {}
 
+function characterNoop() {
+	return {
+		every: () => {
+		},
+		1: noop(),
+		2: noop(),
+		3: noop(),
+		4: noop(),
+		5: noop(),
+		6: noop(),
+		7: noop(),
+		8: noop(),
+		9: noop(),
+		10: noop(),
+		11: noop(),
+		12: noop(),
+		13: noop(),
+		14: noop(),
+		15: noop(),
+		16: noop(),
+		17: noop(),
+		18: noop(),
+		19: noop(),
+		20: noop(),
+	}
+}
+
 function hillDwarf(character) {
 	return {
 		every: () => {
@@ -32,6 +59,10 @@ function hillDwarf(character) {
 	}
 }
 
+function dragonborn(character) {
+	return characterNoop()
+}
+
 function barbarian(character) {
 	return {
 		every: () => {
@@ -53,7 +84,8 @@ function applyLevelling(character, level = 1) {
 	}
 	// TODO:
 	const classesMap = {
-		barbarian: barbarian
+		barbarian: barbarian,
+		dragonborn: dragonborn,
 	}
 
 	const forRace = racesMap[character.race]

@@ -6,6 +6,7 @@ import camelize from "../utils/camelize"
 import useApi from "./useApi"
 import { formatEquipmentItem  } from './useEquipmentItem'
 import { formatProficiency } from "./useProficiency"
+import formatStartingEquipmentOptions from "./formatStartingEquipmentOptions"
 
 export function formatBackground(backgroundParam) {
   if (!backgroundParam) {
@@ -56,6 +57,10 @@ export function formatBackground(backgroundParam) {
   if (background.startingProficiencies) {
 		background.startingProficiencies = background.startingProficiencies.map(formatProficiency)
 	}
+
+  if (background.startingEquipmentOptions) {
+    background.startingEquipmentOptions = formatStartingEquipmentOptions(background.startingEquipmentOptions)
+  }
 
   return background
 }

@@ -12,6 +12,7 @@ import useI18n from "../../modules/i18n/useI18n"
 import useTipProficiency from "../useTipProficiency"
 import { useEquipmentItemScreenAsModal } from "../EquipmentItemScreenAsModal"
 import useTipLanguage from "../useTipLanguage"
+import StartingEquipmentOptionsDetail from "../StartingEquipmentOptionsDetail"
 
 function Content({ index }) {
 	const { tr } = useI18n()
@@ -89,22 +90,7 @@ function Content({ index }) {
 
 			{background.startingEquipmentOptions && (
 				<Section title="starting_equipment options">
-					{background.startingEquipmentOptions.map((startingEquipmentOption, index) => (
-						<div key={index}>
-							<h4>Choisir {startingEquipmentOption.choose} {startingEquipmentOption.equipmentCategory.name}</h4>
-							<LineInfo.Parent>
-								{startingEquipmentOption.from.map(item => (
-									<LineInfo
-										key={item.index}
-										label={item.name}
-										value={<span>?</span>}
-										onClick={() => showEquipmentItemScreenAsModal(item)}
-									/>
-								))}
-							</LineInfo.Parent>
-						</div>
-					))}
-
+					<StartingEquipmentOptionsDetail startingEquipmentOptions={background.startingEquipmentOptions} />
 				</Section>
 			)}
 

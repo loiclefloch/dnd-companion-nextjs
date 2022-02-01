@@ -1,4 +1,5 @@
 import invariant from 'invariant'
+import values from 'lodash/values'
 import findIndex from 'lodash/findIndex'
 import indexOf from 'lodash/indexOf'
 import find from 'lodash/find'
@@ -222,7 +223,7 @@ export const filterDuplicates = (arrayParam, getId, comparator) => {
       objects[id] = other
     } else {
       // duplicate, compare which one we keep
-      if (comparator(object, other)) {
+      if (comparator && comparator(object, other)) {
         objects[id] = other
       }
     }
@@ -232,7 +233,7 @@ export const filterDuplicates = (arrayParam, getId, comparator) => {
   return getOrderedArray(
     arrayParam,
     values(objects),
-    (value, other) => value.id === other.id
+    (value, other) => getId(value) === getId(other)
   ).filter(Boolean)
 }
 

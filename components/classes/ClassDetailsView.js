@@ -5,6 +5,7 @@ import useI18n from "../../modules/i18n/useI18n"
 import useTipProficiency from "../useTipProficiency"
 import useTipAbilityScore from "../useTipAbilityScore"
 import { useEquipmentItemScreenAsModal } from "../EquipmentItemScreenAsModal"
+import EquipmentOptionsChooser from "../EquipmentOptionsChooser"
 
 import Druid from "./Druid.mdx"
 
@@ -62,27 +63,14 @@ function Content({ clss }) {
 				</LineInfo.Parent>
 			</Section>
 
-{/* TODO: */}
-			{/* {clss.startingEquipmentOptions && (
+			{clss.startingEquipmentOptions && (
 				<Section title="starting_equipment options">
-					{clss.startingEquipmentOptions.map((startingEquipmentOption, index) => (
-						<div key={index}>
-							<h4>Choisir {startingEquipmentOption.choose} {startingEquipmentOption.equipment_category?.name}</h4>
-							<LineInfo.Parent>
-								{startingEquipmentOption.from.map(item => (
-									<LineInfo
-										key={item.index}
-										label={item.name}
-										value={<span>?</span>}
-										onClick={() => showEquipmentItemScreenAsModal(item)}
-									/>
-								))}
-							</LineInfo.Parent>
-						</div>
-					))}
-
+					<EquipmentOptionsChooser.Demo
+						options={clss.startingEquipmentOptions}
+						prefix="class_"
+					/>
 				</Section>
-			)} */}
+			)}
 
 
 			{/* // TODO: spellcasting */}

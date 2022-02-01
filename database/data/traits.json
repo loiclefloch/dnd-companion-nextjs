@@ -1,4 +1,33 @@
 [
+  {
+    "index": "flee-of-foot",
+    "name": "Fleet of Foot",
+      "desc": [
+        "Your base walking speed increases to 35 feet."
+      ],
+      "races": [
+        {
+          "index": "wood-elf",
+          "name": "Wood Elf",
+          "url": "/api/races/wood-elf"
+        }
+      ]
+  },
+  {
+    "index": "mask-of-the-wild",
+    "name": "Mask of the Wild",
+      "desc": [
+        "You can attempt to hide [action:hide] even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
+      ],
+      "races": [
+        {
+          "index": "wood-elf",
+          "name": "Wood Elf",
+          "url": "/api/races/wood-elf"
+        }
+      ]
+  },
+  
     {
       "index": "hare-trigger",
       "name": "Hare trigger",

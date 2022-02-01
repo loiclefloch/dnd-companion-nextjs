@@ -1,21 +1,20 @@
 import { useState } from "react"
-import { useRouter } from 'next/router'
+import { filterDuplicates } from '../../../modules/utils/array'
 import ButtonBottomScreen from "../../../components/ButtonBottomScreen";
 import ScreenIntroduction from "../../../components/ScreenIntroduction";
 import Screen from "../../../components/Screen";
 import Link from "next/link"
 import useCreateCharacter from '../../../components/useCreateCharacter';
 import { useEquipmentItemScreenAsModal } from '../../../components/EquipmentItemScreenAsModal';
-import useEquipmentItems from "../../../modules/api/useEquipmentItems";
-import ListSelector from "../../../components/ListSelector";
-import clsx from "clsx";
 import Section from "../../../components/Section";
+import useI18n from "../../../modules/i18n/useI18n";
+import EquipmentOptionsChooser from "../../../EquipmentOptionsChooser"
 
 function StartingEquipmentItem({ item }) {
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
 
 	return (
-		<div className="flex px-4 py-1">
+		<div className="flex px-2 py-1">
 			<div className="flex flex-1">
 				x{item.quantity} {item.name}
 			</div>
@@ -44,171 +43,8 @@ function StartingEquipment({ startingEquipment }) {
 		</div>
 	)
 }
-
-function EquipmentCategoryChoice({ chosenItems, character, setChosenItems, option }) {
-	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
-	return (
-		<ListSelector
-			value={chosenItems}
-			multiple
-			nbMaxValues={option.choose}
-			options={option.from.items.map(item => {
-				// proficiency index is the same as the item
-				const isProefficient = character.proficiencies.find(p => item.index === p.index)
-
-				return ({
-					label: <div className={clsx("flex", {
-						"text-blue-500": isProefficient
-					})}>
-						{item.name}
-					</div>,
-					value: item,
-					selected: chosenItems.includes(item),
-					rightView: <div
-						className="px-4 py-2 text-xs text-meta"
-						onClick={() => showEquipmentItemScreenAsModal(item)}
-					>
-						?
-					</div>
-				})
-			})}
-			onChange={setChosenItems}
-		/>
-	)
-}
-function EquipmentCategoryChoiceContainer({ chosenItems, character, setChosenItems, option }) {
-
-	return (
-		<div className="mt-8">
-			<h2>{option.type} - {option.from.equipmentCategory.name}</h2>
-			<div className="text-sm text-meta">Choisissez {option.choose}</div>
-			<div>
-				<EquipmentCategoryChoice
-					chosenItems={chosenItems}
-					character={character}
-					setChosenItems={setChosenItems}
-					option={option}
-				/>
-			</div>
-		</div>
-	)
-}
-
-function EquipmentOptions({ chosenItems, character, setChosenItems, options }) {
-	if (!options) {
-		return null
-	}
-	return (
-		<>
-			{options.map((option, index) => (
-				<EquipmentCategoryChoiceContainer 
-					key={index} 
-					option={option} 
-					chosenItems={chosenItems['EquipmentOptions'] || []}
-					setChosenItems={(items) => setChosenItems('EquipmentOptions', items)}
-					character={character}
-				/>
-			))}
-		</>
-	)
-}
-
-
-function ClassEquipmentOption({ index, option, character, chosenItems, setChosenItems }) {
-	const [selectedSubOption, setSelectedSubOption] = useState(null) // index of the sub option
-	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
-
-	return (
-		<div className="mb-4">
-			<h4 className="border-b border-solid border-slate-300">Option d'équipment {index + 1}</h4>
-			{!option.hasSubChoice ? (
-				<EquipmentCategoryChoice
-					key={index}
-					option={option}
-					chosenItems={chosenItems[`classEquipmentOption_${index}`] || []}
-					setChosenItems={(items) => setChosenItems(`classEquipmentOption_${index}`, items)}
-					character={character}
-				/>
-			) : (
-				// not a choice, defined
-				<div className="ml-2 divide divide-y">
-					{option.from.map((subOption, index) => (
-						<div key={index}>
-							<ListSelector.Row
-								label={<span>
-									<>
-										{subOption.isTypeEquipment && subOption.item.name}
-										{subOption.isTypeSubOption && <span>{subOption.choose} dans le pack : {subOption.from.equipmentCategory.name}</span>}
-									</>
-								</span>
-								}
-								selected={selectedSubOption === index}
-								rightView={subOption.isTypeEquipment && <div
-									className="px-4 py-2 text-xs text-meta"
-									onClick={() => showEquipmentItemScreenAsModal(subOption.item)}
-								>
-									?
-								</div>}
-								onClick={() => {
-									setSelectedSubOption(index)
-									if (subOption.isTypeEquipment) {
-										setChosenItems(`classEquipmentOption_${index}`, [subOption.item])
-									}
-								}}
-							/>
-
-							<div className="ml-4">
-								{subOption.isTypeSubOption && selectedSubOption === index && (
-									<>
-										{selectedSubOption === index && (
-											<EquipmentCategoryChoice
-												key={index}
-												option={subOption}
-												chosenItems={chosenItems[`classEquipmentOption_${index}`] || []}
-												setChosenItems={(items) => setChosenItems(`classEquipmentOption_${index}`, items)}
-												character={character}
-											/>
-										)}
-									</>
-								)}
-							</div>
-							{/* {index !== option.from.length - 1 && (
-										<div>--- OR ---</div>
-									)} */}
-						</div>
-					))}
-				</div>
-			)}
-		</div>
-	)
-}
-
-
-function ClassEquipmentOptions({ chosenItems, character, setChosenItems, options }) {
-	if (!options) {
-		return null
-	}
-	// TODO: setChosenItems by option
-	// debugger
-	return (
-		<div className="divide divide-y prose">
-			{options.map((option, index) => (
-				<ClassEquipmentOption 
-					key={index} 
-					index={index} 
-					option={option} 
-					chosenItems={chosenItems} 
-					setChosenItems={setChosenItems} 
-					character={character} 
-				/>
-			))}
-		</div>
-	)
-}
-
-
-
 function Form() {
+	const { tr } = useI18n()
 	const { background, clss, character, updateCharacter } = useCreateCharacter()
 	const [chosenItems, _setChosenItems] = useState({})
 
@@ -218,6 +54,8 @@ function Form() {
 			[key]: items
 		})
 	}
+
+	console.log({ chosenItems })
 
 	if (!background) {
 		return null
@@ -237,40 +75,43 @@ function Form() {
 				}
 			/>
 
-			<Section title="Class">
-				<div className="mx-4">
-					<StartingEquipment
-						startingEquipment={clss.startingEquipment}
-						character={character}
-					/>
-					<ClassEquipmentOptions
-						chosenItems={chosenItems}
-						setChosenItems={setChosenItems}
-						options={clss.startingEquipmentOptions}
-						character={character}
-					/>
-				</div>
-			</Section>
-			<Section title="Background">
-				<div className="mx-4">
-					<StartingEquipment
-						startingEquipment={background.startingEquipment}
-						character={character}
-					/>
-					<EquipmentOptions
-						chosenItems={chosenItems}
-						setChosenItems={setChosenItems}
-						options={background.startingEquipmentOptions}
-						character={character}
-					/>
-				</div>
-			</Section>
-			
+			<div className="mx-4">
+				<Section title={`Classe - ${tr(clss.name)}`}>
+					<div className="">
+						<StartingEquipment
+							startingEquipment={clss.startingEquipment}
+							character={character}
+						/>
+						<EquipmentOptionsChooser
+							chosenItems={chosenItems}
+							setChosenItems={setChosenItems}
+							options={clss.startingEquipmentOptions}
+							character={character}
+							prefix="clss"
+						/>
+					</div>
+				</Section>
+				<Section title="Background">
+					<div className="">
+						<StartingEquipment
+							startingEquipment={background.startingEquipment}
+							character={character}
+						/>
+						<EquipmentOptionsChooser
+							chosenItems={chosenItems}
+							setChosenItems={setChosenItems}
+							options={background.startingEquipmentOptions}
+							character={character}
+							prefix="background"
+						/>
+					</div>
+				</Section>
+			</div>
 
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					const equipment = [
+					let equipment = [
 						...background.startingEquipment.map(item => ({
 							index: item.index,
 							quantity: item.quantity
@@ -280,12 +121,29 @@ function Form() {
 							quantity: 1
 						}))).flat(),
 					]
+ 
+					// get quantity for each item
+					let itemAndQuantity = {}
+					equipment.forEach(item => {
+						if (itemAndQuantity[item.index]) {
+							itemAndQuantity[item.index] += 1
+						} else {
+							itemAndQuantity[item.index] = 1
+						}
+					})
 
-					console.log({ equipment })
+					// filter duplicates
+					equipment = filterDuplicates(equipment, item => item.index)
 
-					updateCharacter({ 
+					// update quantity previously calculated
+					equipment.forEach(item => {
+						item.quantity = itemAndQuantity[item.index]
+					})
+
+
+					updateCharacter({
 						equipment,
-						step: 'equipment' 
+						step: 'equipment'
 					})
 				}}
 			>
@@ -295,7 +153,6 @@ function Form() {
 	)
 }
 
-
 function CreateCharacterEquipment() {
 	return (
 		<Screen
@@ -303,8 +160,8 @@ function CreateCharacterEquipment() {
 			withBottomSpace
 		>
 			<Form />
-    </Screen>
-  );
+		</Screen>
+	);
 }
 
 export default CreateCharacterEquipment;

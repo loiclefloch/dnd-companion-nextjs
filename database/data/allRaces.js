@@ -19,8 +19,10 @@ import tiefling from "./races/tiefling"
 import aasimar from "./races/aasimar"
 import protectoreAasimar from "./races/protector-aasimar"
 import rabbitfolk from "./races/rabbitfolk"
+import woodElf from "./races/wood-elf"
 
 const _races = [
+	woodElf,
 	dragonborn,
 	dwarf,
 	elf,

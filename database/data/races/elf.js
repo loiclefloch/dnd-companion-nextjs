@@ -24,6 +24,7 @@ const elf = (api) => ({
 	],
 	"subraces": [
 		api.buildRace("high-elf"),
+		api.buildRace("wood-elf"),
 	],
 })
 
