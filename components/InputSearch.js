@@ -6,7 +6,7 @@ import IconClock from "./icons/IconClock"
 function InputSearch({ searchHistory, term, onChange }) {
 	const [showHistory, setShowHistory] = useState(false)
 
-	return <div className="flex">
+	return <div className="flex items-center">
 		<input
 			type="search"
 			placeholder="Rechercher"
