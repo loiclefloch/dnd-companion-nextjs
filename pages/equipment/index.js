@@ -1,13 +1,20 @@
-import groupBy from "lodash/groupBy"
+import { useMemo } from "react"
+import { uniqBy, isEmpty } from "lodash"
 import Link from "next/link"
 import Screen from "../../components/Screen"
 import useEquipmentCategories from "../../modules/api/useEquipmentCategories";
 import useI18n from "../../modules/i18n/useI18n";
 import useTipDamageType from "../../components/useTipDamageType"
+import useLocalSearch from "../../components/useLocalSearch"
+import InputSearch from "../../components/InputSearch"
 
 function ItemRow({ item }) {
 	const { tr } = useI18n()
 	const { showTipDamageType } = useTipDamageType()
+
+	if (!item) {
+		return null
+	}
 
 	return (
 		<div
@@ -73,7 +80,7 @@ function ItemRow({ item }) {
   );
 }
 
-function Group({ category }) {
+function Category({ category }) {
 	const { tr } = useI18n()
 
 	return (
@@ -94,6 +101,22 @@ function Group({ category }) {
 function Equipments() {
 	const equipmentCategoriesResponse = useEquipmentCategories()
 
+	const equipmentList = useMemo(
+		() => uniqBy(equipmentCategoriesResponse.data?.map(group => group.equipment).flat(), item => item.index), 
+		[equipmentCategoriesResponse.data]
+	)
+
+	const {
+		searchHistory,
+		searchResults,
+		search,
+		term,
+		// reset
+	} = useLocalSearch('equipment', {
+		data: equipmentList,
+		options: useLocalSearch.searchOptions.equipment
+	})
+
   return (
 		<Screen
 			title={"Équipements"}
@@ -102,16 +125,36 @@ function Equipments() {
 			root
 			withBottomSpace
 		>
-			<div className="flex flex-col" data-cy-id="equipments-list">
-				{equipmentCategoriesResponse.data?.map(category => (
-					<Group key={category.index} category={category} />
-				))}
-				{/* <Group title="Armes" items={grouped.weapon} />
+			<>
+				<div className="px-4">
+					<InputSearch
+						searchHistory={searchHistory}
+						term={term}
+						onChange={search}
+					/>
+				</div>
+				{searchResults && term ? (
+					<div className="mx-4 mt-2 mb-4 select-none">
+						{searchResults.map(searchResult => (
+							<ItemRow
+								key={searchResult.refIndex}
+								item={searchResult.item}
+							/>
+						))}
+					</div>
+				) : (
+					<div className="flex flex-col" data-cy-id="equipments-list">
+						{equipmentCategoriesResponse.data?.map(category => (
+							<Category key={category.index} category={category} />
+						))}
+						{/* <Group title="Armes" items={grouped.weapon} />
 				<Group title="Armure" items={grouped.armor} />
 				<Group title="adventuring-gear" items={grouped['adventuring-gear']} />
 				<Group title="Outils" items={grouped.tools} />
 				<Group title="Montures et véhicules" items={grouped['mounts-and-vehicles']} /> */}
-			</div>
+					</div>
+				)}
+			</>
 		</Screen>
 	);
 }

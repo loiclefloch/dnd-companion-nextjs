@@ -17,13 +17,15 @@ import Div from "../components/elem/Div"
 import Span from "../components/elem/Span"
 import P from "../components/elem/P"
 import Text from "../components/elem/Text"
+import useLocalSearch from "../components/useLocalSearch"
+import InputSearch from "../components/InputSearch"
 
 function SpellFilters({ spell, filters }) {
   return (
     <Div className="flex flex-wrap gap-1 mt-2">
       {getSpellFiltersMatchingData(spell, filters).map(data => (
         <Tag
-          key={`${data.label}-${data.value}`} 
+          key={`${data.label}-${data.value}`}
           className="pt-1 pb-1 pl-1 pr-1 text-xs text-gray-600 border border-solid border-slate-400"
           color="slate"
           size="small"
@@ -37,8 +39,8 @@ function SpellFilters({ spell, filters }) {
 
 function Spell({ spell, filters, isLearned, isPrepared, contextCharacter /*onSelect*/ }) {
   const { tr } = useI18n();
-	
-	const isContextCharacter = !!contextCharacter
+
+  const isContextCharacter = !!contextCharacter
 
   // TODO: if context character has the spell -> style with star / background
 
@@ -70,7 +72,7 @@ function Spell({ spell, filters, isLearned, isPrepared, contextCharacter /*onSel
             >
               <Div className="flex flex-row items-end gap-1">
                 <>
-									<CharacterSpellTag character={contextCharacter} spell={spell} />
+                  <CharacterSpellTag character={contextCharacter} spell={spell} />
                 </>
 
                 <IconMagicSchool
@@ -96,15 +98,17 @@ function Spell({ spell, filters, isLearned, isPrepared, contextCharacter /*onSel
 function Spells({ contextCharacter }) {
   const { lang } = useI18n()
   const spellsResponse = useSpells();
-  const [defaultFilters, setDefaultFilters ] = useState(null)
+  const [defaultFilters, setDefaultFilters] = useState(null)
 
-	const isContextualCharacter = !!contextCharacter
+  const isContextualCharacter = !!contextCharacter
 
   // const { showSpellModal } = useSpellModal()
   const { filters, filterSpells, showSpellsListFilterScreen } = useSpellsListFilterScreenAsModal(
     defaultFilters
   )
-  
+
+  const filteredSpells = filterSpells(spellsResponse.data, lang)
+
   useEffect(() => {
     if (contextCharacter) {
       setDefaultFilters(buildSpellFiltersForCharacter(contextCharacter))
@@ -126,6 +130,18 @@ function Spells({ contextCharacter }) {
     // showSpellsListFilterScreen()
   }, [])
 
+
+  const {
+    searchHistory,
+    searchResults,
+    search,
+    term,
+    // reset
+  } = useLocalSearch('spells', {
+    data: filteredSpells,
+    options: useLocalSearch.searchOptions.spells
+  })
+
   return (
     <Screen
       title={contextCharacter ? `Sorts - ${contextCharacter.name}` : "Sorts"}
@@ -136,28 +152,54 @@ function Spells({ contextCharacter }) {
       isLoading={spellsResponse.isLoading}
       rightAction={
         <button onClick={() => showSpellsListFilterScreen()}>
-          <IconFilter 
+          <IconFilter
             className={clsx("h-6 w-6 text-gray-500", {
               // change color when they are filters
               "text-blue-400": !isEmpty(filters),
-            })} 
+            })}
           />
         </button>
       }
     >
-      <Div className="flex flex-col gap-2" data-cy-id="spells-list">
-        {sortSpells(filterSpells(spellsResponse.data), lang)?.map((spell) => (
-          <Spell
-            key={spell.name}
-            spell={spell}
-            // onSelect={() => showSpellModal(spell.index)}
-            filters={filters}
-						contextCharacter={contextCharacter}
-            isLearned={contextCharacter && contextCharacter.spellsList.some(s => spell.index === s.index)}
-            isPrepared={contextCharacter && contextCharacter.spellsList.find(s => spell.index === s.index)?.isPrepared || false}
+      <>
+        <div className="px-4">
+          <InputSearch
+            searchHistory={searchHistory}
+            term={term}
+            onChange={search}
           />
-        ))}
-      </Div>
+        </div>
+        <div className="flex flex-col gap-2 mt-2" data-cy-id="spells-list">
+          {searchResults && term ? (
+            searchResults.map(searchResult => {
+              const spell = searchResult.item
+              return (
+                <Spell
+                  key={spell.name}
+                  spell={spell}
+                  // onSelect={() => showSpellModal(spell.index)}
+                  filters={filters}
+                  contextCharacter={contextCharacter}
+                  isLearned={contextCharacter && contextCharacter.spellsList.some(s => spell.index === s.index)}
+                  isPrepared={contextCharacter && contextCharacter.spellsList.find(s => spell.index === s.index)?.isPrepared || false}
+                />
+              )
+            })
+          ) : (
+            sortSpells(filteredSpells).map((spell) => (
+              <Spell
+                key={spell.name}
+                spell={spell}
+                // onSelect={() => showSpellModal(spell.index)}
+                filters={filters}
+                contextCharacter={contextCharacter}
+                isLearned={contextCharacter && contextCharacter.spellsList.some(s => spell.index === s.index)}
+                isPrepared={contextCharacter && contextCharacter.spellsList.find(s => spell.index === s.index)?.isPrepared || false}
+              />
+            ))
+          )}
+        </div>
+      </>
     </Screen>
   );
 }

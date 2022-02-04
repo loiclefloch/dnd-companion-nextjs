@@ -10,6 +10,8 @@ import Screen from "../../components/Screen";
 import IconFilter from "../../components/icons/IconFilter";
 import Tag from "../../components/Tag"
 import IconMonster from "../../components/icons/IconMonster"
+import useLocalSearch from "../../components/useLocalSearch"
+import InputSearch from "../../components/InputSearch"
 
 function MonsterFilters({ monster, filters }) {
 	// ignore some filters, because the data is already displayed
@@ -33,6 +35,10 @@ function MonsterFilters({ monster, filters }) {
 
 function Monster({ monster, filters, /*onSelect*/ }) {
   const { tr } = useI18n();
+
+	// if (!monster) {
+	// 	return null
+	// }
 
 	// TODO: isLegendary
 
@@ -79,8 +85,16 @@ function Monsters() {
 	// TODO: how to keep filters when we go back on the page?
   const { filters, filterMonsters, showMonstersListFilterScreen } = useMonstersListFilterScreenAsModal([])
   
-  // useEffect(() => {
-  // }, [])
+	const {
+		searchHistory,
+		searchResults,
+		search,
+		term,
+		// reset
+	} = useLocalSearch('monsters', {
+		data: monstersResponse.data,
+		options: useLocalSearch.searchOptions.monsters
+	})
 
   return (
     <Screen
@@ -99,16 +113,36 @@ function Monsters() {
         </button>
       }
     >
-			<div className="" data-cy-id="monsters-list">
-				{sortMonsters(filterMonsters(monstersResponse.data), lang)?.map((monster) => (
-					<Monster
-						key={monster.name}
-						monster={monster}
-						// onSelect={() => showMonsterModal(monster.index)}
-						filters={filters}
+			<>
+				<div className="px-4">
+					<InputSearch
+						searchHistory={searchHistory}
+						term={term}
+						onChange={search}
 					/>
-				))}
-			</div>
+				</div>
+				<div className="" data-cy-id="monsters-list">
+					{searchResults && term ? (
+						searchResults.map(searchResult => (
+							<Monster
+								key={searchResult.refIndex}
+								monster={searchResult.item}
+								filters={filters}
+							/>
+						))
+					) : (
+						sortMonsters(filterMonsters(monstersResponse.data), lang)?.map((monster) => (
+							<Monster
+								key={monster.name}
+								monster={monster}
+								// onSelect={() => showMonsterModal(monster.index)}
+								filters={filters}
+							/>
+						))
+					)}
+				</div>
+			</>
+		
     </Screen>
   );
 }

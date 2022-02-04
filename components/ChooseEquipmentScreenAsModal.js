@@ -11,6 +11,7 @@ import ButtonBottomScreen from "./ButtonBottomScreen"
 import { toggleObjectOnArray } from "../modules/utils/array"
 import IconChevronToggle from "./icons/IconChevronToggle"
 import useLocalSearch from "./useLocalSearch"
+import InputSearch from "./InputSearch"
 
 function ItemRow({ item, onSelect, selected }) {
 	if (!item) {
@@ -91,7 +92,7 @@ function ItemRow({ item, onSelect, selected }) {
   );
 }
 
-function Group({ category, selectedItems, onSelect }) {
+function Category({ category, selectedItems, onSelect }) {
 	const [open, setOpen] = useState(false)
 	const { tr } = useI18n()
 
@@ -131,24 +132,6 @@ function Group({ category, selectedItems, onSelect }) {
 	)
 }
 
-const searchOptions = { keys: [
-	'index', 
-	'name', 
-	'equipmentCategory.name',
-	'nameLocalized.en',
-
-	'weaponCategory',
-	'weaponRange',
-	'damage.damageType.name'
-
-	// TODO: must give path to a string
-	// 'equipmentCategory', 
-	// 'properties',
-	// 'resume',
-	// 'nameLocalized',
-	// 'description',
-] }
-
 // TODO: proficiences
 function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 	const { tr } = useI18n()
@@ -161,13 +144,14 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 	)
 
 	const {
+		searchHistory,
 		searchResults,
 		search,
 		term,
 		// reset
-	} = useLocalSearch({
+	} = useLocalSearch('equipment', {
 		data: equipmentList,
-		options: searchOptions
+		options: useLocalSearch.searchOptions.equipment
 	})
 
 	function onSelect(item) {
@@ -181,11 +165,10 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 			isLoading={equipmentCategoriesResponse.isLoading}
 		>
 			<div className="px-4">
-				<input
-					type="search"
-					className="w-full py-0.5 px-2 border-gray-300 rounded-md sm:text-sm"
-					value={term} 
-					onChange={e => search(e.target.value)}
+				<InputSearch
+					searchHistory={searchHistory}
+					term={term} 
+					onChange={search}
 				/>
 			</div>	
 
@@ -202,7 +185,7 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 				</div>
 			) :
 				equipmentCategoriesResponse.data?.map(category => (
-					<Group
+					<Category
 						key={category.index}
 						category={category}
 						selectedItems={selectedItems}

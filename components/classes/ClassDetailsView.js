@@ -39,9 +39,9 @@ function Content({ clss }) {
 				)}
 				<LineInfo.Parent>
 
-					{clss.proficiencies.map(proficiency => (
+					{clss.proficiencies.map((proficiency, index) => (
 						<LineInfo 
-							key={proficiency.index}
+							key={index}
 							label={proficiency.name}
 							value={<span>?</span>}
 							onClick={() => showTipProficiency(proficiency)}
