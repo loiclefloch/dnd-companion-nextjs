@@ -1,6 +1,7 @@
 import IconX from '../icons/IconX'
 import IconSpin from "../icons/IconSpin"
 import useEscapeEffect from "../useEscapeEffect"
+import useBeforePopState from "../useBeforePopState"
 
 function ScreenLoading() {
 	return (
@@ -12,6 +13,10 @@ function ScreenLoading() {
 
 function ScreenAsModal({ title, isLoading, onCloseScreen, children }) {
 	useEscapeEffect(onCloseScreen)
+	useBeforePopState(() => {
+		onCloseScreen()
+		return false
+	})
 
 	return (
 		<div className='flex flex-col h-screen bg-app'>

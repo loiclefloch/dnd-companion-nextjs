@@ -90,10 +90,10 @@ function RunnerBlock({ dice, contextCharacter, spellLevel, chooser, message, onR
 				</div>
 
 				<div className="justify-end mb-20 text-center">
-					{spellLevel !== 0 && contextCharacter ? (
+					{spellLevel !== 0 ? (
 						<>
 							<p>Ce sort utilisera un emplacement de sort de niveau {spellLevel}</p>
-							<p>({remainingSlots} {remainingSlots === 1 ? 'restant' : 'restants'})</p>
+							{contextCharacter && <p>({remainingSlots} {remainingSlots === 1 ? 'restant' : 'restants'})</p>}
 						</>
 					) : (
 						<>

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { ModalContext } from "./modalContext";
 import Button from "../Button"
 import useEscapeEffect from "../useEscapeEffect"
+import useBeforePopState from "../useBeforePopState"
 
 function ModalInfo({ modalConfiguration, hideModal }) {
 	useEscapeEffect(hideModal)
@@ -166,7 +167,16 @@ const ModalCustom = ({ modalConfiguration, hideModal }) => {
 	return createElement(modalConfiguration.view, { hideModal, ...modalConfiguration })
 }
 
-const Modal = () => {
+function ModalContent({ hideModal, children }) {
+	useBeforePopState(() => {
+		hideModal()
+		return false
+	})
+
+	return children
+}
+
+function Modal() {
 	const { modalConfiguration, show, hideModal } = useContext(ModalContext);
 
 	if (modalConfiguration && show) {
@@ -184,12 +194,12 @@ const Modal = () => {
 
 		// return createElement(modalView, {modalConfiguration, hideModal })
 		return ReactDOM.createPortal(
-			createElement(modalView, { modalConfiguration, hideModal }),
+			<ModalContent hideModal={hideModal}>{createElement(modalView, { modalConfiguration, hideModal })}</ModalContent>,
 			document.querySelector("#modal-root")
 		);
 	}
 
 	return null;
-};
+}
 
 export default Modal;
