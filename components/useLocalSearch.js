@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import Fuse from "fuse.js"
-import { debounce } from "lodash";
+import { debounce, isEmpty } from "lodash";
 import useStorageState from "./useStorageState"
 import { findIndexOnArray } from "../modules/utils/array"
 
@@ -16,12 +16,19 @@ function toSearchResult(item, index) {
   }
 }
 
-function updateHistory(query, searchHistory) {
-  const index = findIndexOnArray(searchHistory, (q) => q?.startsWith(query))
-  if (index === -1) {
-    return [query, ...(searchHistory || [])].slice(0, 25) // keep 25 last search
+function addTermOnHistoryData(query, searchHistory) {
+  if (isEmpty(query)) {
+    return [...searchHistory]
   }
-  return searchHistory.filter(Boolean)
+  const index = findIndexOnArray(searchHistory, (q) => q?.startsWith(query))
+
+  let newHistory
+  if (index === -1) {
+    newHistory = [query, ...(searchHistory || [])].slice(0, 25) // keep 25 last search
+  } else {
+    newHistory = [ ...searchHistory ]
+  }
+  return newHistory.filter(query => !isEmpty(query))
 }
 
 /**
@@ -45,10 +52,6 @@ function useLocalSearch(searchType, { data = [], options }) {
     const fuse = new Fuse(data || [], fuseOptions)
 
     const results = fuzzySearch({ data: data || [], term, fuse })
-
-    if (results.length > 0) {
-      setSearchHistory(updateHistory(term, searchHistory))
-    }
     
     if (results.length > 0 && !results[0].item) {
       // sometimes, why? we do not have [ { item, refIndex }] but an array of items
@@ -57,6 +60,12 @@ function useLocalSearch(searchType, { data = [], options }) {
       setResults(results.filter(Boolean))
     }
 	}, 1000), [])
+
+  useEffect(() => {
+    if (results.length > 0 && !isEmpty(term)) {
+      setSearchHistory(addTermOnHistoryData(term, searchHistory))
+    }
+  }, [results])
 
   useEffect(() => {
 		calculateResults(term, data, options)

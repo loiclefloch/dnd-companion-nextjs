@@ -41,7 +41,7 @@ const getObjectFromStorage = (key, defaultValue = null) => {
 
 	// saved values as null are set as a string 'null', not null
 	if (value === 'null') {
-		return null
+		return defaultValue
 	}
 
 	return value
