@@ -3,7 +3,7 @@ import map from "lodash/map"
 import Link from "next/link"
 import useI18n from "../../modules/i18n/useI18n"
 import Screen from "../../components/Screen"
-import useCurrentCharacter from "../../modules/character/useCurrentCharacter"
+import useCurrentCharacter from "../../components/useCurrentCharacter"
 import IconBookOpen from "../../components/icons/IconBookOpen"
 import IconPlus from "../../components/icons/IconPlus"
 import IconMagicSchool from "../../components/icons/IconMagicSchool"
@@ -13,7 +13,7 @@ import useTipRitual from "../../components/useTipRitual"
 import Tag from "../../components/Tag"
 import clsx from "clsx"
 import { useEditSpellSlotsScreenAsModal } from "../../components/EditSpellSlotsScreenAsModal"
-import { actionEditSpellSlots } from "../../modules/character/useCurrentCharacter"
+import { actionEditSpellSlots } from "../../modules/character/action"
 
 function Spell({ spell, contextCharacter /*onSelect*/ }) {
 	const { tr } = useI18n();

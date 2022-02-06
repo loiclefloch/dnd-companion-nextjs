@@ -2,12 +2,8 @@ import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import useI18n from "../modules/i18n/useI18n";
-import useCurrentCharacter, {
-	buildShortRest,
-	buildLongRest,
-	actionShortRest,
-	actionLongRest,
-} from "../modules/character/useCurrentCharacter"
+import useCurrentCharacter from "../components/useCurrentCharacter"
+import { buildShortRest, buildLongRest, } from "../modules/character/util"
 import { useRuleScreenAsModal } from "./RuleScreenAsModal"
 
 function buildRest(character) {

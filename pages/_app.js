@@ -5,7 +5,7 @@ import { CharacterMenuProvider } from "../components/characterMenu/CharacterMenu
 import { ScreenAsModalProvider } from "../components/screenAsModal/useScreenAsModal";
 import { SidebarMenuProvider } from "../components/sidebarMenu/sidebarMenuContext";
 import { CreateCharacterProvider } from "../components/useCreateCharacter"
-import { CurrentCharacterProvider } from "../modules/character/useCurrentCharacter"
+import { CurrentCharacterProvider } from "../components/useCurrentCharacter"
 function MyApp({ Component, pageProps }) {
   return (
     <div

@@ -3,7 +3,7 @@ import groupBy from "lodash/groupBy"
 import useI18n from "../../modules/i18n/useI18n"
 import { useRouter } from "next/router"
 import Screen from "../../components/Screen"
-import useCurrentCharacter from "../../modules/character/useCurrentCharacter"
+import useCurrentCharacter from "../../components/useCurrentCharacter"
 import IconBriefcase from "../../components/icons/IconBriefcase"
 import IconPlus from "../../components/icons/IconPlus"
 import { useEquipmentItemScreenAsModal } from "../../components/EquipmentItemScreenAsModal"
@@ -11,7 +11,7 @@ import { useMagicItemScreenAsModal } from "../../components/MagicItemScreenAsMod
 import { useChooseEquipmentScreenAsModal } from "../../components/ChooseEquipmentScreenAsModal"
 import Button from "../../components/Button"
 import CharacterEquipmentItemRow from "../../components/CharacterEquipmentItemRow"
-import { actionAddEquipment } from "../../modules/character/useCurrentCharacter"
+import { actionAddEquipment } from "../modules/character/action"
 
 
 function Group({ title, character, items }) {

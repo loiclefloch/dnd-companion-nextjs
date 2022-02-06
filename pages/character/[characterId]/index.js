@@ -8,7 +8,7 @@ import Screen from "../../../components/Screen"
 import { useRestScreenAsModal } from "../../../components/RestScreenAsModal"
 import { useLifeScreenAsModal } from "../../../components/LifeScreenAsModal"
 import { useAcScreenAsModal } from "../../../components/AcScreenAsModal"
-import useCurrentCharacter from "../../../modules/character/useCurrentCharacter"
+import useCurrentCharacter from "../../../components/useCurrentCharacter"
 import IconCampFire from "../../../components/icons/IconCampFire"
 import IconShield from "../../../components/icons/IconShield"
 import useTip from "../../../components/useTip"
@@ -56,15 +56,84 @@ function AcView({ character }) {
 	)
 }
 
-function Character() {
-	const router = useRouter()
+function Content({ 
+	character,
+	characterDispatch,
+}) {
 	const { tr } = useI18n()
-	const { currentCharacter, setCurrentCharacter, characterDispatch } = useCurrentCharacter()
 	const { showTipPassivePerception } = useTip()
 	const { showRestModalAsScreen } = useRestScreenAsModal()
-	const characterResponse = useCharacter(router.query.characterId)
 
+	if (!character) {
+		return null
+	}
+
+	return (
+			<div className="px-4">
+				<div>
+					<Link href={`/race/${character.race.index}`}>
+						{tr(character.race.nameLocalized)}
+					</Link>
+					<span> - </span>
+					<Link href={`/class/${character.classes[0].index}`}>
+						{character.classes.map(clss => tr(clss.nameLocalized)).join(', ')}
+					</Link>
+					<span> - </span>
+					Niveau {character.level}
+				</div>
+
+				<div className="relative flex items-center mt-6">
+					<div className="w-1/3" />
+					<HpView character={character} characterDispatch={characterDispatch} />
+					<div className="ml-12" />
+					<AcView character={character} characterDispatch={characterDispatch} />
+					<div className="absolute right-0">
+						<IconCampFire className="w-10 h-10 fill-slate-700" onClick={() => showRestModalAsScreen()} />
+					</div>
+				</div>
+
+				<div className="my-4 mt-6">
+					<StatsSmall 
+						withDetail 
+						stats={character.stats} 
+						skills={character.skills}
+						character={character}
+					/>
+				</div>
+
+				<Section title="Caractéristiques">
+					<LineInfo.Parent>
+						<LineInfo label="Maîtrise" value={<span>+{character.proficiencyBonus}</span>} />
+						<LineInfo 
+							label="Vitesse" 
+							value={
+								<>
+									{character.currentSpeed != character.baseSpeed && <span>{character.currentSpeed} {character.speedReduced && 'Réduite'}</span>}
+									{character.currentSpeed == character.baseSpeed && <span>{character.currentSpeed}</span>}
+								</>
+							} 
+						/>
+						<LineInfo label="Perception passive" value={<span>{character.passivePerception}</span>} onClick={() => showTipPassivePerception()} />
+						<LineInfo label="Spell DC" value={<span>{character.spellSaveDC}</span>} />
+						<LineInfo label="Spellcasing ability" value={<span><span className="text-xs text-meta">{character.spellcastingAbility}</span> {character.spellcastingAbilityValueLabel}</span>} />
+						<LineInfo label="Spell Attack bonus" value={<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>} />
+					</LineInfo.Parent>
+
+				</Section>
+
+				<TraitsSection character={character} />
+				<ProficienciesSection character={character} />
+				<BackgroundSection character={character} />
+
+			</div>
+		)
+}
+
+function Character() {
+	const router = useRouter()
+	const characterResponse = useCharacter(router.query.characterId)
 	const character = characterResponse.data
+	const { character: currentCharacter, setCurrentCharacter, characterDispatch } = useCurrentCharacter()
 
 	useEffect(() => {
 		if (character && (!currentCharacter || character?.id !== currentCharacter?.id)) {
@@ -74,7 +143,7 @@ function Character() {
 
 	return (
 		<Screen
-			title={character?.name}
+			title={currentCharacter?.name}
 			// titleIcon={<IconUsers className="w-6 h-6" />}
 			isLoading={characterResponse.isLoading}
 			withCharacterMenu
@@ -86,64 +155,11 @@ function Character() {
 				</button>
 			}
 		>
-			{character && (
-				<div className="px-4">
-					<div>
-						<Link href={`/race/${character.race.index}`}>
-							{tr(character.race.nameLocalized)}
-						</Link>
-						<span> - </span>
-						<Link href={`/class/${character.classes[0].index}`}>
-							{character.classes.map(clss => tr(clss.nameLocalized)).join(', ')}
-						</Link>
-						<span> - </span>
-						Niveau {character.level}
-					</div>
-
-					<div className="relative flex items-center mt-6">
-						<div className="w-1/3" />
-						<HpView character={character} characterDispatch={characterDispatch} />
-						<div className="ml-12" />
-						<AcView character={character} characterDispatch={characterDispatch} />
-						<div className="absolute right-0">
-							<IconCampFire className="w-10 h-10 fill-slate-700" onClick={() => showRestModalAsScreen()} />
-						</div>
-					</div>
-
-					<div className="my-4 mt-6">
-						<StatsSmall 
-							withDetail 
-							stats={character.stats} 
-							skills={character.skills}
-							character={character}
-						/>
-					</div>
-
-					<Section title="Caractéristiques">
-						<LineInfo.Parent>
-							<LineInfo label="Maîtrise" value={<span>+{character.proficiencyBonus}</span>} />
-							<LineInfo 
-								label="Vitesse" 
-								value={
-									<>
-										{character.currentSpeed != character.baseSpeed && <span>{character.currentSpeed} {character.speedReduced && 'Réduite'}</span>}
-										{character.currentSpeed == character.baseSpeed && <span>{character.currentSpeed}</span>}
-									</>
-								} 
-							/>
-							<LineInfo label="Perception passive" value={<span>{character.passivePerception}</span>} onClick={() => showTipPassivePerception()} />
-							<LineInfo label="Spell DC" value={<span>{character.spellSaveDC}</span>} />
-							<LineInfo label="Spellcasing ability" value={<span><span className="text-xs text-meta">{character.spellcastingAbility}</span> {character.spellcastingAbilityValueLabel}</span>} />
-							<LineInfo label="Spell Attack bonus" value={<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>} />
-						</LineInfo.Parent>
-
-					</Section>
-
-					<TraitsSection character={character} />
-					<ProficienciesSection character={character} />
-					<BackgroundSection character={character} />
-
-				</div>
+			{character?.id === currentCharacter?.id && (
+				<Content
+					character={currentCharacter}
+					characterDispatch={characterDispatch}
+				/>
 			)}
 		</Screen>
 	)

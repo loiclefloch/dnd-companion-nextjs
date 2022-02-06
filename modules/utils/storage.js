@@ -15,5 +15,6 @@ export function createStorage(key) {
 			
 			return JSON.parse(localStorage.getItem(key))
 		},
+		getKey: () => key
 	}
 }

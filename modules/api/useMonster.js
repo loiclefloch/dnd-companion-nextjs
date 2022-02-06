@@ -1,6 +1,6 @@
 import { cloneDeep } from 'lodash'
 import monsters from '../../database/data/monsters.json'
-import useApi from "./useApi"
+import useData from "./useData"
 
 function formatMonster(monster) {
   if (!monster) {
@@ -20,7 +20,7 @@ function formatMonster(monster) {
 }
 
 function useMonster(index) {
-  return useApi(formatMonster(cloneDeep(monsters.find(monster => monster.index === index))))
+  return useData(formatMonster(cloneDeep(monsters.find(monster => monster.index === index))))
 }
 
 export default useMonster

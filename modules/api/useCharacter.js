@@ -1,6 +1,6 @@
 import { map, uniqBy, isEmpty } from 'lodash'
 import camelize from "../utils/camelize"
-import useApi from './useApi'
+import useData from './useData'
 import characters from './fixtures/characters'
 import proficiencies from "../../database/data/proficiencies.json"
 import skills from "../../database/data/skills.json"
@@ -415,7 +415,7 @@ export function formatCharacter(character) {
 
 function useCharacter(id) {
 	// TODO: not formated since already formatted on fixtures
-	return useApi(formatCharacter(characters().find(character => character.id === id)))
+	return useData(formatCharacter(characters().find(character => character.id === id)))
 }
 
 export default useCharacter

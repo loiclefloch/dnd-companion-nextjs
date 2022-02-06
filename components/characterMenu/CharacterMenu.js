@@ -2,7 +2,7 @@ import clsx from "clsx"
 import Link from "next/link"
 import { useRouter } from 'next/router'
 
-import useCurrentCharacter from "../../modules/character/useCurrentCharacter"
+import useCurrentCharacter from "../../components/useCurrentCharacter"
 import useI18n from "../../modules/i18n/useI18n"
 import useCharacterMenu from "./useCharacterMenu"
 import ButtonBottomScreen from "../ButtonBottomScreen"

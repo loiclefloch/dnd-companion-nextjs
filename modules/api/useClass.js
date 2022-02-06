@@ -1,6 +1,6 @@
 import { cloneDeep, isArray } from 'lodash'
 import classes from '../../database/data/classes.json'
-import useApi from "./useApi"
+import useData from "./useData"
 import equipment from '../../database/data/equipment.json'
 import proficiencies from '../../database/data/proficiencies.json'
 import camelize from '../utils/camelize'
@@ -46,7 +46,7 @@ export function formatClass(clssParam) {
 }
 
 function useClass(index) {
-  return useApi(formatClass(classes.find(clss => clss.index === index)))
+  return useData(formatClass(classes.find(clss => clss.index === index)))
 }
 
 export default useClass

@@ -1,6 +1,6 @@
 import magicItems from "../../database/data/magic-items.json"
 import camelize from "../utils/camelize"
-import useApi from "./useApi"
+import useData from "./useData"
 
 
 export function formatMagicItem(itemParam) {
@@ -30,7 +30,7 @@ export function formatMagicItem(itemParam) {
 }
 
 function useMagicItem(index) {
-	return useApi(formatMagicItem(magicItems.find(item => item.index === index)))
+	return useData(formatMagicItem(magicItems.find(item => item.index === index)))
 }
 
 export default useMagicItem

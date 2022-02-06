@@ -1,8 +1,8 @@
 import monsters from '../../database/data/monsters.json'
-import useApi from "./useApi"
+import useData from "./useData"
 
 function useMonsters() {
-  return useApi(monsters)
+  return useData(monsters)
 }
 
 export default useMonsters

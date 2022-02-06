@@ -1,10 +1,10 @@
 import magicSchools from '../../database/data/magic-schools.json'
-import useApi from "./useApi"
+import useData from "./useData"
 
 import { format } from './useMagicSchool'
 
 function useMagicSchools() {
-  return useApi(magicSchools.map(format))
+  return useData(magicSchools.map(format))
 }
 
 export default useMagicSchools

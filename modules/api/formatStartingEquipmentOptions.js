@@ -47,7 +47,7 @@ function formatSubOption(parentOption, option) {
 
 function formatStartingEquipmentOptions(startingEquipmentOptions) {
 	
-	const u = startingEquipmentOptions.map(option => {
+	return startingEquipmentOptions.map(option => {
 		if (!option.from.map) {
 			return formatSubOption({}, option)
 		}
@@ -66,8 +66,6 @@ function formatStartingEquipmentOptions(startingEquipmentOptions) {
 		}
 		return option
 	})
-	console.log(u)
-	return u
 }
 
 export default formatStartingEquipmentOptions

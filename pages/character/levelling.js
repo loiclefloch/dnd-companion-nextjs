@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import { CharacterProvider} from "../../modules/character/ContextCharacter"
-import useCurrentCharacter from "../../modules/character/useCurrentCharacter"
+import useCurrentCharacter from "../../components/useCurrentCharacter"
 import { getNextLevelExperienceStage } from "../../modules/levelling"
 import IconTrendingUp from "../../components/icons/IconTrendingUp"
 import Screen from "../../components/Screen"

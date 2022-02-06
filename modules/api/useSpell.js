@@ -1,5 +1,5 @@
 import spells from '../../database/data/spells.json'
-import useApi from "./useApi"
+import useData from "./useData"
 
 export function formatSpell(spell) {
   if (!spell) {
@@ -13,7 +13,7 @@ export function formatSpell(spell) {
 }
 
 function useSpell(index) {
-  return useApi(formatSpell(spells.find(spell => spell.index === index)))
+  return useData(formatSpell(spells.find(spell => spell.index === index)))
 }
 
 export default useSpell

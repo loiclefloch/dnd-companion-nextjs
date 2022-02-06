@@ -9,7 +9,7 @@ import {
 	actionPrepareSpell,
 	actionRemoveSpell,
 	actionUnprepareSpell,
- } from "../modules/character/useCurrentCharacter"
+ } from "../modules/character/action"
 
 function LearnButton({ spell, characterDispatch, onCloseScreen }) {
 	return (

@@ -1,5 +1,5 @@
 import features from '../../database/data/features.json'
-import useApi from "./useApi"
+import useData from "./useData"
 
 export function format(feature) {
   feature.nameLocalized = {
@@ -10,7 +10,7 @@ export function format(feature) {
 }
 
 function useFeature(index) {
-  return useApi(format(features.find(feature => feature.index === index)))
+  return useData(format(features.find(feature => feature.index === index)))
 }
 
 export default useFeature

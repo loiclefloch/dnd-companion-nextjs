@@ -1,8 +1,8 @@
 import rules from '../../database/data/rules.json'
-import useApi from "./useApi"
+import useData from "./useData"
 
 function useRules() {
-  return useApi(rules)
+  return useData(rules)
 }
 
 export default useRules

@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import { CharacterProvider} from "../../modules/character/ContextCharacter"
-import useCurrentCharacter from "../../modules/character/useCurrentCharacter"
+import useCurrentCharacter from "../../components/useCurrentCharacter"
 import IconCoins from "../../components/icons/IconCoins"
 import Screen from "../../components/Screen"
 import useI18n from "../../modules/i18n/useI18n"

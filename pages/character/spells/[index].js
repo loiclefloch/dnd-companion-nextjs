@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import useSpell from "../../../modules/api/useSpell";
 import useI18n from "../../../modules/i18n/useI18n";
 import { CharacterProvider} from "../../../modules/character/ContextCharacter"
-import useCurrentCharacter from "../../../modules/character/useCurrentCharacter"
+import useCurrentCharacter from "../../../components/useCurrentCharacter"
 
 import Screen from "../../../components/Screen";
 import SpellView from "../../../components/SpellView";

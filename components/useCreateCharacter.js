@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { createContext, useContext, useReducer, useEffect } from "react"
 import { createStorage } from "../modules/utils/storage"
-import { getDefaultData } from "../modules/character/useCurrentCharacter"
+import { getDefaultData } from "../components/useCurrentCharacter"
 import applyLevelling from "../modules/levelling/applyLevelling"
 
 import classes from '../database/data/classes.json'

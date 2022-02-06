@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ContextCharacter } from "../../modules/character/ContextCharacter"
+import { ContextCharacter } from "../modules/character/ContextCharacter"
 
 function useContextCharacter() {
 	const contextCharacter = useContext(ContextCharacter)

@@ -4,7 +4,7 @@ import { useEquipmentItemScreenAsModal } from "../components/EquipmentItemScreen
 import useCurrentCharacter, { 
 	actionEquip,
 	actionUnequip,
-} from "../modules/character/useCurrentCharacter"
+} from "../modules/character/action"
 import useTipDamageType from "./useTipDamageType"
 import useDice from "./useDice";
 import Button from "./Button"

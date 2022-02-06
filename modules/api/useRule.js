@@ -1,5 +1,5 @@
 import ruleSections from '../../database/data/rule-sections.json'
-import useApi from "./useApi"
+import useData from "./useData"
 
 export function format(rule) {
   if (!rule) {
@@ -13,7 +13,7 @@ export function format(rule) {
 }
 
 function useRule(index) {
-  return useApi(format(ruleSections.find(rule => rule.index === index)))
+  return useData(format(ruleSections.find(rule => rule.index === index)))
 }
 
 export default useRule

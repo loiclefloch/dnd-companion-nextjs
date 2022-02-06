@@ -1,5 +1,5 @@
 import { CharacterProvider} from "../../../modules/character/ContextCharacter"
-import useCurrentCharacter from "../../../modules/character/useCurrentCharacter"
+import useCurrentCharacter from "../../../components/useCurrentCharacter"
 import SpellsView from "../../../components/SpellsView"
 
 /**

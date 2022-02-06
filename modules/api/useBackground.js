@@ -3,7 +3,7 @@ import equipment from '../../database/data/equipment.json'
 import backgrounds from '../../database/data/backgrounds'
 import classes from '../../database/data/classes'
 import camelize from "../utils/camelize"
-import useApi from "./useApi"
+import useData from "./useData"
 import { formatEquipmentItem  } from './useEquipmentItem'
 import { formatProficiency } from "./useProficiency"
 import formatStartingEquipmentOptions from "./formatStartingEquipmentOptions"
@@ -66,7 +66,7 @@ export function formatBackground(backgroundParam) {
 }
 
 function useBackground(index) {
-  return useApi(formatBackground(backgrounds.find(background => background.index === index)))
+  return useData(formatBackground(backgrounds.find(background => background.index === index)))
 }
 
 export default useBackground

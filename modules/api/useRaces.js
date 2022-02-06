@@ -1,10 +1,10 @@
 import allRaces from '../../database/data/allRaces'
-import useApi from "./useApi"
+import useData from "./useData"
 
 import { formatRace } from "./useRace"
 
 function useRaces() {
-  return useApi(allRaces.map(formatRace))
+  return useData(allRaces.map(formatRace))
 }
 
 export default useRaces

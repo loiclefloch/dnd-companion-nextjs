@@ -10,7 +10,8 @@ import IconPlusMd from "./icons/IconPlusMd"
 import IconMinusMd from "./icons/IconMinusMd"
 import { CharacterProvider} from "../modules/character/ContextCharacter"
 import useDice from "./useDice"
-import useCurrentCharacter, { actionCastSpell } from "../modules/character/useCurrentCharacter"
+import useCurrentCharacter from "../components/useCurrentCharacter"
+import { actionCastSpell } from "../modules/character/action"
 
 const MAX_SPELL_LEVEL = 9 // maximum spell level
 const MAX_CHARACTER_LEVEL = 20 // maximum character level

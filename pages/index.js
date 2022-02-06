@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import useContextCharacter from "../modules/character/useContextCharacter"
+import useContextCharacter from "../components/useContextCharacter"
 import Link from 'next/link'
 import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"

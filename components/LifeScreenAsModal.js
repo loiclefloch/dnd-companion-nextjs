@@ -3,7 +3,7 @@ import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import useI18n from "../modules/i18n/useI18n";
-import { actionModifyCurrentHp } from "../modules/character/useCurrentCharacter"
+import { actionModifyCurrentHp } from "../modules/character/action"
 import Button from "./Button"
 import ButtonBottomScreen from "./ButtonBottomScreen"
 import IconMinus from "./icons/IconMinus"

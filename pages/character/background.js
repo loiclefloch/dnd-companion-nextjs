@@ -2,7 +2,7 @@ import Link from "next/link"
 import useI18n from "../../modules/i18n/useI18n"
 import { useRouter } from "next/router"
 import Screen from "../../components/Screen"
-import useCurrentCharacter from "../../modules/character/useCurrentCharacter"
+import useCurrentCharacter from "../../components/useCurrentCharacter"
 import CharacterResume from "../../components/CharacterResume"
 import Button from "../../components/Button"
 

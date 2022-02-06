@@ -1,6 +1,6 @@
 import equipment from "../../database/data/equipment.json"
 import camelize from "../utils/camelize"
-import useApi from "./useApi"
+import useData from "./useData"
 
 // possible equipment_category
 // - weapon
@@ -47,7 +47,7 @@ export function formatEquipmentItem(itemParam) {
 }
 
 function useEquipmentItem(index) {
-	return useApi(formatEquipmentItem(equipment.find(item => item.index === index)))
+	return useData(formatEquipmentItem(equipment.find(item => item.index === index)))
 }
 
 export default useEquipmentItem
