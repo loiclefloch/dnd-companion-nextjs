@@ -103,7 +103,10 @@ function CharacterMenu({ open }) {
 				<IconD8 className="w-8 h-8 text-gray-700" />
 			</button>
 			<Link href="/characters">
-				<div className="absolute right-0 px-2 pt-2">
+				<div 
+					className="absolute right-0 px-2 pt-2" 
+					onClick={() => hideCharacterMenu()}
+				>
 					<IconUsers className="w-6 h-6 text-gray-700" />
 				</div>
 			</Link>

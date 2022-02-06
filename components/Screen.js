@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 import IconSpin from "./icons/IconSpin"
 import IconBack from "./icons/IconBack"
 import useCharacterMenu from "./characterMenu/useCharacterMenu";
@@ -7,7 +8,7 @@ import useSidebarMenu from "./sidebarMenu/useSidebarMenu";
 import IconMenu from "./icons/IconMenu"
 import IconUser from "./icons/IconUser"
 import useScreenAsModal from './screenAsModal/useScreenAsModal';
-import Head from 'next/head'
+import useCurrentCharacter from "./useCurrentCharacter"
 
 function ScreenLoading() {
 	return (
@@ -20,9 +21,10 @@ function ScreenLoading() {
 function CharacterMenuButton() {
 	const { show: sidebarMenuShown } =  useSidebarMenu()
 	const { show: screenAsModalShown } = useScreenAsModal()
+	const { character } = useCurrentCharacter()
   const { show: characterMenuShown, showCharacterMenu } = useCharacterMenu()
 
-  const hideButton = characterMenuShown || sidebarMenuShown || screenAsModalShown
+  const hideButton = characterMenuShown || sidebarMenuShown || screenAsModalShown || !character
 
   // do not display if character menu is open
   return (
