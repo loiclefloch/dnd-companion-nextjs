@@ -1,9 +1,9 @@
-import { getSpellLevelDataForClassesAndLevel } from "../modules/levelling"
+import { getLevellingDataForClassesAndLevel } from "../modules/levelling"
 
 function SpellLevelData({ classes, level }) {
 	// TODO: how do we do with multy class?
-	const spellLevelData = getSpellLevelDataForClassesAndLevel(classes, level)
-	const maxSpellLevel = Math.max(...Object.keys(spellLevelData.slots))
+	const levellingData = getLevellingDataForClassesAndLevel(classes, level)
+	const maxSpellLevel = Math.max(...Object.keys(levellingData.slots))
 
 	return (
 		<div>
@@ -23,7 +23,7 @@ function SpellLevelData({ classes, level }) {
 						<th  className="text-sm font-semibold">Slots</th>
 						{[...Array(maxSpellLevel + 1)].map((_, index) => (
 							<td key={index} className="text-center">
-								{spellLevelData.slots[index]}
+								{levellingData.slots[index]}
 							</td>
 						))}
 					</tr>

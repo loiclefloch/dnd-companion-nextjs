@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { createContext, useContext, useReducer, useEffect } from "react"
 import { createStorage } from "../modules/utils/storage"
 import { getDefaultData } from "../components/useCurrentCharacter"
-import applyLevelling from "../modules/levelling/applyLevelling"
 
 import classes from '../database/data/classes.json'
 import allRaces from "../database/data/allRaces"
@@ -32,7 +31,7 @@ function createCharacterReducer(state, action) {
   }
 }
 
-const initialState = CreateCharacterStorage.getItem() || getDefaultData()
+const initialState = () => CreateCharacterStorage.getItem() || getDefaultData()
 
 function getNextStep(step) {
   const map = {
@@ -151,7 +150,8 @@ function buildCharacter(characterParam) {
     .filter(p => p.index.startsWith("skill-"))
     .map(p => p.index.replaceAll("skill-", ""))
 
-  applyLevelling(character, 1)
+    // TODO: after creating character we make it from level 0 to level 1! :)
+  // getLevellingSteps(character, 1)
 
   console.log(character)
   return cloneDeep(character)
@@ -159,19 +159,20 @@ function buildCharacter(characterParam) {
 
 export function CreateCharacterProvider({ children }) {
   const router = useRouter()
-  const [character, dispatchCharacter] = useReducer(createCharacterReducer, initialState)
+  const [character, dispatchCharacter] = useReducer(createCharacterReducer, initialState())
 
   useEffect(() => {
-    localStorage.setItem('createCharacter', JSON.stringify(character))
+    CreateCharacterStorage.setItem(character)
   }, [character])
 
+  // TODO: memo
   const race = formatRace(allRaces.find(r => r.index === character.race))
   const clss = formatClass(classes.find(r => r.index === character.classes[0]))
   const background = formatBackground(backgrounds.find(r => r.index === character.background))
 
   // NOTE: you *might* need to memoize this value
   // Learn more in http://kcd.im/optimize-context
-  const value = {
+  const context = {
     startCreateCharacter: () => {
       dispatchCharacter({
         type: 'update',
@@ -217,7 +218,7 @@ export function CreateCharacterProvider({ children }) {
   }
 
   return (
-    <CreateCharacterContext.Provider value={value}>
+    <CreateCharacterContext.Provider value={context}>
       {children}
     </CreateCharacterContext.Provider>
   )

@@ -1,4 +1,4 @@
-import levellingSpellDataForClasses from "./levellingSpellDataForClasses"
+import levellingDataForClasses from "./levellingDataForClasses"
 // Experience Points	Level	Proficiency Bonus
 // 0	1	+2
 // 300	2	+2
@@ -88,12 +88,12 @@ export function getLevelProficiencyBonus(level) {
 }
 
 // TODO: implement
-export function getLevellingSpellDataForClasses() {
-	return levellingSpellDataForClasses
+export function getlevellingDataForClasses() {
+	return levellingDataForClasses
 }
 
 export function getSpellLevelForCharacterLevel(characterClasses, characterLevel) {
-	const levellingSpellDataForClasses = getLevellingSpellDataForClasses()
+	const levellingDataForClasses = getlevellingDataForClasses()
 
 	function getMaxLevel(levelSpellData) {
 		if (!levelSpellData) {
@@ -109,26 +109,26 @@ export function getSpellLevelForCharacterLevel(characterClasses, characterLevel)
 		return maxSlotLevel
 	}
 	
-	if (!levellingSpellDataForClasses[characterClasses[0].index]) {
+	if (!levellingDataForClasses[characterClasses[0].index]) {
 		throw new Error(`Class ${characterClasses[0].index} not handled yet`)
 	}	
-	// TODO: how to with multiclass ? use getSpellLevelDataForClassesAndLevel?
-	return getMaxLevel(levellingSpellDataForClasses[characterClasses[0].index][characterLevel])
+	// TODO: how to with multiclass ? use getLevellingDataForClassesAndLevel?
+	return getMaxLevel(levellingDataForClasses[characterClasses[0].index][characterLevel])
 
 	// const levelsPerClasses = characterClasses.map(clss => {
-		// return getMaxLevel(levellingSpellDataForClasses[clss.index][characterLevel])
+		// return getMaxLevel(levellingDataForClasses[clss.index][characterLevel])
 	// })
 
 	// return Math.max(levelsPerClasses)
 }
 
-export function getSpellLevelDataForClassesAndLevel(characterClasses, characterLevel)  {
-	const levellingSpellDataForClasses = getLevellingSpellDataForClasses()
+export function getLevellingDataForClassesAndLevel(characterClasses, characterLevel)  {
+	const levellingDataForClasses = getlevellingDataForClasses()
 	// TODO: how to with multiclass ?
-	if (!levellingSpellDataForClasses[characterClasses[0].index]) {
+	if (!levellingDataForClasses[characterClasses[0].index]) {
 		throw new Error(`Class ${characterClasses[0].index} not handled yet`)
 	}
-	return levellingSpellDataForClasses[characterClasses[0].index][characterLevel]
+	return levellingDataForClasses[characterClasses[0].index][characterLevel]
 }
 
 export function getProficiencyBonus(clss, characterLevel) {

@@ -14,8 +14,8 @@ import magicItems from '../../database/data/magic-items.json'
 import traits from '../../database/data/traits.json'
 import { formatRace } from "./useRace"
 import { formatClass } from "./useClass"
-import { getSpellLevelDataForClassesAndLevel } from "../levelling"
-import { createSpellsSlots } from "../levelling/applyLevelling"
+import { getLevellingDataForClassesAndLevel } from "../levelling"
+import { createSpellsSlots } from "../levelling/getLevellingSteps"
 import { formatEquipmentItem } from "./useEquipmentItem"
 import { formatMagicItem } from "./useMagicItem"
 import { formatSpell } from "./useSpell"
@@ -104,8 +104,9 @@ export function formatCharacter(character) {
 		character.spellsUsed
 	)
 
-	const spellLevelData = getSpellLevelDataForClassesAndLevel(character.classes, character.level)
-	const maxSpellLevel = Math.max(...Object.keys(spellLevelData.slots))
+	const levellingData = getLevellingDataForClassesAndLevel(character.classes, character.level)
+
+	const maxSpellLevel = Math.max(...Object.keys(levellingData.slots))
 
 	character.maxSpellLevel = maxSpellLevel
 

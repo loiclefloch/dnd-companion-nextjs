@@ -1,6 +1,6 @@
 import { map } from "lodash"
 import features from "../../../database/data/features.json"
-import { getSpellLevelForCharacterLevel, getLevellingSpellDataForClasses } from "./index"
+import { getSpellLevelForCharacterLevel, getlevellingDataForClasses } from "./index"
 
 
 describe("getSpellLevelForCharacterLevel", () => {
@@ -17,11 +17,11 @@ describe("getSpellLevelForCharacterLevel", () => {
   })
 })
 
-describe("getLevellingSpellDataForClasses", () => {
+describe("getlevellingDataForClasses", () => {
   it("features references are correct", () => {
-		const levellingSpellDataForClasses = getLevellingSpellDataForClasses()
+		const levellingDataForClasses = getlevellingDataForClasses()
     
-		map(levellingSpellDataForClasses, (classData, clss) => {
+		map(levellingDataForClasses, (classData, clss) => {
 			map(classData, (levelData, level) => {
 				levelData.features?.forEach(featureIndex => {
 					expect(features.find(f => f.index === featureIndex)?.index).toEqual(featureIndex)

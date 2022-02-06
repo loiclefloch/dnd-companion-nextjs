@@ -9,7 +9,6 @@ import { createStorage } from "../modules/utils/storage";
 import { v4 as uuid } from 'uuid';
 import { formatEquipmentItem } from "../modules/api/useEquipmentItem"
 import equipmentList from "../database/data/equipment.json"
-import { createSpellsSlots } from "../modules/levelling/applyLevelling"
 import useStorage from "./useStorage"
  
 const CharactersStorage = createStorage("characters")

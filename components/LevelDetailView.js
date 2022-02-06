@@ -4,7 +4,7 @@ import useI18n from "../modules/i18n/useI18n";
 
 import ScreenIntroduction from "./ScreenIntroduction"
 import SpellLevelData from "./SpellLevelData"
-import { getSpellLevelDataForClassesAndLevel } from "../modules/levelling"
+import { getLevellingDataForClassesAndLevel } from "../modules/levelling"
 import { isEmpty } from "lodash";
 import useFeature from "../modules/api/useFeature"
 import { useFeatureScreenAsModal } from "./FeatureScreenAsModal"
@@ -31,15 +31,15 @@ function Feature({ index }) {
 }
 
 function FeaturesLevelData({ classes, level }) {
-	const spellLevelData = getSpellLevelDataForClassesAndLevel(classes, level)
+	const levellingData = getLevellingDataForClassesAndLevel(classes, level)
 
-	if (isEmpty(spellLevelData.features)) {
+	if (isEmpty(levellingData.features)) {
 		return <p className="px-4 mt-2">Pas de features</p>
 	}
 
 	return (
 		<div className="px-4 mt-2">
-			{spellLevelData.features.map(feature => (
+			{levellingData.features.map(feature => (
 				<Feature key={feature} index={feature} />
 			))}
 		</div>
