@@ -7,6 +7,7 @@ import StatsSmall from "./StatsSmall"
 import Image from "./Image"
 import Gallery from "./Gallery"
 import { useGalleryFullScreenAsModal } from "./GalleryFullScreenAsModal"
+import useDice from "./useDice";
 
 function Section({ title, children }) {
   return (
@@ -21,6 +22,7 @@ function Section({ title, children }) {
 
 function MonsterView({ monster }) {
   const { tr, isDefaultLang, trDefaultLang } = useI18n();
+  const { rollDice } = useDice()
 	const { showGalleryFullScreen } = useGalleryFullScreenAsModal()
 
   const otherNames = [
@@ -81,6 +83,10 @@ function MonsterView({ monster }) {
           </Tag>
           <Tag
             className="flex items-center justify-center mt-2 text-gray-600 normal-case bg-gray-200"
+            onClick={() => rollDice(
+              `Points de vie ${tr(monster.name)}`,
+              monster.hpDice
+            )}
           >
             {monster.hp}
           </Tag>

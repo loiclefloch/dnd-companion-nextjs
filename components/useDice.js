@@ -22,6 +22,32 @@ function diceRollResultToString(diceRollResult) {
 }
 function useDice() {
 	const { addDice } = useDiceHistory()
+
+	function rollDice(label, dice, options = {}) {
+		const diceRollResult = new DiceRoll(dice)
+		const diceResult = Number(diceRollResult.total)
+		const result = diceResult
+
+		const roll = { 
+			label,
+			dice,
+			roll,
+			diceResult,
+			result,
+			diceRollResult: diceRollResultToString(diceRollResult),
+		}
+		
+		addDice({
+			label,
+			historyLabel: label,
+			roll,
+			onValidate: () => { },
+			onReroll: () => {
+				rollDice(label, dice, { ...options, isReroll: true })
+			},
+		})
+	}
+
 	function rollStat(label, value, options = {}) {
 		const { successValue = null, isReroll = false } = options
 		const modifier = valueToModifier(value)
@@ -162,11 +188,7 @@ function useDice() {
 	}
 
 	return {
-		rollDice: (label, dice) => {
-			// TODO: refactor
-			const roll = new DiceRoll(dice)
-			addDice({ label, dice, roll })
-		},
+		rollDice,
 		rollDamage,
 		rollHeal,
 		rollStat,

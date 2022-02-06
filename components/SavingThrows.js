@@ -18,7 +18,7 @@ function SavingThrow({ modifierLabel, ability, isProeficient, character }) {
 			<div className="ml-4 w-28">
 				{tr(ability)}
 			</div>
-			<div className="">{modifierLabel}</div>
+			<div className="w-8 text-right">{modifierLabel}</div>
 		</div>
 	)
 }

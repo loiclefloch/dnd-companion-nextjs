@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import map from "lodash/map";
-
+import { useSpellRunner } from "./SpellRunnerScreenAsModal"
 import SectionWithToggle from "./SectionWithToggle";
-function SpellDetailLevelTable({ title, data }) {
 
+function SpellDetailLevelTable({ title, data, showSpellRunner }) {
 	return (
 		<SectionWithToggle title={title} className="mt-4">
 			<div className="grid grid-cols-3 place-items-stretch">
@@ -16,6 +16,7 @@ function SpellDetailLevelTable({ title, data }) {
 							// delete border-r of the last column
 							"border-r-0": level % 3 === 0,
 						})}
+						onClick={() => showSpellRunner({ level: parseInt(level, 10) })}
 					>
 						{level != 21 && (
 							<>
@@ -34,27 +35,43 @@ function SpellDetailLevelTable({ title, data }) {
 	)
 }
 
-function SpellDetailLevel({ spell }) {
+function SpellDetailLevel({ spell, showSpellRunner }) {
 	if (spell.heal) {
-		return <SpellDetailLevelTable title="Soins" data={spell.heal.healAtSlotLevel} />
+		return <SpellDetailLevelTable 
+			title="Soins" 
+			data={spell.heal.healAtSlotLevel} 
+			showSpellRunner={showSpellRunner}
+		/>
 	}
 
 	if (spell.damage && spell.damage.damageAtSlotLevel) {
-		return <SpellDetailLevelTable title="Dégats par niveau de sort" data={spell.damage.damageAtSlotLevel} />
+		return <SpellDetailLevelTable 
+			title="Dégats par niveau de sort" 
+			data={spell.damage.damageAtSlotLevel} 
+			showSpellRunner={showSpellRunner}
+		/>
 	}
 
 	if (spell.damage && spell.damage.damageAtCharacterLevel) {
-		return <SpellDetailLevelTable title="Dégats par niveau de personnage" data={spell.damage.damageAtCharacterLevel} />
+		return <SpellDetailLevelTable 
+			title="Dégats par niveau de personnage" 
+			data={spell.damage.damageAtCharacterLevel} 
+			showSpellRunner={showSpellRunner}
+		/>
 	}
 
 	return null
 }
 
+function SpellDetail({ spell, contextCharacter }) {
+	const { showSpellRunner } = useSpellRunner()
 
-function SpellDetail({ spell }) {
 	return (
 		<>
-			<SpellDetailLevel spell={spell} />
+			<SpellDetailLevel 
+				spell={spell} 
+				showSpellRunner={(options) => showSpellRunner(spell, contextCharacter, options)}
+			/>
 		</>
 	)
 }

@@ -5,13 +5,13 @@ function Gallery({ title, images }) {
 
 	return (
 		<div className="container grid grid-cols-3 gap-2 mx-auto">
-			{images.map((imageData, index) => (
+			{images.map(imageData => (
 				<img
-					onClick={() => showGalleryFullScreen(title, images, imageData)}
 					key={imageData.url}
 					src={imageData.url}
 					alt={imageData.label}
 					className={"w-full rounded hover:shadow-2xl"}
+					onClick={() => showGalleryFullScreen(title, images, imageData)}
 				/>
 			))}
 		</div>

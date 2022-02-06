@@ -9,7 +9,8 @@ import { createStorage } from "../utils/storage";
 import { v4 as uuid } from 'uuid';
 import { formatEquipmentItem } from "../api/useEquipmentItem"
 import equipmentList from "../../database/data/equipment.json"
-
+import { createSpellsSlots } from "../levelling/applyLevelling"
+ 
 const CharactersStorage = createStorage("characters")
 const CurrentCharacterIdStorage = createStorage("currentCharacterId")
 
@@ -159,12 +160,13 @@ export function CurrentCharacterProvider({ children }) {
 		},
 		characterDispatch: (action) => {
 			console.log(`dispatch ${action.type}`)
+			const formattedCharacter = formatCharacter(cloneDeep(currentCharacter))
 			const nextState = produce(currentCharacter, draftState => {
 				// TODO: on character creation
 				if (!draftState.spellsList) {
 					draftState.spellsList = []
 				}
-				action.apply(draftState)
+				action.apply(draftState, formattedCharacter)
 			})
 			updateCharacter(nextState)
 		}
@@ -222,10 +224,41 @@ export function actionRemoveSpell(spellToRemove) {
 export function actionCastSpell(spell, spellLevel) {
 	return {
 		type: 'actionCastSpell',
-		apply: (character) => {
+		apply: (character, formattedCharacter) => {
 			console.info({ spell, spellLevel })
 			character.spellsUsed = character.spellsUsed || []
 			character.spellsUsed.push({ spell: spell.index, spellLevel })
+
+
+			// TODO: remove
+			if (!character.spellsSlots) {
+				character.spellsSlots = createSpellsSlots(
+					formattedCharacter.classes,
+					formattedCharacter.level
+				)
+			}
+			const a = character.spellsSlots
+			console.log({ a })
+			
+			const spellSlot = character.spellsSlots.find(spellSlot => spellSlot.spellLevel === spellLevel)
+			spellSlot.usedSlots = (spellSlot.usedSlots || 0) + 1
+		}
+	}
+}
+
+export function actionEditSpellSlots(data) {
+	return {
+		type: 'actionEditSpellSlots',
+		apply: (character) => {
+			const {
+				spellLevel,
+				usedSlots,
+				totalSlots,
+			} = data
+			
+			const spellSlot = character.spellsSlots.find(spellSlot => spellSlot.spellLevel === spellLevel)
+			spellSlot.usedSlots = usedSlots
+			spellSlot.totalSlots = totalSlots
 		}
 	}
 }
@@ -267,7 +300,7 @@ export function actionModifyCurrentHp({
 	return {
 		type: 'actionModifyCurrentHp',
 		apply: (character) => {
-			character.currentHp += hpToModify
+			character.currentHp = character.currentHp + hpToModify
 
 			if (willBeKo) {
 				// TODO:
@@ -344,7 +377,6 @@ export function actionUnequip(item) {
 		}
 	}
 }
-
 
 //
 // utils

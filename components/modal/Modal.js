@@ -1,13 +1,10 @@
 import { createElement, useContext } from "react";
 import ReactDOM from "react-dom";
-import { ModalContext } from "./modalContext";
 import Button from "../Button"
 import useEscapeEffect from "../useEscapeEffect"
 import useBeforePopState from "../useBeforePopState"
 
 function ModalInfo({ modalConfiguration, hideModal }) {
-	useEscapeEffect(hideModal)
-
 	return (
 		<div className="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 			<div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
@@ -164,10 +161,13 @@ function ModalValidation({ modalConfiguration, hideModal }) {
 }
 
 const ModalCustom = ({ modalConfiguration, hideModal }) => {
-	return createElement(modalConfiguration.view, { hideModal, ...modalConfiguration })
+	const { view, ...otherProps } = modalConfiguration
+	return createElement(view, { hideModal, ...otherProps })
 }
 
 function ModalContent({ hideModal, children }) {
+	useEscapeEffect(hideModal)
+
 	useBeforePopState(() => {
 		hideModal()
 		return false
@@ -176,9 +176,7 @@ function ModalContent({ hideModal, children }) {
 	return children
 }
 
-function Modal() {
-	const { modalConfiguration, show, hideModal } = useContext(ModalContext);
-
+function Modal({ modalConfiguration, show, hideModal } ) {
 	if (modalConfiguration && show) {
 		const modal = {
 			'VALIDATION': ModalValidation,
@@ -192,9 +190,10 @@ function Modal() {
 			throw new Error(`type not handled ${modalConfiguration.type}`)
 		}
 
-		// return createElement(modalView, {modalConfiguration, hideModal })
 		return ReactDOM.createPortal(
-			<ModalContent hideModal={hideModal}>{createElement(modalView, { modalConfiguration, hideModal })}</ModalContent>,
+			<ModalContent hideModal={hideModal}>
+				{createElement(modalView, { modalConfiguration, hideModal })}
+			</ModalContent>,
 			document.querySelector("#modal-root")
 		);
 	}

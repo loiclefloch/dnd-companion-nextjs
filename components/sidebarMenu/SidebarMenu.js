@@ -51,7 +51,7 @@ function SidebarMenu({ show, onClose }) {
 			>&nbsp;</div>
 			<div
 				className={clsx("h-screen lg:block shadow-lg fixed flex z-50 w-5/6",
-					"transform ease-in-out transition-all duration-300", {
+					"transform ease-in-out transition-all duration-300 overflow-y-auto", {
 					"translate-x-0": show,
 					"-translate-x-full": !show,
 				})}
@@ -61,7 +61,7 @@ function SidebarMenu({ show, onClose }) {
 					<div className="flex">
 						<div className="flex items-center justify-center flex-1 pt-2">
 							{/* ICON */}
-							<IconGroup className="w-36 text-stone-300" />
+							<IconGroup className="w-28 text-stone-300" />
 						</div>
 						<div className="px-2 pt-2" onClick={onClose}>
 							<IconX 
@@ -74,7 +74,7 @@ function SidebarMenu({ show, onClose }) {
 						</div>
 					</div>
 
-					<nav className="flex flex-col flex-1 pt-6">
+					<nav className="flex flex-col flex-1 pt-2">
 						<div>
 							<Item href="/" label="Dashboard" icon={<IconHome className="w-6 h-6" />} />
 							<Item href="/characters" label="Personnages" icon={<IconUsers className="w-6 h-6" />} />
@@ -83,7 +83,7 @@ function SidebarMenu({ show, onClose }) {
 							<Item href="/equipment" label="Équipements" icon={<IconBookOpen className="w-6 h-6" />} />
 							<Item href="/rules" label="Règles" icon={<IconAcademicCap className="w-6 h-6" />} />
 						</div>
-						<div className="flex flex-col justify-end flex-1 w-full my-4 flex-end">
+						<div className="flex flex-col justify-end flex-1 w-full flex-end">
 							<Item href="/support" label="Support" icon={<IconSupport className="w-6 h-6" />} />
 							<Item href="/settings" label="Paramètres" icon={<IconGear className="w-6 h-6" />} />
 						</div>

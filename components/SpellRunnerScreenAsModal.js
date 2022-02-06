@@ -103,15 +103,13 @@ function RunnerBlock({ dice, contextCharacter, spellLevel, chooser, message, onR
 					)}
 				</div>
 			</div>
-		
-			<div>
-				<ButtonBottomScreen
-					onClick={onRun}
-					variant="cta"
-				>
-					Lancer le sort
-				</ButtonBottomScreen>
-			</div>
+
+			<ButtonBottomScreen
+				onClick={() => onRun()}
+				variant="cta"
+			>
+				Lancer le sort
+			</ButtonBottomScreen>
 		</div>
 	)
 }
@@ -197,6 +195,7 @@ function HealRunner({
 				</div>
 			)}
 			onRun={() => {
+				debugger
 				rollHeal(spellName, dice, modifier)
 				onRun(chosenSpellLevel)
 			}}
@@ -271,6 +270,7 @@ function DamageCharacterLevel({
 	spellLevel,
 	damageAtCharacterLevel, 
 	damageType, 
+	characterLevel: defaultCharacterLevel,
 	contextCharacter,
 	onRun, 
 	formatMod,
@@ -283,7 +283,7 @@ function DamageCharacterLevel({
 		isAboveMaximumCharacterLevel,
 		characterMaxLevel,
 		// characterInContext, To use?	
-	} = useCharacterLevelSelector()
+	} = useCharacterLevelSelector(defaultCharacterLevel)
 
 	const modifier = 0 // TODO: spell modifier
 	const shouldWarn = isAboveMaximumCharacterLevel
@@ -328,8 +328,10 @@ function DamageCharacterLevel({
 	)
 }
 
-function SpellRun({ contextCharacter, spell, onRun }) {
+function SpellRun({ contextCharacter, spell, options, onRun }) {
 	const { tr } = useI18n()
+
+	const spellLevel =	options?.level || spell.level
 
 	function formatMod(dice) {
 		if (contextCharacter) {
@@ -343,7 +345,7 @@ function SpellRun({ contextCharacter, spell, onRun }) {
 			<HealRunner
 				spellName={tr(spell.nameLocalized)}
 				healAtSlotLevel={spell.heal.healAtSlotLevel}
-				spellLevel={spell.level}
+				spellLevel={spellLevel}
 				contextCharacter={contextCharacter}
 				onRun={onRun}
 				formatMod={formatMod}
@@ -355,7 +357,7 @@ function SpellRun({ contextCharacter, spell, onRun }) {
 		return (
 			<DamageSlotLevel
 				spellName={tr(spell.nameLocalized)}
-				spellLevel={spell.level}
+				spellLevel={spellLevel}
 				damageAtSlotLevel={spell.damage.damageAtSlotLevel}
 				damageType={spell.damage.type}
 				contextCharacter={contextCharacter}
@@ -370,7 +372,7 @@ function SpellRun({ contextCharacter, spell, onRun }) {
 			<DamageCharacterLevel
 				spellName={tr(spell.nameLocalized)}
 				spellLevel={spell.level}
-				characterLevel={contextCharacter?.level ?? 1}
+				characterLevel={options?.level ?? contextCharacter?.level ?? 1}
 				damageAtCharacterLevel={spell.damage.damageAtCharacterLevel}
 				damageType={spell.damage.type}
 				contextCharacter={contextCharacter}
@@ -387,12 +389,12 @@ function SpellRun({ contextCharacter, spell, onRun }) {
 
 	return (
 		<RunnerBlock
-			onRun={onRun}
+			onRun={() => onRun(spellLevel)}
 		/>
 	)
 }
 
-function SpellRunnerScreenAsModal({ contextCharacter, spell, onCloseScreen }) {
+function SpellRunnerScreenAsModal({ contextCharacter, spell, options, onCloseScreen }) {
 	const { tr } = useI18n()
 	const { characterDispatch } = useCurrentCharacter()
 
@@ -409,7 +411,12 @@ function SpellRunnerScreenAsModal({ contextCharacter, spell, onCloseScreen }) {
 					<h2 className="mt-20 text-2xl font-semibold text-center">
 						{tr(spell.nameLocalized)}
 					</h2>
-					<SpellRun spell={spell} contextCharacter={contextCharacter} onRun={onRun} />
+					<SpellRun 
+						spell={spell} 
+						contextCharacter={contextCharacter} 
+						options={options}
+						onRun={onRun} 
+					/>
 				</div>
 			</CharacterProvider>
 		</ScreenAsModal>
@@ -420,8 +427,8 @@ export function useSpellRunner() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
-		showSpellRunner: (spell, contextCharacter) => {
-			showScreenAsModal(SpellRunnerScreenAsModal, { spell, contextCharacter })
+		showSpellRunner: (spell, contextCharacter, options) => {
+			showScreenAsModal(SpellRunnerScreenAsModal, { spell, contextCharacter, options })
 		}
 	}
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
@@ -15,16 +15,27 @@ function KoView({ character, characterDispatch }) {
 }
 
 function LifeScreenAsModal({ character, characterDispatch, onCloseScreen }) {
-	const [hpToModify, setHpToModify] = useState(0)
 	const { tr } = useI18n()
-	
+	const [hpToModify, _setHpToModify] = useState(0)
+	const [hpToModifyInput, setHpToModifyInput] = useState(0)
+
+	const isKo = character.currentHp <= 0
 	const willBeKo = (character.currentHp + hpToModify) <= 0
 	const willStabilize = character.currentHp <= 0 && (character.currentHp + hpToModify > 0) > character.maximumHp
 	const isAboveMaximumHp = (character.currentHp + hpToModify) > character.maximumHp
 
+	function  setHpToModify(hpToModify) {
+		_setHpToModify(hpToModify)
+		setHpToModifyInput(`${hpToModify}`)
+	}
+
+	useEffect(() => {
+		_setHpToModify(parseInt(hpToModifyInput, 10))
+	}, [hpToModifyInput])
+
 	return (
-		<ScreenAsModal 
-			title={`Condition`} 
+		<ScreenAsModal
+			title={`Condition`}
 			onCloseScreen={onCloseScreen}
 		>
 
@@ -54,32 +65,45 @@ function LifeScreenAsModal({ character, characterDispatch, onCloseScreen }) {
 					</Button>
 				</div>
 
+				<div className='mt-6 flex items-center justify-center'>
+					<input
+						type="number"
+						className="placeholder:italic placeholder:text-slate-400 block bg-white
+						 border border-slate-300 rounded-md py-2 pr-3 shadow-sm focus:outline-none 
+						 focus:border-slate-300 focus:ring-slate-300 focus:ring-1 sm:text-sm text-center w-24 text-lg bg-transparent"
+						value={hpToModifyInput}
+						onChange={e => setHpToModifyInput(e.target.value)}
+					/>
+				</div>
+
 				{character.isKo && (
-					<KoView character={character} characterDispatch={characterDispatch}/>
+					<KoView character={character} characterDispatch={characterDispatch} />
 				)}
 
-				{willBeKo && (
-					<p>
-						Vous allez être mis KO !
-						{/* TODO: open rules screen dialog */}
-						<>En savoir plus</>
-					</p>
-				)}
+				<div className='px-4 text-center'>
+					{willBeKo && !isKo && (
+						<p className='mt-4'>
+							Vous allez être mis KO !
+							{/* TODO: open rules screen dialog */}
+							<span className='ml-2'>En savoir plus</span>
+						</p>
+					)}
 
-				{willStabilize && (
-					<p>
-						{/* TODO: open rules screen dialog */}
-						{/* TODO: stabilisé ou reprend les HP? */}
-						{/* TODO: write on the user */}
-						Vous allez être stabilisé !
-					</p>
-				)}
+					{willStabilize && (
+						<p className='mt-4 text-center'>
+							{/* TODO: open rules screen dialog */}
+							{/* TODO: stabilisé ou reprend les HP? */}
+							{/* TODO: write on the user */}
+							Vous allez être stabilisé !
+						</p>
+					)}
 
-				{isAboveMaximumHp && (
-					<p>
-						Le montant
-					</p>
-				)}
+					{isAboveMaximumHp && (
+						<p className='mt-4'>
+							Attention, vous aurez plus de HP que le maximum
+						</p>
+					)}
+				</div>
 
 				{/* --- Conditions: list conditions, allow to toggle them, remove them on rest, after combat too? */}
 

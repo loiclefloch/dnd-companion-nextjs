@@ -12,7 +12,11 @@ function ModalProvider({ children }) {
 
 	return (
 		<Provider value={{ show, showModal, hideModal, modalConfiguration }}>
-			<Modal />
+			<Modal 
+				modalConfiguration={modalConfiguration}
+				show={show}
+				hideModal={hideModal}
+			/>
 			{children}
 		</Provider>
 	);

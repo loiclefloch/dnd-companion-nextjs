@@ -3,9 +3,9 @@ import useContextCharacter from "../modules/character/useContextCharacter"
 
 const MAX_CHARACTER_LEVEL = 20 // maximum character level
 
-function useCharacterLevelSelector() {
+function useCharacterLevelSelector(defaultCharacterLevel) {
 	const character = useContextCharacter()
-	const [characterLevel, _setCharacterLevel] = useState(character?.level || 1)
+	const [characterLevel, _setCharacterLevel] = useState(defaultCharacterLevel ?? character?.level ?? 1)
 
 	// use contextual character if possible
 	const characterMaxLevel = character?.level || MAX_CHARACTER_LEVEL

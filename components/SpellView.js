@@ -154,7 +154,7 @@ function SpellView({ contextCharacter, spell }) {
         </div>
       )}
 
-      <SpellDetail spell={spell} />
+      <SpellDetail spell={spell} contextCharacter={contextCharacter} />
 
       {/* add some space at the end of the page */}
       <div className="py-4" />

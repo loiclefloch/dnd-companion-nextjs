@@ -29,7 +29,7 @@ function GalleryFullScreenAsModal({ title, images, currentImage, onCloseScreen }
 
 				<div className='absolute flex justify-center gap-1 left-2 right-2 bottom-6'>
 					{images.map((imageData)  => (
-						<div 
+						<div
 							className={clsx("w-2 h-2 border border-solid border-slate-500 rounded-full", {
 								"bg-slate-500": imageData.url === image.url
 							})}

@@ -99,8 +99,14 @@ export function getSpellLevelForCharacterLevel(characterClasses, characterLevel)
 		if (!levelSpellData) {
 			return 0
 		}
-
-		return Math.max(...Object.keys(levelSpellData.slots))
+		
+		let maxSlotLevel = 0
+		Object.values(levelSpellData.slots).forEach((slot, slotLevel) => {
+			if (slot > 0) {
+				maxSlotLevel = slotLevel
+			}
+		})
+		return maxSlotLevel
 	}
 	
 	if (!levellingSpellDataForClasses[characterClasses[0].index]) {

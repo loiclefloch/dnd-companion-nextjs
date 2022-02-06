@@ -1,12 +1,35 @@
 module.exports = {
   darkMode: 'class',
   // TODO: mode jit?
+  mode: "jit",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  purge: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
-    extend: {},
+    extend: {
+      // https://codesandbox.io/s/tailwind-jit-animation-bug-forked-r79tw?file=/tailwind.config.js
+      animation: {
+        shake: "shake 0.5s infinite ease-in-out"
+      },
+      keyframes: {
+        shake: {
+          "0%": {
+            transform: "rotate(-1deg)"
+          },
+          "50%": {
+            transform: "rotate(1deg)"
+          },
+          "100%": {
+            transform: "rotate(-1deg)"
+          }
+        }
+      }
+    },
   },
   plugins: [
     // add prose className arround markdown / vanilla html

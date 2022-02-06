@@ -2,18 +2,18 @@ import groupBy from "lodash/groupBy"
 import map from "lodash/map"
 import Link from "next/link"
 import useI18n from "../../modules/i18n/useI18n"
-import { useRouter } from "next/router"
 import Screen from "../../components/Screen"
 import useCurrentCharacter from "../../modules/character/useCurrentCharacter"
 import IconBookOpen from "../../components/icons/IconBookOpen"
 import IconPlus from "../../components/icons/IconPlus"
 import IconMagicSchool from "../../components/icons/IconMagicSchool"
-import CharacterSpellTag from "../../components/CharacterSpellTag"
 import SpellRunner from "../../components/SpellRunner"
 import useTipConcentration from "../../components/useTipConcentration"
 import useTipRitual from "../../components/useTipRitual"
 import Tag from "../../components/Tag"
 import clsx from "clsx"
+import { useEditSpellSlotsScreenAsModal } from "../../components/EditSpellSlotsScreenAsModal"
+import { actionEditSpellSlots } from "../../modules/character/useCurrentCharacter"
 
 function Spell({ spell, contextCharacter /*onSelect*/ }) {
 	const { tr } = useI18n();
@@ -112,8 +112,9 @@ function Spell({ spell, contextCharacter /*onSelect*/ }) {
 	);
 }
 
-function SpellLevelHeader({ level, spellsSlots }) {
-	const spellSlot = spellsSlots.find(spell => spell.level === level)
+function SpellLevelHeader({ level, spellsSlots, characterDispatch }) {
+	const { showEditSpellSlotsScreenAsModal } = useEditSpellSlotsScreenAsModal()
+	const spellSlot = spellsSlots.find(spell => spell.spellLevel === level)
 
 	return (
 		<div className="flex items-center py-1 mx-2 my-2 border-b border-solid border-slate-200">
@@ -121,10 +122,19 @@ function SpellLevelHeader({ level, spellsSlots }) {
 				{level === 0 ? 'Cantrip' : `Niveau ${level}`}
 			</div>
 			<div>
-				{/* TODO: on click -> tip */}
 				{level !== 0 && (
-					<div className="flex">
-						{([...Array(spellSlot.totalSlots || 5)]).map((_, index) => ( // TODO: remove || 5
+					<div
+						className="flex"
+						onClick={() => showEditSpellSlotsScreenAsModal({
+							spellSlot,
+							onEdit: data => characterDispatch(actionEditSpellSlots(data))
+						})}
+					>
+						{spellSlot.hasNoSlotsToDisplay && (
+							// TODO: tip
+							<>0 slot disponible</> 
+						)}
+						{([...Array(spellSlot.totalSlotsToDisplay)]).map((_, index) => (
 							<div 
 								key={index} 
 								className={clsx("w-3 h-3 mr-1", {
@@ -141,7 +151,7 @@ function SpellLevelHeader({ level, spellsSlots }) {
 }
 
 function Grimoire() {
-	const { character } = useCurrentCharacter()
+	const { character, characterDispatch } = useCurrentCharacter()
 
 	const groupedBySpellLevel = groupBy(character?.spellsList, spell => spell.level)
 	const spellsSlots = character?.spellsSlots
@@ -165,17 +175,31 @@ function Grimoire() {
 			{character && (
 				<div>
 					<div>
-						Spell DC: {character.spellSaveDC}
-						<br />
-						Spellcasing ability: {character.spellcastingAbilityValue >= 0 ? '+' : ''}{character.spellcastingAbilityValue} <span className="text-xs text-meta">{character.spellcastingAbility}</span>
-						<br />
-						Spell Attack bonus: {character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}
+					
+						<Tag>
+							Spellcasing ability
+							{character.spellcastingAbilityValue >= 0 ? '+' : ''}{character.spellcastingAbilityValue}:
+							<span>&nbsp;&nbsp;</span>
+							<span className="text-xs text-meta">{character.spellcastingAbility}</span>
+						</Tag>
+
+						<Tag>
+							Spell Attack bonus: {character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}
+						</Tag>
+
+						<Tag>
+							Spell DC: {character.spellSaveDC}
+						</Tag>
 					</div>
 					<div className="flex flex-col gap-2" data-cy-id="spells-list">
 						{map(groupedBySpellLevel, (spells, level) => (
 							<div key={level}>
 								<>
-									<SpellLevelHeader level={Number(level)} spellsSlots={spellsSlots} />
+									<SpellLevelHeader 
+										level={Number(level)} 
+										spellsSlots={spellsSlots} 
+										characterDispatch={characterDispatch} 
+									/>
 								</>
 								{spells.map(spell =>
 									<Spell

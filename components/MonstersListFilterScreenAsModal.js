@@ -48,12 +48,13 @@ function FilterDifficulty({ filters, onChange }) {
 			title="Difficulty" 
 			filters={filters} 
 			type={FilterType.DIFFICULTY} 
+			options={list}
 			onChange={onChange}
-			>
+		>
 			<FilterListSelector
 				type={FilterType.DIFFICULTY}
 				filters={filters}
-				list={list}
+				options={list}
 				onChange={onChange}
 				className="grid grid-cols-4 gap-1 p-1 bg-slate-100"
 				itemClassName="bg-white m-0"

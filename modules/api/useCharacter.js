@@ -14,7 +14,8 @@ import magicItems from '../../database/data/magic-items.json'
 import traits from '../../database/data/traits.json'
 import { formatRace } from "./useRace"
 import { formatClass } from "./useClass"
-import { getSpellLevelDataForClassesAndLevel, getSpellLevelForCharacterLevel } from "../levelling"
+import { getSpellLevelDataForClassesAndLevel } from "../levelling"
+import { createSpellsSlots } from "../levelling/applyLevelling"
 import { formatEquipmentItem } from "./useEquipmentItem"
 import { formatMagicItem } from "./useMagicItem"
 import { formatSpell } from "./useSpell"
@@ -22,29 +23,29 @@ import { getProficiencyBonus } from "../levelling"
 import { valueToModifier, valueToModifierLabel, modifierToModifierLabel } from "../stats"
 import { formatProficiency } from "./useProficiency"
 
-const MAX_SPELL_LEVEL = 9 // maximum spell level
+function formatSpellsSlots(spellsSlots, spellsUsed) {
+	return spellsSlots.map(slot => {
+		const usedSpells = spellsUsed.filter(s => s.spellLevel === slot.spellLevel)
 
-function calculateSpellsSlots(classes, characterLevel, spellsUsed) {
-	const spellLevelData = getSpellLevelDataForClassesAndLevel(classes, characterLevel)
-	const legalSlotLevel = getSpellLevelForCharacterLevel(classes, characterLevel)
+		const totalSlots = slot.totalSlots
 
-	const slots = []
-	for (let spellLevel = 0; spellLevel < MAX_SPELL_LEVEL; spellLevel++) {
-		const usedSlots = spellsUsed.filter(s => s.spellLevel === spellLevel).length
-		const totalSlots = spellLevelData?.slots[spellLevel] || 0
+		const totalSlotsToDisplay = totalSlots > slot.baseTotalSlots 
+			? totalSlots > slot.usedSlots ? totalSlots : slot.usedSlots
+			: slot.baseTotalSlots > slot.usedSlots ? slot.baseTotalSlots : slot.usedSlots
 
-		slots.push({
-			level: spellLevel,
-			totalSlots: spellLevel === 0 ? Infinity : totalSlots,
-			usedSlots,
-			remainingSlots: totalSlots - usedSlots,
-			isAboveLegalSlotLevel: spellLevel > legalSlotLevel,
-			legalSlotLevel,
-			hasData: usedSlots !== 0 || totalSlots !== 0,
-		})
-	}
-
-	return slots
+		const remainingSlots = slot.baseTotalSlots - slot.usedSlots
+		return {
+			...slot,
+			hasNoSlotsToDisplay: totalSlotsToDisplay === 0,
+			hasNoSlots: slot.baseTotalSlots === 0,
+			remainingSlots,
+			isAboveMaximumSlotLevel: slot.spellLevel > slot.maximumSlotLevel,
+			hasData: slot.usedSlots !== 0 || slot.baseTotalSlots !== 0,
+			totalSlotsToDisplay,
+			usedSpells,
+			isAboveMaximumTotalSlots: remainingSlots > slot.baseTotalSlots
+		}
+	})
 }
 
 export function formatCharacter(character) {
@@ -55,7 +56,7 @@ export function formatCharacter(character) {
 	if (!character.maximumHp) { // TODO: remove fixture
 		character.maximumHp = 10
 	}
-	character.currentHp = character.currentHp || character.maximumHp
+	character.currentHp = character.currentHp
 
 	character.isKo = character.currentHp < 0
 
@@ -91,7 +92,17 @@ export function formatCharacter(character) {
 		}
 	})
 
-	character.spellsSlots = calculateSpellsSlots(character.classes, character.level, character.spellsUsed)
+	// TODO: remove
+	if (!character.spellsSlots) {
+		character.spellsSlots = createSpellsSlots(
+			character.classes, 
+			character.level
+		)
+	}
+	character.spellsSlots = formatSpellsSlots(
+		character.spellsSlots, 
+		character.spellsUsed
+	)
 
 	const spellLevelData = getSpellLevelDataForClassesAndLevel(character.classes, character.level)
 	const maxSpellLevel = Math.max(...Object.keys(spellLevelData.slots))

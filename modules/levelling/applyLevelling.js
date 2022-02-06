@@ -1,5 +1,8 @@
 // import classes from '../../database/data/classes.json'
 // import allRaces from "../../database/data/allRaces"
+import { getSpellLevelDataForClassesAndLevel, getSpellLevelForCharacterLevel } from "./"
+
+const MAX_SPELL_LEVEL = 9 // maximum spell level
 
 function noop() {}
 
@@ -73,6 +76,29 @@ function barbarian(character) {
 	}
 }
 
+export function createSpellsSlots(classes, characterLevel) {
+	const spellLevelData = getSpellLevelDataForClassesAndLevel(classes, characterLevel)
+	const maximumSlotLevel = getSpellLevelForCharacterLevel(classes, characterLevel)
+
+	const slots = []
+	for (let spellLevel = 0; spellLevel < MAX_SPELL_LEVEL; spellLevel++) {
+		const baseTotalSlots = spellLevel === 0 ? Infinity : spellLevelData?.slots[spellLevel] || 0
+		const spellsSlotsOverride = spellsSlotsOverride && spellsSlotsOverride[spellLevel]
+		const usedSlots = 0;
+
+		slots.push({
+			spellLevel,
+			totalSlots: baseTotalSlots,
+			baseTotalSlots,
+			usedSlots,
+			maximumSlotLevel,
+		})
+	}
+
+	return slots
+}
+
+
 function applyLevelling(character, level = 1) {
 	// const race = allRaces.find(r => r.index === character.race)
   // const clss = classes.find(clss => clss.index === character.classes[0])
@@ -114,6 +140,13 @@ function applyLevelling(character, level = 1) {
 	} else {
 		console.warn(`Levelling does not exists for level class ${character.classes[0]}`)
 	}
+
+	// TODO: it will clean slots on level up, do we want this?
+	// spellsSlots generation
+	character.spellsSlots = createSpellsSlots(
+		character.classes, 
+		character.level
+	)
 }
 
 export default applyLevelling
