@@ -12,7 +12,7 @@ import IconMonster from "../icons/IconMonster"
 import IconGroup from "../icons/IconGroup"
 import IconAcademicCap from "../icons/IconAcademicCap"
 
-function Item({ href = "", icon, label }) {
+function Item({ href = "", icon, label, onClick }) {
 	const router = useRouter()
 	const selected = href === "/" ? router.asPath === "/" : router.asPath.startsWith(href)
 
@@ -24,6 +24,7 @@ function Item({ href = "", icon, label }) {
 				 "text-gray-200 hover:text-blue-500 fill-white": !selected
 			 })}
 				href="#"
+				onClick={onClick}
 			>
 				<span className="text-left">
 					{icon}
@@ -76,16 +77,56 @@ function SidebarMenu({ show, onClose }) {
 
 					<nav className="flex flex-col flex-1 pt-2">
 						<div>
-							<Item href="/" label="Dashboard" icon={<IconHome className="w-6 h-6" />} />
-							<Item href="/characters" label="Personnages" icon={<IconUsers className="w-6 h-6" />} />
-							<Item href="/spells" label="Sorts" icon={<IconBookOpen className="w-6 h-6" />} />
-							<Item href="/monsters" label="Bestiaire" icon={<IconMonster className="w-6 h-6" />} />
-							<Item href="/equipment" label="Équipements" icon={<IconBookOpen className="w-6 h-6" />} />
-							<Item href="/rules" label="Règles" icon={<IconAcademicCap className="w-6 h-6" />} />
+							<Item 
+								href="/"
+								label="Dashboard"
+								icon={<IconHome className="w-6 h-6" />}
+								onClick={onClose}
+							/>
+							<Item
+								href="/characters"
+								label="Personnages"
+								icon={<IconUsers className="w-6 h-6" />}
+								onClick={onClose}
+							/>
+							<Item
+								href="/spells"
+								label="Sorts"
+								icon={<IconBookOpen className="w-6 h-6" />}
+								onClick={onClose}
+							/>
+							<Item
+								href="/monsters"
+								label="Bestiaire"
+								icon={<IconMonster className="w-6 h-6" />}
+								onClick={onClose}
+							/>
+							<Item
+								href="/equipment"
+								label="Équipements"
+								icon={<IconBookOpen className="w-6 h-6" />}
+								onClick={onClose}
+							/>
+							<Item
+								href="/rules"
+								label="Règles"
+								icon={<IconAcademicCap className="w-6 h-6" />}
+								onClick={onClose}
+							/>
 						</div>
 						<div className="flex flex-col justify-end flex-1 w-full flex-end">
-							<Item href="/support" label="Support" icon={<IconSupport className="w-6 h-6" />} />
-							<Item href="/settings" label="Paramètres" icon={<IconGear className="w-6 h-6" />} />
+							<Item 
+								href="/support" 
+								label="Support" 
+								icon={<IconSupport className="w-6 h-6" />} 
+								onClick={onClose} 
+							/>
+							<Item 
+								href="/settings" 
+								label="Paramètres" 
+								icon={<IconGear className="w-6 h-6" />} 
+								onClick={onClose} 
+							/>
 						</div>
 					</nav>
 				</div>
