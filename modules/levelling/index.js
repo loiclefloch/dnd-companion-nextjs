@@ -1,4 +1,7 @@
 import levellingDataForClasses from "./levellingDataForClasses"
+
+const MAX_SPELL_LEVEL = 9 // maximum spell level
+
 // Experience Points	Level	Proficiency Bonus
 // 0	1	+2
 // 300	2	+2
@@ -58,7 +61,6 @@ export function getNextLevelExperienceStage(level) {
 export function getLevelExperienceStage(level) {
 	return getLevellingStages()[level]
 }
-
 
 export function getLevelProficiencyBonus(level) {
 	const levellingProficiencyBonus = {
@@ -157,4 +159,26 @@ export function getProficiencyBonus(clss, characterLevel) {
 		return desc?.value ?? 2
 	}
 	return 2
+}
+
+export function getSpellsSlotsForCharacterLevel(classes, characterLevel) {
+	const levellingData = getLevellingDataForClassesAndLevel(classes, characterLevel)
+	const maximumSlotLevel = getSpellLevelForCharacterLevel(classes, characterLevel)
+
+	const slots = []
+	for (let spellLevel = 0; spellLevel < MAX_SPELL_LEVEL; spellLevel++) {
+		const baseTotalSlots = spellLevel === 0 ? Infinity : levellingData?.slots[spellLevel] || 0
+		const spellsSlotsOverride = spellsSlotsOverride && spellsSlotsOverride[spellLevel]
+		const usedSlots = 0;
+
+		slots.push({
+			spellLevel,
+			totalSlots: baseTotalSlots,
+			baseTotalSlots,
+			usedSlots,
+			maximumSlotLevel,
+		})
+	}
+
+	return slots
 }

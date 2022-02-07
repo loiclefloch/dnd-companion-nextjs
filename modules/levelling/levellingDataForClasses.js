@@ -311,7 +311,8 @@ classes.forEach(className => {
       abilityScoreBonuses: levelData.ability_score_bonuses,
       profBonus: levelData.prof_bonus,
       spellcasting: {
-        spellsKnown: levelData.spellcasting?.cantrips_known || 0,
+        hasMagic: levelData.spellcasting?.cantrips_known > 0 || levelData.spellcasting?.spells_known > 0,
+        spellsKnown: levelData.spellcasting?.spells_known || 0,
         cantripsKnown: levelData.spellcasting?.cantrips_known || 0,
       },
       slots: levelData.spellcasting ? {

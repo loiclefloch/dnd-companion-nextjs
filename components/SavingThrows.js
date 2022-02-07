@@ -34,11 +34,11 @@ function SavingThrows({ savingThrows, character }) {
 				"WIS",
 				"CHA",
 			].map(ability => (
-				<SavingThrow 
-					key={ability} 
+				<SavingThrow
+					key={ability}
 					ability={ability}
-					modifierLabel={savingThrows[ability].modifierLabel} 
-					isProeficient={savingThrows[ability].isProeficient} 
+					modifierLabel={savingThrows[ability].modifierLabel}
+					isProeficient={savingThrows[ability].isProeficient}
 					character={character}
 				/>
 			))}

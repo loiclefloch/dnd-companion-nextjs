@@ -48,7 +48,7 @@ export function actionCastSpell(spell, spellLevel) {
 
 			// TODO: remove
 			if (!character.spellsSlots) {
-				character.spellsSlots = createSpellsSlots(
+				character.spellsSlots = getSpellsSlotsForCharacterLevel(
 					formattedCharacter.classes,
 					formattedCharacter.level
 				)

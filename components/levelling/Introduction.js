@@ -1,6 +1,8 @@
+import { isEmpty } from "lodash"
+import { actionLevellingStart } from "./action"
 import ButtonBottomScreen from "../../components/ButtonBottomScreen"
 
-function StepIntroduction({ character, newLevel, stepsViews, onNextStep }) {
+function Introduction({ newLevel, step, steps, levellingDispatch  }) {
 	return (
 		<div className="prose flex flex-col mt-8">
 			<h3 className="text-center">Félicitations, vous avez gagner un niveau</h3>
@@ -29,14 +31,18 @@ function StepIntroduction({ character, newLevel, stepsViews, onNextStep }) {
 				<h4>Voici les différentes étapes de votre montée de niveau</h4>
 
 				<ul>
-					{Object.values(stepsViews).slice(1).map(step => <li>{step.label}</li>)}
+					{/* TODO: add tip with step.desc */}
+					{Object.values(steps)
+					.slice(1) // remove introduction
+					.filter(step => !isEmpty(step.label))
+					.map(step => <li key={step.label}>{step.label}</li>)}
 				</ul>
 
 			</div>
 
 			<ButtonBottomScreen 
 				variant="cta" 
-				onClick={() => onNextStep({ step: 'introduction' })}
+				onClick={() => levellingDispatch(actionLevellingStart({ step }))}
 			>
 				Commencer la montée de niveau
 			</ButtonBottomScreen>
@@ -44,4 +50,4 @@ function StepIntroduction({ character, newLevel, stepsViews, onNextStep }) {
 	)
 }
 
-export default StepIntroduction
+export default Introduction

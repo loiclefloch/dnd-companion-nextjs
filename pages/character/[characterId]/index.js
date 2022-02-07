@@ -123,8 +123,8 @@ function Content({
 
 				<TraitsSection character={character} />
 				<ProficienciesSection character={character} />
+				<FeaturesSection character={character} />
 				<BackgroundSection character={character} />
-
 			</div>
 		)
 }

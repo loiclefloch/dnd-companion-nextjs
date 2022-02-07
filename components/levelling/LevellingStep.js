@@ -2,14 +2,19 @@ import { createElement  } from "react"
 
 import useCharacterLevelling from "../useCharacterLevelling"
 
-import Introduction from "./StepIntroduction"
-import Features from "./StepFeatures"
-import SpellSlots from "./StepSpellSlots"
+import Introduction from "./Introduction"
+import Features from "./Features"
+import SpellSlots from "./SpellSlots"
+import IncreaseMaximumHp from "./IncreaseMaximumHp"
+import Finalize from "./Finalize"
+import AbilityScoreImprovement from "./AbilityScoreImprovement"
+
+const isBrowser = typeof window !== "undefined";
 
 function LevellingStep({ stepName }) {
-	const { updateCharacter, character, newLevel, levellingData, ...otherProps } = useCharacterLevelling()
+	const { levellingDispatch, character, newLevel, levellingData, steps, ...otherProps } = useCharacterLevelling()
 
-	if (!character) {
+	if (!character || !isBrowser) {
 		// on server side, no current character
 		return null
 	}
@@ -18,17 +23,30 @@ function LevellingStep({ stepName }) {
 		introduction: Introduction,
 		features: Features,
 		'spell-slots': SpellSlots,
+		'increase-maximum-hp': IncreaseMaximumHp,
+		finalize: Finalize,
+		'ability-score-improvement': AbilityScoreImprovement
 		// StepHp,
 	}
 
 	const stepView = stepsViews[stepName]
 
-	const onNextStep = (data) => {
-		updateCharacter(data)
-	}
+	const step = steps.find(s => s.name === stepName)
+	console.log({ stepName, step, steps })
 
 	return stepView ? (
-		createElement(stepView, { character, newLevel, levellingData, stepsViews, onNextStep, ...otherProps })
+		createElement(
+			stepView, 
+			{
+				character, 
+				newLevel, 
+				levellingData, 
+				stepsViews, 
+				levellingDispatch, 
+				steps,
+				step,
+				...otherProps 
+			})
 	) : (
 		<p>level-up not yet created: {stepName}</p>
 	)

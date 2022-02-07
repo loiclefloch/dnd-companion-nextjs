@@ -65,6 +65,7 @@ export function ProficienciesSection({ character }) {
 	)
 }
 
+// TODO: use character.features, put background.features
 export function BackgroundSection({ character }) {
 	const { tr } = useI18n()
 	const background = character.background
@@ -72,7 +73,17 @@ export function BackgroundSection({ character }) {
 		<Section title={`Background - ${background.name}`}>
 			
 			<Link href={`/background/${background.index}`}>Voir le background</Link>
-			{background.features.map((feature, index) => (
+		
+
+		</Section>
+	)
+}
+
+export function FeaturesSection({ character }) {
+	const { tr } = useI18n()
+	return (
+		<Section title={`Features`}>
+			{character.features.map((feature, index) => (
 				<div key={index} className="prose mt-2">
 					<h4>Feature: {feature.name}</h4>
 					<p>{tr(feature.desc)}</p>
@@ -271,6 +282,9 @@ function CharacterResume({ character }) {
 				<EquipmentSection character={character} />
 				<TraitsSection character={character} />
 				<ProficienciesSection character={character} />
+				<FeaturesSection character={character} />
+
+				{/* TODO: feats */}
 
 				<BackgroundSection character={character} />
 			</div>

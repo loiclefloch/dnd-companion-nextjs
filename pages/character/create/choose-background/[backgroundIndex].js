@@ -28,7 +28,14 @@ function CreateCharacterBackgroundDetail() {
 			<ButtonBottomScreen
 				variant="cta"
 				onClick={() => {
-					updateCharacter({ background: background.index, step: 'choose-background' })
+					updateCharacter({ 
+						step: 'choose-background',
+						background: background.index, 
+						features: background.features.map(feature => ({
+							index: feature.index,
+							type: 'background',
+						}))
+					})
 				}}
 			>
 				Choisir

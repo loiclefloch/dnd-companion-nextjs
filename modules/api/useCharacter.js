@@ -14,8 +14,7 @@ import magicItems from '../../database/data/magic-items.json'
 import traits from '../../database/data/traits.json'
 import { formatRace } from "./useRace"
 import { formatClass } from "./useClass"
-import { getLevellingDataForClassesAndLevel } from "../levelling"
-import { createSpellsSlots } from "../levelling/getLevellingSteps"
+import { getLevellingDataForClassesAndLevel, getSpellsSlotsForCharacterLevel } from "../levelling"
 import { formatEquipmentItem } from "./useEquipmentItem"
 import { formatMagicItem } from "./useMagicItem"
 import { formatSpell } from "./useSpell"
@@ -94,7 +93,7 @@ export function formatCharacter(character) {
 
 	// TODO: remove
 	if (!character.spellsSlots) {
-		character.spellsSlots = createSpellsSlots(
+		character.spellsSlots = getSpellsSlotsForCharacterLevel(
 			character.classes, 
 			character.level
 		)

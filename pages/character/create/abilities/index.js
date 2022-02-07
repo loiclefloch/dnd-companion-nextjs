@@ -1,109 +1,32 @@
 import { useState } from "react"
-import clsx from "clsx"
 import Link from "next/link"
 import { useRouter } from 'next/router'
-import { valueToModifierLabel, getAbilityScorePointCost } from "../../../../modules/stats"
+import { getAbilityScorePointCost } from "../../../../modules/stats"
 import Screen from "../../../../components/Screen";
 import useI18n from '../../../../modules/i18n/useI18n';
 import ScreenIntroduction from '../../../../components/ScreenIntroduction';
 import ButtonBottomScreen from "../../../../components/ButtonBottomScreen";
-import useTipAbilityScore from "../../../../components/useTipAbilityScore";
-import IconPlusMd from "../../../../components/icons/IconPlusMd"
-import IconMinusMd from "../../../../components/icons/IconMinusMd"
 import useCreateCharacter from '../../../../components/useCreateCharacter';
 import Button from '../../../../components/Button';
 import { isEmpty } from "lodash"
-import useTip from "../../../../components/useTip"
-import {
-	AbilityImportance,
-	getAbilityOptimizedExample,
-	getImportanceForClass,
-	getImportanceTip,
-} from "../../../../modules/character"
+import AbilityScoreChooser from "../../../../components/AbilityScoreChooser"
+import { getAbilityOptimizedExample } from "../../../../modules/character"
 
+function getBonusFromRace(bonusFromRace) {
+	const bonuses = {}
 
-function IconAbilityButton({ label, onClick }) {
-	return <div className="px-2 text-lg cursor-pointer" onClick={onClick}>{label}</div>
-}
-
-function Ability({
-	ability,
-	abilities,
-	bonus,
-	importance,
-	onChange
-}) {
-	const { tr } = useI18n()
-	const { showTipAbilityScore } = useTipAbilityScore()
-	const { showTip } = useTip()
-	const value = abilities[ability]
-
-	return (
-		<div className="flex flex-row items-center justify-center my-4">
-			<div
-				className="w-20"
-			>
-				<div className="flex items-center align-center">
-					<div
-						className={clsx("w-2 h-2", {
-							"bg-blue-400": importance === AbilityImportance.FANTASTIC,
-							"bg-green-400": importance === AbilityImportance.GOOD,
-							"bg-yellow-400": importance === AbilityImportance.OK,
-							"bg-red-400": importance === AbilityImportance.BAD,
-						})}
-						onClick={() => {
-							showTip(getImportanceTip(importance))
-						}}
-					/>
-					<div
-						className="ml-2"
-						onClick={() => showTipAbilityScore(ability)}
-					>
-						{ability}
-					</div>
-				</div>
-				<div
-					onClick={() => showTipAbilityScore(ability)}
-				>
-					{tr(ability)}
-				</div>
-				<div>
-
-				</div>
-			</div>
-			<div className="flex flex-row ml-4">
-				<IconAbilityButton
-					size="big"
-					label={<IconMinusMd className="w-8 h-8" />}
-					onClick={() => onChange({
-						...abilities,
-						[ability]: Math.max(value - 1, 8)
-					})}
-				/>
-				<div className={clsx("text-xl px-4 w-24 text-right")}>
-					<span>{value + bonus}</span>
-					<span> </span>
-					<span className="w-10">({valueToModifierLabel(value)})</span>
-					{bonus > 0 && (
-						<div
-							className="text-sm text-center text-meta"
-						// TODO: tip
-						>
-							+{bonus}
-						</div>
-					)}
-				</div>
-				<IconAbilityButton
-					size="big"
-					label={<IconPlusMd className="w-8 h-8" />}
-					onClick={() => onChange({
-						...abilities,
-						[ability]: Math.min(value + 1, 15)
-					})}
-				/>
-			</div>
-		</div>
-	)
+	([
+		"STR",
+		"DEX",
+		"CON",
+		"INT",
+		"WIS",
+		"CHA",
+	]).forEach(abilityScore => {
+		const bonus = bonusFromRace.find(bonus => bonus.abilityScore.name === abilityScore)?.bonus || 0
+		bonuses[abilityScore] = bonus
+	})
+	return bonuses
 }
 
 function Form() {
@@ -111,60 +34,21 @@ function Form() {
 	const [abilities, setAbilities] = useState(character?.baseStats)
 	const router = useRouter()
 
-	const bonusFromRace = race?.abilityBonuses || []
-
 	// 2 score = 1 point
 	const MAX_POINTS = 27
 	const usedPoints = Object.values(abilities).reduce((total, value) => total + getAbilityScorePointCost(value), 0)
 	const remainingPoints = MAX_POINTS - usedPoints
 
-
-	const importanceForClass = getImportanceForClass(character.classes[0])
-
 	// TODO: display for the class which abilities are important, which are not (very important, important, neutral, not important)
 	return (
 		<>
-			<Ability
-				ability="STR"
+			<AbilityScoreChooser 
+				creationMode
+				clss={character.classes[0]}
 				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "STR")?.bonus || 0}
+				character={character}
+				bonuses={getBonusFromRace(race?.abilityBonuses || [])}
 				onChange={setAbilities}
-				importance={importanceForClass?.STR}
-			/>
-			<Ability
-				ability="DEX"
-				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "DEX")?.bonus || 0}
-				onChange={setAbilities}
-				importance={importanceForClass?.DEX}
-			/>
-			<Ability
-				ability="CON"
-				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "CON")?.bonus || 0}
-				onChange={setAbilities}
-				importance={importanceForClass?.CON}
-			/>
-			<Ability
-				ability="INT"
-				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "INT")?.bonus || 0}
-				onChange={setAbilities}
-				importance={importanceForClass?.INT}
-			/>
-			<Ability
-				ability="WIS"
-				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "WIS")?.bonus || 0}
-				onChange={setAbilities}
-				importance={importanceForClass?.WIS}
-			/>
-			<Ability
-				ability="CHA"
-				abilities={abilities}
-				bonus={bonusFromRace.find(bonus => bonus.abilityScore.name === "CHA")?.bonus || 0}
-				onChange={setAbilities}
-				importance={importanceForClass?.CHA}
 			/>
 
 			<div className="px-4 mt-8 text-center">

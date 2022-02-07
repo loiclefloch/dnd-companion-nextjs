@@ -1,6 +1,4 @@
-import { getLevellingDataForClassesAndLevel, getSpellLevelForCharacterLevel } from "./"
-
-const MAX_SPELL_LEVEL = 9 // maximum spell level
+import { getLevellingDataForClassesAndLevel } from "./"
 
 function noop() {
 	return []
@@ -50,7 +48,10 @@ function hillDwarf(character) {
 
 			return [
 				{
-					name: "StepIncreaseMaximumHp", maximumHp : +1,
+					name: "increase-maximum-hp", 
+					label: "Points de vie supplémentaire",
+					desc: "En tant que nain des collines, vous gagnez un point de vie supplémentaire",
+					hp : +1,
 				}
 			]
 		},
@@ -73,27 +74,6 @@ function barbarian(character) {
 	}
 }
 
-export function createSpellsSlots(classes, characterLevel) {
-	const levellingData = getLevellingDataForClassesAndLevel(classes, characterLevel)
-	const maximumSlotLevel = getSpellLevelForCharacterLevel(classes, characterLevel)
-
-	const slots = []
-	for (let spellLevel = 0; spellLevel < MAX_SPELL_LEVEL; spellLevel++) {
-		const baseTotalSlots = spellLevel === 0 ? Infinity : levellingData?.slots[spellLevel] || 0
-		const spellsSlotsOverride = spellsSlotsOverride && spellsSlotsOverride[spellLevel]
-		const usedSlots = 0;
-
-		slots.push({
-			spellLevel,
-			totalSlots: baseTotalSlots,
-			baseTotalSlots,
-			usedSlots,
-			maximumSlotLevel,
-		})
-	}
-
-	return slots
-}
 
 /**
  * Apply custom code for each class / race.
@@ -115,8 +95,11 @@ function applyCustomMethods(character, level) {
 		dragonborn: dragonborn,
 	}
 
-	const forRace = racesMap[character.race]
-	const forClass = classesMap[character.classes[0]]
+	const race = character.race?.index || character.race 
+	const clss = character.classes[0]?.index || character.classes[0]
+
+	const forRace = racesMap[race]
+	const forClass = classesMap[clss]
 
 	if (forRace) {
 		const forRaceContent = forRace(character)
@@ -124,10 +107,10 @@ function applyCustomMethods(character, level) {
 		if (forRaceContent[level]) {
 			addSteps(forRaceContent[level]())
 		} else {
-			console.warn(`Levelling does not exists for level ${level} for race ${character.race}`)
+			console.warn(`Levelling does not exists for level ${level} for race ${race}`)
 		}
 	} else {
-		console.warn(`Levelling does not exists for level race ${character.race}`)
+		console.warn(`Levelling does not exists for level race ${race}`)
 	}
 	if (forClass) {
 		const forClassContent = forClass(character)
@@ -136,27 +119,61 @@ function applyCustomMethods(character, level) {
 		if (forClassContent[level]) {
 			addSteps(forClassContent[level]())
 		} else {
-			console.warn(`Levelling does not exists for level ${level} for race ${character.race}`)
+			console.warn(`Levelling does not exists for level ${level} for class ${clss}`)
 		}
 	} else {
-		console.warn(`Levelling does not exists for level class ${character.classes[0]}`)
+		console.warn(`Levelling does not exists for level class ${clss}`)
 	}
 
 	return steps
+}
+
+function addAbilityScoreImprovement(levellingData) {
+	const hasAbilityScoreImprovement = levellingData.features.some(f => f.includes("-ability-score-improvement-"))
+
+	if (hasAbilityScoreImprovement) {
+		return {
+			name: "ability-score-improvement",
+			label: "Augmentation des capacités", // TODO: better text
+			desc: "",
+		}
+	}
+
+	return null
 }
 
 function getLevellingSteps(character, level = 1) {
 	// const race = allRaces.find(r => r.index === character.race)
   // const clss = classes.find(clss => clss.index === character.classes[0])
   // const background = backgrounds.find(b => b.index === characterParam.background)
+	const levellingData = getLevellingDataForClassesAndLevel(character.classes, level)
 
 	const steps = [
-		// { name: "introduction" }, // do not add introduction, this is the default one.
-		{ name: "features" },
-		{ name: "spell-slots" }, // TODO: ignore for some classes
+		{ name: "introduction" },
+		{ 
+			name: "features", 
+			label: "Ajout features",
+			desc: "",
+		},
+
+		addAbilityScoreImprovement(levellingData),
+
+		// TODO: ignore for some classes?
+		{ 
+			name: "spell-slots",
+			label: "Mise à jour des spells slots",
+			desc: "",
+		},
 	]
 
-	return [...steps, ...applyCustomMethods(character, level)]
+	return [
+		...steps, 
+		...applyCustomMethods(character, level),
+		{
+			name: "finalize",
+			desc: ""
+		}
+	].filter(Boolean)
 }
 
 export default getLevellingSteps

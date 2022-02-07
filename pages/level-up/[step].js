@@ -7,7 +7,7 @@ function LevelUp() {
 	const { character, } = useCharacterLevelling()
 
 	const router = useRouter()
-	const stepName = router.query.step || 'introduction'
+	const stepName = router.query.step
 
 	return (
 		<Screen

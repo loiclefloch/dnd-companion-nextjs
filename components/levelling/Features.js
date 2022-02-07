@@ -1,3 +1,4 @@
+import { actionLevellingAddFeatures } from "./action"
 import useFeature from "../../modules/api/useFeature"
 import useI18n from "../../modules/i18n/useI18n"
 import ButtonBottomScreen from "../../components/ButtonBottomScreen"
@@ -19,17 +20,21 @@ function Feature({ index }) {
 	)
 }
 
-function StepFeatures({ levellingData, onNextStep }) {
+function Features({ levellingData, step, levellingDispatch }) {
 	return (
-		<div className="mt-2 divide divide-y">
-			{levellingData.features.map(index => (
-				<Feature key={index} index={index} />
-			))}
+		<div className="prose mt-8 mx-4">
+			<h3 className="text-center">{step.label}</h3>
 
-			<ButtonBottomScreen 
-				variant="cta" 
+			<div className="mt-2 divide divide-y">
+				{levellingData.features.map(index => (
+					<Feature key={index} index={index} />
+				))}
+			</div>
+
+			<ButtonBottomScreen
+				variant="cta"
 				onClick={() => {
-					onNextStep({ step: 'features', features: levellingData.features })
+					levellingDispatch(actionLevellingAddFeatures({ step, features: levellingData.features }))
 				}}
 			>
 				Continuer
@@ -37,6 +42,5 @@ function StepFeatures({ levellingData, onNextStep }) {
 		</div>
 	)
 }
-StepFeatures.label = "Ajout features"
 
-export default StepFeatures
+export default Features

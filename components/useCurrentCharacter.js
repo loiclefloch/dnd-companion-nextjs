@@ -7,8 +7,6 @@ import { updateObjectOnArray } from '../modules/utils/array';
 import { formatCharacter  } from "../modules/api/useCharacter"
 import { createStorage } from "../modules/utils/storage";
 import { v4 as uuid } from 'uuid';
-import { formatEquipmentItem } from "../modules/api/useEquipmentItem"
-import equipmentList from "../database/data/equipment.json"
 import useStorage from "./useStorage"
  
 const CharactersStorage = createStorage("characters")
@@ -154,7 +152,8 @@ export function CurrentCharacterProvider({ children }) {
 
 		setCurrentCharacter(updatedCharacter)
 	}
-		
+	
+
 	const value = { 
 		character: formattedCharacter,
 		rawCharacter: currentCharacter,
@@ -191,7 +190,7 @@ function useCurrentCharacter() {
     throw new Error('useCurrentCharacter must be used within a CurrentCharacterProvider')
   }
 
-  console.info(context?.character)
+  // console.info(context?.character)
   return context
 }
 

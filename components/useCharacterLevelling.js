@@ -1,45 +1,43 @@
-import { useReducer, useEffect } from "react"
+import { useState } from "react"
 import { useRouter } from "next/router";
 import { createStorage } from "../modules/utils/storage"
 import { useMemo } from "react"
-import { cloneDeep } from "lodash"
 import useCurrentCharacter from "./useCurrentCharacter"
-import { getLevellingDataForClassesAndLevel } from "../modules/levelling"
+import { getLevellingDataForClassesAndLevel, getSpellsSlotsForCharacterLevel } from "../modules/levelling"
 import getLevellingSteps from "../modules/levelling/getLevellingSteps"
+import { formatCharacter  } from "../modules/api/useCharacter"
 import classes from '../database/data/classes.json'
 import allRaces from "../database/data/allRaces"
 import backgrounds from "../database/data/backgrounds"
 import { formatRace } from "../modules/api/useRace"
 import { formatBackground } from "../modules/api/useBackground"
 import { formatClass  } from "../modules/api/useClass"
+import produce from "immer";
+import { updateObjectOrCreateOnArray } from "../modules/utils/array";
+import { cloneDeep } from "lodash";
 
-const levellingStorage = createStorage("levelling")
+import * as actions from "./levelling/action"
 
-const initialState = () => levellingStorage.getItem() || {}
+const LevellingStorage = createStorage("levellingState")
 
-function levellingReducer(state, action) {
-  switch (action.type) {
-    case 'update': {
-      const updated = { ...state, ...action.data }
-      console.info(updated)
-      return updated
-    }
-    default: {
-      throw new Error(`Unhandled action type: ${action.type}`)
-    }
-  }
-}
+const initialState = () => LevellingStorage.getItem() || []
 
 function useCharacterLevelling() {
   const router = useRouter()
-	const { character } = useCurrentCharacter()
-  const [levelling, dispatchLevelling] = useReducer(levellingReducer, initialState())
+	const { character, rawCharacter } = useCurrentCharacter()
 
-	useEffect(() => {
-    levellingStorage.setItem(levelling)
-  }, [levelling])
+	const [ levellingState, setLevellingState] = useState(initialState())
 
-	const data = useMemo(() => {
+  const updateLevellingState = (levellingState) => {
+    LevellingStorage.setItem(levellingState)
+    setLevellingState(levellingState)
+	}
+
+  //
+  //
+  //
+
+	const levellingContextData = useMemo(() => {
 		if (character) {
 			const newLevel = character.toLevel = character.level + 1
 			const levellingData = getLevellingDataForClassesAndLevel(character.classes, newLevel)
@@ -50,6 +48,11 @@ function useCharacterLevelling() {
 
 			const steps = getLevellingSteps(character, newLevel)
 
+      const spellsSlots = getSpellsSlotsForCharacterLevel(
+        character.classes,
+        newLevel
+      )
+
 			return {
 				levellingData,
 				newLevel,
@@ -57,43 +60,81 @@ function useCharacterLevelling() {
 				clss,
 				background,
 				steps,
+        spellsSlots,
 			}
 		}
-	}, [character])
+	}, [character, rawCharacter])
+
+  function levellingDispatch (action) {
+    const currentStep = router.query.step
+
+    const steps = levellingContextData.steps
+    
+    const currentStepIndex = steps.findIndex(s => currentStep === s.name)
+    const nextStep = steps[currentStepIndex + 1]
+
+    console.info({ currentStep, nextStep })
+    console.log(`dispatch ${action.type}`)
+
+    const stepLevellingState = action.apply({
+      levellingState,
+      character,
+      rawCharacter,
+      newLevel: levellingContextData.newLevel,
+    })
+
+    stepLevellingState.actionType = action.type
+
+    const nextLevellingState = updateObjectOrCreateOnArray(
+      levellingState, 
+      stepLevellingState, 
+      s => s.step === stepLevellingState.step
+    )
+
+    updateLevellingState(nextLevellingState)
+
+    if (!nextStep) {
+      throw new Error(`Next step not found`)
+    }
+
+    if (nextStep.name === currentStep) {
+      throw new Error(`nextStep is same as currentStep`)
+    }
+    
+    if (nextStep) {
+      router.push(`/level-up/${nextStep.name}`)
+    }
+  }
 
 	const context = {
-    ...data,
-		character: levelling,
+    ...levellingContextData,
 
-    updateCharacter: (newData) => {
-      const currentStep = newData.step
+    levellingState,
+    character,
+		rawCharacter,
 
-			const steps = data.steps
-			
-			const currentStepIndex = steps.findIndex(s => currentStep.name === s.name)
-			const nextStep = steps[currentStepIndex + 1]
+    levellingDispatch,
+    getBuildedCharacter: () => {
+      const character = cloneDeep(rawCharacter)
 
-      console.info({ currentStep, nextStep })
-
-      if (nextStep) {
-				router.push(`/level-up/${nextStep.name}`)
-      }
-
-      dispatchLevelling({
-        type: 'update',
-        data: {
-          ...newData,
-          currentStep: nextStep,
+      levellingState.forEach(stepData => {
+        const fnc = actions[stepData.actionType]
+        if (!fnc) {
+          throw new Error(`Action not found for type ${stepData.actionType}`)
         }
+        const action = fnc(stepData)
+        action.build({
+          character,
+          newLevel: levellingContextData.newLevel,
+        })
       })
 
-    },
-    finalizeLevelUp: () => {
-			// updatedCharacter
-			// build character
-			debugger
+      return character
     },
   }
+
+  console.log(context.levellingData)
+  console.log(context.character)
 
 	return context
 }
