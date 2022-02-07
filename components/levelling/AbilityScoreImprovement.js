@@ -10,6 +10,10 @@ import {
 	TabContent,
 	TabContainer,
 } from "../Tab"
+import useFeats from "../../modules/api/useFeats"
+import ListSelector from "../../components/ListSelector";
+import { useFeatScreenAsModal } from "../../components/FeatScreenAsModal"
+import useI18n from "../../modules/i18n/useI18n"
 
 function getScoreDiff(stats, baseStats) {
 	const diff = {}
@@ -62,14 +66,39 @@ function Score({ step, character, levellingDispatch }) {
 }
 
 function Feat({ step, character, levellingDispatch }) {
+	const [selectedFeat, setSelectedFeat] = useState(null)
+	const { tr } = useI18n()
+	const { showFeatScreenAsModal } = useFeatScreenAsModal()
+	const featsResponse = useFeats()
+
 	return (
 		<>
-			<p>Ici vous pouvez choisir un trait</p>
+			<p>Ici vous pouvez choisir un feat</p>
+			{/* TODO: learn more */}
+
+			{/* TODO: disabled feats already on character */}
+			<ListSelector
+				value={selectedFeat}
+				options={featsResponse.data?.map(feat => ({
+					label: tr(feat.nameLocalized),
+					value: feat,
+					selected: selectedFeat?.index === feat.index,
+					rightView: <div
+						className="px-4 py-2 text-xs text-meta"
+						onClick={() => showFeatScreenAsModal(feat.index)}
+					>
+						?
+					</div>
+				})
+				)}
+				onChange={setSelectedFeat}
+			/>
 
 			<ButtonBottomScreen
 				variant="cta"
+				disabled={!selectedFeat}
 				onClick={() => {
-					levellingDispatch(actionLevellingAbilityScoreImprovement({ step }))
+					levellingDispatch(actionLevellingAbilityScoreImprovement({ step, type: 'feat', feat: selectedFeat }))
 				}}
 			>
 				Continuer

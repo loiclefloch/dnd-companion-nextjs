@@ -158,22 +158,29 @@ function getLevellingSteps(character, level = 1) {
 
 		addAbilityScoreImprovement(levellingData),
 
+		...applyCustomMethods(character, level),
+
 		// TODO: ignore for some classes?
 		{ 
 			name: "spell-slots",
 			label: "Mise à jour des spells slots",
 			desc: "",
 		},
-	]
 
-	return [
-		...steps, 
-		...applyCustomMethods(character, level),
+		// at the end, we must have updated the CON before (= hit dice + CON, ex: 1d12 + CON)
+		{
+			name: "hit-points",
+			label: "Points de vie",
+			desc: "Vous gagnez des points de vie",
+		},
+
 		{
 			name: "finalize",
 			desc: ""
 		}
 	].filter(Boolean)
+
+	return steps
 }
 
 export default getLevellingSteps

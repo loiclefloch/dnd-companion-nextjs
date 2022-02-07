@@ -42,9 +42,10 @@ function useCharacterLevelling() {
 			const newLevel = character.toLevel = character.level + 1
 			const levellingData = getLevellingDataForClassesAndLevel(character.classes, newLevel)
 
-			const race = formatRace(allRaces.find(r => r.index === character.race))
-			const clss = formatClass(classes.find(r => r.index === character.classes[0]))
-			const background = formatBackground(backgrounds.find(r => r.index === character.background))
+			const race = character.race
+			const clss = character.classes[0]
+
+			const background = character.background
 
 			const steps = getLevellingSteps(character, newLevel)
 
@@ -88,7 +89,7 @@ function useCharacterLevelling() {
     const nextLevellingState = updateObjectOrCreateOnArray(
       levellingState, 
       stepLevellingState, 
-      s => s.step === stepLevellingState.step
+      s => s.step.name === stepLevellingState.step.name
     )
 
     updateLevellingState(nextLevellingState)

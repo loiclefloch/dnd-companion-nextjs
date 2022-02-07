@@ -4,7 +4,6 @@ import ButtonBottomScreen from "../../components/ButtonBottomScreen"
 
 
 function IncreaseMaximumHp({ levellingData, step, levellingDispatch }) {
-
 	return (
 		<div className="prose text-center mt-8 mx-4">
 			<h3>{step.label}</h3>

@@ -8,6 +8,7 @@ import SpellSlots from "./SpellSlots"
 import IncreaseMaximumHp from "./IncreaseMaximumHp"
 import Finalize from "./Finalize"
 import AbilityScoreImprovement from "./AbilityScoreImprovement"
+import HitPoints from "./HitPoints"
 
 const isBrowser = typeof window !== "undefined";
 
@@ -25,7 +26,8 @@ function LevellingStep({ stepName }) {
 		'spell-slots': SpellSlots,
 		'increase-maximum-hp': IncreaseMaximumHp,
 		finalize: Finalize,
-		'ability-score-improvement': AbilityScoreImprovement
+		'ability-score-improvement': AbilityScoreImprovement,
+		'hit-points': HitPoints,
 		// StepHp,
 	}
 

@@ -48,7 +48,7 @@ export function actionLevellingAddHp({ step, hp }) {
 			hp
 		}),
 		build: ({ character }) => {
-			character.baseHp += hp
+			character.maxHp += hp
 		}
 	}
 }
@@ -71,7 +71,7 @@ export function actionLevellingAbilityScoreImprovement({ step, type, scoreDiff, 
 		type: 'actionLevellingAbilityScoreImprovement',
 		apply: () => ({
 			step, 
-			type, 
+			type,
 			scoreDiff,
 			feat,
 		}),
@@ -81,6 +81,7 @@ export function actionLevellingAbilityScoreImprovement({ step, type, scoreDiff, 
 					character.feats = []
 				}
 				character.feats.push({ index: feat.index, level: newLevel })
+
 			} else if (type === 'score') {
 				map(scoreDiff, (bonus, ability) => {
 					if (bonus > 0) {

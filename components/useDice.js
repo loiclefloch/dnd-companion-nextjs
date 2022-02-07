@@ -23,6 +23,61 @@ function diceRollResultToString(diceRollResult) {
 function useDice() {
 	const { addDice } = useDiceHistory()
 
+	function createManualRollData(label, dice, diceResult) {
+		const roll = { 
+			label,
+			dice,
+			diceResult,
+			result: diceResult,
+			diceRollResult: {
+				rolls: [
+					// TODO: which props to add?
+					{
+						label: diceResult
+					}
+				]
+			}
+		}
+		
+		const data = {
+			label,
+			historyLabel: label,
+			roll,
+		}
+
+		return data
+	}
+
+	function prerollDice(label, dice, options = {}) {
+		const diceRollResult = new DiceRoll(dice)
+		const diceResult = Number(diceRollResult.total)
+		const result = diceResult
+
+		const roll = { 
+			label,
+			dice,
+			diceResult,
+			result,
+			diceRollResult: diceRollResultToString(diceRollResult),
+		}
+		
+		const data = {
+			label,
+			historyLabel: label,
+			roll,
+		}
+
+		data.validate = () => {
+			addDice(data)
+		}
+
+		data.reroll = () => {
+			prerollDice(label, dice, { ...options, isReroll: true })
+		}
+
+		return data
+	}
+
 	function rollDice(label, dice, options = {}) {
 		const diceRollResult = new DiceRoll(dice)
 		const diceResult = Number(diceRollResult.total)
@@ -31,7 +86,6 @@ function useDice() {
 		const roll = { 
 			label,
 			dice,
-			roll,
 			diceResult,
 			result,
 			diceRollResult: diceRollResultToString(diceRollResult),
@@ -41,7 +95,6 @@ function useDice() {
 			label,
 			historyLabel: label,
 			roll,
-			onValidate: () => { },
 			onReroll: () => {
 				rollDice(label, dice, { ...options, isReroll: true })
 			},
@@ -87,7 +140,6 @@ function useDice() {
 			label,
 			historyLabel: label,
 			roll,
-			onValidate: () => { },
 			onReroll: () => {
 				rollStat(label, value, { ...options, isReroll: true })
 			},
@@ -134,7 +186,6 @@ function useDice() {
 			label,
 			historyLabel: `${label} (${damageType.name})`, 
 			roll,
-			onValidate: () => { },
 			onReroll: () => {
 				rollDamage(label, diceToRun, modifier, damageType, { ...options, isReroll: true })
 			},
@@ -180,7 +231,6 @@ function useDice() {
 			label,
 			historyLabel: label,
 			roll,
-			onValidate: () => { },
 			onReroll: () => {
 				rollDamage(label, diceToRun, modifier, { ...options, isReroll: true })
 			},
@@ -188,6 +238,8 @@ function useDice() {
 	}
 
 	return {
+		prerollDice,
+		createManualRollData,
 		rollDice,
 		rollDamage,
 		rollHeal,
