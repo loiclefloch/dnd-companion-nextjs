@@ -107,6 +107,24 @@ function useCharacterLevelling() {
     }
   }
 
+  function getBuildedCharacter() {
+    const character = cloneDeep(rawCharacter)
+
+    levellingState.forEach(stepData => {
+      const fnc = actions[stepData.actionType]
+      if (!fnc) {
+        throw new Error(`Action not found for type ${stepData.actionType}`)
+      }
+      const action = fnc(stepData)
+      action.build({
+        character,
+        newLevel: levellingContextData.newLevel,
+      })
+    })
+
+    return character
+  }
+
 	const context = {
     ...levellingContextData,
 
@@ -115,23 +133,10 @@ function useCharacterLevelling() {
 		rawCharacter,
 
     levellingDispatch,
-    getBuildedCharacter: () => {
-      const character = cloneDeep(rawCharacter)
-
-      levellingState.forEach(stepData => {
-        const fnc = actions[stepData.actionType]
-        if (!fnc) {
-          throw new Error(`Action not found for type ${stepData.actionType}`)
-        }
-        const action = fnc(stepData)
-        action.build({
-          character,
-          newLevel: levellingContextData.newLevel,
-        })
-      })
-
-      return character
-    },
+    getBuildedCharacter,
+    getFormattedBuildedCharacter: () => {
+      return formatCharacter(getBuildedCharacter())
+    }
   }
 
   console.log(context.levellingData)

@@ -89,8 +89,7 @@ function Feat({ step, character, levellingDispatch }) {
 					>
 						?
 					</div>
-				})
-				)}
+				}))}
 				onChange={setSelectedFeat}
 			/>
 

@@ -1,7 +1,7 @@
 import { actionLevellingAddFeatures } from "./action"
 import useFeature from "../../modules/api/useFeature"
 import useI18n from "../../modules/i18n/useI18n"
-import ButtonBottomScreen from "../../components/ButtonBottomScreen"
+import ButtonBottomScreen from "../ButtonBottomScreen"
 
 function Feature({ index }) {
 	const { tr } = useI18n()

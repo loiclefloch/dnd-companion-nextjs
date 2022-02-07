@@ -40,12 +40,13 @@ export function actionLevellingAddFeatures({ step, features }) {
 	}
 }
 
-export function actionLevellingAddHp({ step, hp }) {
+export function actionLevellingAddHp({ step, hp, diceResult }) {
 	return {
 		type: 'actionLevellingAddHp',
 		apply: () => ({
 			step,
-			hp
+			hp,
+			diceResult
 		}),
 		build: ({ character }) => {
 			character.maxHp += hp
@@ -81,7 +82,6 @@ export function actionLevellingAbilityScoreImprovement({ step, type, scoreDiff, 
 					character.feats = []
 				}
 				character.feats.push({ index: feat.index, level: newLevel })
-
 			} else if (type === 'score') {
 				map(scoreDiff, (bonus, ability) => {
 					if (bonus > 0) {
@@ -94,6 +94,17 @@ export function actionLevellingAbilityScoreImprovement({ step, type, scoreDiff, 
 					}
 				})
 			}
+		}
+	}
+}
+
+export function actionLevellingUpdateProficiencyBonus({ step }) {
+	return {
+		type: 'actionLevellingUpdateProficiencyBonus',
+		apply: () => ({
+			step, 
+		}),
+		build: () => {
 		}
 	}
 }

@@ -5,9 +5,9 @@ import { useDiceRunnerScreenAsModal } from "../../components/DiceRunnerScreenAsM
 import Button from "../Button"
 import { valueToModifierLabel } from "../../modules/stats"
 
-function HitPoints({ clss, getBuildedCharacter, levellingData, step, levellingDispatch }) {
+function HitPoints({ clss, getBuildedCharacter, levellingData, step, levellingDispatch, stepLevellingState }) {
 	const buildedCharacter = getBuildedCharacter()
-	const [diceResult, onDiceResult] = useState(null)
+	const [diceResult, onDiceResult] = useState(stepLevellingState?.diceResult)
 	const { showDiceRunnerScreenAsModal } = useDiceRunnerScreenAsModal()
 
 	const dice = `1d${clss.hitDice}${valueToModifierLabel(buildedCharacter.stats.CON)}`
@@ -43,7 +43,7 @@ function HitPoints({ clss, getBuildedCharacter, levellingData, step, levellingDi
 				variant="cta" 
 				disabled={!diceResult}
 				onClick={() => {
-					levellingDispatch(actionLevellingAddHp({ step, hp: diceResult.roll.diceResult }))
+					levellingDispatch(actionLevellingAddHp({ step, hp: diceResult.roll.diceResult, diceResult }))
 				}}
 			>
 				Continuer

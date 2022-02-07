@@ -172,18 +172,18 @@ export function formatCharacter(character) {
 		const skill = skillData.index
 		const isProeficient = character.skillsProficiencies.some(s => skill === s)
 
-		const value = character.stats[ability] + (isProeficient ? character.proficiencyBonus : 0)
+		const value = character.stats[ability]
+		const modifier = valueToModifier(value) + (isProeficient ? character.proficiencyBonus : 0)
 		return {
 			index: skillData.index,
 			label: skillData.name, // TODO: i18n
 			description: skillData.desc, // TODO: i18n
 			ability,
-			name,
 			skill,
 			value,
 			isProeficient,
-			modifierLabel: valueToModifierLabel(value),
-			modifier: valueToModifier(value),
+			modifierLabel: modifierToModifierLabel(modifier),
+			modifier,
 		}
 	})
 

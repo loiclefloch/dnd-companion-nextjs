@@ -9,11 +9,20 @@ import IncreaseMaximumHp from "./IncreaseMaximumHp"
 import Finalize from "./Finalize"
 import AbilityScoreImprovement from "./AbilityScoreImprovement"
 import HitPoints from "./HitPoints"
+import ProficiencyBonus from "./ProficiencyBonus"
 
 const isBrowser = typeof window !== "undefined";
 
 function LevellingStep({ stepName }) {
-	const { levellingDispatch, character, newLevel, levellingData, steps, ...otherProps } = useCharacterLevelling()
+	const { 
+		levellingDispatch, 
+		character, 
+		newLevel, 
+		levellingData, 
+		steps, 
+		levellingState, 
+		...otherProps
+	} = useCharacterLevelling()
 
 	if (!character || !isBrowser) {
 		// on server side, no current character
@@ -28,13 +37,13 @@ function LevellingStep({ stepName }) {
 		finalize: Finalize,
 		'ability-score-improvement': AbilityScoreImprovement,
 		'hit-points': HitPoints,
+		'proficiency-bonus': ProficiencyBonus,
 		// StepHp,
 	}
 
 	const stepView = stepsViews[stepName]
-
 	const step = steps.find(s => s.name === stepName)
-	console.log({ stepName, step, steps })
+	const stepLevellingState = levellingState.find(s => s.step.name === stepName)
 
 	return stepView ? (
 		createElement(
@@ -47,6 +56,7 @@ function LevellingStep({ stepName }) {
 				levellingDispatch, 
 				steps,
 				step,
+				stepLevellingState,
 				...otherProps 
 			})
 	) : (

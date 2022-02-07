@@ -167,6 +167,12 @@ function getLevellingSteps(character, level = 1) {
 			desc: "",
 		},
 
+		{
+			name: "proficiency-bonus",
+			label: "Bonus de maîtrise",
+			desc: "",
+		},
+
 		// at the end, we must have updated the CON before (= hit dice + CON, ex: 1d12 + CON)
 		{
 			name: "hit-points",
