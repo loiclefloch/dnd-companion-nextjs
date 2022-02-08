@@ -42,12 +42,6 @@
         "index": "danger-sense",
         "name": "Danger Sense",
         "url": "/api/features/danger-sense"
-      },
-      {
-        "// TODO:": "remove after tests",
-        "index": "barbarian-ability-score-improvement-1",
-        "name": "Ability Score Improvement",
-        "url": "/api/features/barbarian-ability-score-improvement-1"
       }
     ],
     "class_specific": {

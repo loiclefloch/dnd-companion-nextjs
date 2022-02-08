@@ -3,15 +3,11 @@ import produce from "immer"
 import { isEmpty, cloneDeep } from "lodash"
 import characters from "../modules/api/fixtures/characters"
 import useCharacterNotFormatted from '../modules/api/useCharacterNotFormatted'
-import { updateObjectOnArray } from '../modules/utils/array';
 import { formatCharacter  } from "../modules/api/useCharacter"
-import { createStorage } from "../modules/utils/storage";
+import { CharactersStorage,	CurrentCharacterIdStorage } from "../modules/db";
 import { v4 as uuid } from 'uuid';
 import useStorage from "./useStorage"
  
-const CharactersStorage = createStorage("characters")
-const CurrentCharacterIdStorage = createStorage("currentCharacterId")
-
 let CurrentCharacterContext;
 let { Provider } = (CurrentCharacterContext = createContext());
 
@@ -147,8 +143,7 @@ export function CurrentCharacterProvider({ children }) {
 			throw new Error(`Invalid updateCharacter`)
 		}
 
-		const updatedCharacters = updateObjectOnArray(characters(), updatedCharacter, c => c.id === id)
-		CharactersStorage.setItem(updatedCharacters)
+		CharactersStorage.update(updatedCharacter)
 
 		setCurrentCharacter(updatedCharacter)
 	}
@@ -172,7 +167,8 @@ export function CurrentCharacterProvider({ children }) {
 				action.apply(draftState, formattedCharacter)
 			})
 			updateCharacter(nextState)
-		}
+		},
+		updateCharacter,
 	}
 
 	return (

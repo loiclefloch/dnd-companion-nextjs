@@ -1,31 +1,21 @@
 import { useState } from "react"
 import { useRouter } from "next/router";
-import { dbAddBackup } from "../modules/db"
-import { createStorage } from "../modules/utils/storage"
+import { LevellingStorage, BackupStorage } from "../modules/db"
 import { useMemo } from "react"
 import useCurrentCharacter from "./useCurrentCharacter"
 import { getLevellingDataForClassesAndLevel, getSpellsSlotsForCharacterLevel } from "../modules/levelling"
 import getLevellingSteps from "../modules/levelling/getLevellingSteps"
 import { formatCharacter  } from "../modules/api/useCharacter"
-import classes from '../database/data/classes.json'
-import allRaces from "../database/data/allRaces"
-import backgrounds from "../database/data/backgrounds"
-import { formatRace } from "../modules/api/useRace"
-import { formatBackground } from "../modules/api/useBackground"
-import { formatClass  } from "../modules/api/useClass"
-import produce from "immer";
 import { updateObjectOrCreateOnArray } from "../modules/utils/array";
 import { cloneDeep } from "lodash";
 
 import * as actions from "./levelling/action"
 
-const LevellingStorage = createStorage("levellingState")
-
 const initialState = () => LevellingStorage.getItem() || []
 
 function useCharacterLevelling() {
   const router = useRouter()
-	const { character, rawCharacter } = useCurrentCharacter()
+	const { character, rawCharacter, updateCharacter } = useCurrentCharacter()
 
 	const [ levellingState, setLevellingState] = useState(initialState())
 
@@ -143,17 +133,15 @@ function useCharacterLevelling() {
 
       // 1- backup
       // rawCharacter
-      dbAddBackup('character', rawCharacter.id, rawCharacter)
-
+      BackupStorage.add('character', updatedCharacter.id, updatedCharacter)
+        
       // 2- update
-      
+      updateCharacter(updatedCharacter)
+
       // 3- redirect
       router.push("/character/levelling")
     }
   }
-
-  console.log(context.levellingData)
-  console.log(context.character)
 
 	return context
 }

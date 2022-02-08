@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { createContext, useContext, useReducer, useEffect } from "react"
-import { createStorage } from "../modules/utils/storage"
+import { CharacterStorage } from "../modules/db"
 import { getDefaultData } from "../components/useCurrentCharacter"
 
 import classes from '../database/data/classes.json'
@@ -13,8 +13,6 @@ import { formatClass  } from "../modules/api/useClass"
 import { cloneDeep } from "lodash";
 
 const isBrowser = typeof window !== "undefined";
-
-const CreateCharacterStorage = createStorage("createCharacter")
 
 const CreateCharacterContext = createContext()
 
@@ -31,7 +29,7 @@ function createCharacterReducer(state, action) {
   }
 }
 
-const initialState = () => CreateCharacterStorage.getItem() || getDefaultData()
+const initialState = () => CharacterStorage.getItem() || getDefaultData()
 
 function getNextStep(step) {
   const map = {
@@ -162,7 +160,7 @@ export function CreateCharacterProvider({ children }) {
   const [character, dispatchCharacter] = useReducer(createCharacterReducer, initialState())
 
   useEffect(() => {
-    CreateCharacterStorage.setItem(character)
+    CharacterStorage.setItem(character)
   }, [character])
 
   // TODO: memo
