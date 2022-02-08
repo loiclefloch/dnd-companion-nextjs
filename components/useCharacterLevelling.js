@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useRouter } from "next/router";
+import { dbAddBackup } from "../modules/db"
 import { createStorage } from "../modules/utils/storage"
 import { useMemo } from "react"
 import useCurrentCharacter from "./useCurrentCharacter"
@@ -136,6 +137,18 @@ function useCharacterLevelling() {
     getBuildedCharacter,
     getFormattedBuildedCharacter: () => {
       return formatCharacter(getBuildedCharacter())
+    },
+    finalizeLevelling: () => {
+      const updatedCharacter = getBuildedCharacter()
+
+      // 1- backup
+      // rawCharacter
+      dbAddBackup('character', rawCharacter.id, rawCharacter)
+
+      // 2- update
+      
+      // 3- redirect
+      router.push("/character/levelling")
     }
   }
 

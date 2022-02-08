@@ -1,4 +1,4 @@
-export default (api) => ({
+const Acolyte = (api) => ({
 	"index": "acolyte",
 	"name": "Acolyte",
 	"starting_proficiencies": [
@@ -116,3 +116,5 @@ export default (api) => ({
 	},
 	"url": "/api/backgrounds/acolyte"
 })
+
+export default Acolyte

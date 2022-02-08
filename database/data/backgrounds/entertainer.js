@@ -1,4 +1,4 @@
-export default (api) => ({
+const Entertainer = (api) => ({
 	"index": "entertainer",
 	"name": "Entertainer",
 	"good_for_classes": [
@@ -118,3 +118,5 @@ export default (api) => ({
 		]
 	},
 })
+
+export default Entertainer

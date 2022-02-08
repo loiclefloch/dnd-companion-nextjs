@@ -1,4 +1,4 @@
-export default (api) => ({
+const FolkHero = (api) => ({
 	"index": "folk-hero",
 	"name": "Folk Hero",
 	"starting_proficiencies": [
@@ -101,3 +101,5 @@ export default (api) => ({
 		]
 	},
 })
+
+export default FolkHero 

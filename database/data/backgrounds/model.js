@@ -1,4 +1,4 @@
-export default (api) => ({
+const Model = (api) => ({
 	"index": "acolyte",
 	"name": "Acolyte",
 	"good_for_classes": [
@@ -106,3 +106,5 @@ export default (api) => ({
 		]
 	},
 })
+
+export default Model

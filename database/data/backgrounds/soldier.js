@@ -1,4 +1,4 @@
-export default (api) => ({
+const Soldier = (api) => ({
 	"index": "soldier",
 	"name": "Soldier",
 	"starting_proficiencies": [
@@ -108,3 +108,5 @@ export default (api) => ({
 		]
 	},
 })
+
+export default Soldier

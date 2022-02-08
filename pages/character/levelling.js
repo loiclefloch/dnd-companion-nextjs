@@ -99,12 +99,13 @@ function CharacterWallet() {
 							level={character.level}
 							currentXp={character.levelling.xp}
 							nextLevelXp={character.levelling.nextLevelXp}
+							percent={character.levelling.percent}
 						/>
 					</div>
 
 					{/* // - ask user to level up its character (popup screen) -> Yes - Later */}
 					{character.levelling.shouldLevelUp && (
-						<div className="mt-8 px-4">
+						<div className="mt-4 px-4">
 							<Link href="/level-up/introduction">
 								<Button variant="contained" color="info">
 									Monter au niveau {character.level + 1}

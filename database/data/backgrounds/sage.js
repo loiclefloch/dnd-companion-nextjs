@@ -1,4 +1,4 @@
-export default (api) => ({
+const Sage = (api) => ({
 	"index": "sage",
 	"name": "Sage",
 	"good_for_classes": [
@@ -114,3 +114,5 @@ export default (api) => ({
 		]
 	},
 })
+
+export default Sage

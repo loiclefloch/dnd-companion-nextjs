@@ -1,4 +1,4 @@
-export default (api) => ({
+const CriminalSpy = (api) => ({
 	"index": "criminal-spy",
 	"name": "Criminal / Spy",
 	"starting_proficiencies": [
@@ -99,3 +99,5 @@ export default (api) => ({
 		]
 	},
 })
+
+export default CriminalSpy
