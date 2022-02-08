@@ -1,13 +1,14 @@
 import clsx from "clsx"
+import Link from "next/link"
 import { CharacterProvider} from "../../modules/character/ContextCharacter"
 import useCurrentCharacter from "../../components/useCurrentCharacter"
-import { getNextLevelExperienceStage } from "../../modules/levelling"
 import IconTrendingUp from "../../components/icons/IconTrendingUp"
 import Screen from "../../components/Screen"
 import Button from "../../components/Button"
 import IconPlus from "../../components/icons/IconPlus"
 import { useLevellingAddScreenAsModal } from "../../components/LevellingAddScreenAsModal"
 import { useRouter } from "next/router"
+import { actionAddXp } from "../../modules/character/action"
 
 function HistoryLine({ history }) {
 	return (
@@ -26,9 +27,7 @@ function HistoryLine({ history }) {
 	)
 }
 
-function Progress({ level, currentXp, nextLevelXp }) {
-
-	const percent = Math.round(currentXp / nextLevelXp * 100)
+function Progress({ currentXp, percent }) {
 
 	return (
 		<div className="relative pt-1">
@@ -57,15 +56,10 @@ function Progress({ level, currentXp, nextLevelXp }) {
 function CharacterWallet() {
 	const router = useRouter()
 	const { showLevellingAddScreenAsModal } = useLevellingAddScreenAsModal()
-	const { character } = useCurrentCharacter()
+	const { character, characterDispatch } = useCurrentCharacter()
 
-	function onAddLevelling({ label, amount }) {
-		// TODO: add on levelling.history
-		// TODO: add on levelling.xp
-
-		// TODO: on level up:
-		// - flag character to level up
-		// - ask user to level up its character (popup screen) -> Yes - Later
+	function onAddLevelling(label, amount) {
+		characterDispatch(actionAddXp(label, amount))
 	}
 
 	// define character on context
@@ -104,9 +98,20 @@ function CharacterWallet() {
 						<Progress
 							level={character.level}
 							currentXp={character.levelling.xp}
-							nextLevelXp={getNextLevelExperienceStage(character.level)}
+							nextLevelXp={character.levelling.nextLevelXp}
 						/>
 					</div>
+
+					{/* // - ask user to level up its character (popup screen) -> Yes - Later */}
+					{character.levelling.shouldLevelUp && (
+						<div className="mt-8 px-4">
+							<Link href="/level-up/introduction">
+								<Button variant="contained" color="info">
+									Monter au niveau {character.level + 1}
+								</Button>
+							</Link>
+						</div>
+					)}
 
 					<div className="mt-8">
 						<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">Historique</h3>

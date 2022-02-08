@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { map, groupBy } from "lodash"
+import { map, groupBy, isEmpty } from "lodash"
 import useI18n from "../modules/i18n/useI18n";
 import StatsSmall from "./StatsSmall";
 import useTipTrait from "./useTipTrait"
@@ -81,6 +81,11 @@ export function BackgroundSection({ character }) {
 
 export function FeaturesSection({ character }) {
 	const { tr } = useI18n()
+
+	if (isEmpty(character.features)) {
+		return null
+	}
+
 	return (
 		<Section title={`Features`}>
 			{character.features.map((feature, index) => (
@@ -263,6 +268,22 @@ function GlobalSection({ character }) {
 	)
 }
 
+export function FeatsSection({ character }) {
+	const { tr } = useI18n()
+
+	if (isEmpty(character.feats)) {
+		return null
+	}
+
+	return (
+		<Section title="Feats">
+			{character.feats.map(feat => (
+				<LineInfo key={feat.index} label={tr(feat.nameLocalized)} value={character.level} />
+			))}
+		</Section>
+	)
+}
+
 function CharacterResume({ character }) {
 	return (
 		<div className="px-4 mt-4 prose">
@@ -280,11 +301,10 @@ function CharacterResume({ character }) {
 				<LanguagesSection character={character} />
 				<StatsSection character={character} />
 				<EquipmentSection character={character} />
+				<FeatsSection character={character} />
 				<TraitsSection character={character} />
 				<ProficienciesSection character={character} />
 				<FeaturesSection character={character} />
-
-				{/* TODO: feats */}
 
 				<BackgroundSection character={character} />
 			</div>

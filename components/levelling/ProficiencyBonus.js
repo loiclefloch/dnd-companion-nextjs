@@ -1,3 +1,4 @@
+import { actionLevellingUpdateProficiencyBonus } from "./action"
 import ButtonBottomScreen from "../ButtonBottomScreen"
 import StatsDetails from "../StatsDetails"
 
@@ -15,6 +16,8 @@ function ProficiencyBonus({ getFormattedBuildedCharacter, levellingData, charact
 			<div className="mt-4 text-3xl">
 				+{character.proficiencyBonus} → +{buildedCharacter.proficiencyBonus}
 			</div>
+			
+			<div className="border-b border-solid border-slate-300 my-4"></div>
 
 			<div className="mt-4">
 				<StatsDetails
@@ -31,7 +34,7 @@ function ProficiencyBonus({ getFormattedBuildedCharacter, levellingData, charact
 			>
 				Continuer
 			</ButtonBottomScreen>
-	</div>
+		</div>
 	)
 }
 

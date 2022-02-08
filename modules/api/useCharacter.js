@@ -14,7 +14,7 @@ import magicItems from '../../database/data/magic-items.json'
 import traits from '../../database/data/traits.json'
 import { formatRace } from "./useRace"
 import { formatClass } from "./useClass"
-import { getLevellingDataForClassesAndLevel, getSpellsSlotsForCharacterLevel } from "../levelling"
+import { getLevellingDataForClassesAndLevel, getSpellsSlotsForCharacterLevel, getNextLevelExperienceStage } from "../levelling"
 import { formatEquipmentItem } from "./useEquipmentItem"
 import { formatMagicItem } from "./useMagicItem"
 import { formatSpell } from "./useSpell"
@@ -45,6 +45,14 @@ function formatSpellsSlots(spellsSlots, spellsUsed) {
 			isAboveMaximumTotalSlots: remainingSlots > slot.baseTotalSlots
 		}
 	})
+}
+
+function formatLevelling(levelling, level) {
+	levelling.nextLevelXp = getNextLevelExperienceStage(level)
+	levelling.percent = Math.round(levelling.xp / levelling.nextLevelXp * 100)
+
+	levelling.shouldLevelUp = levelling.percent >= 100
+	console.log({ levelling })
 }
 
 export function formatCharacter(character) {
@@ -102,6 +110,8 @@ export function formatCharacter(character) {
 		character.spellsSlots, 
 		character.spellsUsed
 	)
+	
+	formatLevelling(character.levelling, character.level)
 
 	const levellingData = getLevellingDataForClassesAndLevel(character.classes, character.level)
 

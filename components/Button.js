@@ -13,8 +13,12 @@ function Button({ children, className, variant = "none", size = "medium", color,
 				// "": color === "secondary",
 
 				"text-green-400 border-green-400": color === "success",
-				"bg-green-400 border-green-400": color === "success" && variant === "contained",
+				"bg-green-400 border-green-400 text-black": color === "success" && variant === "contained",
 				"border-green-400": color === "success" && variant === "outlined",
+
+				"text-blue-400 border-blue-400": color === "info",
+				"bg-blue-400 border-blue-400 text-black": color === "info" && variant === "contained",
+				"border-blue-400": color === "info" && variant === "outlined",
 
 				"text-orange-400 border-orange-400": color === "warning" && !color,
 				"bg-orange-400 border-orange-400 text-black": color === "warning" && variant === "contained",

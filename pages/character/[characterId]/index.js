@@ -16,6 +16,8 @@ import {
 	TraitsSection,
 	ProficienciesSection,
 	BackgroundSection,
+	FeaturesSection,
+	FeatsSection,
 } from "../../../components/CharacterResume"
 import Section from "../../../components/Section"
 import LineInfo from "../../../components/LineInfo"
@@ -121,6 +123,7 @@ function Content({
 
 				</Section>
 
+				<FeatsSection character={character} />
 				<TraitsSection character={character} />
 				<ProficienciesSection character={character} />
 				<FeaturesSection character={character} />

@@ -1,3 +1,21 @@
+import { v4 as uuid } from 'uuid';
+
+export function actionAddXp(label, amount) {
+	return {
+		type: 'actionAddXp',
+		apply: (character) => {
+			character.levelling.xp += amount
+			if (!character.levelling.history) {
+				character.levelling.history = []
+			}
+			character.levelling.history.push({
+				id: uuid(),
+				label,
+				amount,
+			})
+		}
+	}
+}
 
 export function actionLearnSpell(spell) {
 	return {
