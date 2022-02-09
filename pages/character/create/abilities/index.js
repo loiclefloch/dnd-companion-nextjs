@@ -13,19 +13,20 @@ import AbilityScoreChooser from "../../../../components/AbilityScoreChooser"
 import { getAbilityOptimizedExample } from "../../../../modules/character"
 
 function getBonusFromRace(bonusFromRace) {
-	const bonuses = {}
+	const bonuses = {};
 
-	([
+	[
 		"STR",
 		"DEX",
 		"CON",
 		"INT",
 		"WIS",
 		"CHA",
-	]).forEach(abilityScore => {
+	].forEach(abilityScore => {
 		const bonus = bonusFromRace.find(bonus => bonus.abilityScore.name === abilityScore)?.bonus || 0
 		bonuses[abilityScore] = bonus
 	})
+
 	return bonuses
 }
 

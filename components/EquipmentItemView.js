@@ -1,7 +1,8 @@
 import { isEmpty } from "lodash"
 import useI18n from "../modules/i18n/useI18n";
 import { useEquipmentItemScreenAsModal } from "../components/EquipmentItemScreenAsModal"
-import useCurrentCharacter, { 
+import useCurrentCharacter from "./useCurrentCharacter";
+import { 
 	actionEquip,
 	actionUnequip,
 } from "../modules/character/action"
