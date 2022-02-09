@@ -109,4 +109,18 @@ export function actionLevellingUpdateProficiencyBonus({ step }) {
 	}
 }
 
+export function actionLevellingSacredOath({ step, selectedSubclass }) {
+	return {
+		type: 'actionLevellingSacredOath',
+		apply: () => ({
+			step,
+			selectedSubclass,
+		}),
+		build: () => {
+			// TODO:
+			debugger
+		}
+	}
+}
+
 // TODO: clean spellsUsed?

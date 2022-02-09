@@ -10,6 +10,7 @@ import Finalize from "./Finalize"
 import AbilityScoreImprovement from "./AbilityScoreImprovement"
 import HitPoints from "./HitPoints"
 import ProficiencyBonus from "./ProficiencyBonus"
+import SacredOath from "./SacredOath"
 
 const isBrowser = typeof window !== "undefined";
 
@@ -38,6 +39,7 @@ function LevellingStep({ stepName }) {
 		'ability-score-improvement': AbilityScoreImprovement,
 		'hit-points': HitPoints,
 		'proficiency-bonus': ProficiencyBonus,
+		'sacred-oath': SacredOath,
 		// StepHp,
 	}
 

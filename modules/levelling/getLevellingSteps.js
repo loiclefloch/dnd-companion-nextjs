@@ -40,7 +40,7 @@ function characterNoop() {
 	}
 }
 
-function hillDwarf(character) {
+function hillDwarf() {
 	return {
 		every: () => {
 			// Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.
@@ -59,11 +59,11 @@ function hillDwarf(character) {
 	}
 }
 
-function dragonborn(character) {
+function dragonborn() {
 	return characterNoop()
 }
 
-function barbarian(character) {
+function barbarian() {
 	return {
 		every: () => {
 			// TODO
@@ -74,6 +74,26 @@ function barbarian(character) {
 	}
 }
 
+function paladin() {
+	return {
+		every: () => {
+			// TODO
+			return []
+		},
+		3: () => {
+			return [
+				{
+					name: "sacred-oath", 
+					label: "Sacred Oath",
+					desc: "Swear the oath that binds you as a paladin forever.",
+				},
+			]
+		},
+		// TODO:
+		...applyNoop(1, 2),
+		...applyNoop(4, 20),
+	}
+}
 
 /**
  * Apply custom code for each class / race.
@@ -88,11 +108,12 @@ function applyCustomMethods(character, level) {
 	// TODO:
 	const racesMap = {
 		'hill-dwarf': hillDwarf,
+		dragonborn: dragonborn,
 	}
 	// TODO:
 	const classesMap = {
 		barbarian: barbarian,
-		dragonborn: dragonborn,
+		paladin: paladin
 	}
 
 	const race = character.race?.index || character.race 
