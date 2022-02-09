@@ -1,0 +1,335 @@
+{
+  "id": "druid-level-3",
+  "name": "Fixt - Druid - level 3",
+  "body": {
+    "age": 30,
+    "gender": "",
+    "height": "",
+    "weight": "",
+    "hairColor": "",
+    "eyeColor": "",
+    "skinColor": "",
+    "physicalCaracteristics": ""
+  },
+  "level": 3,
+  "classes": [
+    "druid"
+  ],
+  "race": "wood-elf",
+  "bonds": "It is my duty to protect my students.",
+  "flaws": "Most people scream and run when they see a demon. I stop and take notes on its anatomy",
+  "ideals": "Knowledge. The path to power and self-improvement is through knowledge.",
+  "traits": [
+    {
+      "index": "darkvision",
+      "sourceType": "race"
+    },
+    {
+      "index": "fey-ancestry",
+      "sourceType": "race"
+    },
+    {
+      "index": "trance",
+      "sourceType": "race"
+    },
+    {
+      "index": "elf-weapon-training",
+      "sourceType": "race"
+    },
+    {
+      "index": "flee-of-foot",
+      "sourceType": "race"
+    },
+    {
+      "index": "mask-of-the-wild",
+      "sourceType": "race"
+    }
+  ],
+  "stats": {
+    "STR": 15,
+    "DEX": 16,
+    "CON": 12,
+    "INT": 12,
+    "WIS": 11,
+    "CHA": 8
+  },
+  "statsBonuses": [
+    {
+      "ability": "DEX",
+      "type": "race",
+      "bonus": 2
+    },
+    {
+      "ability": "WIS",
+      "type": "race",
+      "bonus": 1
+    }
+  ],
+  "baseStats": {
+    "STR": 15,
+    "DEX": 14,
+    "CON": 12,
+    "INT": 12,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelling": {
+    "xp": 10000,
+    "history": [
+      {
+        "id": "a6ca244c-92cd-4b2c-9230-95dd507fbcf0",
+        "label": "Level up",
+        "amount": 10000
+      }
+    ]
+  },
+  "spellsList": [],
+  "currencies": {
+    "gp": 15
+  },
+  "equipment": [
+    {
+      "index": "ink-1-ounce-bottle",
+      "quantity": 1
+    },
+    {
+      "index": "clothes-common",
+      "quantity": 1
+    },
+    {
+      "index": "small-knife",
+      "quantity": 1
+    },
+    {
+      "index": "dagger",
+      "quantity": 1
+    },
+    {
+      "index": "spear",
+      "quantity": 1
+    },
+    {
+      "index": "potters-tools",
+      "quantity": 1
+    }
+  ],
+  "wallet": {
+    "history": []
+  },
+  "proficiencies": [
+    {
+      "index": "unarmed-strike",
+      "sourceType": "race"
+    },
+    {
+      "index": "skill-perception",
+      "sourceType": "race"
+    },
+    {
+      "index": "longswords",
+      "sourceType": "race"
+    },
+    {
+      "index": "shortswords",
+      "sourceType": "race"
+    },
+    {
+      "index": "shortbows",
+      "sourceType": "race"
+    },
+    {
+      "index": "longbows",
+      "sourceType": "race"
+    },
+    {
+      "index": "skill-history",
+      "sourceType": "background"
+    },
+    {
+      "index": "skill-arcana",
+      "sourceType": "background"
+    },
+    {
+      "index": "light-armor",
+      "sourceType": "class"
+    },
+    {
+      "index": "medium-armor",
+      "sourceType": "class"
+    },
+    {
+      "index": "shields",
+      "sourceType": "class"
+    },
+    {
+      "index": "clubs",
+      "sourceType": "class"
+    },
+    {
+      "index": "daggers",
+      "sourceType": "class"
+    },
+    {
+      "index": "javelins",
+      "sourceType": "class"
+    },
+    {
+      "index": "maces",
+      "sourceType": "class"
+    },
+    {
+      "index": "quarterstaffs",
+      "sourceType": "class"
+    },
+    {
+      "index": "sickles",
+      "sourceType": "class"
+    },
+    {
+      "index": "spears",
+      "sourceType": "class"
+    },
+    {
+      "index": "darts",
+      "sourceType": "class"
+    },
+    {
+      "index": "slings",
+      "sourceType": "class"
+    },
+    {
+      "index": "scimitars",
+      "sourceType": "class"
+    },
+    {
+      "index": "herbalism-kit",
+      "sourceType": "class"
+    }
+  ],
+  "proficiencyBonus": 2,
+  "maximumHp": 21,
+  "currentHp": 21,
+  "spellsUsed": [],
+  "deathSaves": {
+    "nbFailed": null,
+    "nbSucceeed": null,
+    "isStabilized": false
+  },
+  "background": "sage",
+  "features": [
+    {
+      "index": "researcher",
+      "type": "background"
+    },
+    {
+      "index": "wild-shape-cr-1-4-or-below-no-flying-or-swim-speed",
+      "type": "levelling",
+      "level": 2
+    },
+    {
+      "index": "druid-circle",
+      "type": "levelling",
+      "level": 2
+    },
+    {
+      "index": "circle-of-the-land-forest",
+      "from": "druid-circle",
+      "type": "levelling",
+      "level": 2
+    },
+    {
+      "index": "circle-of-the-land-forest",
+      "from": "druid-circle",
+      "type": "levelling",
+      "level": 3
+    }
+  ],
+  "personnalityTraits": [
+    "I use polysyllabic words that convey the impression of great erudition."
+  ],
+  "alignment": "chaotic-neutral",
+  "languages": [
+    "dwarvish",
+    "giant",
+    "common",
+    "elvish",
+    "common",
+    "elvish"
+  ],
+  "maximumHitDice": 9,
+  "currentHitDice": 9,
+  "skillsProficiencies": [
+    "perception",
+    "history",
+    "arcana"
+  ],
+  "maxHp": 8,
+  "subclass": {
+    "index": "land"
+  },
+  "spellsSlots": [
+    {
+      "spellLevel": 0,
+      "totalSlots": null,
+      "baseTotalSlots": null,
+      "usedSlots": 0,
+      "maximumSlotLevel": 2
+    },
+    {
+      "spellLevel": 1,
+      "totalSlots": 4,
+      "baseTotalSlots": 4,
+      "usedSlots": 0,
+      "maximumSlotLevel": 2
+    },
+    {
+      "spellLevel": 2,
+      "totalSlots": 2,
+      "baseTotalSlots": 2,
+      "usedSlots": 0,
+      "maximumSlotLevel": 2
+    },
+    {
+      "spellLevel": 3,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 2
+    },
+    {
+      "spellLevel": 4,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 2
+    },
+    {
+      "spellLevel": 5,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 2
+    },
+    {
+      "spellLevel": 6,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 2
+    },
+    {
+      "spellLevel": 7,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 2
+    },
+    {
+      "spellLevel": 8,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 2
+    }
+  ]
+}

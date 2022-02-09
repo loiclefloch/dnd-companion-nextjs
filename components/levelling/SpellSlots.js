@@ -3,7 +3,7 @@ import { actionLevellingLevelSlots } from "./action"
 
 function Content({ spellsSlots, levellingData })  {
 	
-	if (!levellingData.hasMagic) {
+	if (!levellingData.spellcasting.hasMagic) {
 		// TODO: better text
 		return (
 			<div className="px-4 mt-8 text-center">
@@ -70,7 +70,7 @@ function StepSpellSlots({ spellsSlots, levellingData, step, levellingDispatch })
 					levellingDispatch(actionLevellingLevelSlots({ step, spellsSlots }))
 				}}
 			>
-				Ajouter
+				Continuer
 			</ButtonBottomScreen>
 		</>
 	)

@@ -73,10 +73,11 @@ export function BackgroundSection({ character }) {
 	const background = character.background
 	return (
 		<Section title={`Background - ${background.name}`}>
-			
-			<Link href={`/background/${background.index}`}>Voir le background</Link>
-		
-
+			<div className="px-4">
+				<Link href={`/background/${background.index}`}>
+					<span className="text-link">Voir le background</span>
+				</Link>
+			</div>
 		</Section>
 	)
 }
@@ -320,7 +321,6 @@ function CharacterResume({ character }) {
 			<h3>{character.name}</h3>
 			<div>
 				<div>{character.race.name}</div>
-				<span> - </span>
 				<CharacterClassTag character={character} />
 
 				<GlobalSection character={character} />

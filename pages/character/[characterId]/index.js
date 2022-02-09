@@ -124,9 +124,9 @@ function Content({
 
 				<FeatsSection character={character} />
 				<TraitsSection character={character} />
-				<ProficienciesSection character={character} />
 				<FeaturesSection character={character} />
 				<BackgroundSection character={character} />
+				<ProficienciesSection character={character} />
 			</div>
 		)
 }

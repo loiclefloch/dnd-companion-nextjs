@@ -11,7 +11,7 @@ function LevelUp() {
 
 	return (
 		<Screen
-			title={`${character?.name} - Montée de niveau`}
+			title={`Montée au niveau ${character?.level + 1}`}
 			withBottomSpace
 		>
 			<LevellingStep stepName={stepName} />

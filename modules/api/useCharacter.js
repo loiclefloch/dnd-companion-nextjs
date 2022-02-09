@@ -6,7 +6,7 @@ import proficiencies from "../../database/data/proficiencies.json"
 import skills from "../../database/data/skills.json"
 import backgrounds from "../../database/data/backgrounds"
 import classes from '../../database/data/classes.json'
-import features from '../../database/data/features.json'
+import features from '../../database/data/features'
 import feats from '../../database/data/feats'
 import subclasses from '../../database/data/subclasses.json'
 import allRaces from '../../database/data/allRaces'
@@ -444,6 +444,9 @@ export function formatCharacter(character) {
 			...feature
 		}))
 
+		if (!character.feats) {
+			character.feats = []
+		}
 		character.feats = character.feats
 		.map(feature => ({
 			...formatFeat(feats.find(f => f.index === feature.index)),

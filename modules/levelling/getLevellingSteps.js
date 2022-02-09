@@ -80,7 +80,8 @@ function paladin() {
 			// TODO
 			return []
 		},
-		3: () => {
+		1: noop,
+		2: () => {
 			return [
 				{
 					name: "sacred-oath", 
@@ -94,6 +95,28 @@ function paladin() {
 		...applyNoop(4, 20),
 	}
 }
+
+function druid() {
+	return {
+		every: () => {
+			// TODO
+			return []
+		},
+		1: noop,
+		2: () => {
+			return [
+				{
+					name: "druid-circle", 
+					label: "Druid circle",
+					desc: "You choose which one of the druids circles you identiy to.",
+				},
+			]
+		},
+		// TODO:
+		...applyNoop(3, 20),
+	}
+}
+
 
 /**
  * Apply custom code for each class / race.
@@ -113,7 +136,8 @@ function applyCustomMethods(character, level) {
 	// TODO:
 	const classesMap = {
 		barbarian: barbarian,
-		paladin: paladin
+		paladin: paladin,
+		druid: druid,
 	}
 
 	const race = character.race?.index || character.race 

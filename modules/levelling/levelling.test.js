@@ -1,5 +1,5 @@
 import { map } from "lodash"
-import features from "../../../database/data/features.json"
+import features from "../../../database/data/features"
 import { getSpellLevelForCharacterLevel, getlevellingDataForClasses } from "./index"
 
 

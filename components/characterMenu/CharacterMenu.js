@@ -61,10 +61,6 @@ function CharacterMenu({ open }) {
 			href: '/character/actions',
 		},
 		{
-			label: 'Traits',
-			href: '/character/traits',
-		},
-		{
 			label: 'Porte monnaie',
 			href: '/character/wallet',
 		},

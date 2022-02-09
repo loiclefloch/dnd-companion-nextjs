@@ -23,7 +23,7 @@ function getBonusFromRace(bonusFromRace) {
 		"WIS",
 		"CHA",
 	].forEach(abilityScore => {
-		const bonus = bonusFromRace.find(bonus => bonus.abilityScore.name === abilityScore)?.bonus || 0
+		const bonus = bonusFromRace?.find(bonus => bonus.abilityScore.name === abilityScore)?.bonus || 0
 		bonuses[abilityScore] = bonus
 	})
 
@@ -84,7 +84,7 @@ function Form() {
 							...abilities
 						}
 
-						const statsBonuses = bonusFromRace.map(bonus => {
+						const statsBonuses = race?.abilityBonuses.map(bonus => {
 							return {
 								ability: bonus.abilityScore.name,
 								type: 'race',

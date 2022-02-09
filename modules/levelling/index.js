@@ -168,7 +168,7 @@ export function getSpellsSlotsForCharacterLevel(classes, characterLevel) {
 	const slots = []
 	for (let spellLevel = 0; spellLevel < MAX_SPELL_LEVEL; spellLevel++) {
 		const baseTotalSlots = spellLevel === 0 ? Infinity : levellingData?.slots[spellLevel] || 0
-		const spellsSlotsOverride = spellsSlotsOverride && spellsSlotsOverride[spellLevel]
+		// const spellsSlotsOverride = spellsSlotsOverride && spellsSlotsOverride[spellLevel]
 		const usedSlots = 0;
 
 		slots.push({

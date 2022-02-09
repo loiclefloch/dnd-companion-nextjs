@@ -11,6 +11,7 @@ import AbilityScoreImprovement from "./AbilityScoreImprovement"
 import HitPoints from "./HitPoints"
 import ProficiencyBonus from "./ProficiencyBonus"
 import SacredOath from "./SacredOath"
+import DruidCircle from "./DruidCircle"
 
 const isBrowser = typeof window !== "undefined";
 
@@ -40,6 +41,7 @@ function LevellingStep({ stepName }) {
 		'hit-points': HitPoints,
 		'proficiency-bonus': ProficiencyBonus,
 		'sacred-oath': SacredOath,
+		'druid-circle': DruidCircle,
 		// StepHp,
 	}
 

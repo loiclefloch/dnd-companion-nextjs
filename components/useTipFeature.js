@@ -1,6 +1,6 @@
 import useModal from "./useModal"
 import useI18n from "../modules/i18n/useI18n"
-import features from "../database/data/features.json"
+import features from "../database/data/features"
 
 function useTipFeature() {
 	const { showInfoModal } = useModal()

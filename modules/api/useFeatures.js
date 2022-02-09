@@ -1,4 +1,4 @@
-import features from '../../database/data/features.json'
+import features from '../../database/data/features'
 import useData from "./useData"
 
 import { formatFeature } from "./useFeature"

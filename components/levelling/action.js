@@ -109,18 +109,28 @@ export function actionLevellingUpdateProficiencyBonus({ step }) {
 	}
 }
 
-export function actionLevellingSacredOath({ step, selectedSubclass }) {
+export function actionLevellingSacredOath({ step, selectedSubclass, features }) {
 	return {
 		type: 'actionLevellingSacredOath',
 		apply: () => ({
 			step,
 			selectedSubclass,
+			features,
 		}),
-		build: ({ character }) => {
+		build: ({ character, newLevel }) => {
 			// TODO: add other settings
 			character.subclass = {
 				index: selectedSubclass.index,
 			}
+
+			features?.forEach(featureIndex => {
+				character.features.push({
+					index: featureIndex,
+					from: 'druid-circle',
+					type: 'levelling',
+					level: newLevel
+				})
+			})
 		}
 	}
 }

@@ -23,7 +23,7 @@ function LevellingClassLevel() {
 
 	return (
 		<Screen
-			title={clss && `${tr(clss.nameLocalized)} - Level ${level}`}
+			title={clss && `${tr(clss.nameLocalized)} - Niveau ${level}`}
 			titleIcon={<IconBookOpen className="w-6 h-6" />}
 			isLoading={classResponse.isLoading}
 		>

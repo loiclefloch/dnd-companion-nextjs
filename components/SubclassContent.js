@@ -1,23 +1,28 @@
 import useI18n from "../modules/i18n/useI18n";
+import useTipFeature from "./useTipFeature";
 
 
 function Spell({ spell }) {
+	const { showTipFeature } = useTipFeature()
+
 	// TODO: open spell
 	return (
 		<div className="flex justify-between py-1">
 			<div>{spell.spell.index}</div>
-			{spell.prerequisites.map((prerequisite, index) => (
-				<div key={index}>
-					<div>
+			<div className="flex gap-4">
+				{spell.prerequisites.map((prerequisite, index) => (
+					<div key={index} className="text-right flex items-center">
 						{prerequisite.isLevel && (
-							<div>lvl {prerequisite.level}</div>
+							<div className="text-meta text-xs">lvl {prerequisite.level}</div>
 						)}
 						{prerequisite.isFeature && (
-							<div>TODO</div>
+							<div  className="text-meta text-xs" onClick={() => showTipFeature(prerequisite.index)}>
+								{prerequisite.name}
+							</div>
 						)}
 					</div>
-				</div>
 			))}
+					</div>
 		</div>
 	)
 }

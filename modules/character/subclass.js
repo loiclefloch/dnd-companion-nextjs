@@ -1,11 +1,11 @@
 
 function calculateHasPrerequisites(character, prerequisites) {
-
 	return prerequisites.every(prerequisite => {
 		if (prerequisite.isLevel) {
 			return prerequisite.level <= character.level
-		} else if (prerequisite.isFeature) {
-			debugger
+		} if (prerequisite.isFeature) {
+			const featureIndex = prerequisite.index
+			return character.features.some(f => f.index === featureIndex)
 		} else {
 			throw new Error(`Not handled`)
 		}
