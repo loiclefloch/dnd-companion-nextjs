@@ -24,6 +24,6 @@ BackupStorage.add = (type, id, data) => {
 }
 
 CharactersStorage.update = (updatedCharacter) => {
-	const updatedCharacters = updateObjectOnArray(CharactersStorage.getItem(), updatedCharacter, c => c.id === updatedCharacter.id)
+	const updatedCharacters = updateObjectOnArray(CharactersStorage.getItem() || [], updatedCharacter, c => c.id === updatedCharacter.id)
 	CharactersStorage.setItem(updatedCharacters)
 }

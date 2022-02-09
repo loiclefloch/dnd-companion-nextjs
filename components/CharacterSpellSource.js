@@ -8,7 +8,7 @@ function CharacterSpellSource({ spell, character }) {
 	const { showTipSubclassSpell } = useTip()
 
 	const characterSpell = character && character.spellsList.find(s => s.index === spell.index)
-	const isSubclassSpell = character && characterSpell.isSubclassSpell
+	const isSubclassSpell = character && characterSpell?.isSubclassSpell
 	// const isForcedPrepared = character && characterSpell.isForcedPrepared
 
 	return (

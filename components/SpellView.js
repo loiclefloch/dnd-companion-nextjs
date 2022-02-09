@@ -36,9 +36,9 @@ function SpellView({ character, spell }) {
 	const characterSpell = character && character.spellsList.find(s => s.index === spell.index)
 
   const isLearned = isContextCharacter && !!characterSpell
-  const isPrepared = isContextCharacter && characterSpell.isPrepared
-	const isSubclassSpell = isContextCharacter && characterSpell.isSubclassSpell
-	const isForcedPrepared = isContextCharacter && characterSpell.isForcedPrepared
+  const isPrepared = isContextCharacter && characterSpell?.isPrepared
+	const isSubclassSpell = isContextCharacter && characterSpell?.isSubclassSpell
+	const isForcedPrepared = isContextCharacter && characterSpell?.isForcedPrepared
 
 
   const tags = [

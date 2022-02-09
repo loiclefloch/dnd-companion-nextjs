@@ -7,8 +7,8 @@ function CharacterSpellTag({ character, spell }) {
 	const characterSpell = character && character.spellsList.find(s => s.index === spell.index)
 
   const isLearned = character && !!characterSpell
-  const isPrepared = character && characterSpell.isPrepared
-	const isSubclassSpell = character && characterSpell.isSubclassSpell
+  const isPrepared = character && characterSpell?.isPrepared
+	const isSubclassSpell = character && characterSpell?.isSubclassSpell
 
 	return (
 	<>
