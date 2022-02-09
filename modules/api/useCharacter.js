@@ -6,6 +6,9 @@ import proficiencies from "../../database/data/proficiencies.json"
 import skills from "../../database/data/skills.json"
 import backgrounds from "../../database/data/backgrounds"
 import classes from '../../database/data/classes.json'
+import features from '../../database/data/features.json'
+import feats from '../../database/data/feats'
+import subclasses from '../../database/data/subclasses.json'
 import allRaces from '../../database/data/allRaces'
 import spells from '../../database/data/spells.json'
 import alignments from '../../database/data/alignments.json'
@@ -19,8 +22,12 @@ import { formatEquipmentItem } from "./useEquipmentItem"
 import { formatMagicItem } from "./useMagicItem"
 import { formatSpell } from "./useSpell"
 import { getProficiencyBonus } from "../levelling"
+import { getSpellsForCharacterSubclass } from "../character/subclass"
 import { valueToModifier, valueToModifierLabel, modifierToModifierLabel } from "../stats"
 import { formatProficiency } from "./useProficiency"
+import { formatSubclass } from "./useSubclass"
+import { formatFeature } from "./useFeature"
+import { formatFeat } from "./useFeat"
 
 function formatSpellsSlots(spellsSlots, spellsUsed) {
 	return spellsSlots.map(slot => {
@@ -75,6 +82,12 @@ export function formatCharacter(character) {
 		.map(clss => classes.find(c => clss === c.index))
 		.map(formatClass)
 
+	if (character.subclass) {
+		character.subclass = {
+			...formatSubclass(subclasses.find(c => c.index === character.subclass.index)),
+		}
+	}
+
 	character.background = backgrounds.find(b => b.index === character.background)
 
 	// TODO:
@@ -85,12 +98,17 @@ export function formatCharacter(character) {
 	character.spellcastingAbilityValue = 3
 	character.spellcastingAbilityValueLabel = `+3`
 
-	character.spellsList = (character.spellsList || []).map(spell => {
-		return {
-			...formatSpell(spells.find(s => s.index === spell.index)),
-			...spell
-		}
-	})
+	character.spellsList = 
+	[ 
+		...(character.spellsList || []),
+		...(character.subclass ? getSpellsForCharacterSubclass(character) : [])
+	]
+		.map(spell => {
+			return {
+				...formatSpell(spells.find(s => s.index === spell.index)),
+				...spell
+			}
+		})
 
 	character.spellsUsed = (character.spellsUsed || []).map(spellUsed => {
 		return {
@@ -419,6 +437,18 @@ export function formatCharacter(character) {
 
 	character.baseSpeed = character.race.speed
 	character.currentSpeed = character.baseSpeed + (character.speedReduced ? -10 : 0)
+
+	character.features = character.features
+		.map(feature => ({
+			...formatFeature(features.find(f => f.index === feature.index)),
+			...feature
+		}))
+
+		character.feats = character.feats
+		.map(feature => ({
+			...formatFeat(feats.find(f => f.index === feature.index)),
+			...feature
+		}))
 
 	return character
 }

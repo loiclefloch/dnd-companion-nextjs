@@ -27,7 +27,10 @@ function LearnButton({ spell, characterDispatch, onCloseScreen }) {
 	)
 }
 
-function UnlearnButton({ spell, characterDispatch, onCloseScreen }) {
+function UnlearnButton({ spell, characterDispatch, isSubclassSpell, onCloseScreen }) {
+	if (isSubclassSpell) {
+		return null
+	}
 	return (
 		<Button
 			// size="small"
@@ -43,12 +46,16 @@ function UnlearnButton({ spell, characterDispatch, onCloseScreen }) {
 	)
 }
 
-function UnprepareButton({ spell, characterDispatch, onCloseScreen }) {
+function UnprepareButton({ spell, characterDispatch, isForcedPrepared, onCloseScreen }) {
+	if (isForcedPrepared) {
+		return null
+	}
 	return (
 		<Button
 			// size="small"
 			variant="outlined"
 			color="warning"
+			disabled={isForcedPrepared}
 			onClick={() => {
 				characterDispatch(actionUnprepareSpell(spell))
 				onCloseScreen()
@@ -84,8 +91,14 @@ function EditCharacterSpellScreenAsModal({
 	const { tr } = useI18n()
 
 	const isContextCharacter = !!contextCharacter
-	const isLearned = isContextCharacter && contextCharacter.spellsList.some(s => s.index === spell.index)
-	const isPrepared = isContextCharacter && contextCharacter.spellsList.find(s => s.index === spell.index)?.isPrepared
+
+	const characterSpell = contextCharacter && contextCharacter.spellsList.find(s => s.index === spell.index)
+
+  const isLearned = isContextCharacter && !!characterSpell
+  const isPrepared = isContextCharacter && characterSpell.isPrepared
+	const isSubclassSpell = isContextCharacter && characterSpell.isSubclassSpell
+	const isForcedPrepared = isContextCharacter && characterSpell.isForcedPrepared
+
 
 	return (
 		<ScreenAsModal title={`Sort - ${tr(spell?.nameLocalized)}`} onCloseScreen={onCloseScreen}>
@@ -106,6 +119,7 @@ function EditCharacterSpellScreenAsModal({
 								<UnlearnButton 
 									spell={spell} 
 									characterDispatch={characterDispatch} 
+									isSubclassSpell={isSubclassSpell}
 									onCloseScreen={onCloseScreen} 
 								/>
 								<PrepareButton 
@@ -122,10 +136,12 @@ function EditCharacterSpellScreenAsModal({
 									spell={spell} 
 									characterDispatch={characterDispatch} 
 									onCloseScreen={onCloseScreen} 
+									isSubclassSpell={isSubclassSpell}
 								/>
 								<UnprepareButton 
 									spell={spell} 
 									characterDispatch={characterDispatch} 
+									isForcedPrepared={isForcedPrepared}
 									onCloseScreen={onCloseScreen} 
 								/>
 							</>
@@ -142,6 +158,17 @@ function EditCharacterSpellScreenAsModal({
 				}
 			/>
 
+			<div className="px-4">
+				{isSubclassSpell && (
+					<p className="mt-8">Ce sort est un sort de sous-classe toujours préparé.
+						<br />Il ne rentre pas en compte dans le nombre maxium de sorts préparés.
+					</p>
+				)}
+
+				{isForcedPrepared && !isSubclassSpell && (
+					<p className="mt-8">Ce sort est toujours préparé. Il ne rentre pas en compte dans le nombre maxium de sorts préparés</p>
+				)}
+			</div>
 		</ScreenAsModal>
 	)
 }

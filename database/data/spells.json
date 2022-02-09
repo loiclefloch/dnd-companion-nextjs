@@ -4322,7 +4322,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "isUpTo": true,
@@ -11665,7 +11665,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "isUpTo": true,
@@ -11802,7 +11802,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "type": "instantaneous",
@@ -13500,7 +13500,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "isUpTo": true,
@@ -15885,7 +15885,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "isUpTo": true,
@@ -20305,7 +20305,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "type": "instantaneous",
@@ -21500,7 +21500,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "isUpTo": true,
@@ -25507,7 +25507,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "isUpTo": true,
@@ -26139,7 +26139,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "type": "instantaneous",
@@ -27675,7 +27675,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "type": "instantaneous",
@@ -33185,7 +33185,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "isUpTo": false,
@@ -34629,7 +34629,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "isUpTo": true,
@@ -34752,7 +34752,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "isUpTo": false,
@@ -36729,7 +36729,7 @@
       "unit": "action",
       "type": "action",
       "en": "1 bonus action",
-      "fr": "NaN action"
+      "fr": "1 action bonus"
     },
     "duration": {
       "isUpTo": false,

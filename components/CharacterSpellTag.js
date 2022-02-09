@@ -1,8 +1,14 @@
 import Tag from './Tag';
+import useTip from "./useTip"
 
 function CharacterSpellTag({ character, spell }) {
-  const isLearned = character && character.spellsList.some(s => s.index === spell.index)
-  const isPrepared = character && character.spellsList.find(s => s.index === spell.index)?.isPrepared
+	const { showTipSubclassSpell, showTipPreparedSpell } = useTip()
+
+	const characterSpell = character && character.spellsList.find(s => s.index === spell.index)
+
+  const isLearned = character && !!characterSpell
+  const isPrepared = character && characterSpell.isPrepared
+	const isSubclassSpell = character && characterSpell.isSubclassSpell
 
 	return (
 	<>
@@ -10,8 +16,9 @@ function CharacterSpellTag({ character, spell }) {
 			<Tag
 				size="small"
 				className="text-green-600 border border-green-600"
+				onClick={() => isSubclassSpell ? showTipSubclassSpell(character.subclass) : showTipPreparedSpell()}
 			>
-				Préparé
+				<span>Préparé</span>
 			</Tag>
 		)}
 		{isLearned && !isPrepared && (

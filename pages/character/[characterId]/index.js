@@ -21,6 +21,7 @@ import {
 } from "../../../components/CharacterResume"
 import Section from "../../../components/Section"
 import LineInfo from "../../../components/LineInfo"
+import CharacterClassTag from "../../../components/CharacterClassTag"
 
 function HpView({character, characterDispatch}) {
 	const { showLifeScreenAsModal } = useLifeScreenAsModal()
@@ -71,18 +72,16 @@ function Content({
 	}
 
 	return (
-			<div className="px-4">
-				<div>
-					<Link href={`/race/${character.race.index}`}>
-						{tr(character.race.nameLocalized)}
-					</Link>
-					<span> - </span>
-					<Link href={`/class/${character.classes[0].index}`}>
-						{character.classes.map(clss => tr(clss.nameLocalized)).join(', ')}
-					</Link>
-					<span> - </span>
-					Niveau {character.level}
-				</div>
+		<div className="px-4">
+			<div>
+				<Link href={`/race/${character.race.index}`}>
+					{tr(character.race.nameLocalized)}
+				</Link>
+				<span> - </span>
+				<CharacterClassTag character={character} />
+				<span> - </span>
+				Niveau {character.level}
+			</div>
 
 				<div className="relative flex items-center mt-6">
 					<div className="w-1/3" />

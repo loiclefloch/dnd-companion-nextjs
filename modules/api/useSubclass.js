@@ -25,7 +25,7 @@ export function formatSubclass(subclassParam) {
 		spell.prerequisites.forEach(prerequisite => {
 			if (prerequisite.type === 'level') {
 				prerequisite.isLevel = true
-				prerequisite.level = prerequisite.index.split('-')[1]
+				prerequisite.level = parseInt(prerequisite.index.split('-')[1], 10)
 			} else if (prerequisite.type === 'feature') {
 				prerequisite.isFeature = true
 			} else {

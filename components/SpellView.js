@@ -6,11 +6,12 @@ import Tag from './Tag';
 import SpellRunner from "./SpellRunner";
 import SpellDetail from "./SpellDetail";
 import CharacterSpellTag from "./CharacterSpellTag";
+import CharacterSpellSource from "./CharacterSpellSource"
 import useTipMagicSchool from "./useTipMagicSchool"
 import useTipConcentration from "./useTipConcentration"
 import useTipRitual from "./useTipRitual"
 
-function createClassTag(clss) {
+function createCharacterClassTag(clss) {
   return {
     label: clss.nameLocalized.en,
     className: "text-blue-600 border border-blue-600",
@@ -18,7 +19,7 @@ function createClassTag(clss) {
   };
 }
 
-function SpellView({ contextCharacter, spell }) {
+function SpellView({ character, spell }) {
   const { tr, getRangeUnit, isDefaultLang, trDefaultLang } = useI18n();
   const { showTipMagicSchool } = useTipMagicSchool()
   const { showTipConcentration } = useTipConcentration()
@@ -30,8 +31,18 @@ function SpellView({ contextCharacter, spell }) {
     !isDefaultLang && trDefaultLang(spell.nameLocalized),
   ].filter(Boolean);
 
+  const isContextCharacter = !!character
+
+	const characterSpell = character && character.spellsList.find(s => s.index === spell.index)
+
+  const isLearned = isContextCharacter && !!characterSpell
+  const isPrepared = isContextCharacter && characterSpell.isPrepared
+	const isSubclassSpell = isContextCharacter && characterSpell.isSubclassSpell
+	const isForcedPrepared = isContextCharacter && characterSpell.isForcedPrepared
+
+
   const tags = [
-    ...spell.classes.map(createClassTag),
+    ...spell.classes.map(createCharacterClassTag),
     {
       label: (
         <span>
@@ -53,9 +64,10 @@ function SpellView({ contextCharacter, spell }) {
           <div className="gap-1 text-xs">
             <div className="mb-1 ml-1 text-meta">{otherNames.join(", ")}</div>
           </div>
-          <>
-            <CharacterSpellTag character={contextCharacter} spell={spell} />
-          </>
+          <div className="flex gap-2">
+            <CharacterSpellTag character={character} spell={spell} />
+            <CharacterSpellSource character={character} spell={spell} />
+          </div>
         </div>
         <div className="flex flex-col items-end">
           <Tag 
@@ -111,7 +123,19 @@ function SpellView({ contextCharacter, spell }) {
             {spell.components.materials && <span className="text-sm text-meta">&nbsp;({spell.components.materials.join(", ")})</span>}
           </div>
 
-          <SpellRunner spell={spell} contextCharacter={contextCharacter} />
+          <SpellRunner spell={spell} contextCharacter={character} />
+
+          <div>
+            {isSubclassSpell && (
+              <p className="mt-8">Ce sort est un sort de sous-classe toujours préparé. 
+              <br />Il ne rentre pas en compte dans le nombre maxium de sorts préparés.
+              </p>
+            )}
+
+            {isForcedPrepared && !isSubclassSpell && (
+              <p className="mt-8">Ce sort est toujours préparé. Il ne rentre pas en compte dans le nombre maxium de sorts préparés</p>
+            )}
+          </div>
 
           {spell.resume && (
             <div className="mt-4">
@@ -154,7 +178,7 @@ function SpellView({ contextCharacter, spell }) {
         </div>
       )}
 
-      <SpellDetail spell={spell} contextCharacter={contextCharacter} />
+      <SpellDetail spell={spell} contextCharacter={character} />
 
       {/* add some space at the end of the page */}
       <div className="py-4" />

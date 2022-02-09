@@ -6,6 +6,9 @@ import useTipTrait from "./useTipTrait"
 import useTipProficiency from "./useTipProficiency"
 import { useEquipmentItemScreenAsModal } from "./EquipmentItemScreenAsModal"
 import LineInfo from "./LineInfo"
+import useTipFeature  from "./useTipFeature"
+import CharacterClassTag from "./CharacterClassTag"
+import { useFeatScreenAsModal } from "./FeatScreenAsModal"
 
 function Section({ title, children }) {
 	return (
@@ -35,7 +38,7 @@ function Proficiency({ proficiency }) {
 				>
 					?
 				</div>
-	}
+			}
 		/>
 	)
 }
@@ -65,7 +68,6 @@ export function ProficienciesSection({ character }) {
 	)
 }
 
-// TODO: use character.features, put background.features
 export function BackgroundSection({ character }) {
 	const { tr } = useI18n()
 	const background = character.background
@@ -79,8 +81,10 @@ export function BackgroundSection({ character }) {
 	)
 }
 
+
 export function FeaturesSection({ character }) {
 	const { tr } = useI18n()
+	const { showTipFeature } = useTipFeature()
 
 	if (isEmpty(character.features)) {
 		return null
@@ -88,12 +92,26 @@ export function FeaturesSection({ character }) {
 
 	return (
 		<Section title={`Features`}>
-			{character.features.map((feature, index) => (
-				<div key={index} className="prose mt-2">
-					<h4>Feature: {feature.name}</h4>
-					<p>{tr(feature.desc)}</p>
-				</div>
-			))}
+			<LineInfo.Parent>
+				{character.features.map((feature, index) => (
+					<LineInfo
+						key={feature.index}
+						label={
+							<span>
+								{feature.name}
+							</span>
+						}
+						value={
+							<div
+								onClick={() => showTipFeature(feature.index)}
+								className="text-meta"
+							>
+								?
+							</div>
+						}
+					/>
+				))}
+			</LineInfo.Parent>
 
 		</Section>
 	)
@@ -270,6 +288,7 @@ function GlobalSection({ character }) {
 
 export function FeatsSection({ character }) {
 	const { tr } = useI18n()
+	const { showFeatScreenAsModal } = useFeatScreenAsModal()
 
 	if (isEmpty(character.feats)) {
 		return null
@@ -277,9 +296,20 @@ export function FeatsSection({ character }) {
 
 	return (
 		<Section title="Feats">
-			{character.feats.map(feat => (
-				<LineInfo key={feat.index} label={tr(feat.nameLocalized)} value={character.level} />
-			))}
+			<LineInfo.Parent>
+				{character.feats.map(feat => (
+					<LineInfo 
+						key={feat.index} 
+						label={tr(feat.nameLocalized)} 
+						value={<div 
+							onClick={() => showFeatScreenAsModal(feat.index)}
+							className="text-meta"
+						>
+							?
+						</div>} 
+					/>
+				))}
+			</LineInfo.Parent>
 		</Section>
 	)
 }
@@ -290,7 +320,8 @@ function CharacterResume({ character }) {
 			<h3>{character.name}</h3>
 			<div>
 				<div>{character.race.name}</div>
-				<div>{character.classes.map(clss => clss.name).join(', ')}</div>
+				<span> - </span>
+				<CharacterClassTag character={character} />
 
 				<GlobalSection character={character} />
 				<PhysicSection character={character} />
@@ -305,7 +336,6 @@ function CharacterResume({ character }) {
 				<TraitsSection character={character} />
 				<ProficienciesSection character={character} />
 				<FeaturesSection character={character} />
-
 				<BackgroundSection character={character} />
 			</div>
 

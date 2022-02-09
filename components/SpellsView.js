@@ -37,10 +37,16 @@ function SpellFilters({ spell, filters }) {
   )
 }
 
-function Spell({ spell, filters, isLearned, isPrepared, contextCharacter /*onSelect*/ }) {
+function Spell({ spell, filters, character /*onSelect*/ }) {
   const { tr } = useI18n();
 
-  const isContextCharacter = !!contextCharacter
+  const isContextCharacter = !!character
+
+	// const characterSpell = character && character.spellsList.find(s => s.index === spell.index)
+  // const isLearned = isContextCharacter && !!characterSpell
+  // const isPrepared = isContextCharacter && characterSpell.isPrepared
+	// const isSubclassSpell = isContextCharacter && characterSpell.isSubclassSpell
+	// const isForcedPrepared = isContextCharacter && characterSpell.isForcedPrepared
 
   // TODO: if context character has the spell -> style with star / background
 
@@ -72,7 +78,7 @@ function Spell({ spell, filters, isLearned, isPrepared, contextCharacter /*onSel
             >
               <Div className="flex flex-row items-end gap-1">
                 <>
-                  <CharacterSpellTag character={contextCharacter} spell={spell} />
+                  <CharacterSpellTag character={character} spell={spell} />
                 </>
 
                 <IconMagicSchool
@@ -179,9 +185,7 @@ function Spells({ contextCharacter }) {
                   spell={spell}
                   // onSelect={() => showSpellModal(spell.index)}
                   filters={filters}
-                  contextCharacter={contextCharacter}
-                  isLearned={contextCharacter && contextCharacter.spellsList.some(s => spell.index === s.index)}
-                  isPrepared={contextCharacter && contextCharacter.spellsList.find(s => spell.index === s.index)?.isPrepared || false}
+                  character={contextCharacter}
                 />
               )
             })
@@ -192,9 +196,7 @@ function Spells({ contextCharacter }) {
                 spell={spell}
                 // onSelect={() => showSpellModal(spell.index)}
                 filters={filters}
-                contextCharacter={contextCharacter}
-                isLearned={contextCharacter && contextCharacter.spellsList.some(s => spell.index === s.index)}
-                isPrepared={contextCharacter && contextCharacter.spellsList.find(s => spell.index === s.index)?.isPrepared || false}
+                character={contextCharacter}
               />
             ))
           )}

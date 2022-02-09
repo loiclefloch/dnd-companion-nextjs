@@ -1,0 +1,188 @@
+{
+  "id": "134de281-a440-48bd-a082-a2e0c099c7b4",
+  "name": "Fixt - Paladin - level 3",
+  "maxHp": 26,
+  "body": {
+    "age": 30,
+    "gender": "",
+    "height": "210",
+    "weight": "110",
+    "hairColor": "Roux",
+    "eyeColor": "Bleus",
+    "skinColor": "Grise",
+    "physicalCaracteristics": "Cicatrice en travers du visage",
+    "genre": "Neutre"
+  },
+  "level": 3,
+  "classes": ["paladin"],
+  "race": "hill-dwarf",
+  "bonds": "I would die to recover an ancient relic of my faith that was lost long ago.",
+  "flaws": "I judge others harshly, and myself even more severely.",
+  "ideals": "Charity. I always try to help those in need, no matter what the personal cost.",
+  "personnalityTraits": [
+    "I idolize a particular hero of my faith, and constantly refer to that person's deeds and example.",
+    "I can find common ground between the fiercest enemies, empathizing with them and always working toward peace."
+  ],
+  "stats": { "STR": 15, "DEX": 8, "CON": 17, "INT": 8, "WIS": 9, "CHA": 15 },
+  "statsBonuses": [
+    { "ability": "CON", "type": "race", "bonus": 2 },
+    { "ability": "WIS", "type": "race", "bonus": 1 }
+  ],
+  "baseStats": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelling": {
+    "xp": 1000,
+    "history": [
+      {
+        "id": "9d95a552-dd01-4252-9741-71a3002bdfb5",
+        "label": "Road to level 3",
+        "amount": 1000
+      }
+    ]
+  },
+  "spellsList": [
+    { "index": "bless", "isPrepared": true },
+    { "index": "find-steed", "isPrepared": true },
+    { "index": "cure-wounds", "isPrepared": true }
+  ],
+  "currencies": { "cp": 0, "sp": 0, "gp": 0, "ep": 0, "pp": 0 },
+  "equipment": [
+    { "index": "clothes-common", "quantity": 1 },
+    { "index": "pouch", "quantity": 1 },
+    { "index": "reliquary", "quantity": 1 },
+    { "index": "club", "quantity": 1 },
+    { "index": "dagger", "quantity": 1 },
+    { "index": "padded-armor", "quantity": 1, "isEquipped": false },
+    { "index": "plate-armor", "quantity": 1, "isEquipped": true },
+    { "index": "shield", "quantity": 1, "isEquipped": true },
+    { "index": "ring-mail", "quantity": 1, "isEquipped": false }
+  ],
+  "wallet": { "history": [] },
+  "currentHp": -1,
+  "spellsUsed": [
+    { "spell": "bless" },
+    { "spell": "bless" },
+    { "spell": "bless" },
+    { "spell": "bless" },
+    { "spell": "bless" },
+    { "spell": "bless" },
+    { "spell": "bless", "spellLevel": 1 },
+    { "spell": "bless", "spellLevel": 1 },
+    { "spell": "bless", "spellLevel": 1 },
+    { "spell": "bless", "spellLevel": 1 }
+  ],
+  "deathSaves": { "nbFailed": null, "nbSucceeed": null, "isStabilized": false },
+  "languages": ["gnomish", "giant", "common", "dwarvish"],
+  "equipments": [],
+  "maximumHitDice": 11,
+  "maximumHp": 28,
+  "currentHitDice": 11,
+  "background": "acolyte",
+  "proficiencies": [
+    { "index": "unarmed-strike", "sourceType": "race" },
+    { "index": "battleaxes", "sourceType": "race" },
+    { "index": "handaxes", "sourceType": "race" },
+    { "index": "light-hammers", "sourceType": "race" },
+    { "index": "warhammers", "sourceType": "race" },
+    { "index": "skill-insight", "sourceType": "background" },
+    { "index": "skill-religion", "sourceType": "background" },
+    { "index": "all-armor", "sourceType": "class" },
+    { "index": "shields", "sourceType": "class" },
+    { "index": "simple-weapons", "sourceType": "class" },
+    { "index": "martial-weapons", "sourceType": "class" },
+    { "index": "brewers-supplies", "sourceType": "race-option" }
+  ],
+  "alignment": "lawful-good",
+  "traits": [
+    { "index": "darkvision", "sourceType": "race" },
+    { "index": "dwarven-resilience", "sourceType": "race" },
+    { "index": "stonecunning", "sourceType": "race" },
+    { "index": "dwarven-combat-training", "sourceType": "race" },
+    { "index": "tool-proficiency", "sourceType": "race" },
+    { "index": "dwarven-toughness", "sourceType": "race" }
+  ],
+  "proficiencyBonus": 2,
+  "skillsProficiencies": ["insight", "religion"],
+  "spellsSlots": [
+    {
+      "spellLevel": 0,
+      "totalSlots": null,
+      "baseTotalSlots": null,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 1,
+      "totalSlots": 3,
+      "baseTotalSlots": 3,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 2,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 3,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 4,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 5,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 6,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 7,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 8,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    }
+  ],
+  "features": [
+    { "index": "paladin-fighting-style", "type": "levelling", "level": 2 },
+    { "index": "spellcasting-paladin", "type": "levelling", "level": 2 },
+    { "index": "divine-smite", "type": "levelling", "level": 2 },
+    { "index": "divine-health", "type": "levelling", "level": 3 },
+    { "index": "sacred-oath", "type": "levelling", "level": 3 },
+    { "index": "oath-spells", "type": "levelling", "level": 3 },
+    { "index": "channel-divinity", "type": "levelling", "level": 3 }
+  ],
+  "feats": [{ "index": "alert", "level": 2 }],
+  "subclass": { "index": "devotion" }
+}

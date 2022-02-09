@@ -116,9 +116,11 @@ export function actionLevellingSacredOath({ step, selectedSubclass }) {
 			step,
 			selectedSubclass,
 		}),
-		build: () => {
-			// TODO:
-			debugger
+		build: ({ character }) => {
+			// TODO: add other settings
+			character.subclass = {
+				index: selectedSubclass.index,
+			}
 		}
 	}
 }

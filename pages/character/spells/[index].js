@@ -34,7 +34,7 @@ function Spell() {
 				}
 			>
 				{spell && (
-					<SpellView spell={spell} contextCharacter={character} />
+					<SpellView spell={spell} character={character} />
 				)}
 			</Screen>
 		</CharacterProvider>

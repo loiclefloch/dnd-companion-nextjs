@@ -1,14 +1,14 @@
 import { useState } from "react"
+import Link from "next/link";
 import { filterDuplicates } from '../../../modules/utils/array'
+import useI18n from "../../../modules/i18n/useI18n";
+import Section from "../../../components/Section";
+import Screen from "../../../components/Screen";
 import ButtonBottomScreen from "../../../components/ButtonBottomScreen";
 import ScreenIntroduction from "../../../components/ScreenIntroduction";
-import Screen from "../../../components/Screen";
-import Link from "next/link"
+import EquipmentOptionsChooser from "../../../components/EquipmentOptionsChooser";
 import useCreateCharacter from '../../../components/useCreateCharacter';
 import { useEquipmentItemScreenAsModal } from '../../../components/EquipmentItemScreenAsModal';
-import Section from "../../../components/Section";
-import useI18n from "../../../modules/i18n/useI18n";
-import EquipmentOptionsChooser from "../../../EquipmentOptionsChooser"
 
 function StartingEquipmentItem({ item }) {
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()

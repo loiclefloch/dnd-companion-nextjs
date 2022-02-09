@@ -1,12 +1,12 @@
 import feats from '../../database/data/feats'
 import useData from "./useData"
 
-export function formatFeat(feature) {
-  feature.nameLocalized = {
-    en: feature.name,
+export function formatFeat(feat) {
+  feat.nameLocalized = {
+    en: feat.name,
   }
 
-  return feature
+  return feat
 }
 
 function useFeat(index) {

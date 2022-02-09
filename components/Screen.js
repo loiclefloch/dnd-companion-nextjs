@@ -83,7 +83,7 @@ function Screen({
 					)}
 				</div>
 				{!fullScreen && (
-					<div className='flex items-center flex-1 text-lg font-semibold select-none'>
+					<div className='flex items-center flex-1 text-lg font-semibold select-none overflow-hidden' style={{ maxWidth: '80%' }}>
 						{titleIcon && <span className="mr-2">{titleIcon}</span>}
 						<span className='whitespace-nowrap'>{title}</span>
 					</div>

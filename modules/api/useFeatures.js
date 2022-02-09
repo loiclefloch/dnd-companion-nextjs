@@ -1,10 +1,10 @@
 import features from '../../database/data/features.json'
 import useData from "./useData"
 
-import { formatRace } from "./useRace"
+import { formatFeature } from "./useFeature"
 
-function useRaces(race) {
-  return useData(features.filter(feature => feature.race.index === race).map(formatRace))
+function useFeatures(race) {
+  return useData(features.filter(feature => feature.race.index === race).map(formatFeature))
 }
 
-export default useRaces
+export default useFeatures

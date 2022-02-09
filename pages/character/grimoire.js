@@ -14,24 +14,26 @@ import Tag from "../../components/Tag"
 import clsx from "clsx"
 import { useEditSpellSlotsScreenAsModal } from "../../components/EditSpellSlotsScreenAsModal"
 import { actionEditSpellSlots } from "../../modules/character/action"
+import CharacterSpellSource from "../../components/CharacterSpellSource"
+import CharacterSpellTag from "../../components/CharacterSpellTag"
 
-function Spell({ spell, contextCharacter /*onSelect*/ }) {
+function Spell({ spell, character /*onSelect*/ }) {
 	const { tr } = useI18n();
 	const { showTipConcentration } = useTipConcentration()
-  const { showTipRitual } = useTipRitual()
+	const { showTipRitual } = useTipRitual()
 
 	// TODO: if context character has the spell -> style with star / background
 
 	return (
-			<div
-				// onClick={onSelect}
-				className={`cursor-pointer py-2 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
-				data-cy-spell-index={`spell-${spell.index}`}
-			>
-				<div className="pl-3">
-					<div className="flex flex-row">
-						<div className="flex flex-col flex-1">
-		<Link href={`/character/spells/${spell.index}`}>
+		<div
+			// onClick={onSelect}
+			className={`cursor-pointer py-2 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
+			data-cy-spell-index={`spell-${spell.index}`}
+		>
+			<div className="pl-3">
+				<div className="flex flex-row">
+					<div className="flex flex-col flex-1">
+						<Link href={`/character/spells/${spell.index}`}>
 							<span className="flex flex-row items-center font-semibold">
 								{/* <IconMagicSchool
               school={spell.school.name}
@@ -40,75 +42,71 @@ function Spell({ spell, contextCharacter /*onSelect*/ }) {
             /> */}
 								<p>{tr(spell.nameLocalized)}</p>
 							</span>
-							</Link>
-							<div className="text-sm text-meta">
-									{tr(spell.castingTime)} - {tr(spell.duration)} 
-							</div>
+						</Link>
+						<div className="text-sm text-meta">
+							{tr(spell.castingTime)} - {tr(spell.duration)}
 						</div>
-
-						<div
-							className="pr-2 mt-1"
-						>
-							<div className="flex flex-row items-end gap-1">
-								{spell.isPrepared && (
-									<Tag
-										size="small"
-										className="text-green-600 border border-green-600"
-									>
-										Préparé
-									</Tag>
-								)}
-
-								<IconMagicSchool
-									school={spell.school.name}
-									className="h-6 pt-1 w-7 text-slate-700"
-								/>
-
-							</div>
-						</div>
-
 					</div>
 
-			{/* - + modifier
+					<div
+						className="pr-2 mt-1"
+					>
+						<div className="flex flex-row items-end gap-1">
+							{spell.isPrepared && (
+								<CharacterSpellTag character={character} spell={spell} />
+							)}
+
+							<IconMagicSchool
+								school={spell.school.name}
+								className="h-6 pt-1 w-7 text-slate-700"
+							/>
+
+						</div>
+					</div>
+
+				</div>
+
+				{/* - + modifier
 				- Save DC
 				- time
 				- hit dc
 				- effect */}
-					<div>
-					
-						{spell.damage?.type && (
-							<Tag
-								size="small"
-								className="mr-2 border text-slate-700 border-slate-700"
-							>
-								<SpellRunner contextCharacter={contextCharacter} spell={spell} hideCasting />
-							</Tag>
-						)}
-						
-						{spell.ritual && ( // TODO: tip
-							<Tag
-								label="Ritual"
-								size="small"
-								className="mr-2 text-orange-500 border border-orange-500"
-								onClick={() => showTipRitual()}
-							/>
-						)}
-						{spell.concentration && ( 
-							<Tag
-								label="Concentration"
-								size="small"
-								className="mr-2 text-blue-500 border border-blue-500"
-								onClick={() => showTipConcentration()}
-							/>
-						)}
+				<div>
 
-					</div>
+					{spell.damage?.type && (
+						<Tag
+							size="small"
+							className="mr-2 border text-slate-700 border-slate-700"
+						>
+							<SpellRunner contextCharacter={character} spell={spell} hideCasting />
+						</Tag>
+					)}
+
+					{spell.ritual && ( // TODO: tip
+						<Tag
+							label="Ritual"
+							size="small"
+							className="mr-2 text-orange-500 border border-orange-500"
+							onClick={() => showTipRitual()}
+						/>
+					)}
+					{spell.concentration && (
+						<Tag
+							label="Concentration"
+							size="small"
+							className="mr-2 text-blue-500 border border-blue-500"
+							onClick={() => showTipConcentration()}
+						/>
+					)}
+
+					<CharacterSpellSource character={character} spell={spell} />
+				</div>
 
 				<Link href={`/character/spells/${spell.index}`}>
 					<p className="pt-2 pr-2 text-sm">{tr(spell.resume)}</p>
 				</Link>
-				</div>
 			</div>
+		</div>
 	);
 }
 
@@ -132,11 +130,11 @@ function SpellLevelHeader({ level, spellsSlots, characterDispatch }) {
 					>
 						{spellSlot.hasNoSlotsToDisplay && (
 							// TODO: tip
-							<>0 slot disponible</> 
+							<>0 slot disponible</>
 						)}
 						{([...Array(spellSlot.totalSlotsToDisplay)]).map((_, index) => (
-							<div 
-								key={index} 
+							<div
+								key={index}
 								className={clsx("w-3 h-3 mr-1", {
 									"bg-red-400": index <= spellSlot.usedSlots,
 									"border border-solid border-slate-400": index > spellSlot.usedSlots,
@@ -155,6 +153,8 @@ function Grimoire() {
 
 	const groupedBySpellLevel = groupBy(character?.spellsList, spell => spell.level)
 	const spellsSlots = character?.spellsSlots
+
+  // TODO: display number of spells that could be learned -> number of unprepared spells?
 
 	return (
 		<Screen
@@ -175,7 +175,7 @@ function Grimoire() {
 			{character && (
 				<div>
 					<div>
-					
+
 						<Tag>
 							Spellcasing ability
 							{character.spellcastingAbilityValue >= 0 ? '+' : ''}{character.spellcastingAbilityValue}:
@@ -190,21 +190,24 @@ function Grimoire() {
 						<Tag>
 							Spell DC: {character.spellSaveDC}
 						</Tag>
+
+						{/* TODO: list prepared count + subclass always prepared */}
 					</div>
 					<div className="flex flex-col gap-2" data-cy-id="spells-list">
 						{map(groupedBySpellLevel, (spells, level) => (
 							<div key={level}>
 								<>
-									<SpellLevelHeader 
-										level={Number(level)} 
-										spellsSlots={spellsSlots} 
-										characterDispatch={characterDispatch} 
+									<SpellLevelHeader
+										level={Number(level)}
+										spellsSlots={spellsSlots}
+										characterDispatch={characterDispatch}
 									/>
 								</>
 								{spells.map(spell =>
 									<Spell
 										key={spell.index}
 										spell={spell}
+										character={character}
 									/>
 								)}
 							</div>
