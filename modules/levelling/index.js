@@ -1,4 +1,4 @@
-import levellingDataForClasses from "./levellingDataForClasses"
+import getLevellingDataForClasses from "./getLevellingDataForClasses"
 
 const MAX_SPELL_LEVEL = 9 // maximum spell level
 
@@ -89,13 +89,8 @@ export function getLevelProficiencyBonus(level) {
 	return levellingProficiencyBonus[level]
 }
 
-// TODO: implement
-export function getlevellingDataForClasses() {
-	return levellingDataForClasses
-}
-
 export function getSpellLevelForCharacterLevel(characterClasses, characterLevel) {
-	const levellingDataForClasses = getlevellingDataForClasses()
+	const levellingDataForClasses = getLevellingDataForClasses()
 
 	function getMaxLevel(levelSpellData) {
 		if (!levelSpellData) {
@@ -125,7 +120,7 @@ export function getSpellLevelForCharacterLevel(characterClasses, characterLevel)
 }
 
 export function getLevellingDataForClassesAndLevel(characterClasses, characterLevel)  {
-	const levellingDataForClasses = getlevellingDataForClasses()
+	const levellingDataForClasses = getLevellingDataForClasses()
 	// TODO: how to with multiclass ?
 	if (!levellingDataForClasses[characterClasses[0].index]) {
 		throw new Error(`Class ${characterClasses[0].index} not handled yet`)

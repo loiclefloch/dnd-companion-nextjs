@@ -24,6 +24,7 @@ import { formatProficiency } from "../api/useProficiency"
 import { formatSubclass } from "../api/useSubclass"
 import { formatFeature } from "../api/useFeature"
 import { formatFeat } from "../api/useFeat"
+import applyFeaturesOnCharacter from "./applyFeaturesOnCharacter"
 
 function formatSpellsSlots(spellsSlots, spellsUsed) {
 	return spellsSlots.map(slot => {
@@ -59,7 +60,7 @@ function formatLevelling(levelling, level) {
 
 function getCharacterSubclassFeatures(character) {
 	if (!character.subclass) {
-		return null
+		return []
 	}
 
 	return levels.filter(
@@ -96,12 +97,15 @@ export function formatCharacter(character) {
 		}
 	}
 
+	const levellingData = getLevellingDataForClassesAndLevel(character.classes, character.level)
+
 	character.background = backgrounds.find(b => b.index === character.background)
 
 	// TODO:
 	character.statsDetail = []
 	character.alignment = alignments.find(a => a.index === character.alignment)
 
+	character.spellcasting = levellingData.spellcasting
 	character.spellcastingAbility = 'CHA' // TODO: from class
 	character.spellcastingAbilityValue = 3
 	character.spellcastingAbilityValueLabel = `+3`
@@ -138,8 +142,6 @@ export function formatCharacter(character) {
 	)
 	
 	formatLevelling(character.levelling, character.level)
-
-	const levellingData = getLevellingDataForClassesAndLevel(character.classes, character.level)
 
 	const maxSpellLevel = Math.max(...Object.keys(levellingData.slots))
 
@@ -465,6 +467,8 @@ export function formatCharacter(character) {
     };
   });
 	character.features = sortBy(character.features, ['name'])
+
+	applyFeaturesOnCharacter(character)
 
 	if (!character.feats) {
     character.feats = [];

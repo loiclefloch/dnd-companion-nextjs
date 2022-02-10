@@ -192,6 +192,9 @@ function Grimoire() {
 						</Tag>
 
 						{/* TODO: list prepared count + subclass always prepared */}
+						<Tag>
+							Cantrips kwown: {character.spellcasting.cantripsKnown}
+						</Tag>
 					</div>
 					<div className="flex flex-col gap-2" data-cy-id="spells-list">
 						{map(groupedBySpellLevel, (spells, level) => (

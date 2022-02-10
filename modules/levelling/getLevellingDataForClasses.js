@@ -281,6 +281,7 @@ import levels from "../../database/data/levels.json"
 // }
 
 
+function getLevellingDataForClasses() {
 const classes = [
   "barbarian",
   "bard",
@@ -294,55 +295,64 @@ const classes = [
   "sorcerer",
   "warlock",
   "wizard",
-]
+];
 
-const data = {}
+const data = {};
 
-classes.forEach(className => {
-  const levelling = {}
+classes.forEach((className) => {
+  const levelling = {};
 
   for (let level = 1; level <= 20; level++) {
-    const levelData = levels.find(l => l.level === level && l.class.index === className)
+    const levelData = levels.find(
+      (l) => l.level === level && l.class.index === className
+    );
 
     levelling[level] = {
-      features: levelData.features.map(f => f.index),
+      features: levelData.features.map((f) => f.index),
       classSpecific: levelData.class_specific,
-      spellcasting: levelData.spellcasting,
       abilityScoreBonuses: levelData.ability_score_bonuses,
       profBonus: levelData.prof_bonus,
+      // spellcasting: levelData.spellcasting,
       spellcasting: {
-        hasMagic: levelData.spellcasting?.cantrips_known > 0 || levelData.spellcasting?.spells_known > 0,
+        hasMagic:
+          levelData.spellcasting?.cantrips_known > 0 ||
+          levelData.spellcasting?.spells_known > 0,
         spellsKnown: levelData.spellcasting?.spells_known || 0,
         cantripsKnown: levelData.spellcasting?.cantrips_known || 0,
       },
-      slots: levelData.spellcasting ? {
-        0: -1, // infinite
-        1: levelData.spellcasting.spell_slots_level_1,
-        2: levelData.spellcasting.spell_slots_level_2,
-        3: levelData.spellcasting.spell_slots_level_3,
-        4: levelData.spellcasting.spell_slots_level_4,
-        5: levelData.spellcasting.spell_slots_level_5,
-        6: levelData.spellcasting.spell_slots_level_6,
-        7: levelData.spellcasting.spell_slots_level_7,
-        8: levelData.spellcasting.spell_slots_level_8,
-        9: levelData.spellcasting.spell_slots_level_9,
-      } :  {
-        0: 0,
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0,
-        6: 0,
-        7: 0,
-        8: 0,
-        9: 0,
-      },
-    }
+      slots: levelData.spellcasting
+        ? {
+            0: -1, // infinite
+            1: levelData.spellcasting.spell_slots_level_1,
+            2: levelData.spellcasting.spell_slots_level_2,
+            3: levelData.spellcasting.spell_slots_level_3,
+            4: levelData.spellcasting.spell_slots_level_4,
+            5: levelData.spellcasting.spell_slots_level_5,
+            6: levelData.spellcasting.spell_slots_level_6,
+            7: levelData.spellcasting.spell_slots_level_7,
+            8: levelData.spellcasting.spell_slots_level_8,
+            9: levelData.spellcasting.spell_slots_level_9,
+          }
+        : {
+            0: 0,
+            1: 0,
+            2: 0,
+            3: 0,
+            4: 0,
+            5: 0,
+            6: 0,
+            7: 0,
+            8: 0,
+            9: 0,
+          },
+    };
   }
 
-  data[className] = levelling
-})
+  data[className] = levelling;
+});
 
-const camelizedData = camelize(data)
-export default camelizedData
+const camelizedData = camelize(data);
+return camelizedData;
+}
+
+export default getLevellingDataForClasses
