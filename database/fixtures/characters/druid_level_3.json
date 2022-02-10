@@ -232,7 +232,7 @@
       "level": 2
     },
     {
-      "index": "circle-of-the-land-forest",
+      "index": "circle-of-the-land",
       "from": "druid-circle",
       "type": "levelling",
       "level": 2
@@ -241,7 +241,7 @@
       "index": "circle-of-the-land-forest",
       "from": "druid-circle",
       "type": "levelling",
-      "level": 3
+      "level": 2
     }
   ],
   "personnalityTraits": [

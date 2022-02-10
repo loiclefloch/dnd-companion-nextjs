@@ -24,7 +24,7 @@ function Land({ value, onChange }) {
 			<FeatureSpecificSelector
 				feature={landFeatureResponse.data}
 			 	value={value}
-				onChange={({ features }) => onChange(features)}
+				onChange={(featureSpecificData) => onChange(featureSpecificData)}
 			/>
 		</div>
 	)
@@ -33,7 +33,7 @@ function Land({ value, onChange }) {
 function DruidCircle({ clss, getBuildedCharacter, levellingData, step, levellingDispatch, stepLevellingState }) {
 	const [view, setView] = useState(View.SELECT_SUB_CLASS)
 	const [selectedSubclass, setSelectedSubclass] = useState(null)
-	const [selectedFeatures, setSelectedFeatures] = useState(null)
+	const [featuresOption, setFeaturesOption] = useState(null)
 
 	const subclassHasOptionToSelect = selectedSubclass?.index === "land"
 
@@ -71,18 +71,29 @@ function DruidCircle({ clss, getBuildedCharacter, levellingData, step, levelling
 						Revenir
 					</div>
 					<Land 
-						value={selectedFeatures}
-						onChange={setSelectedFeatures}
+						value={featuresOption}
+						onChange={setFeaturesOption}
 					/>
 				</div>
 			)}
 
 			<ButtonBottomScreen
 				variant="cta"
-				hide={!selectedSubclass || (subclassHasOptionToSelect && (view !== View.SELECT_LAND || !selectedFeatures))}
+				hide={!selectedSubclass || (subclassHasOptionToSelect && (view !== View.SELECT_LAND || !featuresOption))}
 				disabled={!selectedSubclass}
 				onClick={() => {
-					levellingDispatch(actionLevellingSacredOath({ step, selectedSubclass, features: selectedFeatures }))
+					levellingDispatch(
+            actionLevellingSacredOath({
+              step,
+              selectedSubclass,
+              featuresOptions: featuresOption && [
+                {
+                  ...featuresOption,
+                  featureIndex: selectedSubclass.index,
+                },
+              ],
+            })
+          );
 				}}
 			>
 				Continuer

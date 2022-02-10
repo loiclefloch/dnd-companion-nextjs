@@ -23,10 +23,7 @@ function Feature({ value = { type: '', }, onChange, index }) {
         <FeatureSpecificSelector
           feature={feature}
           value={value}
-          onChange={({ isFeatures, features, /* TODO: other type */ }) => onChange({
-						isFeatures,
-						features
-					})}
+          onChange={onChange}
         />
       )}
     </div>

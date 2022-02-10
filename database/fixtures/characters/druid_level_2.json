@@ -232,6 +232,12 @@
       "level": 2
     },
     {
+      "index": "circle-of-the-land",
+      "from": "druid-circle",
+      "type": "levelling",
+      "level": 2
+    },
+    {
       "index": "circle-of-the-land-forest",
       "from": "druid-circle",
       "type": "levelling",

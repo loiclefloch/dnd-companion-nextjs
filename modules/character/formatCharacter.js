@@ -1,5 +1,6 @@
 import { map, uniqBy, isEmpty, sortBy } from 'lodash'
 import camelize from "../utils/camelize"
+import levels from "../../database/data/levels.json"
 import skills from "../../database/data/skills.json"
 import backgrounds from "../../database/data/backgrounds"
 import classes from '../../database/data/classes.json'
@@ -54,7 +55,19 @@ function formatLevelling(levelling, level) {
 	levelling.percent = Math.round(levelling.xp / levelling.nextLevelXp * 100)
 
 	levelling.shouldLevelUp = levelling.percent >= 100
-	console.log({ levelling })
+}
+
+function getCharacterSubclassFeatures(character) {
+	if (!character.subclass) {
+		return null
+	}
+
+	return levels.filter(
+    (l) =>
+      l.class.index === character.classes[0].index &&
+      l.subclass?.index === character.subclass.index &&
+      l.level <= character.level
+  ).map(l => l.features).flat().filter(Boolean);
 }
 
 export function formatCharacter(character) {
@@ -434,6 +447,9 @@ export function formatCharacter(character) {
 	character.baseSpeed = character.race.speed
 	character.currentSpeed = character.baseSpeed + (character.speedReduced ? -10 : 0)
 
+	// add subclass features
+	character.subclassFeatures = getCharacterSubclassFeatures(character)
+	character.features = [...character.features, ...character.subclassFeatures]
 	character.features = character.features.map((featureData) => {
     const feature = features.find((f) => f.index === featureData.index);
     if (!feature) {

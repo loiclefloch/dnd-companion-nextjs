@@ -15,6 +15,25 @@ export function actionLevellingStart({ step }) {
 	}
 }
 
+function addFeaturesOptions(character, newLevel, featuresOptions) {
+  if (featuresOptions) {
+    featuresOptions.forEach((featureOption) => {
+      if (featureOption.isFeatures) {
+        featureOption.features.forEach((feature) => {
+          character.features.push({
+            index: feature,
+            type: "levelling",
+            from: featureOption.featureIndex,
+            level: newLevel,
+          });
+        });
+      } else {
+        debugger;
+        throw new Error(`not handled`);
+      }
+    });
+  }
+}
 export function actionLevellingAddFeatures({ step, features, featuresOptions }) {
 	return {
 		type: 'actionLevellingAddFeatures',
@@ -36,23 +55,7 @@ export function actionLevellingAddFeatures({ step, features, featuresOptions }) 
 				})
 			})
 
-			if (featuresOptions) {
-				featuresOptions.forEach((featureOption) => {
-					if (featureOption.isFeatures) {
-            featureOption.features.forEach((feature) => {
-              character.features.push({
-                index: feature,
-                type: "levelling",
-                from: featureOption.featureIndex,
-                level: newLevel,
-              });
-            });
-          } else {
-						debugger
-            throw new Error(`not handled`);
-          }
-        });
-			}
+			addFeaturesOptions(character, newLevel, featuresOptions)
 
 			character.features = filterDuplicates(character.features, i => i.index)
 		}
@@ -128,13 +131,13 @@ export function actionLevellingUpdateProficiencyBonus({ step }) {
 	}
 }
 
-export function actionLevellingSacredOath({ step, selectedSubclass, features }) {
+export function actionLevellingSacredOath({ step, selectedSubclass, featuresOptions }) {
 	return {
 		type: 'actionLevellingSacredOath',
 		apply: () => ({
 			step,
 			selectedSubclass,
-			features,
+			featuresOptions,
 		}),
 		build: ({ character, newLevel }) => {
 			// TODO: add other settings
@@ -142,14 +145,9 @@ export function actionLevellingSacredOath({ step, selectedSubclass, features }) 
 				index: selectedSubclass.index,
 			}
 
-			features?.forEach(featureIndex => {
-				character.features.push({
-					index: featureIndex,
-					from: 'druid-circle',
-					type: 'levelling',
-					level: newLevel
-				})
-			})
+			addFeaturesOptions(character, newLevel, featuresOptions)
+
+			character.features = filterDuplicates(character.features, i => i.index)
 		}
 	}
 }
