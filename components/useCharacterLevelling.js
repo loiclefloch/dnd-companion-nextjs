@@ -5,7 +5,7 @@ import { useMemo } from "react"
 import useCurrentCharacter from "./useCurrentCharacter"
 import { getLevellingDataForClassesAndLevel, getSpellsSlotsForCharacterLevel } from "../modules/levelling"
 import getLevellingSteps from "../modules/levelling/getLevellingSteps"
-import { formatCharacter  } from "../modules/api/useCharacter"
+import formatCharacter from "../modules/character/formatCharacter"
 import { updateObjectOrCreateOnArray } from "../modules/utils/array";
 import { cloneDeep } from "lodash";
 

@@ -8,7 +8,7 @@ import allRaces from "../database/data/allRaces"
 import backgrounds from "../database/data/backgrounds"
 import { formatRace } from "../modules/api/useRace"
 import { formatBackground } from "../modules/api/useBackground"
-import { formatCharacter } from "../modules/api/useCharacter"
+import formatCharacter from "../modules/character/formatCharacter"
 import { formatClass  } from "../modules/api/useClass"
 import { cloneDeep } from "lodash";
 
