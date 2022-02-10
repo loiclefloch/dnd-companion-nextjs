@@ -160,6 +160,7 @@ function Grimoire() {
 		<Screen
 			title={`${character?.name} - Grimoire`}
 			titleIcon={<IconBookOpen className="w-6 h-6" />}
+			root
 			withCharacterMenu
 			withBottomSpace
 			rightAction={

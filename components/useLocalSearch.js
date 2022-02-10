@@ -105,6 +105,18 @@ useLocalSearch.searchOptions = {
       'nameLocalized.en',
       'nameLocalized.fr',
     ]
+  },
+  features: {
+    keys: [ // TODO:
+      'index',
+      'name',
+      'class.index',
+      'class.name',
+      'background.index',
+      'background.name',
+      'nameLocalized.en',
+      'nameLocalized.fr',
+    ]
   }
 }
 

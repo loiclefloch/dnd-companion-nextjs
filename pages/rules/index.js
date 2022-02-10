@@ -42,9 +42,26 @@ function Rules() {
 				<Section 
 					title="Introduction"
 					subItems={[
-						<SubItem href={`/race`} title="Races" />,
-						<SubItem href={`/class`} title="Classes" />,
-						<SubItem href={`/background`} title="Backgrounds" />,
+						<SubItem 
+							key="/race" 
+							href={`/race`} 
+							title="Races" 
+						/>,
+						<SubItem 
+							key="/class" 
+							href={`/class`} 
+							title="Classes" 
+						/>,
+						<SubItem 
+							key="/background" 
+							href={`/background`} 
+							title="Backgrounds" 
+						/>,
+						<SubItem 
+							key="/features" 
+							href={`/features`} 
+							title="Features" 
+						/>,
 					]}
 				/>
 
@@ -52,9 +69,21 @@ function Rules() {
 				<Section
 					title="Personnality and background"
 					subItems={[
-						<SubItem href={`/rules/character-details`} title="Character details" />,
-						<SubItem href={`/rules/inspiration`} title="Inspiration" />,
-						<SubItem href={`/rules/background`} title="Background" />
+						<SubItem 
+							key={`/rules/character-details`} 
+							href={`/rules/character-details`} 
+							title="Character details"
+						/>,
+						<SubItem
+							key={`/rules/inspiration`}
+							href={`/rules/inspiration`}
+							title="Inspiration"
+						/>,
+						<SubItem
+							key={`/rules/background`}
+							href={`/rules/background`}
+							title="Background"
+						/>
 					]}
 				/>
 

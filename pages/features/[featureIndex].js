@@ -9,7 +9,7 @@ import IconBookOpen from "../../components/icons/IconBookOpen";
 function Feature() {
 	const router = useRouter()
 	const { tr } = useI18n()
-	const featureResponse = useFeature(router.query.featureIndex || 'druid-circle'); // TODO:
+	const featureResponse = useFeature(router.query.featureIndex);
 
 	const feature = featureResponse.data;
 

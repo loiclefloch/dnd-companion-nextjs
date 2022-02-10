@@ -136,6 +136,7 @@ function CharacterWallet() {
 				title="Porte monnaie"
 				titleIcon={<IconCoins className="w-7 h-7 text-amber-700" />}
 				isLoading={!character}
+				root
 				withCharacterMenu
 			>
 				{character && <>

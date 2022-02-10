@@ -74,6 +74,7 @@ function Character() {
 		<Screen
 			title={`${character?.name} - Matériel`}
 			titleIcon={<IconBriefcase className="w-6 h-6" />}
+			root
 			withCharacterMenu
 			rightAction={
 				<button 

@@ -20,20 +20,20 @@ function BackgroundRow({ background }) {
 	)
 }
 
-function Race() {
-	const backgroundResponse = useBackgrounds()
+function Backgrounds() {
+	const backgroundsResponse = useBackgrounds()
 
   return (
     <Screen
       title={"Les backgrounds"}
 			titleIcon={<IconAcademicCap className="w-6 h-6" />}
-			isLoading={backgroundResponse.isLoading}
+			isLoading={backgroundsResponse.isLoading}
 			withBottomSpace
     >
 			<div className="flex flex-col">
 
 				<ListRowSelectContainer className="px-4 mt-4">
-					{backgroundResponse.data?.map(background => (
+					{backgroundsResponse.data?.map(background => (
 						<>
 							<BackgroundRow key={`background_${background.index}`} background={background} />
 						</>
@@ -44,4 +44,4 @@ function Race() {
   );
 }
 
-export default Race;
+export default Backgrounds;

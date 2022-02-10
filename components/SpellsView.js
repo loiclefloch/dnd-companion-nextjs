@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Link from 'next/link'
 import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
@@ -13,16 +13,13 @@ import Tag from "../components/Tag"
 import IconBookOpen from "../components/icons/IconBookOpen"
 import IconMagicSchool from "../components/icons/IconMagicSchool"
 import CharacterSpellTag from "./CharacterSpellTag";
-import Div from "../components/elem/Div"
-import Span from "../components/elem/Span"
-import P from "../components/elem/P"
 import Text from "../components/elem/Text"
 import useLocalSearch from "../components/useLocalSearch"
 import InputSearch from "../components/InputSearch"
 
 function SpellFilters({ spell, filters }) {
   return (
-    <Div className="flex flex-wrap gap-1 mt-2">
+    <div className="flex flex-wrap gap-1 mt-2">
       {getSpellFiltersMatchingData(spell, filters).map(data => (
         <Tag
           key={`${data.label}-${data.value}`}
@@ -33,7 +30,7 @@ function SpellFilters({ spell, filters }) {
           {data.label && <Text className="text-xs lowercase">{data.label}: </Text>}<Text>{data.value}</Text>
         </Tag>
       ))}
-    </Div>
+    </div>
   )
 }
 
@@ -44,39 +41,39 @@ function Spell({ spell, filters, character /*onSelect*/ }) {
 
 	// const characterSpell = character && character.spellsList.find(s => s.index === spell.index)
   // const isLearned = isContextCharacter && !!characterSpell
-  // const isPrepared = isContextCharacter && characterSpell.isPrepared
+  // const isprepared = isContextCharacter && characterSpell.isprepared
 	// const isSubclassSpell = isContextCharacter && characterSpell.isSubclassSpell
-	// const isForcedPrepared = isContextCharacter && characterSpell.isForcedPrepared
+	// const isForcedprepared = isContextCharacter && characterSpell.isForcedprepared
 
   // TODO: if context character has the spell -> style with star / background
 
   return (
     <Link href={isContextCharacter ? `/character/spells/${spell.index}` : `/spells/${spell.index}`}>
-      <Div
+      <div
         // onClick={onSelect}
         className={`cursor-pointer py-1 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
         data-cy-spell-index={`spell-${spell.index}`}
       >
-        <Div className="pl-3">
-          <Div className="flex flex-row">
-            <Div className="flex flex-col flex-1">
-              <Span className="flex flex-row items-center font-semibold">
+        <div className="pl-3">
+          <div className="flex flex-row">
+            <div className="flex flex-col flex-1">
+              <span className="flex flex-row items-center font-semibold">
                 {/* <IconMagicSchool
               school={spell.school.name}
               className="h-6 w-7 text-slate-700"
 
             /> */}
                 <Text>{tr(spell.nameLocalized)}</Text>
-              </Span>
-              <Div className="text-sm text-meta">
+              </span>
+              <div className="text-sm text-meta">
                 <Text>{spell.type}</Text>
-              </Div>
-            </Div>
+              </div>
+            </div>
 
-            <Div
+            <div
               className="pr-2 mt-1"
             >
-              <Div className="flex flex-row items-end gap-1">
+              <div className="flex flex-row items-end gap-1">
                 <>
                   <CharacterSpellTag character={character} spell={spell} />
                 </>
@@ -86,17 +83,17 @@ function Spell({ spell, filters, character /*onSelect*/ }) {
                   className="h-6 pt-1 w-7 text-slate-700"
                 />
 
-              </Div>
-            </Div>
+              </div>
+            </div>
 
-          </Div>
+          </div>
 
-          <P className="pr-2 text-sm">{tr(spell.resume)}</P>
+          <p className="pr-2 text-sm">{tr(spell.resume)}</p>
 
           {!isEmpty(filters) && !isContextCharacter && <SpellFilters spell={spell} filters={filters} />}
 
-        </Div>
-      </Div>
+        </div>
+      </div>
     </Link>
   );
 }
@@ -113,7 +110,7 @@ function Spells({ contextCharacter }) {
     defaultFilters
   )
 
-  const filteredSpells = filterSpells(spellsResponse.data, lang)
+  const filteredSpells = useMemo(() => filterSpells(spellsResponse.data, lang), [spellsResponse.data, lang])
 
   useEffect(() => {
     if (contextCharacter) {

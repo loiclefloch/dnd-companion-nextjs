@@ -13,6 +13,7 @@ function Background() {
 		<Screen
 			title={`${character?.name} - Résumé`}
 			// titleIcon={<IconBriefcase className="w-6 h-6" />}
+			root
 			withCharacterMenu
 			withBottomSpace
 		// rightAction={ // TODO: edit

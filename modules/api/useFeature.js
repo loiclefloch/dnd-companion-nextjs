@@ -4,15 +4,13 @@ import useData from "./useData"
 
 export function formatFeature(featureParam) {
   if (!featureParam) {
-    // TODO: remove trick once features are added
-    return {
-      index: feature,
-      name: feature,
-      isTrick: true,
-    }
+    return null
   }
 
   const feature = camelize(featureParam)
+
+  feature.forBackground = !!feature.background
+  feature.forClass = !!feature.class
 
   feature.nameLocalized = {
     en: feature.name,

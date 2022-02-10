@@ -3,8 +3,8 @@ import useData from "./useData"
 
 import { formatFeature } from "./useFeature"
 
-function useFeatures(race) {
-  return useData(features.filter(feature => feature.race.index === race).map(formatFeature))
+function useFeatures() {
+  return useData(features.map(formatFeature))
 }
 
 export default useFeatures

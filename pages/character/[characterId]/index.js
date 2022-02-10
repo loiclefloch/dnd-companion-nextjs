@@ -148,6 +148,7 @@ function Character() {
 			title={currentCharacter?.name}
 			// titleIcon={<IconUsers className="w-6 h-6" />}
 			isLoading={characterResponse.isLoading}
+			root
 			withCharacterMenu
 			withBottomSpace
 			rightAction={

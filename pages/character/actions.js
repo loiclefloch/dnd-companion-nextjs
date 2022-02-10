@@ -49,6 +49,7 @@ function Character() {
 		<Screen
 			title={`${character?.name} - Actions`}
 			titleIcon={<IconBriefcase className="w-6 h-6" />}
+			root
 			withCharacterMenu
 		>
 			{character && (

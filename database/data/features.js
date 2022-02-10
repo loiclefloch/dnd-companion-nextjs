@@ -3,6 +3,10 @@ export default [
   {
     index: "entertainer-routines",
     name: "Entertainer Routines",
+    background: {
+      "index": "entairtainer",
+      "name": "Entertainer"
+    },
     desc: [
       "A good entertainer is versatile, spicing up every performance with a variety of different routines. Choose one to three routines or roll on the table below to define your expertise as an entertainer.",
       "1	Actor",
@@ -20,6 +24,10 @@ export default [
   {
     index: "by-popular-demand",
     name: "By Popular Demand",
+    background: {
+      "index": "entertainer",
+      "name": "Entertainer"
+    },
     desc: [
       "You can always find a place to perform, usually in an inn or tavern but possibly with a circus, at a theater, or even in a noble's court. At such a place, you receive free lodging and food of a modest or comfortable standard (depending on the quality of the establishment), as long as you perform each night. In addition, your performance makes you something of a local figure. When strangers recognize you in a town where you have performed, they typically take a liking to you.",
     ],
@@ -27,6 +35,10 @@ export default [
   {
     index: "specialty",
     name: "Specialty",
+    background: {
+      "index": "solider",
+      "name": "Soldier"
+    },
     desc: [
       "During your time as a soldier, you had a specific role to play in your unit or army. Roll a d8 or choose from the options in the table below to determine your role:",
       "1	Officer",
@@ -42,6 +54,10 @@ export default [
   {
     index: "military-rank",
     name: "Military Rank",
+    background: {
+      "index": "solider",
+      "name": "Soldier"
+    },
     desc: [
       "You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized.",
     ],
@@ -49,6 +65,10 @@ export default [
   {
     index: "criminal-contact",
     name: "Criminal Contact",
+    background: {
+      "index": "criminal-spy",
+      "name": "Criminal / Spy"
+    },
     desc: [
       "You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals.",
       "You know how to get messages to and from your contact, even over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you.",
@@ -57,6 +77,10 @@ export default [
   {
     index: "rustic-hospitality",
     name: "Rustic Hospitality",
+    background: {
+      "index": "folk-hero",
+      "name": "Folk hero"
+    },
     desc: [
       "Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will shield you from the law or anyone else searching for you, though they will not risk their lives for you.",
     ],
@@ -64,10 +88,26 @@ export default [
   {
     index: "researcher",
     name: "Researcher",
+    background: {
+      "index": "sage",
+      "name": "Sage"
+    },
     desc: [
       "When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign.",
     ],
   },
+  {
+		"index": "shelter-of-the-faithful",
+		"name": "Shelter of the Faithful",
+    background: {
+      "index": "acolyte",
+      "name": "Acolyte"
+    },
+		"desc": [
+			"As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle.",
+			"You might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple."
+		]
+	},
   {
     index: "rage",
     class: {

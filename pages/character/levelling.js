@@ -69,6 +69,7 @@ function CharacterWallet() {
 			<Screen
 				title="Levelling"
 				titleIcon={<IconTrendingUp className="w-7 h-7 text-slate-700" />}
+				root
 				rightAction={
 					<Button 
 						variant="outlined" 
