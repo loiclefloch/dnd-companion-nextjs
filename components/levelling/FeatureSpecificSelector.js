@@ -32,8 +32,8 @@ function FeatureSpecificSelector({ feature, value, onChange }) {
 		return (
 			<SubfeatureOptions
 				options={feature.featureSpecific.subfeatureOptions}
-				value={value}
-				onChange={onChange}
+				value={value?.features || []}
+				onChange={features => onChange({ isFeatures: true, features })}
 			/>
 		)
 	}

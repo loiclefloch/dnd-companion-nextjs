@@ -1,5 +1,5 @@
 import { createStorage } from "../utils/storage"
-import { updateObjectOnArray } from '../utils/array';
+import { updateObjectOrCreateOnArray } from '../utils/array';
 
 export const CharacterStorage = createStorage("createCharacter")
 export const LevellingStorage = createStorage("levellingState")
@@ -24,6 +24,7 @@ BackupStorage.add = (type, id, data) => {
 }
 
 CharactersStorage.update = (updatedCharacter) => {
-	const updatedCharacters = updateObjectOnArray(CharactersStorage.getItem() || [], updatedCharacter, c => c.id === updatedCharacter.id)
+  // OrCreate when we use a fixture character, to add it on local storage
+	const updatedCharacters = updateObjectOrCreateOnArray(CharactersStorage.getItem() || [], updatedCharacter, c => c.id === updatedCharacter.id)
 	CharactersStorage.setItem(updatedCharacters)
 }

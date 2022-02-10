@@ -138,8 +138,11 @@ function useCharacterLevelling() {
       // 2- update
       updateCharacter(updatedCharacter)
 
-      // 3- redirect
-      router.push("/character/levelling")
+      // 3- clean
+      updateLevellingState([]);
+
+      // 4- redirect
+      router.push(`/character/${updatedCharacter.id}`)
     }
   }
 

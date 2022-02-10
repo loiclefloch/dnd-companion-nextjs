@@ -1,0 +1,219 @@
+{
+  "id": "paladin_level_1",
+  "name": "Fixt - Paladin - level 1",
+  "body": {
+    "age": 30,
+    "gender": "",
+    "height": "",
+    "weight": "",
+    "hairColor": "",
+    "eyeColor": "",
+    "skinColor": "",
+    "physicalCaracteristics": ""
+  },
+  "level": 1,
+  "classes": [
+    "paladin"
+  ],
+  "race": "hill-dwarf",
+  "bonds": "A proud noble once gave me a horrible beating, and I will take my revenge on any bully I encounter.",
+  "flaws": "The people who knew me when I was young know my shameful secret, so I can never go home again.",
+  "ideals": "Fairness. No one should get preferential treatment before the law, and no one is above the law. ",
+  "traits": [
+    {
+      "index": "darkvision",
+      "sourceType": "race"
+    },
+    {
+      "index": "dwarven-resilience",
+      "sourceType": "race"
+    },
+    {
+      "index": "stonecunning",
+      "sourceType": "race"
+    },
+    {
+      "index": "dwarven-combat-training",
+      "sourceType": "race"
+    },
+    {
+      "index": "tool-proficiency",
+      "sourceType": "race"
+    },
+    {
+      "index": "dwarven-toughness",
+      "sourceType": "race"
+    }
+  ],
+  "stats": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 17,
+    "INT": 8,
+    "WIS": 9,
+    "CHA": 15
+  },
+  "statsBonuses": [
+    {
+      "ability": "CON",
+      "type": "race",
+      "bonus": 2
+    },
+    {
+      "ability": "WIS",
+      "type": "race",
+      "bonus": 1
+    }
+  ],
+  "baseStats": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelling": {
+    "xp": 1000,
+    "history": [
+      {
+        "id": "0fec1b78-2dbf-4c9d-8903-bb084a31b946",
+        "label": "Road to level 2",
+        "amount": 1000
+      }
+    ]
+  },
+  "spellsList": [],
+  "currencies": {
+    "gp": 15
+  },
+  "equipment": [
+    {
+      "index": "shovel",
+      "quantity": 1
+    },
+    {
+      "index": "clothes-common",
+      "quantity": 1
+    },
+    {
+      "index": "pot-iron",
+      "quantity": 1
+    },
+    {
+      "index": "flail",
+      "quantity": 1
+    },
+    {
+      "index": "battleaxe",
+      "quantity": 1
+    },
+    {
+      "index": "club",
+      "quantity": 1
+    },
+    {
+      "index": "explorers-pack",
+      "quantity": 1
+    },
+    {
+      "index": "reliquary",
+      "quantity": 1
+    },
+    {
+      "index": "cobblers-tools",
+      "quantity": 1
+    }
+  ],
+  "wallet": {
+    "history": []
+  },
+  "proficiencies": [
+    {
+      "index": "unarmed-strike",
+      "sourceType": "race"
+    },
+    {
+      "index": "battleaxes",
+      "sourceType": "race"
+    },
+    {
+      "index": "handaxes",
+      "sourceType": "race"
+    },
+    {
+      "index": "light-hammers",
+      "sourceType": "race"
+    },
+    {
+      "index": "warhammers",
+      "sourceType": "race"
+    },
+    {
+      "index": "skill-animal-handling",
+      "sourceType": "background"
+    },
+    {
+      "index": "skill-survival",
+      "sourceType": "background"
+    },
+    {
+      "index": "land-vehicles",
+      "sourceType": "background"
+    },
+    {
+      "index": "all-armor",
+      "sourceType": "class"
+    },
+    {
+      "index": "shields",
+      "sourceType": "class"
+    },
+    {
+      "index": "simple-weapons",
+      "sourceType": "class"
+    },
+    {
+      "index": "martial-weapons",
+      "sourceType": "class"
+    },
+    {
+      "index": "brewers-supplies",
+      "sourceType": "race-option"
+    },
+    {
+      "index": "cartographers-tools",
+      "sourceType": "background"
+    }
+  ],
+  "proficiencyBonus": 2,
+  "maximumHp": 28,
+  "currentHp": 28,
+  "spellsUsed": [],
+  "deathSaves": {
+    "nbFailed": null,
+    "nbSucceeed": null,
+    "isStabilized": false
+  },
+  "background": "folk-hero",
+  "features": [
+    {
+      "index": "rustic-hospitality",
+      "type": "background"
+    }
+  ],
+  "personnalityTraits": [
+    "If someone is in trouble, I’m always ready to lend help."
+  ],
+  "alignment": "lawful-good",
+  "languages": [
+    "common",
+    "dwarvish"
+  ],
+  "maximumHitDice": 11,
+  "currentHitDice": 11,
+  "skillsProficiencies": [
+    "animal-handling",
+    "survival"
+  ]
+}

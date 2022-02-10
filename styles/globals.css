@@ -34,7 +34,8 @@
  }
 
  .text-link {
-	@apply underline
+	@apply underline;
+	cursor: pointer;
  }
 
 }

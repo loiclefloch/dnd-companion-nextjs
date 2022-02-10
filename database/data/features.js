@@ -1,5 +1,5 @@
 export default [
-  // TODO: complete
+  // TODO: complete with background features
   {
     "index": "researcher",
     "name": "Researcher",

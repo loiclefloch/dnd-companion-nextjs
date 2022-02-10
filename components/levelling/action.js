@@ -15,12 +15,13 @@ export function actionLevellingStart({ step }) {
 	}
 }
 
-export function actionLevellingAddFeatures({ step, features }) {
+export function actionLevellingAddFeatures({ step, features, featuresOptions }) {
 	return {
 		type: 'actionLevellingAddFeatures',
 		apply: () => ({
 			step,
 			features,
+			featuresOptions, // featureIndex, isFeatures + features || TODO
 		}),
 		build: ({ character, newLevel }) => {
 			if (!character.features) {
@@ -34,6 +35,24 @@ export function actionLevellingAddFeatures({ step, features }) {
 					level: newLevel,
 				})
 			})
+
+			if (featuresOptions) {
+				featuresOptions.forEach((featureOption) => {
+					if (featureOption.isFeatures) {
+            featureOption.features.forEach((feature) => {
+              character.features.push({
+                index: feature,
+                type: "levelling",
+                from: featureOption.featureIndex,
+                level: newLevel,
+              });
+            });
+          } else {
+						debugger
+            throw new Error(`not handled`);
+          }
+        });
+			}
 
 			character.features = filterDuplicates(character.features, i => i.index)
 		}

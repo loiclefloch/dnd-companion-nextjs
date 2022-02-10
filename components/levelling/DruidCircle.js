@@ -24,7 +24,7 @@ function Land({ value, onChange }) {
 			<FeatureSpecificSelector
 				feature={landFeatureResponse.data}
 			 	value={value}
-				onChange={onChange}
+				onChange={({ features }) => onChange(features)}
 			/>
 		</div>
 	)

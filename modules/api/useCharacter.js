@@ -1,4 +1,4 @@
-import { map, uniqBy, isEmpty } from 'lodash'
+import { map, uniqBy, isEmpty, sortBy } from 'lodash'
 import camelize from "../utils/camelize"
 import useData from './useData'
 import characters from './fixtures/characters'
@@ -239,6 +239,7 @@ export function formatCharacter(character) {
 			...traitData,
 		}
 	})
+	character.traits = sortBy(character.traits, 'name')
 
 	character.proficiencies = uniqBy(character.proficiencies, proficiency => proficiency.index)
 		.map(formatProficiency)
@@ -438,20 +439,29 @@ export function formatCharacter(character) {
 	character.baseSpeed = character.race.speed
 	character.currentSpeed = character.baseSpeed + (character.speedReduced ? -10 : 0)
 
-	character.features = character.features
-		.map(feature => ({
-			...formatFeature(features.find(f => f.index === feature.index)),
-			...feature
-		}))
+	character.features = character.features.map((featureData) => {
+    const feature = features.find((f) => f.index === featureData.index);
+    if (!feature) {
+      // TODO: complete with background features
+      // throw new Error(`Feature not found ${featureData.index}`)
+      return {
+        ...featureData,
+      };
+    }
+    return {
+      ...formatFeature(feature),
+      ...featureData,
+    };
+  });
+	character.features = sortBy(character.features, ['name'])
 
-		if (!character.feats) {
-			character.feats = []
-		}
-		character.feats = character.feats
-		.map(feature => ({
-			...formatFeat(feats.find(f => f.index === feature.index)),
-			...feature
-		}))
+	if (!character.feats) {
+    character.feats = [];
+  }
+	character.feats = character.feats.map((feature) => ({
+		...formatFeat(feats.find((f) => f.index === feature.index)),
+		...feature,
+	}));
 
 	return character
 }
