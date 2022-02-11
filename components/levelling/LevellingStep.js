@@ -12,6 +12,7 @@ import HitPoints from "./HitPoints"
 import ProficiencyBonus from "./ProficiencyBonus"
 import SacredOath from "./SacredOath"
 import DruidCircle from "./DruidCircle"
+import BardCollege from "./BardCollege"
 
 const isBrowser = typeof window !== "undefined";
 
@@ -42,6 +43,7 @@ function LevellingStep({ stepName }) {
 		'proficiency-bonus': ProficiencyBonus,
 		'sacred-oath': SacredOath,
 		'druid-circle': DruidCircle,
+		'bard-college': BardCollege,
 		// StepHp,
 	}
 

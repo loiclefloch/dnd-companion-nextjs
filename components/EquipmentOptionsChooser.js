@@ -3,6 +3,9 @@ import clsx from "clsx";
 import { existsOnArray } from '../modules/utils/array'
 import ListSelector from "./ListSelector";
 import { useEquipmentItemScreenAsModal } from "./EquipmentItemScreenAsModal"
+import getCharacterHasProficiencyForItem from "../modules/character/getCharacterHasProficiencyForItem"
+
+const isProefficientClassName = "text-blue-500"
 
 function EquipmentCategoryChoice({ parentIndex, chosenItems, character, setChosenItems, option }) {
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
@@ -29,13 +32,12 @@ function EquipmentCategoryChoice({ parentIndex, chosenItems, character, setChose
 			multiple
 			nbMaxValues={option.choose}
 			options={option.from.items.map(item => {
-				// proficiency index is the same as the item
-				const isProefficient = character && character.proficiencies.find(p => item.index === p.index)
-
 				return ({
-					label: <div className={clsx("flex", {
-						"text-blue-500": isProefficient
-					})}>
+					label: <div 
+					className={clsx("flex", {
+						[isProefficientClassName]: getCharacterHasProficiencyForItem(character, item)
+					})}
+					>
 						{item.name}
 					</div>,
 					value: item,
@@ -69,12 +71,14 @@ function ClassEquipmentSubOption({
 		return (
 			<>
 				<ListSelector.Row
-					label={<span>
-						<>
-							Option {index + 1} <span className="text-meta text-sm">({subOption.choose} au choix)</span>
-						</>
-					</span>
+					label={
+						<span>
+							<>
+								Option {index + 1} <span className="text-meta text-sm">({subOption.choose} au choix)</span>
+							</>
+						</span>
 					}
+					item={subOption.item}
 					selected={selected}
 					onClick={() => {
 						setChosenItems(parentIndex, [])
@@ -111,13 +115,18 @@ function ClassEquipmentSubOption({
 	return (
 		<>
 			<ListSelector.Row
-				label={<span>
-					<>
-						{subOption.isTypeEquipment && subOption.item.name}
-						{subOption.isTypeSubOption && <span>{subOption.from.equipmentCategory.name} <span className="text-meta text-sm">({subOption.choose} au choix)</span></span>}
-					</>
-				</span>
+				label={
+					<span>
+						<>
+							{subOption.isTypeEquipment && subOption.item.name}
+							{subOption.isTypeSubOption && <span>{subOption.from.equipmentCategory.name} <span className="text-meta text-sm">({subOption.choose} au choix)</span></span>}
+						</>
+					</span>
 				}
+				className={clsx({
+					[isProefficientClassName]: getCharacterHasProficiencyForItem(character, subOption.item) 
+				})}
+				item={subOption.item}
 				selected={selected}
 				rightView={subOption.isTypeEquipment && (
 					<div

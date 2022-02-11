@@ -21,7 +21,7 @@ export function formatSubclass(subclassParam) {
     en: 'subclass small description'
   }
 
-	subclass.spells.forEach(spell => {
+	subclass.spells?.forEach(spell => {
 		spell.prerequisites.forEach(prerequisite => {
 			if (prerequisite.type === 'level') {
 				prerequisite.isLevel = true

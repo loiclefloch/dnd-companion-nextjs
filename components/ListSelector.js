@@ -5,12 +5,14 @@ function ListSelectorRow({
 	label,
 	selected,
 	rightView,
+	className,
 	disabled,
 	onClick,
+	item, // used for dev tools
 }) {
 	return (
 		<div 
-			className="flex items-center w-full p-2 py-1 select-none"
+			className={clsx(className, "flex items-center w-full p-2 py-1 select-none")}
 		>
 			<div className="w-8">
 				<div
@@ -44,6 +46,7 @@ function ListSelector({ value, options, onChange, multiple = false, nbMaxValues 
 					selected={option.selected}
 					rightView={option.rightView}
 					disabled={option.disabled}
+					item={option.value} // used for dev tools
 					onClick={() => {
 						if (option.disabled) {
 							return

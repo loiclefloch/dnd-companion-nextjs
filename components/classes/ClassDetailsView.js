@@ -10,7 +10,7 @@ import EquipmentOptionsChooser from "../EquipmentOptionsChooser"
 import Druid from "./Druid.mdx"
 
 // TODO:
-function Content({ clss }) {
+function Content({ clss, hideStartingEquipmentOptions }) {
 	const { showTipProficiency } = useTipProficiency()
 	const { showTipAbilityScore } = useTipAbilityScore()
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
@@ -63,7 +63,7 @@ function Content({ clss }) {
 				</LineInfo.Parent>
 			</Section>
 
-			{clss.startingEquipmentOptions && (
+			{!hideStartingEquipmentOptions && clss.startingEquipmentOptions && (
 				<Section title="starting_equipment options">
 					<EquipmentOptionsChooser.Demo
 						options={clss.startingEquipmentOptions}
@@ -163,10 +163,10 @@ function Text({ clss }) {
 }
 
 
-function ClassDetailsView({ clss }) {
+function ClassDetailsView({ clss, hideStartingEquipmentOptions }) {
 	return <>
 		<Text clss={clss} />
-		<Content clss={clss} />
+		<Content clss={clss} hideStartingEquipmentOptions={hideStartingEquipmentOptions} />
 	</>
 }
 

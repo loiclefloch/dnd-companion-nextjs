@@ -1,0 +1,188 @@
+{
+	"id": "bard-level-1",
+	"name": "Fixt - Bard - level 1",
+	"body": {
+			"age": 30,
+			"gender": "",
+			"height": "",
+			"weight": "",
+			"hairColor": "",
+			"eyeColor": "",
+			"skinColor": "",
+			"physicalCaracteristics": ""
+	},
+	"level": 1,
+	"classes": [
+			"bard"
+	],
+	"race": "protector-aasimar",
+	"bonds": "Someone stole my precious instrument, and someday I'll get it back.",
+	"flaws": "I have trouble keeping my true feelings hidden. My sharp tongue lands me in trouble.",
+	"ideals": "Beauty. When I perform, I make the world better than it was.",
+	"traits": [
+			{
+					"index": "darkvision",
+					"sourceType": "race"
+			},
+			{
+					"index": "celestial-resistance",
+					"sourceType": "race"
+			},
+			{
+					"index": "healing-hands",
+					"sourceType": "race"
+			},
+			{
+					"index": "light-bearer",
+					"sourceType": "race"
+			},
+			{
+					"index": "radiant-soul",
+					"sourceType": "race"
+			}
+	],
+	"stats": {
+			"STR": 8,
+			"DEX": 15,
+			"CON": 13,
+			"INT": 12,
+			"WIS": 9,
+			"CHA": 17
+	},
+	"statsBonuses": [
+			{
+					"ability": "CHA",
+					"type": "race",
+					"bonus": 2
+			},
+			{
+					"ability": "WIS",
+					"type": "race",
+					"bonus": 1
+			}
+	],
+	"baseStats": {
+			"STR": 8,
+			"DEX": 15,
+			"CON": 13,
+			"INT": 12,
+			"WIS": 8,
+			"CHA": 15
+	},
+	"levelling": {
+			"xp": 3000,
+			"history": [
+					{
+							"id": "b43b72b9-db09-466b-9e34-bc7cd3ac7345",
+							"label": "Level up",
+							"amount": 3000
+					}
+			]
+	},
+	"spellsList": [],
+	"currencies": {
+			"gp": 15
+	},
+	"equipment": [
+			{
+					"index": "clothes-costume",
+					"quantity": 1
+			},
+			{
+					"index": "longsword",
+					"quantity": 1
+			},
+			{
+					"index": "entertainers-pack",
+					"quantity": 1
+			},
+			{
+					"index": "lute",
+					"quantity": 1
+			},
+			{
+					"index": "shawm",
+					"quantity": 1
+			}
+	],
+	"wallet": {
+			"history": []
+	},
+	"proficiencies": [
+			{
+					"index": "unarmed-strike",
+					"sourceType": "race"
+			},
+			{
+					"index": "skill-acrobatics",
+					"sourceType": "background"
+			},
+			{
+					"index": "skill-performance",
+					"sourceType": "background"
+			},
+			{
+					"index": "disguise-kit",
+					"sourceType": "background"
+			},
+			{
+					"index": "light-armor",
+					"sourceType": "class"
+			},
+			{
+					"index": "simple-weapons",
+					"sourceType": "class"
+			},
+			{
+					"index": "longswords",
+					"sourceType": "class"
+			},
+			{
+					"index": "rapiers",
+					"sourceType": "class"
+			},
+			{
+					"index": "shortswords",
+					"sourceType": "class"
+			},
+			{
+					"index": "hand-crossbows",
+					"sourceType": "class"
+			}
+	],
+	"proficiencyBonus": 2,
+	"maximumHp": 22,
+	"currentHp": 22,
+	"spellsUsed": [],
+	"deathSaves": {
+			"nbFailed": null,
+			"nbSucceeed": null,
+			"isStabilized": false
+	},
+	"background": "entertainer",
+	"features": [
+			{
+					"index": "entertainer-routines",
+					"type": "background"
+			},
+			{
+					"index": "by-popular-demand",
+					"type": "background"
+			}
+	],
+	"personnalityTraits": [
+			"I use polysyllabic words that convey the impression of great erudition.",
+			"I know a story relevant to almost every situation."
+	],
+	"alignment": "chaotic-good",
+	"languages": [
+			"common",
+			"celestial"
+	],
+	"maximumHitDice": 9,
+	"currentHitDice": 9,
+	"skillsProficiencies": [
+			"acrobatics",
+			"performance"
+	]
+}

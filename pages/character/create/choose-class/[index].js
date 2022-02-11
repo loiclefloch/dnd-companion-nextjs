@@ -8,12 +8,15 @@ import useCreateCharacter from '../../../../components/useCreateCharacter';
 
 function Form({ clss }) {
 	const { updateCharacter } = useCreateCharacter()
-	const router = useRouter()
 
 	return (
 		<div className="flex flex-col">
 			<div className="relative w-full px-4 mt-12">
-				<ClassDetailsView clss={clss} />
+				<ClassDetailsView 
+					clss={clss} 
+					// hidden since we select equipment on the equipment page
+					hideStartingEquipmentOptions 
+				/>
 			</div>
 
 			<ButtonBottomScreen

@@ -5,32 +5,57 @@ import ButtonBottomScreen from "../../components/ButtonBottomScreen"
 import useTipFeature from "../useTipFeature"
 import SubclassListSelector from "./SubclassListSelector"
 import FeatureSpecificSelector from "./FeatureSpecificSelector"
-import useFeature from "../../modules/api/useFeature"
+import ListSelector from "../ListSelector"
+import useSkills from "../../modules/api/useSkills"
 
 const View = {
 	SELECT_SUB_CLASS: 'SELECT_SUB_CLASS',
-	LAND: 'LAND',
+	LORE: 'LORE',
 }
 
-function Land({ value, onChange }) {
-	const landFeatureResponse = useFeature('circle-of-the-land') 
+function Lore({ value = [], onChange }) {
+	const skillsResponse = useSkills() 
 
-	if (!landFeatureResponse.data) {
+	if (!skillsResponse.data) {
 		return null
 	}
 
+	const skills = skillsResponse.data
+
 	return (
 		<div>
-			<FeatureSpecificSelector
-				feature={landFeatureResponse.data}
-			 	value={value}
-				onChange={(featureSpecificData) => onChange(featureSpecificData)}
+			{/* TODO: choose 3 skills to have proficiency to */}
+			<ListSelector
+				nbMaxValues={3}
+				multiple
+				value={value}
+				options={skills.map(skill => {
+					return ({
+						label: (
+							<div className="flex">
+								{skill.name}
+							</div>
+						),
+						value: skill.index,
+						selected: value?.includes(skill.index),
+						rightView: (
+							<div
+								className="px-4 py-2 text-xs text-meta"
+								// TODO:
+								// onClick={() => showTipProficiency(proficiency)}
+							>
+								?
+							</div>
+						)
+					})
+				})}
+				onChange={onChange}
 			/>
 		</div>
 	)
 }
 
-function DruidCircle({ clss, getBuildedCharacter, levellingData, step, levellingDispatch, stepLevellingState }) {
+function BardCollege({ clss, getBuildedCharacter, levellingData, step, levellingDispatch, stepLevellingState }) {
 	const [view, setView] = useState(View.SELECT_SUB_CLASS)
 	const [selectedSubclass, setSelectedSubclass] = useState(null)
 	const [featuresOption, setFeaturesOption] = useState(null)
@@ -44,33 +69,31 @@ function DruidCircle({ clss, getBuildedCharacter, levellingData, step, levelling
 			<h4 className="mt-4 text-center">{step.desc}</h4>
 			
 			<p className="mt-6">
-				Choose which circle of nature your druid is going to follow.
 			</p>
 			<p>
-			 	Druid circles give their characters additional features and spells on top of those they get from levelling up and the Wild Shape ability.
 			</p>
 			
 			{view === View.SELECT_SUB_CLASS && (
 				<div>
 					<SubclassListSelector
-						clss="druid"
+						clss="bard"
 						selectedSubclass={selectedSubclass}
 						onSelect={(selectedSubclass) => {
 							setSelectedSubclass(selectedSubclass)
-							if (selectedSubclass.index === "land") {
-								setView(View.LAND)
+							if (selectedSubclass.index === "lore") {
+								setView(View.LORE)
 							}
 						}}
 					/>
 				</div>
 			)}
 
-			{view === View.LAND && (
+			{view === View.LORE && (
 				<div>
 					<div onClick={() => setView(View.SELECT_SUB_CLASS)}>
 						Revenir
 					</div>
-					<Land 
+					<Lore
 						value={featuresOption}
 						onChange={setFeaturesOption}
 					/>
@@ -79,7 +102,7 @@ function DruidCircle({ clss, getBuildedCharacter, levellingData, step, levelling
 
 			<ButtonBottomScreen
 				variant="cta"
-				hide={!selectedSubclass || (subclassHasOptionToSelect && (view !== View.LAND || !featuresOption))}
+				hide={!selectedSubclass || (subclassHasOptionToSelect && (view !== View.LORE || !featuresOption))}
 				disabled={!selectedSubclass}
 				onClick={() => {
 					levellingDispatch(
@@ -102,4 +125,4 @@ function DruidCircle({ clss, getBuildedCharacter, levellingData, step, levelling
 	)
 }
 
-export default DruidCircle
+export default BardCollege

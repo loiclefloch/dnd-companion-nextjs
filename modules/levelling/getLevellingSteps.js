@@ -80,8 +80,8 @@ function paladin() {
 			// TODO
 			return []
 		},
-		1: noop,
-		2: () => {
+		...applyNoop(1, 20),
+		3: () => {
 			return [
 				{
 					name: "sacred-oath", 
@@ -90,9 +90,25 @@ function paladin() {
 				},
 			]
 		},
-		// TODO:
-		...applyNoop(1, 2),
-		...applyNoop(4, 20),
+	}
+}
+
+function bard() {
+	return {
+		every: () => {
+			// TODO
+			return []
+		},
+		...applyNoop(1, 20),
+		3: () => {
+			return [
+				{
+					name: "bard-college", 
+					label: "Bard college",
+					desc: "Delve into the advanced techniques of a bard college.",
+				},
+			]
+		}
 	}
 }
 
@@ -102,7 +118,7 @@ function druid() {
 			// TODO
 			return []
 		},
-		1: noop,
+		...applyNoop(1, 20),
 		2: () => {
 			return [
 				{
@@ -112,8 +128,6 @@ function druid() {
 				},
 			]
 		},
-		// TODO:
-		...applyNoop(3, 20),
 	}
 }
 
@@ -138,6 +152,7 @@ function applyCustomMethods(character, level) {
 		barbarian: barbarian,
 		paladin: paladin,
 		druid: druid,
+		bard: bard
 	}
 
 	const race = character.race?.index || character.race 

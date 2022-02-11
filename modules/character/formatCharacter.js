@@ -25,6 +25,7 @@ import { formatSubclass } from "../api/useSubclass"
 import { formatFeature } from "../api/useFeature"
 import { formatFeat } from "../api/useFeat"
 import applyFeaturesOnCharacter from "./applyFeaturesOnCharacter"
+import getCharacterHasProficiencyForItem from "./getCharacterHasProficiencyForItem"
 
 function formatSpellsSlots(spellsSlots, spellsUsed) {
 	return spellsSlots.map(slot => {
@@ -236,6 +237,7 @@ export function formatCharacter(character) {
 			...item,
 			isCharacterContextItem: true,
 			isEquipped: item.isEquipped || false,
+			hasProficiency: getCharacterHasProficiencyForItem(character, item)
 		}
 	})
 		.map(formatEquipmentItem)

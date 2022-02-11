@@ -163,20 +163,19 @@ function Grimoire() {
 			root
 			withCharacterMenu
 			withBottomSpace
-			rightAction={
-				<button
-				 // TODO:
-					onClick={() => {
-					}}
-				>
-					<IconPlus className={"h-6 w-6 text-slate-800"} />
-				</button>
-			}
+			// rightAction={
+			// 	<button
+			// 	 // TODO:
+			// 		onClick={() => {
+			// 		}}
+			// 	>
+			// 		<IconPlus className={"h-6 w-6 text-slate-800"} />
+			// 	</button>
+			// }
 		>
 			{character && (
 				<div>
 					<div>
-
 						<Tag>
 							Spellcasing ability
 							{character.spellcastingAbilityValue >= 0 ? '+' : ''}{character.spellcastingAbilityValue}:

@@ -16,13 +16,13 @@ function Spell({ spell }) {
 							<div className="text-meta text-xs">lvl {prerequisite.level}</div>
 						)}
 						{prerequisite.isFeature && (
-							<div  className="text-meta text-xs" onClick={() => showTipFeature(prerequisite.index)}>
+							<div className="text-meta text-xs" onClick={() => showTipFeature(prerequisite.index)}>
 								{prerequisite.name}
 							</div>
 						)}
 					</div>
-			))}
-					</div>
+				))}
+			</div>
 		</div>
 	)
 }
@@ -50,7 +50,9 @@ function SubclassContent({ subclass }) {
 			</p>
 
 			<div className="px-4">
-				<Spells spells={subclass.spells} />
+				{subclass.spells && (
+					<Spells spells={subclass.spells} />
+				)}
 			</div>
 		
 			<div className="pb-12" />
