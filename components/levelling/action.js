@@ -27,9 +27,22 @@ function addFeaturesOptions(character, newLevel, featuresOptions) {
             level: newLevel,
           });
         });
-      } else {
-        debugger;
-        throw new Error(`not handled`);
+      } else if (featureOption.isExpertises) {
+				// TODO: skillsProficiencies is an array of strings. we cannot add type / from like features :/
+				// TODO: rename to expertises?
+				if (!character.proficiencies) {
+					character.proficiencies = []
+				}
+				featureOption.expertises.forEach(e => character.proficiencies.push({
+					index: e,
+					type: "levelling",
+					sourceType: "levelling", // TODO: rename to type.
+					from: featureOption.featureIndex,
+					level: newLevel,
+				}))
+			} else {
+        // debugger;
+        // throw new Error(`not handled`);
       }
     });
   }
@@ -134,6 +147,27 @@ export function actionLevellingUpdateProficiencyBonus({ step }) {
 export function actionLevellingSacredOath({ step, selectedSubclass, featuresOptions }) {
 	return {
 		type: 'actionLevellingSacredOath',
+		apply: () => ({
+			step,
+			selectedSubclass,
+			featuresOptions,
+		}),
+		build: ({ character, newLevel }) => {
+			// TODO: add other settings
+			character.subclass = {
+				index: selectedSubclass.index,
+			}
+
+			addFeaturesOptions(character, newLevel, featuresOptions)
+
+			character.features = filterDuplicates(character.features, i => i.index)
+		}
+	}
+}
+
+export function actionLevellingBardCollege({ step, selectedSubclass, featuresOptions }) {
+	return {
+		type: 'actionLevellingBardCollege',
 		apply: () => ({
 			step,
 			selectedSubclass,

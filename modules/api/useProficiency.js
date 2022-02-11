@@ -12,7 +12,8 @@ export function formatProficiency(proficiency) {
 		...data,
 		type: data.type.toLowerCase(),
 		skill: isSkill 
-		// proficiency.index.replaceAll && to fix build on vercel
-			&& skills.find(s => s.index === proficiency?.index?.replaceAll ? proficiency.index.replaceAll("skill-", "") : proficiency?.index)
+			// proficiency.index.replaceAll && to fix build on vercel
+			&& skills.find(s => s.index === proficiency?.index?.replaceAll ? proficiency.index.replaceAll("skill-", "") : proficiency?.index),
+		skillIndex: isSkill && proficiency.index.replaceAll("skill-", ""),
 	}
 }

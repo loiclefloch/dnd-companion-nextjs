@@ -187,29 +187,17 @@ export function formatCharacter(character) {
 	// Proficiency Bonus to Saving Throws made using a particular ability score. 
 	// Some Monsters have saving throw Proficiencies as well.
 
-	function buildSavingThrow(ability) {
-		const isProeficient = character.classes[0].savingThrows.some(savingThrow => savingThrow.name === ability)
-		const value = character.stats[ability] + (isProeficient ? character.proficiencyBonus : 0)
-		return {
-			value,
-			modifier: valueToModifier(value),
-			modifierLabel: valueToModifierLabel(value),
-			isProeficient
-		}
-	}
-	character.savingThrows = {
-		STR: buildSavingThrow('STR'),
-		DEX: buildSavingThrow('DEX'),
-		CON: buildSavingThrow('CON'),
-		INT: buildSavingThrow('INT'),
-		WIS: buildSavingThrow('WIS'),
-		CHA: buildSavingThrow('CHA'),
-	}
+	character.proficiencies = uniqBy(character.proficiencies, proficiency => proficiency.index)
+		.map(formatProficiency)
+
+  character.skillsProficiencies = character.proficiencies
+    .filter(p => p.isSkill)
+    .map(p => p.skillIndex)
 
 	character.skills = skills.map(skillData => {
 		const ability = skillData.ability_score.name
 		const skill = skillData.index
-		const isProeficient = character.skillsProficiencies.some(s => skill === s)
+		const isProeficient = character.skillsProficiencies.includes(skill)
 
 		const value = character.stats[ability]
 		const modifier = valueToModifier(value) + (isProeficient ? character.proficiencyBonus : 0)
@@ -225,6 +213,7 @@ export function formatCharacter(character) {
 			modifier,
 		}
 	})
+
 
 
 	// 10 + Wisdom Score Modifier + Proficiency Bonus if proficiency in the Wisdom (Perception) skill
@@ -252,9 +241,26 @@ export function formatCharacter(character) {
 		}
 	})
 	character.traits = sortBy(character.traits, 'name')
+	
+	function buildSavingThrow(ability) {
+		const isProeficient = character.classes[0].savingThrows.some(savingThrow => savingThrow.name === ability)
+		const value = character.stats[ability] + (isProeficient ? character.proficiencyBonus : 0)
+		return {
+			value,
+			modifier: valueToModifier(value),
+			modifierLabel: valueToModifierLabel(value),
+			isProeficient
+		}
+	}
+	character.savingThrows = {
+		STR: buildSavingThrow('STR'),
+		DEX: buildSavingThrow('DEX'),
+		CON: buildSavingThrow('CON'),
+		INT: buildSavingThrow('INT'),
+		WIS: buildSavingThrow('WIS'),
+		CHA: buildSavingThrow('CHA'),
+	}
 
-	character.proficiencies = uniqBy(character.proficiencies, proficiency => proficiency.index)
-		.map(formatProficiency)
 
 	character.actionsEquipment = [
 		formatEquipmentItem(equipmentList.find(i => i.index === "unarmed-strike")),

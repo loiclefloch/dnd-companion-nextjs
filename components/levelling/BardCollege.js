@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { actionLevellingSacredOath } from "./action"
+import { useState, useEffect } from "react"
+import { actionLevellingBardCollege } from "./action"
 import features from "../../database/data/features"
 import ButtonBottomScreen from "../../components/ButtonBottomScreen"
 import useTipFeature from "../useTipFeature"
@@ -13,7 +13,7 @@ const View = {
 	LORE: 'LORE',
 }
 
-function Lore({ value = [], onChange }) {
+function Lore({ character, value = [], onChange }) {
 	const skillsResponse = useSkills() 
 
 	if (!skillsResponse.data) {
@@ -30,14 +30,16 @@ function Lore({ value = [], onChange }) {
 				multiple
 				value={value}
 				options={skills.map(skill => {
+					const proficiencyKey = `skill-${skill.index}`
 					return ({
 						label: (
 							<div className="flex">
 								{skill.name}
 							</div>
 						),
-						value: skill.index,
-						selected: value?.includes(skill.index),
+						disabled: character.proficiencies.some(s => s.index === proficiencyKey),
+						value: proficiencyKey,
+						selected: value?.includes(proficiencyKey),
 						rightView: (
 							<div
 								className="px-4 py-2 text-xs text-meta"
@@ -55,12 +57,22 @@ function Lore({ value = [], onChange }) {
 	)
 }
 
-function BardCollege({ clss, getBuildedCharacter, levellingData, step, levellingDispatch, stepLevellingState }) {
+function BardCollege({ 
+	clss, 
+	getBuildedCharacter, 
+	levellingData, 
+	step, 
+	levellingDispatch, 
+	clearStepLevellingState
+}) {
+	const character = getBuildedCharacter()
 	const [view, setView] = useState(View.SELECT_SUB_CLASS)
 	const [selectedSubclass, setSelectedSubclass] = useState(null)
-	const [featuresOption, setFeaturesOption] = useState(null)
+	const [expertises, setExpertises] = useState(null)
 
 	const subclassHasOptionToSelect = selectedSubclass?.index === "land"
+
+	useEffect(() => clearStepLevellingState(step), [])
 
 	return (
 		<div className="prose mt-8 mx-4">
@@ -94,24 +106,26 @@ function BardCollege({ clss, getBuildedCharacter, levellingData, step, levelling
 						Revenir
 					</div>
 					<Lore
-						value={featuresOption}
-						onChange={setFeaturesOption}
+						character={character}
+						value={expertises}
+						onChange={setExpertises}
 					/>
 				</div>
 			)}
 
 			<ButtonBottomScreen
 				variant="cta"
-				hide={!selectedSubclass || (subclassHasOptionToSelect && (view !== View.LORE || !featuresOption))}
+				hide={!selectedSubclass || (subclassHasOptionToSelect && (view !== View.LORE || !expertises))}
 				disabled={!selectedSubclass}
 				onClick={() => {
 					levellingDispatch(
-            actionLevellingSacredOath({
+            actionLevellingBardCollege({
               step,
               selectedSubclass,
-              featuresOptions: featuresOption && [
+              featuresOptions: expertises && [
                 {
-                  ...featuresOption,
+									isExpertises: true,
+                  expertises,
                   featureIndex: selectedSubclass.index,
                 },
               ],

@@ -6,7 +6,7 @@ import useCurrentCharacter from "./useCurrentCharacter"
 import { getLevellingDataForClassesAndLevel, getSpellsSlotsForCharacterLevel } from "../modules/levelling"
 import getLevellingSteps from "../modules/levelling/getLevellingSteps"
 import formatCharacter from "../modules/character/formatCharacter"
-import { updateObjectOrCreateOnArray } from "../modules/utils/array";
+import { updateObjectOrCreateOnArray, deleteObjectOnArray } from "../modules/utils/array";
 import { cloneDeep } from "lodash";
 
 import * as actions from "./levelling/action"
@@ -116,6 +116,15 @@ function useCharacterLevelling() {
     return character
   }
 
+  function clearStepLevellingState(step) {
+    const nextLevellingState = deleteObjectOnArray(
+      levellingState, 
+      s => s.step.name === step.name
+    )
+
+    updateLevellingState(nextLevellingState)
+  }
+
 	const context = {
     ...levellingContextData,
 
@@ -125,6 +134,7 @@ function useCharacterLevelling() {
 
     levellingDispatch,
     getBuildedCharacter,
+    clearStepLevellingState,
     getFormattedBuildedCharacter: () => {
       return formatCharacter(getBuildedCharacter())
     },

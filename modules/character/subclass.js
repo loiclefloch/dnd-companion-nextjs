@@ -16,7 +16,7 @@ export function getSpellsForCharacterSubclass(character) {
 	if (!character.subclass) {
 		return []
 	}
-	const spells = character.subclass.spells.map(spellData => {
+	const spells = (character.subclass.spells || []).map(spellData => {
 		const hasPrerequisites = calculateHasPrerequisites(character, spellData.prerequisites)
 		return hasPrerequisites ? spellData.spell : null
 	}).filter(Boolean)

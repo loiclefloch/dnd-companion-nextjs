@@ -144,14 +144,9 @@ function buildCharacter(characterParam) {
     sourceType: 'race', // TODO: or other?
   })
 
-  character.skillsProficiencies = character.proficiencies
-    .filter(p => p.index.startsWith("skill-"))
-    .map(p => p.index.replaceAll("skill-", ""))
-
     // TODO: after creating character we make it from level 0 to level 1! :)
   // getLevellingSteps(character, 1)
 
-  console.log(character)
   return cloneDeep(character)
 }
 

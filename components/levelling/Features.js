@@ -7,7 +7,7 @@ import ButtonBottomScreen from "../ButtonBottomScreen"
 import FeatureSpecificSelector from "./FeatureSpecificSelector"
 import { isEmpty } from "lodash"
 
-function Feature({ value = { type: '', }, onChange, index }) {
+function Feature({ character, value = { type: '', }, onChange, index }) {
 	const { tr } = useI18n()
 	const featureResponse = useFeature(index)
 
@@ -22,6 +22,7 @@ function Feature({ value = { type: '', }, onChange, index }) {
       {feature.featureSpecific && (
         <FeatureSpecificSelector
           feature={feature}
+					character={character}
           value={value}
           onChange={onChange}
         />
@@ -32,8 +33,9 @@ function Feature({ value = { type: '', }, onChange, index }) {
 
 
 // TODO: handle feature_specific: expertise_options or subfeature_options
-function Features({ levellingData, step, levellingDispatch }) {
+function Features({ getBuildedCharacter, levellingData, step, levellingDispatch }) {
 	const [featuresOptions, setFeaturesOptions] = useState({})
+	const character = getBuildedCharacter()
 
 	return (
 		<div className="prose mt-8 mx-4">
@@ -49,6 +51,7 @@ function Features({ levellingData, step, levellingDispatch }) {
 							...featuresOptions,
 							[index]: featureSpecificData
 						})}
+						character={character}
 					/>
 				))}
 			</div>
