@@ -3,7 +3,7 @@ import { createContext, useContext, useReducer, useEffect } from "react"
 import { CharacterStorage } from "../modules/db"
 import { getDefaultData } from "../components/useCurrentCharacter"
 
-import classes from '../database/data/classes.json'
+import classes from '../database/data/classes'
 import allRaces from "../database/data/allRaces"
 import backgrounds from "../database/data/backgrounds"
 import { formatRace } from "../modules/api/useRace"

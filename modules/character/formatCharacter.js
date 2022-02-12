@@ -3,7 +3,7 @@ import camelize from "../utils/camelize"
 import levels from "../../database/data/levels.json"
 import skills from "../../database/data/skills.json"
 import backgrounds from "../../database/data/backgrounds"
-import classes from '../../database/data/classes.json'
+import classes from '../../database/data/classes'
 import features from '../../database/data/features'
 import feats from '../../database/data/feats'
 import subclasses from '../../database/data/subclasses.json'
@@ -25,6 +25,7 @@ import { formatSubclass } from "../api/useSubclass"
 import { formatFeature } from "../api/useFeature"
 import { formatFeat } from "../api/useFeat"
 import applyFeaturesOnCharacter from "./applyFeaturesOnCharacter"
+import applyTraitsOnCharacter from "./applyTraitsOnCharacter"
 import getCharacterHasProficiencyForItem from "./getCharacterHasProficiencyForItem"
 
 function formatSpellsSlots(spellsSlots, spellsUsed) {
@@ -473,6 +474,7 @@ export function formatCharacter(character) {
 	character.features = sortBy(character.features, ['name'])
 
 	applyFeaturesOnCharacter(character)
+	applyTraitsOnCharacter(character)
 
 	if (!character.feats) {
     character.feats = [];

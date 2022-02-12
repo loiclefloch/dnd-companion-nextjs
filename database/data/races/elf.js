@@ -19,6 +19,7 @@ const elf = (api) => ({
 	"language_desc": "You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.",
 	"traits": [
 		api.buildTrait("darkvision"),
+		api.buildTrait("keen-senses"),
 		api.buildTrait("fey-ancestry"),
 		api.buildTrait("trance"),
 	],

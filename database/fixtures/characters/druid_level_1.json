@@ -23,6 +23,10 @@
       "sourceType": "race"
     },
     {
+      "index": "keen-senses",
+      "sourceType": "race"
+    },
+    {
       "index": "fey-ancestry",
       "sourceType": "race"
     },
@@ -35,7 +39,7 @@
       "sourceType": "race"
     },
     {
-      "index": "flee-of-foot",
+      "index": "fleet-of-foot",
       "sourceType": "race"
     },
     {

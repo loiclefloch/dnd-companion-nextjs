@@ -22,7 +22,7 @@ const highElf = api => ({
 	"language_options": null,
 	"traits": [
 		api.buildTrait("elf-weapon-training"),
-		api.buildTrait("flee-of-foot"),
+		api.buildTrait("fleet-of-foot"),
 		api.buildTrait("mask-of-the-wild"),
 	],
 })
