@@ -117,7 +117,15 @@ useLocalSearch.searchOptions = {
       'nameLocalized.en',
       'nameLocalized.fr',
     ]
-  }
+  },
+  feats: {
+    keys: [ // TODO:
+      'index',
+      'name',
+      'nameLocalized.en',
+      'nameLocalized.fr',
+    ]
+  },
 }
 
 export default useLocalSearch;

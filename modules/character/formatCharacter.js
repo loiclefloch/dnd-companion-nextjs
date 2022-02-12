@@ -26,6 +26,7 @@ import { formatFeature } from "../api/useFeature"
 import { formatFeat } from "../api/useFeat"
 import applyFeaturesOnCharacter from "./applyFeaturesOnCharacter"
 import applyTraitsOnCharacter from "./applyTraitsOnCharacter"
+import applyFeatsOnCharacter from "./applyFeatsOnCharacter"
 import getCharacterHasProficiencyForItem from "./getCharacterHasProficiencyForItem"
 
 function formatCurrencies(walletHistory) {
@@ -503,6 +504,7 @@ export function formatCharacter(character) {
 
 	applyFeaturesOnCharacter(character)
 	applyTraitsOnCharacter(character)
+	applyFeatsOnCharacter(character)
 
 	if (!character.feats) {
     character.feats = [];

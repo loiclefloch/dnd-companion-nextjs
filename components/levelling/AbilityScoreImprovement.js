@@ -77,6 +77,8 @@ function Feat({ step, character, levellingDispatch }) {
 			{/* TODO: learn more */}
 
 			{/* TODO: disabled feats already on character */}
+			{/* TODO: disable feats that cannot be used for the character */}
+			{/* TODO: some feats makes us select a +1 ability, we should display the option + save the data somewhere */}
 			<ListSelector
 				value={selectedFeat}
 				options={featsResponse.data?.map(feat => ({
