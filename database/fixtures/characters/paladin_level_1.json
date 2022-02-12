@@ -84,9 +84,6 @@
     ]
   },
   "spellsList": [],
-  "currencies": {
-    "gp": 15
-  },
   "equipment": [
     {
       "index": "shovel",

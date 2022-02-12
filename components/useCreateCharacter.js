@@ -1,3 +1,4 @@
+import uuid from "uuid";
 import { useRouter } from "next/router";
 import { createContext, useContext, useReducer, useEffect } from "react"
 import { CharacterStorage } from "../modules/db"
@@ -133,10 +134,30 @@ function buildCharacter(characterParam) {
   character.currentHitDice = character.maximumHitDice
   character.currentHp = character.maximumHp
 
-  const DEFAULT_CURRENCIES = {
-    gp: 15,
+  const ZERO_CURRENCIES = {
+    cp: 0,
+		sp: 0,
+		gp: 0,
+		ep: 0,
+		pp: 0,
   }
-  character.currencies = background.startingCurrencies || DEFAULT_CURRENCIES
+  
+  const startingCurrencies = background.startingCurrencies ? { ...ZERO_CURRENCIES, ...background.startingCurrencies } 
+    : {
+    ...ZERO_CURRENCIES,
+    gp: 15, // default: 15 GP
+  }
+
+  character.wallet = {
+    history: [
+      {
+        id: `${uuid()}`,
+        isAdd: true,
+        label: 'Porte-monnaie initial',
+        ...startingCurrencies
+      }
+    ]
+  }
 
   // add unarmed strike
   character.proficiencies.unshift({

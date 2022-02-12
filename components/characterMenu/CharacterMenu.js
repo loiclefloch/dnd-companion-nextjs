@@ -73,7 +73,7 @@ function CharacterMenu({ open }) {
 			href: '/character/spells',
 		},
 		{
-			label: 'Background',
+			label: 'Résumé',
 			href: '/character/background',
 		},
 	]

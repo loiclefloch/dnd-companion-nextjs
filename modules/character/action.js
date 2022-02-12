@@ -211,3 +211,39 @@ export function actionUnequip(item) {
 		}
 	}
 }
+
+export function actionWalletAddIncome(data) {
+	return {
+		type: 'actionWalletAddIncome',
+		apply: character => {
+			character.wallet.history.unshift({
+				id: uuid(),
+				isAdd: true,
+				label: data.label,
+				cp: parseInt(data.cp, 10) || 0,
+				sp: parseInt(data.sp, 10) || 0,
+				gp: parseInt(data.gp, 10) || 0,
+				ep: parseInt(data.ep, 10) || 0,
+				pp: parseInt(data.pp, 10) || 0,
+			})
+		}
+	}
+}
+
+export function actionWalletAddExpense(data) {
+	return {
+		type: 'actionWalletAddExpense',
+		apply: character => {
+			character.wallet.history.unshift({
+				id: uuid(),
+				isAdd: false,
+				label: data.label,
+				cp: parseInt(data.cp, 10) || 0,
+				sp: parseInt(data.sp, 10) || 0,
+				gp: parseInt(data.gp, 10) || 0,
+				ep: parseInt(data.ep, 10) || 0,
+				pp: parseInt(data.pp, 10) || 0,
+			})
+		}
+	}
+}

@@ -28,6 +28,34 @@ import applyFeaturesOnCharacter from "./applyFeaturesOnCharacter"
 import applyTraitsOnCharacter from "./applyTraitsOnCharacter"
 import getCharacterHasProficiencyForItem from "./getCharacterHasProficiencyForItem"
 
+function formatCurrencies(walletHistory) {
+	const currencies = {
+		cp: 0,
+		sp: 0,
+		gp: 0,
+		ep: 0,
+		pp: 0,
+	}
+
+	walletHistory.forEach(hist => {
+		if (hist.isAdd) {
+			currencies.cp += (hist.cp || 0)
+			currencies.sp += (hist.sp || 0)
+			currencies.gp += (hist.gp || 0)
+			currencies.ep += (hist.ep || 0)
+			currencies.pp += (hist.pp || 0)
+		} else {
+			currencies.cp -= (hist.cp || 0)
+			currencies.sp -= (hist.sp || 0)
+			currencies.gp -= (hist.gp || 0)
+			currencies.ep -= (hist.ep || 0)
+			currencies.pp -= (hist.pp || 0)
+		}
+	})
+
+	return currencies
+}
+
 function formatSpellsSlots(spellsSlots, spellsUsed) {
 	return spellsSlots?.map(slot => {
 		const usedSpells = spellsUsed.filter(s => s.spellLevel === slot.spellLevel)
@@ -483,6 +511,10 @@ export function formatCharacter(character) {
 		...formatFeat(feats.find((f) => f.index === feature.index)),
 		...feature,
 	}));
+	
+
+
+  character.wallet.currencies = formatCurrencies(character.wallet.history)
 
 	return character
 }

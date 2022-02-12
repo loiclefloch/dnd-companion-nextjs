@@ -51,7 +51,6 @@
     { "index": "find-steed", "isPrepared": true },
     { "index": "cure-wounds", "isPrepared": true }
   ],
-  "currencies": { "cp": 0, "sp": 0, "gp": 0, "ep": 0, "pp": 0 },
   "equipment": [
     { "index": "clothes-common", "quantity": 1 },
     { "index": "pouch", "quantity": 1 },

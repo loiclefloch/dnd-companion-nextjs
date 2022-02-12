@@ -7,6 +7,11 @@ import useI18n from "../../modules/i18n/useI18n"
 import Button from "../../components/Button"
 import IconMinus from "../../components/icons/IconMinus"
 import IconPlus from "../../components/icons/IconPlus"
+import useEditWallet from "../../components/useEditWallet"
+import {
+	actionWalletAddIncome,
+	actionWalletAddExpense,
+} from "../../modules/character/action"
 
 // TODO: put this on an help screen
 
@@ -81,10 +86,13 @@ import IconPlus from "../../components/icons/IconPlus"
 // blue-white diamond
 // jacinth
 
-function Currency({ label, value }) {
+function Currency({ label, name, value }) {
 	return (
 		<div className="flex flex-row px-4">
-			<div className="w-24 text-meta">{label}</div>
+			<div className="w-24 text-meta">
+				{label}
+				<span className="text-xs text-meta pl-1">({name})</span>
+			</div>
 			<div className="w-12 text-right">{value}</div>
 		</div>
 	)
@@ -94,13 +102,36 @@ function Currencies({ currencies }) {
 	const { tr } = useI18n()
 	return (
 		<div>
-			<Currency label={tr("Platinium")} value={currencies.pp} />
-			<Currency label={tr("Electrum")} value={currencies.ep} />
-			<Currency label={tr("Gold")}	value={currencies.gp} />
-			<Currency label={tr("Silver")} value={currencies.sp} />
-			<Currency label={tr("Copper")} value={currencies.cp} />
+			<Currency name="pp" label={tr("Platinium")} value={currencies.pp} />
+			<Currency name="ep" label={tr("Electrum")} value={currencies.ep} />
+			<Currency name="gp" label={tr("Gold")}	value={currencies.gp} />
+			<Currency name="sp" label={tr("Silver")} value={currencies.sp} />
+			<Currency name="cp" label={tr("Copper")} value={currencies.cp} />
 		</div>
 	)
+}
+
+
+function HistoryLabel({ history }) {
+	const currenciesNames = [
+		"cp",
+		"sp",
+		"gp",
+		"ep",
+		"pp",
+	].reverse()
+
+	return (
+		<span>
+			{currenciesNames.map(name => {
+				if (!history[name] || history[name] === 0) {
+					return null
+				}
+				return <span key={name} className="pl-1">{history[name]} {name.toUpperCase()}</span>
+			})}
+		</span>
+	)
+	
 }
 
 function HistoryLine({ history }) {
@@ -118,7 +149,7 @@ function HistoryLine({ history }) {
 						}
 					)}
 				>
-					{history.amountLabel}
+					<HistoryLabel history={history} />
 				</div>
 			</div>
 		</div>
@@ -126,7 +157,11 @@ function HistoryLine({ history }) {
 }
 
 function CharacterWallet() {
-	const { character } = useCurrentCharacter()
+	const { character, characterDispatch } = useCurrentCharacter()
+	const {
+		showAddWalletIncome,
+		showAddWalletExpense,
+	} = useEditWallet()
 
 	// define character on context
 	// automatic filtering for the character
@@ -141,14 +176,38 @@ function CharacterWallet() {
 			>
 				{character && <>
 					<div className="flex justify-between mt-2">
-						<Currencies currencies={character.currencies} />
+						<Currencies currencies={character.wallet.currencies} />
 
 						<div className="flex flex-col gap-2 mt-2 mr-4">
-							<Button variant="outlined" size="small" color="success" className="items-center w-10 h-10 rounded-full"><IconPlus  className="w-4 h-4" /></Button>
-							<Button variant="outlined" size="small" color="warning" className="items-center w-10 h-10 rounded-full"><IconMinus className="w-4 h-4" /></Button>
+							<Button 
+								variant="outlined" 
+								size="small" 
+								color="success" 
+								className="items-center w-10 h-10 rounded-full"
+								onClick={() => showAddWalletIncome({
+									onSubmit: (data) => {
+										characterDispatch(actionWalletAddIncome(data))
+									}
+								})}
+								>
+								<IconPlus  className="w-4 h-4" />
+							</Button>
+							<Button 
+								variant="outlined" 
+								size="small" 
+								color="warning" 
+								className="items-center w-10 h-10 rounded-full"
+								onClick={() => showAddWalletExpense({
+									onSubmit: (data) => {
+										characterDispatch(actionWalletAddExpense(data))
+									}
+								})}
+								>
+								<IconMinus className="w-4 h-4" />
+							</Button>
 						</div>
 					</div>
-					<div className="mt-4">
+					<div className="mt-8">
 						<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">Historique</h3>
 						<div className="mt-2 divide-y divide">
 							{character.wallet?.history?.map(history => (
