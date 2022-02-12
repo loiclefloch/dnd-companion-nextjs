@@ -117,6 +117,7 @@ function Content({
 							} 
 						/>
 						<LineInfo label="Perception passive" value={<span>{character.passivePerception}</span>} onClick={() => showTipPassivePerception()} />
+						<LineInfo label="Investigation passive" value={<span>{character.passiveInvestigation}</span>} onClick={() => showTipPassivePerception()} />
 						<LineInfo label="Spell DC" value={<span>{character.spellSaveDC}</span>} />
 						<LineInfo label="Spellcasing ability" value={<span><span className="text-xs text-meta">{character.spellcastingAbility}</span> {character.spellcastingAbilityValueLabel}</span>} />
 						<LineInfo label="Spell Attack bonus" value={<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>} />

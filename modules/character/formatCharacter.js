@@ -184,7 +184,7 @@ export function formatCharacter(character) {
 	if (process.env.NODE_ENV === 'development') {
 		character.feats = character.feats || []
 		// character.feats.push({
-		// 	index: 'mobile'
+		// 	index: 'observant'
 		// })
 	}
 
@@ -296,6 +296,9 @@ export function formatCharacter(character) {
 	const isProefficientInPerception = character.skills.find(s => s.index === "perception").isProeficient
 	character.passivePerception = 10 + valueToModifier(character.stats.WIS) + (isProefficientInPerception ? character.proficiencyBonus : 0)
 
+	const isProefficientInInvestigation = character.skills.find(s => s.index === "investigation").isProeficient
+	character.passiveInvestigation = 10 + valueToModifier(character.stats.INT) + (isProefficientInInvestigation ? character.proficiencyBonus : 0)
+
 	character.equipment = (character.equipment || []).map(item => {
 		return {
 			...equipmentList.find(i => i.index === item.index),
@@ -363,43 +366,7 @@ export function formatCharacter(character) {
 	// Natural Armor: 10 + your Dexterity modifier + your natural armor bonus. 
 	// This is a calculation method typically used only by monsters and NPCs, although it is also relevant 
 	// to a druid or another character who assumes a form that has natural armor.
-	const naturalAc = 10 + valueToModifier(character.stats.DEX)
-
-	// light armor
-	// Made from supple and thin materials, Light Armor favors agile Adventurers since it offers some 
-	// Protection without sacrificing mobility. If you wear Light Armor, you add your Dexterity 
-	// modifier to the base number from your armor type to determine your Armor Class.
-
-	
-	// TODO:
-	const armorEquipped = character.equipment.find(item => item.isArmor && item.isEquipped)
-	const shieldEquipped = character.equipment.find(item => item.isShield && item.isEquipped)
-
-	let armorAc = armorEquipped?.armorClass?.base ?? 0
-	if (armorEquipped?.armorClass?.dexBonus) { // == light armor
-		armorAc += valueToModifier(character.stats.DEX)
-	}
-
-	let shieldAc = shieldEquipped?.armorClass?.base ?? 0
-	if (shieldEquipped?.armorClass?.dexBonus) { // == light armor
-		shieldAc += valueToModifier(character.stats.DEX)
-	}
-
-	const hasArmorEquipped = !!armorEquipped
-	const hasShieldEquipped = !!shieldEquipped
-
-	character.hasArmorEquipped = hasArmorEquipped
-	character.hasShieldEquipped = hasShieldEquipped
-
-	character.armorEquipped = armorEquipped
-	character.shieldEquipped = shieldEquipped
-
-	character.ac = {
-		natural: naturalAc,
-		armor: armorAc,
-		shield: shieldAc,
-		total: (hasArmorEquipped ? armorAc : naturalAc) + (hasShieldEquipped ? shieldAc : 0)
-	}
+	character.naturalAc = 10 + valueToModifier(character.stats.DEX)
 
 	// Your class gives you proficiency with certain types of armor. If you wear armor that you lack 
 	// proficiency with, you have disadvantage on any ability check, saving throw, or Attack roll that
@@ -491,10 +458,20 @@ export function formatCharacter(character) {
 
   character.wallet.currencies = formatCurrencies(character.wallet.history)
 
+	//
+	//
+	//
 	applyFeaturesOnCharacter(character)
 	applyTraitsOnCharacter(character)
 	// must be before spellsList, since it can add some spells
 	applyFeatsOnCharacter(character)
+	//
+	//
+	//
+
+	// We must put the following after apply* methods, because they modify the character base data to
+	// be used on the following (ex: naturalAc / speed / initiative)
+	// TODO: spells will be added on character level-up, so it is not mandatory to format spells here
 
 	character.spellsList = [
 		...(character.spellsList || []),
@@ -524,6 +501,41 @@ export function formatCharacter(character) {
 		character.spellsSlots, 
 		character.spellsUsed
 	)
+	
+	// light armor
+	// Made from supple and thin materials, Light Armor favors agile Adventurers since it offers some 
+	// Protection without sacrificing mobility. If you wear Light Armor, you add your Dexterity 
+	// modifier to the base number from your armor type to determine your Armor Class.
+
+	// TODO:
+	const armorEquipped = character.equipment.find(item => item.isArmor && item.isEquipped)
+	const shieldEquipped = character.equipment.find(item => item.isShield && item.isEquipped)
+
+	let armorAc = armorEquipped?.armorClass?.base ?? 0
+	if (armorEquipped?.armorClass?.dexBonus) { // == light armor
+		armorAc += valueToModifier(character.stats.DEX)
+	}
+
+	let shieldAc = shieldEquipped?.armorClass?.base ?? 0
+	if (shieldEquipped?.armorClass?.dexBonus) { // == light armor
+		shieldAc += valueToModifier(character.stats.DEX)
+	}
+
+	const hasArmorEquipped = !!armorEquipped
+	const hasShieldEquipped = !!shieldEquipped
+
+	character.hasArmorEquipped = hasArmorEquipped
+	character.hasShieldEquipped = hasShieldEquipped
+
+	character.armorEquipped = armorEquipped
+	character.shieldEquipped = shieldEquipped
+
+	character.ac = {
+		natural: character.naturalAc,
+		armor: armorAc,
+		shield: shieldAc,
+		total: (hasArmorEquipped ? armorAc : character.naturalAc) + (hasShieldEquipped ? shieldAc : 0)
+	}
 	
 
 	return character
