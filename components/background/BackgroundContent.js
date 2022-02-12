@@ -39,13 +39,17 @@ function Content({ index }) {
 				</LineInfo.Parent>
 			</Section>
 
-			{background.features.map((feature, index) => (
-				<Section key={index} title={`Feature ${feature.name}`}>
-					<p>{tr(feature.desc)}</p>
-				</Section>
-			))}
+			<Section title="Features" withToggle>
+				{background.features.map((feature, index) => (
+					<div key={index} className="prose mb-4">
+						<h3>{feature.name}</h3>
+						<p>{tr(feature.desc)}</p>
+					</div>
+				))}
 
-			<Section title="starting_proficiencies">
+			</Section>
+
+			<Section title="starting_proficiencies" withToggle>
 				<LineInfo.Parent>
 
 					{background.startingProficiencies.map(proficiency => (
@@ -61,7 +65,7 @@ function Content({ index }) {
 
 
 			{background.startingProficiencyOptions && (
-				<Section title="starting_proficiencies options">
+				<Section title="starting_proficiencies options" withToggle>
 					<h4>Choisir {background.startingProficiencyOptions.choose}</h4>
 					<LineInfo.Parent>
 						{background.startingProficiencyOptions.from.map((proficiency) => (
@@ -75,7 +79,7 @@ function Content({ index }) {
 				</Section>
 			)}
 
-			<Section title="starting_equipment">
+			<Section title="starting_equipment" withToggle>
 				<LineInfo.Parent>
 					{background.startingEquipment.map(item => (
 						<LineInfo 
@@ -89,13 +93,13 @@ function Content({ index }) {
 			</Section>
 
 			{background.startingEquipmentOptions && (
-				<Section title="starting_equipment options">
+				<Section title="starting_equipment options" withToggle>
 					<StartingEquipmentOptionsDetail startingEquipmentOptions={background.startingEquipmentOptions} />
 				</Section>
 			)}
 
 			{background.languageOptions && (
-				<Section title="Languages options">
+				<Section title="Languages options" withToggle>
 					<h4>Choisir {background.languageOptions.choose}</h4>
 					<LineInfo.Parent>
 						{background.languageOptions.from.map((language) => (
@@ -110,7 +114,7 @@ function Content({ index }) {
 				</Section>
 			)}
 
-			<Section title="personality_traits">
+			<Section title="personality_traits" withToggle>
 				<LineInfo.Parent>
 					{background.personalityTraits.from.map((trait, index) => (
 						<LineInfo key={index} label={<span>{index + 1} - {trait}</span>}  />
@@ -118,7 +122,7 @@ function Content({ index }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="ideals">
+			<Section title="ideals" withToggle>
 				<LineInfo.Parent>
 					{background.ideals.from.map((trait, index) => (
 						<LineInfo 
@@ -129,7 +133,7 @@ function Content({ index }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="bonds">
+			<Section title="bonds" withToggle>
 				<LineInfo.Parent>
 					{background.bonds.from.map((trait, index) => (
 						<LineInfo key={index} label={<span>{index + 1} - {trait}</span>}  />
@@ -137,7 +141,7 @@ function Content({ index }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="flaws">
+			<Section title="flaws" withToggle>
 				<LineInfo.Parent>
 					{background.flaws.from.map((trait, index) => (
 						<LineInfo key={index} label={<span>{index + 1} - {trait}</span>}  />

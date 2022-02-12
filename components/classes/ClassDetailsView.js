@@ -50,7 +50,7 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="starting Equipment">
+			<Section title="starting Equipment" withToggle>
 				<LineInfo.Parent>
 					{clss.startingEquipment.map(item => (
 						<LineInfo 
@@ -64,7 +64,7 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 			</Section>
 
 			{!hideStartingEquipmentOptions && clss.startingEquipmentOptions && (
-				<Section title="starting_equipment options">
+				<Section title="starting_equipment options" withToggle>
 					<EquipmentOptionsChooser.Demo
 						options={clss.startingEquipmentOptions}
 						prefix="class_"
@@ -74,20 +74,22 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 
 
 			{/* // TODO: spellcasting */}
-			<Section title="spellcasting">
-				<LineInfo.Parent>
+			{clss.spellcasting && (
+				<Section title="spellcasting" withToggle>
+					<LineInfo.Parent>
 
-					{clss.spellcasting?.info?.map((info, index) => (
-						<LineInfo.Paragraph
-							key={index}
-							label={info.name}
-							value={info.desc}
-						/>
-					))}
-				</LineInfo.Parent>
-			</Section>
+						{clss.spellcasting?.info?.map((info, index) => (
+							<LineInfo.Paragraph
+								key={index}
+								label={info.name}
+								value={info.desc}
+							/>
+						))}
+					</LineInfo.Parent>
+				</Section>
+			)}
 
-			<Section title="subclasses">
+			<Section title="subclasses" withToggle>
 				{clss.subclasses.length === 0 && (
 					<p>
 						Aucune
@@ -107,7 +109,7 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="multiClassing - prérequis">
+			<Section title="multiClassing - prérequis" withToggle>
 				{clss.multiClassing?.prerequisites?.length === 0 && (
 					<p>
 						Aucune
@@ -126,7 +128,7 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="multiClassing - proficiencies">
+			<Section title="multiClassing - proficiencies" withToggle>
 				{clss.multiClassing?.proficiencies?.length === 0 && (
 					<p>
 						Aucune
