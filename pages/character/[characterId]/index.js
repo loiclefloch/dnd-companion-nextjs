@@ -104,6 +104,8 @@ function Content({
 
 				<Section title="Caractéristiques">
 					<LineInfo.Parent>
+						{/* TODO: roll initiative */}
+						<LineInfo label="Initiative" value={character.initiative} />
 						<LineInfo label="Maîtrise" value={<span>+{character.proficiencyBonus}</span>} />
 						<LineInfo 
 							label="Vitesse" 

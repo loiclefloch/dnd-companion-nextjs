@@ -253,6 +253,7 @@ function GlobalSection({ character }) {
 
 				<LineInfo label="Niveau" value={character.level} />
 				<LineInfo label="HP" value={character.maximumHp} />
+				<LineInfo label="Initiative" value={character.initiative} />
 				<LineInfo label="Natural AC" value={character.ac.natural} />
 				<LineInfo label="Armor AC" value={character.ac.armor} />
 				<LineInfo label="Shield AC" value={character.ac.shield} />

@@ -181,7 +181,14 @@ export function formatCharacter(character) {
 		return null
 	}
 
-	character.currentHp = character.currentHp
+	if (process.env.NODE_ENV === 'development') {
+		character.feats = character.feats || []
+		// character.feats.push({
+		// 	index: 'mobile'
+		// })
+	}
+
+	character.currentHp = character.currentHp || character.maxHp
 
 	character.isKo = character.currentHp < 0
 
@@ -204,8 +211,6 @@ export function formatCharacter(character) {
 
 	character.background = backgrounds.find(b => b.index === character.background)
 
-	// TODO:
-	character.statsDetail = []
 	character.alignment = alignments.find(a => a.index === character.alignment)
 
 	character.spellcasting = { ... (levellingData.spellcasting || {}), ...(clss.spellcasting || {}) }
@@ -213,35 +218,6 @@ export function formatCharacter(character) {
 	character.spellcastingAbilityValue = valueToModifier(character.stats[character.spellcastingAbility] || 0)
 	character.spellcastingAbilityValueLabel = modifierToModifierLabel(character.spellcastingAbilityValue)
 
-	character.spellsList = [
-		...(character.spellsList || []),
-		...(character.subclass ? getSpellsForCharacterSubclass(character) : [])
-	].map(spell => {
-		return {
-			...formatSpell(spells.find(s => s.index === spell.index)),
-			...spell
-		}
-	})
-
-	character.spellsUsed = (character.spellsUsed || []).map(spellUsed => {
-		return {
-			...formatSpell(spells.find(s => s.index === spellUsed.index)),
-			...spellUsed, // spellLevel
-		}
-	})
-
-	// // TODO: remove
-	// if (!character.spellsSlots) {
-	// 	character.spellsSlots = getSpellsSlotsForCharacterLevel(
-	// 		character.classes, 
-	// 		character.level
-	// 	)
-	// }
-	character.spellsSlots = formatSpellsSlots(
-		character.spellsSlots, 
-		character.spellsUsed
-	)
-	
 	formatLevelling(character.levelling, character.level)
 
 	const maxSpellLevel = Math.max(...Object.keys(levellingData.slots))
@@ -312,6 +288,8 @@ export function formatCharacter(character) {
 		}
 	})
 
+
+	character.initiative = valueToModifier(character.stats.DEX)
 
 
 	// 10 + Wisdom Score Modifier + Proficiency Bonus if proficiency in the Wisdom (Perception) skill
@@ -502,21 +480,51 @@ export function formatCharacter(character) {
   });
 	character.features = sortBy(character.features, ['name'])
 
-	applyFeaturesOnCharacter(character)
-	applyTraitsOnCharacter(character)
-	applyFeatsOnCharacter(character)
-
 	if (!character.feats) {
     character.feats = [];
   }
-	character.feats = character.feats.map((feature) => ({
-		...formatFeat(feats.find((f) => f.index === feature.index)),
-		...feature,
+	character.feats = character.feats.map((feat) => ({
+		...formatFeat(feats.find((f) => f.index === feat.index)),
+		...feat,
 	}));
 	
 
-
   character.wallet.currencies = formatCurrencies(character.wallet.history)
+
+	applyFeaturesOnCharacter(character)
+	applyTraitsOnCharacter(character)
+	// must be before spellsList, since it can add some spells
+	applyFeatsOnCharacter(character)
+
+	character.spellsList = [
+		...(character.spellsList || []),
+		...(character.subclass ? getSpellsForCharacterSubclass(character) : [])
+	].map(spell => {
+		return {
+			...formatSpell(spells.find(s => s.index === spell.index)),
+			...spell
+		}
+	})
+
+	character.spellsUsed = (character.spellsUsed || []).map(spellUsed => {
+		return {
+			...formatSpell(spells.find(s => s.index === spellUsed.index)),
+			...spellUsed, // spellLevel
+		}
+	})
+
+	// // TODO: remove
+	// if (!character.spellsSlots) {
+	// 	character.spellsSlots = getSpellsSlotsForCharacterLevel(
+	// 		character.classes, 
+	// 		character.level
+	// 	)
+	// }
+	character.spellsSlots = formatSpellsSlots(
+		character.spellsSlots, 
+		character.spellsUsed
+	)
+	
 
 	return character
 }

@@ -24,7 +24,26 @@ const feats = [
 	{
 		index:  "athlete",
 		"name": "Athlete",
-		"resume": "+1 in Str. or Dex., you stand up and climb more quickly, and you can jump with only a 5-ft run."
+		"resume": "+1 in Str. or Dex., you stand up and climb more quickly, and you can jump with only a 5-ft run.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				}
+			]
+		}
 	},
 	{
 
@@ -49,7 +68,26 @@ const feats = [
 	{
 		index:  "chef",
 		"name": "Chef",
-		"resume": "+1 in Con. or Wis., proficiency with cook's utensils and cook special food to regain hp."
+		"resume": "+1 in Con. or Wis., proficiency with cook's utensils and cook special food to regain hp.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "con",
+						name: "CON"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "wis",
+						name: "WIS"
+					},
+					amount: 1
+				}
+			]
+		}
 	},
 	{
 		index:  "crossbow-expert",
@@ -59,7 +97,26 @@ const feats = [
 	{
 		index:  "crusher",
 		"name": "Crusher",
-		"resume": "+1 in Str. or Con., 5 ft extra move when you hit (bludgeoning) and attacks with advantage after a critical hit."
+		"resume": "+1 in Str. or Con., 5 ft extra move when you hit (bludgeoning) and attacks with advantage after a critical hit.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "con",
+						name: "CON"
+					},
+					amount: 1
+				}
+			]
+		}
 	},
 	{
 
@@ -92,6 +149,32 @@ const feats = [
 				}
 			},
 		],
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "con",
+						name: "CON"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				}
+			]
+		}
 	},
 	{
 		index:  "dragon-hide",
@@ -106,6 +189,32 @@ const feats = [
 				}
 			},
 		],
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "con",
+						name: "CON"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				}
+			]
+		}
 	},
 	{
 		index:  "drow-high-magic",
@@ -181,7 +290,40 @@ const feats = [
 				}
 			},
 		],
-		"resume": "+1 in Dex., Int., Wis., or Cha., and you can reroll one attack roll if you have advantage."
+		"resume": "+1 in Dex., Int., Wis., or Cha., and you can reroll one attack roll if you have advantage.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "int",
+						name: "INT"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "wis",
+						name: "WIS"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "fade-away",
@@ -195,7 +337,26 @@ const feats = [
 				}
 			},
 		],
-		"resume": "+1 in Dex. or Int., and you can use your reaction to become invisible if you take damage."
+		"resume": "+1 in Dex. or Int., and you can use your reaction to become invisible if you take damage.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "int",
+						name: "INT"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "fey-teleportation",
@@ -210,11 +371,56 @@ const feats = [
 				}
 			},
 		],
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "int",
+						name: "INT"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "fey-touched",
 		"name": "Fey Touched",
-		"resume": "+1 in Int., Wis., or Cha., and you learn misty step and one 1st-level spell from divination or enchantment school."
+		"resume": "+1 in Int., Wis., or Cha., and you learn misty step and one 1st-level spell from divination or enchantment school.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "int",
+						name: "INT"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "wis",
+						name: "WIS"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "fighting-initiate",
@@ -234,7 +440,26 @@ const feats = [
 				}
 			},
 		],
-		"resume": "+1 in Int. or Cha., reroll any 1 on fire spell damage, and cause flames to wreathe you if you cast a fire spell."
+		"resume": "+1 in Int. or Cha., reroll any 1 on fire spell damage, and cause flames to wreathe you if you cast a fire spell.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "int",
+						name: "INT"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "grappler",
@@ -333,7 +558,26 @@ const feats = [
 	{
 		index:  "lightly-armored",
 		"name": "Lightly Armored",
-		"resume": "+1 in Str. or Dex. and you gain profociency with light armor."
+		"resume": "+1 in Str. or Dex. and you gain profociency with light armor.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "linguist",
@@ -363,7 +607,7 @@ const feats = [
 	{
 		index:  "medium-armor-master",
 		"name": "Medium Armor Master",
-		"resume": "Proficiency with medium armor	No disadvantage to Stealth checks wearing medium armor and Dexterity bonus max to +3 instead of +2.",
+		"resume": "No disadvantage to Stealth checks wearing medium armor and Dexterity bonus max to +3 instead of +2.",
 		prerequisites: [
 			{
 				"type": "proficiency",
@@ -372,7 +616,7 @@ const feats = [
 					"name": "Medium Armor"
 				}
 			}
-		]
+		],
 	},
 	{
 		index:  "metamagic-adept",
@@ -388,7 +632,35 @@ const feats = [
 	{
 		index:  "moderately-armored",
 		"name": "Moderately Armored",
-		"resume": "Proficiency with light armor	+1 in Str. or Dex. and you gain proficiency with medium armor and shields."
+		"resume": "+1 in Str. or Dex. and you gain proficiency with medium armor and shields.",
+		prerequisites: [
+			{
+				"type": "proficiency",
+				proficiency: {
+					"index": "light-armor",
+					"name": "Light Armor"
+				}
+			}
+		],
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "mounted-combatant",
@@ -398,12 +670,31 @@ const feats = [
 	{
 		index:  "observant",
 		"name": "Observant",
-		"resume": "+1 in Int. or Wis., you can read on lips, and you have a +5 bonus in passive Perception and passive Investigation."
+		"resume": "+1 in Int. or Wis., you can read on lips, and you have a +5 bonus in passive Perception and passive Investigation.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "int",
+						name: "INT"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "wis",
+						name: "WIS"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "orcish",
 		"name": "Orcish",
-		"resume": "Fury	Half-orc	+1 in Str. or Con., add one of the weapon's damage dice, and use a reaction to attack after using Relentless Endurance.",
+		"resume": "+1 in Str. or Con., add one of the weapon's damage dice, and use a reaction to attack after using Relentless Endurance.",
 		prerequisites: [
 			{
 				type: "race",
@@ -413,11 +704,49 @@ const feats = [
 				}
 			},
 		],
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "con",
+						name: "CON"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "piercer",
 		"name": "Piercer",
-		"resume": "+1 in Str. or Dex., reroll one damage dice when you hit (piercing) and one additional damage dice in case of critical hit."
+		"resume": "+1 in Str. or Dex., reroll one damage dice when you hit (piercing) and one additional damage dice in case of critical hit.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "poisoner",
@@ -432,7 +761,7 @@ const feats = [
 	{
 		index:  "prodigy",
 		"name": "Prodigy",
-		"resume": "Half-elf, half-orc, or human	You gain proficiency with one skill, one tool or one language, and you gain expertise with one skill.",
+		"resume": "You gain proficiency with one skill, one tool or one language, and you gain expertise with one skill.",
 		prerequisites: [
 			{
 				type: "race",
@@ -460,7 +789,54 @@ const feats = [
 	{
 		index:  "resilient",
 		"name": "Resilient",
-		"resume": "+1 in one ability and you gain proficiency in saving throws using this ability."
+		"resume": "+1 in one ability and you gain proficiency in saving throws using this ability.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "con",
+						name: "CON"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "int",
+						name: "INT"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "wis",
+						name: "WIS"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "ritual-caster",
@@ -486,6 +862,32 @@ const feats = [
 				}
 			},
 		],
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "con",
+						name: "CON"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "sentinel",
@@ -495,7 +897,33 @@ const feats = [
 	{
 		index:  "shadow-touched",
 		"name": "Shadow Touched",
-		"resume": "+1 in Int., Wis., or Cha., and you learn invisibility and one 1st-level spell from illusion or necromancy school."
+		"resume": "+1 in Int., Wis., or Cha., and you learn invisibility and one 1st-level spell from illusion or necromancy school.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "int",
+						name: "INT"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "wis",
+						name: "WIS"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "sharpshooter",
@@ -510,12 +938,59 @@ const feats = [
 	{
 		index:  "skill-expert",
 		"name": "Skill Expert",
-		"resume": "+1 in one ability, proficiency in one skill and expertise in one other in which you have proficiency."
+		"resume": "+1 in one ability, proficiency in one skill and expertise in one other in which you have proficiency.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "con",
+						name: "CON"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "int",
+						name: "INT"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "wis",
+						name: "WIS"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "skilled",
 		"name": "Skilled",
-		"resume": "You gain proliciency with three skills or tools."
+		"resume": "You gain proficiency with three skills or tools."
 	},
 	{
 		index:  "skulker",
@@ -536,7 +1011,26 @@ const feats = [
 	{
 		index:  "slasher",
 		"name": "Slasher",
-		"resume": "+1 in Str. or Dex., reduce target's speed by 10 ft when you hit (slashing) and target has disadvantage on attacks rolls."
+		"resume": "+1 in Str. or Dex., reduce target's speed by 10 ft when you hit (slashing) and target has disadvantage on attacks rolls.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "spell-sniper",
@@ -548,22 +1042,112 @@ const feats = [
 		index:  "squat-nimbleness",
 		"name": "Squat Nimbleness",
 		prerequisitesLabel: "Dwarf or a Small race",
-		"resume": "+1 in Str. or Dex., your speed increases by 5 ft, and proficiency and advantage to escape with Acrobatics or Athletics checks."
+		"resume": "+1 in Str. or Dex., your speed increases by 5 ft, and proficiency and advantage to escape with Acrobatics or Athletics checks.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "tavern-brawler",
 		"name": "Tavern Brawler",
-		"resume": "+1 in Str. or Con., proficiency with improvised weapons, d4 for unarmed strike, and grapple with a bonus action."
+		"resume": "+1 in Str. or Con., proficiency with improvised weapons, d4 for unarmed strike, and grapple with a bonus action.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "con",
+						name: "CON"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "telekinetic",
 		"name": "Telekinetic",
-		"resume": "+1 in Int., Wis., or Cha., you learn mage hand and you can try to telekinetically shove one creature (5 ft)."
+		"resume": "+1 in Int., Wis., or Cha., you learn mage hand and you can try to telekinetically shove one creature (5 ft).",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "int",
+						name: "INT"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "wis",
+						name: "WIS"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "telepathic",
 		"name": "Telepathic",
-		"resume": "+1 in Int., Wis., or Cha., you can cast detect thoughts and you can speak telepathically to any creature within 60 ft."
+		"resume": "+1 in Int., Wis., or Cha., you can cast detect thoughts and you can speak telepathically to any creature within 60 ft.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "int",
+						name: "INT"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "wis",
+						name: "WIS"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "cha",
+						name: "CHA"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "tough",
@@ -579,7 +1163,26 @@ const feats = [
 	{
 		index:  "weapon-master",
 		"name": "Weapon Master",
-		"resume": "+1 in Str. or Dex. and you gain proficiency with four weapons."
+		"resume": "+1 in Str. or Dex. and you gain proficiency with four weapons.",
+		"ability_option": {
+			choose: 1,
+			from: [
+				{
+					ability: {
+						index: "str",
+						name: "STR"
+					},
+					amount: 1
+				},
+				{
+					ability: {
+						index: "dex",
+						name: "DEX"
+					},
+					amount: 1
+				},
+			]
+		}
 	},
 	{
 		index:  "wood-elf-magic",

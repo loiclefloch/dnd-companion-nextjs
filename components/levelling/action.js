@@ -1,7 +1,6 @@
 import { map } from "lodash"
-import {
-	filterDuplicates
-} from "../../modules/utils/array"
+import { filterDuplicates } from "../../modules/utils/array"
+// import applyFeatOnCharacterOnFeatAdded from "../applyFeatOnCharacterOnFeatAdded"
 
 export function actionLevellingStart({ step }) {
 	return {
@@ -117,6 +116,7 @@ export function actionLevellingAbilityScoreImprovement({ step, type, scoreDiff, 
 					character.feats = []
 				}
 				character.feats.push({ index: feat.index, level: newLevel })
+				// applyFeatOnCharacterOnFeatAdded(character, feat.index)
 			} else if (type === 'score') {
 				map(scoreDiff, (bonus, ability) => {
 					if (bonus > 0) {
