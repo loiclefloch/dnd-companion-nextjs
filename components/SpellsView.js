@@ -13,7 +13,6 @@ import Tag from "../components/Tag"
 import IconBookOpen from "../components/icons/IconBookOpen"
 import IconMagicSchool from "../components/icons/IconMagicSchool"
 import CharacterSpellTag from "./CharacterSpellTag";
-import Text from "../components/elem/Text"
 import useLocalSearch from "../components/useLocalSearch"
 import InputSearch from "../components/InputSearch"
 
@@ -27,7 +26,7 @@ function SpellFilters({ spell, filters }) {
           color="slate"
           size="small"
         >
-          {data.label && <Text className="text-xs lowercase">{data.label}: </Text>}<Text>{data.value}</Text>
+          {data.label && <span className="text-xs lowercase">{data.label}: </span>}<span>{data.value}</span>
         </Tag>
       ))}
     </div>
@@ -63,10 +62,10 @@ function Spell({ spell, filters, character /*onSelect*/ }) {
               className="h-6 w-7 text-slate-700"
 
             /> */}
-                <Text>{tr(spell.nameLocalized)}</Text>
+                <p>{tr(spell.nameLocalized)}</p>
               </span>
               <div className="text-sm text-meta">
-                <Text>{spell.type}</Text>
+                <p>{spell.type}</p>
               </div>
             </div>
 
