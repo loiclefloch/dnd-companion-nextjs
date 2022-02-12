@@ -1,10 +1,9 @@
 import Link from "next/link"
-import Text from "../../components/elem/Text"
 import Screen from "../../components/Screen"
 import IconAcademicCap from "../../components/icons/IconAcademicCap"
 import useRules from "../../modules/api/useRules";
 
-function Section({ title, subItems }) {
+function RuleSection({ title, subItems }) {
 	return (
 		<div>
 			<Text>{title}</Text>
@@ -39,7 +38,7 @@ function Rules() {
 		>
 			<div className="flex flex-col gap-2 p-4" data-cy-id="spells-list">
 
-				<Section 
+				<RuleSection 
 					title="Introduction"
 					subItems={[
 						<SubItem 
@@ -66,7 +65,7 @@ function Rules() {
 				/>
 
 				{/* TODO: create those rules*/}
-				<Section
+				<RuleSection
 					title="Personnality and background"
 					subItems={[
 						<SubItem 
@@ -89,7 +88,7 @@ function Rules() {
 
 
 				{rulesResponse.data?.map(section => (
-					<Section
+					<RuleSection
 						key={section.index}
 						title={section.name}
 						subItems={section.subsections.map(subsection => (

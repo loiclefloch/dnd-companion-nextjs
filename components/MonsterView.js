@@ -8,17 +8,7 @@ import Image from "./Image"
 import Gallery from "./Gallery"
 import { useGalleryFullScreenAsModal } from "./GalleryFullScreenAsModal"
 import useDice from "./useDice";
-
-function Section({ title, children }) {
-  return (
-    <div className="mt-4">
-      <div className="text-lg font-semibold width-full border-b border-solid border-gray-600 border-opacity-10 mb-2 pb-0.5">
-        {title}
-      </div>
-      <div className="whitespace-pre-wrap text-md">{children}</div>
-    </div>
-  )
-}
+import Section from "./Section"
 
 function MonsterView({ monster }) {
   const { tr, isDefaultLang, trDefaultLang } = useI18n();
@@ -179,7 +169,7 @@ function MonsterView({ monster }) {
 
           {tr(monster.desc) && (
             <div className="mt-4">
-              <Section title="Description">
+              <Section title="Description" withToggle>
                <HtmlContent html={tr(monster.desc)} />
               </Section>
             </div>
@@ -187,26 +177,26 @@ function MonsterView({ monster }) {
 
           {monster.ecology && (
             <div className="mt-4">
-              <Section title="Écologie">
+              <Section title="Écologie" withToggle>
                 {tr(monster.ecology)}
               </Section>
             </div>
           )}
 
           <div className="mt-4">
-            <Section title="Traits">
+            <Section title="Traits" withToggle>
              <HtmlContent html={tr(monster.traits)}/>
             </Section>
           </div>
 
           <div className="mt-4">
-            <Section title="Actions">
+            <Section title="Actions" withToggle>
              <HtmlContent html={tr(monster.actions)}/>
             </Section>
           </div>
 
           {monster.legendaryActions && (
-            <Section title="Legendary actions">
+            <Section title="Legendary actions" withToggle>
               <HtmlContent html={tr(monster.legendaryActions)} />
             </Section>
           )}
