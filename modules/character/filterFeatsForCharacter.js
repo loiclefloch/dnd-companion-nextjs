@@ -2,13 +2,13 @@ function filter(character, feat) {
 
 	if (feat.forRace) {
 		return feat.prerequisites.some(prerequisite => {
-			return prerequisite.class.index === character.classes[0].index
+			return prerequisite.race.index === character.race.index
 		})
 	}
 
 	if (feat.forAbilityScore) {
 		return feat.prerequisites.some(prerequisite => {
-			const abilityScore = character.abilities[prerequisite.abilityScore.name]
+			const abilityScore = character.stats[prerequisite.abilityScore.name]
 			return abilityScore >= prerequisite.minimumScore
 		})
 	}
@@ -22,7 +22,7 @@ function filter(character, feat) {
 	return true
 }
 
-function filterFeatsForCharacter(character, feats) {
+function filterFeatsForCharacter(feats, character) {
 	return feats?.filter(feat => filter(character, feat))
 }
 

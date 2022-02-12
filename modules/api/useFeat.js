@@ -1,3 +1,4 @@
+import { isEmpty } from 'lodash'
 import feats from '../../database/data/feats'
 import useData from "./useData"
 
@@ -19,7 +20,9 @@ export function formatFeat(feat) {
   feat.forRace = prerequisites.some(p => p.type === 'race')
   feat.forAbilityScore = prerequisites.some(p => p.type === 'abilityScore')
   feat.forProficiency = prerequisites.some(p => p.type === 'proficiency')
-  feat.forOther = !!feat.prerequisitesLabel
+  feat.forOther = !isEmpty(feat.prerequisitesLabel)
+
+  feat.hasPrerequisites = feat.forRace || feat.forAbilityScore || feat.forProficiency || feat.forOther
 
   return feat
 }

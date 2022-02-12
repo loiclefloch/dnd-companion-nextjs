@@ -36,9 +36,9 @@ function ListSelectorRow({
 	)
 }
 
-function ListSelector({ value, options, onChange, multiple = false, nbMaxValues = null }) {
+function ListSelector({ value, options, onChange, multiple = false, nbMaxValues = null, className }) {
 	return (
-		<div className="relative w-full gap-2 px-2 divide-y divider">
+		<div className={clsx("relative w-full gap-2 px-2 divide-y divider", className)}>
 			{options?.map(option => (
 				<ListSelectorRow 
 					key={option.key || `${JSON.stringify(option.value)}`}

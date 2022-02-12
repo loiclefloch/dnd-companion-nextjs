@@ -1,7 +1,9 @@
 import { actionLevellingAbilityScoreImprovement } from "./action"
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { map, cloneDeep, forEach } from "lodash"
 
+import useFeats from "../../modules/api/useFeats"
+import filterFeatsForCharacter from "../../modules/character/filterFeatsForCharacter"
 import AbilityScoreChooser from "../AbilityScoreChooser"
 import ButtonBottomScreen from "../ButtonBottomScreen"
 import {
@@ -10,10 +12,10 @@ import {
 	TabContent,
 	TabContainer,
 } from "../Tab"
-import useFeats from "../../modules/api/useFeats"
 import ListSelector from "../../components/ListSelector";
 import { useFeatScreenAsModal } from "../../components/FeatScreenAsModal"
 import useI18n from "../../modules/i18n/useI18n"
+import { FeatPrerequisites } from "../FeatContent"
 
 function getScoreDiff(stats, baseStats) {
 	const diff = {}
@@ -71,6 +73,8 @@ function Feat({ step, character, levellingDispatch }) {
 	const { showFeatScreenAsModal } = useFeatScreenAsModal()
 	const featsResponse = useFeats()
 
+	const feats = useMemo(() => filterFeatsForCharacter(featsResponse.data, character), [feats, character])
+
 	return (
 		<>
 			<p>Ici vous pouvez choisir un feat</p>
@@ -80,9 +84,20 @@ function Feat({ step, character, levellingDispatch }) {
 			{/* TODO: disable feats that cannot be used for the character */}
 			{/* TODO: some feats makes us select a +1 ability, we should display the option + save the data somewhere */}
 			<ListSelector
+				className="px-0"
 				value={selectedFeat}
-				options={featsResponse.data?.map(feat => ({
-					label: tr(feat.nameLocalized),
+				options={feats?.map(feat => ({
+					label: (
+						<div className="pb-2">
+							{tr(feat.nameLocalized)}
+							<div className="text-meta text-sm">{feat.resume}</div>
+							{feat.hasPrerequisites && (
+								<div className="mt-2">
+									<FeatPrerequisites feat={feat} />
+								</div>
+							)}
+						</div>
+					),
 					value: feat,
 					selected: selectedFeat?.index === feat.index,
 					rightView: <div
@@ -123,14 +138,14 @@ function AbilityScoreImprovement({ levellingData, character, step, levellingDisp
 					<Tab tab="score">Score</Tab>
 					<Tab tab="feat">Feat</Tab>
 				</Tabs>
-				<TabContent tab="score" className="px-4">
+				<TabContent tab="score" className="px-2">
 					<Score 
 						character={character}
 						step={step}
 						levellingDispatch={levellingDispatch}
 					/>
 				</TabContent>
-				<TabContent tab="feat" className="px-4">
+				<TabContent tab="feat" className="px-0">
 					<Feat
 						character={character}
 						step={step}

@@ -26,9 +26,9 @@ export function FeatPrerequisites({ feat }) {
 				))
 			)}
 			{feat.forOther && (
-				<p className="text-meta text-xs">
+				<Tag className="text-meta text-xs border border-slate-600 text-slate-600">
 					{feat.prerequisitesLabel}
-				</p>
+				</Tag>
 			)}
 		</div>
 	)

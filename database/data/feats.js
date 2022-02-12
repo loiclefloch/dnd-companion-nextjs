@@ -562,12 +562,12 @@ const feats = [
 	},
 	{
 		index:  "telepathic",
-		"name": "telepathic",
+		"name": "Telepathic",
 		"resume": "+1 in Int., Wis., or Cha., you can cast detect thoughts and you can speak telepathically to any creature within 60 ft."
 	},
 	{
 		index:  "tough",
-		"name": "tough",
+		"name": "Tough",
 		"resume": "Your hit point maximum increases by an amount equal to twice your level then by +2 at each level."
 	},
 	{
