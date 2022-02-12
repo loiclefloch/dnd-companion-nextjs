@@ -36,9 +36,7 @@ function Race() {
 
 				<ListRowSelectContainer className="px-4 mt-4">
 					{classResponse.data?.map(clss => (
-						<>
-							<ClassRow key={`class_${clss.index}`} clss={clss} />
-						</>
+						<ClassRow key={`class_${clss.index}`} clss={clss} />
 					))}
 				</ListRowSelectContainer>
 			</div>

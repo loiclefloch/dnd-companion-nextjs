@@ -6,7 +6,7 @@ import useRules from "../../modules/api/useRules";
 function RuleSection({ title, subItems }) {
 	return (
 		<div>
-			<Text>{title}</Text>
+			<div>{title}</div>
 
 			<div className="my-2">
 				{subItems}
@@ -19,7 +19,7 @@ function SubItem({ title, href }) {
 	return (
 		<div key={href} className="pl-4 py-0.5">
 			<Link href={href}>
-				<Text>{title}</Text>
+				<div>{title}</div>
 			</Link>
 		</div>
 	)

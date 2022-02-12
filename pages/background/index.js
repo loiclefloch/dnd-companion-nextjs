@@ -34,9 +34,7 @@ function Backgrounds() {
 
 				<ListRowSelectContainer className="px-4 mt-4">
 					{backgroundsResponse.data?.map(background => (
-						<>
-							<BackgroundRow key={`background_${background.index}`} background={background} />
-						</>
+						<BackgroundRow key={`background_${background.index}`} background={background} />
 					))}
 				</ListRowSelectContainer>
 			</div>
