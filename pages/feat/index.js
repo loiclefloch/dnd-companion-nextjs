@@ -47,7 +47,7 @@ function Feats() {
     search,
     term,
     // reset
-  } = useLocalSearch("spells", {
+  } = useLocalSearch("feats", {
     data: feats,
     options: useLocalSearch.searchOptions.feats,
   });

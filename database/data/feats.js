@@ -1,5 +1,5 @@
-// TODO: add feats
-export default [
+// TODO: add feats desc
+const feats = [
 	{
 		index: "alert",
 		name: "Alert",
@@ -596,3 +596,5 @@ export default [
 		],
 	},
 ]
+
+export default feats
