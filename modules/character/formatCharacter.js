@@ -28,7 +28,7 @@ import applyFeaturesOnCharacter from "./applyFeaturesOnCharacter"
 import getCharacterHasProficiencyForItem from "./getCharacterHasProficiencyForItem"
 
 function formatSpellsSlots(spellsSlots, spellsUsed) {
-	return spellsSlots.map(slot => {
+	return spellsSlots?.map(slot => {
 		const usedSpells = spellsUsed.filter(s => s.spellLevel === slot.spellLevel)
 
 		const totalSlots = slot.totalSlots
@@ -72,14 +72,85 @@ function getCharacterSubclassFeatures(character) {
   ).map(l => l.features).flat().filter(Boolean);
 }
 
+
+function formatItem(character, item) {
+	item.isCharacterContextItem = true
+	// item.canBeEquipped = true
+
+	// const isUnarmedStrike = item.index === "unarmed-strike"
+
+	// Proficiency with a weapon allows you to add your Proficiency Bonus to the Attack roll for any 
+	// Attack you make with that weapon. If you make an Attack roll using a weapon with which you 
+	// lack proficiency, you do not add your Proficiency Bonus to the Attack roll.		
+	const isProeficient = item.index === 'unarmed-strike' 
+		|| character.proficiencies.some(proficiency => proficiency.reference.index === item.index)
+	item.isProeficient = isProeficient
+
+	// Ability Modifier: The ability modifier used for a melee weapon Attack is Strength, and the ability 
+	// modifier used for a ranged weapon Attack is Dexterity. Weapons that have the Finesse or Thrown 
+	// property break this rule. 
+
+	// When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity 
+	// modifier for the attack and damage rolls.
+	item.hasPropertyFinesse = item.properties.some(property => property.index === 'finesse')
+	// If a weapon has the thrown property, you can throw the weapon to make a ranged attack. 
+	// If the weapon is a melee weapon, you use the same ability modifier for that attack roll and 
+	// damage roll that you would use for a melee attack with the weapon. For example, if you throw a 
+	// handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or 
+	// your Dexterity, since the dagger has the finesse property.
+	item.hasPropertyThrown = item.properties.some(property => property.index === 'thrown')
+	
+
+	// hasPropertyThrown = can be thrown
+	// hasPropertyFinesse = use DEX or STR when thrown. If has not finesse, use STR when thrown
+
+	item.isMelee = item.weaponRange === 'Melee'
+	item.isRanged = item.weaponRange === 'Ranged'
+
+	item.rangedProperty = item.isRanged ? 'DEX' : (item.hasPropertyThrown ? 'DEX' : 'STR')
+
+	if (item.hasPropertyFinesse) {
+		// For the moment we use the best attack roll possible.
+		// TODO: Should we propose to choose?
+		item.rangedProperty = character.meleeAttackRollModifier > character.rangedAttackRollModifier 
+			? character.meleeAttackRollModifier 
+			: character.rangedAttackRollModifier
+	}
+
+	// TODO: should we add proficiencyBonus for canBeThrown ?
+
+	item.meleeAttackRollModifier = character.meleeAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
+	item.meleeAttackRollModifierLabel = modifierToModifierLabel(character.meleeAttackRollModifier)
+
+	if (item.rangedProperty === 'DEX') {
+		item.rangedAttackRollModifier = character.rangedAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
+		item.rangedAttackRollModifierLabel = modifierToModifierLabel(character.rangedAttackRollModifier)
+	} else {
+		item.rangedAttackRollModifier = character.meleeAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
+		item.rangedAttackRollModifierLabel = modifierToModifierLabel(character.meleeAttackRollModifier)
+	}
+
+	// TODO: property versatile two_handed_damage
+	// This weapon can be used with one or two hands. A damage value in parentheses appears with the 
+	// property--the damage when the weapon is used with two hands to make a melee attack.
+	item.hasPropertyTwoHandedDamages = item.properties.some(property => property.index === 'two-handed')
+	
+	if (item.hasPropertyTwoHandedDamages && !item.twoHandedDamage) {
+		item.twoHandedDamage = {...item.damage}
+	}
+
+	// TODO: property special, force description to be looked at
+
+	// TODO: other properties?
+
+	// console.log({ item })
+	return item
+}
 export function formatCharacter(character) {
 	if (!character) {
 		return null
 	}
 
-	if (!character.maximumHp) { // TODO: remove fixture
-		character.maximumHp = 10
-	}
 	character.currentHp = character.currentHp
 
 	character.isKo = character.currentHp < 0
@@ -97,6 +168,7 @@ export function formatCharacter(character) {
 			...formatSubclass(subclasses.find(c => c.index === character.subclass.index)),
 		}
 	}
+	const clss = character.classes[0]
 
 	const levellingData = getLevellingDataForClassesAndLevel(character.classes, character.level)
 
@@ -106,22 +178,20 @@ export function formatCharacter(character) {
 	character.statsDetail = []
 	character.alignment = alignments.find(a => a.index === character.alignment)
 
-	character.spellcasting = levellingData.spellcasting
-	character.spellcastingAbility = 'CHA' // TODO: from class
-	character.spellcastingAbilityValue = 3
-	character.spellcastingAbilityValueLabel = `+3`
+	character.spellcasting = { ... (levellingData.spellcasting || {}), ...(clss.spellcasting || {}) }
+	character.spellcastingAbility = clss.spellcasting?.spellcastingAbility?.name
+	character.spellcastingAbilityValue = valueToModifier(character.stats[character.spellcastingAbility] || 0)
+	character.spellcastingAbilityValueLabel = modifierToModifierLabel(character.spellcastingAbilityValue)
 
-	character.spellsList = 
-	[ 
+	character.spellsList = [
 		...(character.spellsList || []),
 		...(character.subclass ? getSpellsForCharacterSubclass(character) : [])
-	]
-		.map(spell => {
-			return {
-				...formatSpell(spells.find(s => s.index === spell.index)),
-				...spell
-			}
-		})
+	].map(spell => {
+		return {
+			...formatSpell(spells.find(s => s.index === spell.index)),
+			...spell
+		}
+	})
 
 	character.spellsUsed = (character.spellsUsed || []).map(spellUsed => {
 		return {
@@ -130,13 +200,13 @@ export function formatCharacter(character) {
 		}
 	})
 
-	// TODO: remove
-	if (!character.spellsSlots) {
-		character.spellsSlots = getSpellsSlotsForCharacterLevel(
-			character.classes, 
-			character.level
-		)
-	}
+	// // TODO: remove
+	// if (!character.spellsSlots) {
+	// 	character.spellsSlots = getSpellsSlotsForCharacterLevel(
+	// 		character.classes, 
+	// 		character.level
+	// 	)
+	// }
 	character.spellsSlots = formatSpellsSlots(
 		character.spellsSlots, 
 		character.spellsUsed
@@ -163,8 +233,6 @@ export function formatCharacter(character) {
 	// here we do not handle special modifiers.
 	// TODO: use on spell view
 	character.spellSaveDC = 8 + character.proficiencyBonus + character.spellcastingAbilityValue
-
-	character.DC = 15 // TODO:
 
 	// Some Spells require the caster to make an Attack roll to determine whether the spell Effect hits 
 	// the intended target. Your Attack bonus with a spell Attack equals your Spellcasting ability 
@@ -267,79 +335,7 @@ export function formatCharacter(character) {
 		...character.equipment.filter(item => item.equipmentCategory?.index === "weapon")
 	]
 	.map(camelize)
-	.map(item => {
-		item.isCharacterContextItem = true
-		// item.canBeEquipped = true
-
-		// const isUnarmedStrike = item.index === "unarmed-strike"
-
-		// Proficiency with a weapon allows you to add your Proficiency Bonus to the Attack roll for any 
-		// Attack you make with that weapon. If you make an Attack roll using a weapon with which you 
-		// lack proficiency, you do not add your Proficiency Bonus to the Attack roll.		
-		const isProeficient = item.index === 'unarmed-strike' 
-			|| character.proficiencies.some(proficiency => proficiency.reference.index === item.index)
-		item.isProeficient = isProeficient
-
-		// Ability Modifier: The ability modifier used for a melee weapon Attack is Strength, and the ability 
-		// modifier used for a ranged weapon Attack is Dexterity. Weapons that have the Finesse or Thrown 
-		// property break this rule. 
-
-		// When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity 
-		// modifier for the attack and damage rolls.
-		item.hasPropertyFinesse = item.properties.some(property => property.index === 'finesse')
-		// If a weapon has the thrown property, you can throw the weapon to make a ranged attack. 
-		// If the weapon is a melee weapon, you use the same ability modifier for that attack roll and 
-		// damage roll that you would use for a melee attack with the weapon. For example, if you throw a 
-		// handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or 
-		// your Dexterity, since the dagger has the finesse property.
-		item.hasPropertyThrown = item.properties.some(property => property.index === 'thrown')
-		
-
-		// hasPropertyThrown = can be thrown
-		// hasPropertyFinesse = use DEX or STR when thrown. If has not finesse, use STR when thrown
-
-		item.isMelee = item.weaponRange === 'Melee'
-		item.isRanged = item.weaponRange === 'Ranged'
-
-		item.rangedProperty = item.isRanged ? 'DEX' : (item.hasPropertyThrown ? 'DEX' : 'STR')
-
-		if (item.hasPropertyFinesse) {
-			// For the moment we use the best attack roll possible.
-			// TODO: Should we propose to choose?
-			item.rangedProperty = character.meleeAttackRollModifier > character.rangedAttackRollModifier 
-				? character.meleeAttackRollModifier 
-				: character.rangedAttackRollModifier
-		}
-
-		// TODO: should we add proficiencyBonus for canBeThrown ?
-
-		item.meleeAttackRollModifier = character.meleeAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
-		item.meleeAttackRollModifierLabel = modifierToModifierLabel(character.meleeAttackRollModifier)
-
-		if (item.rangedProperty === 'DEX') {
-			item.rangedAttackRollModifier = character.rangedAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
-			item.rangedAttackRollModifierLabel = modifierToModifierLabel(character.rangedAttackRollModifier)
-		} else {
-			item.rangedAttackRollModifier = character.meleeAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
-			item.rangedAttackRollModifierLabel = modifierToModifierLabel(character.meleeAttackRollModifier)
-		}
-
-	  // TODO: property versatile two_handed_damage
-	  // This weapon can be used with one or two hands. A damage value in parentheses appears with the 
-	  // property--the damage when the weapon is used with two hands to make a melee attack.
-		item.hasPropertyTwoHandedDamages = item.properties.some(property => property.index === 'two-handed')
-		
-		if (item.hasPropertyTwoHandedDamages && !item.twoHandedDamage) {
-			item.twoHandedDamage = {...item.damage}
-		}
-
-		// TODO: property special, force description to be looked at
-
-		// TODO: other properties?
-
-		// console.log({ item })
-		return item
-	})
+	.map(item => formatItem(character, item))
 
 	// HACK: remove weapons from equipment and add actionsEquipment which has been formatted.
 	// this allows to have the same data on the equipment and actions pages.

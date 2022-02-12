@@ -1,3 +1,4 @@
+import isEmpty from "lodash/isEmpty"
 import groupBy from "lodash/groupBy"
 import map from "lodash/map"
 import Link from "next/link"
@@ -175,11 +176,12 @@ function Grimoire() {
 		>
 			{character && (
 				<div>
-					<div>
+					<div className="text-center">
 						<Tag>
-							Spellcasing ability
-							{character.spellcastingAbilityValue >= 0 ? '+' : ''}{character.spellcastingAbilityValue}:
-							<span>&nbsp;&nbsp;</span>
+							Spellcasing ability: 
+							<span>&nbsp;</span>
+							{character.spellcastingAbilityValue >= 0 ? '+' : ''}{character.spellcastingAbilityValue}
+							<span>&nbsp;</span>
 							<span className="text-xs text-meta">{character.spellcastingAbility}</span>
 						</Tag>
 
@@ -196,6 +198,15 @@ function Grimoire() {
 							Cantrips kwown: {character.spellcasting.cantripsKnown}
 						</Tag>
 					</div>
+					{isEmpty(character?.spellsList) && (
+						<div className="px-4 mt-12">
+							<p className="prose text-center text-lg">
+								Vous n'avez pas encore appris de sorts.
+								<br />
+								Retrouvez les sorts disponibles dans la <Link href="/character/spells">liste des sorts</Link>.
+							</p>
+						</div>
+					)}
 					<div className="flex flex-col gap-2" data-cy-id="spells-list">
 						{map(groupedBySpellLevel, (spells, level) => (
 							<div key={level}>

@@ -26,6 +26,8 @@ function Content({ spellsSlots, levellingData })  {
 						<td>{levellingData.spellcasting.spellsKnown}</td>	
 					</tr>
 				</tbody>
+
+				{/* TODO: if new spell slots: message */}
 			</table>
 
 			<h3>Slots de sorts</h3>
