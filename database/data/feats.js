@@ -1,3 +1,7 @@
+import spells from "./spells.json"
+import languages from "./languages"
+import features from "./features"
+
 // TODO: add feats desc
 const feats = [
 	{
@@ -19,13 +23,23 @@ const feats = [
 	{
 		index:  "artificer",
 		"name": "Artificer Initiate",
-		"resume": "You learn one cantrip and one 1st-level artificier spell (cast without slot), proficiency with one type of artisan's tools."
+		"resume": "You learn one cantrip and one 1st-level artificier spell (cast without slot), proficiency with one type of artisan's tools.",
+		"spellOptions": [
+			{
+				"choose": 1,
+				"from": spells.filter(s => s.level === 0),
+			},
+			{
+				"choose": 1,
+				"from": spells.filter(s => true) // TODO: keep only artificier spell
+			}
+		]
 	},
 	{
 		index:  "athlete",
 		"name": "Athlete",
 		"resume": "+1 in Str. or Dex., you stand up and climb more quickly, and you can jump with only a 5-ft run.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -69,7 +83,7 @@ const feats = [
 		index:  "chef",
 		"name": "Chef",
 		"resume": "+1 in Con. or Wis., proficiency with cook's utensils and cook special food to regain hp.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -98,7 +112,7 @@ const feats = [
 		index:  "crusher",
 		"name": "Crusher",
 		"resume": "+1 in Str. or Con., 5 ft extra move when you hit (bludgeoning) and attacks with advantage after a critical hit.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -149,7 +163,7 @@ const feats = [
 				}
 			},
 		],
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -189,7 +203,7 @@ const feats = [
 				}
 			},
 		],
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -263,7 +277,13 @@ const feats = [
 		index:  "eldritch-adept",
 		"name": "Eldritch Adept",
 		prerequisitesLabel: "Spellcasting or Pact Magic feature",
-		"resume": "Spellcasting or Pact Magic feature	You learn one Eldritch Invocation."
+		"resume": "Spellcasting or Pact Magic feature	You learn one Eldritch Invocation.",
+		"spellOptions": [
+			{
+				"choose": 1,
+				"from": spells.filter(s => true) // TODO: filter Eldritch Invocation
+			}
+		]
 	},
 	{
 		index:  "elemental-adept",
@@ -291,7 +311,7 @@ const feats = [
 			},
 		],
 		"resume": "+1 in Dex., Int., Wis., or Cha., and you can reroll one attack roll if you have advantage.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -338,7 +358,7 @@ const feats = [
 			},
 		],
 		"resume": "+1 in Dex. or Int., and you can use your reaction to become invisible if you take damage.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -371,7 +391,7 @@ const feats = [
 				}
 			},
 		],
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -395,7 +415,8 @@ const feats = [
 		index:  "fey-touched",
 		"name": "Fey Touched",
 		"resume": "+1 in Int., Wis., or Cha., and you learn misty step and one 1st-level spell from divination or enchantment school.",
-		"ability_option": {
+
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -420,13 +441,29 @@ const feats = [
 					bonus: 1
 				},
 			]
-		}
+		},
+		"spellOptions": [
+			{
+				"choose": 1,
+				"from": spells.filter(s => s.index === 'misty-step')
+			},
+			{
+				"choose": 1,
+				"from": spells.filter(s => ["divination", "enchantment" ].includes(s.school.index))
+			},
+		]	
 	},
 	{
 		index:  "fighting-initiate",
 		"name": "Fighting Initiate",
 		prerequisitesLabel: "Proficiency with a martial weapon",
-		"resume": "You learn one Fighting Style option from the fighter class."
+		"resume": "You learn one Fighting Style option from the fighter class.",
+		"featuresOptions": [
+			{
+				"choose": 1,
+				"from": features.filter(s => s.index.startsWith('fighter-fighting-style'))
+			},
+		]
 	},
 	{
 		index:  "flames-of-phlegethos",
@@ -441,7 +478,7 @@ const feats = [
 			},
 		],
 		"resume": "+1 in Int. or Cha., reroll any 1 on fire spell damage, and cause flames to wreathe you if you cast a fire spell.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -559,7 +596,7 @@ const feats = [
 		index:  "lightly-armored",
 		"name": "Lightly Armored",
 		"resume": "+1 in Str. or Dex. and you gain profociency with light armor.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -582,7 +619,13 @@ const feats = [
 	{
 		index:  "linguist",
 		"name": "Linguist",
-		"resume": "+1 in Int., you learn three languages, and you can ably create ciphers."
+		"resume": "+1 in Int., you learn three languages, and you can ably create ciphers.",
+		"languageOptions": [
+			{
+				"choose": 2,
+				"from": languages 
+			},
+		]	
 	},
 	{
 		index:  "lucky",
@@ -597,12 +640,23 @@ const feats = [
 	{
 		index:  "magic-initiate",
 		"name": "Magic Initiate",
-		"resume": "You learn two cantrips and one 1st-level spell from one class."
+		"resume": "You learn two cantrips and one 1st-level spell from one class.",
+		"spellOptions": [
+			{
+				"choose": 0,
+				"from": spells.filter(s => s.level === 0)
+			},
+			{
+				"choose": 1,
+				"from": spells,
+			},
+		]	
 	},
 	{
 		index:  "martial-adept",
 		"name": "Martial Adept",
 		"resume": "You learn two maneuvers from Battle Master archetype and gain one superiority die (d6)."
+		// TODO: option
 	},
 	{
 		index:  "medium-armor-master",
@@ -622,7 +676,8 @@ const feats = [
 		index:  "metamagic-adept",
 		"name": "Metamagic Adept",
 		prerequisitesLabel: "Spellcasting or Pact Magic feature",
-		"resume": "You learn two metamagic options and gain 2 sorcery points."
+		"resume": "You learn two metamagic options and gain 2 sorcery points.",
+		// TODO: option
 	},
 	{
 		index:  "mobile",
@@ -642,7 +697,7 @@ const feats = [
 				}
 			}
 		],
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -671,7 +726,7 @@ const feats = [
 		index:  "observant",
 		"name": "Observant",
 		"resume": "+1 in Int. or Wis., you can read on lips, and you have a +5 bonus in passive Perception and passive Investigation.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -704,7 +759,7 @@ const feats = [
 				}
 			},
 		],
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -728,7 +783,7 @@ const feats = [
 		index:  "piercer",
 		"name": "Piercer",
 		"resume": "+1 in Str. or Dex., reroll one damage dice when you hit (piercing) and one additional damage dice in case of critical hit.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -790,7 +845,7 @@ const feats = [
 		index:  "resilient",
 		"name": "Resilient",
 		"resume": "+1 in one ability and you gain proficiency in saving throws using this ability.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -862,7 +917,7 @@ const feats = [
 				}
 			},
 		],
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -898,7 +953,7 @@ const feats = [
 		index:  "shadow-touched",
 		"name": "Shadow Touched",
 		"resume": "+1 in Int., Wis., or Cha., and you learn invisibility and one 1st-level spell from illusion or necromancy school.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -923,7 +978,17 @@ const feats = [
 					bonus: 1
 				},
 			]
-		}
+		},
+		"spellOptions": [
+			{
+				"choose": 1,
+				"from": spells.filter(s => s.index === 'invisibility')
+			},
+			{
+				"choose": 1,
+				"from": spells.filter(s => ["illusion", "necromancy" ].includes(s.school.index) && s.level === 1)
+			},
+		]	
 	},
 	{
 		index:  "sharpshooter",
@@ -939,7 +1004,7 @@ const feats = [
 		index:  "skill-expert",
 		"name": "Skill Expert",
 		"resume": "+1 in one ability, proficiency in one skill and expertise in one other in which you have proficiency.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -1012,7 +1077,7 @@ const feats = [
 		index:  "slasher",
 		"name": "Slasher",
 		"resume": "+1 in Str. or Dex., reduce target's speed by 10 ft when you hit (slashing) and target has disadvantage on attacks rolls.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -1036,14 +1101,20 @@ const feats = [
 		index:  "spell-sniper",
 		"name": "Spell Sniper",
 		prerequisitesLabel: "The ability to cast at least one spell",
-		"resume": "Offensive spell's range doubled, these spells ignore some cover, and you learn one offensive cantrip."
+		"resume": "Offensive spell's range doubled, these spells ignore some cover, and you learn one offensive cantrip.",
+		"spellOptions": [
+			{
+				"choose": 1,
+				"from": spells.filter(s => s.level === 0) // TODO: and offensive
+			},
+		]	
 	},
 	{
 		index:  "squat-nimbleness",
 		"name": "Squat Nimbleness",
 		prerequisitesLabel: "Dwarf or a Small race",
 		"resume": "+1 in Str. or Dex., your speed increases by 5 ft, and proficiency and advantage to escape with Acrobatics or Athletics checks.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -1067,7 +1138,7 @@ const feats = [
 		index:  "tavern-brawler",
 		"name": "Tavern Brawler",
 		"resume": "+1 in Str. or Con., proficiency with improvised weapons, d4 for unarmed strike, and grapple with a bonus action.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -1091,7 +1162,7 @@ const feats = [
 		index:  "telekinetic",
 		"name": "Telekinetic",
 		"resume": "+1 in Int., Wis., or Cha., you learn mage hand and you can try to telekinetically shove one creature (5 ft).",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -1116,13 +1187,19 @@ const feats = [
 					bonus: 1
 				},
 			]
-		}
+		},
+		"spellOptions": [
+			{
+				"choose": 1,
+				"from": spells.filter(s => s.index === 'mage-hand')
+			},
+		]	
 	},
 	{
 		index:  "telepathic",
 		"name": "Telepathic",
 		"resume": "+1 in Int., Wis., or Cha., you can cast detect thoughts and you can speak telepathically to any creature within 60 ft.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -1164,7 +1241,7 @@ const feats = [
 		index:  "weapon-master",
 		"name": "Weapon Master",
 		"resume": "+1 in Str. or Dex. and you gain proficiency with four weapons.",
-		"ability_option": {
+		"abilityOption": {
 			choose: 1,
 			from: [
 				{
@@ -1197,6 +1274,16 @@ const feats = [
 				}
 			},
 		],
+		"spellOptions": [
+			{
+				"choose": 1,
+				"from": spells.filter(s => s.index === 'longstrider')
+			},
+			{
+				"choose": 1,
+				"from": spells.filter(s => s.level === 0 && s.classes?.some(c => c.index === 'druid'))
+			},
+		]	
 	},
 ]
 

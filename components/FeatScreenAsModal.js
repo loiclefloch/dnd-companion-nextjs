@@ -10,7 +10,7 @@ function FeatScreenAsModal({ index, onCloseScreen }) {
 	const featResponse = useFeat(index)
 
 	return (
-		<ScreenAsModal 
+		<ScreenAsModal
 			title={`Feat - ${tr(featResponse.data.nameLocalized)}`} 
 			isFetching={featResponse.isFetching}
 			onCloseScreen={onCloseScreen}

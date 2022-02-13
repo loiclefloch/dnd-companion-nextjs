@@ -7,7 +7,13 @@ function Section({ title, children, withToggle, className, show: showParam = fal
 	return (
 		<div className="pt-2 mt-2">
 			<h3 
-				className={clsx("mb-2 font-semibold border-b border-solid border-slate-200 flex justify-between", className)}
+				className={clsx(
+					"mb-2 font-semibold border-b border-solid border-slate-200 flex justify-between",
+					{
+						"cursor-pointer": withToggle
+					},
+					className
+				)}
 				onClick={() => withToggle && setShow(!show)} 
 			>
 				{title}

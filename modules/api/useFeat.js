@@ -27,9 +27,10 @@ export function formatFeat(featParam) {
 
   feat.hasPrerequisites = feat.forRace || feat.forAbilityScore || feat.forProficiency || feat.forOther
 
+  feat.hasSpellOptions = !!feat.spellOptions
   feat.hasAbilityOption = !!feat.abilityOption
 
-  feat.hasOption = feat.hasAbilityOption
+  feat.hasOption = feat.hasAbilityOption || feat.hasSpellOptions
 
   return feat
 }

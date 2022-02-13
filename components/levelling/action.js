@@ -40,8 +40,8 @@ function addFeaturesOptions(character, newLevel, featuresOptions) {
 					level: newLevel,
 				}))
 			} else {
-        // debugger;
-        // throw new Error(`not handled`);
+        debugger;
+        throw new Error(`not handled`);
       }
     });
   }
@@ -104,42 +104,60 @@ export function actionLevellingLevelSlots({ step, spellsSlots }) {
 export function actionLevellingAbilityScoreImprovementFeat({ 
 	step,
 	feat,
-	selectedOption,
-	selectedSpells,
+	selectedOptions,
 }) {
 	return {
 		type: 'actionLevellingAbilityScoreImprovementFeat',
 		apply: () => ({
 			step,
 			feat,
-			selectedOption,
-			selectedSpells,
+			selectedOptions,
 		}),
 		build: ({ character, newLevel }) => {
 			if (!character.feats) {
 				character.feats = []
 			}
-			character.feats.push({
-				index:
-					feat.index,
+			const characterFeat = {
+				index: feat.index,
 				level: newLevel,
-				options: selectedOption,
-				spells: selectedSpells,
-			})
+			}
+			character.feats.push(characterFeat)
 
-			if (selectedOption) {
-				if (selectedOption.type === "abilityOption") {
-					selectedOption.abilities.forEach(value => {
-						character.statsBonuses.push({
-							ability: value.ability.index.toUpperCase(),
-							type: "feat",
-							bonus: value.bonus,
-							feat: feat.index
-						})
-					})
-				} else {
-					throw new Error(`Not handled`)
-				}
+			if (selectedOptions) {
+				map(selectedOptions, (selectedOption, type) => {
+					
+					switch (type) {
+						case 'abilityOption':
+							selectedOption.abilities.forEach(value => {
+
+								character.statsBonuses.push({
+									ability: value.ability.index.toUpperCase(),
+									type: "feat",
+									feat: feat.index,
+									bonus: value.bonus,
+								})
+
+							})
+							break
+
+						case 'spellOptions':
+							selectedOption.forEach(spellOption => {
+								const spells = spellOption.spells
+								spells.forEach(spell => {
+									character.spellsList.push({
+										index: spell.index,
+										from: "feat",
+										feat: feat.index,
+									})
+								})
+							})
+							break
+
+						default:
+							debugger
+							throw new Error(`Not handled`)
+					}
+				})
 			}
 		}
 	}

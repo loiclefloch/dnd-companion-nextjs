@@ -6,11 +6,17 @@
 // - dragon-hide ->  your character.naturalAc becomes 13+Dex (+3). modifier + atk your retractable claws deal 1d4+Str. modifier slashing damage.
 // - dungeon-delver -> Advantage to Perception and Investigation checks
 // - durable -> TODO: on hit dices run
-// - fey-teleportation -> spell:  misty step
-// - fey-touched -> spell: misty step
 // - inspiring-leader -> create spell?
 // - poisoner -> Proficiency with poisoner's kit, apply as a bonus action and your attacks ignore resistance to poison damage.
 // - resilient -> you gain proficiency in saving throws using this ability chosen
+
+// with spells, handled on level-up
+// - shadow-touched
+// - fey-teleportation -> spell:  misty step
+// - fey-touched -> spell: misty step
+// - telekinetic
+// - telepathic
+
 
 // - alert -> +5 to initiative
 function alert(character) {
@@ -29,26 +35,6 @@ function observant(character) {
   character.passiveInvestigation += 5
 }
 
-function shadowTouched() {
-  // spell: invisibility
-  // TODO: how to prepare them? We cannot put prepared to true here..
-  // We should learn the spell when choosing the feat on levelup
-  // mark them as always prepared?
-  // character.spellsList.push(
-  //   {
-  //     index: "invisibility",
-  //   }
-  // )
-}
-
-function telekinetic() {
-  // spell: telekinesis
-}
-
-function telepathic() {
-  // spell: detect-thoughts
-}
-
 function tough(character) {
   // Your hit point maximum increases by an amount equal to twice your level then by +2 at each level
   character.maximumHp += Math.floor(character.level * 2)
@@ -61,9 +47,6 @@ function applyFeatsOnCharacter(character) {
     alert,
     mobile,
     observant,
-    'shadow-touched': shadowTouched,
-    telekinetic,
-    telepathic,
     tough,
   }
 

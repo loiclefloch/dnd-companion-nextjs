@@ -1,9 +1,7 @@
-import { actionLevellingAbilityScoreImprovementFeat, actionLevellingAbilityScoreImprovementScore } from "./action"
-import { useState, useMemo } from "react"
+import { actionLevellingAbilityScoreImprovementScore } from "./action"
+import { useState } from "react"
 import { map, cloneDeep } from "lodash"
 
-import useFeats from "../../modules/api/useFeats"
-import filterFeatsForCharacter from "../../modules/character/filterFeatsForCharacter"
 import AbilityScoreChooser from "../AbilityScoreChooser"
 import ButtonBottomScreen from "../ButtonBottomScreen"
 import {
@@ -12,10 +10,10 @@ import {
 	TabContent,
 	TabContainer,
 } from "../Tab"
-import ListSelector from "../../components/ListSelector";
-import { useFeatScreenAsModal } from "../../components/FeatScreenAsModal"
-import useI18n from "../../modules/i18n/useI18n"
-import { FeatPrerequisites } from "../FeatContent"
+
+import { ScreenStepContainer, useScreenStepAsModal} from "../../components/ScreensStepAsModal"
+import Button from "../Button"
+import FeatScreens from "./FeatScreens"
 
 function getScoreDiff(stats, baseStats) {
 	const diff = {}
@@ -46,7 +44,7 @@ function Score({ step, character, levellingDispatch }) {
 		<>
 			<p>Ici vous pouvez choisir d'augmenter une capacité de deux points, ou deux capacités d'un point</p>
 
-			<AbilityScoreChooser 
+			<AbilityScoreChooser
 				clss={character.classes[0].index}
 				abilities={stats}
 				onChange={setStats}
@@ -67,102 +65,29 @@ function Score({ step, character, levellingDispatch }) {
 	)
 }
 
-function FeatOptions({ selectedOption, setSelectedOption, feat }) {
-	if (!feat.hasOption) {
-		return null
-	}
-
-	if (feat.hasAbilityOption) {
-		return (
-			<div>
-				<ListSelector
-					multiple
-					nbMaxValues={feat.abilityOption.choose}
-					onChange={abilities => setSelectedOption({ type: 'abilityOption',  abilities })}
-					options={feat.abilityOption.from.map(abilityOption => ({
-						label: `+ ${abilityOption.bonus} ${abilityOption.ability.name}`,
-						key: abilityOption.ability.name,
-						value: abilityOption,
-						selected: selectedOption?.abilities?.some(v => v.ability.name === abilityOption.ability.name)
-					}))}
-				/>
-			</div>
-		)
-	}
-
-	throw new Error(`Not handled`)
-}
 
 function Feat({ step, character, levellingDispatch }) {
-	const [selectedFeat, setSelectedFeat] = useState(null)
-	const [selectedOption, setSelectedOption] = useState(null)
-	const { tr } = useI18n()
-	const { showFeatScreenAsModal } = useFeatScreenAsModal()
-	const featsResponse = useFeats()
-
-	const feats = useMemo(() => filterFeatsForCharacter(featsResponse.data, character), [feats, character])
-
+	const { openScreenStep } = useScreenStepAsModal()
 	return (
 		<>
-			<p>Ici vous pouvez choisir un feat</p>
-			{/* TODO: learn more */}
+			<p className="prose text-center">
+				Ici vous pouvez choisir un feat et ses options.
+			</p>
 
-			{/* TODO: disabled feats already on character */}
-			{/* TODO: disable feats that cannot be used for the character */}
-			{/* TODO: some feats makes us select a +1 ability, we should display the option + save the data somewhere */}
-			<ListSelector
-				className="px-0"
-				value={selectedFeat}
-				options={feats?.map(feat => {
-					const selected = selectedFeat?.index === feat.index
-
-					return {
-						label: (
-							<div className="pb-2">
-								{tr(feat.nameLocalized)}
-								<div className="text-meta text-sm">{feat.resume}</div>
-								{feat.hasPrerequisites && (
-									<div className="mt-2">
-										<FeatPrerequisites feat={feat} />
-									</div>
-								)}
-								{selected && feat.hasOption && (
-									<FeatOptions 
-										feat={feat} 
-										selectedOption={selectedOption} 
-										setSelectedOption={setSelectedOption} 
-									/>
-								)}
-							</div>
-						),
-						value: feat,
-						selected,
-						rightView: <div
-							className="px-4 py-2 text-xs text-meta"
-							onClick={() => showFeatScreenAsModal(feat.index)}
-						>
-							?
-						</div>
-					}
-				})}
-				onChange={setSelectedFeat}
-			/>
-
-			<ButtonBottomScreen
+			<Button
 				variant="cta"
-				disabled={!selectedFeat}
-				onClick={() => {
-					if (!selectedFeat.hasOption || !!selectedOption) {
-						levellingDispatch(actionLevellingAbilityScoreImprovementFeat({ 
-							step, 
-							feat: selectedFeat, 
-							selectedOption 
-						}))
-					}
-				}}
+				onClick={() => openScreenStep(
+					`Choix d'un feat`,
+					[
+						"chooseFeat",
+						"abilityOption",
+						"spellOptions",
+					],
+					<FeatScreens character={character} step={step} levellingDispatch={levellingDispatch} />
+				)}
 			>
-				Continuer
-			</ButtonBottomScreen>
+				Commencer
+			</Button>
 		</>
 	)
 }
