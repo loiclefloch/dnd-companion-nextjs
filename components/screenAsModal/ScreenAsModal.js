@@ -11,7 +11,7 @@ function ScreenLoading() {
 	)
 }
 
-function ScreenAsModal({ title, isLoading, onCloseScreen, children }) {
+function ScreenAsModal({ title, leftAction, isLoading, onCloseScreen, children }) {
 	useEscapeEffect(onCloseScreen)
 	useBeforePopState(() => {
 		onCloseScreen()
@@ -21,6 +21,7 @@ function ScreenAsModal({ title, isLoading, onCloseScreen, children }) {
 	return (
 		<div className='flex flex-col h-screen bg-app relative'>
 			<header className='flex flex-row p-2 z-40 top-0 sticky '>
+				{leftAction && <div className="flex">{leftAction}</div>}
 				<div className='flex-1 text-lg font-semibold text-center'>{title}</div>
 				<div className='flex'>
 					<button onClick={onCloseScreen}><IconX className="w-5 h-5" /></button>

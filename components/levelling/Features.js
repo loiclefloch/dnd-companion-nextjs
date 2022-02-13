@@ -1,11 +1,12 @@
 import { useState } from "react"
+import { isEmpty } from "lodash"
 import { actionLevellingAddFeatures } from "./action"
 import map from "lodash/map"
 import useFeature from "../../modules/api/useFeature"
 import useI18n from "../../modules/i18n/useI18n"
 import ButtonBottomScreen from "../ButtonBottomScreen"
+import Section from "../Section"
 import FeatureSpecificSelector from "./FeatureSpecificSelector"
-import { isEmpty } from "lodash"
 
 function Feature({ character, value = { type: '', }, onChange, index }) {
 	const { tr } = useI18n()
@@ -14,8 +15,11 @@ function Feature({ character, value = { type: '', }, onChange, index }) {
 	const feature = featureResponse.data
 
 	return (
-    <div className="prose my-4 px-4 py-4">
-      <h3 className="border-b border-solid border-slate-300">{feature.name}</h3>
+    <Section 
+			className="prose my-4 px-4 py-4"
+			title={feature.name}
+			withToggle
+		>
 
       <p className="mt-2">{tr(feature.desc)}</p>
 
@@ -27,8 +31,26 @@ function Feature({ character, value = { type: '', }, onChange, index }) {
           onChange={onChange}
         />
       )}
-    </div>
+    </Section>
   );
+}
+
+function formIsValid(features, featuresOptions) {
+	if (!features) {
+		return true
+	}
+
+	return features.every((feature, index) => {
+		const option = featuresOptions[index]
+
+		if (feature.featureSpecific) {
+			debugger
+			return !!option
+		}
+
+		return true
+	})
+
 }
 
 
@@ -37,11 +59,13 @@ function Features({ getBuildedCharacter, levellingData, step, levellingDispatch 
 	const [featuresOptions, setFeaturesOptions] = useState({})
 	const character = getBuildedCharacter()
 
+	const isValid = formIsValid(levellingData.features, featuresOptions)
+
 	return (
 		<div className="prose mt-8 mx-4">
 			<h3 className="text-center">{step.label}</h3>
 
-			<div className="mt-2 divide divide-y">
+			<div className="mt-2">
 				{levellingData.features.map(index => (
 					<Feature 
 						key={index} 
@@ -62,6 +86,8 @@ function Features({ getBuildedCharacter, levellingData, step, levellingDispatch 
 
 			<ButtonBottomScreen
 				variant="cta"
+				disabled={!isValid}
+				hide={!isValid}
 				onClick={() => {
 					levellingDispatch(actionLevellingAddFeatures({ 
 						step, 

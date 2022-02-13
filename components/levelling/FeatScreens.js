@@ -1,6 +1,6 @@
-import { actionLevellingAbilityScoreImprovementFeat, actionLevellingAbilityScoreImprovementScore } from "./action"
+import { actionLevellingAbilityScoreImprovementFeat } from "./action"
 import { useState, useMemo } from "react"
-import { map, cloneDeep, get, set } from "lodash"
+import { get, set } from "lodash"
 import { useStepScreenAsModal, ScreenStep, useScreenStep } from "../../components/ScreensStepAsModal"
 import ListSelector from "../../components/ListSelector";
 import { useFeatScreenAsModal } from "../../components/FeatScreenAsModal"
@@ -10,12 +10,31 @@ import ButtonBottomScreen from "../ButtonBottomScreen"
 import useFeats from "../../modules/api/useFeats"
 import filterFeatsForCharacter from "../../modules/character/filterFeatsForCharacter"
 import Section from "../../components/Section"
-import Button from "../../components/Button"
+
+function spellIsValid(spellOption, value) {
+	if (!value) {
+		return false
+	}
+	return value.spells.length === spellOption.choose
+}
+
+function spellsIsValid(spellsOptions, selectedOption) {
+	if (!selectedOption) {
+		return false
+	}
+
+	return spellsOptions.every((spellOption, index) => {
+		const value = get(selectedOption, index, null)
+		return spellIsValid(spellOption, value)
+	})
+}
+
 
 function SpellOption({ spellOption, setSelectedOption, selectedOption }) {
 	return (
 		<ListSelector
 			multiple
+			value={selectedOption?.spells}
 			nbMaxValues={spellOption.choose}
 			onChange={spells => setSelectedOption({ spells })}
 			options={spellOption.from.map(spell => ({
@@ -34,12 +53,16 @@ function SpellOptions({
 	selectedOption = [],
 	setSelectedOption,
 }) {
+
+	const isValid = spellsIsValid(spellOptions, selectedOption)
+
 	return (
 		<div className="px-4 mt-4 prose">
 			<h3>Choisissez des sorts à apprendre</h3>
 
 			{spellOptions.map((spellOption, index) => {
 				const value = get(selectedOption, index, { spells: [] })
+				const isValid = spellIsValid(spellOption, value)
 				return (
 					<Section 
 						screen={index}
@@ -62,8 +85,8 @@ function SpellOptions({
 
 			<ButtonBottomScreen
 				variant="cta"
-				disabled={!selectedOption}
-				hide={!selectedOption}
+				disabled={!isValid}
+				hide={!isValid}
 				onClick={() => {
 					onNext()
 				}}
@@ -85,6 +108,7 @@ function AbilityOption({
 			<h3>Choisissez une capacité à augmenter</h3>
 
 			<ListSelector
+				value={selectedOption?.abilities}
 				multiple
 				nbMaxValues={abilityOption.choose}
 				onChange={abilities => setSelectedOption({ abilities })}
@@ -110,6 +134,24 @@ function AbilityOption({
 	)
 }
 
+function featureIsValid(featureOption, value) {
+	if (!value) {
+		return false
+	}
+	return value.features.length === featureOption.choose
+}
+
+function featuresIsValid(featuresOptions, selectedOption) {
+	if (!selectedOption) {
+		return false
+	}
+
+	return featuresOptions.every((featureOption, index) => {
+		const value = get(selectedOption, index, null)
+		return featureIsValid(featureOption, value)
+	})
+}
+
 function FeatureOption({ featureOption, setSelectedOption, selectedOption }) {
 	return (
 		<ListSelector
@@ -126,19 +168,21 @@ function FeatureOption({ featureOption, setSelectedOption, selectedOption }) {
 	)
 }
 
-
 function FeaturesOptions({
 	featuresOptions,
 	selectedOption = [],
 	setSelectedOption,
 	onNext,
 }) {
+	const isValid = featuresIsValid(featuresOptions, selectedOption)
+
 	return (
 		<div className="px-4 mt-4 prose">
 			<h3>Choisissez des features</h3>
 
 			{featuresOptions.map((featureOption, index) => {
-				const value = get(selectedOption, index, { spells: [] })
+				const value = get(selectedOption, index, { features: [] })
+				const isValid = featureIsValid(featureOption, value)
 				return (
 					<Section
 						screen={index}
@@ -162,8 +206,8 @@ function FeaturesOptions({
 
 			<ButtonBottomScreen
 				variant="cta"
-				disabled={!selectedOption}
-				hide={!selectedOption}
+				disabled={!isValid}
+				hide={!isValid}
 				onClick={() => {
 					onNext()
 				}}
@@ -181,12 +225,15 @@ function LanguagesOptions({
 	setSelectedOption,
 	onNext,
 }) {
+	const isValid = selectedOption?.languages?.length === languagesOptions.choose
+
 	return (
 		<div className="px-4 mt-4 prose">
-			<h3>Choisissez des langues</h3>
+			<h3>Choisissez {languagesOptions.choose} langues</h3>
 
 			<ListSelector
 				multiple
+				value={selectedOption?.languages}
 				nbMaxValues={languagesOptions.choose}
 				onChange={languages => setSelectedOption({ languages })}
 				options={languagesOptions.from.map(languageOption => ({
@@ -199,8 +246,8 @@ function LanguagesOptions({
 
 			<ButtonBottomScreen
 				variant="cta"
-				disabled={!selectedOption}
-				hide={!selectedOption}
+				disabled={!isValid}
+				hide={!isValid}
 				onClick={() => {
 					onNext()
 				}}

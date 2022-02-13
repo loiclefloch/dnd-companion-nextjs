@@ -53,6 +53,7 @@ function Score({ step, character, levellingDispatch }) {
 			<ButtonBottomScreen
 				variant="cta"
 				disabled={!isValid}
+				hide={!isValid}
 				onClick={() => {
 					levellingDispatch(actionLevellingAbilityScoreImprovementScore({ step, type: 'score', scoreDiff }))
 				}}

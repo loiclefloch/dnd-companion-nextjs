@@ -2,6 +2,7 @@ import React, { createElement, createContext, cloneElement, useState, useEffect,
 import clsx from "clsx";
 import ScreenAsModal from "./screenAsModal/ScreenAsModal";
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
+import IconChevronLeft from "./icons/IconChevronLeft";
 
 const ScreenActiveContext = createContext({
   setActivescreen: (at) => {},
@@ -17,6 +18,7 @@ const ScreenActiveProvider = ({ steps, children, onChangeTitle, onCloseScreen, d
 		setActiveScreenIndex,
 		steps,
 		isLastStep: activeScreenIndex === steps.length - 1,
+		isFirstStep: activeScreenIndex === 0,
 		onChangeTitle,
 		onCloseScreen,
 		next: () => {
@@ -36,6 +38,15 @@ const ScreenActiveProvider = ({ steps, children, onChangeTitle, onCloseScreen, d
   )
 };
 
+function LeftAction() {
+	const { prev, isFirstStep } = useScreenStep()
+
+	if (isFirstStep) {
+		return null
+	}
+
+	return <IconChevronLeft onClick={prev} className="cursor-pointer" />
+}
 
 function ContentScreenAsModal({ view, viewProps, steps, onCloseScreen, }) {
 	const [currentTitle, setCurrentTitle] = useState('')
@@ -43,9 +54,15 @@ function ContentScreenAsModal({ view, viewProps, steps, onCloseScreen, }) {
 	const onChangeTitle = (newTitle) => setCurrentTitle(newTitle)
 	
 	return (
-		<ScreenActiveProvider defaultScreen={0} steps={steps} onChangeTitle={onChangeTitle} onCloseScreen={onCloseScreen}>
+		<ScreenActiveProvider 
+			defaultScreen={0} 
+			steps={steps} 
+			onChangeTitle={onChangeTitle} 
+			onCloseScreen={onCloseScreen}
+		>
 			<ScreenAsModal
 				title={currentTitle}
+				leftAction={<LeftAction />}
 				onCloseScreen={onCloseScreen}
 			>
 				{createElement(view, { steps, ...viewProps })}
