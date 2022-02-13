@@ -297,7 +297,7 @@ export function FeatsSection({ character }) {
 						key={feat.index} 
 						label={tr(feat.nameLocalized)} 
 						value={<div 
-							onClick={() => showFeatScreenAsModal(feat.index)}
+							onClick={() => showFeatScreenAsModal(feat.index, character)}
 							className="text-meta"
 						>
 							?

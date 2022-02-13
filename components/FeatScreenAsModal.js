@@ -5,7 +5,7 @@ import useI18n from "../modules/i18n/useI18n";
 import FeatContent from "./FeatContent"
 import useFeat from "../modules/api/useFeat";
 
-function FeatScreenAsModal({ index, onCloseScreen }) {
+function FeatScreenAsModal({ index, character, onCloseScreen }) {
 	const { tr } = useI18n()
 	const featResponse = useFeat(index)
 
@@ -15,7 +15,7 @@ function FeatScreenAsModal({ index, onCloseScreen }) {
 			isFetching={featResponse.isFetching}
 			onCloseScreen={onCloseScreen}
 		>
-			<FeatContent index={index} feat={featResponse.data} />
+			<FeatContent index={index} feat={featResponse.data} character={character} />
 		</ScreenAsModal>
 	)
 }
@@ -24,9 +24,10 @@ export function useFeatScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
-		showFeatScreenAsModal: (index) => {
+		showFeatScreenAsModal: (index, character) => {
 			showScreenAsModal(FeatScreenAsModal, {
-				index
+				index,
+				character
 			})
 		}
 	}

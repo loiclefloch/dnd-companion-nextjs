@@ -445,7 +445,6 @@ export function useFeatStepScreenAsModal() {
 	}
 }
 
-
 export function FeatSelector({ selectedFeat, setSelectedFeat, character }) {
 	const { tr } = useI18n()
 	const featsResponse = useFeats()

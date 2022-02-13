@@ -1,5 +1,7 @@
+import isEmpty from "lodash/isEmpty"
 import useI18n from "../modules/i18n/useI18n"
 import Tag from "../components/Tag"
+import LineInfo from "./LineInfo"
 
 export function FeatPrerequisites({ feat }) {
 	return (
@@ -34,7 +36,57 @@ export function FeatPrerequisites({ feat }) {
 	)
 }
 
-function FeatContent({ feat }) {
+function CharacterData({ feat, character }) {
+	const { tr } = useI18n()
+	// TODO: can't retrieve them until we refactor the languages array
+	const languages = []
+	const spells = character.spellsList.filter(spell => spell.from === 'feat' && spell.feat === feat.index)
+	const features = character.features.filter(feature => feature.from === 'feat' && feature.feat === feat.index)
+	const statsBonuses = character.statsBonuses.filter(statBonus => statBonus.type === 'feat' && statBonus.feat === feat.index)
+
+	return (
+		<div>
+			{!isEmpty(spells) && (
+				<div>
+					<h3 className="prose">Sorts</h3>
+					<LineInfo.Parent>
+						{spells.map(spell => (
+							<LineInfo index={spell.index} label={tr(spell.nameLocalized)} />
+						))}
+					</LineInfo.Parent>
+				</div>
+			)}
+
+			{!isEmpty(features) && (
+				<div>
+					<h3 className="prose">features</h3>
+					<LineInfo.Parent>
+						{features.map(feature => (
+							<LineInfo index={feature.index} label={feature.index} />
+						))}
+					</LineInfo.Parent>
+				</div>
+			)}
+
+			{!isEmpty(statsBonuses) && (
+				<div>
+					<h3 className="prose">Bonus d'abilités</h3>
+					<LineInfo.Parent>
+						{statsBonuses.map(statBonus => (
+							<LineInfo 
+								index={statBonus.index} 
+								label={statBonus.ability} 
+								value={`+${statBonus.bonus}`} 
+							/>
+						))}
+					</LineInfo.Parent>
+				</div>
+			)}
+		</div>
+	)
+}
+
+function FeatContent({ character, feat }) {
 	const { tr } = useI18n()
 
 	return (
@@ -59,6 +111,13 @@ function FeatContent({ feat }) {
 					<p>Aucun prérequis</p>
 				)}
 			</div>
+
+			{character && (
+				<div className="mt-8">
+					<h3>Options sélectionnées pour {character.name}</h3>
+					<CharacterData character={character} feat={feat} />
+				</div>
+			)}
 		</div>
 	)
 }
