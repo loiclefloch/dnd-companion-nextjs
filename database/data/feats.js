@@ -620,12 +620,10 @@ const feats = [
 		index:  "linguist",
 		"name": "Linguist",
 		"resume": "+1 in Int., you learn three languages, and you can ably create ciphers.",
-		"languageOptions": [
-			{
-				"choose": 2,
-				"from": languages 
-			},
-		]	
+		"languagesOptions": {
+			"choose": 2,
+			"from": languages
+		},
 	},
 	{
 		index:  "lucky",

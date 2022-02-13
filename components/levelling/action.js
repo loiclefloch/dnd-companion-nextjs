@@ -153,6 +153,35 @@ export function actionLevellingAbilityScoreImprovementFeat({
 							})
 							break
 
+						case 'featuresOptions':
+							selectedOption.forEach(spellOption => {
+								const features = spellOption.features
+								features.forEach(feature => {
+									character.features.push({
+										index: feature.index,
+										type: "levelling",
+										from: "feat",
+										feat: feat.index,
+										level: newLevel,
+									});
+								})
+							})
+							break
+
+						case 'languagesOptions':
+							selectedOption.languages.forEach(language => {
+								// TODO: languages is an array of strings. we cannot add type / from like features :/
+								character.languages.push(language)
+								// {
+								// 	index: language,
+								// 	type: "levelling",
+								// 	from: "feat",
+								// 	feat: feat.index,
+								// 	level: newLevel,
+								// });
+							})
+							break
+
 						default:
 							debugger
 							throw new Error(`Not handled`)

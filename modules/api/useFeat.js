@@ -29,8 +29,10 @@ export function formatFeat(featParam) {
 
   feat.hasSpellOptions = !!feat.spellOptions
   feat.hasAbilityOption = !!feat.abilityOption
+  feat.hasFeaturesOptions = !!feat.featuresOptions
+  feat.hasLanguageOptions = !!feat.languagesOptions
 
-  feat.hasOption = feat.hasAbilityOption || feat.hasSpellOptions
+  feat.hasOption = feat.hasAbilityOption || feat.hasSpellOptions || feat.hasFeaturesOptions || feat.languagesOptions
 
   return feat
 }

@@ -11,9 +11,7 @@ import {
 	TabContainer,
 } from "../Tab"
 
-import { ScreenStepContainer, useScreenStepAsModal} from "../../components/ScreensStepAsModal"
-import Button from "../Button"
-import FeatScreens from "./FeatScreens"
+import { FeatSelector, useFeatStepScreenAsModal } from "./FeatScreens"
 
 function getScoreDiff(stats, baseStats) {
 	const diff = {}
@@ -67,27 +65,33 @@ function Score({ step, character, levellingDispatch }) {
 
 
 function Feat({ step, character, levellingDispatch }) {
-	const { openScreenStep } = useScreenStepAsModal()
+	const [selectedFeat, setSelectedFeat] = useState(null)
+	const { openFeatStepScreenAsModal } = useFeatStepScreenAsModal()
 	return (
 		<>
 			<p className="prose text-center">
 				Ici vous pouvez choisir un feat et ses options.
 			</p>
 
-			<Button
+			<FeatSelector
+				selectedFeat={selectedFeat}
+				setSelectedFeat={setSelectedFeat}
+				character={character}
+			/>
+
+			<ButtonBottomScreen
 				variant="cta"
-				onClick={() => openScreenStep(
-					`Choix d'un feat`,
-					[
-						"chooseFeat",
-						"abilityOption",
-						"spellOptions",
-					],
-					<FeatScreens character={character} step={step} levellingDispatch={levellingDispatch} />
-				)}
+				disabled={!selectedFeat}
+				hide={!selectedFeat}
+				onClick={() => openFeatStepScreenAsModal({
+					step, 
+					character, 
+					levellingDispatch,
+					feat: selectedFeat,
+				})}
 			>
-				Commencer
-			</Button>
+				Configurer le feat
+			</ButtonBottomScreen>
 		</>
 	)
 }

@@ -1,4 +1,4 @@
-import React, { createContext, cloneElement, useState, useEffect, useContext } from "react";
+import React, { createElement, createContext, cloneElement, useState, useEffect, useContext } from "react";
 import clsx from "clsx";
 import ScreenAsModal from "./screenAsModal/ScreenAsModal";
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
@@ -6,60 +6,25 @@ import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 const ScreenActiveContext = createContext({
   setActivescreen: (at) => {},
   activeScreen: "",
+	steps: []
 });
 
-
-function ContentScreenAsModal({ title, steps, onCloseScreen,children }) {
-	const [currentTitle, setCurrentTitle] = useState(title)
-	return (
-		<ScreenAsModal
-			title={currentTitle}
-			onCloseScreen={onCloseScreen}
-		>
-			<ScreenStepContainer
-				steps={steps}
-			>
-				{cloneElement(children, 
-					{
-						steps,
-						onCloseScreen,
-						onChangeTitle: (newTitle) => setCurrentTitle(newTitle)
-					}
-				)}
-			</ScreenStepContainer>
-		</ScreenAsModal>
-	)
-}
-
-export function useScreenStepAsModal() {
-	const { showScreenAsModal } = useScreenAsModal()
-
-	return {
-		openScreenStep: (title, steps, children) => {
-			showScreenAsModal(ContentScreenAsModal, {
-				title,
-				steps,
-				children,
-			})
-		}
-	}
-}
-
-const ScreenActiveProvider = ({ children, steps, defaultScreen }) => {
-  const [activeScreen, setActiveScreen] = useState(defaultScreen);
+const ScreenActiveProvider = ({ steps, children, onChangeTitle, onCloseScreen, defaultScreen }) => {
+  const [activeScreenIndex, setActiveScreenIndex] = useState(defaultScreen);
 
 	const value = {
-		activeScreen,
-		setActiveScreen,
+		activeScreenIndex,
+		setActiveScreenIndex,
 		steps,
+		isLastStep: activeScreenIndex === steps.length - 1,
+		onChangeTitle,
+		onCloseScreen,
 		next: () => {
-			const currentIndex = steps.findIndex(s => s === activeScreen)
-			setActiveScreen(steps[currentIndex + 1])
+			setActiveScreenIndex(activeScreenIndex + 1)
 		},
 		prev: () => {
-			const currentIndex = steps.findIndex(s => s === activeScreen)
-			setActiveScreen(steps[currentIndex - 1])
-		}
+			setActiveScreenIndex(activeScreenIndex - 1)
+		},
 	}
 
   return (
@@ -71,32 +36,61 @@ const ScreenActiveProvider = ({ children, steps, defaultScreen }) => {
   )
 };
 
-export function ScreenStepContainer({ steps, children }) {
-		// all is display on the ScreenModal
+
+function ContentScreenAsModal({ view, viewProps, steps, onCloseScreen, }) {
+	const [currentTitle, setCurrentTitle] = useState('')
+	
+	const onChangeTitle = (newTitle) => setCurrentTitle(newTitle)
+	
 	return (
-		<ScreenActiveProvider steps={steps} defaultScreen={steps[0]}>
-			{children}
+		<ScreenActiveProvider defaultScreen={0} steps={steps} onChangeTitle={onChangeTitle} onCloseScreen={onCloseScreen}>
+			<ScreenAsModal
+				title={currentTitle}
+				onCloseScreen={onCloseScreen}
+			>
+				{createElement(view, { steps, ...viewProps })}
+			</ScreenAsModal>
 		</ScreenActiveProvider>
 	)
 }
 
-export function ScreenStep({ screen, onChangeTitle, title, className, children }) {
-	const { activeScreen } = useContext(ScreenActiveContext);
+export function ScreenStep({ screen, title, className, children }) {
+	const { activeScreenIndex, steps, onChangeTitle } = useContext(ScreenActiveContext);
+
+	const index = steps.findIndex(s => s === screen)
 
 	useEffect(() => {
-		if (screen === activeScreen) {
+		if (index === activeScreenIndex) {
 			onChangeTitle(title)
 		}
-	}, [screen, activeScreen])
+	}, [activeScreenIndex])
 
-	if (activeScreen !== screen) {
+	if (activeScreenIndex !== index) {
 		return null
 	}
 
-	return <div className={clsx("pt-2", className)}>{children}</div>
+	return (
+		<div className={clsx("pt-2", className)}>
+			{children}
+		</div>
+	)
 }
 
 export function useScreenStep() {
 	const data = useContext(ScreenActiveContext);	
 	return data
+}
+
+export function useStepScreenAsModal() {
+	const { showScreenAsModal } = useScreenAsModal()
+
+	return {
+		openScreenStep: ({ view, viewProps, steps, }) => {
+			showScreenAsModal(ContentScreenAsModal, {
+				view,
+				viewProps,
+				steps,
+			})
+		}
+	}
 }
