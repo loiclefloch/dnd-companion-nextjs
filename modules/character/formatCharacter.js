@@ -489,7 +489,8 @@ export function formatCharacter(character) {
 
 	// We must put the following after apply* methods, because they modify the character base data to
 	// be used on the following (ex: naturalAc / speed / initiative)
-	// TODO: spells will be added on character level-up, so it is not mandatory to format spells here
+	// TODO: spells will be added on character level-up, so it is not mandatory to format spells here,
+	//  after the apply*
 
 	character.spellsList = [
 		...(character.spellsList || []),

@@ -63,7 +63,7 @@ function SpellOptions({
 
 			{spellOptions.map((spellOption, index) => {
 				const value = get(selectedOption, index, { spells: [] })
-				const isValid = spellIsValid(spellOption, value)
+				// const isValid = spellIsValid(spellOption, value)
 				return (
 					<Section 
 						screen={index}
@@ -192,7 +192,7 @@ function FeaturesOptions({
 		<div className="px-4 mt-4 prose">
 			{featuresOptions.map((featureOption, index) => {
 				const value = get(selectedOption, index, { features: [] })
-				const isValid = featureIsValid(featureOption, value)
+				// const isValid = featureIsValid(featureOption, value)
 				return (
 					<Section
 						screen={index}

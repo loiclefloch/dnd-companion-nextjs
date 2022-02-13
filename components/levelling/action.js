@@ -148,9 +148,11 @@ export function actionLevellingAbilityScoreImprovementFeat({
 										index: spell.index,
 										from: "feat",
 										feat: feat.index,
+										"isPrepared": false,
 									})
 								})
 							})
+							console.log({spellsList: character.spellsList })
 							break
 
 						case 'featuresOptions':

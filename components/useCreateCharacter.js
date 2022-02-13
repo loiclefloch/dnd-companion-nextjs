@@ -1,17 +1,16 @@
-import uuid from "uuid";
-import { useRouter } from "next/router";
 import { createContext, useContext, useReducer, useEffect } from "react"
+import { v4 as uuid } from "uuid";
+import { useRouter } from "next/router";
+import { cloneDeep } from "lodash";
 import { CharacterStorage } from "../modules/db"
-import { getDefaultData } from "../components/useCurrentCharacter"
-
 import classes from '../database/data/classes'
 import allRaces from "../database/data/allRaces"
 import backgrounds from "../database/data/backgrounds"
 import { formatRace } from "../modules/api/useRace"
 import { formatBackground } from "../modules/api/useBackground"
 import formatCharacter from "../modules/character/formatCharacter"
+import createCharacterDefaultData from "../modules/character/createCharacterDefaultData"
 import { formatClass  } from "../modules/api/useClass"
-import { cloneDeep } from "lodash";
 
 const isBrowser = typeof window !== "undefined";
 
@@ -30,7 +29,7 @@ function createCharacterReducer(state, action) {
   }
 }
 
-const initialState = () => CharacterStorage.getItem() || getDefaultData()
+const initialState = () => CharacterStorage.getItem() || createCharacterDefaultData()
 
 function getNextStep(step) {
   const map = {
@@ -173,6 +172,7 @@ function buildCharacter(characterParam) {
 
 export function CreateCharacterProvider({ children }) {
   const router = useRouter()
+  // TODO: initiate state only when on creation pages
   const [character, dispatchCharacter] = useReducer(createCharacterReducer, initialState())
 
   useEffect(() => {
@@ -190,7 +190,7 @@ export function CreateCharacterProvider({ children }) {
     startCreateCharacter: () => {
       dispatchCharacter({
         type: 'update',
-        data: getDefaultData()
+        data: createCharacterDefaultData()
       })
     },
     character,

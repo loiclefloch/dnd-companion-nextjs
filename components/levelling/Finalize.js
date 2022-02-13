@@ -3,10 +3,16 @@ import Button from "../Button"
 import useCopyToClipboard from "../useCopyToClipboard"
 import useAddFlashMessage from "../useAddFlashMessage"
 
-function Finalize({ character, levellingData, levellingState, getBuildedCharacter, finalizeLevelling }) {
+function Finalize({ 
+	rawCharacter, 
+	levellingData, 
+	levellingState, 
+	getBuildedCharacter, 
+	finalizeLevelling 
+}) {
 	const [_, copy] = useCopyToClipboard()
-	const { addSuccessFlashMessage, addErrorFlashMessage, addInfoFlashMessage } = useAddFlashMessage()
-	// const finalCharacter = getBuildedCharacter()
+	const { addSuccessFlashMessage, addErrorFlashMessage  } = useAddFlashMessage()
+	const buildedCharacter = getBuildedCharacter()
 
 	return (
 		<div className="prose px-4">
@@ -42,7 +48,8 @@ function Finalize({ character, levellingData, levellingState, getBuildedCharacte
 					className="mt-24"
 					onClick={() => {
 						const copied = copy({
-							character, 
+							before: rawCharacter, 
+							after: buildedCharacter,
 							levellingData,
 							levellingState,
 						})
