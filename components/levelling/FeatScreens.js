@@ -10,6 +10,7 @@ import ButtonBottomScreen from "../ButtonBottomScreen"
 import useFeats from "../../modules/api/useFeats"
 import filterFeatsForCharacter from "../../modules/character/filterFeatsForCharacter"
 import Section from "../../components/Section"
+import AbilityImportanceForClass from "../../components/AbilityImportanceForClass"
 
 function spellIsValid(spellOption, value) {
 	if (!value) {
@@ -98,11 +99,13 @@ function SpellOptions({
 }
 
 function AbilityOption({
+	character,
 	onNext,
 	abilityOption,
 	selectedOption,
 	setSelectedOption,
 }) {
+
 	return (
 		<div className="px-4 mt-4 prose">
 			<h3>Choisissez une capacité à augmenter</h3>
@@ -113,7 +116,16 @@ function AbilityOption({
 				nbMaxValues={abilityOption.choose}
 				onChange={abilities => setSelectedOption({ abilities })}
 				options={abilityOption.from.map(abilityOption => ({
-					label: `+ ${abilityOption.bonus} ${abilityOption.ability.name}`,
+					label: <div className="flex items-center">
+						<AbilityImportanceForClass 
+							className="w-4 h-4"
+							clss={character.clss} 
+							ability={abilityOption.ability.name} 
+						/>
+						<div className="pl-4">
+							+ {abilityOption.bonus} {abilityOption.ability.name}
+						</div>
+					</div>,
 					key: abilityOption.ability.name,
 					value: abilityOption,
 					selected: selectedOption?.abilities?.some(v => v.ability.name === abilityOption.ability.name)
@@ -178,15 +190,13 @@ function FeaturesOptions({
 
 	return (
 		<div className="px-4 mt-4 prose">
-			<h3>Choisissez des features</h3>
-
 			{featuresOptions.map((featureOption, index) => {
 				const value = get(selectedOption, index, { features: [] })
 				const isValid = featureIsValid(featureOption, value)
 				return (
 					<Section
 						screen={index}
-						title={`Choix de feature feature feature ${index + 1}`}
+						title={`Choix de la capacité ${index + 1}`}
 						withToggle
 					>
 						<FeatureOption
@@ -349,6 +359,7 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 					title={`${feat.name} - Augmentation de la capacité`}
 				>
 					<AbilityOption
+						character={character}
 						abilityOption={feat.abilityOption}
 						selectedOption={selectedOptions?.abilityOption}
 						setSelectedOption={(abilityOption) => setSelectedOptions({ ...selectedOptions, abilityOption })}

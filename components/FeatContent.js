@@ -46,7 +46,18 @@ function FeatContent({ feat }) {
 			</div>
 
 			<div className="mt-8">
-				<FeatPrerequisites feat={feat} />
+				<h3>Prérequis :</h3>
+				{feat.hasPrerequisites && (
+					<>
+						<em>Attention, certain pré-requis ne peuvent pas être vérifiés automatiquement.</em>
+						<div className="mt-4">
+							<FeatPrerequisites feat={feat} />
+						</div>
+					</>
+				)}
+				{!feat.hasPrerequisites && (
+					<p>Aucun prérequis</p>
+				)}
 			</div>
 		</div>
 	)

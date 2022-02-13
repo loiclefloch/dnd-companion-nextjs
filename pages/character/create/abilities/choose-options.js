@@ -1,19 +1,12 @@
 import { useState } from "react"
-import clsx from 'clsx'
 import Link from "next/link"
-import { valueToModifierLabel, getAbilityScorePointCost } from "../../../../modules/stats"
+import { valueToModifierLabel } from "../../../../modules/stats"
 import Screen from "../../../../components/Screen";
 import useI18n from '../../../../modules/i18n/useI18n';
 import ScreenIntroduction from '../../../../components/ScreenIntroduction';
 import ButtonBottomScreen from "../../../../components/ButtonBottomScreen";
 import useCreateCharacter from '../../../../components/useCreateCharacter';
 import ListSelector from '../../../../components/ListSelector';
-import {
-	AbilityImportance,
-	getImportanceForClass,
-	getImportanceTip,
-} from "../../../../modules/character"
-import useTip from "../../../../components/useTip"
 
 function getBaseStats(baseStats, statsBonuses) {
 	const stats = { ...baseStats }
@@ -29,13 +22,10 @@ function getBaseStats(baseStats, statsBonuses) {
 function Form() {
 	const { character, race, updateCharacter } = useCreateCharacter()
 	const [chosenBonuses, setChosenBonuses] = useState((character.statsBonuses || []).filter(bonus => bonus.type === 'race-options').map(stat => stat.ability))
-	const { showTip } = useTip()
 
 	const bonusOptions = race?.abilityBonusOptions || {}
 
 	const baseStats = getBaseStats(character.baseStats, character.statsBonuses)
-
-	const importanceForClass = getImportanceForClass(character.classes[0])
 
 	return (
 		<>
@@ -48,20 +38,13 @@ function Form() {
 					multiple
 					nbMaxValues={bonusOptions.choose}
 					options={bonusOptions.from?.map(option => {
-						const importance = importanceForClass && importanceForClass[option.ability_score.name]
 						return ({
 							label: <div className="flex">
 								<div className="flex items-center w-14 align-center">
-									<div
-										className={clsx("w-2 h-2", {
-											"bg-blue-400": importance === AbilityImportance.FANTASTIC,
-											"bg-green-400": importance === AbilityImportance.GOOD,
-											"bg-yellow-400": importance === AbilityImportance.OK,
-											"bg-red-400": importance === AbilityImportance.BAD,
-										})}
-										onClick={() => {
-											showTip(getImportanceTip(importance))
-										}}
+									<AbilityImportanceForClass 
+										clss={character.clss} 
+										ability={option.ability_score.name} 
+										className="w-2 h-2"
 									/>
 									<div className="ml-2">
 										{option.ability_score.name}

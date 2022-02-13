@@ -213,6 +213,9 @@ export function formatCharacter(character) {
 		.map(clss => classes.find(c => clss === c.index))
 		.map(formatClass)
 
+	// shortcut
+	character.clss = character.classes[0]
+
 	if (character.subclass) {
 		character.subclass = {
 			...formatSubclass(subclasses.find(c => c.index === character.subclass.index)),
