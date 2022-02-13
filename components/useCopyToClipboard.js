@@ -4,11 +4,13 @@ import { useState } from 'react'
 function useCopyToClipboard() {
   const [copiedText, setCopiedText] = useState(null)
 
-  const copy = async text => {
+  const copy = async textParam => {
     if (!navigator?.clipboard) {
       console.warn('Clipboard not supported')
       return false
     }
+    
+    const text = JSON.stringify(textParam, null, 2)
 
     // Try to save to clipboard then save it in the state if worked
     try {

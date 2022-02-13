@@ -91,21 +91,15 @@ function Form() {
 								bonus: bonus.bonus,
 							}
 						})
-
 						
-						// add bonuses
-						statsBonuses.forEach(bonus => {
-							stats[bonus.ability] += bonus.bonus
-						})
-
 						const abilityBonusOptions = race?.abilityBonusOptions || []
 						if (!isEmpty(abilityBonusOptions)) {
 							// half-elf race
 							// do not update step yet
-							updateCharacter({ stats: stats, baseStats: abilities, statsBonuses })
+							updateCharacter({ baseStats: abilities, statsBonuses })
 							router.push("/character/create/abilities/choose-options")
 						} else {
-							updateCharacter({ stats: stats, baseStats: abilities, statsBonuses, step: 'abilities' })
+							updateCharacter({ baseStats: abilities, statsBonuses, step: 'abilities' })
 						}
 					}}
 				>

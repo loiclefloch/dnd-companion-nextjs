@@ -192,14 +192,16 @@ function addAbilityScoreImprovement(levellingData) {
 	const hasAbilityScoreImprovement = levellingData.features.some(f => f.includes("-ability-score-improvement-"))
 
 	if (hasAbilityScoreImprovement) {
-		return {
-			name: "ability-score-improvement",
-			label: "Augmentation des capacités", // TODO: better text
-			desc: "",
-		}
+		return [
+			{
+				name: "ability-score-improvement",
+				label: "Augmentation des capacités", // TODO: better text
+				desc: "",
+			},
+		]
 	}
 
-	return null
+	return []
 }
 
 function getLevellingSteps(character, level = 1) {
@@ -216,7 +218,7 @@ function getLevellingSteps(character, level = 1) {
 			desc: "",
 		},
 
-		addAbilityScoreImprovement(levellingData),
+		...addAbilityScoreImprovement(levellingData),
 
 		...applyCustomMethods(character, level),
 

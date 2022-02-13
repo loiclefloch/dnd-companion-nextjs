@@ -33,14 +33,14 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				}
 			]
 		}
@@ -77,14 +77,14 @@ const feats = [
 						index: "con",
 						name: "CON"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "wis",
 						name: "WIS"
 					},
-					amount: 1
+					bonus: 1
 				}
 			]
 		}
@@ -106,14 +106,14 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "con",
 						name: "CON"
 					},
-					amount: 1
+					bonus: 1
 				}
 			]
 		}
@@ -157,21 +157,21 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "con",
 						name: "CON"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				}
 			]
 		}
@@ -197,21 +197,21 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "con",
 						name: "CON"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				}
 			]
 		}
@@ -299,28 +299,28 @@ const feats = [
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "int",
 						name: "INT"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "wis",
 						name: "WIS"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -346,14 +346,14 @@ const feats = [
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "int",
 						name: "INT"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -379,14 +379,14 @@ const feats = [
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "int",
 						name: "INT"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -403,21 +403,21 @@ const feats = [
 						index: "int",
 						name: "INT"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "wis",
 						name: "WIS"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -449,14 +449,14 @@ const feats = [
 						index: "int",
 						name: "INT"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -567,14 +567,14 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -650,14 +650,14 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -679,14 +679,14 @@ const feats = [
 						index: "int",
 						name: "INT"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "wis",
 						name: "WIS"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -712,14 +712,14 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "con",
 						name: "CON"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -736,14 +736,14 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -798,42 +798,42 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "con",
 						name: "CON"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "int",
 						name: "INT"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "wis",
 						name: "WIS"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -870,21 +870,21 @@ const feats = [
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "con",
 						name: "CON"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -906,21 +906,21 @@ const feats = [
 						index: "int",
 						name: "INT"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "wis",
 						name: "WIS"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -947,42 +947,42 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "con",
 						name: "CON"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "int",
 						name: "INT"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "wis",
 						name: "WIS"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -1020,14 +1020,14 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -1051,14 +1051,14 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -1075,14 +1075,14 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "con",
 						name: "CON"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -1099,21 +1099,21 @@ const feats = [
 						index: "int",
 						name: "INT"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "wis",
 						name: "WIS"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -1130,21 +1130,21 @@ const feats = [
 						index: "int",
 						name: "INT"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "wis",
 						name: "WIS"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "cha",
 						name: "CHA"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}
@@ -1172,14 +1172,14 @@ const feats = [
 						index: "str",
 						name: "STR"
 					},
-					amount: 1
+					bonus: 1
 				},
 				{
 					ability: {
 						index: "dex",
 						name: "DEX"
 					},
-					amount: 1
+					bonus: 1
 				},
 			]
 		}

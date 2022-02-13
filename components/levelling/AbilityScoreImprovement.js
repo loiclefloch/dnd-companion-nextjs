@@ -1,6 +1,6 @@
-import { actionLevellingAbilityScoreImprovement } from "./action"
+import { actionLevellingAbilityScoreImprovementFeat, actionLevellingAbilityScoreImprovementScore } from "./action"
 import { useState, useMemo } from "react"
-import { map, cloneDeep, forEach } from "lodash"
+import { map, cloneDeep } from "lodash"
 
 import useFeats from "../../modules/api/useFeats"
 import filterFeatsForCharacter from "../../modules/character/filterFeatsForCharacter"
@@ -58,7 +58,7 @@ function Score({ step, character, levellingDispatch }) {
 				variant="cta"
 				disabled={!isValid}
 				onClick={() => {
-					levellingDispatch(actionLevellingAbilityScoreImprovement({ step, type: 'score', scoreDiff }))
+					levellingDispatch(actionLevellingAbilityScoreImprovementScore({ step, type: 'score', scoreDiff }))
 				}}
 			>
 				Continuer
@@ -67,8 +67,35 @@ function Score({ step, character, levellingDispatch }) {
 	)
 }
 
+function FeatOptions({ selectedOption, setSelectedOption, feat }) {
+	if (!feat.hasOption) {
+		return null
+	}
+
+	if (feat.hasAbilityOption) {
+		return (
+			<div>
+				<ListSelector
+					multiple
+					nbMaxValues={feat.abilityOption.choose}
+					onChange={abilities => setSelectedOption({ type: 'abilityOption',  abilities })}
+					options={feat.abilityOption.from.map(abilityOption => ({
+						label: `+ ${abilityOption.bonus} ${abilityOption.ability.name}`,
+						key: abilityOption.ability.name,
+						value: abilityOption,
+						selected: selectedOption?.abilities?.some(v => v.ability.name === abilityOption.ability.name)
+					}))}
+				/>
+			</div>
+		)
+	}
+
+	throw new Error(`Not handled`)
+}
+
 function Feat({ step, character, levellingDispatch }) {
 	const [selectedFeat, setSelectedFeat] = useState(null)
+	const [selectedOption, setSelectedOption] = useState(null)
 	const { tr } = useI18n()
 	const { showFeatScreenAsModal } = useFeatScreenAsModal()
 	const featsResponse = useFeats()
@@ -86,27 +113,38 @@ function Feat({ step, character, levellingDispatch }) {
 			<ListSelector
 				className="px-0"
 				value={selectedFeat}
-				options={feats?.map(feat => ({
-					label: (
-						<div className="pb-2">
-							{tr(feat.nameLocalized)}
-							<div className="text-meta text-sm">{feat.resume}</div>
-							{feat.hasPrerequisites && (
-								<div className="mt-2">
-									<FeatPrerequisites feat={feat} />
-								</div>
-							)}
+				options={feats?.map(feat => {
+					const selected = selectedFeat?.index === feat.index
+
+					return {
+						label: (
+							<div className="pb-2">
+								{tr(feat.nameLocalized)}
+								<div className="text-meta text-sm">{feat.resume}</div>
+								{feat.hasPrerequisites && (
+									<div className="mt-2">
+										<FeatPrerequisites feat={feat} />
+									</div>
+								)}
+								{selected && feat.hasOption && (
+									<FeatOptions 
+										feat={feat} 
+										selectedOption={selectedOption} 
+										setSelectedOption={setSelectedOption} 
+									/>
+								)}
+							</div>
+						),
+						value: feat,
+						selected,
+						rightView: <div
+							className="px-4 py-2 text-xs text-meta"
+							onClick={() => showFeatScreenAsModal(feat.index)}
+						>
+							?
 						</div>
-					),
-					value: feat,
-					selected: selectedFeat?.index === feat.index,
-					rightView: <div
-						className="px-4 py-2 text-xs text-meta"
-						onClick={() => showFeatScreenAsModal(feat.index)}
-					>
-						?
-					</div>
-				}))}
+					}
+				})}
 				onChange={setSelectedFeat}
 			/>
 
@@ -114,7 +152,13 @@ function Feat({ step, character, levellingDispatch }) {
 				variant="cta"
 				disabled={!selectedFeat}
 				onClick={() => {
-					levellingDispatch(actionLevellingAbilityScoreImprovement({ step, type: 'feat', feat: selectedFeat }))
+					if (!selectedFeat.hasOption || !!selectedOption) {
+						levellingDispatch(actionLevellingAbilityScoreImprovementFeat({ 
+							step, 
+							feat: selectedFeat, 
+							selectedOption 
+						}))
+					}
 				}}
 			>
 				Continuer

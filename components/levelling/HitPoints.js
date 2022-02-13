@@ -5,8 +5,8 @@ import { useDiceRunnerScreenAsModal } from "../../components/DiceRunnerScreenAsM
 import Button from "../Button"
 import { valueToModifierLabel } from "../../modules/stats"
 
-function HitPoints({ clss, getBuildedCharacter, levellingData, step, levellingDispatch, stepLevellingState }) {
-	const buildedCharacter = getBuildedCharacter()
+function HitPoints({ clss, getFormattedBuildedCharacter, levellingData, step, levellingDispatch, stepLevellingState }) {
+	const buildedCharacter = getFormattedBuildedCharacter()
 	const [diceResult, onDiceResult] = useState(stepLevellingState?.diceResult)
 	const { showDiceRunnerScreenAsModal } = useDiceRunnerScreenAsModal()
 

@@ -1,8 +1,12 @@
 import Link from "next/link"
 import Button from "../Button"
+import useCopyToClipboard from "../useCopyToClipboard"
+import useAddFlashMessage from "../useAddFlashMessage"
 
-function Finalize({ getBuildedCharacter, finalizeLevelling }) {
-	const character = getBuildedCharacter()
+function Finalize({ character, levellingData, levellingState, getBuildedCharacter, finalizeLevelling }) {
+	const [_, copy] = useCopyToClipboard()
+	const { addSuccessFlashMessage, addErrorFlashMessage, addInfoFlashMessage } = useAddFlashMessage()
+	// const finalCharacter = getBuildedCharacter()
 
 	return (
 		<div className="prose px-4">
@@ -21,7 +25,6 @@ function Finalize({ getBuildedCharacter, finalizeLevelling }) {
 					</Button>
 				</Link>
 
-
 				<Button 
 					variant="outlined"
 					color="success"
@@ -30,6 +33,27 @@ function Finalize({ getBuildedCharacter, finalizeLevelling }) {
 					}}
 				>
 					Valider ma montée de niveau
+				</Button>
+
+
+				<Button 
+					variant="outlined"
+					color="info"
+					className="mt-24"
+					onClick={() => {
+						const copied = copy({
+							character, 
+							levellingData,
+							levellingState,
+						})
+						if (copied) {
+							addSuccessFlashMessage({ text: 'Donée copiée !'})
+						} else {
+							addErrorFlashMessage({ text: 'Impossible de copier la donée '})
+						}
+					}}
+				>
+					Copier la donnée de debug
 				</Button>
 			</div>
 		</div>

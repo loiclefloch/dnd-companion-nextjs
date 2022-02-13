@@ -23,14 +23,7 @@
     "I idolize a particular hero of my faith, and constantly refer to that person's deeds and example.",
     "I can find common ground between the fiercest enemies, empathizing with them and always working toward peace."
   ],
-  "stats": {
-    "STR": 15,
-    "DEX": 8,
-    "CON": 17,
-    "INT": 8,
-    "WIS": 9,
-    "CHA": 15
-  },
+
   "statsBonuses": [
     {
       "ability": "CON",

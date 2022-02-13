@@ -102,6 +102,18 @@ function getCharacterSubclassFeatures(character) {
   ).map(l => l.features).flat().filter(Boolean);
 }
 
+function calculateStats(baseStats, statsBonuses) {
+	const stats = {
+		...baseStats
+	}
+
+	statsBonuses?.forEach(statBonus => {
+		stats[statBonus.ability.toUpperCase()] +- statBonus.bonus
+	})
+
+	return stats
+}
+
 
 function formatItem(character, item) {
 	item.isCharacterContextItem = true
@@ -187,6 +199,7 @@ export function formatCharacter(character) {
 		// 	index: 'observant'
 		// })
 	}
+	
 
 	character.currentHp = character.currentHp || character.maxHp
 
@@ -208,6 +221,8 @@ export function formatCharacter(character) {
 	const clss = character.classes[0]
 
 	const levellingData = getLevellingDataForClassesAndLevel(character.classes, character.level)
+
+	character.stats = calculateStats(character.baseStats, character.statsBonuses)
 
 	character.background = backgrounds.find(b => b.index === character.background)
 

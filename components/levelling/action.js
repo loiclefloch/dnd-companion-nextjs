@@ -101,34 +101,72 @@ export function actionLevellingLevelSlots({ step, spellsSlots }) {
 	}
 }
 
-export function actionLevellingAbilityScoreImprovement({ step, type, scoreDiff, feat }) {
+export function actionLevellingAbilityScoreImprovementFeat({ 
+	step,
+	feat,
+	selectedOption,
+	selectedSpells,
+}) {
 	return {
-		type: 'actionLevellingAbilityScoreImprovement',
+		type: 'actionLevellingAbilityScoreImprovementFeat',
 		apply: () => ({
-			step, 
-			type,
-			scoreDiff,
+			step,
 			feat,
+			selectedOption,
+			selectedSpells,
 		}),
 		build: ({ character, newLevel }) => {
-			if (type === 'feat') {
-				if (!character.feats) {
-					character.feats = []
-				}
-				character.feats.push({ index: feat.index, level: newLevel })
-				// applyFeatOnCharacterOnFeatAdded(character, feat.index)
-			} else if (type === 'score') {
-				map(scoreDiff, (bonus, ability) => {
-					if (bonus > 0) {
-						character.statsBonuses.push({
-							ability,
-							bonus,
-							type: "ability-score-improvement",
-						})
-						character.stats[ability] += bonus
-					}
-				})
+			if (!character.feats) {
+				character.feats = []
 			}
+			character.feats.push({
+				index:
+					feat.index,
+				level: newLevel,
+				options: selectedOption,
+				spells: selectedSpells,
+			})
+
+			if (selectedOption) {
+				if (selectedOption.type === "abilityOption") {
+					selectedOption.abilities.forEach(value => {
+						character.statsBonuses.push({
+							ability: value.ability.index.toUpperCase(),
+							type: "feat",
+							bonus: value.bonus,
+							feat: feat.index
+						})
+					})
+				} else {
+					throw new Error(`Not handled`)
+				}
+			}
+		}
+	}
+}
+
+
+export function actionLevellingAbilityScoreImprovementScore({ 
+	step, 
+	scoreDiff, 
+}) {
+	return {
+		type: 'actionLevellingAbilityScoreImprovementScore',
+		apply: () => ({
+			step, 
+			scoreDiff,
+		}),
+		build: ({ character, newLevel }) => {
+			map(scoreDiff, (bonus, ability) => {
+				if (bonus > 0) {
+					character.statsBonuses.push({
+						ability,
+						bonus,
+						type: "ability-score-improvement",
+					})
+					character.stats[ability] += bonus
+				}
+			})
 		}
 	}
 }

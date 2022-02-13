@@ -307,6 +307,35 @@ classes.forEach((className) => {
       (l) => l.level === level && l.class.index === className
     );
 
+    const slots = levelData.spellcasting
+    ? {
+        0: -1, // infinite
+        1: levelData.spellcasting.spell_slots_level_1 || 0,
+        2: levelData.spellcasting.spell_slots_level_2 || 0,
+        3: levelData.spellcasting.spell_slots_level_3 || 0,
+        4: levelData.spellcasting.spell_slots_level_4 || 0,
+        5: levelData.spellcasting.spell_slots_level_5 || 0,
+        6: levelData.spellcasting.spell_slots_level_6 || 0,
+        7: levelData.spellcasting.spell_slots_level_7 || 0,
+        8: levelData.spellcasting.spell_slots_level_8 || 0,
+        9: levelData.spellcasting.spell_slots_level_9 || 0,
+      }
+    : {
+        0: 0,
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0,
+        9: 0,
+      }
+
+    const nbTotalSlots = Object.values(slots).reduce((totalSlots, slots) => totalSlots + slots, 0)
+    const hasSlots = nbTotalSlots > 0
+
     levelling[level] = {
       features: levelData.features.map((f) => f.index),
       classSpecific: levelData.class_specific,
@@ -314,37 +343,14 @@ classes.forEach((className) => {
       profBonus: levelData.prof_bonus,
       // spellcasting: levelData.spellcasting,
       spellcasting: {
-        hasMagic:
-          levelData.spellcasting?.cantrips_known > 0 ||
-          levelData.spellcasting?.spells_known > 0,
+        hasMagic: hasSlots
+          || levelData.spellcasting?.cantrips_known > 0
+          || levelData.spellcasting?.spells_known > 0,
+        // TODO: spellsKnown / cantripsKnown is not always defined, what to do?
         spellsKnown: levelData.spellcasting?.spells_known || 0,
         cantripsKnown: levelData.spellcasting?.cantrips_known || 0,
       },
-      slots: levelData.spellcasting
-        ? {
-            0: -1, // infinite
-            1: levelData.spellcasting.spell_slots_level_1,
-            2: levelData.spellcasting.spell_slots_level_2,
-            3: levelData.spellcasting.spell_slots_level_3,
-            4: levelData.spellcasting.spell_slots_level_4,
-            5: levelData.spellcasting.spell_slots_level_5,
-            6: levelData.spellcasting.spell_slots_level_6,
-            7: levelData.spellcasting.spell_slots_level_7,
-            8: levelData.spellcasting.spell_slots_level_8,
-            9: levelData.spellcasting.spell_slots_level_9,
-          }
-        : {
-            0: 0,
-            1: 0,
-            2: 0,
-            3: 0,
-            4: 0,
-            5: 0,
-            6: 0,
-            7: 0,
-            8: 0,
-            9: 0,
-          },
+      slots
     };
   }
 

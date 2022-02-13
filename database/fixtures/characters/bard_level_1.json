@@ -41,14 +41,7 @@
 					"sourceType": "race"
 			}
 	],
-	"stats": {
-			"STR": 8,
-			"DEX": 15,
-			"CON": 13,
-			"INT": 12,
-			"WIS": 9,
-			"CHA": 17
-	},
+
 	"statsBonuses": [
 			{
 					"ability": "CHA",

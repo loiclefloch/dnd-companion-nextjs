@@ -62,6 +62,7 @@ function LevellingStep({ stepName }) {
 				levellingDispatch, 
 				steps,
 				step,
+				levellingState,
 				stepLevellingState,
 				...otherProps 
 			})

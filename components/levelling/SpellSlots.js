@@ -17,14 +17,21 @@ function Content({ spellsSlots, levellingData })  {
 
 			<table className="mt-2">
 				<tbody>
-					<tr>
-						<td className="text-sm font-semibold">Cantrips known</td>
-						<td>{levellingData.spellcasting.cantripsKnown}</td>	
-					</tr>
-					<tr>
-						<td className="text-sm font-semibold">Total spell known</td>
-						<td>{levellingData.spellcasting.spellsKnown}</td>	
-					</tr>
+					{/* display only if exists, data gives us 0 for now, don't know why, which is confusing 
+						see getLevellingDataForClasses nbTotalSlots
+					*/}
+					{levellingData.spellcasting.cantripsKnown > 0 && (
+						<tr>
+							<td className="text-sm font-semibold">Cantrips known</td>
+							<td>{levellingData.spellcasting.cantripsKnown}</td>
+						</tr>
+					)}
+					{levellingData.spellcasting.spellsKnown > 0 && (
+						<tr>
+							<td className="text-sm font-semibold">Total spell known</td>
+							<td>{levellingData.spellcasting.spellsKnown}</td>
+						</tr>
+					)}
 				</tbody>
 
 				{/* TODO: if new spell slots: message */}
@@ -56,6 +63,11 @@ function Content({ spellsSlots, levellingData })  {
 				</tbody>
 
 			</table>
+
+			<p className="mt-12 prose">
+				Vous pourrez apprendre de nouveaux sorts depuis la liste des sorts, une fois votre montée de
+				niveau terminée.
+			</p>
 
 		</div>
 	)

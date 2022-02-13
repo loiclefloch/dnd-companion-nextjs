@@ -1,11 +1,14 @@
 import { isEmpty } from 'lodash'
 import feats from '../../database/data/feats'
+import camelize from '../utils/camelize'
 import useData from "./useData"
 
-export function formatFeat(feat) {
-  if (!feat) {
+export function formatFeat(featParam) {
+  if (!featParam) {
     return null
   }
+
+  const feat = camelize(featParam)
   feat.nameLocalized = {
     en: feat.name,
   }
@@ -23,6 +26,10 @@ export function formatFeat(feat) {
   feat.forOther = !isEmpty(feat.prerequisitesLabel)
 
   feat.hasPrerequisites = feat.forRace || feat.forAbilityScore || feat.forProficiency || feat.forOther
+
+  feat.hasAbilityOption = !!feat.abilityOption
+
+  feat.hasOption = feat.hasAbilityOption
 
   return feat
 }
