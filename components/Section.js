@@ -16,8 +16,8 @@ function Section({ title, children, withToggle, className, show: showParam = fal
 				)}
 				onClick={() => withToggle && setShow(!show)} 
 			>
-				{title}
-				{withToggle && <IconChevronToggle open={show} onClick={() => setShow(!show)} />}
+				<span key="title">{title}</span>
+				{withToggle && <IconChevronToggle  key="IconChevronToggle" open={show} onClick={() => setShow(!show)} />}
 			</h3>
 			{show && <div>{children}</div>}
 		</div>

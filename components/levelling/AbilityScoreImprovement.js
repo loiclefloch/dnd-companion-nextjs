@@ -1,5 +1,5 @@
+import { useState, useEffect } from "react"
 import { actionLevellingAbilityScoreImprovementScore } from "./action"
-import { useState } from "react"
 import { map, cloneDeep } from "lodash"
 
 import AbilityScoreChooser from "../AbilityScoreChooser"
@@ -97,7 +97,10 @@ function Feat({ step, character, levellingDispatch }) {
 	)
 }
 
-function AbilityScoreImprovement({ levellingData, character, step, levellingDispatch }) {
+function AbilityScoreImprovement({ levellingData, getFormattedBuildedCharacter, step, levellingDispatch, clearStepLevellingState }) {
+	const character = getFormattedBuildedCharacter()
+	useEffect(() => clearStepLevellingState(step), [])
+
 	return (
 		<div className="prose mt-8 mx-4">
 			<h3 className="text-center">{step.label}</h3>

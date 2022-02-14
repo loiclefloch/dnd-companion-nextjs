@@ -45,7 +45,7 @@ export function Tab({ tab, children }) {
 export function Tabs({ children }) {
 	return (
 		<div
-			className="flex justify-center items-center"
+			className="flex justify-center items-center cursor-pointer"
 		>
 			{children}
 		</div>

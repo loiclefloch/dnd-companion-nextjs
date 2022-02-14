@@ -31,19 +31,23 @@ function spellsIsValid(spellsOptions, selectedOption) {
 }
 
 
-function SpellOption({ spellOption, setSelectedOption, selectedOption }) {
+function SpellOption({ spellOption, setSelectedOption, character, selectedOption }) {
 	return (
 		<ListSelector
 			multiple
 			value={selectedOption?.spells}
 			nbMaxValues={spellOption.choose}
 			onChange={spells => setSelectedOption({ spells })}
-			options={spellOption.from.map(spell => ({
-				label: spell.name,
-				key: spell.index,
-				value: spell,
-				selected: selectedOption?.spells?.some(s => s.index === spell.index),
-			}))}
+			options={spellOption.from.map(spell => {
+				const alreadKnown = character.spellsList.some(s => s.index === spell.index)
+				return {
+					label: spell.name,
+					key: spell.index,
+					value: spell,
+					selected: selectedOption?.spells?.some(s => s.index === spell.index),
+					disabled: alreadKnown,
+				}
+			})}
 		/>
 	)
 }
@@ -51,6 +55,7 @@ function SpellOption({ spellOption, setSelectedOption, selectedOption }) {
 function SpellOptions({
 	onNext,
 	spellOptions,
+	character,
 	selectedOption = [],
 	setSelectedOption,
 }) {
@@ -74,6 +79,7 @@ function SpellOptions({
 							screen={index}
 							spellOption={spellOption}
 							selectedOption={value}
+							character={character}
 							setSelectedOption={(value) => {
 								const updated = [...selectedOption]
 								set(updated, index, value)
@@ -164,24 +170,30 @@ function featuresIsValid(featuresOptions, selectedOption) {
 	})
 }
 
-function FeatureOption({ featureOption, setSelectedOption, selectedOption }) {
+function FeatureOption({ featureOption, setSelectedOption, character, selectedOption }) {
 	return (
 		<ListSelector
 			multiple
 			nbMaxValues={featureOption.choose}
 			onChange={features => setSelectedOption({ features })}
-			options={featureOption.from.map(featuresOption => ({
-				label: featuresOption.name,
-				key: featuresOption.name,
-				value: featuresOption,
-				selected: selectedOption?.features?.some(v => v.name === featuresOption.name)
-			}))}
+			options={featureOption.from.map(featuresOption => {
+				const alreadKnown = character.features?.some(f => f.index === featuresOption.index)
+
+				return {
+					label: featuresOption.name,
+					key: featuresOption.name,
+					value: featuresOption,
+					selected: selectedOption?.features?.some(v => v.name === featuresOption.name),
+					disabled: alreadKnown,
+				}
+			})}
 		/>
 	)
 }
 
 function FeaturesOptions({
 	featuresOptions,
+	character,
 	selectedOption = [],
 	setSelectedOption,
 	onNext,
@@ -203,6 +215,7 @@ function FeaturesOptions({
 							screen={index}
 							featureOption={featureOption}
 							selectedOption={value}
+							character={character}
 							setSelectedOption={(value) => {
 								const updated = [...selectedOption]
 								set(updated, index, value)
@@ -233,6 +246,7 @@ function LanguagesOptions({
 	languagesOptions,
 	selectedOption,
 	setSelectedOption,
+	character,
 	onNext,
 }) {
 	const isValid = selectedOption?.languages?.length === languagesOptions.choose
@@ -246,12 +260,16 @@ function LanguagesOptions({
 				value={selectedOption?.languages}
 				nbMaxValues={languagesOptions.choose}
 				onChange={languages => setSelectedOption({ languages })}
-				options={languagesOptions.from.map(languageOption => ({
-					label: languageOption.name,
-					key: languageOption.name,
-					value: languageOption.name,
-					selected: selectedOption?.languages?.includes(languageOption.name)
-				}))}
+				options={languagesOptions.from.map(languageOption => {
+					const alreadyKnown = character.languages.includes(languageOption.index)
+					return {
+						label: languageOption.name,
+						key: languageOption.name,
+						value: languageOption.index,
+						selected: selectedOption?.languages?.includes(languageOption.index),
+						disabled: alreadyKnown
+					}
+				})}
 			/>
 
 			<ButtonBottomScreen
@@ -363,6 +381,7 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 						abilityOption={feat.abilityOption}
 						selectedOption={selectedOptions?.abilityOption}
 						setSelectedOption={(abilityOption) => setSelectedOptions({ ...selectedOptions, abilityOption })}
+						character={character}
 						onNext={onNext}
 					/>
 				</ScreenStep>
@@ -376,6 +395,7 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 					<SpellOptions
 						spellOptions={feat.spellOptions}
 						selectedOption={selectedOptions?.spellOptions}
+						character={character}
 						setSelectedOption={(spellOptions) => setSelectedOptions({ ...selectedOptions, spellOptions })}
 						onNext={onNext}
 					/>
@@ -390,6 +410,7 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 					<FeaturesOptions
 						featuresOptions={feat.featuresOptions}
 						selectedOption={selectedOptions?.featuresOptions}
+						character={character}
 						setSelectedOption={(featuresOptions) => setSelectedOptions({ ...selectedOptions, featuresOptions })}
 						onNext={onNext}
 					/>
@@ -404,6 +425,7 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 					<LanguagesOptions
 						languagesOptions={feat.languagesOptions}
 						selectedOption={selectedOptions?.languagesOptions}
+						character={character}
 						setSelectedOption={(languagesOptions) => setSelectedOptions({ ...selectedOptions, languagesOptions })}
 						onNext={onNext}
 					/>
