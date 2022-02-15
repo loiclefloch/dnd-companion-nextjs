@@ -168,9 +168,22 @@ function applyCustomMethods(character, level) {
 			addSteps(forRaceContent[level]())
 		} else {
 			console.warn(`Levelling does not exists for level ${level} for race ${race}`)
+			steps.push({
+				name: "levelling-does-not-exists",
+				type: 'level-does-not-exists-for-level-for-race',
+				label: 'level-does-not-exists-for-level-for-race',
+				level,
+				race,
+			})
 		}
 	} else {
-		console.warn(`Levelling does not exists for level race ${race}`)
+		console.warn(`Levelling does not exists for race ${race}`)
+		steps.push({
+			name: "levelling-does-not-exists",
+			type: 'level-does-not-exists-for-race',
+			label: 'level-does-not-exists-for-race',
+			race,
+		})
 	}
 	if (forClass) {
 		const forClassContent = forClass(character)
@@ -180,9 +193,23 @@ function applyCustomMethods(character, level) {
 			addSteps(forClassContent[level]())
 		} else {
 			console.warn(`Levelling does not exists for level ${level} for class ${clss}`)
+			steps.push({
+				name: "levelling-does-not-exists",
+				type: 'level-does-not-exists-for-level-for-class',
+				label: 'level-does-not-exists-for-level-for-class',
+				clss,
+				level,
+			})
 		}
 	} else {
 		console.warn(`Levelling does not exists for level class ${clss}`)
+		steps.push({
+			name: "levelling-does-not-exists",
+			type: 'level-does-not-exists-for-class',
+			label: 'level-does-not-exists-for-class',
+			clss,
+			level,
+		})
 	}
 
 	return steps

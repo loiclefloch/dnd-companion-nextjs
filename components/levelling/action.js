@@ -14,6 +14,18 @@ export function actionLevellingStart({ step }) {
 	}
 }
 
+export function actionLevellingNext({ step }) {
+	return {
+		type: 'actionLevellingNext',
+		apply: () => ({
+			step
+		}),
+		build: ({ character, newLevel }) => {
+		}
+	}
+}
+
+
 function addFeaturesOptions(character, newLevel, featuresOptions) {
   if (featuresOptions) {
     featuresOptions.forEach((featureOption) => {

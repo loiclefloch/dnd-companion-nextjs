@@ -3,6 +3,7 @@ import { createElement  } from "react"
 import useCharacterLevelling from "../useCharacterLevelling"
 
 import Introduction from "./Introduction"
+import LevellingDoesNotExists from "./LevellingDoesNotExists"
 import Features from "./Features"
 import SpellSlots from "./SpellSlots"
 import IncreaseMaximumHp from "./IncreaseMaximumHp"
@@ -44,6 +45,7 @@ function LevellingStep({ stepName }) {
 		'sacred-oath': SacredOath,
 		'druid-circle': DruidCircle,
 		'bard-college': BardCollege,
+		'levelling-does-not-exists': LevellingDoesNotExists,
 		// StepHp,
 	}
 
