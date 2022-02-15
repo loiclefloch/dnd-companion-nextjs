@@ -225,7 +225,6 @@ export function actionLevellingAbilityScoreImprovementScore({
 						bonus,
 						type: "ability-score-improvement",
 					})
-					character.stats[ability] += bonus
 				}
 			})
 		}
