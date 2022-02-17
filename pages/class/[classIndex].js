@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import Link from "next/link"
 import Screen from "../../components/Screen";
 import useClass from '../../modules/api/useClass';
 import useI18n from '../../modules/i18n/useI18n';
@@ -20,7 +21,12 @@ function Clss() {
 			{clss && (
 				<div className="flex flex-col">
 					<div className="relative w-full px-4 mt-12">
-						<ClassDetailsView clss={clss} />
+						<>
+							<Link href={`/levelling/${clss.index}/1`}>
+								Voir la montée de niveau
+							</Link>
+							<ClassDetailsView clss={clss} />
+						</>
 					</div>
 				</div>
 			)}

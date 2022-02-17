@@ -27,7 +27,7 @@ function ScreenAsModal({ title, leftAction, isLoading, onCloseScreen, children }
 					<button onClick={onCloseScreen}><IconX className="w-5 h-5" /></button>
 				</div>
 			</header>
-			<div className='flex-1 overflow-y-auto'>
+			<div className='flex-1 overflow-y-auto bg-app'>
 				{isLoading
 					? <ScreenLoading />
 					: children

@@ -102,7 +102,7 @@ function Screen({
 								minHeight: '100vh',
 							}}
 							className={clsx(
-								'w-full',
+								'w-full bg-app',
 								{
 									"h-full": contentFull,
 									'pb-12': withBottomSpace
