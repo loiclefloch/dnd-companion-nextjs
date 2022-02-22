@@ -103,7 +103,7 @@ function DiceRunnerScreenAsModal({ dice, label, onDiceResult, onCloseScreen }) {
 	)
 }
 
-export function useDiceRunnerScreenAsModal() {
+export default function useDiceRunnerScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {

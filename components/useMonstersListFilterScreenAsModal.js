@@ -102,7 +102,7 @@ function MonstersListFilterScreenAsModal({ onFilter, onReset, filters: defaultFi
 	)
 }
 
-export function useMonstersListFilterScreenAsModal(defaultFilters = []) {
+export default function useMonstersListFilterScreenAsModal(defaultFilters = []) {
 	const [filters, setFilters] = useState(defaultFilters)
 	const { showScreenAsModal } = useScreenAsModal()
 

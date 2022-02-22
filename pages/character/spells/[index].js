@@ -9,7 +9,7 @@ import Screen from "../../../components/Screen";
 import SpellView from "../../../components/SpellView";
 import IconBookOpen from "../../../components/icons/IconBookOpen";
 import IconPencil from "../../../components/icons/IconPencil";
-import { useEditEditCharacterSpellScreenAsModal } from "../../../components/EditCharacterSpellScreenAsModal";
+import useEditEditCharacterSpellScreenAsModal from "../../../components/useEditEditCharacterSpellScreenAsModal";
 
 function Spell() {
 	const router = useRouter()

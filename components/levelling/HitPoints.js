@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { actionLevellingAddHp } from "./action"
 import ButtonBottomScreen from "../../components/ButtonBottomScreen"
-import { useDiceRunnerScreenAsModal } from "../../components/DiceRunnerScreenAsModal"
+import useDiceRunnerScreenAsModal from "../../components/useDiceRunnerScreenAsModal"
 import Button from "../Button"
 import { valueToModifierLabel } from "../../modules/stats"
 

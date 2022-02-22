@@ -18,7 +18,7 @@ function EquipmentItemScreenAsModal({ item, onCloseScreen }) {
 	)
 }
 
-export function useEquipmentItemScreenAsModal() {
+export default function useEquipmentItemScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {

@@ -6,7 +6,7 @@ import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import useI18n from "../modules/i18n/useI18n";
 import useEquipmentCategories from "../modules/api/useEquipmentCategories";
 import useTipDamageType from "./useTipDamageType"
-import { useEquipmentItemScreenAsModal } from "./EquipmentItemScreenAsModal"
+import useEquipmentItemScreenAsModal from "./useEquipmentItemScreenAsModal"
 import ButtonBottomScreen from "./ButtonBottomScreen"
 import { toggleObjectOnArray } from "../modules/utils/array"
 import IconChevronToggle from "./icons/IconChevronToggle"
@@ -207,7 +207,7 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 	)
 }
 
-export function useChooseEquipmentScreenAsModal() {
+export default function useChooseEquipmentScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {

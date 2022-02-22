@@ -16,7 +16,7 @@ function StatsDetailsScreenAsModal({ skills, character, onCloseScreen }) {
 	)
 }
 
-export function useStatsDetailsScreenAsModal() {
+export default function useStatsDetailsScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
@@ -25,5 +25,3 @@ export function useStatsDetailsScreenAsModal() {
 		}
 	}
 }
-
-export default StatsDetailsScreenAsModal

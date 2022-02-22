@@ -174,7 +174,7 @@ function EditCharacterSpellScreenAsModal({
 }
 
 
-export function useEditEditCharacterSpellScreenAsModal() {
+export default function useEditEditCharacterSpellScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
@@ -183,5 +183,3 @@ export function useEditEditCharacterSpellScreenAsModal() {
 		}
 	}
 }
-
-export default EditCharacterSpellScreenAsModal

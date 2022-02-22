@@ -21,7 +21,7 @@ function SubclassScreenAsModal({ index, onCloseScreen }) {
 	)
 }
 
-export function useSubclassScreenAsModal() {
+export default function useSubclassScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
@@ -30,5 +30,3 @@ export function useSubclassScreenAsModal() {
 		}
 	}
 }
-
-export default SubclassScreenAsModal

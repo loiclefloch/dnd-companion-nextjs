@@ -19,7 +19,7 @@ function RuleScreenAsModal({ index, onCloseScreen }) {
 	)
 }
 
-export function useRuleScreenAsModal() {
+export default function useRuleScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {

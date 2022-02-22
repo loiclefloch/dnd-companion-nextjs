@@ -20,7 +20,7 @@ function FeatureScreenAsModal({ feature, onCloseScreen }) {
 }
 
 
-export function useFeatureScreenAsModal() {
+export default function useFeatureScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
@@ -29,5 +29,3 @@ export function useFeatureScreenAsModal() {
 		}
 	}
 }
-
-export default FeatureScreenAsModal

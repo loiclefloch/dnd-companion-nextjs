@@ -98,7 +98,7 @@ export function useScreenStep() {
 	return data
 }
 
-export function useStepScreenAsModal() {
+export default function useStepScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {

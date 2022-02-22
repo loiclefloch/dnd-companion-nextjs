@@ -1,4 +1,4 @@
-import { useGalleryFullScreenAsModal } from "./GalleryFullScreenAsModal"
+import useGalleryFullScreenAsModal from "./useGalleryFullScreenAsModal"
 
 function Gallery({ title, images }) {
 	const { showGalleryFullScreen } = useGalleryFullScreenAsModal()

@@ -1,7 +1,7 @@
 import useI18n from '../modules/i18n/useI18n'
 import DamageTypeLabel from "./DamageTypeLabel"
 import Button from "./Button"
-import { useSpellRunner } from "./SpellRunnerScreenAsModal"
+import useSpellRunner from "./useSpellRunner"
 
 function HealRunner({ healAtSlotLevel, spellLevel, formatMod }) {
 	return (

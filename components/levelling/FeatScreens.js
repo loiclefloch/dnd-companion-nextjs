@@ -3,7 +3,7 @@ import { useState, useMemo } from "react"
 import { get, set } from "lodash"
 import { useStepScreenAsModal, ScreenStep, useScreenStep } from "../../components/ScreensStepAsModal"
 import ListSelector from "../../components/ListSelector";
-import { useFeatScreenAsModal } from "../../components/FeatScreenAsModal"
+import useFeatScreenAsModal from "../../components/useFeatScreenAsModal"
 import useI18n from "../../modules/i18n/useI18n"
 import FeatContent, { FeatPrerequisites } from "../FeatContent"
 import ButtonBottomScreen from "../ButtonBottomScreen"

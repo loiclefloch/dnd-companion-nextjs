@@ -12,7 +12,7 @@ function ImageFullScreenAsModal({ alt, src, onCloseScreen }) {
 	)
 }
 
-export function useImageFullScreenAsModal(defaultFilters = []) {
+export default function useImageFullScreenAsModal(defaultFilters = []) {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {

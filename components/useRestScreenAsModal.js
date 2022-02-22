@@ -4,7 +4,7 @@ import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import useI18n from "../modules/i18n/useI18n";
 import useCurrentCharacter from "../components/useCurrentCharacter"
 import { buildShortRest, buildLongRest, } from "../modules/character/util"
-import { useRuleScreenAsModal } from "./RuleScreenAsModal"
+import useRuleScreenAsModal from "./useRuleScreenAsModal"
 
 function buildRest(character) {
 	return {
@@ -70,7 +70,7 @@ function RestScreenAsModal({ onCloseScreen }) {
 	)
 }
 
-export function useRestScreenAsModal() {
+export default function useRestScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {

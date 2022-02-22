@@ -1,7 +1,7 @@
 import useModal from "./useModal"
 
 import DiceModal from "./DiceModal"
-import { useDiceHistoryScreenAsModal } from "./DiceHistoryScreenAsModal";
+import useDiceHistoryScreenAsModal from "./useDiceHistoryScreenAsModal";
 
 // TODO: context
 let diceHistory = [

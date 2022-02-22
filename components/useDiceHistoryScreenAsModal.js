@@ -67,7 +67,7 @@ function DiceHistoryScreenAsModal({ onCloseScreen }) {
 	)
 }
 
-export function useDiceHistoryScreenAsModal() {
+export default function useDiceHistoryScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
@@ -76,5 +76,3 @@ export function useDiceHistoryScreenAsModal() {
 		}
 	}
 }
-
-export default DiceHistoryScreenAsModal

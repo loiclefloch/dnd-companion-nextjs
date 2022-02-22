@@ -7,7 +7,7 @@ import SpellLevelData from "./SpellLevelData"
 import { getLevellingDataForClassesAndLevel } from "../modules/levelling"
 import { isEmpty } from "lodash";
 import useFeature from "../modules/api/useFeature"
-import { useFeatureScreenAsModal } from "./FeatureScreenAsModal"
+import useFeatureScreenAsModal from "./useFeatureScreenAsModal"
 import LevellingDetail from "./levellingDetail/LevellingDetail"
 
 function Feature({ index }) {

@@ -6,7 +6,7 @@ import Tag from './Tag';
 import StatsSmall from "./StatsSmall"
 import Image from "./Image"
 import Gallery from "./Gallery"
-import { useGalleryFullScreenAsModal } from "./GalleryFullScreenAsModal"
+import useGalleryFullScreenAsModal from "./useGalleryFullScreenAsModal"
 import useDice from "./useDice";
 import Section from "./Section"
 

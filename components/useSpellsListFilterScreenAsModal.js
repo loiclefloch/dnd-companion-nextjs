@@ -160,7 +160,7 @@ function SpellsListFilterScreenAsModal({ onFilter, onReset, filters: defaultFilt
 	)
 }
 
-export function useSpellsListFilterScreenAsModal(defaultFilters = []) {
+export default function useSpellsListFilterScreenAsModal(defaultFilters = []) {
 	const [filters, setFilters] = useState(defaultFilters)
 	const { showScreenAsModal } = useScreenAsModal()
 
@@ -180,5 +180,3 @@ export function useSpellsListFilterScreenAsModal(defaultFilters = []) {
 		}
 	}
 }
-
-export default SpellsListFilterScreenAsModal

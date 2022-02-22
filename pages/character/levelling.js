@@ -6,7 +6,7 @@ import IconTrendingUp from "../../components/icons/IconTrendingUp"
 import Screen from "../../components/Screen"
 import Button from "../../components/Button"
 import IconPlus from "../../components/icons/IconPlus"
-import { useLevellingAddScreenAsModal } from "../../components/LevellingAddScreenAsModal"
+import useLevellingAddScreenAsModal from "../../components/useLevellingAddScreenAsModal"
 import { useRouter } from "next/router"
 import { actionAddXp } from "../../modules/character/action"
 

@@ -1,5 +1,5 @@
 
-import { useImageFullScreenAsModal } from "./ImageFullScreenAsModal"
+import useImageFullScreenAsModal from "./useImageFullScreenAsModal"
 
 function Image({ alt, src, ...otherProps }) {
 	const { showImageFullScreen } = useImageFullScreenAsModal()

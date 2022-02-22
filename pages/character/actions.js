@@ -3,9 +3,9 @@ import useI18n from "../../modules/i18n/useI18n"
 import Screen from "../../components/Screen"
 import useCurrentCharacter from "../../components/useCurrentCharacter"
 import IconBriefcase from "../../components/icons/IconBriefcase"
-import { useEquipmentItemScreenAsModal } from "../../components/EquipmentItemScreenAsModal"
-import { useMagicItemScreenAsModal } from "../../components/MagicItemScreenAsModal"
-import { useChooseEquipmentScreenAsModal } from "../../components/ChooseEquipmentScreenAsModal"
+import useEquipmentItemScreenAsModal from "../../components/useEquipmentItemScreenAsModal"
+import useMagicItemScreenAsModal from "../../components/useMagicItemScreenAsModal"
+import useChooseEquipmentScreenAsModal from "../../components/useChooseEquipmentScreenAsModal"
 import CharacterEquipmentItemRow from "../../components/CharacterEquipmentItemRow"
 
 function Group({ title, character, items }) {

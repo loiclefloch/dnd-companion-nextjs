@@ -4,11 +4,11 @@ import useI18n from "../modules/i18n/useI18n";
 import StatsSmall from "./StatsSmall";
 import useTipTrait from "./useTipTrait"
 import useTipProficiency from "./useTipProficiency"
-import { useEquipmentItemScreenAsModal } from "./EquipmentItemScreenAsModal"
+import useEquipmentItemScreenAsModal from "./useEquipmentItemScreenAsModal"
 import LineInfo from "./LineInfo"
 import useTipFeature  from "./useTipFeature"
 import CharacterClassTag from "./CharacterClassTag"
-import { useFeatScreenAsModal } from "./FeatScreenAsModal"
+import useFeatScreenAsModal from "./useFeatScreenAsModal"
 import Section from "./Section"
 
 function Proficiency({ proficiency }) {

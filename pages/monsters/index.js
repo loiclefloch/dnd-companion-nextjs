@@ -5,7 +5,7 @@ import { FilterType, getMonsterFiltersMatchingData } from "../../modules/monster
 import { sortMonsters } from "../../modules/monsters/monstersSorter"
 import useI18n from "../../modules/i18n/useI18n";
 import useMonsters from "../../modules/api/useMonsters";
-import { useMonstersListFilterScreenAsModal } from "../../components/MonstersListFilterScreenAsModal"
+import useMonstersListFilterScreenAsModal from "../../components/useMonstersListFilterScreenAsModal"
 import Screen from "../../components/Screen";
 import IconFilter from "../../components/icons/IconFilter";
 import Tag from "../../components/Tag"

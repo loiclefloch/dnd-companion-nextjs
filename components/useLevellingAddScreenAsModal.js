@@ -58,7 +58,7 @@ function LevellingAddScreenAsModal({ onAddLevelling, onCloseScreen }) {
 	)
 }
 
-export function useLevellingAddScreenAsModal() {
+export default function useLevellingAddScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
@@ -69,5 +69,3 @@ export function useLevellingAddScreenAsModal() {
 		}
 	}
 }
-
-export default LevellingAddScreenAsModal

@@ -25,7 +25,7 @@ function SpellScreenAsModal({ index, onCloseScreen }) {
 }
 
 
-export function useSpellModal() {
+export default function useSpellModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
@@ -34,5 +34,3 @@ export function useSpellModal() {
 		}
 	}
 }
-
-export default SpellScreenAsModal

@@ -58,7 +58,7 @@ function AcScreenAsModal({ character, onCloseScreen }) {
 	)
 }
 
-export function useAcScreenAsModal() {
+export default function useAcScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {

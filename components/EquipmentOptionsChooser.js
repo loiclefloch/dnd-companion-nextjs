@@ -2,7 +2,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import { existsOnArray } from '../modules/utils/array'
 import ListSelector from "./ListSelector";
-import { useEquipmentItemScreenAsModal } from "./EquipmentItemScreenAsModal"
+import useEquipmentItemScreenAsModal from "./useEquipmentItemScreenAsModal"
 import getCharacterHasProficiencyForItem from "../modules/character/getCharacterHasProficiencyForItem"
 
 const isProefficientClassName = "text-blue-500"

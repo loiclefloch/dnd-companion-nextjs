@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { useStatsDetailsScreenAsModal } from "./StatsDetailsScreenAsModal"
+import useStatsDetailsScreenAsModal from "./useStatsDetailsScreenAsModal"
 import { valueToModifierLabel } from "../modules/stats"
 import useDice from "./useDice";
 import useTipAbilityScore from "./useTipAbilityScore";

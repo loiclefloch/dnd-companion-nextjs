@@ -139,7 +139,7 @@ function EditSpellSlotsScreenAsModal({ spellSlot, onEdit, onCloseScreen }) {
 	)
 }
 
-export function useEditSpellSlotsScreenAsModal() {
+export default function useEditSpellSlotsScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {

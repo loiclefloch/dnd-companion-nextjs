@@ -4,7 +4,7 @@ import Section from "../Section"
 import useI18n from "../../modules/i18n/useI18n"
 import useTipProficiency from "../useTipProficiency"
 import useTipAbilityScore from "../useTipAbilityScore"
-import { useEquipmentItemScreenAsModal } from "../EquipmentItemScreenAsModal"
+import useEquipmentItemScreenAsModal from "../useEquipmentItemScreenAsModal"
 import EquipmentOptionsChooser from "../EquipmentOptionsChooser"
 
 import Druid from "./Druid.mdx"

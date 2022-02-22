@@ -42,7 +42,7 @@ function GalleryFullScreenAsModal({ title, images, currentImage, onCloseScreen }
 	)
 }
 
-export function useGalleryFullScreenAsModal(defaultFilters = []) {
+export default function useGalleryFullScreenAsModal(defaultFilters = []) {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {

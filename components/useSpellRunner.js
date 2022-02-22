@@ -424,7 +424,7 @@ function SpellRunnerScreenAsModal({ contextCharacter, spell, options, onCloseScr
 	)
 }
 
-export function useSpellRunner() {
+export default function useSpellRunner() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
@@ -433,5 +433,3 @@ export function useSpellRunner() {
 		}
 	}
 }
-
-export default SpellRunnerScreenAsModal

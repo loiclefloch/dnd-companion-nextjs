@@ -22,7 +22,7 @@ function MagicItemScreenAsModal({ index, onCloseScreen }) {
 	)
 }
 
-export function useMagicItemScreenAsModal() {
+export default function useMagicItemScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
@@ -33,5 +33,3 @@ export function useMagicItemScreenAsModal() {
 		}
 	}
 }
-
-export default MagicItemScreenAsModal

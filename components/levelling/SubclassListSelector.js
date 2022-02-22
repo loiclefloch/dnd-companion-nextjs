@@ -1,6 +1,6 @@
 import useSubclasses from "../../modules/api/useSubclasses"
 import useI18n from "../../modules/i18n/useI18n"
-import { useSubclassScreenAsModal } from "../SubclassScreenAsModal"
+import useSubclassScreenAsModal from "../useSubclassScreenAsModal"
 import ListSelector from "../ListSelector"
 
 function SubclassListSelector({ clss, selectedSubclass, onSelect }) {

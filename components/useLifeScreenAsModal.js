@@ -128,7 +128,7 @@ function LifeScreenAsModal({ character, characterDispatch, onCloseScreen }) {
 	)
 }
 
-export function useLifeScreenAsModal() {
+export default function useLifeScreenAsModal() {
 	const { showScreenAsModal } = useScreenAsModal()
 
 	return {

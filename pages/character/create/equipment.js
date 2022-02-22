@@ -8,7 +8,7 @@ import ButtonBottomScreen from "../../../components/ButtonBottomScreen";
 import ScreenIntroduction from "../../../components/ScreenIntroduction";
 import EquipmentOptionsChooser from "../../../components/EquipmentOptionsChooser";
 import useCreateCharacter from '../../../components/useCreateCharacter';
-import { useEquipmentItemScreenAsModal } from '../../../components/EquipmentItemScreenAsModal';
+import useEquipmentItemScreenAsModal from '../../../components/useEquipmentItemScreenAsModal';
 
 function StartingEquipmentItem({ item }) {
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()

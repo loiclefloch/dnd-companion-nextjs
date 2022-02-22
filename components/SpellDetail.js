@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import map from "lodash/map";
-import { useSpellRunner } from "./SpellRunnerScreenAsModal"
+import useSpellRunner from "./useSpellRunner"
 import SectionWithToggle from "./SectionWithToggle";
 
 function SpellDetailLevelTable({ title, data, showSpellRunner }) {
