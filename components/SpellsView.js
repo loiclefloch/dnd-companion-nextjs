@@ -164,13 +164,12 @@ function Spells({ contextCharacter }) {
       }
     >
       <>
-        <div className="px-4">
-          <InputSearch
-            searchHistory={searchHistory}
-            term={term}
-            onChange={search}
-          />
-        </div>
+        <InputSearch
+          className="px-4"
+          searchHistory={searchHistory}
+          term={term}
+          onChange={search}
+        />
         <div className="flex flex-col gap-2 mt-2" data-cy-id="spells-list">
           {searchResults && term ? (
             searchResults.map(searchResult => {

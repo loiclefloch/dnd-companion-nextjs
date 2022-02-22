@@ -114,13 +114,12 @@ function Monsters() {
       }
     >
 			<>
-				<div className="px-4">
-					<InputSearch
-						searchHistory={searchHistory}
-						term={term}
-						onChange={search}
-					/>
-				</div>
+				<InputSearch
+					className="px-4"
+					searchHistory={searchHistory}
+					term={term}
+					onChange={search}
+				/>
 				<div className="" data-cy-id="monsters-list">
 					{searchResults && term ? (
 						searchResults.map(searchResult => (

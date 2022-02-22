@@ -5,7 +5,6 @@ import characters from "../modules/api/fixtures/characters"
 import useCharacterNotFormatted from '../modules/api/useCharacterNotFormatted'
 import formatCharacter from "../modules/character/formatCharacter"
 import { CharactersStorage,	CurrentCharacterIdStorage } from "../modules/db";
-import { v4 as uuid } from 'uuid';
 import useStorage from "./useStorage"
  
 let CurrentCharacterContext;

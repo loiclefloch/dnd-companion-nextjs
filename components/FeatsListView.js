@@ -64,13 +64,12 @@ function Feats({ character }) {
       withBottomSpace
     >
       <div className="flex flex-col">
-        <div className="px-4">
-          <InputSearch
-            searchHistory={searchHistory}
-            term={term}
-            onChange={search}
-          />
-        </div>
+        <InputSearch
+          className="px-4"
+          searchHistory={searchHistory}
+          term={term}
+          onChange={search}
+        />
         <div className="mt-2 flex flex-col gap-2" data-cy-id="feats-list">
           {searchResults && term
             ? searchResults.map((searchResult) => {

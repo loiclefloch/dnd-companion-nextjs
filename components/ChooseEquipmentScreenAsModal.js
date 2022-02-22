@@ -164,13 +164,12 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 			onCloseScreen={onCloseScreen}
 			isLoading={equipmentCategoriesResponse.isLoading}
 		>
-			<div className="px-4">
-				<InputSearch
-					searchHistory={searchHistory}
-					term={term} 
-					onChange={search}
-				/>
-			</div>	
+			<InputSearch
+				className="px-4"
+				searchHistory={searchHistory}
+				term={term}
+				onChange={search}
+			/>
 
 			{searchResults && term ? (
 				<div className="mx-4 mt-2 mb-4 select-none">

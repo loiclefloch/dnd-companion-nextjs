@@ -2,13 +2,14 @@ import { useState, useRef } from "react"
 import ClickAwayListener from 'react-click-away-listener'
 import isEmpty from "lodash/isEmpty"
 import IconClock from "./icons/IconClock"
+import clsx from "clsx"
 
-function InputSearch({ searchHistory, term, onChange }) {
+function InputSearch({ searchHistory, className, term, onChange }) {
 	const [showHistory, setShowHistory] = useState(false)
 	const inputRef = useRef()
 
 	return (
-		<div className="flex items-center relative">
+		<div className={clsx("flex items-center", /* "sticky top-0 pb-2" */ className)}>
 			<input
 				ref={inputRef}
 				type="search"

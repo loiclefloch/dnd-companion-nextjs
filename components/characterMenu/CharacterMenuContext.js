@@ -7,7 +7,7 @@ let { Provider } = (CharacterMenuContext = createContext());
 
 CharacterMenuContext.displayName = 'CharacterMenuContext'
 
-let CharacterMenuProvider = ({ children }) => {
+function CharacterMenuProvider ({ children }) {
 	let { show, showCharacterMenu, hideCharacterMenu } = useCharacterMenuCreator();
 
 	return (
