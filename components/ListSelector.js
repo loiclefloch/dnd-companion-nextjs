@@ -12,13 +12,13 @@ function ListSelectorRow({
 }) {
 	return (
 		<div 
-			className={clsx(className, "flex items-center w-full p-2 py-1 select-none")}
+			className={clsx(className, "flex items-center w-full p-2 py-1 select-none hover:bg-coolGray-100")}
 		>
 			<div className="w-8">
 				<div
 					className={clsx("w-4 h-4 cursor-pointer", {
 						"border border-solid rounded-full border-slate-400": !selected,
-						"border border-solid rounded-full border-blue-400 bg-blue-400": selected,
+						"border border-solid rounded-full border-blue-400 bg-blue-400 bg-coolGray-100": selected,
 					})}
 					onClick={onClick}
 				/>

@@ -99,13 +99,13 @@ function Screen({
 					: (
 						<div
 							style={{
-								minHeight: '100vh',
+								// minHeight: '100vh',
 							}}
 							className={clsx(
 								'w-full bg-app',
 								{
 									"h-full": contentFull,
-									'pb-12': withBottomSpace
+									'pb-16': withBottomSpace
 								}
 							)}
 						>

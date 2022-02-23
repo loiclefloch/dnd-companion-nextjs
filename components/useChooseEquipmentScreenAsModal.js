@@ -148,6 +148,7 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 		searchResults,
 		search,
 		term,
+		onRemoveHistoryQuery,
 		// reset
 	} = useLocalSearch('equipment', {
 		data: equipmentList,
@@ -169,6 +170,7 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 				searchHistory={searchHistory}
 				term={term}
 				onChange={search}
+				onRemoveHistoryQuery={onRemoveHistoryQuery}
 			/>
 
 			{searchResults && term ? (

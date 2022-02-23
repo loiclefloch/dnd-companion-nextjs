@@ -48,6 +48,7 @@ function Features() {
     searchResults,
     search,
     term,
+    onRemoveHistoryQuery,
     // reset
   } = useLocalSearch("spells", {
     data: features,
@@ -67,6 +68,7 @@ function Features() {
           searchHistory={searchHistory}
           term={term}
           onChange={search}
+          onRemoveHistoryQuery={onRemoveHistoryQuery}
         />
         <div className="mt-2 flex flex-col gap-2" data-cy-id="features-list">
           {searchResults && term

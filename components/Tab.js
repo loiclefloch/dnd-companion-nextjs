@@ -28,11 +28,11 @@ export function Tab({ tab, children }) {
 	return (
 		<div
 			className={clsx(
-				"px-4 w-full text-center",
+				"w-full text-center hover:bg-black/[0.22] font-medium",
 				{
 					"bg-slate-100": isActive,
-					"border-b border-solid border-slate-100": isActive,
-					" border-solid border-b border-slate-300": !isActive,
+					"border-b border-solid border-black/[0.12] bg-black/[0.12]": isActive,
+					" border-solid border-b border-black/[0.12]": !isActive,
 				}
 			)}
 			onClick={() => setActiveTab(tab)}
@@ -59,7 +59,7 @@ export function TabContent({ tab, className, children }) {
 		return null
 	}
 
-	return <div className={clsx("pt-2", className)}>{children}</div>
+	return <div className={clsx(className)}>{children}</div>
 }
 
 export function TabContainer({ defaultTab, className, children }) {

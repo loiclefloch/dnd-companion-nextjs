@@ -6,7 +6,7 @@ import { getSpellFiltersMatchingData, buildSpellFiltersForCharacter } from "../m
 import { sortSpells } from "../modules/spells/spellsSorter"
 import useI18n from "../modules/i18n/useI18n";
 import useSpells from "../modules/api/useSpells";
-import { useSpellsListFilterScreenAsModal } from "../components/SpellsListFilterScreenAsModal"
+import useSpellsListFilterScreenAsModal from "../components/useSpellsListFilterScreenAsModal"
 import Screen from "../components/Screen";
 import IconFilter from "../components/icons/IconFilter";
 import Tag from "../components/Tag"
@@ -138,6 +138,7 @@ function Spells({ contextCharacter }) {
     searchResults,
     search,
     term,
+    onRemoveHistoryQuery,
     // reset
   } = useLocalSearch('spells', {
     data: filteredSpells,
@@ -169,6 +170,7 @@ function Spells({ contextCharacter }) {
           searchHistory={searchHistory}
           term={term}
           onChange={search}
+          onRemoveHistoryQuery={onRemoveHistoryQuery}
         />
         <div className="flex flex-col gap-2 mt-2" data-cy-id="spells-list">
           {searchResults && term ? (

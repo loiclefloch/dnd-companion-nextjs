@@ -50,6 +50,7 @@ function Feats({ character }) {
     searchResults,
     search,
     term,
+    onRemoveHistoryQuery,
     // reset
   } = useLocalSearch("feats", {
     data: feats,
@@ -69,6 +70,7 @@ function Feats({ character }) {
           searchHistory={searchHistory}
           term={term}
           onChange={search}
+          onRemoveHistoryQuery={onRemoveHistoryQuery}
         />
         <div className="mt-2 flex flex-col gap-2" data-cy-id="feats-list">
           {searchResults && term

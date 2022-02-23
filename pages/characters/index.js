@@ -5,11 +5,12 @@ import { ListSelectRowAsCard, ListRowSelectContainer } from "../../components/Li
 import Screen from "../../components/Screen"
 import useI18n from "../../modules/i18n/useI18n"
 import useCharacters from "../../modules/api/useCharacters"
-import useCreateCharacter from '../../components/useCreateCharacter';
-import Button from '../../components/Button';
+import useCreateCharacter from '../../components/useCreateCharacter'
+import useCurrentCharacter from '../../components/useCurrentCharacter'
+import Button from '../../components/Button'
 import { isEmpty } from "lodash"
 
-function Character({ character }) {
+function Character({ character, selected }) {
 	const { tr } = useI18n()
 	const router = useRouter()
 
@@ -21,6 +22,7 @@ function Character({ character }) {
 					{tr(character.race.nameLocalized)} - {character.classes.map(clss => tr(clss.nameLocalized)).join(', ')}
 				</span>
 			}
+			selected={selected}
 			// TODO: image={}
 			onClick={() => router.push(`character/${character.id}`)}
 		/>
@@ -32,6 +34,7 @@ function CharactersScreen() {
 	const router = useRouter()
 	const { startCreateCharacter } = useCreateCharacter()
 	const charactersResponse = useCharacters()
+	const { character: currentCharacter } = useCurrentCharacter()
 
 	return (
 		<Screen
@@ -66,6 +69,7 @@ function CharactersScreen() {
 						<Character
 							key={character.id}
 							character={character}
+							selected={currentCharacter?.id === character.id}
 						/>
 					))}
 				</ListRowSelectContainer>

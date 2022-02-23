@@ -111,6 +111,7 @@ function Equipments() {
 		searchResults,
 		search,
 		term,
+		onRemoveHistoryQuery,
 		// reset
 	} = useLocalSearch('equipment', {
 		data: equipmentList,
@@ -131,6 +132,7 @@ function Equipments() {
 					searchHistory={searchHistory}
 					term={term}
 					onChange={search}
+					onRemoveHistoryQuery={onRemoveHistoryQuery}
 				/>
 				{searchResults && term ? (
 					<div className="mx-4 mt-2 mb-4 select-none">

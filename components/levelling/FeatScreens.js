@@ -1,7 +1,7 @@
 import { actionLevellingAbilityScoreImprovementFeat } from "./action"
 import { useState, useMemo } from "react"
 import { get, set } from "lodash"
-import { useStepScreenAsModal, ScreenStep, useScreenStep } from "../../components/ScreensStepAsModal"
+import useStepScreenAsModal, { ScreenStep, useScreenStep } from "../../components/useStepScreenAsModal"
 import ListSelector from "../../components/ListSelector";
 import useFeatScreenAsModal from "../../components/useFeatScreenAsModal"
 import useI18n from "../../modules/i18n/useI18n"

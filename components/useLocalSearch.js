@@ -61,6 +61,10 @@ function useLocalSearch(searchType, { data = [], options }) {
     }
 	}, 1000), [])
 
+  const onRemoveHistoryQuery = useCallback((query) => {
+    setSearchHistory(searchHistory.filter(q => q !== query))
+  }, [searchHistory])
+
   useEffect(() => {
     if (results.length > 0 && !isEmpty(term)) {
       setSearchHistory(addTermOnHistoryData(term, searchHistory))
@@ -73,7 +77,7 @@ function useLocalSearch(searchType, { data = [], options }) {
 
   const reset = () => setTerm('')
 
-  return { searchHistory, searchResults: results, search: setTerm, term, reset }
+  return { searchHistory, searchResults: results, search: setTerm, term, reset, onRemoveHistoryQuery }
 }
 
 useLocalSearch.searchOptions = {

@@ -386,10 +386,16 @@ export function formatCharacter(character) {
 	// to a druid or another character who assumes a form that has natural armor.
 	character.naturalAc = 10 + valueToModifier(character.stats.DEX)
 
+	// TODO:
+	const armorEquipped = character.equipment.find(item => item.isArmor && item.isEquipped)
+	const shieldEquipped = character.equipment.find(item => item.isShield && item.isEquipped)
+
+
 	// Your class gives you proficiency with certain types of armor. If you wear armor that you lack 
 	// proficiency with, you have disadvantage on any ability check, saving throw, or Attack roll that
 	// involves Strength or Dexterity, and you can’t cast Spells.
 	function isProeficientForArmor() {
+
 		if (!armorEquipped) {
 			return true
 		}
@@ -525,10 +531,6 @@ export function formatCharacter(character) {
 	// Made from supple and thin materials, Light Armor favors agile Adventurers since it offers some 
 	// Protection without sacrificing mobility. If you wear Light Armor, you add your Dexterity 
 	// modifier to the base number from your armor type to determine your Armor Class.
-
-	// TODO:
-	const armorEquipped = character.equipment.find(item => item.isArmor && item.isEquipped)
-	const shieldEquipped = character.equipment.find(item => item.isShield && item.isEquipped)
 
 	let armorAc = armorEquipped?.armorClass?.base ?? 0
 	if (armorEquipped?.armorClass?.dexBonus) { // == light armor

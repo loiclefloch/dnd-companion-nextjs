@@ -90,6 +90,7 @@ function Monsters() {
 		searchResults,
 		search,
 		term,
+		onRemoveHistoryQuery,
 		// reset
 	} = useLocalSearch('monsters', {
 		data: monstersResponse.data,
@@ -119,6 +120,7 @@ function Monsters() {
 					searchHistory={searchHistory}
 					term={term}
 					onChange={search}
+					onRemoveHistoryQuery={onRemoveHistoryQuery}
 				/>
 				<div className="" data-cy-id="monsters-list">
 					{searchResults && term ? (
