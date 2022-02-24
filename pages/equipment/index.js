@@ -84,9 +84,13 @@ function Category({ category }) {
 	const { tr } = useI18n()
 
 	return (
-		<div className="mx-4 mt-2 mb-4 select-none">
-			<div className="font-semibold text-md">{tr(category.nameLocalized)}</div>
-			<div className="py-2">
+		<div className="relative">
+			<div className={`sticky top-8 px-4 py-3 flex items-center font-semibold text-sm 
+			text-slate-900 dark:text-slate-200 bg-slate-50/90 dark:bg-slate-700/90 
+			backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10 z-20`}>
+				{tr(category.nameLocalized)}
+			</div>
+			<div className="px-4 py-2 select-none">
 				{category.equipment.map(item => (
 					<ItemRow
 						key={`${category.index}_${item.index}`}

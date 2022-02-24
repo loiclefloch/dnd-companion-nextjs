@@ -22,9 +22,13 @@ function Group({ title, items }) {
 	}
 
 	return (
-		<div className="mx-4 mt-2 mb-4 select-none">
-			<div className="font-semibold text-md">{title}</div>
-			<div className="py-2">
+		<div className="relative">
+			<div className={`sticky top-0 px-4 py-3 flex items-center font-semibold text-sm 
+			text-slate-900 dark:text-slate-200 bg-slate-50/90 dark:bg-slate-700/90 
+			backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10 z-20`}>
+				{title}
+			</div>
+			<div className="py-2 px-4 divide divide-y dark:divide-slate-200/5">
 				{items?.map((item, index) => (
 					<CharacterEquipmentItemRow
 						key={index} // index since we could have multiple times the same item for a character?

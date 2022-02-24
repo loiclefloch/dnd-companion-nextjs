@@ -1,6 +1,6 @@
 import Tag from "./Tag"
 
-function ItemTagIsEquipped({ item, ...otherProps }) {
+function ItemTagIsEquipped({ item, hideNotEquipped = false, ...otherProps }) {
 	return <>
 		{item.isEquipped && (
 			<Tag
@@ -11,7 +11,7 @@ function ItemTagIsEquipped({ item, ...otherProps }) {
 				Équipé
 			</Tag>
 		)}
-		{!item.isEquipped && (
+		{!item.isEquipped && !hideNotEquipped && (
 			<Tag
 				size="small"
 				className="text-blue-600 border border-blue-600"

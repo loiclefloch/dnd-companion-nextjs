@@ -8,8 +8,18 @@ import useTipLanguage from "../useTipLanguage"
 import useTipAbilityScore from "../useTipAbilityScore"
 import useTipTrait from "../useTipTrait"
 
-import dwarf from "./dwarf.mdx"
-import HighElf from "./high-elf.mdx"
+import dragonborn from "./dragonborn.mdx"
+import halfElf from "./half-elf.mdx"
+import halfOrc from "./half-orc.mdx"
+import highElf from "./high-elf.mdx"
+import hillDwarf from "./hill-dwarf.mdx"
+import human from "./human.mdx"
+import lightfootHalfing from "./lightfoot-halfling.mdx"
+import protectorAasimar from "./protector-aasimar.mdx"
+import rabittfolk from "./rabbitfolk.mdx"
+import rockGnome from "./rock-gnome.mdx"
+import tiefling from "./tiefling.mdx"
+import woodElf from "./wood-elf.mdx"
 
 // - traits
 
@@ -129,22 +139,38 @@ function Content({ race }) {
 }
 
 function Text({ race }) {
-	const view = {
-		dwarf: dwarf,
-		'high-elf': HighElf
+	const views = {
+		"dragonborn": dragonborn,
+		"half-elf": halfElf,
+		"half-orc": halfOrc,
+		"high-elf": highElf,
+		"hill-dwarf": hillDwarf,
+		"human": human,
+		"lightfoot-halfling": lightfootHalfing,
+		"protector-aasimar": protectorAasimar,
+		"rabbitfolk": rabittfolk,
+		"rock-gnome": rockGnome,
+		"tiefling": tiefling,
+		"wood-elf": woodElf,
 	}
 
-	if (!view[race]) {
+	const view = views[race?.index || race]
+
+	if (!view) {
 		return <p>Content not yet created</p>
 		// throw new Error(`Race not handled: ${race}`)
 	}
-	return createElement(view[race])
+	return <div className="prose">{createElement(view)}</div>
 }
 
 function RaceDetailsView({ race }) {
 	return <>
-		<Text race={race} />
-		<Content race={race} />
+		<Section title="Description" withToggle sticky>
+			<Text race={race} />
+		</Section>
+		<Section title="Résumé" withToggle sticky>
+			<Content race={race} />
+		</Section>
 	</>
 }
 

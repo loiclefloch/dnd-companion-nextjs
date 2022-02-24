@@ -23,7 +23,7 @@ function CharacterEquipmentItemRow({ character, item, onClick }) {
 						</span>
 						{item.canBeEquipped &&  (
 							<div>
-								<ItemTagIsEquipped item={item} onClick={onClick} />
+								<ItemTagIsEquipped item={item} onClick={onClick} hideNotEquipped />
 							</div>
 						)}
 						<div className="text-sm text-meta">
