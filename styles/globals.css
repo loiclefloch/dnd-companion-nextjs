@@ -4,6 +4,10 @@
 
 @layer components {
 
+	.debug * {
+		outline: 1px solid #f00 !important;
+	}
+
 	body {
 		overflow: hidden;
 	}

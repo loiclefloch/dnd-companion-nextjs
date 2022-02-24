@@ -70,7 +70,7 @@ function Features() {
           onChange={search}
           onRemoveHistoryQuery={onRemoveHistoryQuery}
         />
-        <div className="mt-2 flex flex-col gap-2" data-cy-id="features-list">
+        <div className="mt-2 flex flex-col gap-2 px-2" data-cy-id="features-list">
           {searchResults && term
             ? searchResults.map((searchResult) => {
                 const feature = searchResult.item;

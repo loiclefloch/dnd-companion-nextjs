@@ -24,6 +24,7 @@ function Proficiency({ proficiency }) {
 			</div>
 			<div
 				onClick={() => showTipProficiency(proficiency)}
+				className="text-meta px-2"
 			>
 				?
 			</div>

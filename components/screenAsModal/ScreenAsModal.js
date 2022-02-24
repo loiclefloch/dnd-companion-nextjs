@@ -2,6 +2,7 @@ import IconX from '../icons/IconX'
 import IconSpin from "../icons/IconSpin"
 import useEscapeEffect from "../useEscapeEffect"
 import useBeforePopState from "../useBeforePopState"
+import clsx from 'clsx'
 
 function ScreenLoading() {
 	return (
@@ -11,7 +12,7 @@ function ScreenLoading() {
 	)
 }
 
-function ScreenAsModal({ title, leftAction, isLoading, onCloseScreen, children }) {
+function ScreenAsModal({ title, leftAction, isLoading, onCloseScreen, children, withBottomSpace }) {
 	useEscapeEffect(onCloseScreen)
 	useBeforePopState(() => {
 		onCloseScreen()
@@ -27,7 +28,9 @@ function ScreenAsModal({ title, leftAction, isLoading, onCloseScreen, children }
 					<button onClick={onCloseScreen}><IconX className="w-5 h-5" /></button>
 				</div>
 			</header>
-			<div className='flex-1 overflow-y-auto bg-app'>
+			<div className={clsx('flex-1 overflow-y-auto bg-app', {
+				"pb-12": withBottomSpace
+			})}>
 				{isLoading
 					? <ScreenLoading />
 					: children

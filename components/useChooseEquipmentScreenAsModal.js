@@ -97,9 +97,9 @@ function Category({ category, selectedItems, onSelect }) {
 	const { tr } = useI18n()
 
 	return (
-		<div className="mx-4 mt-2 mb-4 select-none">
+		<div className="mx-4 mt-2 mb-4 select-none relative">
 			<div 
-				className="flex border-b border-solid border-slate-200"
+				className="flex border-b border-solid border-slate-200 sticky top-8 z-10 bg-app"
 				onClick={() => setOpen(!open)}
 			>
 				<div
@@ -111,7 +111,7 @@ function Category({ category, selectedItems, onSelect }) {
 					<IconChevronToggle open={open} className="text-gray-600 dark:text-gray-400" />
 				</div>
 			</div>
-			<div 
+			<div
 				className={clsx("py-2", 
 					"transform ease-in-out transition-all duration-300", {
 					"translate-y-0": open, // TODO: fix animation
@@ -164,6 +164,7 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 			title={`Équipement`}
 			onCloseScreen={onCloseScreen}
 			isLoading={equipmentCategoriesResponse.isLoading}
+			withBottomSpace
 		>
 			<InputSearch
 				className="px-4"
@@ -185,14 +186,16 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 					))}
 				</div>
 			) :
-				equipmentCategoriesResponse.data?.map(category => (
-					<Category
-						key={category.index}
-						category={category}
-						selectedItems={selectedItems}
-						onSelect={onSelect}
-					/>
-				))
+				<div className="pt-2">
+					{equipmentCategoriesResponse.data?.map(category => (
+						<Category
+							key={category.index}
+							category={category}
+							selectedItems={selectedItems}
+							onSelect={onSelect}
+						/>
+					))}
+				</div>
 			}
 
 			<ButtonBottomScreen

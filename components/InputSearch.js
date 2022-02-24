@@ -10,7 +10,7 @@ function InputSearch({ searchHistory, onRemoveHistoryQuery, className, term, onC
 	const inputRef = useRef()
 
 	return (
-		<div className={clsx("flex items-center sticky", "sticky top-0 pb-2 bg-app z-20", className)}>
+		<div className={clsx("flex items-center sticky", "sticky top-0 bg-app z-20", className)}>
 			<div 
 				className={clsx(`relative w-full flex text-left bg-white shadow-md cursor-default 
 				focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white 
@@ -34,7 +34,7 @@ function InputSearch({ searchHistory, onRemoveHistoryQuery, className, term, onC
 					onChange={e => onChange(e.target.value)}
 				/>
 
-				<span onClick={() => onChange("")}>
+				<span onClick={() => onChange("")} className="p-1">
 					<IconX className="w-4 h-4 text-slate-600 ml-1.5 mr-1" />
 				</span>
 
@@ -58,7 +58,7 @@ function InputSearch({ searchHistory, onRemoveHistoryQuery, className, term, onC
 					>
 						<div className="divide divide-y px-4 bg-white shadow-lg rounded-b-md pt-1">
 							{isEmpty(searchHistory) ? (
-								<div>
+								<div className="py-2">
 									Pas d'historique
 								</div>
 							) : (

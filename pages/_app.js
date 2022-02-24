@@ -1,4 +1,5 @@
 import React from 'react'
+import clsx from 'clsx';
 import '../styles/globals.css'
 import { ModalProvider } from "../components/modal/modalContext";
 import { CharacterMenuProvider } from "../components/characterMenu/CharacterMenuContext";
@@ -9,7 +10,9 @@ import { CurrentCharacterProvider } from "../components/useCurrentCharacter"
 function MyApp({ Component, pageProps }) {
   return (
     <div
-      className='//dark bg-app'
+      className={clsx('//dark bg-app', {
+        "debug": false
+      })}
     >
       <CurrentCharacterProvider>
         <ModalProvider>

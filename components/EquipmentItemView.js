@@ -299,7 +299,7 @@ function EquipmentItemView({ item, onCloseScreen }) {
 								key={property.index} 
 								label={property.name}
 								value={
-									<span className="text-meta" onClick={() => showTipWeaponProperty(property.index)}>
+									<span className="text-meta px-2" onClick={() => showTipWeaponProperty(property.index)}>
 										?
 									</span>
 								}

@@ -7,7 +7,7 @@ import useBeforePopState from "../useBeforePopState"
 function ModalInfo({ modalConfiguration, hideModal }) {
 	return (
 		<div className="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-			<div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+			<div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-10 text-center sm:block sm:p-0">
 				{/*
 				Background overlay, show/hide based on modal state.
 
@@ -62,13 +62,16 @@ function ModalInfo({ modalConfiguration, hideModal }) {
 					<div className="px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">
 						<Button
 							size="big"
-							className="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+							className={`inline-flex justify-center w-full px-4 py-1 mt-3 text-base font-medium 
+							text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm 
+							hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 
+							focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm`}
 							onClick={() => {
 								hideModal()
 								modalConfiguration.onValidate && modalConfiguration.onValidate()
 							}}
 						>
-							Valider
+							Fermer
 						</Button>
 					</div>
 				</div>

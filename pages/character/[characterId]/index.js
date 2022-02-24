@@ -73,7 +73,7 @@ function Content({
 
 	return (
 		<div className="px-4">
-			<div>
+			<div className="flex items-center">
 				<Link href={`/race/${character.race.index}`}>
 					{tr(character.race.nameLocalized)}
 				</Link>

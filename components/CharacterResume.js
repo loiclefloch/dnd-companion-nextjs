@@ -26,7 +26,7 @@ function Proficiency({ proficiency }) {
 			value={
 				<div
 					onClick={() => showTipProficiency(proficiency)}
-					className="text-meta"
+					className="text-meta px-2"
 				>
 					?
 				</div>
@@ -97,7 +97,7 @@ export function FeaturesSection({ character }) {
 						value={
 							<div
 								onClick={() => showTipFeature(feature.index)}
-								className="text-meta"
+								className="text-meta px-2"
 							>
 								?
 							</div>
@@ -153,7 +153,7 @@ function EquipmentSection({ character }) {
 						</div>
 						<div 
 							onClick={() => showEquipmentItemScreenAsModal(item)}
-							className="text-meta"
+							className="text-meta px-2"
 						>
 							?
 						</div>
@@ -298,7 +298,7 @@ export function FeatsSection({ character }) {
 						label={tr(feat.nameLocalized)} 
 						value={<div 
 							onClick={() => showFeatScreenAsModal(feat.index, character)}
-							className="text-meta"
+							className="text-meta px-2"
 						>
 							?
 						</div>} 

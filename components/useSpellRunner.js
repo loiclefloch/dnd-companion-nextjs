@@ -90,7 +90,7 @@ function RunnerBlock({ dice, contextCharacter, spellLevel, chooser, message, onR
 					{chooser}
 				</div>
 
-				<div className="justify-end mb-20 text-center">
+				<div className="justify-end mb-0 text-center">
 					{spellLevel !== 0 ? (
 						<>
 							<p>Ce sort utilisera un emplacement de sort de niveau {spellLevel}</p>
@@ -406,10 +406,10 @@ function SpellRunnerScreenAsModal({ contextCharacter, spell, options, onCloseScr
 	}
 
 	return (
-		<ScreenAsModal title={``} onCloseScreen={onCloseScreen}>
+		<ScreenAsModal title={``} onCloseScreen={onCloseScreen} withBottomSpace>
 			<CharacterProvider character={contextCharacter}>
 				<div className="flex flex-col h-full">
-					<h2 className="mt-20 text-2xl font-semibold text-center">
+					<h2 className="mt-8 text-2xl font-semibold text-center">
 						{tr(spell.nameLocalized)}
 					</h2>
 					<SpellRun 
