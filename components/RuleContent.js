@@ -1,4 +1,4 @@
-import ReactMarkdown from 'react-markdown'
+// import ReactMarkdown from 'react-markdown' TODO: remove lib?
 
 import TheOrderOfCombat from "./rule-sections/the-order-of-combat.mdx"
 import cover from "./rule-sections/cover.mdx"
