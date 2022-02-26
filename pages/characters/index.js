@@ -3,12 +3,26 @@ import IconPlus from "../../components/icons/IconPlus"
 import IconUsers from "../../components/icons/IconUsers"
 import { ListSelectRowAsCard, ListRowSelectContainer } from "../../components/ListSelectRow"
 import Screen from "../../components/Screen"
-import useI18n from "../../modules/i18n/useI18n"
+import { makeI18n } from "../../modules/i18n/useI18n"
 import useCharacters from "../../modules/api/useCharacters"
 import useCreateCharacter from '../../components/useCreateCharacter'
 import useCurrentCharacter from '../../components/useCurrentCharacter'
 import Button from '../../components/Button'
 import { isEmpty } from "lodash"
+
+const useI18n = makeI18n(() => ({
+	'screen.title': {
+		fr: 'Mes personnages',
+		en: 'My characters',
+	},
+	'no characters yet': {
+		fr: `Vous n'avez pas encore de personnage`,
+		en: `You do not have any character yet`,
+	},
+	'btn.create my character': {
+		fr: `Créer mon personnage`
+	},
+}))
 
 function Character({ character, selected }) {
 	const { tr } = useI18n()
@@ -31,6 +45,7 @@ function Character({ character, selected }) {
 
 
 function CharactersScreen() {
+	const { tr } = useI18n()
 	const router = useRouter()
 	const { startCreateCharacter } = useCreateCharacter()
 	const charactersResponse = useCharacters()
@@ -38,7 +53,7 @@ function CharactersScreen() {
 
 	return (
 		<Screen
-			title={"Mes personnages"}
+			title={tr`screen.title`}
 			titleIcon={<IconUsers className="w-6 h-6" />}
 			root
 			isLoading={charactersResponse.isLoading}
@@ -54,13 +69,13 @@ function CharactersScreen() {
 			<div>
 				{charactersResponse.data && isEmpty(charactersResponse.data) && (
 					<div className="flex flex-col items-center w-full p-4 mt-4">
-						<p>Vous n'avez pas encore de personnage</p>
+						<p>{tr`no characters yet`}</p>
 						<Button 
 							onClick={() => router.push("/character/create")}
 							variant="cta"
 							className="mt-4"
 						>
-							Créer mon personnage
+						{tr`btn.create my character`}	
 						</Button>
 					</div>
 				)}

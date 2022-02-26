@@ -3,7 +3,7 @@ import { get, isEmpty, isNil, isString, isArray } from 'lodash'
 
 const defaultLang = 'en'
 
-const translations = {
+const globalTranslations = {
   STR: {
     fr: 'Force',
     en: 'Strength'
@@ -30,7 +30,12 @@ const translations = {
   },
 }
 
-function useI18n() {
+function buildUseI18n(translationsParam) {
+  const translations = {
+    ...globalTranslations,
+    ...translationsParam
+  }
+
   const { rangeUnit, RangeUnit, lang } = useConfiguration()
   
   return {
@@ -50,6 +55,13 @@ function useI18n() {
       // TODO: this is a trick for strings not translated yet, and being an array:
       // [ "first sentance", "second sentance" ]
       if (isArray(obj) && !isEmpty(obj) && isString(obj[0])) {
+        if (obj.length === 1) { // maybe a template string (tr`key`)
+          const translated = get(translations, [obj, lang])
+          if (translated) {
+            return translated
+          }
+        }
+
         return obj.join('\n\n') 
       }
 
@@ -79,4 +91,16 @@ function useI18n() {
   }
 }
 
+function useI18n() {
+  return buildUseI18n()
+}
+
 export default useI18n
+
+
+export const makeI18n = (getTranslations) => {
+  const translationsParam = getTranslations()
+  return () => {
+    return buildUseI18n(translationsParam)
+  }
+}

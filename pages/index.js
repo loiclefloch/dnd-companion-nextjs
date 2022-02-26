@@ -1,11 +1,25 @@
 import Link from "next/link"
 import Screen from "../components/Screen";
-import useContextCharacter from "../components/useContextCharacter"
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import useCurrentCharacter from "../components/useCurrentCharacter";
 import Button from "../components/Button";
 import { useRouter } from "next/router";
 import { ListSelectRowAsCard } from "../components/ListSelectRow"
+
+const useI18n = makeI18n(() => ({
+  'screen.title': {
+    fr: 'Dashboard',
+    en: 'Dashboard',
+  },
+  'title.myCharacter': {
+    fr: 'Mon personnage',
+    en: 'My character',
+  },
+  'select character': {
+    fr: 'Sélectionner un personnage',
+    en: 'Select a character'
+  }
+}))
 
 function CurrentCharacterView() {
   const { character } = useCurrentCharacter();
@@ -15,10 +29,10 @@ function CurrentCharacterView() {
   if (!character) {
     return (
       <div className="px-4 py-2">
-        <h3 className="prose">Mon personnage</h3>       
+        <h3 className="prose">{tr`title.myCharacter`}</h3>       
         <Link href={`/characters`}>
           <Button variant="outlined" className="mt-2">
-            Sélectionner un personnage
+           {tr`select character`} 
           </Button>
         </Link>
       </div>
@@ -27,7 +41,7 @@ function CurrentCharacterView() {
 
   return (
     <div className="px-4 py-2 prose">
-      <h2 className="prose">Mon personnage</h2>
+      <h2 className="prose">{tr`title.myCharacter`}</h2>
 
       <div>
         <ListSelectRowAsCard
@@ -46,11 +60,11 @@ function CurrentCharacterView() {
 }
 
 function IndexScreen() {
-  const { lang } = useI18n()
+  const { tr } = useI18n()
 
   return (
     <Screen
-      title={"Dashboard"}
+      title={tr`screen.title`}
       root
     >
       <CurrentCharacterView />
