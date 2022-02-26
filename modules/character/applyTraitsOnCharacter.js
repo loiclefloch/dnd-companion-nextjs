@@ -6,7 +6,7 @@ function fleetOfFoot(character) {
 
 // TODO: implement traits
 // - light-bearer
-// - keen-senses -> proficiency in perception
+// - keen-senses -> proficiency in perception, added on elf at character creation.
 
 function applyTraitsOnCharacter(character) {
   const traits = character.traits

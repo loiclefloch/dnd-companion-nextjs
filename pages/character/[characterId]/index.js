@@ -22,6 +22,8 @@ import {
 import Section from "../../../components/Section"
 import LineInfo from "../../../components/LineInfo"
 import CharacterClassTag from "../../../components/CharacterClassTag"
+import CharacterRaceTag from "../../../components/CharacterRaceTag"
+import CharacterLevelTag from "../../../components/CharacterLevelTag"
 
 function HpView({character, characterDispatch}) {
 	const { showLifeScreenAsModal } = useLifeScreenAsModal()
@@ -73,14 +75,17 @@ function Content({
 
 	return (
 		<div className="px-4">
-			<div className="flex items-center">
-				<Link href={`/race/${character.race.index}`}>
-					{tr(character.race.nameLocalized)}
-				</Link>
-				<span> - </span>
-				<CharacterClassTag character={character} />
-				<span> - </span>
-				Niveau {character.level}
+			<div className="flex items-center justify-center">
+		
+				<div className="flex items-center">
+					<CharacterClassTag character={character} />
+				</div>
+				<div className="ml-1 flex items-center">
+					<CharacterRaceTag race={character.race} />
+				</div>
+				<div className="ml-1 flex items-center">
+					<CharacterLevelTag level={character.level} />
+				</div>
 			</div>
 
 				<div className="relative flex items-center mt-6">

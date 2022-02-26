@@ -58,7 +58,7 @@ function StatsSmall({ stats, skills, character, withDetail }) {
 					className="flex justify-end mt-2 mr-2 text-xs uppercase"
 					onClick={() => showStatsDetailsScreenModal(skills, character)}
 				>
-					Détail
+					Detail
 				</span>
 			)}
 		</>

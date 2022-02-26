@@ -5,9 +5,9 @@ import clsx from 'clsx'
 
 function Tag({ label, children, rounded = false, className, size = "medium", ...otherProps }) {
   return (
-    <span
+    <div
       className={clsx(
-        `font-semibold inline-block uppercase rounded select-none last:mr-0`,
+        `font-semibold inline-block uppercase rounded select-none last:mr-0 items-center`,
         'border-solid ', // in case we want it custom with a border
         {
           "rounded-full": rounded,
@@ -18,10 +18,10 @@ function Tag({ label, children, rounded = false, className, size = "medium", ...
       )}
       {...otherProps}
     >
-      <span className='flex items-center'>
+      <div className='flex items-center'>
         {children || label}
-      </span>
-    </span>
+      </div>
+    </div>
   );
 }
 
