@@ -1,6 +1,15 @@
 import useTipDamageType from "./useTipDamageType"
-import useI18n from "../modules/i18n/useI18n"
+import { makeI18n } from "../modules/i18n/useI18n"
 import ItemTagIsEquipped from "./ItemTagIsEquipped"
+
+const useI18n = makeI18n({
+	'no damages defined refer to description': {
+		en: 'No damages defined, look at the description'
+	},
+	'stealth disadvantage': {
+		en: 'Stealth disadvantage'
+	}
+})
 
 function CharacterEquipmentItemRow({ character, item, onClick }) {
 	const { tr } = useI18n()
@@ -44,7 +53,7 @@ function CharacterEquipmentItemRow({ character, item, onClick }) {
 										</>
 									)}
 									{!item.damage && (
-										<span>No damages defined, look at the description</span>
+										<span>{tr`no damages defined refer to description`}</span>
 									)}
 								</>
 							)}
@@ -53,7 +62,7 @@ function CharacterEquipmentItemRow({ character, item, onClick }) {
 								<>
 									<span>{item.armorCategory} — </span>
 									<span>
-										AC {item.armorClass.base} {item.stealthDisadvantage && <span> — Stealth disadvantage</span>}
+										AC {item.armorClass.base} {item.stealthDisadvantage && <span> — {tr`stealth disadvantage`}</span>}
 									</span>
 								</>
 							)}

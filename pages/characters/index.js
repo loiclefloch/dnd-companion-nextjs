@@ -10,7 +10,7 @@ import useCurrentCharacter from '../../components/useCurrentCharacter'
 import Button from '../../components/Button'
 import { isEmpty } from "lodash"
 
-const useI18n = makeI18n(() => ({
+const useI18n = makeI18n({
 	'screen.title': {
 		fr: 'Mes personnages',
 		en: 'My characters',
@@ -22,7 +22,7 @@ const useI18n = makeI18n(() => ({
 	'btn.create my character': {
 		fr: `Créer mon personnage`
 	},
-}))
+})
 
 function Character({ character, selected }) {
 	const { tr } = useI18n()

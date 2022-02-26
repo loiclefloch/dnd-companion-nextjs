@@ -10,7 +10,11 @@ import {
 	getImportanceForClass,
 	getImportanceTip,
 } from "../modules/character"
-import useI18n from '../modules/i18n/useI18n';
+import { makeI18n } from '../modules/i18n/useI18n';
+
+const useI18n = makeI18n({
+
+})
 
 function IconAbilityButton({ label, onClick }) {
 	return <div className="px-2 text-lg cursor-pointer" onClick={onClick}>{label}</div>

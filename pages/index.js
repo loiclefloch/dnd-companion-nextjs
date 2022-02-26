@@ -6,7 +6,7 @@ import Button from "../components/Button";
 import { useRouter } from "next/router";
 import { ListSelectRowAsCard } from "../components/ListSelectRow"
 
-const useI18n = makeI18n(() => ({
+const useI18n = makeI18n({
   'screen.title': {
     fr: 'Dashboard',
     en: 'Dashboard',
@@ -19,7 +19,7 @@ const useI18n = makeI18n(() => ({
     fr: 'Sélectionner un personnage',
     en: 'Select a character'
   }
-}))
+})
 
 function CurrentCharacterView() {
   const { character } = useCurrentCharacter();

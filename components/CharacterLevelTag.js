@@ -10,7 +10,7 @@ function CharacterLevelTag({ level }) {
 				size="small"
 				className="text-slate-600 border border-slate-600"
 			>
-				Niveau {level}
+				{tr(`level`, { level })}
 			</Tag>
 		</>
 	)

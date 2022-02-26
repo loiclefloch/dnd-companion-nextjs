@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { map, groupBy, isEmpty } from "lodash"
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import StatsSmall from "./StatsSmall";
 import useTipTrait from "./useTipTrait"
 import useTipProficiency from "./useTipProficiency"
@@ -11,8 +11,61 @@ import CharacterClassTag from "./CharacterClassTag"
 import useFeatScreenAsModal from "./useFeatScreenAsModal"
 import Section from "./Section"
 
+const useI18n = makeI18n({
+	'link to background': {
+		fr: 'Voir le background',
+		en: 'Open background',
+	},
+	'background.title': {
+		en: `Background - %{backgroundName}`,
+		fr: `Background - %{backgroundName}`,
+	},
+	'features.title': {
+		en: `Features`,
+		fr: ``
+	},
+	'traits.title': {
+		en: 'traits',
+		fr: 'traits',
+	},
+	'equipment.title': {
+		fr: 'Équipement',
+		en: 'Equipment',
+	},
+	'body.title': {
+		fr: 'Physique',
+		en: 'Body',
+	},
+
+	'stats.title': {
+		en: 'Stats',
+		fr: 'Stats',
+	},
+
+	'languages.title': {
+		en: 'Languages',
+		fr: 'Languages',
+	},
+	'personnalityTraits.title': {
+		en: 'Personnality traits',
+		fr: 'Traits de personnalité'
+	},
+	'bonds.title': {
+		en: 'Bonds',
+		fr: 'Liens',
+	},
+	'imperfections.title': {
+		en: 'Flaws',
+		fr: 'Imperfections',
+	},
+	'ideals.title': {
+		en: 'Ideals',
+		fr: 'Idéaux',
+	},
+
+})
+
 function Proficiency({ proficiency }) {
-	const { tr } = useI18n()
 	const { showTipProficiency } = useTipProficiency()
 
 	return (
@@ -36,10 +89,11 @@ function Proficiency({ proficiency }) {
 }
 
 export function ProficienciesSection({ character }) {
+	const { tr } = useI18n()
 	const grouped = groupBy(character.proficiencies, item => item.typeLabel)
 
 	return (
-		<Section title="Maîtrises">
+		<Section title={tr`proficiencies`}>
 			{map(grouped, (list, groupName) => (
 				<div
 					key={groupName}
@@ -64,10 +118,10 @@ export function BackgroundSection({ character }) {
 	const { tr } = useI18n()
 	const background = character.background
 	return (
-		<Section title={`Background - ${background.name}`}>
+		<Section title={tr(`background.title`, { backgroundName: background.name })}>
 			<div className="px-4">
 				<Link href={`/background/${background.index}`}>
-					<span className="text-link">Voir le background</span>
+					<span className="text-link">{tr`link to background`}</span>
 				</Link>
 			</div>
 		</Section>
@@ -84,7 +138,7 @@ export function FeaturesSection({ character }) {
 	}
 
 	return (
-		<Section title={`Features`}>
+		<Section title={tr`features.title`}>
 			<LineInfo.Parent>
 				{character.features.map((feature, index) => (
 					<LineInfo
@@ -112,9 +166,10 @@ export function FeaturesSection({ character }) {
 
 export function TraitsSection({ character }) {
 	const { showTipTrait } = useTipTrait()
+	const { tr } = useI18n()
 
 	return (
-		<Section title="Traits">
+		<Section title={tr`traits.title`}>
 			<LineInfo.Parent>
 				{character.traits.map(trait => (
 					<LineInfo
@@ -138,9 +193,9 @@ export function TraitsSection({ character }) {
 
 function EquipmentSection({ character }) {
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
-
+	const { tr } = useI18n()
 	return (
-		<Section title="Équipement">
+		<Section title={tr`equipment.title`}>
 			<div className="mx-4 divide-y divide">
 				{character.equipment.map(item => (
 					<div
@@ -164,28 +219,30 @@ function EquipmentSection({ character }) {
 	)
 }
 
-function PhysicSection({ character }) {
+function BodySection({ character }) {
+	const { tr } = useI18n()
 	const { body } = character
 
 	return (
-		<Section title="Physique">
+		<Section title={tr`body.title`}>
 			<LineInfo.Parent>
-				<LineInfo label="age" value={body.age} />
-				<LineInfo label="gender" value={body.gender} />
-				<LineInfo label="height" value={body.height} />
-				<LineInfo label="weight" value={body.weight} />
-				<LineInfo label="hairColor" value={body.hairColor} />
-				<LineInfo label="eyeColor" value={body.eyeColor} />
-				<LineInfo label="skinColor" value={body.skinColor} />
-				<LineInfo label={<span>physical<br />caracteristics</span>} value={body.physicalCaracteristics} />
+				<LineInfo label={tr`age`} value={body.age} />
+				<LineInfo label={tr`gender`} value={body.gender} />
+				<LineInfo label={tr`height`} value={body.height} />
+				<LineInfo label={tr`weight`} value={body.weight} />
+				<LineInfo label={tr`hairColor`} value={body.hairColor} />
+				<LineInfo label={tr`eyeColor`} value={body.eyeColor} />
+				<LineInfo label={tr`skinColor`} value={body.skinColor} />
+				<LineInfo label={tr`physical caracteristics`} value={body.physicalCaracteristics} />
 			</LineInfo.Parent>
 		</Section>
 	)
 }
 
 function StatsSection({ character }) {
+	const { tr } = useI18n()
 	return (
-		<Section title="Stats">
+		<Section title={tr`stats.title`}>
 			<div className="px-1 pt-2">
 				<StatsSmall
 					withDetail
@@ -199,8 +256,9 @@ function StatsSection({ character }) {
 }
 
 function LanguagesSection({ character }) {
+	const { tr } = useI18n()
 	return (
-		<Section title="Languages">
+		<Section title={tr`languages.title`}>
 			<div className="mx-4 divide-y divide">
 				{character.languages?.map((language, index) => (
 					<div key={index} className="py-1">{language}</div>
@@ -211,8 +269,9 @@ function LanguagesSection({ character }) {
 }
 
 function PersonnalityTraitsSection({ character }) {
+	const { tr } = useI18n()
 	return (
-		<Section title="Personnality traits">
+		<Section title={tr`personnalityTraits.title`}>
 			<div className="divide-y divide">
 				{character.personnalityTraits.map((trait, index) => (
 					<div key={index} className="py-1">{trait}</div>
@@ -223,30 +282,34 @@ function PersonnalityTraitsSection({ character }) {
 }
 
 function BondsSection({ character }) {
+	const { tr } = useI18n()
 	return (
-		<Section title="Bonds">
+		<Section title={tr`bonds.title`}>
 			<div>{character.bonds}</div>
 		</Section>
 	)
 }
 
 function FlawsSection({ character }) {
+	const { tr } = useI18n()
 	return (
-		<Section title="Imperfections">
+		<Section title={tr`imperfections.title`}>
 			<div>{character.flaws}</div>
 		</Section>
 	)
 }
 
 function IdealsSection({ character }) {
+	const { tr } = useI18n()
 	return (
-		<Section title="Idéaux">
+		<Section title={tr`ideals.title`}>
 			<div>{character.ideals}</div>
 		</Section>
 	)
 }
 
 function GlobalSection({ character }) {
+	const { tr } = useI18n()
 	return (
 		<Section title="Caractéristiques">
 			<LineInfo.Parent>
@@ -318,7 +381,7 @@ function CharacterResume({ character }) {
 				<CharacterClassTag character={character} />
 
 				<GlobalSection character={character} />
-				<PhysicSection character={character} />
+				<BodySection character={character} />
 				<IdealsSection character={character} />
 				<FlawsSection character={character} />
 				<BondsSection character={character} />

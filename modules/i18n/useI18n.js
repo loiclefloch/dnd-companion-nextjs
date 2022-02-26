@@ -1,9 +1,49 @@
 import useConfiguration from '../configuration/useConfiguration'
-import { get, isEmpty, isNil, isString, isArray } from 'lodash'
+import { get, isEmpty, isNil, isString, isArray, isFunction } from 'lodash'
 
 const defaultLang = 'en'
 
 const globalTranslations = {
+	'proficiencies': {
+		fr: 'Maîtrises',
+		en: 'Proficiencies',
+	},
+  'age': {
+		en: 'age',
+		fr: 'age'
+	},
+	'gender': {
+		en: 'gender',
+		fr: 'gender'
+	},
+	'height': {
+		en: 'height',
+		fr: 'height'
+	},
+	'weight': {
+		en: 'weight',
+		fr: 'weight'
+	},
+	'hairColor': {
+		en: 'hairColor',
+		fr: 'hairColor'
+	},
+	'eyeColor': {
+		en: 'eyeColor',
+		fr: 'eyeColor'
+	},
+	'skinColor': {
+		en: 'skinColor',
+		fr: 'skinColor'
+	},
+  'physical caracteristics': {
+    en: 'physical caracteristics',
+    fr: 'physical caracteristics',
+  },
+  level: {
+    en: 'Level %{level}',
+    fr: 'Niveau %{level}',
+  },
   STR: {
     fr: 'Force',
     en: 'Strength'
@@ -30,6 +70,18 @@ const globalTranslations = {
   },
 }
 
+function formatTemplate(str, templateParams) {
+  if (Array.isArray(str)) {
+    return str.map(str => formatTemplate(str, templateParams))
+  }
+  return str?.replace(
+    /%{([^{}]+)}/g, // or /{(\w*)}/g for "{this} instead of %this%"
+    function (m, key) {
+      return templateParams.hasOwnProperty(key) ? templateParams[key] : "";
+    }
+  )
+}
+
 function buildUseI18n(translationsParam) {
   const translations = {
     ...globalTranslations,
@@ -42,14 +94,14 @@ function buildUseI18n(translationsParam) {
     lang,
     isDefaultLang: lang === defaultLang,
     trDefaultLang: obj => !obj ? null : obj[defaultLang] || null,
-    tr: obj => {
+    tr: (obj, templateParams) => {
       if (typeof obj === 'number') {
         return `${obj}`
       }
       if (typeof obj === 'string' || obj instanceof String) {
         // translation key
         // || better have object key than empty/null value (not yet translated)
-        return get(translations, [obj, lang]) || obj
+        return formatTemplate(get(translations, [obj, lang]) || obj, templateParams)
       }
 
       // TODO: this is a trick for strings not translated yet, and being an array:
@@ -58,11 +110,11 @@ function buildUseI18n(translationsParam) {
         if (obj.length === 1) { // maybe a template string (tr`key`)
           const translated = get(translations, [obj, lang])
           if (translated) {
-            return translated
+            return formatTemplate(translated, templateParams)
           }
         }
 
-        return obj.join('\n\n') 
+        return formatTemplate(obj.join('\n\n'), templateParams)
       }
 
       // translation object, containing the translations
@@ -76,7 +128,7 @@ function buildUseI18n(translationsParam) {
       }
       if (isArray(translated)) {
         // requires className whitespace-pre-wrap to display break lines
-        return translated.join('\n\n') 
+        return formatTemplate(translated.join('\n\n'), templateParams)
       }
       return translated
     },
@@ -99,7 +151,7 @@ export default useI18n
 
 
 export const makeI18n = (getTranslations) => {
-  const translationsParam = getTranslations()
+  const translationsParam = isFunction(getTranslations) ? getTranslations() : getTranslations
   return () => {
     return buildUseI18n(translationsParam)
   }
