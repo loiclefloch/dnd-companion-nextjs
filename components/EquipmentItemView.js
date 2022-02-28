@@ -1,5 +1,5 @@
 import { isEmpty } from "lodash"
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import useEquipmentItemScreenAsModal from "../components/useEquipmentItemScreenAsModal"
 import useCurrentCharacter from "./useCurrentCharacter";
 import { 
@@ -14,6 +14,101 @@ import LineInfo from "./LineInfo";
 import Section from "./Section";
 import useTipWeaponProperty from "./useTipWeaponProperty"
 import Tag from "./Tag"
+
+const useI18n = makeI18n({
+	'action.unequip': {
+		fr: 'Déséquiper',
+		en: 'Unequip'
+	},
+	'action.equip': {
+		fr: 'Équiper',
+		en: 'Equip',
+	},
+	'armorClassDexBonusMaxBonus': {
+		fr: `DEX max bonus`,
+		en: `DEX bonus max`,
+	},
+	'armorClssStrMin': {
+		fr: 'Min STR',
+		en: 'STR min',
+	},
+	weight: {
+		fr: 'Poids',
+		en: 'Weight',
+	},
+	cost: {
+		fr: 'Coût',
+		en: 'Cost',
+	},
+	isProeficient: {
+		fr: 'À la maîtrise',
+		en: 'Is proeficient',
+	},
+	melee: {
+		fr: 'Mélée',
+		en: 'Melee',
+	},
+	ranged: {
+		fr: 'À distance',
+		en: 'Ranged',
+	},
+	meleeAttackRollModifier: {
+		fr: 'Modifieur attaque de mélée',
+		en: 'Melee attack roll modifier',
+	},
+	rangedAttackRollModifier: {
+		fr: 'Modifieur attaque à distance',
+		en: 'Ranged attack roll modifier',
+	},
+	quantity: {
+		fr: 'quantité',
+		en: 'quantity',
+	},
+	damages: {
+		fr: 'dommages',
+		en: 'damages',
+	},
+	categoryRangeType: {
+		fr: 'Type',
+		en: 'Type',
+	},
+	twoHanded: {
+		fr: "À deux mains",
+		en: "Two handed",
+	},
+	"warn.no damages defined": {
+		fr: "No damages defined, look at the description",
+		en: "No damages defined, look at the description",
+	},
+	"attack.isMelee": {
+		fr: "Attaquer (mélée)",
+		en: "Attack (melee)",
+	},
+	"attack.isRanged": {
+		fr: "Attaquer (à distance)",
+		en: "Attack (ranged)",
+	},
+	"attack.throw": {
+		fr: "Lancer",
+		en: "Throw",
+	},
+	'damages.oneHanded': {
+		fr: "Dégats (une main)",
+		en: "Damages (one handed)",
+	},
+	'damages.twoHanded': {
+		fr: "Dégats (Deux mains)",
+		en: "Damages (two handed)",
+	},
+	"content.title": {
+		fr: "Contenu",
+		en: "Content",
+	},
+	"properties.title": {
+		fr: "Propriétés",
+		en: "Properties",
+	},
+})
 
 function EquipmentItemView({ item, onCloseScreen }) {
 	const { showTipWeaponProperty } = useTipWeaponProperty()
@@ -51,7 +146,7 @@ function EquipmentItemView({ item, onCloseScreen }) {
 											onCloseScreen()
 										}}
 									>
-										Déséquiper
+										{tr`action.unequip`}
 									</Button>
 								)}
 
@@ -65,7 +160,7 @@ function EquipmentItemView({ item, onCloseScreen }) {
 											onCloseScreen()
 										}}
 									>
-										Équiper
+										{tr`action.equip`}
 									</Button>
 								)}
 
@@ -85,15 +180,15 @@ function EquipmentItemView({ item, onCloseScreen }) {
 						<LineInfo
 							label={
 								<span>
-									AC {item.stealthDisadvantage && <span>Stealth disadvantage</span>}
+									AC {item.stealthDisadvantage && <span>{tr`stealthDisadvantage`}</span>}
 								</span>
 							}
 							value={item.armorClass.base}
 						/>
 
-						{item.armorClass.dexBonus === true && <LineInfo label="DEX bonus max" value={item.armorClass.maxBonus} />}
+						{item.armorClass.dexBonus === true && <LineInfo label={tr`armorClassDexBonusMaxBonus`} value={item.armorClass.maxBonus} />}
 
-						<LineInfo label="STR min" value={item.strMinimum} />
+						<LineInfo label={tr`armorClssStrMin`} value={item.strMinimum} />
 					</>
 				)}
 
@@ -117,43 +212,43 @@ function EquipmentItemView({ item, onCloseScreen }) {
 				)}
 
 				{item.weight && (
-					<LineInfo label="Poids" value={item.weight} />
+					<LineInfo label={tr`weight`} value={item.weight} />
 				)}
 
 				{item.cost && (
-					<LineInfo label="Prix" value={<span>{item.cost.quantity} {item.cost.unit.toUpperCase()}</span>} />
+					<LineInfo label={tr`cost`} value={<span>{item.cost.quantity} {item.cost.unit.toUpperCase()}</span>} />
 				)}
 
 				{item.isCharacterContextItem && (
 					<>
-						<LineInfo label="isProeficient" value={item.isProeficient ? "oui" : "non"} />
+						<LineInfo label={tr`isProeficient`} value={item.isProeficient ? "oui" : "non"} />
 
-						{item.isMelee && <LineInfo label="Mélée" />}
-						{item.isRanged && <LineInfo label="Ranged" />}
+						{item.isMelee && <LineInfo label={tr`melee`} />}
+						{item.isRanged && <LineInfo label={tr`ranged`} />}
 						{item.hasPropertyThrown && <LineInfo label="Peut être lancée" />}
 
 						{item.isMelee &&
 							<>
-								<LineInfo label="meleeAttackRollModifier" value={item.meleeAttackRollModifierLabel} />
+								<LineInfo label={tr`meleeAttackRollModifier`} value={item.meleeAttackRollModifierLabel} />
 							</>
 						}
 						
 						{item.isRanged &&
 							<>
-								<LineInfo label="rangedAttackRollModifier" value={item.rangedAttackRollModifierLabel} />
+								<LineInfo label={tr`rangedAttackRollModifier`} value={item.rangedAttackRollModifierLabel} />
 							</>
 						}
 
 						{/* no quantity for unarmed-strike */}
-						{item.quantity && <LineInfo label="quantity" value={<>x{item.quantity}</>} />}
+						{item.quantity && <LineInfo label={tr`quantity`} value={<>x{item.quantity}</>} />}
 					</>
 				)}
 
 				{item.isWeapon && item.damage && (
 					<>
-						<LineInfo label="Type" value={item.categoryRange} />
+						<LineInfo label={tr`categoryRangeType`} value={item.categoryRange} />
 						<LineInfo 
-							label={<>Dégats</>}
+							label={<>{tr`damages`}</>}
 							value={
 								<>
 									<span>{item.damage.damageDice}{item.attackRollModifierLabel}</span>
@@ -165,12 +260,14 @@ function EquipmentItemView({ item, onCloseScreen }) {
 							
 						{item.hasPropertyTwoHandedDamages && (
 							<LineInfo
-								label="À deux mains"
+								label={tr`twoHanded`}
 								value={
 									<>
 										<span>{item.twoHandedDamage.damageDice}{item.attackRollModifierLabel}</span>
 										<span> </span>
-										<span onClick={() => showTipDamageType(item.twoHandedDamage.damageType.index)}>{item.twoHandedDamage.damageType.name}</span>
+										<span onClick={() => showTipDamageType(item.twoHandedDamage.damageType.index)}>
+											{item.twoHandedDamage.damageType.name}
+										</span>
 									</>
 								}
 							/>
@@ -183,7 +280,7 @@ function EquipmentItemView({ item, onCloseScreen }) {
 			{item.isWeapon && (
 				<>
 					{!item.damage && (
-						<span>No damages defined, look at the description</span>
+						<span>{tr`warn.no damages defined`}</span>
 					)}
 					{item.damage && (
 						<div>
@@ -206,7 +303,7 @@ function EquipmentItemView({ item, onCloseScreen }) {
 													// TODO: run 1d20 + isProeficient ? 
 												}}
 											>
-												Attaquer (mélée)
+											{tr`attack.isMelee`}
 											</Button>
 										)}
 
@@ -217,7 +314,7 @@ function EquipmentItemView({ item, onCloseScreen }) {
 													// TODO: run 1d20 + isProeficient ?
 												}}
 											>
-												Attaquer (à distance)
+												{tr`attack.isRanged`}
 											</Button>
 										)}
 
@@ -228,7 +325,7 @@ function EquipmentItemView({ item, onCloseScreen }) {
 													// TODO: run 1d20 + isProeficient ? 
 												}}
 											>
-												Lancer
+												{tr`attack.throw`}
 											</Button>
 										)}
 									</>
@@ -247,7 +344,7 @@ function EquipmentItemView({ item, onCloseScreen }) {
 											e.preventDefault()
 										}}
 									>
-										Dégats (une main) <span>{item.damage.damageDice}{item.attackRollModifierLabel}</span>
+										{tr('damages.oneHanded')} <span>{item.damage.damageDice}{item.attackRollModifierLabel}</span>
 									</Button>
 
 									{item.hasPropertyTwoHandedDamages && (
@@ -263,7 +360,7 @@ function EquipmentItemView({ item, onCloseScreen }) {
 												e.preventDefault()
 											}}
 										>
-											Dégats (deux mains) <span>{item.twoHandedDamage.damageDice}{item.twoHandedDamage.damageType.name}</span>
+											{tr('damages.twoHanded')} <span>{item.twoHandedDamage.damageDice}{item.twoHandedDamage.damageType.name}</span>
 										</Button>
 									)}
 								</>
@@ -277,7 +374,7 @@ function EquipmentItemView({ item, onCloseScreen }) {
 
 			{/* http://localhost:3000/equipment/explorers-pack */}
 			{item.contents && (
-				<Section title="Contenu">
+				<Section title={tr`content.title`}>
 					<LineInfo.Parent>
 						{item.contents.map(subItem => (
 							<LineInfo
@@ -292,7 +389,7 @@ function EquipmentItemView({ item, onCloseScreen }) {
 			)}
 
 			{!isEmpty(item.properties) && (
-				<Section title="Propriétés">
+				<Section title={tr`properties.title`}>
 					<LineInfo.Parent>
 						{item.properties.map(property => (
 							<LineInfo 

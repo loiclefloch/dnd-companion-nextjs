@@ -4,6 +4,10 @@ import { get, isEmpty, isNil, isString, isArray, isFunction } from 'lodash'
 const defaultLang = 'en'
 
 const globalTranslations = {
+  'stealthDisadvantage': {
+    fr: 'Désavantage discrétion',
+    en: 'Stealth disadvantage',
+  },
 	'proficiencies': {
 		fr: 'Maîtrises',
 		en: 'Proficiencies',

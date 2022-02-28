@@ -22,11 +22,11 @@ const useI18n = makeI18n({
 	},
 	'features.title': {
 		en: `Features`,
-		fr: ``
+		fr: `Capacités`
 	},
 	'traits.title': {
-		en: 'traits',
-		fr: 'traits',
+		en: 'Traits',
+		fr: 'Traits',
 	},
 	'equipment.title': {
 		fr: 'Équipement',
@@ -62,7 +62,74 @@ const useI18n = makeI18n({
 		en: 'Ideals',
 		fr: 'Idéaux',
 	},
-
+	'caracteristics.title': {
+		en: 'Caracteristics',
+		fr: 'Caractéristiques',
+	},
+	"caracteristics.level": {
+		fr: 'Niveau',
+		en: 'Level',
+	},
+	"caracteristics.hp": {
+		fr: 'PV',
+		en: 'HP',
+	},
+	"caracteristics.initiative": {
+		fr: 'Initiative',
+		en: 'Initiative',
+	},
+	"caracteristics.naturalAC": {
+		fr: 'AC naturelle',
+		en: 'Natural Ac',
+	},
+	"caracteristics.armorAC": {
+		fr: 'AC armure',
+		en: 'armor AC',
+	},
+	"caracteristics.shieldAC": {
+		fr: 'AC bouclier',
+		en: 'Shield AC',
+	},
+	"caracteristics.totalAC": {
+		fr: 'AC totale',
+		en: 'Total AC',
+	},
+	"caracteristics.hitDices": {
+		fr: 'Dés de vie',
+		en: 'Hit dices',
+	},
+	"caracteristics.proficiencyBonus": {
+		fr: `Bonus de maîtrise`,
+		en: 'Proficiency bonus',
+	},
+	'characteristics.speed': {
+		fr: `Vitesse`,
+		en: `Speed`,
+	},
+	'characteristics.passivePerception': {
+		fr: 'Perception passive',
+		en: 'Passive perception',
+	},
+	'characteristics.passiveInvestigation': {
+		fr: 'Investigation passive',
+		en: 'Passive investigation',
+	},
+	'characteristics.spellDC': {
+		fr: 'DC sorts',
+		en: 'Spell DC',
+	},
+	'characteristics.spellcasingAbility': {
+		en: 'Spellcasting ability',
+		fr: 'Capacité de sort',
+	},
+	'characteristics.spellAttackBonus': {
+		en: 'Spell attack bonus',
+		fr: `Bonus d'attaque`,
+	},
+	'feats.title': {
+		en: 'Feats',
+		fr: 'Talents',
+	}
 })
 
 function Proficiency({ proficiency }) {
@@ -311,21 +378,20 @@ function IdealsSection({ character }) {
 function GlobalSection({ character }) {
 	const { tr } = useI18n()
 	return (
-		<Section title="Caractéristiques">
+		<Section title={tr`caracteristics.title`}>
 			<LineInfo.Parent>
 
-				<LineInfo label="Niveau" value={character.level} />
-				<LineInfo label="HP" value={character.maximumHp} />
-				<LineInfo label="Initiative" value={character.initiative} />
-				<LineInfo label="Natural AC" value={character.ac.natural} />
-				<LineInfo label="Armor AC" value={character.ac.armor} />
-				<LineInfo label="Shield AC" value={character.ac.shield} />
-				<LineInfo label="Total AC" value={character.ac.total} />
-				<LineInfo label="Hit dices" value={character.maximumHitDice} />
-
-				<LineInfo label="Maîtrise" value={<span>+{character.proficiencyBonus}</span>} />
+				<LineInfo label={tr`caracteristics.level`} value={character.level} />
+				<LineInfo label={tr`caracteristics.hp`} value={character.maximumHp} />
+				<LineInfo label={tr`caracteristics.initiative`} value={character.initiative} />
+				<LineInfo label={tr`caracteristics.naturalAC`} value={character.ac.natural} />
+				<LineInfo label={tr`caracteristics.armorAC`} value={character.ac.armor} />
+				<LineInfo label={tr`caracteristics.shieldAC`} value={character.ac.shield} />
+				<LineInfo label={tr`caracteristics.totalAC`} value={character.ac.total} />
+				<LineInfo label={tr`caracteristics.hitDices`} value={character.maximumHitDice} />
+				<LineInfo label={tr`caracteristics.proficiencyBonus`} value={<span>+{character.proficiencyBonus}</span>} />
 				<LineInfo
-					label="Vitesse"
+					label={tr`characteristics.speed`}
 					value={
 						<>
 							{character.currentSpeed != character.baseSpeed && <span>{character.currentSpeed} {character.speedReduced && 'Réduite'}</span>}
@@ -333,11 +399,35 @@ function GlobalSection({ character }) {
 						</>
 					}
 				/>
-				<LineInfo label="Perception passive" value={<span>{character.passivePerception}</span>} onClick={() => showTipPassivePerception()} />
-				<LineInfo label="Investigation passive" value={<span>{character.passiveInvestigation}</span>} onClick={() => showTipPassivePerception()} />
-				<LineInfo label="Spell DC" value={<span>{character.spellSaveDC}</span>} />
-				<LineInfo label="Spellcasing ability" value={<span><span className="text-xs text-meta">{character.spellcastingAbility}</span> {character.spellcastingAbilityValueLabel}</span>} />
-				<LineInfo label="Spell Attack bonus" value={<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>} />
+				<LineInfo 
+					label={tr`characteristics.passivePerception`} 
+					value={<span>{character.passivePerception}</span>}
+					onClick={() => showTipPassivePerception()} 
+				/>
+				<LineInfo 
+					label={tr`characteristics.passiveInvestigation`}
+					 value={<span>{character.passiveInvestigation}</span>}
+					 onClick={() => showTipPassivePerception()} 
+					/>
+				<LineInfo 
+					label={tr`characteristics.spellDC`} 
+					value={<span>{character.spellSaveDC}</span>}
+				/>
+				<LineInfo 
+					label={tr`characteristics.spellcasingAbility`} 
+					value={<span>
+						<span className="text-xs text-meta">
+							{character.spellcastingAbility}</span>
+							<span> </span>
+							{character.spellcastingAbilityValueLabel}
+						</span>
+						}
+				/>
+				<LineInfo 
+					label={tr`characteristics.spellAttackBonus`} 
+					value={<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>}
+
+				/>
 			</LineInfo.Parent>
 
 		</Section>
@@ -353,18 +443,20 @@ export function FeatsSection({ character }) {
 	}
 
 	return (
-		<Section title="Feats">
+		<Section title={tr`feats.title`}>
 			<LineInfo.Parent>
 				{character.feats.map(feat => (
 					<LineInfo 
 						key={feat.index} 
 						label={tr(feat.nameLocalized)} 
-						value={<div 
-							onClick={() => showFeatScreenAsModal(feat.index, character)}
-							className="text-meta px-2"
-						>
-							?
-						</div>} 
+						value={
+							<div
+								onClick={() => showFeatScreenAsModal(feat.index, character)}
+								className="text-meta px-2"
+							>
+								?
+							</div>
+							}
 					/>
 				))}
 			</LineInfo.Parent>
