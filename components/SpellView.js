@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 
 import IconMagicSchool from "../components/icons/IconMagicSchool"
 import Tag from './Tag';
@@ -10,6 +10,33 @@ import CharacterSpellSource from "./CharacterSpellSource"
 import useTipMagicSchool from "./useTipMagicSchool"
 import useTipConcentration from "./useTipConcentration"
 import useTipRitual from "./useTipRitual"
+
+const useI18n = makeI18n({
+  'spell cannot be prepared 1': {
+    fr: 'Ce sort est un sort de sous-classe toujours préparé.',
+    en: 'Ce sort est un sort de sous-classe toujours préparé.',
+  },
+  'spell cannot be prepared 2': {
+    fr: 'Il ne rentre pas en compte dans le nombre maxium de sorts préparés.',
+    en: 'Il ne rentre pas en compte dans le nombre maxium de sorts préparés.',
+  },
+  'spell always prepared': {
+    fr: 'Ce sort est toujours préparé. Il ne rentre pas en compte dans le nombre maxium de sorts préparés',
+    en: 'Ce sort est toujours préparé. Il ne rentre pas en compte dans le nombre maxium de sorts préparés',
+  },
+  'spell resume.title': {
+    fr: "Résumé",
+    en: "Resume",
+  },
+  'description.title': {
+    fr: "Description",
+    en: "Description",
+  },
+  'at higher levels.title': {
+    fr: 'À plus haut niveau',
+    en: 'At Higher Levels',
+  },
+})
 
 function createCharacterClassTag(clss) {
   return {
@@ -127,34 +154,36 @@ function SpellView({ character, spell }) {
 
           <div>
             {isSubclassSpell && (
-              <p className="mt-8">Ce sort est un sort de sous-classe toujours préparé. 
-              <br />Il ne rentre pas en compte dans le nombre maxium de sorts préparés.
+              <p className="mt-8">
+                {tr`spell cannot be prepared 1`}
+                <br />
+                {tr`spell cannot be prepared 2`}
               </p>
             )}
 
             {isForcedPrepared && !isSubclassSpell && (
-              <p className="mt-8">Ce sort est toujours préparé. Il ne rentre pas en compte dans le nombre maxium de sorts préparés</p>
+              <p className="mt-8">{tr`spell always prepared`}</p>
             )}
           </div>
 
           {spell.resume && (
             <div className="mt-4">
               <div className="font-semibold width-full border-b border-solid border-gray-600 border-opacity-10 mb-2 pb-0.5">
-                Résumé:
+               {tr`spell resume.title`} 
               </div>
               <div className="whitespace-pre-wrap">{tr(spell.resume)}</div>
             </div>
           )}
           <div className="mt-4">
             <div className="font-semibold width-full border-b border-solid border-gray-600 border-opacity-10 mb-2 pb-0.5">
-              Description:
+              {tr`description.title`}
             </div>
             <div className="whitespace-pre-wrap">{tr(spell.desc)}</div>
           </div>
           {spell.higherLevel && (
             <div className="mt-4">
               <div className="font-semibold width-full border-b border-solid border-gray-600 border-opacity-10 mb-2 pb-0.5">
-                At Higher Levels:
+                {tr`at higher levels.title`}
               </div>
               <div>
                 {tr(spell.higherLevel)}

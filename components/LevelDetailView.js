@@ -1,6 +1,4 @@
-import Link from 'next/link'
-
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 
 import ScreenIntroduction from "./ScreenIntroduction"
 import SpellLevelData from "./SpellLevelData"
@@ -9,6 +7,29 @@ import { isEmpty } from "lodash";
 import useFeature from "../modules/api/useFeature"
 import useFeatureScreenAsModal from "./useFeatureScreenAsModal"
 import LevellingDetail from "./levellingDetail/LevellingDetail"
+
+const i18n = makeI18n({
+	'description': {
+		fr: 'Retrouvez le détail du niveau %{level} pour les %{clss.name}',
+		en: 'Find out details about level %{level} for %{clss.name}',
+	},
+	'no features': {
+		fr: 'Pas de features',
+		en: 'No features',
+	},
+	'spellsSlots.title': {
+		fr: '',
+		en: 'Spells slots',
+	},
+	'features.title': {
+		fr: '',
+		en: 'Features',
+	},
+	'detail.title': {
+		fr: 'Détail',
+		en: 'Detail',
+	},
+})
 
 function Feature({ index }) {
 	const { tr } = useI18n()
@@ -34,7 +55,7 @@ function FeaturesLevelData({ classes, level }) {
 	const levellingData = getLevellingDataForClassesAndLevel(classes, level)
 
 	if (isEmpty(levellingData.features)) {
-		return <p className="px-4 mt-2">Pas de features</p>
+		return <p className="px-4 mt-2">{tr`no features`}</p>
 	}
 
 	return (
@@ -53,21 +74,21 @@ function LevelDetailView({ clss, level, onCloseScreen }) {
 		<>
 			<ScreenIntroduction 
 				// title={"Levelling"}
-				description={`Retrouvez le détail du niveau ${level} pour les ${tr(clss.nameLocalized)}`}
+				description={tr('description', { level, 'clss.name': tr(clss.nameLocalized)}) }
 			/>
 
 			<>
-				<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">Spells slots</h3>
+				<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">{tr`spellsSlots.title`}</h3>
 				<SpellLevelData classes={[clss]} level={level} />
 			</>
 
 			<>
-				<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">Features</h3>
+				<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">{tr`features.title`}</h3>
 				<FeaturesLevelData classes={[clss]} level={level} />
 			</>
 			
 			<>
-				<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">Détail</h3>
+				<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">{tr`detail.title`}</h3>
 				<div className="mx-4 mt-2">
 					<LevellingDetail clss={clss} level={level} />
 				</div>

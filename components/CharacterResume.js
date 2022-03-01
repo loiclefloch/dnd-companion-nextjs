@@ -126,10 +126,7 @@ const useI18n = makeI18n({
 		en: 'Spell attack bonus',
 		fr: `Bonus d'attaque`,
 	},
-	'feats.title': {
-		en: 'Feats',
-		fr: 'Talents',
-	}
+
 })
 
 function Proficiency({ proficiency }) {

@@ -2,8 +2,47 @@ import { useState } from "react"
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import clsx from "clsx"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
-import useI18n from "../modules/i18n/useI18n"
+import { makeI18n } from "../modules/i18n/useI18n"
 import Button from "./Button"
+
+const useI18n = makeI18n({
+	'modification.title': {
+		fr: 'Modification',
+		en: 'Modification',
+	},
+	'modification.explain': {
+		'fr': `Vous pouver modifier vos slots`,
+		'en': `You can modify your slots`,
+	},
+	'slots.used': {
+		'fr': `Slots utilisés`,
+		'en': `Slots used`,
+	},
+	'slots.total': {
+		'fr': `Slots total`,
+		'en': `Total slots`,
+	},
+	'slots.baseTotalSlots': {
+		'fr': `Défaut: %{baseTotalSlots}`,
+		'en': `Default: %{baseTotalSlots}`,
+	},
+	'hasNoSlotsToDisplay': {
+		'fr': `0 slot disponible`,
+		'en': `0 slot available`,
+	},
+	'isAboveMaximumSlotLevel': {
+		'fr': `Vous n'avez pas accès à ce niveau`,
+		'en': `You do not have access to this level`,
+	},
+	'remainingSlots': {
+		'fr': `%{remainingSlots} restants`,
+		'en': `%{remainingSlots} remaining slots`,
+	},
+	'moreSlotsUsedThanAvailable': {
+		'fr': `Vous avez utilisé plus de slots que votre capacité. Reposez-vous !`,
+		'en': `You have used more slots than your capacity. Rest!`,
+	},
+})
 
 function Form({ show, spellSlot, onSubmit, onClose }) {
 	const [data, setData] = useState({
@@ -18,13 +57,13 @@ function Form({ show, spellSlot, onSubmit, onClose }) {
 
 	return <>
 		<div className="mt-6 prose">
-			<h3 onClick={onClose} className="border-solid border-slate-300 border-b">Modification</h3>
-			<p>Vous pouver modifier vos slots</p>
+			<h3 onClick={onClose} className="border-solid border-slate-300 border-b">{tr`modification.title`}</h3>
+			<p>{tr`modification.explain`}</p>
 
 			<div className="px-4">
 				<div className="flex items-center mt-8">
 					<label className="w-2/3">
-						Slots utilisés
+						{tr`slots.used`}
 					</label>
 					<input
 						type="number"
@@ -38,8 +77,8 @@ function Form({ show, spellSlot, onSubmit, onClose }) {
 
 				<div className="flex items-center mt-2">
 					<label className="w-2/3">
-						Slots total
-						<span className="text-meta text-xs pl-2">(Défaut: {spellSlot.baseTotalSlots})</span>
+						{tr`slots.total`}
+						<span className="text-meta text-xs pl-2">({tr('slots.baseTotalSlots', { baseTotalSlots: spellSlot.baseTotalSlots })})</span>
 					</label>
 					<input
 						type="number"
@@ -61,7 +100,7 @@ function Form({ show, spellSlot, onSubmit, onClose }) {
 						totalSlots: parseInt(data.totalSlots, 10),
 					})}
 				>
-					Valider le changement
+					{tr`validate.action`}	
 				</Button>
 			</div>
 		</div>
@@ -97,22 +136,20 @@ function EditSpellSlotsScreenAsModal({ spellSlot, onEdit, onCloseScreen }) {
 				<div className="mt-4">
 					{spellSlot.hasNoSlotsToDisplay && (
 						// TODO: tip
-						<span>0 slot disponible</span>
+						<span>{tr`hasNoSlotsToDisplay`}</span>
 					)}
 
 					{spellSlot.isAboveMaximumSlotLevel && (
-						<span>Vous n'avez pas accès à ce niveau</span>
+						<span>{tr`isAboveMaximumSlotLevel`}</span>
 					)}
 			
 					{spellSlot.isAboveMaximumSlotLevel ? (
 						<div>
-							remainingSlots: {spellSlot.remainingSlots}
+							{tr('remainingSlots', { remainingSlots: spellSlot.remainingSlots })}
 						</div>
 					) : (
-						<p>Vous avez utilisé plus de slots que votre capacité. Reposez-vous !</p>
+						<p>{tr('moreSlotsUsedThanAvailable')}</p>
 					)}
-
-					
 				</div>
 
 				<div className="mt-4">
@@ -121,7 +158,7 @@ function EditSpellSlotsScreenAsModal({ spellSlot, onEdit, onCloseScreen }) {
 							variant="outlined"
 							onClick={() => setShowForm(!showForm)}
 						>
-							Modifier
+							{tr`modify.action`}
 						</Button>
 					)}
 					<Form 

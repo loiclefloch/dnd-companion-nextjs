@@ -4,9 +4,29 @@ import { get, isEmpty, isNil, isString, isArray, isFunction } from 'lodash'
 const defaultLang = 'en'
 
 const globalTranslations = {
+  'validate.action': {
+    fr: 'Valider',
+    en: 'Validate',
+  },
+  'modify.action': {
+    fr: 'Modifier',
+    en: 'Modify',
+  },
+  'detail.action': {
+    fr: 'Détail',
+    en: 'Detail',
+  },
+	'feats.title': {
+		en: 'Feats',
+		fr: 'Talents',
+	},
   'stealthDisadvantage': {
     fr: 'Désavantage discrétion',
     en: 'Stealth disadvantage',
+  },
+  'cast': {
+    fr: 'Caster',
+    en: 'Cast',
   },
 	'proficiencies': {
 		fr: 'Maîtrises',
@@ -47,6 +67,10 @@ const globalTranslations = {
   level: {
     en: 'Level %{level}',
     fr: 'Niveau %{level}',
+  },
+  'level.short': {
+    en: 'lvl %{level}',
+    fr: 'Niv %{level}',
   },
   STR: {
     fr: 'Force',

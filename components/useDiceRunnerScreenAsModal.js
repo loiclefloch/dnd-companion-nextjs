@@ -1,12 +1,27 @@
 import { useState } from "react"
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import useDice from "./useDice";
 import Button from "./Button";
 import IconDice20Simple from "./icons/IconDice20Simple"
 import useFormModal from "./useFormModal"
 import ButtonBottomScreen from "./ButtonBottomScreen";
+
+const useI18n = makeI18n({
+	'enter result': {
+		fr: 'Entrer le résultat',
+		en: 'Enter resultat',
+	},
+	'enter result label': {
+		fr: `Entrez le résultat de votre jet de dé`,
+		en: `Enter the result of your dice throw`,
+	},
+	'throwDice.action': {
+		fr: 'Lancer le dé',
+		en: 'Thrown dice',
+	},
+})
 
 function Form({ formData, onChange }) {
 	return (
@@ -70,7 +85,7 @@ function DiceRunnerScreenAsModal({ dice, label, onDiceResult, onCloseScreen }) {
 						variant="outlined"
 						onClick={() => {
 							showFormModal({
-								label: `Entrez le résultat de votre jet de dé`,
+								label: tr`enter result label`,
 								defaultData: 0,
 								form: <Form />,
 								onSubmit: (formData) => {
@@ -79,14 +94,14 @@ function DiceRunnerScreenAsModal({ dice, label, onDiceResult, onCloseScreen }) {
 							})
 						}}
 					>
-						Entrer le résultat
+						{tr`enter result`}	
 					</Button>
 
 					<Button
 						variant="outlined"
 						onClick={() => setDiceResult(prerollDice(label, dice))}
 					>
-						Lancer le dé
+						{tr`throwDice.action`}
 					</Button>
 				</div>
 
@@ -96,7 +111,7 @@ function DiceRunnerScreenAsModal({ dice, label, onDiceResult, onCloseScreen }) {
 						onDiceResult(diceResult)
 					}}
 				>
-					Valider
+					{tr`validate.action`}
 				</ButtonBottomScreen>
 			</div>
 		</ScreenAsModal>

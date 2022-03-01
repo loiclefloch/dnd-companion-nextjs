@@ -1,6 +1,12 @@
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import useTipFeature from "./useTipFeature";
 
+const useI18n = makeI18n({
+	'spells.title': {
+		fr: "Sorts",
+		en: "Spells",
+	},
+})
 
 function Spell({ spell }) {
 	const { showTipFeature } = useTipFeature()
@@ -13,7 +19,7 @@ function Spell({ spell }) {
 				{spell.prerequisites.map((prerequisite, index) => (
 					<div key={index} className="text-right flex items-center">
 						{prerequisite.isLevel && (
-							<div className="text-meta text-xs">lvl {prerequisite.level}</div>
+							<div className="text-meta text-xs">{tr('level.short', { level: prerequisite.level} )}</div>
 						)}
 						{prerequisite.isFeature && (
 							<div className="text-meta text-xs" onClick={() => showTipFeature(prerequisite.index)}>
@@ -30,7 +36,7 @@ function Spell({ spell }) {
 function Spells({ spells }) {
 	return (
 		<div>
-			<h3 className="border-b border-solid border-slate-300">Sorts</h3>
+			<h3 className="border-b border-solid border-slate-300">{tr`spells.title`}</h3>
 			<div className="divide divide-y">
 				{spells.map((spell, index) => (
 					<Spell key={index} spell={spell} />

@@ -1,4 +1,15 @@
-import useI18n from "../modules/i18n/useI18n"
+import { makeI18n } from "../modules/i18n/useI18n"
+
+const useI18n = makeI18n({ 
+  'forClass': {
+    fr: 'Pour la classe %{class.name}',
+    en: 'For class %{class.name}',
+  },
+  'forLevel': {
+    fr: 'Pour le niveau %{level}',
+    en: 'For level %{level}',
+  },
+})
 
 function FeatView({ feat }) {
 	const { tr } = useI18n()
@@ -8,8 +19,8 @@ function FeatView({ feat }) {
       <div className="text-meta">
         {feat.forClass && (
           <span>
-            <div>Pour la classe {feat.class.name}</div>
-            <div>At level {feat.level}</div>
+            <div>{tr('forClass', { 'class.name': feat.class.name })}</div>
+            <div>{tr('forLevel', { 'level': feat.level })}</div>
           </span>
         )}
       </div>

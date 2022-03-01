@@ -20,6 +20,7 @@ import { formatSpell } from "../api/useSpell"
 import { getProficiencyBonus } from "../levelling"
 import { getSpellsForCharacterSubclass } from "../character/subclass"
 import { valueToModifier, valueToModifierLabel, modifierToModifierLabel } from "../stats"
+import { filterDuplicates } from '../utils/array'
 import { formatProficiency } from "../api/useProficiency"
 import { formatSubclass } from "../api/useSubclass"
 import { formatFeature } from "../api/useFeature"
@@ -454,7 +455,7 @@ export function formatCharacter(character) {
 
 	// add subclass features
 	character.subclassFeatures = getCharacterSubclassFeatures(character)
-	character.features = [...character.features, ...character.subclassFeatures]
+	character.features = filterDuplicates([...character.features, ...character.subclassFeatures], f => f.index)
 	character.features = character.features.map((featureData) => {
     const feature = features.find((f) => f.index === featureData.index);
     if (!feature) {

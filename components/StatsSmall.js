@@ -1,9 +1,9 @@
 import clsx from "clsx"
+import useI18n from "../modules/i18n/useI18n";
 import useStatsDetailsScreenAsModal from "./useStatsDetailsScreenAsModal"
 import { valueToModifierLabel } from "../modules/stats"
 import useDice from "./useDice";
 import useTipAbilityScore from "./useTipAbilityScore";
-import useI18n from "../modules/i18n/useI18n";
 
 function Stat({ label, shortcut, value, character }) {
 	const { tr } = useI18n()
@@ -58,7 +58,7 @@ function StatsSmall({ stats, skills, character, withDetail }) {
 					className="flex justify-end mt-2 mr-2 text-xs uppercase"
 					onClick={() => showStatsDetailsScreenModal(skills, character)}
 				>
-					Detail
+					{tr`detail.action`}
 				</span>
 			)}
 		</>

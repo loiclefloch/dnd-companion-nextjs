@@ -1,12 +1,25 @@
-import useI18n from '../modules/i18n/useI18n'
+import { makeI18n } from '../modules/i18n/useI18n'
 import DamageTypeLabel from "./DamageTypeLabel"
 import Button from "./Button"
 import useSpellRunner from "./useSpellRunner"
 
+const useI18n = makeI18n({
+	'mod pv': {
+		fr: '+ %{mod} PV',
+		en: '+ %{mod} HP',
+	},
+	'error cannot cast due to armor not proficiency': {
+		fr: `Impossible de caster un sort car vous n'avez pas la maîtrise de votre armure.`,
+		en: `Cannot cast a spell because you do not have proficiency with your armor`,
+	},
+})
+
+
 function HealRunner({ healAtSlotLevel, spellLevel, formatMod }) {
+	const { tr } = useI18n()
 	return (
 		<div>
-			+ {formatMod(healAtSlotLevel[spellLevel])} PV
+			{tr('mod pv', { mod: formatMod(healAtSlotLevel[spellLevel]) })}
 		</div>
 	)
 }
@@ -32,8 +45,6 @@ function DamageCharacterLevel({ characterLevel, damageAtCharacterLevel, damageTy
 }
 
 function SpellDefinition({ contextCharacter, spell, formatMod }) {
-	const { tr } = useI18n()
-
 	if (spell.heal) {
 		return (
 			<HealRunner
@@ -72,6 +83,7 @@ function SpellDefinition({ contextCharacter, spell, formatMod }) {
 
 function SpellRunner({ contextCharacter, hideCasting = false, spell }) {
 	const { showSpellRunner } = useSpellRunner()
+	const { tr } = useI18n()
 
 	function formatMod(dice) {
 		if (contextCharacter) {
@@ -102,12 +114,12 @@ function SpellRunner({ contextCharacter, hideCasting = false, spell }) {
 						variant='outlined'
 						onClick={() => showSpellRunner(spell, contextCharacter)}
 					>
-						Caster
+						{tr('cast')}
 					</Button>
 				)}
 			{contextCharacter && !contextCharacter.isProeficientForArmor && (
 				<p className="text-orange-600">
-					Impossible de caster un sort car vous n'avez pas la maîtrise de votre armure.
+					{tr`error cannot cast due to armor not proficiency`}
 				</p>
 			)}
 		</div>

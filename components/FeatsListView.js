@@ -3,12 +3,15 @@ import Screen from "./Screen";
 import { sortBy } from "lodash";
 import Link from "next/link"
 import useFeats from "../modules/api/useFeats";
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import filterFeatsForCharacter from "../modules/character/filterFeatsForCharacter"
 import IconAcademicCap from "./icons/IconAcademicCap";
 import useLocalSearch from "./useLocalSearch";
 import InputSearch from "./InputSearch";
 import { FeatPrerequisites } from "./FeatContent"
+
+const useI18n = makeI18n({
+})
 
 function FeatRow({ feat }) {
   const { tr } = useI18n();
@@ -35,6 +38,7 @@ function FeatRow({ feat }) {
 
 // TODO: filter: by class, by background
 function Feats({ character }) {
+  const { tr } = useI18n();
   const featsResponse = useFeats();
 
   const feats = useMemo(() => {
@@ -59,7 +63,7 @@ function Feats({ character }) {
 
   return (
     <Screen
-      title={"Les feats"}
+      title={tr`feats.title`}
       titleIcon={<IconAcademicCap className="h-6 w-6" />}
       isLoading={featsResponse.isLoading}
       withBottomSpace

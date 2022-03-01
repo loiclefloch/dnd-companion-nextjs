@@ -1,7 +1,42 @@
 import isEmpty from "lodash/isEmpty"
-import useI18n from "../modules/i18n/useI18n"
+import { makeI18n } from "../modules/i18n/useI18n"
 import Tag from "../components/Tag"
 import LineInfo from "./LineInfo"
+
+const useI18n = makeI18n({
+	'spells.title': {
+		fr: 'Sorts',
+		en: 'Spells',
+	},
+	'features.title': {
+		en: `Features`,
+		fr: `Capacités`,
+	},
+	'abilityBonuses.title':  {
+		fr: `Bonus d'abilités`,
+		en: 'Ability bonuses',
+	},
+	'prerequisite.title': {
+		fr: `Prérequis`,
+		en: 'Prerequisite',
+	},
+	'prerequisite.warn not verified': {
+		fr: 'Attention, certain pré-requis ne peuvent pas être vérifiés automatiquement.',
+		en: 'Warning, some prerequisite cannot be verified automatically.',
+	},
+	'prerequisite.none': {
+		fr: 'Aucun prérequis',
+		en: 'No prerequisites',
+	},
+	'options for character.title': {
+		fr: 'Options sélectionnées pour %{character.name}',
+		en: 'Options selected for %{character.name}'
+	},
+	'options for character.no options': {
+		fr: `Pas d'options existante`,
+		en: 'No existing option',
+	}
+})
 
 export function FeatPrerequisites({ feat }) {
 	return (
@@ -44,11 +79,19 @@ function CharacterData({ feat, character }) {
 	const features = character.features.filter(feature => feature.from === 'feat' && feature.feat === feat.index)
 	const statsBonuses = character.statsBonuses.filter(statBonus => statBonus.type === 'feat' && statBonus.feat === feat.index)
 
+	if (!feat.hasOption) {
+		return <div>
+			<p className="prose">
+				{tr`options for character.no options`}
+			</p>
+		</div>
+	}
+
 	return (
 		<div>
 			{!isEmpty(spells) && (
 				<div>
-					<h3 className="prose">Sorts</h3>
+					<h3 className="prose">{tr`spells.title`}</h3>
 					<LineInfo.Parent>
 						{spells.map(spell => (
 							<LineInfo index={spell.index} label={tr(spell.nameLocalized)} />
@@ -59,7 +102,7 @@ function CharacterData({ feat, character }) {
 
 			{!isEmpty(features) && (
 				<div>
-					<h3 className="prose">features</h3>
+					<h3 className="prose">{tr`features.title`}</h3>
 					<LineInfo.Parent>
 						{features.map(feature => (
 							<LineInfo index={feature.index} label={feature.index} />
@@ -70,7 +113,7 @@ function CharacterData({ feat, character }) {
 
 			{!isEmpty(statsBonuses) && (
 				<div>
-					<h3 className="prose">Bonus d'abilités</h3>
+					<h3 className="prose">{tr`abilityBonuses.title`}</h3>
 					<LineInfo.Parent>
 						{statsBonuses.map(statBonus => (
 							<LineInfo 
@@ -98,23 +141,23 @@ function FeatContent({ character, feat }) {
 			</div>
 
 			<div className="mt-8">
-				<h3>Prérequis :</h3>
+				<h3>{tr`prerequisite.title`}</h3>
 				{feat.hasPrerequisites && (
 					<>
-						<em>Attention, certain pré-requis ne peuvent pas être vérifiés automatiquement.</em>
+						<em>{tr`prerequisite.warn not verified`}</em>
 						<div className="mt-4">
 							<FeatPrerequisites feat={feat} />
 						</div>
 					</>
 				)}
 				{!feat.hasPrerequisites && (
-					<p>Aucun prérequis</p>
+					<p>{tr`prerequisite.none`}</p>
 				)}
 			</div>
 
 			{character && (
 				<div className="mt-8">
-					<h3>Options sélectionnées pour {character.name}</h3>
+					<h3>{tr('options for character.title', { 'character.name': character.name })}</h3>
 					<CharacterData character={character} feat={feat} />
 				</div>
 			)}
