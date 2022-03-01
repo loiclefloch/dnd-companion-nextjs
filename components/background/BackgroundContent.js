@@ -8,11 +8,18 @@ import entertainer from "./entertainer.mdx"
 import useBackground from "../../modules/api/useBackground"
 import Section from "../Section"
 import LineInfo from "../LineInfo"
-import useI18n from "../../modules/i18n/useI18n"
+import { makeI18n } from "../../modules/i18n/useI18n"
 import useTipProficiency from "../useTipProficiency"
 import useEquipmentItemScreenAsModal from "../useEquipmentItemScreenAsModal"
 import useTipLanguage from "../useTipLanguage"
 import StartingEquipmentOptionsDetail from "../StartingEquipmentOptionsDetail"
+
+const useI18n = makeI18n({
+	'goodForClasses.title': {
+		fr: `Recommandé pour`,
+		en: `Recommanded for`,
+	},
+})
 
 function Content({ index }) {
 	const { tr } = useI18n()
@@ -31,7 +38,7 @@ function Content({ index }) {
 	// - starting_currencies
 	return (
 		<>
-			<Section title="Recommandé pour">
+			<Section title={tr`goodForClasses.title`}>
 				<LineInfo.Parent>
 					{background.goodForClasses.map(c => (
 						<LineInfo key={c.index} label={c.name} />
@@ -39,7 +46,7 @@ function Content({ index }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="Features" withToggle>
+			<Section title={tr`features.title`} withToggle>
 				{background.features.map((feature, index) => (
 					<div key={index} className="prose mb-4">
 						<h3>{feature.name}</h3>
@@ -49,9 +56,8 @@ function Content({ index }) {
 
 			</Section>
 
-			<Section title="starting_proficiencies" withToggle>
+			<Section title={tr`startingProficiencies.title`} withToggle>
 				<LineInfo.Parent>
-
 					{background.startingProficiencies.map(proficiency => (
 						<LineInfo 
 							key={proficiency.index}
@@ -65,8 +71,8 @@ function Content({ index }) {
 
 
 			{background.startingProficiencyOptions && (
-				<Section title="starting_proficiencies options" withToggle>
-					<h4>Choisir {background.startingProficiencyOptions.choose}</h4>
+				<Section title={tr`startingProficienciesOptions.title`} withToggle>
+					<h4>{tr('choose', { choose: background.startingProficiencyOptions.choose})}</h4>
 					<LineInfo.Parent>
 						{background.startingProficiencyOptions.from.map((proficiency) => (
 							<LineInfo 
@@ -79,7 +85,7 @@ function Content({ index }) {
 				</Section>
 			)}
 
-			<Section title="starting_equipment" withToggle>
+			<Section title={tr`startingEquipment.title`} withToggle>
 				<LineInfo.Parent>
 					{background.startingEquipment.map(item => (
 						<LineInfo 
@@ -93,14 +99,14 @@ function Content({ index }) {
 			</Section>
 
 			{background.startingEquipmentOptions && (
-				<Section title="starting_equipment options" withToggle>
+				<Section title={tr`startingEquipmentOptions.title`} withToggle>
 					<StartingEquipmentOptionsDetail startingEquipmentOptions={background.startingEquipmentOptions} />
 				</Section>
 			)}
 
 			{background.languageOptions && (
-				<Section title="Languages options" withToggle>
-					<h4>Choisir {background.languageOptions.choose}</h4>
+				<Section title={tr`languagesOptions.title`} withToggle>
+					<h4>{tr('choose', { choose: background.languageOptions.choose })}</h4>
 					<LineInfo.Parent>
 						{background.languageOptions.from.map((language) => (
 							<LineInfo 
@@ -114,7 +120,7 @@ function Content({ index }) {
 				</Section>
 			)}
 
-			<Section title="personality_traits" withToggle>
+			<Section title={tr`personalityTraits.title`} withToggle>
 				<LineInfo.Parent>
 					{background.personalityTraits.from.map((trait, index) => (
 						<LineInfo key={index} label={<span>{index + 1} - {trait}</span>}  />
@@ -122,18 +128,24 @@ function Content({ index }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="ideals" withToggle>
+			<Section title={tr`ideals.title`} withToggle>
 				<LineInfo.Parent>
 					{background.ideals.from.map((trait, index) => (
 						<LineInfo 
 							key={index} 
-							label={<span>{index + 1} - {trait.desc} <span className="text-meta text-sm">({trait.alignments.map(a => a.name).join(', ')})</span></span>}  
+							label={
+								<span>
+									{index + 1} - {trait.desc}
+									<span> </span>
+									<span className="text-meta text-sm">({trait.alignments.map(a => a.name).join(', ')})</span>
+								</span>
+							}  
 						/>
 					))}
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="bonds" withToggle>
+			<Section title={tr`bonds.title`} withToggle>
 				<LineInfo.Parent>
 					{background.bonds.from.map((trait, index) => (
 						<LineInfo key={index} label={<span>{index + 1} - {trait}</span>}  />
@@ -141,7 +153,7 @@ function Content({ index }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="flaws" withToggle>
+			<Section title={tr`flaws.title`} withToggle>
 				<LineInfo.Parent>
 					{background.flaws.from.map((trait, index) => (
 						<LineInfo key={index} label={<span>{index + 1} - {trait}</span>}  />

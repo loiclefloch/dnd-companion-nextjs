@@ -31,10 +31,10 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="proficiencies">
+			<Section title={tr`proficiencies.title`}>
 				{clss.proficiencies.length === 0 && (
 					<p>
-						Aucune
+						{tr`none.feminine`}
 					</p>
 				)}
 				<LineInfo.Parent>
@@ -50,7 +50,7 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="starting Equipment" withToggle>
+			<Section title={tr`startingEquipment.title`} withToggle>
 				<LineInfo.Parent>
 					{clss.startingEquipment.map(item => (
 						<LineInfo 
@@ -64,7 +64,7 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 			</Section>
 
 			{!hideStartingEquipmentOptions && clss.startingEquipmentOptions && (
-				<Section title="starting_equipment options" withToggle>
+				<Section title={tr`startingEquipmentOptions.title`} withToggle>
 					<EquipmentOptionsChooser.Demo
 						options={clss.startingEquipmentOptions}
 						prefix="class_"
@@ -75,7 +75,7 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 
 			{/* // TODO: spellcasting */}
 			{clss.spellcasting && (
-				<Section title="spellcasting" withToggle>
+				<Section title={tr`spellcasting.title`} withToggle>
 					<LineInfo.Parent>
 
 						{clss.spellcasting?.info?.map((info, index) => (
@@ -89,10 +89,10 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 				</Section>
 			)}
 
-			<Section title="subclasses" withToggle>
+			<Section title={tr`subclasses.title`} withToggle>
 				{clss.subclasses.length === 0 && (
 					<p>
-						Aucune
+						{tr`none.feminine`}
 					</p>
 				)}
 				<LineInfo.Parent>
@@ -109,10 +109,10 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="multiClassing - prérequis" withToggle>
+			<Section title={tr`multiClassing.prerequisites`} withToggle>
 				{clss.multiClassing?.prerequisites?.length === 0 && (
 					<p>
-						Aucune
+						{tr`none.feminine`}
 					</p>
 				)}
 				<LineInfo.Parent>
@@ -128,10 +128,10 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 				</LineInfo.Parent>
 			</Section>
 
-			<Section title="multiClassing - proficiencies" withToggle>
+			<Section title={tr`multiClassing.proficiencies`} withToggle>
 				{clss.multiClassing?.proficiencies?.length === 0 && (
 					<p>
-						Aucune
+						{tr`none.feminine`}
 					</p>
 				)}
 				<LineInfo.Parent>

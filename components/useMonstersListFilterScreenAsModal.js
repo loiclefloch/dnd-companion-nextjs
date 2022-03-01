@@ -1,11 +1,18 @@
 import { useState } from 'react';
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import { FilterType, filterMonsters } from "../modules/monsters/monstersFilter"
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import Button from "./Button"
 import BottomScreen from "./BottomScreen"
 import {FilterSection, FilterListSelector } from "./Filter"
+
+const useI18n = makeI18n({
+	'screen.title': {
+		fr: `Filtres`,
+		en: `Filters`,
+	},
+})
 
 function FilterDifficulty({ filters, onChange }) {
 	const list =  [
@@ -68,7 +75,7 @@ function MonstersListFilterScreenAsModal({ onFilter, onReset, filters: defaultFi
 	const { tr } = useI18n()
 
 	return (
-		<ScreenAsModal title={`Filtres`} onCloseScreen={onCloseScreen}>
+		<ScreenAsModal title={tr`screen.title`} onCloseScreen={onCloseScreen}>
 			<>
 				<FilterDifficulty filters={filters} onChange={setFilters} />
 
@@ -83,7 +90,7 @@ function MonstersListFilterScreenAsModal({ onFilter, onReset, filters: defaultFi
 							onCloseScreen()
 						}}
 					>
-						Reset
+						{tr`reset.action`}
 					</Button>
 					<Button
 						size="big"
@@ -93,7 +100,7 @@ function MonstersListFilterScreenAsModal({ onFilter, onReset, filters: defaultFi
 							onCloseScreen()
 						}}
 					>
-						Valider
+						{tr`validate.action`}
 					</Button>
 				</BottomScreen>
 

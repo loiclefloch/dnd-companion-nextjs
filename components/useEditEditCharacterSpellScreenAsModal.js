@@ -1,6 +1,6 @@
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import Button from "../components/Button";
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import ScreenIntroduction from "./ScreenIntroduction"
@@ -10,6 +10,54 @@ import {
 	actionRemoveSpell,
 	actionUnprepareSpell,
  } from "../modules/character/action"
+
+
+const useI18n = makeI18n({
+	'screen.title': {
+		fr: `Sort - %{spell.name}`,
+		en: `Spell - %{spell.name}`,
+	},
+	'learnSpell.action': {
+		fr: `Apprendre le sort`,
+		en: `Learn spell`,
+	},
+	'unlearSpell.action': {
+		fr: `Enlever des sorts connus`,
+		en: `Unlearn spell`,
+	},
+	'unprepareSpell.action': {
+		fr: `Ne pas préparer`,
+		en: `Unprepare`,
+	},
+	'prepareSpell.action': {
+		fr: `Préparer le sort`,
+		en: `Prepare spell`,
+	},
+	'isNotPrepared.explain': {
+		fr: `Ce sort est connu mais n'est pas préparé.`,
+		en: `This spell is learned but not prepared`,
+	},
+	'notIsLearned.explain': {
+		fr: `Vous ne connaissez pas ce sort.`,
+		en: `You do not know this spell`,
+	},
+	'isPrepared.explain': {
+		fr: `Ce sort est connu et préparé`,
+		en: `This spell is learned and prepared`,
+	},
+	'isSubclassSpell.explain.1': {
+		fr: `Ce sort est un sort de sous-classe toujours préparé.`,
+		en: `This spell is an always prepared sub-class spell`,
+	},
+	'isSubclassSpell.explain.2': {
+		fr: `Il ne rentre pas en compte dans le nombre maxium de sorts préparés.`,
+		en: `It does not count towards the maximum number of prepared spells.`,
+	},
+	'isForcedPreparedAndNotSubclassSpell.explain': {
+		fr: `Ce sort est toujours préparé. Il ne rentre pas en compte dans le nombre maxium de sorts préparés`,
+		en: `This spell is always prepared. It does not count towards the maximum number of prepared spells.`,
+	},
+})
 
 function LearnButton({ spell, characterDispatch, onCloseScreen }) {
 	return (
@@ -22,7 +70,7 @@ function LearnButton({ spell, characterDispatch, onCloseScreen }) {
 				onCloseScreen()
 			}}
 		>
-			Apprendre le sort
+			{tr`learnSpell.action`}
 		</Button>
 	)
 }
@@ -41,7 +89,7 @@ function UnlearnButton({ spell, characterDispatch, isSubclassSpell, onCloseScree
 				onCloseScreen()
 			}}
 		>
-			Enlever des sorts connus
+			{tr`unlearSpell.action`}
 		</Button>
 	)
 }
@@ -61,7 +109,7 @@ function UnprepareButton({ spell, characterDispatch, isForcedPrepared, onCloseSc
 				onCloseScreen()
 			}}
 		>
-			Ne pas préparer
+			{tr`unprepareSpell.action`}
 		</Button>
 	)
 }
@@ -77,7 +125,7 @@ function PrepareButton({ spell, characterDispatch, onCloseScreen }) {
 				onCloseScreen()
 			}}
 		>
-			Préparer le sort
+			{tr`prepareSpell.action`}
 		</Button>
 	)
 }
@@ -98,18 +146,16 @@ function EditCharacterSpellScreenAsModal({
   const isPrepared = isContextCharacter && characterSpell?.isPrepared
 	const isSubclassSpell = isContextCharacter && characterSpell?.isSubclassSpell
 	const isForcedPrepared = isContextCharacter && characterSpell?.isForcedPrepared
-
-
 	return (
-		<ScreenAsModal title={`Sort - ${tr(spell?.nameLocalized)}`} onCloseScreen={onCloseScreen}>
+		<ScreenAsModal title={tr('screen.title', { 'spell.name': tr(spell?.nameLocalized)})} onCloseScreen={onCloseScreen}>
 
 			<ScreenIntroduction
 				title={`Status du sort pour ${contextCharacter.name}`}
 				description={
 					<>
-						{!isLearned && <span>Vous ne connaissez pas ce sort.</span>}
-						{isLearned && !isPrepared && <span>Ce sort est connu mais n'est pas préparé.</span>}
-						{isPrepared && <span>Ce sort est connu et préparé</span>}
+						{!isLearned && <span>{tr`notIsLearned.explain`}</span>}
+						{isLearned && !isPrepared && <span>{tr`isNotPrepared.explain`}</span>}
+						{isPrepared && <span>{tr`isPrepared.explain`}</span>}
 					</>
 				}
 				actions={
@@ -160,13 +206,15 @@ function EditCharacterSpellScreenAsModal({
 
 			<div className="px-4">
 				{isSubclassSpell && (
-					<p className="mt-8">Ce sort est un sort de sous-classe toujours préparé.
-						<br />Il ne rentre pas en compte dans le nombre maxium de sorts préparés.
+					<p className="mt-8">
+						{tr`isSubclassSpell.explain.1`}
+						<br />
+						{tr`isSubclassSpell.explain.2`}
 					</p>
 				)}
 
 				{isForcedPrepared && !isSubclassSpell && (
-					<p className="mt-8">Ce sort est toujours préparé. Il ne rentre pas en compte dans le nombre maxium de sorts préparés</p>
+					<p className="mt-8">{tr`isForcedPreparedAndNotSubclassSpell.explain`}</p>
 				)}
 			</div>
 		</ScreenAsModal>

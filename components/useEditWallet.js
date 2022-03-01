@@ -1,10 +1,25 @@
 import { useState } from "react"
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import ButtonBottomScreen from "./ButtonBottomScreen"
 import ScreenIntroduction from "./ScreenIntroduction"
 import { isEmpty } from "lodash"
+
+const useI18n = makeI18n({
+	'addExpense.screen.title': {
+		fr: `Ajouter une dépense`,
+		en: `Add an expense`,
+	},
+	'addIncome.screen.title': {
+		fr: `Ajouter un revenu`,
+		en: `Add an income`,
+	},
+	'form.label.placeholder': {
+		fr: `Explication`,
+		en: `Reason`,
+	},
+})
 
 function Input({ label, name, ...props }) {
 
@@ -45,10 +60,9 @@ function EditWalletScreenAsModal({ onSubmit, isAddIncome, isAddExpense, onCloseS
 		&& totalAmount > 0
 		&& !isEmpty(formData.label)
 
-
 	return (
 		<ScreenAsModal
-			title={isAddExpense ? `Ajouter une dépense` : `Ajouter un revenu`}
+			title={isAddExpense ? tr`addExpense.screen.title` : tr`addIncome.screen.title`}
 			onCloseScreen={onCloseScreen}
 		>
 			<ScreenIntroduction
@@ -62,7 +76,7 @@ function EditWalletScreenAsModal({ onSubmit, isAddIncome, isAddExpense, onCloseS
 					type="text"
 					className="flex-1 w-full px-2 py-1 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-1 focus:ring-slate-400 focus:border-transparent"
 					name="label"
-					placeholder="Explication"
+					placeholder={tr`form.label.placeholder`}
 					value={formData.label}
 					onChange={e => setFormData({ ...formData, label: e.target.value })}
 				/>
@@ -89,7 +103,7 @@ function EditWalletScreenAsModal({ onSubmit, isAddIncome, isAddExpense, onCloseS
 					onCloseScreen()
 				}}
 			>
-				Ajouter
+				{tr`add.action`}
 			</ButtonBottomScreen>
 		</ScreenAsModal>
 	)

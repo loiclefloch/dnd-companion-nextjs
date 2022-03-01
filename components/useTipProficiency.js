@@ -1,6 +1,12 @@
 import useModal from "./useModal"
-import useI18n from "../modules/i18n/useI18n"
+import { makeI18n } from "../modules/i18n/useI18n"
 
+const useI18n = makeI18n({
+	'proficientIn': {
+		fr: `Maîtrise de %{proficiency.name}`,
+		en: `Proeficient in %{proficiency.name}`,
+	},
+})
 function useTipProficiency() {
 	const { showInfoModal } = useModal()
 	const { tr } = useI18n()
@@ -10,7 +16,10 @@ function useTipProficiency() {
 			showInfoModal({ 
 				content: <div>
 					<p className="mt-2 whitespace-pre-wrap">
-						{proficiency.isSkill ? tr(proficiency.skill.desc) : `Proeficient in ${proficiency.name}`}
+						{proficiency.isSkill
+							? tr(proficiency.skill.desc)
+							: tr('proficientIn', { 'proficiency.name': proficiency.name })
+						}
 					</p>
 					</div>
 			})

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 
 import HtmlContent from "./HtmlContent"
 import Tag from './Tag';
@@ -9,6 +9,61 @@ import Gallery from "./Gallery"
 import useGalleryFullScreenAsModal from "./useGalleryFullScreenAsModal"
 import useDice from "./useDice";
 import Section from "./Section"
+
+const useI18n = makeI18n({
+  'monter.hp': {
+    fr: `Points de vie %{monster.name}`,
+    en: `HP %{monster.name}`,
+  },
+  'monter.gallery': {
+    fr: `Gallerie %{monster.name}`,
+    en: `Gallery %{monster.name}`,
+  },
+  'languages.title': {
+    fr: 'Languages',
+    en: 'Languages',
+  },
+  'senses.title': {
+    fr: 'Sens',
+    en: 'Senses',
+  },
+  'alignment.title': {
+    fr: `Alignement`,
+    en: `Alignment`,
+  },
+  'speed.title': {
+    fr: `Vitesse`,
+    en: `Speed`,
+  },
+  'challenge.title': {
+    fr: `Challenge`,
+    en: `Challenge`,
+  },
+  'resume.title': {
+    fr: `Résumé`,
+    en: `Resume`,
+  },
+  'description.title': {
+    fr: `Description`,
+    en: `Description`,
+  },
+  'ecology.title': {
+    fr: `Ecologie`,
+    en: `Ecology`,
+  },
+  'traits.title': {
+    fr: `Traits`,
+    en: `Traits`,
+  },
+  'legendaryActions.title': {
+    fr: `Actions légendaires`,
+    en: `Legendary actions`,
+  },
+  'actions.title': {
+    fr: `Actions`,
+    en: `Actions`,
+  },
+})
 
 function MonsterView({ monster }) {
   const { tr, isDefaultLang, trDefaultLang } = useI18n();
@@ -59,7 +114,7 @@ function MonsterView({ monster }) {
             </div>
             <div>
               {monster.isLegendary && (
-                <Tag label="Legendaire" size="small" className="border border-solid text-amber-600 border-amber-600" />
+                <Tag label={tr`legendary.label`} size="small" className="border border-solid text-amber-600 border-amber-600" />
               )}
             </div>
           </div>
@@ -74,7 +129,7 @@ function MonsterView({ monster }) {
           <Tag
             className="flex items-center justify-center mt-2 text-gray-600 normal-case bg-gray-200"
             onClick={() => rollDice(
-              `Points de vie ${tr(monster.name)}`,
+              tr('monster.hp', { 'monster.name': tr(monster.nameLocalized) }),
               monster.hpDice
             )}
           >
@@ -112,7 +167,7 @@ function MonsterView({ monster }) {
                 alt={tr(monster.nameLocalized)} 
                 src={monster.imageUrl} 
                 onClick={() => showGalleryFullScreen(
-                  `Gallerie - ${tr(monster.nameLocalized)}`, 
+                  tr('monter.gallery', { 'monster.name': tr(monster.nameLocalized)}),
                   monster.images, 
                   monster.images[0]
                 )}
@@ -125,7 +180,7 @@ function MonsterView({ monster }) {
             </div>
             <div className="whitespace-pre-wrap text-md">
               <p>
-                <span className="font-semibold">Languages</span>
+                <span className="font-semibold">{tr`languages.title`}</span>
                 <span> </span>
                 {monster.languages ? (
                   <span className="text-sm">{tr(monster.languages)}</span>
@@ -134,24 +189,24 @@ function MonsterView({ monster }) {
                 )}
               </p>
               <p>
-                <span className="font-semibold">Sens</span>
+                <span className="font-semibold">{tr`senses.title`}</span>
                 <span> </span>
                 <span className="text-sm">{tr(monster.senses)}</span>
               </p>
               <p>
-                <span className="font-semibold">Challenge</span>
+                <span className="font-semibold">{tr`challenge.title`}</span>
                 <span> </span>
                 <span className="text-sm">{tr(monster.challenge.label)}</span>
               </p>
 
               <p>
-                <span className="font-semibold">Speed</span>
+                <span className="font-semibold">{tr`speed.title`}</span>
                 <span> </span>
                 <span className="text-sm">{tr(monster.speedType)} {tr(monster.speed)}</span>
               </p>
 
               <p>
-                <span className="font-semibold">Alignement</span>
+                <span className="font-semibold">{tr`alignment.title`}</span>
                 <span> </span>
                 <span className="text-sm">{tr(monster.alignment)}</span>
               </p>
@@ -161,7 +216,7 @@ function MonsterView({ monster }) {
 
           {monster.resume && (
             <div className="mt-4">
-              <Section title="Résumé">
+              <Section title={tr`resume.title`}>
                {tr(monster.resume)}
               </Section>
             </div>
@@ -169,7 +224,7 @@ function MonsterView({ monster }) {
 
           {tr(monster.desc) && (
             <div className="mt-4">
-              <Section title="Description" withToggle>
+              <Section title={tr`description.title`} withToggle>
                <HtmlContent html={tr(monster.desc)} />
               </Section>
             </div>
@@ -177,26 +232,26 @@ function MonsterView({ monster }) {
 
           {monster.ecology && (
             <div className="mt-4">
-              <Section title="Écologie" withToggle>
+              <Section title={tr`ecology.title`} withToggle>
                 {tr(monster.ecology)}
               </Section>
             </div>
           )}
 
           <div className="mt-4">
-            <Section title="Traits" withToggle>
+            <Section title={tr`traits.title`} withToggle>
              <HtmlContent html={tr(monster.traits)}/>
             </Section>
           </div>
 
           <div className="mt-4">
-            <Section title="Actions" withToggle>
+            <Section title={tr`actions.title`} withToggle>
              <HtmlContent html={tr(monster.actions)}/>
             </Section>
           </div>
 
           {monster.legendaryActions && (
-            <Section title="Legendary actions" withToggle>
+            <Section title={tr`"legendaryActions.title"`} withToggle>
               <HtmlContent html={tr(monster.legendaryActions)} />
             </Section>
           )}
@@ -217,7 +272,10 @@ function MonsterView({ monster }) {
       {/* TODO: Gallery component */}
       {monster.images && (
         <div className="mt-8">
-          <Gallery title={`Gallerie - ${tr(monster.nameLocalized)}`} images={monster.images} />
+          <Gallery 
+            title={tr('monter.gallery', { 'monster.name': tr(monster.nameLocalized) })}
+            images={monster.images} 
+          />
         </div>
       )}
 

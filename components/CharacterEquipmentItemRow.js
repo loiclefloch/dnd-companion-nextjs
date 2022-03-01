@@ -6,9 +6,6 @@ const useI18n = makeI18n({
 	'no damages defined refer to description': {
 		en: 'No damages defined, look at the description'
 	},
-	'stealth disadvantage': {
-		en: 'Stealth disadvantage'
-	}
 })
 
 function CharacterEquipmentItemRow({ character, item, onClick }) {
@@ -62,7 +59,7 @@ function CharacterEquipmentItemRow({ character, item, onClick }) {
 								<>
 									<span>{item.armorCategory} — </span>
 									<span>
-										AC {item.armorClass.base} {item.stealthDisadvantage && <span> — {tr`stealth disadvantage`}</span>}
+										AC {item.armorClass.base} {item.stealthDisadvantage && <span> — {tr`stealthDisadvantage`}</span>}
 									</span>
 								</>
 							)}

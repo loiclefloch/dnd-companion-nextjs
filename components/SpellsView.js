@@ -4,7 +4,7 @@ import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
 import { getSpellFiltersMatchingData, buildSpellFiltersForCharacter } from "../modules/spells/spellsFilter"
 import { sortSpells } from "../modules/spells/spellsSorter"
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import useSpells from "../modules/api/useSpells";
 import useSpellsListFilterScreenAsModal from "../components/useSpellsListFilterScreenAsModal"
 import Screen from "../components/Screen";
@@ -15,6 +15,18 @@ import IconMagicSchool from "../components/icons/IconMagicSchool"
 import CharacterSpellTag from "./CharacterSpellTag";
 import useLocalSearch from "../components/useLocalSearch"
 import InputSearch from "../components/InputSearch"
+
+
+const useI18n = makeI18n({
+  'screen.title.withCharacterName': {
+    fr: `Sorts - %{character.name}`,
+    en: `Spells - %{character.name}`,
+  },
+  'screen.title': {
+    fr: `Sorts`,
+    en: `Spells`,
+  },
+})
 
 function SpellFilters({ spell, filters }) {
   return (
@@ -147,7 +159,10 @@ function Spells({ contextCharacter }) {
 
   return (
     <Screen
-      title={contextCharacter ? `Sorts - ${contextCharacter.name}` : "Sorts"}
+      title={contextCharacter 
+        ? tr('screen.title.withCharacterName', { 'character.name': contextCharacter.name }) 
+        : tr('screen.title')
+      }
       titleIcon={<IconBookOpen className="w-6 h-6" />}
       root
       withCharacterMenu

@@ -2,9 +2,32 @@ import { useState } from "react"
 import { isEmpty } from "lodash";
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import ButtonBottomScreen from "./ButtonBottomScreen"
 import ScreenIntroduction from "./ScreenIntroduction"
+
+const useI18n = makeI18n({
+	'screen.title': {
+		fr: `Levelling - Gain d'XP`,
+		en: `Levelling - XP gain`,
+	},
+	'screen.introduction.title': {
+		fr: `Renseignez votre gain d'XP`,
+		en: `Enter your XP gain`,
+	},
+	'screen.introduction.description': {
+		fr: `Vos aventures vous ont apporté de l'expérience. Ajoutez-la ici.`,
+		en: `Your adventures have brought you experience. Add it here.`,
+	},
+	'form.label.placeholder': {
+		fr: `Explication du gain d'XP`,
+		en: `Explanation of XP gain`,
+	},
+	'form.amount.placeholder': {
+		fr: `Montant`,
+		en: `Amount`,
+	},
+})
 
 function LevellingAddScreenAsModal({ onAddLevelling, onCloseScreen }) {
 	const { tr } = useI18n()
@@ -17,12 +40,13 @@ function LevellingAddScreenAsModal({ onAddLevelling, onCloseScreen }) {
 
 	return (
 		<ScreenAsModal 
-			title={`Levelling - Gain d'XP`} 
+			title={tr`screen.title`} 
 			onCloseScreen={onCloseScreen}
 		>
+
 			<ScreenIntroduction
-				title="Rensignez votre gain d'XP"
-				description={"Vos aventures vous ont apporté de l'expérience. Ajoutez-la ici."}
+				title={tr`screen.introduction.title`}
+				description={tr`screen.introduction.description`}
 				actions={null}
 			/>
 
@@ -31,7 +55,7 @@ function LevellingAddScreenAsModal({ onAddLevelling, onCloseScreen }) {
 					type="text"
 					className="flex-1 w-full px-2 py-1 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-1 focus:ring-slate-400 focus:border-transparent"
 					name="label"
-					placeholder="Explication du gain d'XP"
+					placeholder={tr`form.label.placeholder`}
 					value={formData.label}
 					onChange={e => setFormData({ ...formData, label: e.target.value})}
 				/>
@@ -39,7 +63,7 @@ function LevellingAddScreenAsModal({ onAddLevelling, onCloseScreen }) {
 					type="number"
 					className="flex-1 w-full px-2 py-1 mt-4 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-1 focus:ring-slate-400 focus:border-transparent"
 					name="name"
-					placeholder="Montant"
+					placeholder={tr`form.amount.placeholder`}
 					value={formData.amount}
 					onChange={e => setFormData({ ...formData, amount: e.target.value})}
 				/>
@@ -52,7 +76,7 @@ function LevellingAddScreenAsModal({ onAddLevelling, onCloseScreen }) {
 					onCloseScreen()
 				}}
 			>
-				Ajouter
+				{tr`add.action`}
 			</ButtonBottomScreen>
 		</ScreenAsModal>
 	)

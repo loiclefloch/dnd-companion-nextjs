@@ -20,18 +20,7 @@ const useI18n = makeI18n({
 		en: `Background - %{backgroundName}`,
 		fr: `Background - %{backgroundName}`,
 	},
-	'features.title': {
-		en: `Features`,
-		fr: `Capacités`
-	},
-	'traits.title': {
-		en: 'Traits',
-		fr: 'Traits',
-	},
-	'equipment.title': {
-		fr: 'Équipement',
-		en: 'Equipment',
-	},
+	
 	'body.title': {
 		fr: 'Physique',
 		en: 'Body',

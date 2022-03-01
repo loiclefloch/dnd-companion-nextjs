@@ -1,9 +1,16 @@
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import useRule from "../modules/api/useRule";
 import RuleContent from "./RuleContent"
+
+const useI18n = makeI18n({
+	'screen.title': {
+		fr: `Levelling - Gain d'XP`,
+		en: `Levelling - XP gain`,
+	},
+})
 
 function RuleScreenAsModal({ index, onCloseScreen }) {
 	const { tr } = useI18n()
@@ -11,7 +18,7 @@ function RuleScreenAsModal({ index, onCloseScreen }) {
 
 	return (
 		<ScreenAsModal 
-			title={`Levelling - Gain d'XP`} 
+			title={tr`screen.title`} 
 			onCloseScreen={onCloseScreen}
 		>
 			<RuleContent index={index} ruleResponse={ruleResponse} />

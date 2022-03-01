@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useRouter } from 'next/router'
 
 import useCurrentCharacter from "../../components/useCurrentCharacter"
-import useI18n from "../../modules/i18n/useI18n"
+import { makeI18n } from "../../modules/i18n/useI18n"
 import useCharacterMenu from "./useCharacterMenu"
 import ButtonBottomScreen from "../ButtonBottomScreen"
 import IconClass from "../icons/IconClass"
@@ -11,20 +11,55 @@ import IconUsers from "../icons/IconUsers"
 import IconD8 from "../icons/IconD8"
 import useDiceHistory from "../useDiceHistory"
 
+const useI18n = makeI18n({
+	'menuItem.character': {
+		fr: `Personnage`,
+		en: `Character`,
+	},
+	'menuItem.grimoire': {
+		fr: `Grimoire`,
+		en: `Grimoire`,
+	},
+	'menuItem.equipment': {
+		fr: `Équipement`,
+		en: `Equipement`,
+	},
+	'menuItem.actions': {
+		fr: `Actions`,
+		en: `Actions`,
+	},
+	'menuItem.wallet': {
+		fr: `Porte monnaie`,
+		en: `Wallet`,
+	},
+	'menuItem.levelling': {
+		fr: `XP`,
+		en: `XP`,
+	},
+	'menuItem.spells': {
+		fr: `Liste des sorts`,
+		en: `Spells list`,
+	},
+	'menuItem.background': {
+		fr: `Résumé`,
+		en: `Resume`,
+	},
+})
+
 function Item({ label, href, route, onClick }) {
 	const router = useRouter()
 	const selected = router.asPath === href
 
 	return (
 		<Link href={href}>
-			<div 
-				onClick={onClick} 
+			<div
+				onClick={onClick}
 				className={clsx("w-full py-2 text-lg text-center text-gray-600 border-solid",
 					"transition-colors duration-200 hover:text-gray-800 hover:bg-gray-100",
 					{
 						"bg-gradient-to-r from-white to-blue-100": selected
 					}
-					)}
+				)}
 			>
 				{label}
 			</div>
@@ -45,35 +80,35 @@ function CharacterMenu({ open }) {
 
 	const menuItems = [
 		{
-			label: 'Personnage',
+			label: tr`menuItem.character`,
 			href: `/character/${character.id}`,
 		},
 		{
-			label: 'Grimoire',
+			label: tr`menuItem.grimoire`,
 			href: '/character/grimoire',
 		},
 		{
-			label: 'Équipement',
+			label: tr`menuItem.equipment`,
 			href: '/character/equipment',
 		},
 		{
-			label: 'Actions',
+			label: tr`menuItem.actions`,
 			href: '/character/actions',
 		},
 		{
-			label: 'Porte monnaie',
+			label: tr`menuItem.wallet`,
 			href: '/character/wallet',
 		},
 		{
-			label: 'XP',
+			label: tr`menuItem.levelling`,
 			href: '/character/levelling',
 		},
 		{
-			label: 'Liste des sorts',
+			label: tr`menuItem.spells`,
 			href: '/character/spells',
 		},
 		{
-			label: 'Résumé',
+			label: tr`menuItem.background`,
 			href: '/character/background',
 		},
 	]
@@ -88,7 +123,7 @@ function CharacterMenu({ open }) {
 				"translate-y-full": !open,
 			})}
 		>
-			<button 
+			<button
 				type="button"
 				onClick={() => {
 					showDiceHistoryScreen()
@@ -99,8 +134,8 @@ function CharacterMenu({ open }) {
 				<IconD8 className="w-8 h-8 text-gray-700" />
 			</button>
 			<Link href="/characters">
-				<div 
-					className="absolute right-0 px-2 pt-2" 
+				<div
+					className="absolute right-0 px-2 pt-2"
 					onClick={() => hideCharacterMenu()}
 				>
 					<IconUsers className="w-6 h-6 text-gray-700" />
@@ -120,7 +155,7 @@ function CharacterMenu({ open }) {
 						{character.classes.map(clss => tr(clss.name)).join(" / ")}
 					</div>
 					<div className="mt-4">
-						<div 
+						<div
 							className="flex items-center justify-center text-xl text-gray-700 border-2 border-solid rounded-full w-9 h-9 border-slate-600"
 							onClick={() => {
 								router.replace(`/levelling/${character.classes[0].index}/${character.level}`)
@@ -133,12 +168,12 @@ function CharacterMenu({ open }) {
 				</div>
 			</div>
 			<div className="flex flex-col-reverse items-center flex-1 mb-16 overflow-y-auto">
-				{menuItems.reverse().map((item, index) => 
-					<Item 
+				{menuItems.reverse().map((item, index) =>
+					<Item
 						key={index}
 						label={item.label}
 						href={item.href}
-						onClick={hideCharacterMenu} 
+						onClick={hideCharacterMenu}
 					/>
 				)}
 			</div>
@@ -146,7 +181,7 @@ function CharacterMenu({ open }) {
 				variant="cta"
 				onClick={hideCharacterMenu}
 			>
-				Fermer
+				{tr`close.action`}
 			</ButtonBottomScreen>
 		</div>
 	)

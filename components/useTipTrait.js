@@ -8,9 +8,11 @@ function useTipTrait() {
 	return {
 		showTipTrait: (trait) => { 
 			showInfoModal({ 
-				content: <div>
-					<p className="mt-2 whitespace-pre-wrap">{tr(trait.desc)}</p>
+				content: (
+					<div>
+						<p className="mt-2 whitespace-pre-wrap">{tr(trait.desc)}</p>
 					</div>
+				)
 			})
 		}
 	}

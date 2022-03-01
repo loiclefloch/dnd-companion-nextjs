@@ -1,9 +1,16 @@
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import FeatContent from "./FeatContent"
 import useFeat from "../modules/api/useFeat";
+
+const useI18n = makeI18n({
+	'screen.title': {
+		fr: 'Talent - %{feat.name}',
+		en: 'Feat - %{feat.name}',
+	}
+})
 
 function FeatScreenAsModal({ index, character, onCloseScreen }) {
 	const { tr } = useI18n()
@@ -11,7 +18,7 @@ function FeatScreenAsModal({ index, character, onCloseScreen }) {
 
 	return (
 		<ScreenAsModal
-			title={`Feat - ${tr(featResponse.data.nameLocalized)}`} 
+			title={tr('screen.title', { 'feat.name': tr(featResponse.data.nameLocalized)})} 
 			isFetching={featResponse.isFetching}
 			onCloseScreen={onCloseScreen}
 		>

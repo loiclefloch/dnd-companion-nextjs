@@ -3,18 +3,74 @@ import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import useCharacterLevelSelector from "./useCharacterLevelSelector"
 import useSpellLevelSelector from "./useSpellLevelSelector"
-import useI18n from '../modules/i18n/useI18n'
+import { makeI18n } from '../modules/i18n/useI18n'
 import ButtonBottomScreen from "./ButtonBottomScreen"
 import DamageTypeLabel from "./DamageTypeLabel"
 import IconPlusMd from "./icons/IconPlusMd"
 import IconMinusMd from "./icons/IconMinusMd"
-import { CharacterProvider} from "../modules/character/ContextCharacter"
+import { CharacterProvider } from "../modules/character/ContextCharacter"
 import useDice from "./useDice"
 import useCurrentCharacter from "../components/useCurrentCharacter"
 import { actionCastSpell } from "../modules/character/action"
 
 const MAX_SPELL_LEVEL = 9 // maximum spell level
 const MAX_CHARACTER_LEVEL = 20 // maximum character level
+
+const useI18n = makeI18n({
+
+	'hasNoRemainingSlots': {
+		fr: `Il ne vous reste pas de slot de sort de niveau %{spellLevel} disponible pour lancer ce sort`,
+		en: `You don't have a spell slot of level %{spellLevel} available to cast this spell`,
+	},
+	'will use slot of spell level': {
+		fr: `Ce sort utilisera un emplacement de sort de niveau %{spellLevel}`,
+		en: `This spell will use a spell slot of level %{spellLevel}`,
+	},
+	'remaining.singular': {
+		fr: `%{amount} restant`,
+		en: `%{amount} remaining`,
+	},
+	'remaining.plural': {
+		fr: '%{amount} restants',
+		en: '%{amount} remaining',
+	},
+	'cantrip': {
+		fr: `Cantrip.`,
+		en: `Cantrip.`,
+	},
+	'no slots used': {
+		fr: `Aucun emplacement de sort ne sera utilisé.`,
+		en: `No spell slot will be used.`,
+	},
+	'castSpell.action': {
+		fr: `Lancer le sort`,
+		en: `Cast spell`,
+	},
+	'dice above maximum level warning': {
+		en: "The dice are for a level above your maximum level",
+		fr: "Les dés sont pour un niveau supérieur à votre niveau",
+	},
+	'spell level': {
+		fr: `Niveau du sort`,
+		en: `Spell level`,
+	},
+	'character level': {
+		fr: `Niveau du personnage`,
+		en: `Character level`,
+	},
+	'dice above character level':{
+		fr: "Les dés sont pour un niveau supérieur à votre niveau",
+		en: "The dice are for a level above your maximum level",
+	},
+	'spell level': {
+		fr: `Niveau de sort`,
+		en: `Spell level`,
+	},
+	'dice above character spell level maximum': {
+		en: "The dice are for a level above the character spell maximum level",
+		fr: "Les dés sont pour niveau supérieur à votre maximum",
+	}, 
+})
 
 function Button({ label, onClick }) {
 	return <div className="px-2 text-lg cursor-pointer" onClick={onClick}>{label}</div>
@@ -56,7 +112,7 @@ function Warn({ show, message }) {
 
 	return (
 		<div className="text-orange-400">
-			<h4 className="text-xl font-semibold">Êtes-vous sûr ?</h4>
+			<h4 className="text-xl font-semibold">{tr`are you sure?`}</h4>
 			<p className="p-4 px-8">{message}</p>
 		</div>
 	)
@@ -78,7 +134,7 @@ function RunnerBlock({ dice, contextCharacter, spellLevel, chooser, message, onR
 				{message}
 				{contextCharacter && hasNoRemainingSlots &&  // TODO: tip
 					<p className="px-6 text-orange-600">
-						Il ne vous reste pas de slot de sort de niveau {spellLevel} disponible pour lancer ce sort
+						{tr('hasNoRemainingSlots', { spellLevel })}
 					</p>
 				}
 			</div>
@@ -93,13 +149,15 @@ function RunnerBlock({ dice, contextCharacter, spellLevel, chooser, message, onR
 				<div className="justify-end mb-0 text-center">
 					{spellLevel !== 0 ? (
 						<>
-							<p>Ce sort utilisera un emplacement de sort de niveau {spellLevel}</p>
-							{contextCharacter && <p>({remainingSlots} {remainingSlots === 1 ? 'restant' : 'restants'})</p>}
+							<p>{tr('will use slot of spell level', { spellLevel })</p>
+							{contextCharacter &&
+								<p>({remainingSlots === 1 ? tr('remaining.singular', { amount: remainingSlots }) : tr('remaining.plural', { amount: remainingSlots })})</p>
+							}
 						</>
 					) : (
 						<>
-							<p>Cantrip.</p>
-							<p>Aucun emplacement de sort ne sera utilisé.</p>
+							<p>{tr`cantrip`}</p>
+							<p>{tr`no slots used`}</p>
 						</>
 					)}
 				</div>
@@ -109,7 +167,7 @@ function RunnerBlock({ dice, contextCharacter, spellLevel, chooser, message, onR
 				onClick={() => onRun()}
 				variant="cta"
 			>
-				Lancer le sort
+				{tr`castSpell.action`}
 			</ButtonBottomScreen>
 		</div>
 	)
@@ -177,7 +235,7 @@ function HealRunner({
 			}
 			chooser={
 				<ChooseNumber
-					label="Niveau du personnage"
+					label={tr`character level`}
 					isCharacter
 					level={chosenSpellLevel}
 					onChange={setSpellLevel}
@@ -188,10 +246,7 @@ function HealRunner({
 				<div className="text-orange-400">
 					<Warn
 						show={shouldWarn}
-						message={tr({
-							en: "The dice are for a level above your maximum level",
-							fr: "Les dés sont pour un niveau supérieur à votre niveau",
-						})}
+						message={tr`dice above character level`}
 					/>
 				</div>
 			)}
@@ -240,7 +295,7 @@ function DamageSlotLevel({
 			}
 			chooser={
 				<ChooseNumber
-					label='Niveau du sort'
+					label={tr`spell level`}
 					level={chosenSpellLevel}
 					onChange={setSpellLevel}
 					maxLevel={maxSpellLevel}
@@ -250,10 +305,7 @@ function DamageSlotLevel({
 				<div>
 					<Warn
 						show={shouldWarn}
-						message={tr({
-							en: "The dice are for a level above the character spell maximum level",
-							fr: "Les dés sont pour niveau supérieur à votre maximum",
-						})}
+						message={tr`dice above character spell level maximum`}
 					/>
 				</div>
 			}
@@ -303,7 +355,7 @@ function DamageCharacterLevel({
 			}
 			chooser={
 				<ChooseNumber
-					label='Niveau du personnage'
+					label={tr`spell level`}
 					level={characterLevel}
 					onChange={setCharacterLevel}
 					maxLevel={characterMaxLevel}
@@ -313,10 +365,7 @@ function DamageCharacterLevel({
 				<div>
 					<Warn
 						show={shouldWarn}
-						message={tr({
-							en: "The dice are for a level above your maximum level",
-							fr: "Les dés sont pour un niveau supérieur à votre niveau",
-						})}
+						message={tr(`dice above maximum level warning`)}
 					/>
 				</div>
 			)}

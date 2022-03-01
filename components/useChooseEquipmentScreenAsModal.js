@@ -3,7 +3,7 @@ import { uniqBy, isEmpty } from "lodash"
 import clsx from "clsx"
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
-import useI18n from "../modules/i18n/useI18n";
+import { makeI18n } from "../modules/i18n/useI18n";
 import useEquipmentCategories from "../modules/api/useEquipmentCategories";
 import useTipDamageType from "./useTipDamageType"
 import useEquipmentItemScreenAsModal from "./useEquipmentItemScreenAsModal"
@@ -12,6 +12,13 @@ import { toggleObjectOnArray } from "../modules/utils/array"
 import IconChevronToggle from "./icons/IconChevronToggle"
 import useLocalSearch from "./useLocalSearch"
 import InputSearch from "./InputSearch"
+
+const useI18n = makeI18n({
+	"warn.no damages defined": {
+		fr: "No damages defined, look at the description",
+		en: "No damages defined, look at the description",
+	},
+})
 
 function ItemRow({ item, onSelect, selected }) {
 	if (!item) {
@@ -50,7 +57,7 @@ function ItemRow({ item, onSelect, selected }) {
 										</>
 									)}
 									{!item.damage && (
-										<span>No damages defined, look at the description</span>
+										<span>{tr`warn.no damages defined`}</span>
 									)}
 								</>
 							)}
@@ -59,7 +66,7 @@ function ItemRow({ item, onSelect, selected }) {
 								<>
 									<span>{item.armorCategory} - </span>
 									<span>
-										AC {item.armorClass.base} {item.stealthDisadvantage && <span>Stealth disadvantage</span>}
+										AC {item.armorClass.base} {item.stealthDisadvantage && <span>{tr`stealthDisadvantage`}</span>}
 									</span>
 								</>
 							)}
@@ -206,7 +213,7 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 					onCloseScreen()
 				}}
 			>
-				Ajouter
+				{tr`add.action`}
 			</ButtonBottomScreen>
 		</ScreenAsModal>
 	)

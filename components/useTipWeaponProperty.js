@@ -11,11 +11,13 @@ function useTipWeaponProperty() {
 			const weaponProperty = weaponProperties.find(w => w.index === index)
 
 			showInfoModal({ 
-				content: <div>
-					<p className="mt-2 whitespace-pre-wrap">
-						{tr(weaponProperty.desc)}
-					</p>
+				content: (
+					<div>
+						<p className="mt-2 whitespace-pre-wrap">
+							{tr(weaponProperty.desc)}
+						</p>
 					</div>
+				)
 			})
 		}
 	}
