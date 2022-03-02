@@ -110,7 +110,7 @@ function Spell({ spell, filters, character /*onSelect*/ }) {
 }
 
 function Spells({ contextCharacter }) {
-  const { lang } = useI18n()
+  const { tr, lang } = useI18n()
   const spellsResponse = useSpells();
   const [defaultFilters, setDefaultFilters] = useState(null)
 

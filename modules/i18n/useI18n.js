@@ -24,6 +24,10 @@ const globalTranslations = {
     fr: `Fermer`,
     en: `Close`,
   },
+  'continue.action': {
+    fr: `Continuer`,
+    en: `Continue`,
+  },
   'reset.action': {
     fr: "Reset",
     en: "Reset",

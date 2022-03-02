@@ -60,6 +60,8 @@ const useI18n = makeI18n({
 })
 
 function LearnButton({ spell, characterDispatch, onCloseScreen }) {
+	const { tr } = useI18n()
+
 	return (
 		<Button
 			// size="small"
@@ -76,6 +78,8 @@ function LearnButton({ spell, characterDispatch, onCloseScreen }) {
 }
 
 function UnlearnButton({ spell, characterDispatch, isSubclassSpell, onCloseScreen }) {
+	const { tr } = useI18n()
+
 	if (isSubclassSpell) {
 		return null
 	}
@@ -95,6 +99,8 @@ function UnlearnButton({ spell, characterDispatch, isSubclassSpell, onCloseScree
 }
 
 function UnprepareButton({ spell, characterDispatch, isForcedPrepared, onCloseScreen }) {
+	const { tr } = useI18n()
+
 	if (isForcedPrepared) {
 		return null
 	}
@@ -115,6 +121,8 @@ function UnprepareButton({ spell, characterDispatch, isForcedPrepared, onCloseSc
 }
 
 function PrepareButton({ spell, characterDispatch, onCloseScreen }) {
+	const { tr } = useI18n()
+	
 	return (
 		<Button
 			// size="small"

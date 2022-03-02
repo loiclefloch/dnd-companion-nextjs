@@ -161,6 +161,7 @@ function AbilityOption({
 	selectedOption,
 	setSelectedOption,
 }) {
+	const { tr } = useI18n()
 
 	return (
 		<div className="px-4 mt-4 prose">

@@ -11,40 +11,41 @@ const useI18n = makeI18n({
 		en: 'Modification',
 	},
 	'modification.explain': {
-		fr:`Vous pouver modifier vos slots`,
-		en:`You can modify your slots`,
+		'fr': `Vous pouver modifier vos slots`,
+		'en': `You can modify your slots`,
 	},
 	'slots.used': {
-		fr:`Slots utilisés`,
-		en:`Slots used`,
+		'fr': `Slots utilisés`,
+		'en': `Slots used`,
 	},
 	'slots.total': {
-		fr:`Slots total`,
-		en:`Total slots`,
+		'fr': `Slots total`,
+		'en': `Total slots`,
 	},
 	'slots.baseTotalSlots': {
-		fr:`Défaut: %{baseTotalSlots}`,
-		en:`Default: %{baseTotalSlots}`,
+		'fr': `Défaut: %{baseTotalSlots}`,
+		'en': `Default: %{baseTotalSlots}`,
 	},
 	'hasNoSlotsToDisplay': {
-		fr:`0 slot disponible`,
-		en:`0 slot available`,
+		'fr': `0 slot disponible`,
+		'en': `0 slot available`,
 	},
 	'isAboveMaximumSlotLevel': {
-		fr:`Vous n'avez pas accès à ce niveau`,
-		en:`You do not have access to this level`,
+		'fr': `Vous n'avez pas accès à ce niveau`,
+		'en': `You do not have access to this level`,
 	},
 	'remainingSlots': {
-		fr:`%{remainingSlots} restants`,
-		en:`%{remainingSlots} remaining slots`,
+		'fr': `%{remainingSlots} restants`,
+		'en': `%{remainingSlots} remaining slots`,
 	},
 	'moreSlotsUsedThanAvailable': {
-		fr:`Vous avez utilisé plus de slots que votre capacité. Reposez-vous !`,
-		en:`You have used more slots than your capacity. Rest!`,
+		'fr': `Vous avez utilisé plus de slots que votre capacité. Reposez-vous !`,
+		'en': `You have used more slots than your capacity. Rest!`,
 	},
 })
 
 function Form({ show, spellSlot, onSubmit, onClose }) {
+	const { tr } = useI18n()
 	const [data, setData] = useState({
 		spellLevel: spellSlot.spellLevel,
 		usedSlots: spellSlot.usedSlots,

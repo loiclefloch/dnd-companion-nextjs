@@ -63,6 +63,7 @@ function formIsValid(features, featuresOptions) {
 
 // TODO: handle feature_specific: expertise_options or subfeature_options
 function Features({ getBuildedCharacter, levellingData, step, levellingDispatch }) {
+	const { tr } = useI18n()
 	const [featuresOptions, setFeaturesOptions] = useState({})
 	const character = getBuildedCharacter()
 

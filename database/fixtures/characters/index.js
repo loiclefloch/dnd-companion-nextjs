@@ -7,6 +7,7 @@ import druidLevel3 from "./druid_level_3.json"
 import bardLevel1 from "./bard_level_1.json"
 import bardLevel2 from "./bard_level_2.json"
 import bardLevel3 from "./bard_level_3.json"
+import ylvir from "./ylvir.json"
 
 export default [
 	bardLevel1,
@@ -18,4 +19,5 @@ export default [
 	druidLevel1,
 	druidLevel2,
 	druidLevel3,
+	ylvir,
 ]
