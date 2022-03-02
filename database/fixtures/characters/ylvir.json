@@ -1,0 +1,423 @@
+{
+  "id": "ylvir",
+  "name": "Ylvir",
+  "body": {
+    "age": 120,
+    "gender": "",
+    "height": "",
+    "weight": "",
+    "hairColor": "",
+    "eyeColor": "",
+    "skinColor": "",
+    "physicalCaracteristics": ""
+  },
+  "level": 5,
+  "classes": [
+    "druid"
+  ],
+  "race": "wood-elf",
+  "bonds": "It is my duty to protect my students.",
+  "flaws": "Most people scream and run when they see a demon. I stop and take notes on its anatomy",
+  "ideals": "Knowledge. The path to power and self-improvement is through knowledge.",
+  "traits": [
+    {
+      "index": "darkvision",
+      "sourceType": "race"
+    },
+    {
+      "index": "keen-senses",
+      "sourceType": "race"
+    },
+    {
+      "index": "fey-ancestry",
+      "sourceType": "race"
+    },
+    {
+      "index": "trance",
+      "sourceType": "race"
+    },
+    {
+      "index": "elf-weapon-training",
+      "sourceType": "race"
+    },
+    {
+      "index": "fleet-of-foot",
+      "sourceType": "race"
+    },
+    {
+      "index": "mask-of-the-wild",
+      "sourceType": "race"
+    }
+  ],
+  "statsBonuses": [
+    {
+      "ability": "DEX",
+      "type": "race",
+      "bonus": 2
+    },
+    {
+      "ability": "WIS",
+      "type": "race",
+      "bonus": 1
+    },
+    {
+      "ability": "WIS",
+      "type": "feat",
+      "feat": "fey-touched",
+      "bonus": 1
+    }
+  ],
+  "baseStats": {
+    "STR": 15,
+    "DEX": 14,
+    "CON": 12,
+    "INT": 12,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelling": {
+    "xp": 10000,
+    "history": [
+      {
+        "id": "a6ca244c-92cd-4b2c-9230-95dd507fbcf0",
+        "label": "Level up",
+        "amount": 10000
+      }
+    ]
+  },
+  "spellsList": [
+    {
+      "index": "misty-step",
+      "from": "feat",
+      "feat": "fey-touched",
+      "isPrepared": false
+    },
+    {
+      "index": "animal-friendship",
+      "from": "feat",
+      "feat": "fey-touched",
+      "isPrepared": false
+    },
+    {
+      "index": "druidcraft",
+      "isPrepared": false
+    },
+    {
+      "index": "thunderwave",
+      "isPrepared": false
+    },
+    {
+      "index": "enhance-ability",
+      "isPrepared": false
+    },
+    {
+      "index": "guidance",
+      "isPrepared": false
+    },
+    {
+      "index": "charm-person",
+      "isPrepared": false
+    },
+    {
+      "index": "spike-growth",
+      "isPrepared": false
+    },
+    {
+      "index": "plant-growth",
+      "isPrepared": false
+    },
+    {
+      "index": "entangle",
+      "isPrepared": false
+    },
+    {
+      "index": "produce-flame",
+      "isPrepared": false
+    },
+    {
+      "index": "hold-person",
+      "isPrepared": false
+    },
+    {
+      "index": "conjure-animals",
+      "isPrepared": false
+    },
+    {
+      "index": "fog-cloud",
+      "isPrepared": false
+    },
+    {
+      "index": "barkskin",
+      "isPrepared": false
+    },
+    {
+      "index": "moonbeam",
+      "isPrepared": false
+    },
+    {
+      "index": "cure-wounds",
+      "isPrepared": false
+    }
+  ],
+  "equipment": [
+    {
+      "index": "ink-1-ounce-bottle",
+      "quantity": 1
+    },
+    {
+      "index": "clothes-common",
+      "quantity": 1
+    },
+    {
+      "index": "small-knife",
+      "quantity": 1
+    },
+    {
+      "index": "dagger",
+      "quantity": 1
+    },
+    {
+      "index": "spear",
+      "quantity": 1
+    },
+    {
+      "index": "potters-tools",
+      "quantity": 1
+    }
+  ],
+  "wallet": {
+    "history": []
+  },
+  "proficiencies": [
+    {
+      "index": "unarmed-strike",
+      "sourceType": "race"
+    },
+    {
+      "index": "skill-perception",
+      "sourceType": "race"
+    },
+    {
+      "index": "longswords",
+      "sourceType": "race"
+    },
+    {
+      "index": "shortswords",
+      "sourceType": "race"
+    },
+    {
+      "index": "shortbows",
+      "sourceType": "race"
+    },
+    {
+      "index": "longbows",
+      "sourceType": "race"
+    },
+    {
+      "index": "skill-history",
+      "sourceType": "background"
+    },
+    {
+      "index": "skill-arcana",
+      "sourceType": "background"
+    },
+    {
+      "index": "light-armor",
+      "sourceType": "class"
+    },
+    {
+      "index": "medium-armor",
+      "sourceType": "class"
+    },
+    {
+      "index": "shields",
+      "sourceType": "class"
+    },
+    {
+      "index": "clubs",
+      "sourceType": "class"
+    },
+    {
+      "index": "daggers",
+      "sourceType": "class"
+    },
+    {
+      "index": "javelins",
+      "sourceType": "class"
+    },
+    {
+      "index": "maces",
+      "sourceType": "class"
+    },
+    {
+      "index": "quarterstaffs",
+      "sourceType": "class"
+    },
+    {
+      "index": "sickles",
+      "sourceType": "class"
+    },
+    {
+      "index": "spears",
+      "sourceType": "class"
+    },
+    {
+      "index": "darts",
+      "sourceType": "class"
+    },
+    {
+      "index": "slings",
+      "sourceType": "class"
+    },
+    {
+      "index": "scimitars",
+      "sourceType": "class"
+    },
+    {
+      "index": "herbalism-kit",
+      "sourceType": "class"
+    }
+  ],
+  "proficiencyBonus": 2,
+  "maximumHp": 21,
+  "currentHp": 21,
+  "spellsUsed": [],
+  "deathSaves": {
+    "nbFailed": null,
+    "nbSucceeed": null,
+    "isStabilized": false
+  },
+  "background": "sage",
+  "features": [
+    {
+      "index": "researcher",
+      "type": "background"
+    },
+    {
+      "index": "wild-shape-cr-1-4-or-below-no-flying-or-swim-speed",
+      "type": "levelling",
+      "level": 2
+    },
+    {
+      "index": "druid-circle",
+      "type": "levelling",
+      "level": 2
+    },
+    {
+      "index": "circle-of-the-land",
+      "from": "druid-circle",
+      "type": "levelling",
+      "level": 2
+    },
+    {
+      "index": "circle-of-the-land-forest",
+      "from": "druid-circle",
+      "type": "levelling",
+      "level": 2
+    },
+    {
+      "index": "wild-shape-cr-1-2-or-below-no-flying-speed",
+      "type": "levelling",
+      "level": 4
+    },
+    {
+      "index": "druid-ability-score-improvement-1",
+      "type": "levelling",
+      "level": 4
+    }
+  ],
+  "personnalityTraits": [
+    "I use polysyllabic words that convey the impression of great erudition."
+  ],
+  "alignment": "chaotic-neutral",
+  "languages": [
+    "dwarvish",
+    "giant",
+    "common",
+    "elvish",
+    "common",
+    "elvish"
+  ],
+  "maximumHitDice": 9,
+  "currentHitDice": 9,
+  "skillsProficiencies": [
+    "perception",
+    "history",
+    "arcana"
+  ],
+  "maxHp": "987",
+  "subclass": {
+    "index": "devotion"
+  },
+  "spellsSlots": [
+    {
+      "spellLevel": 0,
+      "totalSlots": null,
+      "baseTotalSlots": null,
+      "usedSlots": 0,
+      "maximumSlotLevel": 3
+    },
+    {
+      "spellLevel": 1,
+      "totalSlots": 4,
+      "baseTotalSlots": 4,
+      "usedSlots": 0,
+      "maximumSlotLevel": 3
+    },
+    {
+      "spellLevel": 2,
+      "totalSlots": 3,
+      "baseTotalSlots": 3,
+      "usedSlots": 0,
+      "maximumSlotLevel": 3
+    },
+    {
+      "spellLevel": 3,
+      "totalSlots": 2,
+      "baseTotalSlots": 2,
+      "usedSlots": 0,
+      "maximumSlotLevel": 3
+    },
+    {
+      "spellLevel": 4,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 3
+    },
+    {
+      "spellLevel": 5,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 3
+    },
+    {
+      "spellLevel": 6,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 3
+    },
+    {
+      "spellLevel": 7,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 3
+    },
+    {
+      "spellLevel": 8,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 3
+    }
+  ],
+  "feats": [
+    {
+      "index": "fey-touched",
+      "level": 4
+    }
+  ]
+}
