@@ -2,7 +2,7 @@ import { createElement } from "react"
 
 import LineInfo from "../LineInfo"
 import Section from "../Section"
-import useI18n from "../../modules/i18n/useI18n"
+import useI18n, { makeI18n } from "../../modules/i18n/useI18n"
 import useTipProficiency from "../useTipProficiency"
 import useTipLanguage from "../useTipLanguage"
 import useTipAbilityScore from "../useTipAbilityScore"
@@ -20,6 +20,17 @@ import rabittfolk from "./rabbitfolk.mdx"
 import rockGnome from "./rock-gnome.mdx"
 import tiefling from "./tiefling.mdx"
 import woodElf from "./wood-elf.mdx"
+
+const useI18n = makeI18n({
+	'description.title': {
+		fr: 'Description',
+		en: 'Description',
+	},
+	'resume.title': {
+		fr: 'Résumé',
+		en: 'Resume',
+	}
+})
 
 // - traits
 
@@ -164,11 +175,12 @@ function Text({ race }) {
 }
 
 function RaceDetailsView({ race }) {
+	const { tr } = useI18n()
 	return <>
-		<Section title="Description" withToggle sticky>
+		<Section title={tr`description.title`} withToggle sticky>
 			<Text race={race} />
 		</Section>
-		<Section title="Résumé" withToggle sticky>
+		<Section title={tr`resume.title`} withToggle sticky>
 			<Content race={race} />
 		</Section>
 	</>

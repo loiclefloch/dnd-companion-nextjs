@@ -3,10 +3,17 @@ import { isEmpty } from "lodash"
 import { actionLevellingAddFeatures } from "./action"
 import map from "lodash/map"
 import useFeature from "../../modules/api/useFeature"
-import useI18n from "../../modules/i18n/useI18n"
+import { makeI18n } from "../../modules/i18n/useI18n"
 import ButtonBottomScreen from "../ButtonBottomScreen"
 import Section from "../Section"
 import FeatureSpecificSelector from "./FeatureSpecificSelector"
+
+const useI18n = makeI18n({
+	'noNewFeatureForLevel': {
+		fr: `Pas de nouvelle capacité pour ce niveau.`,
+		en: `No new features for this level.`,
+	},
+})
 
 function Feature({ character, value = { type: '', }, onChange, index }) {
 	const { tr } = useI18n()
@@ -81,7 +88,7 @@ function Features({ getBuildedCharacter, levellingData, step, levellingDispatch 
 			</div>
 
 			{isEmpty(levellingData.features) && (
-				<p className="text-center">Pas de nouvelle feature pour ce niveau.</p>
+				<p className="text-center">{tr`noNewFeatureForLevel`}</p>
 			)}
 
 			<ButtonBottomScreen

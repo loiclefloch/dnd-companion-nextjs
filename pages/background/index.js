@@ -1,9 +1,16 @@
 import { useRouter } from 'next/router'
 import Screen from "../../components/Screen";
 import useBackgrounds from '../../modules/api/useBackgrounds';
-import useI18n from '../../modules/i18n/useI18n';
+import { makeI18n } from '../../modules/i18n/useI18n';
 import { ListSelectRowAsCard, ListRowSelectContainer } from "../../components/ListSelectRow"
 import IconAcademicCap from "../../components/icons/IconAcademicCap"
+
+const useI18n = makeI18n({
+	'screen.title': {
+		fr: `Les backgrounds`,
+		en: `Backgrounds`,
+	}
+})
 
 function BackgroundRow({ background }) {
 	const { tr } = useI18n()
@@ -25,7 +32,7 @@ function Backgrounds() {
 
   return (
     <Screen
-      title={"Les backgrounds"}
+      title={tr`screen.title`}
 			titleIcon={<IconAcademicCap className="w-6 h-6" />}
 			isLoading={backgroundsResponse.isLoading}
 			withBottomSpace

@@ -4,13 +4,63 @@ import { get, set } from "lodash"
 import useStepScreenAsModal, { ScreenStep, useScreenStep } from "../../components/useStepScreenAsModal"
 import ListSelector from "../../components/ListSelector";
 import useFeatScreenAsModal from "../../components/useFeatScreenAsModal"
-import useI18n from "../../modules/i18n/useI18n"
+import { makeI18n } from "../../modules/i18n/useI18n"
 import FeatContent, { FeatPrerequisites } from "../FeatContent"
 import ButtonBottomScreen from "../ButtonBottomScreen"
 import useFeats from "../../modules/api/useFeats"
 import filterFeatsForCharacter from "../../modules/character/filterFeatsForCharacter"
 import Section from "../../components/Section"
 import AbilityImportanceForClass from "../../components/AbilityImportanceForClass"
+
+const useI18n = makeI18n({
+
+	'chooseSpellToLearn': {
+		fr: `Choisissez des sorts à apprendre`,
+		en: `Choose spells to learn`,
+	},
+	'chooseAbilityToIncrease': {
+		fr: `Choisissez une capacité à augmenter`,
+		en: `Choose an ability to increase`,
+	},
+					
+	'feat.configuration.title': {
+		fr: `Configuration de votre talent`,
+		en: `Configure feat`,
+	},
+	'feat.configuration.explain': {
+		fr: `Suivez le guide ! Nous vous aiderons pas à pas.`,
+		en: `Follow the guide! We will help you, step by step`,
+	},
+	'feat.noConfiguration.title': {
+		fr: `Pas de configuration spécifique pour ce talent`,
+		en: `No specific configuration pour this feat`,
+	},
+	'feat.noConfiguration.explain': {
+		fr: `Il n'y as rien à configurer, vous pouvez continuer !`,
+		en: `There is nothing to configure, you can move on!`,
+	},
+	'chooseXLanguages': {
+		fr: `Choisissez %{choose} langues`,
+		en: `Choose %{choose} languages`,
+	},
+			
+	'abilityOption.title': {
+		fr: `%{feat.name} - Augmentation de la capacité`,
+		en: `%{feat.name} - Increase ability`,
+	},
+	'spellOptions.title': {
+		fr: `%{feat.name} - Choix des sorts`,
+		en: `%{feat.name} - Choose spells`,
+	},
+	'featuresOptions.title': {
+		fr: `%{feat.name} - Choix des capacités`,
+		en: `%{feat.name} - Choose features`,
+	},
+	'languagesOptions.title': {
+		fr: `%{feat.name} - Choix des langues`,
+		en: `%{feat.name} - Choose languages`,
+	},
+})
 
 function spellIsValid(spellOption, value) {
 	if (!value) {
@@ -59,12 +109,12 @@ function SpellOptions({
 	selectedOption = [],
 	setSelectedOption,
 }) {
-
+	const { tr } = useI18n()
 	const isValid = spellsIsValid(spellOptions, selectedOption)
 
 	return (
 		<div className="px-4 mt-4 prose">
-			<h3>Choisissez des sorts à apprendre</h3>
+			<h3>{tr`chooseSpellToLearn`}</h3>
 
 			{spellOptions.map((spellOption, index) => {
 				const value = get(selectedOption, index, { spells: [] })
@@ -98,7 +148,7 @@ function SpellOptions({
 					onNext()
 				}}
 			>
-				Continuer
+				{tr`continue.action`}
 			</ButtonBottomScreen>
 		</div>
 	)
@@ -114,7 +164,7 @@ function AbilityOption({
 
 	return (
 		<div className="px-4 mt-4 prose">
-			<h3>Choisissez une capacité à augmenter</h3>
+			<h3>{tr`chooseAbilityToIncrease`}</h3>
 
 			<ListSelector
 				value={selectedOption?.abilities}
@@ -146,7 +196,7 @@ function AbilityOption({
 					onNext()
 				}}
 			>
-				Continuer
+				{tr`continue.action`}
 			</ButtonBottomScreen>
 		</div>
 	)
@@ -235,7 +285,7 @@ function FeaturesOptions({
 					onNext()
 				}}
 			>
-				Continuer
+				{tr`continue.action`}
 			</ButtonBottomScreen>
 		</div>
 	)
@@ -253,7 +303,7 @@ function LanguagesOptions({
 
 	return (
 		<div className="px-4 mt-4 prose">
-			<h3>Choisissez {languagesOptions.choose} langues</h3>
+			<h3>{tr`chooseXLanguages`}</h3>
 
 			<ListSelector
 				multiple
@@ -280,7 +330,7 @@ function LanguagesOptions({
 					onNext()
 				}}
 			>
-				Continuer
+				{tr`continue.action`}
 			</ButtonBottomScreen>
 		</div>
 	)
@@ -323,7 +373,7 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 						next()
 					}}
 				>
-					Continuer
+					{tr`continue.action`}
 				</ButtonBottomScreen>
 			</ScreenStep>
 
@@ -333,9 +383,9 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 					title={`${feat.name} - Configuration`}
 				>
 					<div className="prose text-center">
-						<h3>Pas de configuration spécifique pour ce feat</h3>
+						<h3>{tr`feat.noConfiguration.title`}</h3>
 
-						<p>Il n'y as rien à configurer, vous pouvez continuer !</p>
+						<p>{tr`feat.noConfiguration.explain`}</p>
 					</div>
 
 					<ButtonBottomScreen
@@ -344,7 +394,7 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 							onFinish()
 						}}
 					>
-						Continuer
+						{tr`continue.action`}
 					</ButtonBottomScreen>
 				</ScreenStep>
 			}
@@ -355,9 +405,9 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 					title={`${feat.name} - Configuration`}
 				>
 					<div className="prose text-center">
-						<h3>Configuration de votre feat</h3>
+						<h3>{tr`feat.configuration.title`}</h3>
 
-						<p>Suivez le guide ! Nous vous aiderons pas à pas.</p>
+						<p>{tr`feat.configuration.explain`}</p>
 					</div>
 
 					<ButtonBottomScreen
@@ -366,7 +416,7 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 							next()
 						}}
 					>
-						Continuer
+						{tr`continue.action`}
 					</ButtonBottomScreen>
 				</ScreenStep>
 			}
@@ -374,14 +424,13 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 			{feat.hasAbilityOption && (
 				<ScreenStep
 					screen="abilityOption"
-					title={`${feat.name} - Augmentation de la capacité`}
+					title={tr('abilityOption.title', { 'feat.name': feat.name })}
 				>
 					<AbilityOption
 						character={character}
 						abilityOption={feat.abilityOption}
 						selectedOption={selectedOptions?.abilityOption}
 						setSelectedOption={(abilityOption) => setSelectedOptions({ ...selectedOptions, abilityOption })}
-						character={character}
 						onNext={onNext}
 					/>
 				</ScreenStep>
@@ -390,7 +439,7 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 			{feat.hasSpellOptions && (
 				<ScreenStep
 					screen="spellOptions"
-					title={`${feat.name} - Choix des sorts`}
+					title={tr('spellOptions.title', { 'feat.name': feat.name })}
 				>
 					<SpellOptions
 						spellOptions={feat.spellOptions}
@@ -405,7 +454,7 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 			{feat.hasFeaturesOptions && (
 				<ScreenStep
 					screen="featuresOptions"
-					title={`${feat.name} - Choix des capacités`}
+					title={tr('featuresOptions.title', { 'feat.name': feat.name })}
 				>
 					<FeaturesOptions
 						featuresOptions={feat.featuresOptions}
@@ -420,7 +469,7 @@ function FeatScreens({ feat, character, step, levellingDispatch }) {
 			{feat.hasLanguageOptions && (
 				<ScreenStep
 					screen="languagesOptions"
-					title={`${feat.name} - Choix des languages`}
+					title={tr('languagesOptions.title', { 'feat.name': feat.name })}
 				>
 					<LanguagesOptions
 						languagesOptions={feat.languagesOptions}

@@ -149,7 +149,7 @@ function RunnerBlock({ dice, contextCharacter, spellLevel, chooser, message, onR
 				<div className="justify-end mb-0 text-center">
 					{spellLevel !== 0 ? (
 						<>
-							<p>{tr('will use slot of spell level', { spellLevel })</p>
+							<p>{tr('will use slot of spell level', { spellLevel })}</p>
 							{contextCharacter &&
 								<p>({remainingSlots === 1 ? tr('remaining.singular', { amount: remainingSlots }) : tr('remaining.plural', { amount: remainingSlots })})</p>
 							}
