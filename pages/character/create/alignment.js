@@ -1,5 +1,6 @@
 import { useState } from "react"
 import clsx from "clsx";
+import useI18n from "../../../modules/i18n/useI18n";
 import alignments from "../../../database/data/alignments.json"
 import ButtonBottomScreen from "../../../components/ButtonBottomScreen";
 import ScreenIntroduction from "../../../components/ScreenIntroduction";
@@ -43,7 +44,7 @@ function Form() {
 			<ScreenIntroduction
 				title="Choisissez votre alignement"
 				description={<span>
-					L'alignement ...
+					{`L'alignement ...`}
 					<br />
 					Les alignements grisés ne devraient pas être choisis, car ils ne correspondent pas à vos 
 					idéaux.

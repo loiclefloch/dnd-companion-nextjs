@@ -1,9 +1,17 @@
 import Screen from "../components/Screen";
-// import Image from 'next/image'
-
+import { makeI18n } from "../modules/i18n/useI18n";
 import diceBackground from "../components/img/dice_background.png"
 
+const useI18n = makeI18n({
+	'404.explain': {
+		fr: `Le jet d'Investigation a échoué`,
+		en: `The investigation check has failed`
+	}
+})
+
 export default function Screen404() {
+	const { tr } = useI18n()
+
 	return (
 		<Screen
 			title={"Page not found"}
@@ -23,7 +31,7 @@ export default function Screen404() {
 						404
 					</h4>
 					<h5 className="mt-2 font-semibold text-center text-white">
-						Le jet d'Investigation a échoué
+						{tr`404.explain`}
 					</h5>
 				</div>
 			</div>

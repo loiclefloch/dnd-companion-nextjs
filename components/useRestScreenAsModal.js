@@ -42,7 +42,7 @@ function RestScreenAsModal({ onCloseScreen }) {
 					<div className="px-4 mt-2">
 						Ce repos vous apportera :
 						<ul>
-							<li>hitDice * * * * -> with color for used (like spells slots)</li>
+							<li>hitDice * * * * &gt; with color for used (like spells slots)</li>
 							<li>Slots de sorts : </li>
 						</ul>
 						{/* TODO: roll hitDice after selecting short rest. HP += hit dice + CON. Can roll another one after each roll */}
@@ -60,7 +60,7 @@ function RestScreenAsModal({ onCloseScreen }) {
 					<div className="px-4 mt-2">
 						Ce repos vous apportera :
 						<ul>
-							<li>Pv 4 -> 12 (max 12)</li>
+							<li>Pv 4 &gt; 12 (max 12)</li>
 							<li>Slots de sorts : </li>
 						</ul>
 					</div>

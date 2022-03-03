@@ -6,7 +6,7 @@ import Screen from "../../components/Screen";
 import FeatContent from "../../components/FeatContent";
 import IconBookOpen from "../../components/icons/IconBookOpen";
 
-function feat() {
+function Feat() {
 	const router = useRouter()
 	const { tr } = useI18n()
 	const featResponse = useFeat(router.query.featIndex);
@@ -28,4 +28,4 @@ function feat() {
 	)
 }
 
-export default feat
+export default Feat

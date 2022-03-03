@@ -19,18 +19,18 @@ function RuleContent({ index, ruleResponse }) {
 		return <p>Rule not created yet</p>
 	}
 
-	return (
-		<>
-			<div>TODO: transform to markdown</div>
-			<div>
-				<ReactMarkdown>
-					{/* TRICK: remove first h1 from the markdown, that contains the rule name */}
-					{/* TODO: remove trick, change on data file */}
-					{ruleResponse.data?.desc.replaceAll(`## ${ruleResponse.data.name}\n\n`, '')}
-				</ReactMarkdown>
-			</div>
-		</>
-	)
+	// return (
+	// 	<>
+	// 		<div>TODO: transform to markdown</div>
+	// 		<div>
+	// 			<ReactMarkdown>
+	// 				{/* TRICK: remove first h1 from the markdown, that contains the rule name */}
+	// 				{/* TODO: remove trick, change on data file */}
+	// 				{ruleResponse.data?.desc.replaceAll(`## ${ruleResponse.data.name}\n\n`, '')}
+	// 			</ReactMarkdown>
+	// 		</div>
+	// 	</>
+	// )
 }
 
 export default RuleContent

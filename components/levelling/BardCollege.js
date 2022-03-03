@@ -72,7 +72,7 @@ function BardCollege({
 
 	const subclassHasOptionToSelect = selectedSubclass?.index === "land"
 
-	useEffect(() => clearStepLevellingState(step), [])
+	useEffect(() => clearStepLevellingState(step), [clearStepLevellingState, step])
 
 	return (
 		<div className="prose mt-8 mx-4">

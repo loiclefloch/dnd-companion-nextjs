@@ -210,7 +210,7 @@ function formatTemplate(str, templateParams) {
   )
 }
 
-function buildUseI18n(translationsParam) {
+function useBuildUseI18n(translationsParam) {
   const translations = {
     ...globalTranslations,
     ...translationsParam
@@ -272,7 +272,7 @@ function buildUseI18n(translationsParam) {
 }
 
 function useI18n() {
-  return buildUseI18n()
+  return useBuildUseI18n()
 }
 
 export default useI18n
@@ -281,6 +281,6 @@ export default useI18n
 export const makeI18n = (getTranslations) => {
   const translationsParam = isFunction(getTranslations) ? getTranslations() : getTranslations
   return () => {
-    return buildUseI18n(translationsParam)
+    return useBuildUseI18n(translationsParam)
   }
 }

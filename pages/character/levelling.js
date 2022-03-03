@@ -107,7 +107,7 @@ function CharacterWallet() {
 					{/* // - ask user to level up its character (popup screen) -> Yes - Later */}
 					{character.levelling.shouldLevelUp && (
 						<div className="mt-4 px-4">
-							<Link href="/level-up/introduction">
+							<Link href="/level-up/introduction" passHref>
 								<Button variant="contained" color="info">
 									Monter au niveau {character.level + 1}
 								</Button>

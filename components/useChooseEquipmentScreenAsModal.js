@@ -21,12 +21,13 @@ const useI18n = makeI18n({
 })
 
 function ItemRow({ item, onSelect, selected }) {
-	if (!item) {
-		return null
-	}
 	const { tr } = useI18n()
 	const { showTipDamageType } = useTipDamageType()
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()
+
+	if (!item) {
+		return null
+	}
 
 	return (
 		<div

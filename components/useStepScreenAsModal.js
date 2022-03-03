@@ -80,7 +80,7 @@ export function ScreenStep({ screen, title, className, children }) {
 		if (index === activeScreenIndex) {
 			onChangeTitle(title)
 		}
-	}, [activeScreenIndex])
+	}, [activeScreenIndex, index, onChangeTitle, title])
 
 	if (activeScreenIndex !== index) {
 		return null

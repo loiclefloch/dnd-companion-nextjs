@@ -1,4 +1,5 @@
 import Link from "next/link"
+import useI18n from "../../modules/i18n/useI18n"
 import Button from "../Button"
 import useCopyToClipboard from "../useCopyToClipboard"
 import useAddFlashMessage from "../useAddFlashMessage"
@@ -21,11 +22,11 @@ function Finalize({
 			<div mt="mt-2"></div>
 
 			<h4 className="text-center">
-				Il ne vous reste plus qu'à cliquer sur le bouton ci-dessous pour finaliser.
+				{`Il ne vous reste plus qu'à cliquer sur le bouton ci-dessous pour finaliser.`}
 			</h4>
 
 			<div className="flex flex-col gap-8 mt-16">
-				<Link href={`/character/levelling`}>
+				<Link href={`/character/levelling`} passHref>
 					<Button variant="outlined" color="warning">
 						Mettre en pause ma montée de niveau
 					</Button>

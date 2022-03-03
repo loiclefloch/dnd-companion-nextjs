@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from "next/image"
 import clsx from "clsx"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
@@ -17,7 +18,7 @@ function GalleryFullScreenAsModal({ title, images, currentImage, onCloseScreen }
 					className='absolute top-0 bottom-0 left-0 w-1/5'
 				>
 				</div>
-				<img src={image.url} className='w-full' alt={image.label} />
+				<Image src={image.url} className='w-full' alt={image.label} />
 				<div
 					onClick={() => {
 						const index = images.findIndex(imageData => imageData.url === image.url)

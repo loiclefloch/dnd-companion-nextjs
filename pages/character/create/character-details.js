@@ -28,8 +28,8 @@ const defaultData = {
 
 function FormControl({ label, id, children }) {
 	return (
-		<div class="mb-4">
-			<label class="block text-gray-700 text-sm font-bold mb-2" for={id}>
+		<div className="mb-4">
+			<label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={id}>
 				{label}
 			</label>
 			{children}

@@ -1,4 +1,5 @@
 import { useState, useRef } from "react"
+import useI18n from "../modules/i18n/useI18n"
 import ClickAwayListener from 'react-click-away-listener'
 import isEmpty from "lodash/isEmpty"
 import IconClock from "./icons/IconClock"
@@ -59,7 +60,7 @@ function InputSearch({ searchHistory, onRemoveHistoryQuery, className, term, onC
 						<div className="divide divide-y px-4 bg-white shadow-lg rounded-b-md pt-1">
 							{isEmpty(searchHistory) ? (
 								<div className="py-2">
-									Pas d'historique
+									{`Pas d'historique`}
 								</div>
 							) : (
 								searchHistory.map((query, index) => (

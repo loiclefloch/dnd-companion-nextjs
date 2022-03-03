@@ -17,7 +17,7 @@ function FeatRow({ feat }) {
   const { tr } = useI18n();
 
   return (
-    <Link href={`/feat/${feat.index}`}>
+    <Link href={`/feat/${feat.index}`} passHref>
       <div
         // onClick={onSelect}
         className={`relative cursor-pointer border-b border-solid border-slate-100 py-1  pl-3 dark:border-gray-50 prose`}
@@ -47,7 +47,7 @@ function Feats({ character }) {
 			feats = filterFeatsForCharacter(feats, character)
 		}
 		return sortBy(feats, ['background', 'class', 'level', 'name'])
-  }, [featsResponse.data]);
+  }, [character, featsResponse.data]);
 
   const {
     searchHistory,

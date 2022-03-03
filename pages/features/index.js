@@ -13,7 +13,7 @@ function FeatureRow({ feature }) {
   const href = `/features/${feature.index}`;
 
   return (
-    <Link href={href}>
+    <Link href={href} passHref>
       <div
         // onClick={onSelect}
         className={`relative cursor-pointer border-b border-solid border-slate-100 py-1  pl-3 dark:border-gray-50`}

@@ -51,7 +51,7 @@ export function FeatPrerequisites({ feat }) {
 			{feat.forAbilityScore && (
 				feat.prerequisites.map((p, index) => (
 					<Tag key={index} size="small" className="border border-slate-600 text-slate-600">
-						{p.abilityScore.name} >= {p.minimumScore}
+						{p.abilityScore.name} {`>=`} {p.minimumScore}
 					</Tag>
 				))
 			)}
@@ -94,7 +94,7 @@ function CharacterData({ feat, character }) {
 					<h3 className="prose">{tr`spells.title`}</h3>
 					<LineInfo.Parent>
 						{spells.map(spell => (
-							<LineInfo index={spell.index} label={tr(spell.nameLocalized)} />
+							<LineInfo key={spell.index} index={spell.index} label={tr(spell.nameLocalized)} />
 						))}
 					</LineInfo.Parent>
 				</div>
@@ -105,7 +105,7 @@ function CharacterData({ feat, character }) {
 					<h3 className="prose">{tr`features.title`}</h3>
 					<LineInfo.Parent>
 						{features.map(feature => (
-							<LineInfo index={feature.index} label={feature.index} />
+							<LineInfo key={feature.index} index={feature.index} label={feature.index} />
 						))}
 					</LineInfo.Parent>
 				</div>
@@ -117,6 +117,7 @@ function CharacterData({ feat, character }) {
 					<LineInfo.Parent>
 						{statsBonuses.map(statBonus => (
 							<LineInfo 
+								key={statBonus.index} 
 								index={statBonus.index} 
 								label={statBonus.ability} 
 								value={`+${statBonus.bonus}`} 

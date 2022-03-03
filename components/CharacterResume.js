@@ -173,7 +173,7 @@ export function BackgroundSection({ character }) {
 	return (
 		<Section title={tr(`background.title`, { backgroundName: background.name })}>
 			<div className="px-4">
-				<Link href={`/background/${background.index}`}>
+				<Link href={`/background/${background.index}`} passHref>
 					<span className="text-link">{tr`link to background`}</span>
 				</Link>
 			</div>
@@ -475,7 +475,7 @@ function CharacterResume({ character }) {
 			</div>
 
 			<div>
-				// TODO: if need to choose spells add a tip to how choose them
+				{/* // TODO: if need to choose spells add a tip to how choose them */}
 			</div>
 		</div>
 	)

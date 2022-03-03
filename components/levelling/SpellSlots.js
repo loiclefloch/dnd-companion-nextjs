@@ -1,13 +1,45 @@
 import ButtonBottomScreen from "../ButtonBottomScreen"
+import { makeI18n } from "../../modules/i18n/useI18n"
 import { actionLevellingLevelSlots } from "./action"
+
+const useI18n = makeI18n({
+	'hasNoMagic': {
+		// TODO: better text
+		fr: `Vous n'avez pas accès à la magie`,
+		en: `You do not have access to magic`,
+	},
+	'cantripsKnown': {
+		fr: `Cantrips connus`,
+		en: `Cantrips known`,
+	},
+	'spellsKnown': {
+		fr: `Nombre total de sorts connus`,
+		en: `Total spell known`,
+	},
+	'slots.title': {
+		fr: `Slots de sorts`,
+		en: `Spells slots`,
+	},
+	'level': {
+		fr: `Niveau`,
+		en: `Level`,
+	},
+'slots': {
+	fr: `Slots`,
+	en: `Slots`,
+},
+'learnSpell.explain': {
+	fr: `Vous pourrez apprendre de nouveaux sorts depuis la liste des sorts, une fois votre montée de niveau terminée.`,
+	en: `You will be able to learn new spells from the list of spells, once you have increased your level completed.`,
+},
+})
 
 function Content({ spellsSlots, levellingData })  {
 	
 	if (!levellingData.spellcasting.hasMagic) {
-		// TODO: better text
 		return (
 			<div className="px-4 mt-8 text-center">
-				Vous n'avez pas accès à la magie
+				{tr`hasNoMagic`}
 			</div>
 		)
 	}
@@ -22,13 +54,13 @@ function Content({ spellsSlots, levellingData })  {
 					*/}
 					{levellingData.spellcasting.cantripsKnown > 0 && (
 						<tr>
-							<td className="text-sm font-semibold">Cantrips known</td>
+							<td className="text-sm font-semibold">{tr`cantripsKnown`}</td>
 							<td>{levellingData.spellcasting.cantripsKnown}</td>
 						</tr>
 					)}
 					{levellingData.spellcasting.spellsKnown > 0 && (
 						<tr>
-							<td className="text-sm font-semibold">Total spell known</td>
+							<td className="text-sm font-semibold"></td>
 							<td>{levellingData.spellcasting.spellsKnown}</td>
 						</tr>
 					)}
@@ -37,12 +69,12 @@ function Content({ spellsSlots, levellingData })  {
 				{/* TODO: if new spell slots: message */}
 			</table>
 
-			<h3>Slots de sorts</h3>
+			<h3>{tr`slots.title`}</h3>
 			
 			<table className="mt-2">
 				<thead>
 					<tr>
-						<th className="text-sm font-semibold">Level</th>
+						<th className="text-sm font-semibold">{tr`level`}</th>
 						{spellsSlots.filter(slot => slot.spellLevel !== 0).map(slot => (
 							<th key={slot.spellLevel} className="w-8 font-semibold text-center">
 								{slot.spellLevel}
@@ -53,7 +85,7 @@ function Content({ spellsSlots, levellingData })  {
 
 				<tbody>
 					<tr>
-						<th className="text-sm font-semibold">Slots</th>
+						<th className="text-sm font-semibold">{tr`slots`}</th>
 						{spellsSlots.filter(slot => slot.spellLevel !== 0).map(slot => (
 							<td key={slot.spellLevel} className="text-center">
 								{slot.totalSlots}
@@ -65,8 +97,7 @@ function Content({ spellsSlots, levellingData })  {
 			</table>
 
 			<p className="mt-12 prose">
-				Vous pourrez apprendre de nouveaux sorts depuis la liste des sorts, une fois votre montée de
-				niveau terminée.
+				{tr`learnSpell.explain`}
 			</p>
 
 		</div>
@@ -74,6 +105,7 @@ function Content({ spellsSlots, levellingData })  {
 }
 
 function StepSpellSlots({ spellsSlots, levellingData, step, levellingDispatch }) {
+	const { tr } = useI18n()
 	return (
 		<> 
 			<Content spellsSlots={spellsSlots} levellingData={levellingData} />
@@ -84,7 +116,7 @@ function StepSpellSlots({ spellsSlots, levellingData, step, levellingDispatch })
 					levellingDispatch(actionLevellingLevelSlots({ step, spellsSlots }))
 				}}
 			>
-				Continuer
+				{tr`continue.action`}
 			</ButtonBottomScreen>
 		</>
 	)

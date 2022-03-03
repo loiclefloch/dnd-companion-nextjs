@@ -30,7 +30,7 @@ function CurrentCharacterView() {
     return (
       <div className="px-4 py-2">
         <h3 className="prose">{tr`title.myCharacter`}</h3>       
-        <Link href={`/characters`}>
+        <Link href={`/characters`} passHref>
           <Button variant="outlined" className="mt-2">
            {tr`select character`} 
           </Button>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from "next/image"
 import ScreenAsModal from "./screenAsModal/ScreenAsModal"
 import useScreenAsModal from "./screenAsModal/useScreenAsModal"
 
@@ -6,7 +7,7 @@ function ImageFullScreenAsModal({ alt, src, onCloseScreen }) {
 	return (
 		<ScreenAsModal title={alt} onCloseScreen={onCloseScreen}>
 			<div className='flex items-center content-center flex-1 h-full'>
-				<img src={src} className='w-full' alt={alt} />
+				<Image src={src} className='w-full' alt={alt} />
 			</div>
 		</ScreenAsModal>
 	)

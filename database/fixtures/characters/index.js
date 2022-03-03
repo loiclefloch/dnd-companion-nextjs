@@ -9,7 +9,7 @@ import bardLevel2 from "./bard_level_2.json"
 import bardLevel3 from "./bard_level_3.json"
 import ylvir from "./ylvir.json"
 
-export default [
+const characters = [
 	bardLevel1,
 	bardLevel2,
 	bardLevel3,
@@ -21,3 +21,4 @@ export default [
 	druidLevel3,
 	ylvir,
 ]
+export default characters

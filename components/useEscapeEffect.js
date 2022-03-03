@@ -12,7 +12,7 @@ function useEscapeEffect(onEscape) {
 		return () => {
 			window.removeEventListener('keydown', handleEsc);
 		};
-	}, []);
+	}, [onEscape]);
 }
 
 export default useEscapeEffect

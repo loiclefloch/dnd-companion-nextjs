@@ -59,7 +59,7 @@ function Spell({ spell, filters, character /*onSelect*/ }) {
   // TODO: if context character has the spell -> style with star / background
 
   return (
-    <Link href={isContextCharacter ? `/character/spells/${spell.index}` : `/spells/${spell.index}`}>
+    <Link href={isContextCharacter ? `/character/spells/${spell.index}` : `/spells/${spell.index}`} passHref>
       <div
         // onClick={onSelect}
         className={`cursor-pointer py-1 border-b border-slate-100 dark:border-gray-50 border-solid  relative`}
@@ -121,7 +121,7 @@ function Spells({ contextCharacter }) {
     defaultFilters
   )
 
-  const filteredSpells = useMemo(() => filterSpells(spellsResponse.data, lang), [spellsResponse.data, lang])
+  const filteredSpells = useMemo(() => filterSpells(spellsResponse.data, lang), [filterSpells, spellsResponse.data, lang])
 
   useEffect(() => {
     if (contextCharacter) {

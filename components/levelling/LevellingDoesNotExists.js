@@ -1,4 +1,5 @@
 import { actionLevellingNext } from "./action"
+import useI18n from "../../modules/i18n/useI18n"
 
 import ButtonBottomScreen from "../../components/ButtonBottomScreen"
 
@@ -14,22 +15,22 @@ function LevellingDoesNotExists({ step, levellingDispatch }) {
 			<p>
 				{step.type === 'level-does-not-exists-for-level-for-race' && 
 					<span>
-						La montée de niveau n'est pas terminé pour la race {step.race} et le niveau {step.level}
+						{`La montée de niveau n'est pas terminé pour la race ${step.race} et le niveau ${step.level}`}
 					</span>
 				}
 				{step.type === 'level-does-not-exists-for-race' && 
 					<span>
-						La montée de niveau n'est pas terminé pour la race {step.race}
+						{`La montée de niveau n'est pas terminé pour la race ${step.race}`}
 					</span>
 				}
 				{step.type === 'level-does-not-exists-for-level-for-class' && 
 					<span>
-						La montée de niveau n'est pas terminé pour la class {step.clss} et le niveau {step.level}
+						{`La montée de niveau n'est pas terminé pour la class ${step.clss} et le niveau ${step.level}`}
 					</span>
 				}
 				{step.type === 'level-does-not-exists-for-class' && 
 					<span>
-						La montée de niveau n'est pas terminé pour la class {step.clss}
+						{`La montée de niveau n'est pas terminé pour la class ${step.clss}`}
 					</span>
 				}
 			</p>

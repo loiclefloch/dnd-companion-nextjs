@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router'
 
-const isBrowser = typeof window !== "undefined";
-
 function useBeforePopState(cb) {
   const router = useRouter()
 
   useEffect(() => {
+		const isBrowser = typeof window !== "undefined";
 		if (isBrowser) {
 			router.beforePopState(() => {
 				const allowRedirect = cb()
@@ -19,7 +18,7 @@ function useBeforePopState(cb) {
 				return true
 			})
 		}
-  }, [ history ])
+  }, [ cb, router ])
 
   return {
   }

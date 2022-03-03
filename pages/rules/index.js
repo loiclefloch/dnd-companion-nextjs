@@ -22,7 +22,7 @@ function RuleSection({ title, subItems }) {
 function SubItem({ title, href }) {
 	return (
 		<div key={href} className="pl-4 py-2 hover:bg-black/20">
-			<Link href={href}>
+			<Link href={href} passHref>
 				<div>{title}</div>
 			</Link>
 		</div>

@@ -54,7 +54,7 @@ function Form({ race, backgroundLanguagesOptions, updateCharacter }) {
 							
 							<ul className="list-disc">
 								{race.languages.map(language => (
-									<li onClick={() => showTipLanguage(language.index)}>{tr(language.name)}</li>
+									<li key={language.index} onClick={() => showTipLanguage(language.index)}>{tr(language.name)}</li>
 								))}
 							</ul>
 						</div>

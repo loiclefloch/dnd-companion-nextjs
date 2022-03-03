@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useI18n from "../modules/i18n/useI18n"
 import clsx from "clsx";
 import { existsOnArray } from '../modules/utils/array'
 import ListSelector from "./ListSelector";
@@ -186,7 +187,7 @@ function ClassEquipmentOption({ parentIndex, index, option, character, chosenIte
 		<div className="mb-4">
 			{!isSubOption &&
 				<h4 className="border-b border-solid border-slate-300">
-					Option d'équipment {index + 1}
+					{`Option d'équipment ${index + 1}`}
 					{!option.hasSubChoice &&
 						<span> - {option.from.equipmentCategory?.name}</span>
 					}
@@ -253,8 +254,7 @@ function EquipmentOptionsChooser({ chosenItems, prefix, character, setChosenItem
 	)
 }
 
-
-EquipmentOptionsChooser.Demo = ({ prefix, character, options }) => {
+function Demo({ prefix, character, options }) {
 	const [chosenItems, _setChosenItems] = useState({})
 
 	function setChosenItems(key, items) {
@@ -275,5 +275,6 @@ EquipmentOptionsChooser.Demo = ({ prefix, character, options }) => {
 	)
 }
 
+EquipmentOptionsChooser.Demo = Demo
 
 export default EquipmentOptionsChooser

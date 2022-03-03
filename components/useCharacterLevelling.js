@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/router";
 import { LevellingStorage, BackupStorage } from "../modules/db"
 import { useMemo } from "react"
@@ -19,10 +19,10 @@ function useCharacterLevelling() {
 
 	const [ levellingState, setLevellingState] = useState(initialState())
 
-  const updateLevellingState = (levellingState) => {
+  const updateLevellingState = useEffect((levellingState) => {
     LevellingStorage.setItem(levellingState)
     setLevellingState(levellingState)
-	}
+	}, [setLevellingState ])
 
   //
   //
@@ -55,7 +55,7 @@ function useCharacterLevelling() {
         spellsSlots,
 			}
 		}
-	}, [character, rawCharacter])
+	}, [character])
 
   function levellingDispatch (action) {
     const currentStep = router.query.step
@@ -116,14 +116,14 @@ function useCharacterLevelling() {
     return character
   }
 
-  function clearStepLevellingState(step) {
+  const clearStepLevellingState = useEffect((step) => {
     const nextLevellingState = deleteObjectOnArray(
       levellingState, 
       s => s.step.name === step.name
     )
 
     updateLevellingState(nextLevellingState)
-  }
+  }, [levellingState, updateLevellingState])
 
 	const context = {
     ...levellingContextData,

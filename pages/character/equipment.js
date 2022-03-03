@@ -91,14 +91,14 @@ function Character() {
 			{character && character.hasNoEquipment && (
 				<div className="px-4">
 					<p className="mt-12 text-center">
-						Vous n'avez pas d'équipment.
+						{`Vous n'avez pas d'équipment.`}
 					</p>
 					<Button 
 						variant="outlined"
 						className="mt-12"
 						onClick={onShowChooseEquipmentModal}
 					>
-						Ajouter de l'équipment
+						{`Ajouter de l'équipment`}
 					</Button>
 				</div>
 			)}

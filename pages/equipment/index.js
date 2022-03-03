@@ -24,7 +24,7 @@ function ItemRow({ item }) {
 			<div className="pl-1">
 				<div className="flex flex-row">
 					<div className="flex flex-col flex-1">
-						<Link href={item.isMagicItem ? `/magic-item/${item.index}` : `/equipment/${item.index}`}>
+						<Link href={item.isMagicItem ? `/magic-item/${item.index}` : `/equipment/${item.index}`} passHref>
 							<span className="flex flex-row items-center font-semibold">
 								<span>{tr(item.nameLocalized)}</span>
 							</span>

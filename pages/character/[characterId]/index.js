@@ -149,7 +149,7 @@ function Character() {
 		if (character && (!currentCharacter || character?.id !== currentCharacter?.id)) {
 			setCurrentCharacter(character.id)
 		}
-	}, [character])
+	}, [character, setCurrentCharacter, currentCharacter])
 
 	return (
 		<Screen

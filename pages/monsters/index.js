@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
 import { FilterType, getMonsterFiltersMatchingData } from "../../modules/monsters/monstersFilter"
@@ -43,14 +44,14 @@ function Monster({ monster, filters, /*onSelect*/ }) {
 	// TODO: isLegendary
 
   return (
-    <Link href={`/monsters/${monster.index}`}>
+    <Link href={`/monsters/${monster.index}`} passHref>
       <div
         // onClick={onSelect}
         className={clsx("cursor-pointer py-4 p-4 border-b border-slate-100 dark:border-gray-50 border-solid flex")}
       >
 				<div className="flex items-center w-1/6">
 					{monster.imageUrl && (
-						<img src={monster.imageUrl} className="w-full"/>
+						<Image src={monster.imageUrl} alt={tr(monster.nameLocalized)} className="w-full" />
 					)}
 				</div>
 				<div className="w-5/6 ml-4">

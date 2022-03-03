@@ -7,6 +7,7 @@ import ScreenIntroduction from '../../../../components/ScreenIntroduction';
 import ButtonBottomScreen from "../../../../components/ButtonBottomScreen";
 import useCreateCharacter from '../../../../components/useCreateCharacter';
 import ListSelector from '../../../../components/ListSelector';
+import AbilityImportanceForClass from "../../../../components/AbilityImportanceForClass";
 
 function getBaseStats(baseStats, statsBonuses) {
 	const stats = { ...baseStats }

@@ -121,6 +121,7 @@ function SpellOptions({
 				// const isValid = spellIsValid(spellOption, value)
 				return (
 					<Section 
+						key={index}
 						screen={index}
 						title={`Choix de sort ${index + 1}`}
 						withToggle
@@ -258,6 +259,7 @@ function FeaturesOptions({
 				// const isValid = featureIsValid(featureOption, value)
 				return (
 					<Section
+						key={index}
 						screen={index}
 						title={`Choix de la capacité ${index + 1}`}
 						withToggle
@@ -521,10 +523,11 @@ export function FeatSelector({ selectedFeat, setSelectedFeat, character }) {
 	const { tr } = useI18n()
 	const featsResponse = useFeats()
 	const { showFeatScreenAsModal } = useFeatScreenAsModal()
+
 	const feats = useMemo(() => filterFeatsForCharacter(featsResponse.data, character)
 		// TODO: only on dev
 		.filter(f => process.env.NODE_ENV !== 'development' ? true : ['alert', 'fey-touched', 'linguist', 'fighting-initiate'].includes(f.index)),
-		[feats, character]
+		[character, featsResponse.data]
 	)
 
 	/* TODO: learn more */

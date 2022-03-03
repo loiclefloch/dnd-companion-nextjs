@@ -51,7 +51,7 @@ function Item({ label, href, route, onClick }) {
 	const selected = router.asPath === href
 
 	return (
-		<Link href={href}>
+		<Link href={href} passHref>
 			<div
 				onClick={onClick}
 				className={clsx("w-full py-2 text-lg text-center text-gray-600 border-solid",
@@ -133,7 +133,7 @@ function CharacterMenu({ open }) {
 			>
 				<IconD8 className="w-8 h-8 text-gray-700" />
 			</button>
-			<Link href="/characters">
+			<Link href="/characters" passHref>
 				<div
 					className="absolute right-0 px-2 pt-2"
 					onClick={() => hideCharacterMenu()}

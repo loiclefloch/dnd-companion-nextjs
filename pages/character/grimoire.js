@@ -34,7 +34,7 @@ function Spell({ spell, character /*onSelect*/ }) {
 			<div className="pl-3">
 				<div className="flex flex-row">
 					<div className="flex flex-col flex-1">
-						<Link href={`/character/spells/${spell.index}`}>
+						<Link href={`/character/spells/${spell.index}`} passHref>
 							<span className="flex flex-row items-center font-semibold">
 								{/* <IconMagicSchool
               school={spell.school.name}
@@ -103,7 +103,7 @@ function Spell({ spell, character /*onSelect*/ }) {
 					<CharacterSpellSource character={character} spell={spell} />
 				</div>
 
-				<Link href={`/character/spells/${spell.index}`}>
+				<Link href={`/character/spells/${spell.index}`} passHref>
 					<p className="pt-2 pr-2 text-sm">{tr(spell.resume)}</p>
 				</Link>
 			</div>
@@ -201,7 +201,7 @@ function Grimoire() {
 					{isEmpty(character?.spellsList) && (
 						<div className="px-4 mt-12">
 							<p className="prose text-center text-lg">
-								Vous n'avez pas encore appris de sorts.
+								{`Vous n'avez pas encore appris de sorts.`}
 								<br />
 								Retrouvez les sorts disponibles dans la <Link href="/character/spells">liste des sorts</Link>.
 							</p>

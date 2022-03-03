@@ -40,7 +40,7 @@ function Score({ step, character, levellingDispatch }) {
 
 	return (
 		<>
-			<p>Ici vous pouvez choisir d'augmenter une capacité de deux points, ou deux capacités d'un point</p>
+			<p>{`Ici vous pouvez choisir d'augmenter une capacité de deux points, ou deux capacités d'un point`}</p>
 
 			<AbilityScoreChooser
 				clss={character.classes[0].index}
@@ -99,7 +99,7 @@ function Feat({ step, character, levellingDispatch }) {
 
 function AbilityScoreImprovement({ levellingData, getFormattedBuildedCharacter, step, levellingDispatch, clearStepLevellingState }) {
 	const character = getFormattedBuildedCharacter()
-	useEffect(() => clearStepLevellingState(step), [])
+	useEffect(() => clearStepLevellingState(step), [clearStepLevellingState, step])
 
 	return (
 		<div className="prose mt-8 mx-4">
