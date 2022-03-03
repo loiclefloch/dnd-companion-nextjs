@@ -55,8 +55,6 @@ function Form() {
 		})
 	}
 
-	console.log({ chosenItems })
-
 	if (!background) {
 		return null
 	}

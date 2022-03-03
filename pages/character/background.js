@@ -1,6 +1,4 @@
-import Link from "next/link"
 import { makeI18n } from "../../modules/i18n/useI18n"
-import { useRouter } from "next/router"
 import Screen from "../../components/Screen"
 import useCurrentCharacter from "../../components/useCurrentCharacter"
 import CharacterResume from "../../components/CharacterResume"
@@ -22,11 +20,12 @@ const useI18n = makeI18n({
 })
 
 function Background() {
+	const { tr } = useI18n()
 	const { character, rawCharacter } = useCurrentCharacter()
 
 	return (
 		<Screen
-			title={tr('screen.title', { 'character.name': character.name })}
+			title={tr('screen.title', { 'character.name': character?.name })}
 			// titleIcon={<IconBriefcase className="w-6 h-6" />}
 			root
 			withCharacterMenu

@@ -7,6 +7,7 @@ import ButtonBottomScreen from '../../../../components/ButtonBottomScreen';
 import useCreateCharacter from '../../../../components/useCreateCharacter';
 
 function Form({ clss }) {
+	const { tr } = useI18n()
 	const { updateCharacter } = useCreateCharacter()
 
 	return (
@@ -25,7 +26,7 @@ function Form({ clss }) {
 					updateCharacter({ classes: [ clss.index ], step: 'choose-class' })
 				}}
 			>
-				Choisir
+				{tr`choose.action`}
 			</ButtonBottomScreen>
 		</div>
 	)

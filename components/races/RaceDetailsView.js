@@ -2,7 +2,7 @@ import { createElement } from "react"
 
 import LineInfo from "../LineInfo"
 import Section from "../Section"
-import useI18n, { makeI18n } from "../../modules/i18n/useI18n"
+import { makeI18n } from "../../modules/i18n/useI18n"
 import useTipProficiency from "../useTipProficiency"
 import useTipLanguage from "../useTipLanguage"
 import useTipAbilityScore from "../useTipAbilityScore"

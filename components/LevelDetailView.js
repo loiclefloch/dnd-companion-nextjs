@@ -8,7 +8,7 @@ import useFeature from "../modules/api/useFeature"
 import useFeatureScreenAsModal from "./useFeatureScreenAsModal"
 import LevellingDetail from "./levellingDetail/LevellingDetail"
 
-const i18n = makeI18n({
+const useI18n = makeI18n({
 	'description': {
 		fr: 'Retrouvez le détail du niveau %{level} pour les %{clss.name}',
 		en: 'Find out details about level %{level} for %{clss.name}',
@@ -52,6 +52,7 @@ function Feature({ index }) {
 }
 
 function FeaturesLevelData({ classes, level }) {
+	const { tr } = useI18n()
 	const levellingData = getLevellingDataForClassesAndLevel(classes, level)
 
 	if (isEmpty(levellingData.features)) {

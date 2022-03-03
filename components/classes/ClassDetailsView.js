@@ -11,6 +11,7 @@ import Druid from "./Druid.mdx"
 
 // TODO:
 function Content({ clss, hideStartingEquipmentOptions }) {
+	const { tr } = useI18n()
 	const { showTipProficiency } = useTipProficiency()
 	const { showTipAbilityScore } = useTipAbilityScore()
 	const { showEquipmentItemScreenAsModal } = useEquipmentItemScreenAsModal()

@@ -266,7 +266,7 @@ function extractSrdMonsters() {
 
 function main() {
   const monsters = tkfuMonsters.map(transform);
-  console.log(JSON.stringify(monsters, null, 2));
+  // console.log(JSON.stringify(monsters, null, 2));
 
   // console.warn(JSON.stringify(Object.keys(keys), null, 2));
 }

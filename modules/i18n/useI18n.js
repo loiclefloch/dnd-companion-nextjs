@@ -24,6 +24,10 @@ const globalTranslations = {
     fr: `Fermer`,
     en: `Close`,
   },
+  'choose.action': {
+    fr: `Choisir`,
+    en: `Choose`,
+  },
   'continue.action': {
     fr: `Continuer`,
     en: `Continue`,
@@ -247,7 +251,7 @@ function buildUseI18n(translationsParam) {
         return ""
       }
       if (isNil(translated)) {
-        console.log("Missing tr for ", obj)
+        // console.log("Missing tr for ", obj)
         return null
       }
       if (isArray(translated)) {

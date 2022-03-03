@@ -15,7 +15,6 @@ function KoView({ character, characterDispatch }) {
 }
 
 function LifeScreenAsModal({ character, characterDispatch, onCloseScreen }) {
-	const { tr } = useI18n()
 	const [hpToModify, _setHpToModify] = useState(0)
 	const [hpToModifyInput, setHpToModifyInput] = useState(0)
 

@@ -585,7 +585,7 @@ let diceHistory = [
 
 function _setDiceHistory(_diceHistory) {
 	diceHistory = _diceHistory
-	console.log(diceHistory)
+	// console.log(diceHistory)
 }
 
 function useDiceHistory() {

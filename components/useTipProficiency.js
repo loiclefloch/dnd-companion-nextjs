@@ -7,6 +7,7 @@ const useI18n = makeI18n({
 		en: `Proeficient in %{proficiency.name}`,
 	},
 })
+
 function useTipProficiency() {
 	const { showInfoModal } = useModal()
 	const { tr } = useI18n()

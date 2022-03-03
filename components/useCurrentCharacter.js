@@ -69,7 +69,7 @@ export function CurrentCharacterProvider({ children }) {
 			// call setCurrentCharacter ?
 		},
 		characterDispatch: (action) => {
-			console.log(`dispatch ${action.type}`)
+			// console.log(`dispatch ${action.type}`)
 			const nextState = produce(currentCharacter, draftState => {
 				// TODO: on character creation
 				if (!draftState.spellsList) {

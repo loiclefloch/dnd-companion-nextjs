@@ -65,8 +65,8 @@ function useCharacterLevelling() {
     const currentStepIndex = steps.findIndex(s => currentStep === s.name)
     const nextStep = steps[currentStepIndex + 1]
 
-    console.info({ currentStep, nextStep })
-    console.log(`dispatch ${action.type}`)
+    // console.info({ currentStep, nextStep })
+    // console.log(`dispatch ${action.type}`)
 
     const stepLevellingState = action.apply({
       levellingState,

@@ -20,7 +20,7 @@ function createCharacterReducer(state, action) {
   switch (action.type) {
     case 'update': {
       const updated = { ...state, ...action.data }
-      console.info(updated)
+      // console.info(updated)
       return updated
     }
     default: {
@@ -203,10 +203,10 @@ export function CreateCharacterProvider({ children }) {
       const nextStep = getNextStep(currentStep)
       const nextStepUrl = getStepUrl(nextStep)
 
-      console.info({ currentStep, nextStep, url: nextStepUrl })
+      // console.info({ currentStep, nextStep, url: nextStepUrl })
 
       if (nextStepUrl) {
-        console.log({ nextStepUrl })
+        // console.log({ nextStepUrl })
         router.push(nextStepUrl)
       }
 
@@ -241,7 +241,7 @@ export function CreateCharacterProvider({ children }) {
 function useCreateCharacter() {
   const context = useContext(CreateCharacterContext)
 
-  console.info(context.character)
+  // console.info(context.character)
 
   if (context === undefined) {
     throw new Error('useCreateCharacter must be used within a CreateCharacterProvider')

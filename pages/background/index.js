@@ -28,6 +28,7 @@ function BackgroundRow({ background }) {
 }
 
 function Backgrounds() {
+	const { tr } = useI18n()
 	const backgroundsResponse = useBackgrounds()
 
   return (

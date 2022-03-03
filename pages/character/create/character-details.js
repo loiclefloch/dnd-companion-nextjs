@@ -55,8 +55,6 @@ function Form({ clss }) {
 	const { character, updateCharacter } = useCreateCharacter()
 	const [body, setBody] = useState({ ...character.body })
 
-	console.table(body)
-
 	const update = (key, type = 'text') => e => {
 		setBody({
 			...body,

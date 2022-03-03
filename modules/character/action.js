@@ -59,7 +59,7 @@ export function actionCastSpell(spell, spellLevel) {
 	return {
 		type: 'actionCastSpell',
 		apply: (character, formattedCharacter) => {
-			console.info({ spell, spellLevel })
+			// console.info({ spell, spellLevel })
 			character.spellsUsed = character.spellsUsed || []
 			character.spellsUsed.push({ spell: spell.index, spellLevel })
 
@@ -71,8 +71,6 @@ export function actionCastSpell(spell, spellLevel) {
 					formattedCharacter.level
 				)
 			}
-			const a = character.spellsSlots
-			console.log({ a })
 			
 			const spellSlot = character.spellsSlots.find(spellSlot => spellSlot.spellLevel === spellLevel)
 			spellSlot.usedSlots = (spellSlot.usedSlots || 0) + 1

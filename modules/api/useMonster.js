@@ -14,7 +14,7 @@ function formatMonster(monster) {
   }
 
   monster.hpDice = monster.hp.match(/\((.*)\)/)[1].replaceAll(' ', '')
-  console.log({ hpDice: monster.hpDice })
+  // console.log({ hpDice: monster.hpDice })
 
   return monster
 }

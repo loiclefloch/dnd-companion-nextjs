@@ -290,7 +290,7 @@ function main() {
   const spells = base
     // .filter((spell) => spell.index === "aid")
     .map(transform);
-  console.log(JSON.stringify(spells, null, 2));
+  // console.log(JSON.stringify(spells, null, 2));
 }
 
 main();

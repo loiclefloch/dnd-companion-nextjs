@@ -164,7 +164,7 @@ export function actionLevellingAbilityScoreImprovementFeat({
 									})
 								})
 							})
-							console.log({spellsList: character.spellsList })
+							// console.log({spellsList: character.spellsList })
 							break
 
 						case 'featuresOptions':
