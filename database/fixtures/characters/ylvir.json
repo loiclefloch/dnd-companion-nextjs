@@ -68,19 +68,19 @@
     }
   ],
   "baseStats": {
-    "STR": 15,
-    "DEX": 14,
-    "CON": 12,
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
     "INT": 12,
-    "WIS": 10,
+    "WIS": 16,
     "CHA": 8
   },
   "levelling": {
-    "xp": 10000,
+    "xp": 14000,
     "history": [
       {
         "id": "a6ca244c-92cd-4b2c-9230-95dd507fbcf0",
-        "label": "Level up",
+        "label": "Level up to 6",
         "amount": 10000
       }
     ]
@@ -339,13 +339,15 @@
   "maximumHitDice": 9,
   "currentHitDice": 9,
   "skillsProficiencies": [
-    "perception",
+    "arcana",
     "history",
-    "arcana"
+    "nature",
+    "perception",
+    "survival"
   ],
   "maxHp": "987",
   "subclass": {
-    "index": "devotion"
+    "index": "land"
   },
   "spellsSlots": [
     {
