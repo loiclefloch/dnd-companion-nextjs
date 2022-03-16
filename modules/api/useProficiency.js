@@ -5,6 +5,9 @@ export function formatProficiency(proficiency) {
 	const data = proficiencies.find(p => p.index === proficiency.index)
 
 	const isSkill = data.type === "Skills"
+
+	const skillIndex = isSkill && proficiency?.index?.replaceAll ? proficiency.index.replaceAll("skill-", "") : proficiency?.index
+
 	return {
 		...proficiency,
 		isSkill,
@@ -13,7 +16,7 @@ export function formatProficiency(proficiency) {
 		type: data.type.toLowerCase(),
 		skill: isSkill 
 			// proficiency.index.replaceAll && to fix build on vercel
-			&& skills.find(s => s.index === proficiency?.index?.replaceAll ? proficiency.index.replaceAll("skill-", "") : proficiency?.index),
-		skillIndex: isSkill && proficiency.index.replaceAll("skill-", ""),
+			&& skills.find(s => s.index === skillIndex),
+		skillIndex,
 	}
 }
