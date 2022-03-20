@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 import Fuse from "fuse.js"
 import { add, debounce, isEmpty } from "lodash";
 import useStorageState from "./useStorageState"
@@ -43,7 +43,7 @@ function useLocalSearch(searchType, { data = [], options }) {
   const [searchHistory, setSearchHistory] = useStorageState(`search_history_${searchType}`, [])
   const [results, setResults] = useState(data?.map(toSearchResult))
 
-  const debounced = debounce((term, data, options) => {
+  const debounced = useRef(debounce((term, data, options) => {
 		const fuseOptions = {
       threshold: options.thresold || 0.2,
       ...options,
@@ -59,9 +59,9 @@ function useLocalSearch(searchType, { data = [], options }) {
     } else {
       setResults(results.filter(Boolean))
     }
-	}, 1000)
+	}, 1000))
 
-	const calculateResults = useCallback(debounced, [debounced])
+	const calculateResults = useCallback((term, data, options) => debounced.current(term, data, options), [debounced])
 
   const onRemoveHistoryQuery = useCallback((query) => {
     setSearchHistory(searchHistory.filter(q => q !== query))
