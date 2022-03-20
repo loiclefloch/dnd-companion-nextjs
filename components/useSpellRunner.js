@@ -70,6 +70,10 @@ const useI18n = makeI18n({
 		en: "The dice are for a level above the character spell maximum level",
 		fr: "Les dés sont pour niveau supérieur à votre maximum",
 	}, 
+	'no action spell': {
+		fr: `Aucun lancé de dé requis`,
+		en: `No dice throw required`,
+	},
 })
 
 function Button({ label, onClick }) {
@@ -119,6 +123,7 @@ function Warn({ show, message }) {
 }
 
 function RunnerBlock({ dice, contextCharacter, spellLevel, chooser, message, onRun }) {
+	const { tr } = useI18n()
 	const spellSlot = contextCharacter?.spellsSlots?.find(spell => spell.level === spellLevel)
 	
 	const remainingSlots = contextCharacter && spellSlot && spellSlot.remainingSlots || 0
@@ -147,7 +152,7 @@ function RunnerBlock({ dice, contextCharacter, spellLevel, chooser, message, onR
 				</div>
 
 				<div className="justify-end mb-0 text-center">
-					{spellLevel !== 0 ? (
+					{spellLevel !== 0 && spellLevel ? (
 						<>
 							<p>{tr('will use slot of spell level', { spellLevel })}</p>
 							{contextCharacter &&
@@ -434,7 +439,16 @@ function SpellRun({ contextCharacter, spell, options, onRun }) {
 
 	if (!contextCharacter) {
 		// display nothing since there is no dice to run, only character spell slots to impact
-		return null
+		return (
+		<div className="mt-8">
+				<div className="text-center">
+					{tr('no action spell')}
+				</div>
+				<div className="p-4">
+					{tr(spell.resume)}
+				</div>
+		</div>
+		)
 	}
 
 	return (

@@ -68,10 +68,11 @@ function useLocalSearch(searchType, { data = [], options }) {
   }, [searchHistory, setSearchHistory])
 
   useEffect(() => {
-    if (results.length > 0 && !isEmpty(term)) {
-      setSearchHistory(addTermOnHistoryData(term, searchHistory))
+    if (results.length > 0 && !isEmpty(term) && !isEmpty(searchHistory) && searchHistory[0] !== term) {
+      const newHistory = addTermOnHistoryData(term, searchHistory)
+      setSearchHistory(newHistory)
     }
-  }, [results, searchHistory, setSearchHistory, term])
+  }, [results]) // let only results here
 
   useEffect(() => {
 		calculateResults(term, data, options)

@@ -44,20 +44,20 @@ function SidebarMenu({ show, onClose }) {
 			<div
 				onClick={onClose}
 				style={{ zIndex: 49 }} // z-50 - 1
-				className={clsx("fixed left-0 right-0 top-0 bottom-0 h-screen bg-slate-900",
+				className={clsx("fixed left-0 right-0 top-0 bottom-0 h-screen-all bg-slate-900",
 					"transform ease-linear transition-all", {
 					"opacity-50 duration-1000 visible": show,
 					"opacity-0 duration-500 hidden": !show,
 				})}
 			>&nbsp;</div>
 			<div
-				className={clsx("h-screen lg:block shadow-lg fixed flex z-50 w-5/6",
+				className={clsx("h-screen-all lg:block shadow-lg fixed flex z-50 w-5/6",
 					"transform ease-in-out transition-all duration-300 overflow-y-auto", {
 					"translate-x-0": show,
 					"-translate-x-full": !show,
 				})}
 			>
-				<div className="z-50 flex flex-col w-full h-screen bg-gray-700 dark:bg-gray-700">
+				<div className="z-50 flex flex-col w-full h-screen-all bg-gray-700 dark:bg-gray-700">
 
 					<div className="flex">
 						<div className="flex items-center justify-center flex-1 pt-2">

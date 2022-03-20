@@ -112,9 +112,12 @@ function Spell({ spell, filters, character /*onSelect*/ }) {
 function Spells({ contextCharacter }) {
   const { tr, lang } = useI18n()
   const spellsResponse = useSpells();
-  const [defaultFilters, setDefaultFilters] = useState(null)
-
-  const isContextualCharacter = !!contextCharacter
+  const defaultFilters  = useMemo(() => {
+    console.log('a')
+    if (contextCharacter) {
+      return buildSpellFiltersForCharacter(contextCharacter)
+    }
+  }, [contextCharacter])
 
   // const { showSpellModal } = useSpellModal()
   const { filters, filterSpells, showSpellsListFilterScreen } = useSpellsListFilterScreenAsModal(
@@ -123,12 +126,7 @@ function Spells({ contextCharacter }) {
 
   const filteredSpells = useMemo(() => filterSpells(spellsResponse.data, lang), [filterSpells, spellsResponse.data, lang])
 
-  useEffect(() => {
-    if (contextCharacter) {
-      setDefaultFilters(buildSpellFiltersForCharacter(contextCharacter))
-    }
-  }, [contextCharacter])
-  useEffect(() => {
+  // useEffect(() => {
     // ritual
     // showSpellModal(spellsResponse.data.find((spell) => spell.name === "Meld Into Stone").name)
 
@@ -142,7 +140,7 @@ function Spells({ contextCharacter }) {
     // showSpellModal(spellsResponse.data.find((spell) => spell.name === "Acid Splash").name)
 
     // showSpellsListFilterScreen()
-  }, [])
+  // }, [])
 
 
   const {

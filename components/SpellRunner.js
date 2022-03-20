@@ -44,6 +44,7 @@ function DamageCharacterLevel({ characterLevel, damageAtCharacterLevel, damageTy
 	)
 }
 
+
 function SpellDefinition({ contextCharacter, spell, formatMod }) {
 	if (spell.heal) {
 		return (
@@ -104,6 +105,7 @@ function SpellRunner({ contextCharacter, hideCasting = false, spell }) {
 				/>
 			</div>
 			{!spell.isCantripWithoutNeedToRun 
+				&& !spell.isSpellWithouNeedToRun
 				&& !hideCasting 
 				&& (contextCharacter ? contextCharacter.isProeficientForArmor : true) 
 				&& (

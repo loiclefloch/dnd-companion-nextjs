@@ -20,7 +20,7 @@ function ScreenAsModal({ title, leftAction, isLoading, onCloseScreen, children, 
 	})
 
 	return (
-		<div className='flex flex-col h-screen bg-app relative'>
+		<div className='flex flex-col h-screen-all bg-app relative'>
 			<header className='flex flex-row p-2 z-40 top-0 sticky '>
 				{leftAction && <div className="flex">{leftAction}</div>}
 				<div className='flex-1 text-lg font-semibold text-center'>{title}</div>

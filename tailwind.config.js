@@ -36,6 +36,7 @@ module.exports = {
     require('@tailwindcss/typography'),
     // A plugin that provides a basic reset for form styles that makes form elements easy to override with utilities.
     require('@tailwindcss/forms'),
+    require('./tailwind/tailwind-plugin-ios-full-height'),
   ],
   safelist: [
     'bg-red-400',

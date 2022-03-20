@@ -59,7 +59,7 @@ function Screen({
 	const router = useRouter()
 
 	return (
-		<div className="flex flex-col h-screen bg-dark dark:text-white">
+		<div className="flex flex-col h-screen-all bg-dark dark:text-white">
 			<Head>
 				<title>{title}</title>
 			</Head>
