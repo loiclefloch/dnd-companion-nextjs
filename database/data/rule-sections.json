@@ -1,5 +1,11 @@
 [
   {
+    "name": "Levelling",
+    "index": "levelling",
+    "file": "rule-sections/levelling.mdx",
+    "url": "/api/rule-sections/levelling"
+  },
+  {
     "name": "The Order of Combat",
     "index": "the-order-of-combat",
     "file": "rule-sections/the-order-of-combat.mdx",

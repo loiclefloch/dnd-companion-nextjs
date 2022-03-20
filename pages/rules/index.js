@@ -65,11 +65,16 @@ function Rules() {
 							href={`/features`} 
 							title="Features" 
 						/>,
-						<SubItem 
-						key="/feat" 
-						href={`/feat`} 
-						title="Feats" 
-					/>,
+						<SubItem
+							key="/feat"
+							href={`/feat`}
+							title="Feats"
+						/>,
+						<SubItem
+							key={`/rules/levelling`}
+							href={`/rules/levelling`}
+							title="Levelling"
+						/>
 					]}
 				/>
 
