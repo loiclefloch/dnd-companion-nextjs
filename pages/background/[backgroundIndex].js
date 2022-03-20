@@ -19,7 +19,7 @@ function Background() {
 		>
 			{background && (
 				<div className="flex flex-col">
-					<div className="relative w-full px-4 mt-12">
+					<div className="relative w-full px-4 mt-4">
 						<BackgroundContent index={background.index} />
 					</div>
 				</div>

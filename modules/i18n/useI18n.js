@@ -60,6 +60,10 @@ const globalTranslations = {
     en: `Features`,
     fr: `Capacités`
   },
+  'spellsSlots.title': {
+		fr: 'Emplacements de sorts',
+		en: 'Spells slots',
+	},
   'traits.title': {
     en: 'Traits',
     fr: 'Traits',
@@ -205,6 +209,9 @@ function formatTemplate(str, templateParams) {
   return str?.replace(
     /%{([^{}]+)}/g, // or /{(\w*)}/g for "{this} instead of %this%"
     function (m, key) {
+      if (!templateParams) {
+        throw new Error(`Missing template params`)
+      }
       return templateParams.hasOwnProperty(key) ? templateParams[key] : "";
     }
   )

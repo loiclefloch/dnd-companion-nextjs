@@ -7,6 +7,7 @@ import { isEmpty } from "lodash";
 import useFeature from "../modules/api/useFeature"
 import useFeatureScreenAsModal from "./useFeatureScreenAsModal"
 import LevellingDetail from "./levellingDetail/LevellingDetail"
+import { getLevellingStages } from "../modules/levelling"
 
 const useI18n = makeI18n({
 	'description': {
@@ -17,17 +18,13 @@ const useI18n = makeI18n({
 		fr: 'Pas de features',
 		en: 'No features',
 	},
-	'spellsSlots.title': {
-		fr: '',
-		en: 'Spells slots',
-	},
-	'features.title': {
-		fr: '',
-		en: 'Features',
-	},
 	'detail.title': {
 		fr: 'Détail',
 		en: 'Detail',
+	},
+	'requiredXp': {
+		fr: `XP requise`,
+		en: `Required XP`,
 	},
 })
 
@@ -43,9 +40,15 @@ function Feature({ index }) {
 	}
 
 	return (
-		<div onClick={() => showFeatureScreenAsModal(feature)}>
+		<div 
+			onClick={() => showFeatureScreenAsModal(feature)}
+			className="p-1 flex justify-between"
+		>
 			<div>
 				{tr(feature.nameLocalized)}
+			</div>
+			<div className="text-meta px-2">
+				?
 			</div>
 		</div>
 	)
@@ -60,7 +63,7 @@ function FeaturesLevelData({ classes, level }) {
 	}
 
 	return (
-		<div className="px-4 mt-2">
+		<div className="px-4 mt-2 divide divide-y">
 			{levellingData.features.map(feature => (
 				<Feature key={feature} index={feature} />
 			))}
@@ -78,6 +81,15 @@ function LevelDetailView({ clss, level, onCloseScreen }) {
 				description={tr('description', { level, 'clss.name': tr(clss.nameLocalized)}) }
 			/>
 
+			<div className="flex px-4 mt-2">
+				<div>
+					{tr`requiredXp`}
+				</div>
+				<div className="text-meta ml-2">
+					{getLevellingStages()[level]} ({tr(`level.short`, { level: level -1 })} + {getLevellingStages()[level] - getLevellingStages()[level - 1]})
+				</div>
+			</div>
+
 			<>
 				<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">{tr`spellsSlots.title`}</h3>
 				<SpellLevelData classes={[clss]} level={level} />
@@ -90,8 +102,10 @@ function LevelDetailView({ clss, level, onCloseScreen }) {
 			
 			<>
 				<h3 className="mx-4 mt-4 text-xl border-b border-slate-300">{tr`detail.title`}</h3>
-				<div className="mx-4 mt-2">
-					<LevellingDetail clss={clss} level={level} />
+				<div className="mx-4 mt-2">				
+					<div className="mt-2">
+						<LevellingDetail clss={clss} level={level} />
+					</div>
 				</div>
 			</>
 		</>
