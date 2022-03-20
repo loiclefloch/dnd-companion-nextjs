@@ -70,15 +70,15 @@
     "imageUrl": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/11/1000/1000/636238825975375671.jpeg",
     "images": [
       {
-        "url": "https://www.aidedd.org/dnd/images/aboleth.jpg",
+        "url": "/img/monsters/aboleth3.jpeg",
         "label": ""
       },
       {
-        "url": "/monsters/aboleth.png",
+        "url": "/img/monsters/aboleth.png",
         "label": ""
       },
       {
-        "url": "/monsters/aboleth2.jpg",
+        "url": "/img/monsters/aboleth2.jpeg",
         "label": ""
       }
     ],
