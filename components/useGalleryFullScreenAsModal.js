@@ -18,7 +18,14 @@ function GalleryFullScreenAsModal({ title, images, currentImage, onCloseScreen }
 					className='absolute top-0 bottom-0 left-0 w-1/5'
 				>
 				</div>
-				<Image src={image.url} className='w-full' alt={image.label} />
+				<div style={{ width: '100%', height: '100%', position: 'relative' }}>
+					<Image
+						src={image.url}
+						alt={image.label}
+						layout='fill'
+						objectFit='contain'
+					/>
+				</div>
 				<div
 					onClick={() => {
 						const index = images.findIndex(imageData => imageData.url === image.url)

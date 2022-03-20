@@ -10,7 +10,12 @@ export function ListSelectRow({ icon, image, title, subtitle, onClick }) {
 			<div className="flex items-center flex-1 p-4 cursor-pointer select-none">
 				{hasLeftPart && (
 					<div className="flex flex-col items-center justify-center w-10 h-10 mr-4">
-						{image && <Image src={image} alt={title} />}
+						{image && <Image
+							src={image}
+							alt={title}
+							width="100%"
+							height="100%"
+						/>}
 						{icon && icon}
 						</div>
 					)}
@@ -39,7 +44,12 @@ export function ListSelectRowAsCard({ icon, image, title, subtitle, onClick, siz
 			})}>
 				{hasLeftPart && (
 					<div className="flex flex-col items-center justify-center w-10 h-10 mr-4">
-						{image && <Image src={image} alt="" />}
+						{image && <Image
+							src={image}
+							alt=""
+							width="100%"
+							height="100%"
+						/>}
 						{icon && icon}
 						</div>
 					)}

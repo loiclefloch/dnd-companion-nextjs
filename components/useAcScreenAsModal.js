@@ -38,8 +38,8 @@ const useI18n = makeI18n({
 		en: 'Shield',
 	},
 	'spellSaveDC': {
-		fr: 'Spell DC: %spellSaveDC',
-		en: 'Spell DC: %spellSaveDC',
+		fr: 'Spell DC: %{spellSaveDC}',
+		en: 'Spell DC: %{spellSaveDC}',
 	},
 })
 

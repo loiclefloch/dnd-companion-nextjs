@@ -51,7 +51,12 @@ function Monster({ monster, filters, /*onSelect*/ }) {
       >
 				<div className="flex items-center w-1/6">
 					{monster.imageUrl && (
-						<Image src={monster.imageUrl} alt={tr(monster.nameLocalized)} className="w-full" />
+						<Image 
+							src={monster.imageUrl}
+							alt={tr(monster.nameLocalized)}
+							width="100%"
+							height="100%"
+						/>
 					)}
 				</div>
 				<div className="w-5/6 ml-4">

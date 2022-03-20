@@ -7,13 +7,17 @@ function Gallery({ title, images }) {
 	return (
 		<div className="container grid grid-cols-3 gap-2 mx-auto">
 			{images.map(imageData => (
-				<Image
-					key={imageData.url}
-					src={imageData.url}
-					alt={imageData.label}
-					className={"w-full rounded hover:shadow-2xl"}
-					onClick={() => showGalleryFullScreen(title, images, imageData)}
-				/>
+				<div 						key={imageData.url} style={{ width: '100vw', height: '40', position: 'relative', display: "block" }}>
+					<Image
+						key={imageData.url}
+						src={imageData.url}
+						alt={imageData.label}
+						layout='fill'
+						objectFit='contain'
+						className={"w-full rounded hover:shadow-2xl"}
+						onClick={() => showGalleryFullScreen(title, images, imageData)}
+					/>
+				</div>
 			))}
 		</div>
 	)

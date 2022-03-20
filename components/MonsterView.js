@@ -163,15 +163,20 @@ function MonsterView({ monster }) {
 
           {monster.imageUrl && (
             <div className="flex justify-center shadow-md">
-              <Image 
-                alt={tr(monster.nameLocalized)} 
-                src={monster.imageUrl} 
-                onClick={() => showGalleryFullScreen(
-                  tr('monter.gallery', { 'monster.name': tr(monster.nameLocalized)}),
-                  monster.images, 
-                  monster.images[0]
-                )}
-              />
+              <div style={{ width: '100vw', height: '40vh', position: 'relative', display: "block" }}>
+
+                <Image
+                  alt={tr(monster.nameLocalized)}
+                  src={monster.imageUrl}
+                  layout='fill'
+                  objectFit="contain"
+                  onClick={() => showGalleryFullScreen(
+                    tr('monter.gallery', { 'monster.name': tr(monster.nameLocalized) }),
+                    monster.images,
+                    monster.images[0]
+                  )}
+                />
+              </div>
             </div>
           )}
 
@@ -251,7 +256,7 @@ function MonsterView({ monster }) {
           </div>
 
           {monster.legendaryActions && (
-            <Section title={tr`"legendaryActions.title"`} withToggle>
+            <Section title={tr`legendaryActions.title`} withToggle>
               <HtmlContent html={tr(monster.legendaryActions)} />
             </Section>
           )}
