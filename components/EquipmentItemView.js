@@ -61,12 +61,12 @@ const useI18n = makeI18n({
 		en: 'Ranged attack roll modifier',
 	},
 	quantity: {
-		fr: 'quantité',
-		en: 'quantity',
+		fr: 'Quantité',
+		en: 'Quantity',
 	},
 	damages: {
-		fr: 'dommages',
-		en: 'damages',
+		fr: 'Dommages',
+		en: 'Damages',
 	},
 	categoryRangeType: {
 		fr: 'Type',
@@ -332,20 +332,22 @@ function EquipmentItemView({ item, onCloseScreen }) {
 								)}
 
 								<>
-									<Button
-										variant="outlined"
-										onClick={(e) => {
-											rollDamage(
-												`${tr(item.nameLocalized)}`,
-												item.damage.damageDice,
-												0,
-												item.damage.damageType
-											)
-											e.preventDefault()
-										}}
-									>
-										{tr('damages.oneHanded')} <span>{item.damage.damageDice}{item.attackRollModifierLabel}</span>
-									</Button>
+									{!item.isTwoHandedOnly && (
+										<Button
+											variant="outlined"
+											onClick={(e) => {
+												rollDamage(
+													`${tr(item.nameLocalized)}`,
+													item.damage.damageDice,
+													0,
+													item.damage.damageType
+												)
+												e.preventDefault()
+											}}
+										>
+											{tr('damages.oneHanded')} <span>{item.damage.damageDice}{item.attackRollModifierLabel}</span>
+										</Button>
+									)}
 
 									{item.hasPropertyTwoHandedDamages && (
 										<Button
@@ -360,7 +362,12 @@ function EquipmentItemView({ item, onCloseScreen }) {
 												e.preventDefault()
 											}}
 										>
-											{tr('damages.twoHanded')} <span>{item.twoHandedDamage.damageDice}{item.twoHandedDamage.damageType.name}</span>
+											<div>
+												{tr('damages.twoHanded')}
+											</div>
+											<div className="ml-1 capitalize">
+												{item.twoHandedDamage.damageDice} {item.twoHandedDamage.damageType.name}
+											</div>
 										</Button>
 									)}
 								</>

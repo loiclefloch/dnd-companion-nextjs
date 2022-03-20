@@ -129,42 +129,6 @@ function formatItem(character, item) {
 		|| character.proficiencies.some(proficiency => proficiency.reference.index === item.index)
 	item.isProeficient = isProeficient
 
-	// Ability Modifier: The ability modifier used for a melee weapon Attack is Strength, and the ability 
-	// modifier used for a ranged weapon Attack is Dexterity. Weapons that have the Finesse or Thrown 
-	// property break this rule. 
-
-	// When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity 
-	// modifier for the attack and damage rolls.
-	item.hasPropertyFinesse = item.properties.some(property => property.index === 'finesse')
-	// If a weapon has the thrown property, you can throw the weapon to make a ranged attack. 
-	// If the weapon is a melee weapon, you use the same ability modifier for that attack roll and 
-	// damage roll that you would use for a melee attack with the weapon. For example, if you throw a 
-	// handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or 
-	// your Dexterity, since the dagger has the finesse property.
-	item.hasPropertyThrown = item.properties.some(property => property.index === 'thrown')
-	
-
-	// hasPropertyThrown = can be thrown
-	// hasPropertyFinesse = use DEX or STR when thrown. If has not finesse, use STR when thrown
-
-	item.isMelee = item.weaponRange === 'Melee'
-	item.isRanged = item.weaponRange === 'Ranged'
-
-	item.rangedProperty = item.isRanged ? 'DEX' : (item.hasPropertyThrown ? 'DEX' : 'STR')
-
-	if (item.hasPropertyFinesse) {
-		// For the moment we use the best attack roll possible.
-		// TODO: Should we propose to choose?
-		item.rangedProperty = character.meleeAttackRollModifier > character.rangedAttackRollModifier 
-			? character.meleeAttackRollModifier 
-			: character.rangedAttackRollModifier
-	}
-
-	// TODO: should we add proficiencyBonus for canBeThrown ?
-
-	item.meleeAttackRollModifier = character.meleeAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
-	item.meleeAttackRollModifierLabel = modifierToModifierLabel(character.meleeAttackRollModifier)
-
 	if (item.rangedProperty === 'DEX') {
 		item.rangedAttackRollModifier = character.rangedAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
 		item.rangedAttackRollModifierLabel = modifierToModifierLabel(character.rangedAttackRollModifier)
@@ -173,20 +137,29 @@ function formatItem(character, item) {
 		item.rangedAttackRollModifierLabel = modifierToModifierLabel(character.meleeAttackRollModifier)
 	}
 
-	// TODO: property versatile two_handed_damage
-	// This weapon can be used with one or two hands. A damage value in parentheses appears with the 
-	// property--the damage when the weapon is used with two hands to make a melee attack.
-	item.hasPropertyTwoHandedDamages = item.properties.some(property => property.index === 'two-handed')
-	
-	if (item.hasPropertyTwoHandedDamages && !item.twoHandedDamage) {
-		item.twoHandedDamage = {...item.damage}
+	if (item.hasPropertyFinesse) {
+		// For the moment we use the best attack roll possible.
+		// TODO: Should we propose to choose?
+		item.rangedProperty = character.meleeAttackRollModifier > character.rangedAttackRollModifier
+			? character.meleeAttackRollModifier
+			: character.rangedAttackRollModifier
+	}
+
+
+		// TODO: should we add proficiencyBonus for canBeThrown ?
+	item.meleeAttackRollModifier = character.meleeAttackRollModifier + (isProeficient ? character.proficiencyBonus : 0)
+	item.meleeAttackRollModifierLabel = modifierToModifierLabel(character.meleeAttackRollModifier)
+
+	if (item.isHeavy) {
+		// TODO: if small -> disadvantage on attack rolls
+		// Small creatures have disadvantage on attack rolls with heavy weapons. 
+		// A heavy weapon's size and bulk make it too large for a Small creature to use effectively.
 	}
 
 	// TODO: property special, force description to be looked at
 
 	// TODO: other properties?
 
-	// console.log({ item })
 	return item
 }
 export function formatCharacter(character) {
