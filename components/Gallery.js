@@ -7,7 +7,7 @@ function Gallery({ title, images }) {
 	return (
 		<div className="container grid grid-cols-3 gap-2 mx-auto">
 			{images.map(imageData => (
-				<div 						key={imageData.url} style={{ width: '100vw', height: '40', position: 'relative', display: "block" }}>
+				<div key={imageData.url} style={{ width: '100%', height: '100px', position: 'relative', display: "block" }}>
 					<Image
 						key={imageData.url}
 						src={imageData.url}

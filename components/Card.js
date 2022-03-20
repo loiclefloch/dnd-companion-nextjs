@@ -4,9 +4,6 @@ function Card({ isLoading, name, meta, data, description, tags }) {
   return (
     <div
       className="md:max-w-lg p-4 border shadow-sm"
-      style={{
-        // background: 'url("https://www.aidedd.org/images/fond-ph.jpg")',
-      }}
     >
       <h4 className="text-lg">{name}</h4>
       <div className="text-sm">{meta}</div>

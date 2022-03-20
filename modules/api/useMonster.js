@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash'
+import { cloneDeep, last } from 'lodash'
 import monsters from '../../database/data/monsters.json'
 import useData from "./useData"
 
@@ -6,13 +6,7 @@ export function formatMonster(monster) {
   if (!monster) {
     return null
   }
-  if (monster.images) {
-    monster.images.unshift({
-      url: monster.imageUrl,
-      label: monster.name
-    })
-  }
-
+ 
   if (monster.hp) {
     if (monster.hp.includes("+") && !monster.hp.includes("(")) {
       // 18d10 + 36
@@ -51,9 +45,18 @@ export function formatMonster(monster) {
     monster.imageUrl = `/img/monsters/default_undead.jpg`
   } 
   else {
-    monster.imageUrl = `/img/monsters/${monster.index}.jpeg`
+    const extension = last(monster.imageUrl.split("."))
+    console.log({ extension })
+    monster.imageUrl = `/img/monsters/${monster.index}.${extension}`
   }
   // console.log({ hpDice: monster.hpDice })
+
+  if (monster.images) {
+    monster.images.unshift({
+      url: monster.imageUrl,
+      label: monster.name
+    })
+  }
 
   return monster
 }
