@@ -179,6 +179,8 @@ export function formatCharacter(character) {
 		// })
 	}
 	
+	// add strings to be displayed
+	character.infos = []
 
 	character.currentHp = character.currentHp || character.maxHp
 
@@ -396,7 +398,15 @@ export function formatCharacter(character) {
 	// the armor reduces the wearer’s speed by 10 feet unless the wearer has a Strength score equal to 
 	// or higher than the listed score.
 	// TODO: handle
-	character.speedReduced = armorEquipped ? armorEquipped.strMinimum > character.stats.STR : false
+	character.speedReducedDueToArmorStrength = armorEquipped ? armorEquipped.strMinimum > character.stats.STR : false
+
+	if (character.speedReducedDueToArmorStrength) {
+		character.infos.push({
+			type: 'disadvantage',
+			// TODO: tr
+			text: `Your armor '${armorEquipped?.name}' requires a strength of ${armorEquipped.strMinimum} (speed reduced)`,
+		})
+	}
 
 
 	// disadvantage per ability and skill
@@ -408,6 +418,11 @@ export function formatCharacter(character) {
 	// on Dexterity (Stealth) checks.
 	if (armorEquipped?.stealthDisadvantage) {
 		character.skillDisadvantage.stealth = true
+		character.infos.push({
+			type: 'disadvantage',
+			// TODO: tr
+			text: `Stealth disadvantage due to armor equipped '${armorEquipped?.name}'`,
+		})
 	}
 
 	if (!character.isProeficientForArmor) {
@@ -418,6 +433,12 @@ export function formatCharacter(character) {
 
 		// TODO: handle
 		character.attackRollDisadvantage = true
+
+		character.infos.push({
+			type: 'disadvantage',
+			// TODO: tr
+			text: `You are not proeficient for your armor '${armorEquipped?.name}' (disadvantage on strength, dexterity, stealth and attack rolls)`,
+		})
 	}
 
 	// update skillDisadvantage using abilityDisadvantage
@@ -429,7 +450,7 @@ export function formatCharacter(character) {
 	})
 
 	character.baseSpeed = character.race.speed
-	character.currentSpeed = character.baseSpeed + (character.speedReduced ? -10 : 0)
+	character.currentSpeed = character.baseSpeed + (character.speedReducedDueToArmorStrength ? -10 : 0)
 
 	// add subclass features
 	character.subclassFeatures = getCharacterSubclassFeatures(character)

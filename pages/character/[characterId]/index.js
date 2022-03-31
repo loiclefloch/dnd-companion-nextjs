@@ -19,6 +19,7 @@ import {
 	FeaturesSection,
 	FeatsSection,
 	GlobalSection,
+	Infos,
 } from "../../../components/CharacterResume"
 import CharacterClassTag from "../../../components/CharacterClassTag"
 import CharacterRaceTag from "../../../components/CharacterRaceTag"
@@ -107,6 +108,7 @@ function Content({
 				</div>
 
 				<GlobalSection character={character} small />
+				<Infos character={character} />
 				<FeatsSection character={character} />
 				<TraitsSection character={character} />
 				<FeaturesSection character={character} />

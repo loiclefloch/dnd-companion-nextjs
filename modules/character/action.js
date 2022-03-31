@@ -1,4 +1,6 @@
 import { v4 as uuid } from 'uuid';
+import { formatEquipmentItem  } from '../api/useEquipmentItem'
+import equipmentList from '../../database/data/equipment.json'
 
 export function actionAddXp(label, amount) {
 	return {

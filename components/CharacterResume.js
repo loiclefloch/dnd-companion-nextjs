@@ -116,6 +116,10 @@ const useI18n = makeI18n({
 		en: 'Spell attack bonus',
 		fr: `Bonus d'attaque`,
 	},
+	'infos.title': {
+		fr: `Informations`,
+		en: `Informations`,
+	},
 
 })
 
@@ -456,6 +460,20 @@ export function FeatsSection({ character }) {
 	)
 }
 
+export function Infos({ character }) {
+	const { tr } = useI18n()
+
+	return (
+		<Section title={tr`infos.title`}>
+			<div className="flex flex-col gap-1 divide-y">
+				{character.infos.map((info, index) => (
+					<div key={index} className="py-1">{info.text}</div>
+				))}
+			</div>
+		</Section>
+	)
+}
+
 function CharacterResume({ character }) {
 	return (
 		<div className="px-4 mt-4 prose">
@@ -465,6 +483,7 @@ function CharacterResume({ character }) {
 				<CharacterClassTag character={character} />
 
 				<GlobalSection character={character} />
+				<Infos character={character} />
 				<BodySection character={character} />
 				<IdealsSection character={character} />
 				<FlawsSection character={character} />
