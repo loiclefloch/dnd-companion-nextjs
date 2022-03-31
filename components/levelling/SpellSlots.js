@@ -35,6 +35,7 @@ const useI18n = makeI18n({
 })
 
 function Content({ spellsSlots, levellingData })  {
+	const { tr } = useI18n()
 	
 	if (!levellingData.spellcasting.hasMagic) {
 		return (

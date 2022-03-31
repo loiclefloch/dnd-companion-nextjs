@@ -27,7 +27,8 @@ function HistoryLine({ history }) {
 	)
 }
 
-function Progress({ currentXp, percent }) {
+function Progress({ currentXp, percent, level, clss }) {
+	const router = useRouter()
 
 	return (
 		<div className="relative pt-1">
@@ -37,7 +38,10 @@ function Progress({ currentXp, percent }) {
 						{currentXp} XP
 					</span>
 				</div>
-				<div className="text-right">
+				<div
+					className="text-right"
+					onClick={() => router.push(`/levelling/${clss.index}/${level + 1}`)}
+				>
 					<span className="inline-block text-xs font-semibold text-blue-600">
 						{percent}%
 					</span>
@@ -46,14 +50,14 @@ function Progress({ currentXp, percent }) {
 			<div className="flex h-2 mb-4 overflow-hidden text-xs bg-blue-200 rounded">
 				<div 
 					style={{ width: `${percent}%` }} 
-				 className="flex flex-col justify-center text-center text-white bg-blue-500 shadow-none whitespace-nowrap"
+					className="flex flex-col justify-center text-center text-white bg-blue-500 shadow-none whitespace-nowrap"
 				/>
 			</div>
 		</div>
 	)
 }
 
-function CharacterWallet() {
+function CharacterLevelling() {
 	const router = useRouter()
 	const { showLevellingAddScreenAsModal } = useLevellingAddScreenAsModal()
 	const { character, characterDispatch } = useCurrentCharacter()
@@ -98,6 +102,7 @@ function CharacterWallet() {
 					<div className="px-4" style={{ marginTop: -20 }}>
 						<Progress
 							level={character.level}
+							clss={character.classes[0]}
 							currentXp={character.levelling.xp}
 							nextLevelXp={character.levelling.nextLevelXp}
 							percent={character.levelling.percent}
@@ -129,4 +134,4 @@ function CharacterWallet() {
 	)
 }
 
-export default CharacterWallet
+export default CharacterLevelling

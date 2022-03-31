@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { useRouter } from "next/router";
 import { LevellingStorage, BackupStorage } from "../modules/db"
 import { useMemo } from "react"
@@ -19,10 +19,10 @@ function useCharacterLevelling() {
 
 	const [ levellingState, setLevellingState] = useState(initialState())
 
-  const updateLevellingState = useEffect((levellingState) => {
+  const updateLevellingState = useCallback((levellingState) => {
     LevellingStorage.setItem(levellingState)
     setLevellingState(levellingState)
-	}, [setLevellingState ])
+  }, [])
 
   //
   //
@@ -116,7 +116,7 @@ function useCharacterLevelling() {
     return character
   }
 
-  const clearStepLevellingState = useEffect((step) => {
+  const clearStepLevellingState = useCallback((step) => {
     const nextLevellingState = deleteObjectOnArray(
       levellingState, 
       s => s.step.name === step.name

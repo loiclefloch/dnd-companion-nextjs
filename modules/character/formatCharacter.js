@@ -14,7 +14,7 @@ import equipmentList from '../../database/data/equipment.json'
 import traits from '../../database/data/traits.json'
 import { formatRace } from "../api/useRace"
 import { formatClass } from "../api/useClass"
-import { getLevellingDataForClassesAndLevel, getSpellsSlotsForCharacterLevel, getNextLevelExperienceStage } from "../levelling"
+import { getLevellingDataForClassesAndLevel, getLevelExperienceStage, getNextLevelExperienceStage } from "../levelling"
 import { formatEquipmentItem } from "../api/useEquipmentItem"
 import { formatSpell } from "../api/useSpell"
 import { getProficiencyBonus } from "../levelling"
@@ -84,8 +84,12 @@ function formatSpellsSlots(spellsSlots, spellsUsed) {
 }
 
 function formatLevelling(levelling, level) {
+	levelling.currentLevelXp = getLevelExperienceStage(level)
 	levelling.nextLevelXp = getNextLevelExperienceStage(level)
-	levelling.percent = Math.round(levelling.xp / levelling.nextLevelXp * 100)
+
+	levelling.xpForCurrentLevel = Math.max(0, levelling.xp - levelling.currentLevelXp)
+	
+	levelling.percent = Math.round(levelling.xpForCurrentLevel / (levelling.nextLevelXp - levelling.currentLevelXp) * 100)
 
 	levelling.shouldLevelUp = levelling.percent >= 100
 }

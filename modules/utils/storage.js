@@ -13,7 +13,13 @@ export function createStorage(key) {
 				return undefined
 			}
 			
-			return JSON.parse(localStorage.getItem(key))
+			const itemData = localStorage.getItem(key)
+			try {
+				return JSON.parse(itemData)
+			} catch (e) {
+				debugger
+				return null
+			}
 		},
 		getKey: () => key
 	}

@@ -88,12 +88,12 @@ function CharacterMenu({ open }) {
 			href: '/character/grimoire',
 		},
 		{
-			label: tr`menuItem.equipment`,
-			href: '/character/equipment',
-		},
-		{
 			label: tr`menuItem.actions`,
 			href: '/character/actions',
+		},
+		{
+			label: tr`menuItem.equipment`,
+			href: '/character/equipment',
 		},
 		{
 			label: tr`menuItem.wallet`,
