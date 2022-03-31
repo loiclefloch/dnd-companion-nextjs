@@ -42,6 +42,14 @@ const useI18n = makeI18n({
 		'fr': `Vous avez utilisé plus de slots que votre capacité. Reposez-vous !`,
 		'en': `You have used more slots than your capacity. Rest!`,
 	},
+	'slots.decrease': {
+		fr: `Utiliser`,
+		en: `Use`,
+	},
+	'slots.increase': {
+		fr: `Ajouter`,
+		en: `Add`,
+	},
 })
 
 function Form({ show, spellSlot, onSubmit, onClose }) {
@@ -90,6 +98,28 @@ function Form({ show, spellSlot, onSubmit, onClose }) {
 						onChange={e => setData({ ...data, totalSlots: e.target.value })}
 					/>
 				</div>
+
+				<div className="flex items-center mt-2 gap-1">
+					<Button
+						variant="outlined"
+						onClick={() => {
+							if (data.usedSlots > 0) {
+								setData({ ...data, usedSlots: data.usedSlots - 1 })
+							}
+						}}
+					>
+						{tr`slots.increase`}
+					</Button>
+
+					<Button
+						variant="outlined"
+						onClick={() => setData({ ...data, usedSlots: data.usedSlots + 1 })}
+					>
+						{tr`slots.decrease`}
+					</Button>
+
+					
+				</div>
 			</div>
 
 			<div className="mt-8">
@@ -124,8 +154,8 @@ function EditSpellSlotsScreenAsModal({ spellSlot, onEdit, onCloseScreen }) {
 						<div
 							key={index}
 							className={clsx("w-6 h-6 mr-1", {
-								"bg-red-400": index <= spellSlot.usedSlots,
-								"border border-solid border-slate-400": index > spellSlot.usedSlots,
+								"bg-red-400": index < spellSlot.usedSlots,
+								"border border-solid border-slate-400": index >= spellSlot.usedSlots,
 							})}
 						/>
 					))}

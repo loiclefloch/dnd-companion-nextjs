@@ -137,8 +137,8 @@ function SpellLevelHeader({ level, spellsSlots, characterDispatch }) {
 							<div
 								key={index}
 								className={clsx("w-3 h-3 mr-1", {
-									"bg-red-400": index <= spellSlot.usedSlots,
-									"border border-solid border-slate-400": index > spellSlot.usedSlots,
+									"bg-red-400": index < spellSlot.usedSlots,
+									"border border-solid border-slate-400": index >= spellSlot.usedSlots,
 								})}
 							/>
 						))}
