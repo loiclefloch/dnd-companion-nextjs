@@ -10,6 +10,7 @@ import useTipFeature  from "./useTipFeature"
 import CharacterClassTag from "./CharacterClassTag"
 import useFeatScreenAsModal from "./useFeatScreenAsModal"
 import Section from "./Section"
+import useDice from "./useDice";
 
 const useI18n = makeI18n({
 	'link to background': {
@@ -361,21 +362,27 @@ function IdealsSection({ character }) {
 	)
 }
 
-function GlobalSection({ character }) {
+export function GlobalSection({ character, small = false }) {
 	const { tr } = useI18n()
+	const { rollStat } = useDice()
+
 	return (
 		<Section title={tr`caracteristics.title`}>
 			<LineInfo.Parent>
 
 				<LineInfo label={tr`caracteristics.level`} value={character.level} />
-				<LineInfo label={tr`caracteristics.hp`} value={character.maximumHp} />
-				<LineInfo label={tr`caracteristics.initiative`} value={character.initiative} />
-				<LineInfo label={tr`caracteristics.naturalAC`} value={character.ac.natural} />
-				<LineInfo label={tr`caracteristics.armorAC`} value={character.ac.armor} />
-				<LineInfo label={tr`caracteristics.shieldAC`} value={character.ac.shield} />
-				<LineInfo label={tr`caracteristics.totalAC`} value={character.ac.total} />
+				{!small && <LineInfo label={tr`caracteristics.hp`} value={character.maximumHp} />}
+				<LineInfo 
+					label={tr`caracteristics.initiative`}
+					value={<span>{character.initiative >= 0 ? '+' : ''}{character.initiative}</span>} 
+					onClickValue={() => rollStat(tr`caracteristics.initiative`, character.initiative)}
+				/>
+				{!small && <LineInfo label={tr`caracteristics.naturalAC`} value={character.ac.natural} />}
+				{!small && <LineInfo label={tr`caracteristics.armorAC`} value={character.ac.armor} />}
+				{!small && <LineInfo label={tr`caracteristics.shieldAC`} value={character.ac.shield} />}
+				{!small && <LineInfo label={tr`caracteristics.totalAC`} value={character.ac.total} />}
 				<LineInfo label={tr`caracteristics.hitDices`} value={character.maximumHitDice} />
-				<LineInfo label={tr`caracteristics.proficiencyBonus`} value={<span>+{character.proficiencyBonus}</span>} />
+				<LineInfo label={tr`caracteristics.proficiencyBonus`} value={<span>{character.proficiencyBonus >= 0 ? '+' : ''}{character.proficiencyBonus}</span>} />
 				<LineInfo
 					label={tr`characteristics.speed`}
 					value={
@@ -412,7 +419,6 @@ function GlobalSection({ character }) {
 				<LineInfo 
 					label={tr`characteristics.spellAttackBonus`} 
 					value={<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>}
-
 				/>
 			</LineInfo.Parent>
 

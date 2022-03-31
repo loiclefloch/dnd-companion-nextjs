@@ -18,9 +18,8 @@ import {
 	BackgroundSection,
 	FeaturesSection,
 	FeatsSection,
+	GlobalSection,
 } from "../../../components/CharacterResume"
-import Section from "../../../components/Section"
-import LineInfo from "../../../components/LineInfo"
 import CharacterClassTag from "../../../components/CharacterClassTag"
 import CharacterRaceTag from "../../../components/CharacterRaceTag"
 import CharacterLevelTag from "../../../components/CharacterLevelTag"
@@ -107,29 +106,7 @@ function Content({
 					/>
 				</div>
 
-				<Section title="Caractéristiques">
-					<LineInfo.Parent>
-						{/* TODO: roll initiative */}
-						<LineInfo label="Initiative" value={character.initiative} />
-						<LineInfo label="Maîtrise" value={<span>+{character.proficiencyBonus}</span>} />
-						<LineInfo 
-							label="Vitesse" 
-							value={
-								<>
-									{character.currentSpeed != character.baseSpeed && <span>{character.currentSpeed} {character.speedReduced && 'Réduite'}</span>}
-									{character.currentSpeed == character.baseSpeed && <span>{character.currentSpeed}</span>}
-								</>
-							} 
-						/>
-						<LineInfo label="Perception passive" value={<span>{character.passivePerception}</span>} onClick={() => showTipPassivePerception()} />
-						<LineInfo label="Investigation passive" value={<span>{character.passiveInvestigation}</span>} onClick={() => showTipPassivePerception()} />
-						<LineInfo label="Spell DC" value={<span>{character.spellSaveDC}</span>} />
-						<LineInfo label="Spellcasing ability" value={<span><span className="text-xs text-meta">{character.spellcastingAbility}</span> {character.spellcastingAbilityValueLabel}</span>} />
-						<LineInfo label="Spell Attack bonus" value={<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>} />
-					</LineInfo.Parent>
-
-				</Section>
-
+				<GlobalSection character={character} small />
 				<FeatsSection character={character} />
 				<TraitsSection character={character} />
 				<FeaturesSection character={character} />

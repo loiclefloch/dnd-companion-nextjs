@@ -8,14 +8,14 @@ function LineInfoParent({ className, children }) {
 	)
 }
 
-function LineInfo({ label, value, onClick }) {
+function LineInfo({ label, value, onClick, onClickValue }) {
 	return (
 		<div 
 			onClick={onClick}
 			className="flex py-1"
 		>
 			<div className="flex flex-1">{label}</div>
-			<div>{value}</div>
+			<div onClick={onClickValue}>{value}</div>
 		</div>
 	)
 }
