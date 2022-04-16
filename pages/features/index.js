@@ -50,10 +50,7 @@ function Features() {
     term,
     onRemoveHistoryQuery,
     // reset
-  } = useLocalSearch("spells", {
-    data: features,
-    options: useLocalSearch.searchOptions.features,
-  });
+  } = useLocalSearch("spells", features, useLocalSearch.searchOptions.features)
 
   return (
     <Screen

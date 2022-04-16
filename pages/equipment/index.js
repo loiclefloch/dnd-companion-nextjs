@@ -117,10 +117,7 @@ function Equipments() {
 		term,
 		onRemoveHistoryQuery,
 		// reset
-	} = useLocalSearch('equipment', {
-		data: equipmentList,
-		options: useLocalSearch.searchOptions.equipment
-	})
+	} = useLocalSearch('equipment', equipmentList, useLocalSearch.searchOptions.equipment)
 
   return (
 		<Screen

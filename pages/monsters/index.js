@@ -98,10 +98,7 @@ function Monsters() {
 		term,
 		onRemoveHistoryQuery,
 		// reset
-	} = useLocalSearch('monsters', {
-		data: monstersResponse.data,
-		options: useLocalSearch.searchOptions.monsters
-	})
+	} = useLocalSearch('monsters', monstersResponse.data, useLocalSearch.searchOptions.monsters)
 
   return (
     <Screen

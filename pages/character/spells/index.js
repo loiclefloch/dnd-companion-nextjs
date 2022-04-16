@@ -12,7 +12,11 @@ function CharacterSpells() {
 	// automatic filtering for the character
 	return (
 		<CharacterProvider character={character}>
-			<SpellsView contextCharacter={character} />
+			{/* must have loaded character, otherwise render SpellsView for the "without character" mode 
+			and then re-render for the "with character" mode */}
+			{character && (
+				<SpellsView contextCharacter={character} />
+			)}
 		</CharacterProvider>
 	)
 }

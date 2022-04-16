@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useMemo } from "react";
 import Link from 'next/link'
 import isEmpty from "lodash/isEmpty"
 import clsx from "clsx"
@@ -113,7 +113,6 @@ function Spells({ contextCharacter }) {
   const { tr, lang } = useI18n()
   const spellsResponse = useSpells();
   const defaultFilters  = useMemo(() => {
-    console.log('a')
     if (contextCharacter) {
       return buildSpellFiltersForCharacter(contextCharacter)
     }
@@ -121,9 +120,9 @@ function Spells({ contextCharacter }) {
 
   // const { showSpellModal } = useSpellModal()
   const { filters, filterSpells, showSpellsListFilterScreen } = useSpellsListFilterScreenAsModal(
-    defaultFilters
+    defaultFilters,
+    contextCharacter
   )
-
   const filteredSpells = useMemo(() => filterSpells(spellsResponse.data, lang), [filterSpells, spellsResponse.data, lang])
 
   // useEffect(() => {
@@ -150,10 +149,11 @@ function Spells({ contextCharacter }) {
     term,
     onRemoveHistoryQuery,
     // reset
-  } = useLocalSearch('spells', {
-    data: filteredSpells,
-    options: useLocalSearch.searchOptions.spells
-  })
+  } = useLocalSearch(
+    'spells',
+    filteredSpells,
+    useLocalSearch.searchOptions.spells
+  )
 
   return (
     <Screen

@@ -9,6 +9,7 @@ import useClasses from "../modules/api/useClasses"
 import useMagicSchools from "../modules/api/useMagicSchools"
 import IconMagicSchool from './icons/IconMagicSchool';
 import {FilterSection, FilterListSelector } from "./Filter"
+import useStorageState from "../components/useStorageState"
 
 const MAX_SPELL_LEVEL = 9 // maximum spell level
 
@@ -160,16 +161,15 @@ function SpellsListFilterScreenAsModal({ onFilter, onReset, filters: defaultFilt
 	)
 }
 
-export default function useSpellsListFilterScreenAsModal(defaultFilters) {
-	const [filters, setFilters] = useState(defaultFilters|| [])
-	const { showScreenAsModal } = useScreenAsModal()
+export default function useSpellsListFilterScreenAsModal(defaultFilters = [], contextCharacter) {
+  const isContextCharacter = !!contextCharacter
 
-	useEffect(() => {
-		console.log('b', defaultFilters)
-		if (defaultFilters) {
-			setFilters(defaultFilters)
-		}
-	}, [defaultFilters])
+	const key = isContextCharacter 
+	? `spell_filters__character_${contextCharacter.id}`
+	: `spell_filters`
+
+	const [filters, setFilters] = useStorageState(key, defaultFilters)
+	const { showScreenAsModal } = useScreenAsModal()
 
 	return {
 		filters,

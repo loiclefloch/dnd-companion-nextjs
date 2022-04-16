@@ -158,10 +158,7 @@ function ChooseEquipmentScreenAsModal({ onChooseEquipment, onCloseScreen }) {
 		term,
 		onRemoveHistoryQuery,
 		// reset
-	} = useLocalSearch('equipment', {
-		data: equipmentList,
-		options: useLocalSearch.searchOptions.equipment
-	})
+	} = useLocalSearch('equipment', equipmentList, useLocalSearch.searchOptions.equipment)
 
 	function onSelect(item) {
 		setSelectedItems(toggleObjectOnArray(selectedItems, item, i => i.index === item.index))

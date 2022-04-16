@@ -38,7 +38,7 @@ function addTermOnHistoryData(query, searchHistory) {
  * A custom React Hook to do a in-memory fuzzy text search
  * using Fuse.js.
  */
-function useLocalSearch(searchType, { data = [], options }) {
+function useLocalSearch(searchType, data = [], options) {
   const [term, setTerm] = useState('')
   const [searchHistory, setSearchHistory] = useStorageState(`search_history_${searchType}`, [])
   const [results, setResults] = useState(data?.map(toSearchResult))

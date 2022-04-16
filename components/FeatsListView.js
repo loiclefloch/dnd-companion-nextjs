@@ -56,10 +56,7 @@ function Feats({ character }) {
     term,
     onRemoveHistoryQuery,
     // reset
-  } = useLocalSearch("feats", {
-    data: feats,
-    options: useLocalSearch.searchOptions.feats,
-  });
+  } = useLocalSearch("feats", feats, useLocalSearch.searchOptions.feats);
 
   return (
     <Screen
