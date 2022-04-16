@@ -2,7 +2,7 @@ import SpellsView from "../../components/SpellsView"
 
 function Spells() {
   return (
-    <SpellsView />
+    <SpellsView root />
   );
 }
 

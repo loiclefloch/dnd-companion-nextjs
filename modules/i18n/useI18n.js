@@ -1,5 +1,6 @@
 import useConfiguration from '../configuration/useConfiguration'
 import { get, isEmpty, isNil, isString, isArray, isFunction } from 'lodash'
+import reactStringReplace from 'react-string-replace';
 
 const defaultLang = 'en'
 
@@ -206,15 +207,36 @@ function formatTemplate(str, templateParams) {
   if (Array.isArray(str)) {
     return str.map(str => formatTemplate(str, templateParams))
   }
-  return str?.replace(
+
+  if (!str.includes("%")) { // no var on string
+    return str
+  }
+
+  const res = reactStringReplace(
+    str,
     /%{([^{}]+)}/g, // or /{(\w*)}/g for "{this} instead of %this%"
-    function (m, key) {
+    function (key) {
       if (!templateParams) {
         throw new Error(`Missing template params`)
       }
       return templateParams.hasOwnProperty(key) ? templateParams[key] : "";
     }
   )
+  //direct string
+  if (res.length === 1) {
+    return res[0]
+  }
+
+  return res.map((str, i) => <span key={i}>{str}</span>)
+  // return str?.replace(
+  //   /%{([^{}]+)}/g, // or /{(\w*)}/g for "{this} instead of %this%"
+  //   function (m, key) {
+  //     if (!templateParams) {
+  //       throw new Error(`Missing template params`)
+  //     }
+  //     return templateParams.hasOwnProperty(key) ? templateParams[key] : "";
+  //   }
+  // )
 }
 
 function useBuildUseI18n(translationsParam) {

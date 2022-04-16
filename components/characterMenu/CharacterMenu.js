@@ -36,10 +36,6 @@ const useI18n = makeI18n({
 		fr: `XP`,
 		en: `XP`,
 	},
-	'menuItem.spells': {
-		fr: `Liste des sorts`,
-		en: `Spells list`,
-	},
 	'menuItem.background': {
 		fr: `Résumé`,
 		en: `Resume`,
@@ -102,10 +98,6 @@ function CharacterMenu({ open }) {
 		{
 			label: tr`menuItem.levelling`,
 			href: '/character/levelling',
-		},
-		{
-			label: tr`menuItem.spells`,
-			href: '/character/spells',
 		},
 		{
 			label: tr`menuItem.background`,

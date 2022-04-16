@@ -15,7 +15,7 @@ function CharacterSpells() {
 			{/* must have loaded character, otherwise render SpellsView for the "without character" mode 
 			and then re-render for the "with character" mode */}
 			{character && (
-				<SpellsView contextCharacter={character} />
+				<SpellsView contextCharacter={character} root={false} />
 			)}
 		</CharacterProvider>
 	)

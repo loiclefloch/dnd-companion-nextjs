@@ -17,6 +17,13 @@ const useI18n = makeI18n({
 
 function HealRunner({ healAtSlotLevel, spellLevel, formatMod }) {
 	const { tr } = useI18n()
+	console.log(
+		{ 
+			mod: formatMod(healAtSlotLevel[spellLevel]) ,
+			spellLevel,
+			l: healAtSlotLevel[spellLevel]
+		},
+	)
 	return (
 		<div>
 			{tr('mod pv', { mod: formatMod(healAtSlotLevel[spellLevel]) })}

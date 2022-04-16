@@ -2,11 +2,10 @@ import isEmpty from "lodash/isEmpty"
 import groupBy from "lodash/groupBy"
 import map from "lodash/map"
 import Link from "next/link"
-import useI18n from "../../modules/i18n/useI18n"
+import { makeI18n } from "../../modules/i18n/useI18n"
 import Screen from "../../components/Screen"
 import useCurrentCharacter from "../../components/useCurrentCharacter"
 import IconBookOpen from "../../components/icons/IconBookOpen"
-import IconPlus from "../../components/icons/IconPlus"
 import IconMagicSchool from "../../components/icons/IconMagicSchool"
 import SpellRunner from "../../components/SpellRunner"
 import useTipConcentration from "../../components/useTipConcentration"
@@ -17,6 +16,17 @@ import useEditSpellSlotsScreenAsModal from "../../components/useEditSpellSlotsSc
 import { actionEditSpellSlots } from "../../modules/character/action"
 import CharacterSpellSource from "../../components/CharacterSpellSource"
 import CharacterSpellTag from "../../components/CharacterSpellTag"
+
+const useI18n = makeI18n({
+	'screen.title': {
+		fr: `%{character.name} - Grimoire`,
+		en: `%{character.name} - Grimoire`,
+	},
+	'menuItem.spells': {
+		fr: `Liste des sorts`,
+		en: `Spells list`,
+	},
+})
 
 function Spell({ spell, character /*onSelect*/ }) {
 	const { tr } = useI18n();
@@ -150,6 +160,7 @@ function SpellLevelHeader({ level, spellsSlots, characterDispatch }) {
 }
 
 function Grimoire() {
+	const { tr } = useI18n()
 	const { character, characterDispatch } = useCurrentCharacter()
 
 	const groupedBySpellLevel = groupBy(character?.spellsList, spell => spell.level)
@@ -159,20 +170,19 @@ function Grimoire() {
 
 	return (
 		<Screen
-			title={`${character?.name} - Grimoire`}
+			title={tr('screen.title', { 'character.name': character?.name})}
 			titleIcon={<IconBookOpen className="w-6 h-6" />}
 			root
 			withCharacterMenu
 			withBottomSpace
-			// rightAction={
-			// 	<button
-			// 	 // TODO:
-			// 		onClick={() => {
-			// 		}}
-			// 	>
-			// 		<IconPlus className={"h-6 w-6 text-slate-800"} />
-			// 	</button>
-			// }
+			rightAction={
+				<Link
+					href="/character/spells"
+					passHref
+				>
+					<IconBookOpen className="w-6 h-6" />
+				</Link>
+			}
 		>
 			{character && (
 				<div>

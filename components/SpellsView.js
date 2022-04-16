@@ -109,7 +109,7 @@ function Spell({ spell, filters, character /*onSelect*/ }) {
   );
 }
 
-function Spells({ contextCharacter }) {
+function Spells({ root, contextCharacter }) {
   const { tr, lang } = useI18n()
   const spellsResponse = useSpells();
   const defaultFilters  = useMemo(() => {
@@ -162,7 +162,7 @@ function Spells({ contextCharacter }) {
         : tr('screen.title')
       }
       titleIcon={<IconBookOpen className="w-6 h-6" />}
-      root
+      root={root}
       withCharacterMenu
       withBottomSpace
       isLoading={spellsResponse.isLoading}
