@@ -2,8 +2,9 @@ import clsx from "clsx";
 import map from "lodash/map";
 import useSpellRunner from "./useSpellRunner"
 import SectionWithToggle from "./SectionWithToggle";
+import DiceWithMod from "./DiceWithMod";
 
-function SpellDetailLevelTable({ title, data, showSpellRunner }) {
+function SpellDetailLevelTable({ title, data, formatMod, showSpellRunner }) {
 	return (
 		<SectionWithToggle title={title} className="mt-4">
 			<div className="grid grid-cols-3 place-items-stretch">
@@ -25,7 +26,7 @@ function SpellDetailLevelTable({ title, data, showSpellRunner }) {
 									{level < 10 && <span>&nbsp;&nbsp;</span>}
 									{level}
 								</div>
-								<div className="pl-4">{value}</div>
+								<div className="pl-4">{formatMod(value)}</div>
 							</>
 						)}
 					</div>
@@ -35,11 +36,13 @@ function SpellDetailLevelTable({ title, data, showSpellRunner }) {
 	)
 }
 
-function SpellDetailLevel({ spell, showSpellRunner }) {
+
+function SpellDetailLevel({ spell, formatMod, showSpellRunner }) {
 	if (spell.heal) {
 		return <SpellDetailLevelTable 
 			title="Soins" 
 			data={spell.heal.healAtSlotLevel} 
+			formatMod={formatMod}
 			showSpellRunner={showSpellRunner}
 		/>
 	}
@@ -48,6 +51,7 @@ function SpellDetailLevel({ spell, showSpellRunner }) {
 		return <SpellDetailLevelTable 
 			title="Dégats par niveau de sort" 
 			data={spell.damage.damageAtSlotLevel} 
+			formatMod={formatMod}
 			showSpellRunner={showSpellRunner}
 		/>
 	}
@@ -56,6 +60,7 @@ function SpellDetailLevel({ spell, showSpellRunner }) {
 		return <SpellDetailLevelTable 
 			title="Dégats par niveau de personnage" 
 			data={spell.damage.damageAtCharacterLevel} 
+			formatMod={formatMod}
 			showSpellRunner={showSpellRunner}
 		/>
 	}
@@ -70,6 +75,12 @@ function SpellDetail({ spell, contextCharacter }) {
 		<>
 			<SpellDetailLevel 
 				spell={spell} 
+				formatMod={(dice) => (
+					<DiceWithMod
+						dice={dice}
+						contextCharacter={contextCharacter}
+					/>
+				)}
 				showSpellRunner={(options) => showSpellRunner(spell, contextCharacter, options)}
 			/>
 		</>

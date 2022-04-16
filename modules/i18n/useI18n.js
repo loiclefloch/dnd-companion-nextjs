@@ -227,16 +227,13 @@ function formatTemplate(str, templateParams) {
     return res[0]
   }
 
-  return res.map((str, i) => <span key={i}>{str}</span>)
-  // return str?.replace(
-  //   /%{([^{}]+)}/g, // or /{(\w*)}/g for "{this} instead of %this%"
-  //   function (m, key) {
-  //     if (!templateParams) {
-  //       throw new Error(`Missing template params`)
-  //     }
-  //     return templateParams.hasOwnProperty(key) ? templateParams[key] : "";
-  //   }
-  // )
+  if (res.some(str => !isString(str))) {
+    // has a react component
+    return res.map((str, i) => <span key={i}>{str}</span>)
+  }
+
+  // build a string, to avoid having react for just a string
+  return res.join('')
 }
 
 function useBuildUseI18n(translationsParam) {

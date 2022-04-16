@@ -15,6 +15,7 @@ export function formatSpell(spell) {
 }
 
 function useSpell(index) {
+  console.log({ index })
   return useData(formatSpell(spells.find(spell => spell.index === index)))
 }
 

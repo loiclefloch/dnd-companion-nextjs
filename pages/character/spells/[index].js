@@ -20,6 +20,8 @@ function Spell() {
 
 	const spell = spellResponse.data;
 
+	console.log({ spellResponse, index: router.query.index })
+
 	return (
 		<CharacterProvider character={character}>
 			<Screen

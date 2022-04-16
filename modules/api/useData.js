@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useTimeout from "../utils/useTimeout"
 
 // TODO: see import useSWR from 'swr'
@@ -9,6 +9,12 @@ function useData(resultData) {
 	useTimeout(() => {
 		setData(resultData)
 	}, 100)
+
+	useEffect(() => {
+		if (!data && resultData) {
+			setData(resultData)
+		}
+	}, [resultData])
 
 	return { data, isLoading: data === null }
 }

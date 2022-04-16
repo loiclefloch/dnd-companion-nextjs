@@ -2,6 +2,7 @@ import { makeI18n } from '../modules/i18n/useI18n'
 import DamageTypeLabel from "./DamageTypeLabel"
 import Button from "./Button"
 import useSpellRunner from "./useSpellRunner"
+import DiceWithMod from './DiceWithMod'
 
 const useI18n = makeI18n({
 	'mod pv': {
@@ -17,13 +18,7 @@ const useI18n = makeI18n({
 
 function HealRunner({ healAtSlotLevel, spellLevel, formatMod }) {
 	const { tr } = useI18n()
-	console.log(
-		{ 
-			mod: formatMod(healAtSlotLevel[spellLevel]) ,
-			spellLevel,
-			l: healAtSlotLevel[spellLevel]
-		},
-	)
+	
 	return (
 		<div>
 			{tr('mod pv', { mod: formatMod(healAtSlotLevel[spellLevel]) })}
@@ -93,22 +88,18 @@ function SpellRunner({ contextCharacter, hideCasting = false, spell }) {
 	const { showSpellRunner } = useSpellRunner()
 	const { tr } = useI18n()
 
-	function formatMod(dice) {
-		if (contextCharacter) {
-			if (dice.includes("MOD")) {
-				return <span>{dice.replaceAll("MOD", ``)} {contextCharacter.spellcastingAbilityValue} <span className='text-xs text-meta'>({contextCharacter.spellcastingAbility})</span></span>
-			}
-		}
-		return dice
-	}
-
 	return (
 		<div className="flex items-center justify-between">
 			<div>
 				<SpellDefinition
 					contextCharacter={contextCharacter}
 					spell={spell}
-					formatMod={formatMod}
+					formatMod={(dice) => (
+						<DiceWithMod
+							dice={dice}
+							contextCharacter={contextCharacter}
+						/>
+					)}
 				/>
 			</div>
 			{!spell.isCantripWithoutNeedToRun 
