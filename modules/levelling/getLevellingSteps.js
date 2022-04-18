@@ -49,7 +49,7 @@ function hillDwarf() {
 
 			return [
 				{
-					name: "increase-maximum-hp", 
+					index: "increase-maximum-hp", 
 					label: "Points de vie supplémentaire",
 					desc: "En tant que nain des collines, vous gagnez un point de vie supplémentaire",
 					hp : +1,
@@ -69,6 +69,10 @@ function lightfootHalfling() {
 }
 
 function halfOrc() {
+	return characterNoop()
+}
+
+function rockGnome() {
 	return characterNoop()
 }
 
@@ -93,7 +97,7 @@ function paladin() {
 		3: () => {
 			return [
 				{
-					name: "sacred-oath", 
+					index: "sacred-oath", 
 					label: "Sacred Oath",
 					desc: "Swear the oath that binds you as a paladin forever.",
 				},
@@ -112,7 +116,7 @@ function bard() {
 		3: () => {
 			return [
 				{
-					name: "bard-college", 
+					index: "bard-college", 
 					label: "Bard college",
 					desc: "Delve into the advanced techniques of a bard college.",
 				},
@@ -131,7 +135,7 @@ function druid() {
 		2: () => {
 			return [
 				{
-					name: "druid-circle", 
+					index: "druid-circle", 
 					label: "Druid circle",
 					desc: "You choose which one of the druids circles you identiy to.",
 				},
@@ -149,7 +153,7 @@ function rogue() {
 		3: () => {
 			return [
 				{
-					name: "roguish-archetypes", 
+					index: "roguish-archetypes", 
 					label: "Roguish Archetypes", 
 					desc: "You choose an archetype that you emulate in the exercise of your rogue abilities.",
 				},
@@ -167,9 +171,29 @@ function fighter() {
 		3: () => {
 			return [
 				{
-					name: "martial-archetype",
+					index: "martial-archetype",
 					label: "Martial Archetype",
 					desc: "You choose an archetype that you strive to emulate in your combat styles and techniques.",
+				},
+			]
+		},
+		// TODO: level 10 subclass champion:
+		// At 10th level, you can choose a second option from the Fighting Style class feature.
+	}
+}
+
+function wizard() {
+	return {
+		every: () => {
+			return []
+		},
+		...applyNoop(1, 20),
+		2: () => {
+			return [
+				{
+					index: "arcane-tradition",
+					label: "Arcane tradition",
+					desc: "You choose an arcane tradition, shaping your practice of magic through one of eight schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, or Transmutation.",
 				},
 			]
 		},
@@ -193,14 +217,17 @@ function applyCustomMethods(character, level) {
 		steps = [...steps, ...newSteps]
 	}
 
-	// TODO:
+	// TODO: implement
+	// TODO: move on race file
 	const racesMap = {
 		'hill-dwarf': hillDwarf,
 		dragonborn: dragonborn,
 		'lightfoot-halfling': lightfootHalfling,
 		'half-orc': halfOrc,
+		'rock-gnome': rockGnome,
 	}
-	// TODO:
+	// TODO: implement
+	// TODO: move on class file
 	const classesMap = {
 		barbarian: barbarian,
 		paladin: paladin,
@@ -208,6 +235,7 @@ function applyCustomMethods(character, level) {
 		bard: bard,
 		rogue: rogue,
 		fighter: fighter,
+		wizard: wizard,
 	}
 
 	const race = character.race?.index || character.race 
@@ -224,7 +252,7 @@ function applyCustomMethods(character, level) {
 		} else {
 			console.warn(`Levelling does not exists for level ${level} for race ${race}`)
 			steps.push({
-				name: "levelling-does-not-exists",
+				index: "levelling-does-not-exists",
 				type: 'level-does-not-exists-for-level-for-race',
 				label: 'level-does-not-exists-for-level-for-race',
 				level,
@@ -234,7 +262,7 @@ function applyCustomMethods(character, level) {
 	} else {
 		console.warn(`Levelling does not exists for race ${race}`)
 		steps.push({
-			name: "levelling-does-not-exists",
+			index: "levelling-does-not-exists",
 			type: 'level-does-not-exists-for-race',
 			label: 'level-does-not-exists-for-race',
 			race,
@@ -250,7 +278,7 @@ function applyCustomMethods(character, level) {
 		} else {
 			console.warn(`Levelling does not exists for level ${level} for class ${clss}`)
 			steps.push({
-				name: "levelling-does-not-exists",
+				index: "levelling-does-not-exists",
 				type: 'level-does-not-exists-for-level-for-class',
 				label: 'level-does-not-exists-for-level-for-class',
 				clss,
@@ -260,7 +288,7 @@ function applyCustomMethods(character, level) {
 	} else {
 		console.warn(`Levelling does not exists for level class ${clss}`)
 		steps.push({
-			name: "levelling-does-not-exists",
+			index: "levelling-does-not-exists",
 			type: 'level-does-not-exists-for-class',
 			label: 'level-does-not-exists-for-class',
 			clss,
@@ -277,7 +305,7 @@ function addAbilityScoreImprovement(levellingData) {
 	if (hasAbilityScoreImprovement) {
 		return [
 			{
-				name: "ability-score-improvement",
+				index: "ability-score-improvement",
 				label: "Augmentation des capacités", // TODO: better text
 				desc: "",
 			},
@@ -294,9 +322,9 @@ function getLevellingSteps(character, level = 1) {
 	const levellingData = getLevellingDataForClassesAndLevel(character.classes, level)
 
 	const steps = [
-		{ name: "introduction" },
+		{ index: "introduction" },
 		{ 
-			name: "features", 
+			index: "features", 
 			label: "Ajout features",
 			desc: "",
 		},
@@ -307,26 +335,26 @@ function getLevellingSteps(character, level = 1) {
 
 		// TODO: ignore for some classes?
 		{ 
-			name: "spell-slots",
+			index: "spell-slots",
 			label: "Mise à jour des spells slots",
 			desc: "",
 		},
 
 		{
-			name: "proficiency-bonus",
+			index: "proficiency-bonus",
 			label: "Bonus de maîtrise",
 			desc: "",
 		},
 
 		// at the end, we must have updated the CON before (= hit dice + CON, ex: 1d12 + CON)
 		{
-			name: "hit-points",
+			index: "hit-points",
 			label: "Points de vie",
 			desc: "Vous gagnez des points de vie",
 		},
 
 		{
-			name: "finalize",
+			index: "finalize",
 			desc: ""
 		}
 	].filter(Boolean)

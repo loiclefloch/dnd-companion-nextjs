@@ -14,10 +14,10 @@ function LevellingClassLevel() {
 	const router = useRouter()
 	const { tr } = useI18n()
 
-	const classIndex = router.query.class || 'druid'
+	const classIndex = router.query.class 
 
-	const classResponse = useClass(classIndex) // TODO:
-	const level = parseInt(router.query.level) || 3 // TODO:
+	const classResponse = useClass(classIndex)
+	const level = parseInt(router.query.level)
 
 	const clss = classResponse.data
 

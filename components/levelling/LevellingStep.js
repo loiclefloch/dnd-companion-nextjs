@@ -16,6 +16,7 @@ import DruidCircle from "./DruidCircle"
 import BardCollege from "./BardCollege"
 import RoguishArchetypes from "./RoguishArchetypes"
 import MartialArchetype from "./MartialArchetype"
+import ArcaneTradition from "./ArcaneTradition"
 
 const isBrowser = typeof window !== "undefined";
 
@@ -50,12 +51,12 @@ function LevellingStep({ stepName }) {
 		'roguish-archetypes': RoguishArchetypes,
 		'martial-archetype': MartialArchetype,
 		'levelling-does-not-exists': LevellingDoesNotExists,
-		// StepHp,
+		'arcane-tradition': ArcaneTradition,
 	}
 
 	const stepView = stepsViews[stepName]
-	const step = steps.find(s => s.name === stepName)
-	const stepLevellingState = levellingState.find(s => s.step.name === stepName)
+	const step = steps.find(s => s.index === stepName)
+	const stepLevellingState = levellingState.find(s => s.step.index === stepName)
 
 	return stepView ? (
 		createElement(

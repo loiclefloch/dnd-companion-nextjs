@@ -1,6 +1,6 @@
 {
-  "id": "wizard-level-1",
-  "name": "fix - wizard - level 1",
+  "id": "wizard-level-2",
+  "name": "fix - wizard - level 2",
   "body": {
     "age": 30,
     "gender": "",
@@ -11,7 +11,7 @@
     "skinColor": "",
     "physicalcharacteristics": ""
   },
-  "level": 1,
+  "level": 2,
   "classes": [
     "wizard"
   ],
@@ -66,8 +66,14 @@
     "CHA": 8
   },
   "levelling": {
-    "xp": 0,
-    "history": []
+    "xp": 3900,
+    "history": [
+      {
+        "id": "5a528f01-17ca-4ebd-b3fc-a7cca3846279",
+        "label": "Levelling",
+        "amount": 3900
+      }
+    ]
   },
   "spellsList": [],
   "currencies": {
@@ -169,6 +175,11 @@
     {
       "index": "researcher",
       "type": "background"
+    },
+    {
+      "index": "arcane-tradition",
+      "type": "levelling",
+      "level": 2
     }
   ],
   "personnalityTraits": [
@@ -183,5 +194,74 @@
     "gnomish"
   ],
   "maximumHitDice": 7,
-  "currentHitDice": 7
+  "currentHitDice": 7,
+  "spellsSlots": [
+    {
+      "spellLevel": 0,
+      "totalSlots": null,
+      "baseTotalSlots": null,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 1,
+      "totalSlots": 3,
+      "baseTotalSlots": 3,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 2,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 3,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 4,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 5,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 6,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 7,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    },
+    {
+      "spellLevel": 8,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 1
+    }
+  ],
+  "subclass": {
+    "index": "evocation"
+  },
+  "maxHp": null
 }

@@ -62,7 +62,7 @@ function useCharacterLevelling() {
 
     const steps = levellingContextData.steps
     
-    const currentStepIndex = steps.findIndex(s => currentStep === s.name)
+    const currentStepIndex = steps.findIndex(s => currentStep === s.index)
     const nextStep = steps[currentStepIndex + 1]
 
     // console.info({ currentStep, nextStep })
@@ -80,7 +80,7 @@ function useCharacterLevelling() {
     const nextLevellingState = updateObjectOrCreateOnArray(
       levellingState, 
       stepLevellingState, 
-      s => s.step.name === stepLevellingState.step.name
+      s => s.step.index === stepLevellingState.step.index
     )
 
     updateLevellingState(nextLevellingState)
@@ -89,12 +89,12 @@ function useCharacterLevelling() {
       throw new Error(`Next step not found`)
     }
 
-    if (nextStep.name === currentStep) {
+    if (nextStep.index === currentStep) {
       throw new Error(`nextStep is same as currentStep`)
     }
     
     if (nextStep) {
-      router.push(`/level-up/${nextStep.name}`)
+      router.push(`/level-up/${nextStep.index}`)
     }
   }
 
@@ -119,7 +119,7 @@ function useCharacterLevelling() {
   const clearStepLevellingState = useCallback((step) => {
     const nextLevellingState = deleteObjectOnArray(
       levellingState, 
-      s => s.step.name === step.name
+      s => s.step.index === step.index
     )
 
     updateLevellingState(nextLevellingState)
