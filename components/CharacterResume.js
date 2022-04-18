@@ -406,38 +406,29 @@ export function GlobalSection({ character, small = false }) {
 					 value={<span>{character.passiveInvestigation}</span>}
 					 onClick={() => showTipPassivePerception()} 
 					/>
-				<LineInfo 
-					label={tr`characteristics.spellDC`} 
-					value={<span>{character.spellSaveDC ? character.spellSaveDC : "N/A"}</span>}
-				/>
-				<LineInfo 
-					label={tr`characteristics.spellcasingAbility`} 
-					value={character.spellcastingAbility ?
-						(
-							<span>
+
+				{character.levelling.hasMagic && (
+					<>
+						<LineInfo
+							label={tr`characteristics.spellDC`}
+							value={<span>{character.spellSaveDC}</span>}
+						/>
+						<LineInfo
+							label={tr`characteristics.spellcasingAbility`}
+							value={<span>
 								<span className="text-xs text-meta">
 									{character.spellcastingAbility}</span>
 								<span> </span>
 								{character.spellcastingAbilityValueLabel}
 							</span>
-						)
-						:
-						(
-							<span>N/A</span>
-						)
-					}
-				/>
-				<LineInfo 
-					label={tr`characteristics.spellAttackBonus`} 
-					value={character.spellcastingAbility ?
-						(
-							<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>
-						)
-						:
-						(
-							<span>N/A</span>
-						)}
-				/>
+							}
+						/>
+						<LineInfo
+							label={tr`characteristics.spellAttackBonus`}
+							value={<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>}
+						/>
+					</>
+				)}
 			</LineInfo.Parent>
 
 		</Section>
