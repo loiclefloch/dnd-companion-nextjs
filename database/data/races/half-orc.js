@@ -24,6 +24,9 @@ const halfOrc = api => ({
 		api.buildTrait("relentless-endurance"),
 	],
 	"subraces": [],
+	levelling: {
+		...api.applyLevellingLevelNoop(1, 20),
+	},
 })
 
 export default halfOrc

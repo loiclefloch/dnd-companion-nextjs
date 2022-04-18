@@ -102,7 +102,21 @@ const api = {
 			// name: index,
 			// url: race.url,
 		}
-	}
+	},
+	applyLevellingLevelNoop: (from, to) => {
+		const data = {}
+		for (let i = from; i <= to; i++) {
+			data[i] = []
+		}
+		return data
+	},
+	applyLevellingLevelNotCreatedYet: (from, to) => {
+		const data = {}
+		for (let i = from; i <= to; i++) {
+			data[i] = null
+		}
+		return data
+	},
 }
 
 function build(race) {
@@ -128,7 +142,7 @@ function merge(race, sub) {
 		'ability_bonuses',
 		'starting_proficiencies',
 		'languages',
-		'traits'
+		'traits',
 	]
 
 	arrayKeys.forEach(key => {
@@ -147,6 +161,7 @@ function merge(race, sub) {
 		"name",
 		"race",
 		"url",
+		'levelling', // TODO: verify we do not need to merge of subrace + race
 	]
 	objectKeys.forEach(key => {
 		final[key] = sub[key]

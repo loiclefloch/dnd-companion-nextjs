@@ -41,6 +41,9 @@ const highElf = api => ({
 		api.buildTrait("high-elf-cantrip"),
 		api.buildTrait("extra-language"),
 	],
+	levelling: {
+		...api.applyLevellingLevelNotCreatedYet(1, 20),
+	},
 })
 
 export default highElf

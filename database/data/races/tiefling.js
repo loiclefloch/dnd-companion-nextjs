@@ -22,6 +22,9 @@ const tiefling = (api) => ({
 		api.buildTrait("infernal-legacy"),
 	],
 	"subraces": [],
+	levelling: {
+		...api.applyLevellingLevelNotCreatedYet(1, 20),
+	},
 })
 
 export default tiefling

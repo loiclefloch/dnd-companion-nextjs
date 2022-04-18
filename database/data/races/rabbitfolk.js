@@ -32,7 +32,10 @@ const Rabittfolk = (api) => ({
 		api.buildTrait("lucky-footwork"),
 		api.buildTrait("rabbit-hop"),
 	],
-	"subraces": []
+	"subraces": [],
+	levelling: {
+		...api.applyLevellingLevelNotCreatedYet(1, 20),
+	},
 })
 
 export default Rabittfolk

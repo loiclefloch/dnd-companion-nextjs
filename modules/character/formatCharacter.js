@@ -6,7 +6,7 @@ import backgrounds from "../../database/data/backgrounds"
 import classes from '../../database/data/classes'
 import features from '../../database/data/features'
 import feats from '../../database/data/feats'
-import subclasses from '../../database/data/subclasses.json'
+import subclasses from '../../database/data/subclasses'
 import allRaces from '../../database/data/allRaces'
 import spells from '../../database/data/spells.json'
 import alignments from '../../database/data/alignments.json'
@@ -198,8 +198,9 @@ export function formatCharacter(character) {
 	character.clss = character.classes[0]
 
 	if (character.subclass) {
+		const subclass = subclasses.find(c => c.index === character.subclass.index)
 		character.subclass = {
-			...formatSubclass(subclasses.find(c => c.index === character.subclass.index)),
+			...formatSubclass(subclass),
 		}
 	}
 	const clss = character.classes[0]

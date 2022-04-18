@@ -14,6 +14,9 @@ const rockGnome = api => ({
 		api.buildTrait("artificers-lore"),
 		api.buildTrait("tinker"),
 	],
+	levelling: {
+		...api.applyLevellingLevelNoop(1, 20),
+	},
 })
 
 export default rockGnome

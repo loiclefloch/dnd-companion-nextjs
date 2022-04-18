@@ -25,6 +25,20 @@ const api = {
       url: item.url
     }
   },
+	applyLevellingLevelNoop: (from, to) => {
+		const data = {}
+		for (let i = from; i <= to; i++) {
+			data[i] = []
+		}
+		return data
+	},
+	applyLevellingLevelNotCreatedYet: (from, to) => {
+		const data = {}
+		for (let i = from; i <= to; i++) {
+			data[i] = null
+		}
+		return data
+	},
 }
 
 export default [

@@ -11,6 +11,9 @@ const protectorAasimar = api => ({
 	"traits": [
 		api.buildTrait("radiant-soul")
 	],
+	levelling: {
+		...api.applyLevellingLevelNoop(1, 20),
+	},
 })
 
 export default protectorAasimar

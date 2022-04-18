@@ -1,5 +1,5 @@
 import { cloneDeep, isArray } from 'lodash'
-import subclasses from '../../database/data/subclasses.json'
+import subclasses from '../../database/data/subclasses'
 import useData from "./useData"
 import equipment from '../../database/data/equipment.json'
 import proficiencies from '../../database/data/proficiencies.json'

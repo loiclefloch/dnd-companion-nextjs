@@ -27,6 +27,9 @@ const elf = (api) => ({
 		api.buildRace("high-elf"),
 		api.buildRace("wood-elf"),
 	],
+	levelling: {
+		...api.applyLevellingLevelNotCreatedYet(1, 20),
+	},
 })
 
 export default elf

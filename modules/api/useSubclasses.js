@@ -1,4 +1,4 @@
-import subclasses from '../../database/data/subclasses.json'
+import subclasses from '../../database/data/subclasses'
 import useData from "./useData"
 
 import { formatSubclass } from "./useSubclass"

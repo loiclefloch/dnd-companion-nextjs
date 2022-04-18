@@ -1,207 +1,8 @@
 import { isArray } from "lodash"
 import { getLevellingDataForClassesAndLevel } from "./"
-
-function noop() {
-	return () => []
-}
-
-function applyNoop(from, to) {
-	const data = {}
-
-	for (let i = from; i <= to; i++) {
-		data[i] = noop()
-	}
-	
-	return data
-}
-
-function characterNoop() {
-	return {
-		every: noop(),
-		1: noop(),
-		2: noop(),
-		3: noop(),
-		4: noop(),
-		5: noop(),
-		6: noop(),
-		7: noop(),
-		8: noop(),
-		9: noop(),
-		10: noop(),
-		11: noop(),
-		12: noop(),
-		13: noop(),
-		14: noop(),
-		15: noop(),
-		16: noop(),
-		17: noop(),
-		18: noop(),
-		19: noop(),
-		20: noop(),
-	}
-}
-
-function hillDwarf() {
-	return {
-		every: () => {
-			// Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.
-			// character.maximumHp += 1
-
-			return [
-				{
-					index: "increase-maximum-hp", 
-					label: "Points de vie supplémentaire",
-					desc: "En tant que nain des collines, vous gagnez un point de vie supplémentaire",
-					hp : +1,
-				}
-			]
-		},
-		...applyNoop(1, 20),
-	}
-}
-
-function dragonborn() {
-	return characterNoop()
-}
-
-function lightfootHalfling() {
-	return characterNoop()
-}
-
-function halfOrc() {
-	return characterNoop()
-}
-
-function rockGnome() {
-	return characterNoop()
-}
-
-function barbarian() {
-	return {
-		every: () => {
-			// TODO
-			return []
-		},
-		// TODO:
-		...applyNoop(1, 20),
-	}
-}
-
-function paladin() {
-	return {
-		every: () => {
-			// TODO
-			return []
-		},
-		...applyNoop(1, 20),
-		3: () => {
-			return [
-				{
-					index: "sacred-oath", 
-					label: "Sacred Oath",
-					desc: "Swear the oath that binds you as a paladin forever.",
-				},
-			]
-		},
-	}
-}
-
-function bard() {
-	return {
-		every: () => {
-			// TODO
-			return []
-		},
-		...applyNoop(1, 20),
-		3: () => {
-			return [
-				{
-					index: "bard-college", 
-					label: "Bard college",
-					desc: "Delve into the advanced techniques of a bard college.",
-				},
-			]
-		}
-	}
-}
-
-function druid() {
-	return {
-		every: () => {
-			// TODO
-			return []
-		},
-		...applyNoop(1, 20),
-		2: () => {
-			return [
-				{
-					index: "druid-circle", 
-					label: "Druid circle",
-					desc: "You choose which one of the druids circles you identiy to.",
-				},
-			]
-		},
-	}
-}
-
-function rogue() {
-	return {
-		every: () => {
-			return []
-		},
-		...applyNoop(1, 20),
-		3: () => {
-			return [
-				{
-					index: "roguish-archetypes", 
-					label: "Roguish Archetypes", 
-					desc: "You choose an archetype that you emulate in the exercise of your rogue abilities.",
-				},
-			]
-		},
-	}
-}
-
-function fighter() {
-	return {
-		every: () => {
-			return []
-		},
-		...applyNoop(1, 20),
-		3: () => {
-			return [
-				{
-					index: "martial-archetype",
-					label: "Martial Archetype",
-					desc: "You choose an archetype that you strive to emulate in your combat styles and techniques.",
-				},
-			]
-		},
-		// TODO: level 10 subclass champion:
-		// At 10th level, you can choose a second option from the Fighting Style class feature.
-	}
-}
-
-function wizard() {
-	return {
-		every: () => {
-			return []
-		},
-		...applyNoop(1, 20),
-		2: () => {
-			return [
-				{
-					index: "arcane-tradition",
-					label: "Arcane tradition",
-					desc: "You choose an arcane tradition, shaping your practice of magic through one of eight schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, or Transmutation.",
-				},
-			]
-		},
-		// TODO: level 10 subclass champion:
-		// At 10th level, you can choose a second option from the Fighting Style class feature.
-	}
-}
-
+import classes from "../../database/data/classes"
+import subclasses from "../../database/data/subclasses"
+import allRaces from "../../database/data/allRaces"
 
 /**
  * Apply custom code for each class / race.
@@ -217,83 +18,98 @@ function applyCustomMethods(character, level) {
 		steps = [...steps, ...newSteps]
 	}
 
-	// TODO: implement
-	// TODO: move on race file
-	const racesMap = {
-		'hill-dwarf': hillDwarf,
-		dragonborn: dragonborn,
-		'lightfoot-halfling': lightfootHalfling,
-		'half-orc': halfOrc,
-		'rock-gnome': rockGnome,
-	}
-	// TODO: implement
-	// TODO: move on class file
-	const classesMap = {
-		barbarian: barbarian,
-		paladin: paladin,
-		druid: druid,
-		bard: bard,
-		rogue: rogue,
-		fighter: fighter,
-		wizard: wizard,
-	}
+	const raceIndex = character.race?.index || character.race 
+	const classIndex = character.classes[0]?.index || character.classes[0]
+	const subclassIndex = character.subclass?.index || character.subclass || null
 
-	const race = character.race?.index || character.race 
-	const clss = character.classes[0]?.index || character.classes[0]
-
-	const forRace = racesMap[race]
-	const forClass = classesMap[clss]
+	const forRace = allRaces.find(r => r.index === raceIndex).levelling
+	const forClass = classes.find(c => c.index === classIndex).levelling
 
 	if (forRace) {
-		const forRaceContent = forRace(character)
-		addSteps(forRaceContent.every())
-		if (forRaceContent[level]) {
-			addSteps(forRaceContent[level]())
+		if (forRace.every) {
+			addSteps(forRace.every)
+		}
+		if (forRace[level]) {
+			addSteps(forRace[level])
 		} else {
-			console.warn(`Levelling does not exists for level ${level} for race ${race}`)
+			console.warn(`Levelling does not exists for level ${level} for race ${raceIndex}`)
 			steps.push({
 				index: "levelling-does-not-exists",
 				type: 'level-does-not-exists-for-level-for-race',
-				label: 'level-does-not-exists-for-level-for-race',
+				label: `level-does-not-exists-for-level-for-race ${raceIndex}`,
 				level,
-				race,
+				race: raceIndex,
 			})
 		}
 	} else {
-		console.warn(`Levelling does not exists for race ${race}`)
+		console.warn(`Levelling does not exists for race ${raceIndex}`)
 		steps.push({
 			index: "levelling-does-not-exists",
 			type: 'level-does-not-exists-for-race',
-			label: 'level-does-not-exists-for-race',
-			race,
+			label: `level-does-not-exists-for-level-for-race ${raceIndex}`,
+			race: raceIndex,
 		})
 	}
-	if (forClass) {
-		const forClassContent = forClass(character)
-		addSteps(forClassContent.every())
 
-		if (forClassContent[level]) {
-			const stepsForClassContent = forClassContent[level]()
+	if (forClass) {
+		if (forClass.every) {
+			addSteps(forClass.every)
+		}
+
+		if (forClass[level]) {
+			const stepsForClassContent = forClass[level]
 			addSteps(stepsForClassContent)
 		} else {
-			console.warn(`Levelling does not exists for level ${level} for class ${clss}`)
+			console.warn(`Levelling does not exists for level ${level} for class ${classIndex}`)
 			steps.push({
 				index: "levelling-does-not-exists",
 				type: 'level-does-not-exists-for-level-for-class',
 				label: 'level-does-not-exists-for-level-for-class',
-				clss,
+				clss: classIndex,
 				level,
 			})
 		}
 	} else {
-		console.warn(`Levelling does not exists for level class ${clss}`)
+		console.warn(`Levelling does not exists for level class ${classIndex}`)
 		steps.push({
 			index: "levelling-does-not-exists",
 			type: 'level-does-not-exists-for-class',
-			label: 'level-does-not-exists-for-class',
-			clss,
+			label: `level-does-not-exists-for-class`,
+			clss: classIndex,
 			level,
 		})
+	}
+
+	if (subclassIndex) {
+		const forSubclass = subclasses[subclassIndex]?.levelling
+		if (forSubclass) {
+			if (forSubclass.every) {
+				addSteps(forSubclass.every)
+			}
+
+			if (forSubclass[level]) {
+				const stepsForClassContent = forSubclass[level]
+				addSteps(stepsForClassContent)
+			} else {
+				console.warn(`Levelling does not exists for level ${level} for subclass ${subclassIndex}`)
+				steps.push({
+					index: "levelling-does-not-exists",
+					type: 'level-does-not-exists-for-level-for-subclass',
+					label: `level-does-not-exists-for-level-for-subclass ${subclassIndex}`,
+					clss: classIndex,
+					level,
+				})
+			}
+		} else {
+			console.warn(`Levelling does not exists for level subclass ${subclassIndex}`)
+			steps.push({
+				index: "levelling-does-not-exists",
+				type: 'level-does-not-exists-for-subclass',
+				label: `level-does-not-exists-for-level-for-subclass ${subclassIndex}`,
+				clss: classIndex,
+				level,
+			})
+		}
 	}
 
 	return steps

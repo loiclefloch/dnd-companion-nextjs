@@ -76,6 +76,9 @@ const halfElf = api => ({
 		api.buildTrait("skill-versatility"),
 	],
 	"subraces": [],
+	levelling: {
+		...api.applyLevellingLevelNotCreatedYet(1, 20),
+	},
 })
 
 export default halfElf

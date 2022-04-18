@@ -22,6 +22,9 @@ const dragonborn = (api) => ({
 		api.buildTrait("damage-resistance"),
 	],
 	"subraces": [],
+	levelling: {
+		...api.applyLevellingLevelNoop(1, 20),
+	},
 })
 
 export default dragonborn

@@ -25,6 +25,9 @@ const highElf = api => ({
 		api.buildTrait("fleet-of-foot"),
 		api.buildTrait("mask-of-the-wild"),
 	],
+	levelling: {
+		...api.applyLevellingLevelNotCreatedYet(1, 20),
+	},
 })
 
 export default highElf

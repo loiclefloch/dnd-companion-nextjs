@@ -39,6 +39,9 @@ const dwarf = (api) => ({
 	"subraces": [
 		api.buildRace("hill-dwarf")
 	],
+	levelling: {
+		...api.applyLevellingLevelNotCreatedYet(1, 20),
+	},
 })
 
 

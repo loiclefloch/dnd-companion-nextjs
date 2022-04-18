@@ -11,6 +11,19 @@ const hillDwarf = api => ({
 	"traits": [
 		api.buildTrait("dwarven-toughness")
 	],
+	levelling: {
+		...api.applyLevellingLevelNoop(1, 20),
+		every: [
+			// Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.
+			// character.maximumHp += 1
+			{
+				index: "increase-maximum-hp",
+				label: "Points de vie supplémentaire",
+				desc: "En tant que nain des collines, vous gagnez un point de vie supplémentaire",
+				hp: +1,
+			}
+		]
+	}
 })
 
 export default hillDwarf

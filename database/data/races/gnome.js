@@ -22,6 +22,9 @@ const gnome = api => ({
 	"subraces": [
 		api.buildRace("rock-gnome"),
 	],
+	levelling: {
+		...api.applyLevellingLevelNoop(1, 20),
+	},
 })
 
 export default gnome

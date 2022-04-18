@@ -11,6 +11,9 @@ const lightfootHalfing = api => ({
 	"traits": [
 		api.buildTrait("naturally-stealthy"),
 	],
+	levelling: {
+		...api.applyLevellingLevelNoop(1, 20),
+	}
 })
 
 export default lightfootHalfing

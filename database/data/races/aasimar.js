@@ -33,6 +33,9 @@ const Aasimar = (api) => ({
 	"subraces": [
 		api.buildRace("protector-aasimar")
 	],
+	levelling: {
+		...api.applyLevellingLevelNotCreatedYet(1, 20),
+	},
 })
 
 export default Aasimar

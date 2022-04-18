@@ -6,7 +6,7 @@ import ButtonBottomScreen from "../../components/ButtonBottomScreen"
 // describe WIP levelling
 function LevellingDoesNotExists({ step, levellingDispatch }) {
 
-
+	// TODO: i18n
 	return (
 		<div className="prose px-4 mt-4">
 			<h3>
@@ -31,6 +31,11 @@ function LevellingDoesNotExists({ step, levellingDispatch }) {
 				{step.type === 'level-does-not-exists-for-class' && 
 					<span>
 						{`La montée de niveau n'est pas terminé pour la class ${step.clss}`}
+					</span>
+				}
+				{step.type === 'level-does-not-exists-for-level-for-subclass' &&
+					<span>
+						{`La montée de niveau n'est pas terminé pour la sous-classe ${step.subclass}`}
 					</span>
 				}
 			</p>

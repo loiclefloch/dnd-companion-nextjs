@@ -23,6 +23,9 @@ const halfling = api => ({
 	"subraces": [
 		api.buildRace("lightfoot-halfling"),
 	],
+	levelling: {
+		...api.applyLevellingLevelNotCreatedYet(1, 20),
+	},
 })
 
 export default halfling
