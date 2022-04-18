@@ -225,7 +225,7 @@ export function CreateCharacterProvider({ children }) {
       const createdCharacter = buildCharacter(character)
       const characters = [...currentCaracters, createdCharacter]
       localStorage.setItem('characters', JSON.stringify(characters))
-      router.push("/characters")
+      router.push(`/character/${createCharacter.id}`)
     },
     getBuildedCharacter: () => !isBrowser ? null : formatCharacter(buildCharacter(character)),
     dispatchCharacter

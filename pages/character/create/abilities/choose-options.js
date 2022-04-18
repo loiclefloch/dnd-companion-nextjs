@@ -33,6 +33,7 @@ function Form() {
 			<div className="px-4 mt-4">
 				<p>Choisissez {bonusOptions.choose} bonus </p>
 
+
 				{/* TODO: we should be able to chose multiple times the same option */}
 				<ListSelector
 					value={chosenBonuses}
@@ -44,29 +45,29 @@ function Form() {
 								<div className="flex items-center w-14 align-center">
 									<AbilityImportanceForClass 
 										clss={character.clss} 
-										ability={option.ability_score.name} 
+										ability={option.abilityScore.name} 
 										className="w-2 h-2"
 									/>
 									<div className="ml-2">
-										{option.ability_score.name}
+										{option.abilityScore.name}
 									</div>
 								</div>
 								<div className="flex ml-8">
-									<div className="w-8">{baseStats[option.ability_score.name]}</div>
-									<div className="w-8 text-meta">({valueToModifierLabel(baseStats[option.ability_score.name])})</div>
-									{chosenBonuses.includes(option.ability_score.name) && ( // only when selected
+									<div className="w-8">{baseStats[option.abilityScore.name]}</div>
+									<div className="w-8 text-meta">({valueToModifierLabel(baseStats[option.abilityScore.name])})</div>
+									{chosenBonuses.includes(option.abilityScore.name) && ( // only when selected
 										<>
 											<div className="w-6"> → </div>
 											{/* TODO: + 0 on score or +1 modifier? */}
-											<div className="w-8">{baseStats[option.ability_score.name] + 1}</div>
-											<div className="w-8 text-meta">({valueToModifierLabel(baseStats[option.ability_score.name] + 1)})</div>
+											<div className="w-8">{baseStats[option.abilityScore.name] + 1}</div>
+											<div className="w-8 text-meta">({valueToModifierLabel(baseStats[option.abilityScore.name] + 1)})</div>
 										</>
 									)}
 
 								</div>
 							</div>,
-							value: option.ability_score.name,
-							selected: chosenBonuses.includes(option.ability_score.name)
+							value: option.abilityScore.name,
+							selected: chosenBonuses.includes(option.abilityScore.name)
 						})
 					})}
 					onChange={setChosenBonuses}

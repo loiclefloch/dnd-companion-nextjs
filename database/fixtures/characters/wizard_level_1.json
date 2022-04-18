@@ -1,0 +1,187 @@
+{
+  "id": "62003ff8-5822-4267-b64c-2c18e15c97aa",
+  "name": "fix - wizard - level 1",
+  "body": {
+    "age": 30,
+    "gender": "",
+    "height": "",
+    "weight": "",
+    "hairColor": "",
+    "eyeColor": "",
+    "skinColor": "",
+    "physicalcharacteristics": ""
+  },
+  "level": 1,
+  "classes": [
+    "wizard"
+  ],
+  "race": "rock-gnome",
+  "bonds": "I have an ancient text that holds terrible secrets that must not fall into the wrong hands.",
+  "flaws": "Most people scream and run when they see a demon. I stop and take notes on its anatomy",
+  "ideals": "Beauty. What is beautiful points us beyond itself toward what is true.",
+  "traits": [
+    {
+      "index": "darkvision",
+      "sourceType": "race"
+    },
+    {
+      "index": "gnome-cunning",
+      "sourceType": "race"
+    },
+    {
+      "index": "artificers-lore",
+      "sourceType": "race"
+    },
+    {
+      "index": "tinker",
+      "sourceType": "race"
+    }
+  ],
+  "stats": {
+    "STR": 15,
+    "DEX": 14,
+    "CON": 12,
+    "INT": 12,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "statsBonuses": [
+    {
+      "ability": "INT",
+      "type": "race",
+      "bonus": 2
+    },
+    {
+      "ability": "CON",
+      "type": "race",
+      "bonus": 1
+    }
+  ],
+  "baseStats": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 15,
+    "WIS": 12,
+    "CHA": 8
+  },
+  "levelling": {
+    "xp": 0,
+    "history": []
+  },
+  "spellsList": [],
+  "currencies": {
+    "cp": 0,
+    "sp": 0,
+    "gp": 0,
+    "ep": 0,
+    "pp": 0
+  },
+  "equipment": [
+    {
+      "index": "ink-1-ounce-bottle",
+      "quantity": 1
+    },
+    {
+      "index": "clothes-common",
+      "quantity": 1
+    },
+    {
+      "index": "small-knife",
+      "quantity": 1
+    },
+    {
+      "index": "dagger",
+      "quantity": 1
+    },
+    {
+      "index": "component-pouch",
+      "quantity": 1
+    },
+    {
+      "index": "dungeoneers-pack",
+      "quantity": 1
+    },
+    {
+      "index": "tinkers-tools",
+      "quantity": 1
+    }
+  ],
+  "wallet": {
+    "history": [
+      {
+        "id": "7d892972-4b1c-4a20-a8d2-8bd78185df51",
+        "isAdd": true,
+        "label": "Porte-monnaie initial",
+        "cp": 0,
+        "sp": 0,
+        "gp": 15,
+        "ep": 0,
+        "pp": 0
+      }
+    ]
+  },
+  "proficiencies": [
+    {
+      "index": "unarmed-strike",
+      "sourceType": "race"
+    },
+    {
+      "index": "tinkers-tools",
+      "sourceType": "race"
+    },
+    {
+      "index": "skill-history",
+      "sourceType": "background"
+    },
+    {
+      "index": "skill-arcana",
+      "sourceType": "background"
+    },
+    {
+      "index": "daggers",
+      "sourceType": "class"
+    },
+    {
+      "index": "quarterstaffs",
+      "sourceType": "class"
+    },
+    {
+      "index": "darts",
+      "sourceType": "class"
+    },
+    {
+      "index": "slings",
+      "sourceType": "class"
+    }
+  ],
+  "proficiencyBonus": 2,
+  "maximumHp": 19,
+  "currentHp": 19,
+  "spellsUsed": [],
+  "deathSaves": {
+    "nbFailed": null,
+    "nbSucceeed": null,
+    "isStabilized": false
+  },
+  "background": "sage",
+  "features": [
+    {
+      "index": "researcher",
+      "type": "background"
+    }
+  ],
+  "personnalityTraits": [
+    "I'm haunted by memories of war. I can't get the images of violence out of my mind.",
+    "I've read every book in the world's greatest libraries – or I like to boast that I have."
+  ],
+  "alignment": "chaotic-good",
+  "languages": [
+    "elvish",
+    "dwarvish",
+    "common",
+    "gnomish"
+  ],
+  "maximumHitDice": 7,
+  "currentHitDice": 7
+}

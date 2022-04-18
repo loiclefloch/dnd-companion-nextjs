@@ -3,6 +3,8 @@ const Sage = (api) => ({
 	"name": "Sage",
 	"good_for_classes": [
 		"druid",
+		"warlock",
+		"wizard",
 		// TODO:
 	],
 	"starting_proficiencies": [
