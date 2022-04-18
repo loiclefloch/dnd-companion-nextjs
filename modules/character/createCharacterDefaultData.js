@@ -12,7 +12,7 @@ function createCharacterDefaultData() {
       hairColor: '',
       eyeColor: '',
       skinColor: '',
-      physicalCaracteristics: '',
+      physicalcharacteristics: '',
     },
   
     level: 1,

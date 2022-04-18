@@ -43,6 +43,7 @@ function DisplayCharacterClass() {
 		<Screen
 			title={tr(clss?.nameLocalized)}
 			isLoading={clssResponse.isLoading}
+			withBottomSpace
 		>
 			{clss && (
 				<Form clss={clss} />

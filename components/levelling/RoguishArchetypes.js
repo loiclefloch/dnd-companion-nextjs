@@ -1,11 +1,9 @@
 import { useState } from "react"
 import { actionLevellingRoguishArchetypes } from "./action"
 import ButtonBottomScreen from "../../components/ButtonBottomScreen"
-import useTipFeature from "../useTipFeature"
 import SubclassListSelector from "./SubclassListSelector"
 
-function RoguishArchetypes({ clss, getBuildedCharacter, levellingData, step, levellingDispatch, stepLevellingState }) {
-	const { showTipFeature } = useTipFeature()
+function RoguishArchetypes({ step, levellingDispatch }) {
 	const [selectedSubclass, setSelectedSubclass] = useState(null)
 
 	return (

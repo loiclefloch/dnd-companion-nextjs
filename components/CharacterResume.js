@@ -52,69 +52,9 @@ const useI18n = makeI18n({
 		en: 'Ideals',
 		fr: 'Idéaux',
 	},
-	'caracteristics.title': {
-		en: 'Caracteristics',
+	'characteristics.title': {
+		en: 'characteristics',
 		fr: 'Caractéristiques',
-	},
-	"caracteristics.level": {
-		fr: 'Niveau',
-		en: 'Level',
-	},
-	"caracteristics.hp": {
-		fr: 'PV',
-		en: 'HP',
-	},
-	"caracteristics.initiative": {
-		fr: 'Initiative',
-		en: 'Initiative',
-	},
-	"caracteristics.naturalAC": {
-		fr: 'AC naturelle',
-		en: 'Natural Ac',
-	},
-	"caracteristics.armorAC": {
-		fr: 'AC armure',
-		en: 'armor AC',
-	},
-	"caracteristics.shieldAC": {
-		fr: 'AC bouclier',
-		en: 'Shield AC',
-	},
-	"caracteristics.totalAC": {
-		fr: 'AC totale',
-		en: 'Total AC',
-	},
-	"caracteristics.hitDices": {
-		fr: 'Dés de vie',
-		en: 'Hit dices',
-	},
-	"caracteristics.proficiencyBonus": {
-		fr: `Bonus de maîtrise`,
-		en: 'Proficiency bonus',
-	},
-	'characteristics.speed': {
-		fr: `Vitesse`,
-		en: `Speed`,
-	},
-	'characteristics.passivePerception': {
-		fr: 'Perception passive',
-		en: 'Passive perception',
-	},
-	'characteristics.passiveInvestigation': {
-		fr: 'Investigation passive',
-		en: 'Passive investigation',
-	},
-	'characteristics.spellDC': {
-		fr: 'DC sorts',
-		en: 'Spell DC',
-	},
-	'characteristics.spellcasingAbility': {
-		en: 'Spellcasting ability',
-		fr: 'Capacité de sort',
-	},
-	'characteristics.spellAttackBonus': {
-		en: 'Spell attack bonus',
-		fr: `Bonus d'attaque`,
 	},
 	'infos.title': {
 		fr: `Informations`,
@@ -291,7 +231,7 @@ function BodySection({ character }) {
 				<LineInfo label={tr`hairColor`} value={body.hairColor} />
 				<LineInfo label={tr`eyeColor`} value={body.eyeColor} />
 				<LineInfo label={tr`skinColor`} value={body.skinColor} />
-				<LineInfo label={tr`physical caracteristics`} value={body.physicalCaracteristics} />
+				<LineInfo label={tr`physical characteristics`} value={body.physicalcharacteristics} />
 			</LineInfo.Parent>
 		</Section>
 	)
@@ -371,22 +311,22 @@ export function GlobalSection({ character, small = false }) {
 	const { rollStat } = useDice()
 
 	return (
-		<Section title={tr`caracteristics.title`}>
+		<Section title={tr`characteristics.title`}>
 			<LineInfo.Parent>
 
-				<LineInfo label={tr`caracteristics.level`} value={character.level} />
-				{!small && <LineInfo label={tr`caracteristics.hp`} value={character.maximumHp} />}
+				<LineInfo label={tr`characteristics.level`} value={character.level} />
+				{!small && <LineInfo label={tr`characteristics.hp`} value={character.maximumHp} />}
 				<LineInfo 
-					label={tr`caracteristics.initiative`}
+					label={tr`characteristics.initiative`}
 					value={<span>{character.initiative >= 0 ? '+' : ''}{character.initiative}</span>} 
-					onClickValue={() => rollStat(tr`caracteristics.initiative`, character.initiative)}
+					onClickValue={() => rollStat(tr`characteristics.initiative`, character.initiative)}
 				/>
-				{!small && <LineInfo label={tr`caracteristics.naturalAC`} value={character.ac.natural} />}
-				{!small && <LineInfo label={tr`caracteristics.armorAC`} value={character.ac.armor} />}
-				{!small && <LineInfo label={tr`caracteristics.shieldAC`} value={character.ac.shield} />}
-				{!small && <LineInfo label={tr`caracteristics.totalAC`} value={character.ac.total} />}
-				<LineInfo label={tr`caracteristics.hitDices`} value={character.maximumHitDice} />
-				<LineInfo label={tr`caracteristics.proficiencyBonus`} value={<span>{character.proficiencyBonus >= 0 ? '+' : ''}{character.proficiencyBonus}</span>} />
+				{!small && <LineInfo label={tr`characteristics.naturalAC`} value={character.ac.natural} />}
+				{!small && <LineInfo label={tr`characteristics.armorAC`} value={character.ac.armor} />}
+				{!small && <LineInfo label={tr`characteristics.shieldAC`} value={character.ac.shield} />}
+				{!small && <LineInfo label={tr`characteristics.totalAC`} value={character.ac.total} />}
+				<LineInfo label={tr`characteristics.hitDices`} value={character.maximumHitDice} />
+				<LineInfo label={tr`characteristics.proficiencyBonus`} value={<span>{character.proficiencyBonus >= 0 ? '+' : ''}{character.proficiencyBonus}</span>} />
 				<LineInfo
 					label={tr`characteristics.speed`}
 					value={

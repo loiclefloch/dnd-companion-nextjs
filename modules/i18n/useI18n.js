@@ -165,9 +165,9 @@ const globalTranslations = {
     en: 'skinColor',
     fr: 'skinColor'
   },
-  'physical caracteristics': {
-    en: 'physical caracteristics',
-    fr: 'physical caracteristics',
+  'physical characteristics': {
+    en: 'physical characteristics',
+    fr: 'physical characteristics',
   },
   level: {
     en: 'Level %{level}',
@@ -204,6 +204,66 @@ const globalTranslations = {
 	hasNoMagic: {
 		fr: `Vous n'avez pas de pouvoirs magiques`,
 		en: `You do not have magic powers`,
+	},
+	"characteristics.hitDices": {
+		fr: 'Dés de vie',
+		en: 'Hit dices',
+	},
+	"characteristics.level": {
+		fr: 'Niveau',
+		en: 'Level',
+	},
+	"characteristics.hp": {
+		fr: 'PV',
+		en: 'HP',
+	},
+	"characteristics.initiative": {
+		fr: 'Initiative',
+		en: 'Initiative',
+	},
+	"characteristics.naturalAC": {
+		fr: 'AC naturelle',
+		en: 'Natural Ac',
+	},
+	"characteristics.armorAC": {
+		fr: 'AC armure',
+		en: 'armor AC',
+	},
+	"characteristics.shieldAC": {
+		fr: 'AC bouclier',
+		en: 'Shield AC',
+	},
+	"characteristics.totalAC": {
+		fr: 'AC totale',
+		en: 'Total AC',
+	},
+	"characteristics.proficiencyBonus": {
+		fr: `Bonus de maîtrise`,
+		en: 'Proficiency bonus',
+	},
+	'characteristics.speed': {
+		fr: `Vitesse`,
+		en: `Speed`,
+	},
+	'characteristics.passivePerception': {
+		fr: 'Perception passive',
+		en: 'Passive perception',
+	},
+	'characteristics.passiveInvestigation': {
+		fr: 'Investigation passive',
+		en: 'Passive investigation',
+	},
+	'characteristics.spellDC': {
+		fr: 'DC sorts',
+		en: 'Spell DC',
+	},
+	'characteristics.spellcasingAbility': {
+		en: 'Spellcasting ability',
+		fr: 'Capacité de sort',
+	},
+	'characteristics.spellAttackBonus': {
+		en: 'Spell attack bonus',
+		fr: `Bonus d'attaque`,
 	},
 }
 

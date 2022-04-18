@@ -1,6 +1,10 @@
 const Soldier = (api) => ({
 	"index": "soldier",
 	"name": "Soldier",
+	"good_for_classes": [
+		"fighter",
+		// TODO:
+	],
 	"starting_proficiencies": [
 		api.buildProficiency("skill-athletics"),
 		api.buildProficiency("skill-intimidation"),

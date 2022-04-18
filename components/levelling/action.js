@@ -300,4 +300,20 @@ export function actionLevellingRoguishArchetypes({ step, selectedSubclass }) {
 	}
 }
 
+export function actionLevellingMartialArchetypes({ step, selectedSubclass }) {
+	return {
+		type: 'actionLevellingMartialArchetypes',
+		apply: () => ({
+			step,
+			selectedSubclass,
+		}),
+		build: ({ character, newLevel }) => {
+			// TODO: add other settings
+			character.subclass = {
+				index: selectedSubclass.index,
+			}
+		}
+	}
+}
+
 // TODO: clean spellsUsed?

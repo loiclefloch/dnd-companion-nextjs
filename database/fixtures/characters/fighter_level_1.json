@@ -1,0 +1,181 @@
+{
+  "id": "fighter-level-1",
+  "name": "Fix - fighter - level 1",
+  "body": {
+    "age": 30,
+    "gender": "",
+    "height": "",
+    "weight": "",
+    "hairColor": "",
+    "eyeColor": "",
+    "skinColor": "",
+    "physicalCaracteristics": ""
+  },
+  "level": 1,
+  "classes": [
+    "fighter"
+  ],
+  "race": "half-orc",
+  "bonds": "Someone saved my life on the battlefield. To this day, I will never leave a friend behind.",
+  "flaws": "I made a terrible mistake in battle that cost many lives – and I would do anything to keep that mistake secret.",
+  "ideals": "Greater Good. Our lot is to lay down our lives in defense of others.",
+  "traits": [
+    {
+      "index": "darkvision",
+      "sourceType": "race"
+    },
+    {
+      "index": "savage-attacks",
+      "sourceType": "race"
+    },
+    {
+      "index": "relentless-endurance",
+      "sourceType": "race"
+    }
+  ],
+  "stats": {
+    "STR": 15,
+    "DEX": 14,
+    "CON": 12,
+    "INT": 12,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "statsBonuses": [
+    {
+      "ability": "STR",
+      "type": "race",
+      "bonus": 2
+    },
+    {
+      "ability": "CON",
+      "type": "race",
+      "bonus": 1
+    }
+  ],
+  "baseStats": {
+    "STR": 15,
+    "DEX": 10,
+    "CON": 15,
+    "INT": 10,
+    "WIS": 12,
+    "CHA": 9
+  },
+  "levelling": {
+    "xp": 0,
+    "history": []
+  },
+  "spellsList": [],
+  "currencies": {
+    "cp": 0,
+    "sp": 0,
+    "gp": 0,
+    "ep": 0,
+    "pp": 0
+  },
+  "equipment": [
+    {
+      "index": "clothes-common",
+      "quantity": 1
+    },
+    {
+      "index": "chain-mail",
+      "quantity": 1
+    },
+    {
+      "index": "shield",
+      "quantity": 1
+    },
+    {
+      "index": "handaxe",
+      "quantity": 1
+    },
+    {
+      "index": "dungeoneers-pack",
+      "quantity": 1
+    }
+  ],
+  "wallet": {
+    "history": [
+      {
+        "id": "eeba8692-018f-4b64-ba35-6a4111b04878",
+        "isAdd": true,
+        "label": "Porte-monnaie initial",
+        "cp": 0,
+        "sp": 0,
+        "gp": 15,
+        "ep": 0,
+        "pp": 0
+      }
+    ]
+  },
+  "proficiencies": [
+    {
+      "index": "unarmed-strike",
+      "sourceType": "race"
+    },
+    {
+      "index": "skill-intimidation",
+      "sourceType": "race"
+    },
+    {
+      "index": "skill-athletics",
+      "sourceType": "background"
+    },
+    {
+      "index": "land-vehicles",
+      "sourceType": "background"
+    },
+    {
+      "index": "all-armor",
+      "sourceType": "class"
+    },
+    {
+      "index": "shields",
+      "sourceType": "class"
+    },
+    {
+      "index": "simple-weapons",
+      "sourceType": "class"
+    },
+    {
+      "index": "martial-weapons",
+      "sourceType": "class"
+    },
+    {
+      "index": "playing-card-set",
+      "sourceType": "background"
+    }
+  ],
+  "proficiencyBonus": 2,
+  "maximumHp": 23,
+  "currentHp": 23,
+  "spellsUsed": [],
+  "deathSaves": {
+    "nbFailed": null,
+    "nbSucceeed": null,
+    "isStabilized": false
+  },
+  "background": "soldier",
+  "features": [
+    {
+      "index": "specialty",
+      "type": "background"
+    },
+    {
+      "index": "military-rank",
+      "type": "background"
+    }
+  ],
+  "personnalityTraits": [
+    "I'm a born gambler who can't resist taking a risk for a potential payoff.",
+    "I'm haunted by memories of war. I can't get the images of violence out of my mind."
+  ],
+  "alignment": "chaotic-good",
+  "languages": [
+    "common",
+    "orc"
+  ],
+  "maximumHitDice": 11,
+  "currentHitDice": 11
+}

@@ -68,6 +68,10 @@ function lightfootHalfling() {
 	return characterNoop()
 }
 
+function halfOrc() {
+	return characterNoop()
+}
+
 function barbarian() {
 	return {
 		every: () => {
@@ -154,6 +158,26 @@ function rogue() {
 	}
 }
 
+function fighter() {
+	return {
+		every: () => {
+			return []
+		},
+		...applyNoop(1, 20),
+		3: () => {
+			return [
+				{
+					name: "martial-archetype",
+					label: "Martial Archetype",
+					desc: "You choose an archetype that you strive to emulate in your combat styles and techniques.",
+				},
+			]
+		},
+		// TODO: level 10 subclass champion:
+		// At 10th level, you can choose a second option from the Fighting Style class feature.
+	}
+}
+
 
 /**
  * Apply custom code for each class / race.
@@ -174,6 +198,7 @@ function applyCustomMethods(character, level) {
 		'hill-dwarf': hillDwarf,
 		dragonborn: dragonborn,
 		'lightfoot-halfling': lightfootHalfling,
+		'half-orc': halfOrc,
 	}
 	// TODO:
 	const classesMap = {
@@ -182,6 +207,7 @@ function applyCustomMethods(character, level) {
 		druid: druid,
 		bard: bard,
 		rogue: rogue,
+		fighter: fighter,
 	}
 
 	const race = character.race?.index || character.race 

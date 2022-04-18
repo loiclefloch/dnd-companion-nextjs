@@ -21,10 +21,10 @@ const Charlatan = (api) => ({
 			"quantity": 1
 		},
 	],
-	"starting_equipment_options": [
 		// TODO: tools of the con of your choice (ten stoppered bottles filled with colored liquid, a set of weighted dice, a deck of marked cards, or a signet ring of an imaginary duke)
+	// "starting_equipment_options": [
 		// api.buildChooseEquipmentFromCategory(1, "holy-symbols")
-	],
+	// ],
 	"features": [
 		api.buildFeature("favorite-schemes"),
 		api.buildFeature("false-identity"),

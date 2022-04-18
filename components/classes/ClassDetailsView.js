@@ -8,6 +8,10 @@ import useEquipmentItemScreenAsModal from "../useEquipmentItemScreenAsModal"
 import EquipmentOptionsChooser from "../EquipmentOptionsChooser"
 
 import Druid from "./Druid.mdx"
+import Rogue from "./Rogue.mdx"
+import Paladin from "./Paladin.mdx"
+import Bard from "./Bard.mdx"
+import Fighter from "./Fighter.mdx"
 
 // TODO:
 function Content({ clss, hideStartingEquipmentOptions }) {
@@ -25,7 +29,7 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 		<>
 			<Section title="">
 				<LineInfo.Parent>
-					<LineInfo label="hit_dice" value={clss.hitDice} />
+					<LineInfo label={tr`characteristics.hitDices`} value={clss.hitDice} />
 					{clss.spellcasting && (
 						<LineInfo label="spellcasting" value={clss.spellcasting.spellcastingAbility.name} />
 					)}
@@ -155,7 +159,11 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 
 function Text({ clss }) {
 	const view = {
-		druid: Druid 
+		druid: Druid,
+		fighter: Fighter,
+		bard: Bard,
+		rogue: Rogue,
+		paladin: Paladin,
 	}
 
 	if (!view[clss.index]) {

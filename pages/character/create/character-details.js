@@ -130,9 +130,9 @@ function Form({ clss }) {
 				
 				<FormControl 
 					label="Caractéristiques physiques"
-					id="physicalCaracteristics"
+					id="physicalcharacteristics"
 				>
-					<Textarea value={body.physicalCaracteristics} onChange={update('physicalCaracteristics')} />
+					<Textarea value={body.physicalcharacteristics} onChange={update('physicalcharacteristics')} />
 				</FormControl>
 			</div>
 			<ButtonBottomScreen

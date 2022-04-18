@@ -15,6 +15,7 @@ import SacredOath from "./SacredOath"
 import DruidCircle from "./DruidCircle"
 import BardCollege from "./BardCollege"
 import RoguishArchetypes from "./RoguishArchetypes"
+import MartialArchetype from "./MartialArchetype"
 
 const isBrowser = typeof window !== "undefined";
 
@@ -47,6 +48,7 @@ function LevellingStep({ stepName }) {
 		'druid-circle': DruidCircle,
 		'bard-college': BardCollege,
 		'roguish-archetypes': RoguishArchetypes,
+		'martial-archetype': MartialArchetype,
 		'levelling-does-not-exists': LevellingDoesNotExists,
 		// StepHp,
 	}
