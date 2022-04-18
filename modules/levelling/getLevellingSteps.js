@@ -1,14 +1,15 @@
+import { isArray } from "lodash"
 import { getLevellingDataForClassesAndLevel } from "./"
 
 function noop() {
-	return []
+	return () => []
 }
 
 function applyNoop(from, to) {
 	const data = {}
 
 	for (let i = from; i <= to; i++) {
-		data[i] = noop
+		data[i] = noop()
 	}
 	
 	return data
@@ -60,6 +61,10 @@ function hillDwarf() {
 }
 
 function dragonborn() {
+	return characterNoop()
+}
+
+function lightfootHalfling() {
 	return characterNoop()
 }
 
@@ -131,6 +136,24 @@ function druid() {
 	}
 }
 
+function rogue() {
+	return {
+		every: () => {
+			return []
+		},
+		...applyNoop(1, 20),
+		3: () => {
+			return [
+				{
+					name: "roguish-archetypes", 
+					label: "Roguish Archetypes", 
+					desc: "You choose an archetype that you emulate in the exercise of your rogue abilities.",
+				},
+			]
+		},
+	}
+}
+
 
 /**
  * Apply custom code for each class / race.
@@ -139,6 +162,10 @@ function applyCustomMethods(character, level) {
 	let steps = []
 	
 	function addSteps(newSteps) {
+		if (!isArray(newSteps)) {
+			debugger
+			throw new Error(`addSteps: expecting array, received ${typeof newSteps}`)
+		}
 		steps = [...steps, ...newSteps]
 	}
 
@@ -146,13 +173,15 @@ function applyCustomMethods(character, level) {
 	const racesMap = {
 		'hill-dwarf': hillDwarf,
 		dragonborn: dragonborn,
+		'lightfoot-halfling': lightfootHalfling,
 	}
 	// TODO:
 	const classesMap = {
 		barbarian: barbarian,
 		paladin: paladin,
 		druid: druid,
-		bard: bard
+		bard: bard,
+		rogue: rogue,
 	}
 
 	const race = character.race?.index || character.race 
@@ -190,7 +219,8 @@ function applyCustomMethods(character, level) {
 		addSteps(forClassContent.every())
 
 		if (forClassContent[level]) {
-			addSteps(forClassContent[level]())
+			const stepsForClassContent = forClassContent[level]()
+			addSteps(stepsForClassContent)
 		} else {
 			console.warn(`Levelling does not exists for level ${level} for class ${clss}`)
 			steps.push({

@@ -14,6 +14,7 @@ import ProficiencyBonus from "./ProficiencyBonus"
 import SacredOath from "./SacredOath"
 import DruidCircle from "./DruidCircle"
 import BardCollege from "./BardCollege"
+import RoguishArchetypes from "./RoguishArchetypes"
 
 const isBrowser = typeof window !== "undefined";
 
@@ -45,6 +46,7 @@ function LevellingStep({ stepName }) {
 		'sacred-oath': SacredOath,
 		'druid-circle': DruidCircle,
 		'bard-college': BardCollege,
+		'roguish-archetypes': RoguishArchetypes,
 		'levelling-does-not-exists': LevellingDoesNotExists,
 		// StepHp,
 	}

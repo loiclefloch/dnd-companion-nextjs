@@ -31,12 +31,7 @@ const Model = (api) => ({
 
 	"starting_proficiency_options": api.buildProficiencyOption(1, "Artisan's Tools"),
 	"features": [
-		{
-			"name": "",
-			"desc": [
-				""
-			]
-		}
+		api.buildFeature("")	
 	],
 	"personality_traits": {
 		"choose": 2,

@@ -1,0 +1,271 @@
+{
+  "id": "rogue-level-2",
+  "name": "Fix - rogue - Level 2",
+  "body": {
+    "age": 30,
+    "gender": "",
+    "height": "150",
+    "weight": "42",
+    "hairColor": "",
+    "eyeColor": "",
+    "skinColor": "",
+    "physicalCaracteristics": "",
+    "genre": "-"
+  },
+  "level": 2,
+  "classes": [
+    "rogue"
+  ],
+  "race": "lightfoot-halfling",
+  "bonds": "A powerful person killed someone I love. Some day soon, I'll have my revenge.",
+  "flaws": "I'm always in debt. I spend my ill-gotten gains on decadent luxuries faster than I bring them in.",
+  "ideals": "Charity. I distribute the money I acquire to the people who really need it.",
+  "traits": [
+    {
+      "index": "brave",
+      "sourceType": "race"
+    },
+    {
+      "index": "halfling-nimbleness",
+      "sourceType": "race"
+    },
+    {
+      "index": "lucky",
+      "sourceType": "race"
+    },
+    {
+      "index": "naturally-stealthy",
+      "sourceType": "race"
+    }
+  ],
+  "stats": {
+    "STR": 15,
+    "DEX": 14,
+    "CON": 12,
+    "INT": 12,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "statsBonuses": [
+    {
+      "ability": "DEX",
+      "type": "race",
+      "bonus": 2
+    },
+    {
+      "ability": "CHA",
+      "type": "race",
+      "bonus": 1
+    }
+  ],
+  "baseStats": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 12,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "levelling": {
+    "xp": 2700,
+    "history": [
+      {
+        "id": "364cd5b4-ffce-479c-9678-92c38ee978ab",
+        "label": "level up",
+        "amount": 2700
+      }
+    ]
+  },
+  "spellsList": [],
+  "currencies": {
+    "cp": 0,
+    "sp": 0,
+    "gp": 0,
+    "ep": 0,
+    "pp": 0
+  },
+  "equipment": [
+    {
+      "index": "disguise-kit",
+      "quantity": 1
+    },
+    {
+      "index": "rapier",
+      "quantity": 1
+    },
+    {
+      "index": "shortsword",
+      "quantity": 1
+    },
+    {
+      "index": "burglars-pack",
+      "quantity": 1
+    }
+  ],
+  "wallet": {
+    "history": [
+      {
+        "id": "b91c1c2c-c795-4802-8dcb-678ac68cf1f7",
+        "isAdd": true,
+        "label": "Porte-monnaie initial",
+        "cp": 0,
+        "sp": 0,
+        "gp": 15,
+        "ep": 0,
+        "pp": 0
+      }
+    ]
+  },
+  "proficiencies": [
+    {
+      "index": "unarmed-strike",
+      "sourceType": "race"
+    },
+    {
+      "index": "skill-deception",
+      "sourceType": "background"
+    },
+    {
+      "index": "skill-sleight-of-hand",
+      "sourceType": "background"
+    },
+    {
+      "index": "disguise-kit",
+      "sourceType": "background"
+    },
+    {
+      "index": "forgery-kit",
+      "sourceType": "background"
+    },
+    {
+      "index": "light-armor",
+      "sourceType": "class"
+    },
+    {
+      "index": "simple-weapons",
+      "sourceType": "class"
+    },
+    {
+      "index": "longswords",
+      "sourceType": "class"
+    },
+    {
+      "index": "rapiers",
+      "sourceType": "class"
+    },
+    {
+      "index": "shortswords",
+      "sourceType": "class"
+    },
+    {
+      "index": "hand-crossbows",
+      "sourceType": "class"
+    },
+    {
+      "index": "thieves-tools",
+      "sourceType": "class"
+    }
+  ],
+  "proficiencyBonus": 2,
+  "maximumHp": 21,
+  "currentHp": 21,
+  "spellsUsed": [],
+  "deathSaves": {
+    "nbFailed": null,
+    "nbSucceeed": null,
+    "isStabilized": false
+  },
+  "background": "charlatan",
+  "features": [
+    {
+      "index": "favorite-schemes",
+      "type": "background"
+    },
+    {
+      "index": "false-identity",
+      "type": "background"
+    },
+    {
+      "index": "cunning-action",
+      "type": "levelling",
+      "level": 2
+    }
+  ],
+  "personnalityTraits": [
+    "If someone is in trouble, I’m always ready to lend help.",
+    "I'm a born gambler who can't resist taking a risk for a potential payoff."
+  ],
+  "alignment": "chaotic-good",
+  "languages": [
+    "common",
+    "halfling"
+  ],
+  "maximumHitDice": 9,
+  "currentHitDice": 9,
+  "spellsSlots": [
+    {
+      "spellLevel": 0,
+      "totalSlots": null,
+      "baseTotalSlots": null,
+      "usedSlots": 0,
+      "maximumSlotLevel": 0
+    },
+    {
+      "spellLevel": 1,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 0
+    },
+    {
+      "spellLevel": 2,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 0
+    },
+    {
+      "spellLevel": 3,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 0
+    },
+    {
+      "spellLevel": 4,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 0
+    },
+    {
+      "spellLevel": 5,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 0
+    },
+    {
+      "spellLevel": 6,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 0
+    },
+    {
+      "spellLevel": 7,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 0
+    },
+    {
+      "spellLevel": 8,
+      "totalSlots": 0,
+      "baseTotalSlots": 0,
+      "usedSlots": 0,
+      "maximumSlotLevel": 0
+    }
+  ],
+  "maxHp": null
+}

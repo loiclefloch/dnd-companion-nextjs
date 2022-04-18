@@ -26,6 +26,10 @@ const useI18n = makeI18n({
     fr: `Sorts`,
     en: `Spells`,
   },
+  'search.no_results': {
+    fr: `Pas de sorts pour les filtres sélectionnés`,
+    en: `No results for the selected filters`,
+  },
 })
 
 function SpellFilters({ spell, filters }) {
@@ -186,19 +190,28 @@ function Spells({ root, contextCharacter }) {
           onRemoveHistoryQuery={onRemoveHistoryQuery}
         />
         <div className="flex flex-col gap-2 mt-2" data-cy-id="spells-list">
+          {isEmpty(filteredSpells) && !isEmpty(filters) && (
+            <div className="px-4 text-center mt-4 text-lg">
+              {tr(`search.no_results`)}
+            </div>
+          )}
+
           {searchResults && term ? (
-            searchResults.map(searchResult => {
-              const spell = searchResult.item
-              return (
-                <Spell
-                  key={spell.name}
-                  spell={spell}
-                  // onSelect={() => showSpellModal(spell.index)}
-                  filters={filters}
-                  character={contextCharacter}
-                />
-              )
-            })
+            <>
+              
+              {searchResults.map(searchResult => {
+                const spell = searchResult.item
+                return (
+                  <Spell
+                    key={spell.name}
+                    spell={spell}
+                    // onSelect={() => showSpellModal(spell.index)}
+                    filters={filters}
+                    character={contextCharacter}
+                  />
+                )
+              })}
+            </>
           ) : (
             sortSpells(filteredSpells).map((spell) => (
               <Spell

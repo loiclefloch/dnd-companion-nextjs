@@ -24,30 +24,8 @@ const Entertainer = (api) => ({
 		api.buildChooseEquipmentFromCategory(1, "musical-instruments")
 	],
 	"features": [
-		{
-			"index": "entertainer-routines",
-			"name": "Entertainer Routines",
-			"desc": [
-				"A good entertainer is versatile, spicing up every performance with a variety of different routines. Choose one to three routines or roll on the table below to define your expertise as an entertainer.",
-				"1	Actor",
-				"2	Dancer",
-				"3	Fire-eater",
-				"4	Jester",
-				"5	Juggler",
-				"6	Instrumentalist",
-				"7	Poet",
-				"8	Singer",
-				"9	Storyteller",
-				"10	Tumbler",
-			]
-		},
-		{
-			"index": "by-popular-demand",
-			"name": "By Popular Demand",
-			"desc": [
-				"You can always find a place to perform, usually in an inn or tavern but possibly with a circus, at a theater, or even in a noble's court. At such a place, you receive free lodging and food of a modest or comfortable standard (depending on the quality of the establishment), as long as you perform each night. In addition, your performance makes you something of a local figure. When strangers recognize you in a town where you have performed, they typically take a liking to you."
-			]
-		}
+		api.buildFeature("entertainer-routines"),
+		api.buildFeature("by-popular-demand"),
 	],
 	"personality_traits": {
 		"choose": 2,

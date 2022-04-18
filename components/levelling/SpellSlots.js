@@ -3,11 +3,6 @@ import { makeI18n } from "../../modules/i18n/useI18n"
 import { actionLevellingLevelSlots } from "./action"
 
 const useI18n = makeI18n({
-	'hasNoMagic': {
-		// TODO: better text
-		fr: `Vous n'avez pas accès à la magie`,
-		en: `You do not have access to magic`,
-	},
 	'cantripsKnown': {
 		fr: `Cantrips connus`,
 		en: `Cantrips known`,

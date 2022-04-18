@@ -26,6 +26,7 @@ const useI18n = makeI18n({
 		fr: `Liste des sorts`,
 		en: `Spells list`,
 	},
+	// TODO: i18n
 })
 
 function Spell({ spell, character /*onSelect*/ }) {
@@ -186,57 +187,68 @@ function Grimoire() {
 		>
 			{character && (
 				<div>
-					<div className="text-center">
-						<Tag>
-							Spellcasing ability: 
-							<span>&nbsp;</span>
-							{character.spellcastingAbilityValue >= 0 ? '+' : ''}{character.spellcastingAbilityValue}
-							<span>&nbsp;</span>
-							<span className="text-xs text-meta">{character.spellcastingAbility}</span>
-						</Tag>
-
-						<Tag>
-							Spell Attack bonus: {character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}
-						</Tag>
-
-						<Tag>
-							Spell DC: {character.spellSaveDC}
-						</Tag>
-
-						{/* TODO: list prepared count + subclass always prepared */}
-						<Tag>
-							Cantrips kwown: {character.spellcasting.cantripsKnown}
-						</Tag>
-					</div>
-					{isEmpty(character?.spellsList) && (
-						<div className="px-4 mt-12">
-							<p className="prose text-center text-lg">
-								{`Vous n'avez pas encore appris de sorts.`}
-								<br />
-								Retrouvez les sorts disponibles dans la <Link href="/character/spells">liste des sorts</Link>.
-							</p>
+					{!character.spellcasting.hasMagic ? (
+						<div className="px-4 mt-4 text-lg text-center">
+							{tr`hasNoMagic`}
 						</div>
-					)}
-					<div className="flex flex-col gap-2" data-cy-id="spells-list">
-						{map(groupedBySpellLevel, (spells, level) => (
-							<div key={level}>
-								<>
-									<SpellLevelHeader
-										level={Number(level)}
-										spellsSlots={spellsSlots}
-										characterDispatch={characterDispatch}
-									/>
-								</>
-								{spells.map(spell =>
-									<Spell
-										key={spell.index}
-										spell={spell}
-										character={character}
-									/>
-								)}
+					) : (
+						<>
+							<div className="text-center">
+
+								<Tag>
+									Spellcasing ability:
+									<span>&nbsp;</span>
+									{character.spellcastingAbilityValue >= 0 ? '+' : ''}{character.spellcastingAbilityValue}
+									<span>&nbsp;</span>
+									<span className="text-xs text-meta">{character.spellcastingAbility}</span>
+								</Tag>
+
+								<Tag>
+									Spell Attack bonus: {character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}
+								</Tag>
+
+								<Tag>
+									Spell DC: {character.spellSaveDC}
+								</Tag>
+
+								{/* TODO: list prepared count + subclass always prepared */}
+								<Tag>
+									Cantrips kwown: {character.spellcasting.cantripsKnown}
+								</Tag>
 							</div>
-						))}
-					</div>
+							{isEmpty(character?.spellsList) && (
+								<div className="px-4 mt-12">
+									<p className="prose text-center text-lg">
+										{`Vous n'avez pas encore appris de sorts.`}
+										<br />
+										Retrouvez les sorts disponibles dans la <Link href="/character/spells">liste des sorts</Link>.
+									</p>
+								</div>
+							)}
+
+							<div className="flex flex-col gap-2" data-cy-id="spells-list">
+								{map(groupedBySpellLevel, (spells, level) => (
+									<div key={level}>
+										<>
+											<SpellLevelHeader
+												level={Number(level)}
+												spellsSlots={spellsSlots}
+												characterDispatch={characterDispatch}
+											/>
+										</>
+										{spells.map(spell =>
+											<Spell
+												key={spell.index}
+												spell={spell}
+												character={character}
+											/>
+										)}
+									</div>
+								))}
+							</div>
+
+						</>
+					)}
 				</div>
 			)}
 		</Screen>

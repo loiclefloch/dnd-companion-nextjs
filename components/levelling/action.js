@@ -284,4 +284,20 @@ export function actionLevellingBardCollege({ step, selectedSubclass, featuresOpt
 	}
 }
 
+export function actionLevellingRoguishArchetypes({ step, selectedSubclass }) {
+	return {
+		type: 'actionLevellingRoguishArchetypes',
+		apply: () => ({
+			step,
+			selectedSubclass,
+		}),
+		build: ({ character, newLevel }) => {
+			// TODO: add other settings
+			character.subclass = {
+				index: selectedSubclass.index,
+			}
+		}
+	}
+}
+
 // TODO: clean spellsUsed?

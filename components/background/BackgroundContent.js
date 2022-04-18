@@ -4,6 +4,7 @@ import folkHero from "./folk-hero.mdx"
 import sage from "./sage.mdx"
 import soldier from "./soldier.mdx"
 import entertainer from "./entertainer.mdx"
+import charlatan from "./charlatan.mdx"
 
 import useBackground from "../../modules/api/useBackground"
 import Section from "../Section"
@@ -50,7 +51,7 @@ function Content({ index }) {
 				{background.features.map((feature, index) => (
 					<div key={index} className="prose mb-4">
 						<h3>{feature.name}</h3>
-						<p>{tr(feature.desc)}</p>
+						<p className="prose">{tr(feature.desc)}</p>
 					</div>
 				))}
 
@@ -173,6 +174,7 @@ function BackgroundContent({ index }) {
 		sage: sage,
 		entertainer: entertainer,
 		soldier: soldier,
+		charlatan: charlatan,
 	}
 
 	const View = map[index]

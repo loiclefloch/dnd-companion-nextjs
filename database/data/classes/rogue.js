@@ -67,41 +67,13 @@ const clss = (api) => (
       }
     ],
     "proficiencies": [
-      {
-        "index": "light-armor",
-        "name": "Light Armor",
-        "url": "/api/proficiencies/light-armor"
-      },
-      {
-        "index": "simple-weapons",
-        "name": "Simple Weapons",
-        "url": "/api/proficiencies/simple-weapons"
-      },
-      {
-        "index": "longswords",
-        "name": "Longswords",
-        "url": "/api/proficiencies/longswords"
-      },
-      {
-        "index": "rapiers",
-        "name": "Rapiers",
-        "url": "/api/proficiencies/rapiers"
-      },
-      {
-        "index": "shortswords",
-        "name": "Shortswords",
-        "url": "/api/proficiencies/shortswords"
-      },
-      {
-        "index": "hand-crossbows",
-        "name": "Hand crossbows",
-        "url": "/api/proficiencies/hand-crossbows"
-      },
-      {
-        "index": "thieves-tools",
-        "name": "Thieves' Tools",
-        "url": "/api/proficiencies/thieves-tools"
-      }
+      api.buildProficiency("light-armor"),
+      api.buildProficiency("simple-weapons"),
+      api.buildProficiency("longswords"),
+      api.buildProficiency("rapiers"),
+      api.buildProficiency("shortswords"),
+      api.buildProficiency("hand-crossbows"),
+      api.buildProficiency("thieves-tools"),
     ],
     "saving_throws": [
       {

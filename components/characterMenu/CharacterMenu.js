@@ -79,10 +79,12 @@ function CharacterMenu({ open }) {
 			label: tr`menuItem.character`,
 			href: `/character/${character.id}`,
 		},
-		{
-			label: tr`menuItem.grimoire`,
-			href: '/character/grimoire',
-		},
+		character.spellcasting.hasMagic && (
+			{
+				label: tr`menuItem.grimoire`,
+				href: '/character/grimoire',
+			}
+		),
 		{
 			label: tr`menuItem.actions`,
 			href: '/character/actions',
@@ -103,7 +105,7 @@ function CharacterMenu({ open }) {
 			label: tr`menuItem.background`,
 			href: '/character/background',
 		},
-	]
+	].filter(Boolean)
 
 	// TODO: add icon on top right/left to switch character (if change hard reload the page)
 

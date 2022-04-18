@@ -18,26 +18,8 @@ const Soldier = (api) => ({
 	],
 	"starting_proficiency_options": api.buildProficiencyOption(1, "Gaming Sets"),
 	"features": [
-		{
-			"index": "specialty",
-			"name": "Specialty",
-			"desc": [
-				"During your time as a soldier, you had a specific role to play in your unit or army. Roll a d8 or choose from the options in the table below to determine your role:",
-				"1	Officer",
-				"2	Scout",
-				"3	Infantry",
-				"4	Cavalry",
-				"5	Healer",
-				"6	Quartermaster",
-				"7	Standard bearer",
-				"8	Support staff (cook, blacksmith, or the like)",
-			],
-		},
-		{
-			"index": "military-rank",
-			"name": "Military Rank",
-			desc: ["You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized."]
-		}
+		api.buildFeature("specialty"),
+		api.buildFeature("military-rank"),
 	],
 	"personality_traits": {
 		"choose": 2,

@@ -86,7 +86,16 @@ function LevelDetailView({ clss, level, onCloseScreen }) {
 					{tr`requiredXp`}
 				</div>
 				<div className="text-meta ml-2">
-					{getLevellingStages()[level]} ({tr(`level.short`, { level: level -1 })} + {getLevellingStages()[level] - getLevellingStages()[level - 1]})
+					{getLevellingStages()[level]}
+					<span> (</span>
+					<span>{tr(`level.short`, { level: level - 1 })}</span>
+					{level > 1 && (
+						<span>
+							+ {getLevellingStages()[level] - getLevellingStages()[level - 1]}
+							{' '}
+						</span>
+					)}
+					<span>)</span>
 				</div>
 			</div>
 

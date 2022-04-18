@@ -1,6 +1,7 @@
 import { isEmpty } from "lodash"
 import proficiencies from "./proficiencies.json"
 import languages from "./languages.json"
+import features from "./features"
 import equipmentItems from "./equipment.json"
 import equipmentCategories from "./equipment-categories.json"
 
@@ -10,6 +11,7 @@ import folkHero from "./backgrounds/folk-hero"
 import sage from "./backgrounds/sage"
 import soldier from "./backgrounds/soldier"
 import entertainer from "./backgrounds/entertainer"
+import charlatan from "./backgrounds/charlatan"
 
 const backgrounds = [
   acolyte,
@@ -18,15 +20,25 @@ const backgrounds = [
   sage,
   soldier,
   entertainer,
+  charlatan,
 ]
 
 const api = {
   proficiencies,
   languages,
+  buildFeature: index => {
+    const feature = features.find(i => i.index === index)
+    if (!feature) {
+      throw new Error(`Feature not found ${index}`)
+    }
+    return {
+      ...feature
+    }
+  },
   buildProficiency: (index) => {
     const item = proficiencies.find(i => i.index === index)
     if (!item) {
-      throw new Error(`Item not found ${item}`)
+      throw new Error(`Item not found ${index}`)
     }
     return {
       index: item.index,

@@ -1,6 +1,34 @@
 export default [
   // TODO: complete with background features
   {
+    index: "false-identity",
+    name: "False identity",
+    background: {
+      "index": "charlatan",
+      "name": "Charlatan",
+    },
+    desc: [
+      "You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona. Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy."
+    ]
+  },
+  {
+    index: "favorite-schemes",
+    name: "Favorite schemes",
+    background: {
+      "index": "charlatan",
+      "name": "Charlatan",
+    },
+    desc: [
+      "Every charlatan has an angle they use in preference to other schemes. Choose a favorite scam or roll on the table below.",
+      "1. I cheat at games of chance.",
+      "2. I shave coins or forge documents.",
+      "3. I insinuate myself into people's lives to prey on their weakness and secure their fortunes.",
+      "4. I put on new identities like clothes.",
+      "5. I run sleight-of-hand cons on street corners.",
+      "6. I convince people that worthless junk is worth their hard-earned money.",
+    ]
+  },
+  {
     index: "entertainer-routines",
     name: "Entertainer Routines",
     background: {

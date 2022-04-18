@@ -53,9 +53,9 @@ function Content({ clss, hideStartingEquipmentOptions }) {
 
 			<Section title={tr`startingEquipment.title`} withToggle>
 				<LineInfo.Parent>
-					{clss.startingEquipment.map(item => (
+					{clss.startingEquipment.map((item, index) => (
 						<LineInfo 
-							key={item.index} 
+							key={index} 
 							label={item.name} 
 							value={<span>x{item.quantity}</span>} 
 							onClick={() => showEquipmentItemScreenAsModal(item)}

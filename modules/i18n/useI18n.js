@@ -201,6 +201,10 @@ const globalTranslations = {
     fr: 'Charisme',
     en: 'Charisma',
   },
+	hasNoMagic: {
+		fr: `Vous n'avez pas de pouvoirs magiques`,
+		en: `You do not have magic powers`,
+	},
 }
 
 function formatTemplate(str, templateParams) {
@@ -268,7 +272,7 @@ function useBuildUseI18n(translationsParam) {
           }
         }
 
-        return formatTemplate(obj.join('\n\n'), templateParams)
+        return formatTemplate(obj, templateParams).map(txt => <div>{txt}</div>)
       }
 
       // translation object, containing the translations

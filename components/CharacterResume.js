@@ -408,21 +408,35 @@ export function GlobalSection({ character, small = false }) {
 					/>
 				<LineInfo 
 					label={tr`characteristics.spellDC`} 
-					value={<span>{character.spellSaveDC}</span>}
+					value={<span>{character.spellSaveDC ? character.spellSaveDC : "N/A"}</span>}
 				/>
 				<LineInfo 
 					label={tr`characteristics.spellcasingAbility`} 
-					value={<span>
-						<span className="text-xs text-meta">
-							{character.spellcastingAbility}</span>
-							<span> </span>
-							{character.spellcastingAbilityValueLabel}
-						</span>
-						}
+					value={character.spellcastingAbility ?
+						(
+							<span>
+								<span className="text-xs text-meta">
+									{character.spellcastingAbility}</span>
+								<span> </span>
+								{character.spellcastingAbilityValueLabel}
+							</span>
+						)
+						:
+						(
+							<span>N/A</span>
+						)
+					}
 				/>
 				<LineInfo 
 					label={tr`characteristics.spellAttackBonus`} 
-					value={<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>}
+					value={character.spellcastingAbility ?
+						(
+							<span>{character.spellAttackBonus >= 0 ? '+' : ''}{character.spellAttackBonus}</span>
+						)
+						:
+						(
+							<span>N/A</span>
+						)}
 				/>
 			</LineInfo.Parent>
 
