@@ -1,4 +1,3 @@
-
 import bardLevel1 from "./bard_level_1.json"
 import bardLevel2 from "./bard_level_2.json"
 import bardLevel3 from "./bard_level_3.json"
@@ -50,4 +49,5 @@ const characters = [
 
 	ylvir,
 ]
+
 export default characters

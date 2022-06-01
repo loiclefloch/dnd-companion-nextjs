@@ -9,6 +9,7 @@ import IconMenu from "./icons/IconMenu"
 import IconUser from "./icons/IconUser"
 import useScreenAsModal from './screenAsModal/useScreenAsModal';
 import useCurrentCharacter from "./useCurrentCharacter"
+import ErrorBoundary from './ErrorBoundary'
 
 function ScreenLoading() {
 	return (
@@ -109,7 +110,9 @@ function Screen({
 								}
 							)}
 						>
-							{children}
+							<ErrorBoundary>
+								{children}
+							</ErrorBoundary>
 						</div>
 					)}
 			</div>

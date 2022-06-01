@@ -2,6 +2,7 @@ import IconX from '../icons/IconX'
 import IconSpin from "../icons/IconSpin"
 import useEscapeEffect from "../useEscapeEffect"
 import useBeforePopState from "../useBeforePopState"
+import ErrorBoundary from '../ErrorBoundary'
 import clsx from 'clsx'
 
 function ScreenLoading() {
@@ -31,10 +32,12 @@ function ScreenAsModal({ title, leftAction, isLoading, onCloseScreen, children, 
 			<div className={clsx('flex-1 overflow-y-auto bg-app', {
 				"pb-12": withBottomSpace
 			})}>
-				{isLoading
-					? <ScreenLoading />
-					: children
-				}
+				<ErrorBoundary>
+					{isLoading
+						? <ScreenLoading />
+						: children
+					}
+				</ErrorBoundary>
 			</div>
 		</div>
 	)
