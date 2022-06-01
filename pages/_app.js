@@ -7,29 +7,33 @@ import { ScreenAsModalProvider } from "../components/screenAsModal/useScreenAsMo
 import { SidebarMenuProvider } from "../components/sidebarMenu/sidebarMenuContext";
 import { CreateCharacterProvider } from "../components/useCreateCharacter"
 import { CurrentCharacterProvider } from "../components/useCurrentCharacter"
+import ErrorBoundary from '../components/ErrorBoundary';
+
 function MyApp({ Component, pageProps }) {
   return (
-    <div
-      className={clsx('//dark bg-app', {
-        "debug": false
-      })}
-    >
-      <CurrentCharacterProvider>
-        <ModalProvider>
-          <SidebarMenuProvider>
-            <ScreenAsModalProvider>
-              <CharacterMenuProvider>
-                <CreateCharacterProvider>
-                  <Component {...pageProps} />
-                </CreateCharacterProvider>
-              </CharacterMenuProvider>
-            </ScreenAsModalProvider>
-          </SidebarMenuProvider>
-        </ModalProvider>
-      </CurrentCharacterProvider>
+    <ErrorBoundary>
+      <div
+        className={clsx('//dark bg-app', {
+          "debug": false
+        })}
+      >
+        <CurrentCharacterProvider>
+          <ModalProvider>
+            <SidebarMenuProvider>
+              <ScreenAsModalProvider>
+                <CharacterMenuProvider>
+                  <CreateCharacterProvider>
+                    <Component {...pageProps} />
+                  </CreateCharacterProvider>
+                </CharacterMenuProvider>
+              </ScreenAsModalProvider>
+            </SidebarMenuProvider>
+          </ModalProvider>
+        </CurrentCharacterProvider>
 
-      <div id="modal-root" />
-    </div>
+        <div id="modal-root" />
+      </div>
+    </ErrorBoundary>
   )
 }
 

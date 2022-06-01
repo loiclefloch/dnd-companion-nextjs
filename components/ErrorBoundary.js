@@ -4,35 +4,33 @@ import { Component } from "react"
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
-    this.state = { error: false };
+    this.state = { hasError: false };
   }
 
   static getDerivedStateFromError(error) {
     // Update state so the next render will show the fallback UI.
-    return { error };
+    return { hasError: true }
   }
 
   componentDidCatch(error, errorInfo) {
     // You can also log the error to an error reporting service
     console.error(error, errorInfo);
-		this.setState({
-			error,
-			errorInfo
-		})
   }
 
   render() {
-    if (this.state.error) {
+    if (this.state.hasError) {
       // You can render any custom fallback UI
 			return (
 				<div className="p-4">
-					<h1>Something went wrong.</h1>
+          <h2>Oops, there is an error!</h2>
 
-					<pre>{JSON.stringify(this.state.error)}</pre>
+          <button
+            type="button"
+            onClick={() => this.setState({ hasError: false })}
+          >
+            Try again?
+          </button>
 
-					{this.state.errorInfo && (
-						<pre>{JSON.stringify(this.state.errorInfo)}</pre>
-					)}
 				</div>
 			);
     }
